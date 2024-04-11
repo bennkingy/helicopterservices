@@ -1,6 +1,6 @@
-import { client } from "@/app/lib/sanity";
-// import { PortableText } from "@portabletext/react";
-// import Image from "next/image";
+import { client, urlFor } from "@/app/lib/sanity";
+import { PortableText } from "@portabletext/react";
+import Image from "next/image";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -9,8 +9,7 @@ async function getData(slug: string) {
     *[_type == "training" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
           title,
-          content,
-          titleImage
+          mainImage,
       }[0]`;
   const data = await client.fetch(query);
 
@@ -19,7 +18,9 @@ async function getData(slug: string) {
 
 
 export default async function TrainingPage({ params }: { params: { slug: string } }) {
-  const data: any = await getData(params.slug);
+  const data: any = await getData(params.slug.toLowerCase());
+
+  console.log(data)
 
   return (
     <div className="mt-8">
@@ -31,17 +32,17 @@ export default async function TrainingPage({ params }: { params: { slug: string 
           {data?.title || ''}
         </span>
       </h1>
-      {/* <Image
-        src={urlFor(data?.titleImage || '').url()}
+      {data?.mainImage && <Image
+        src={urlFor(data.mainImage).url()}
         width={800}
         height={800}
         alt="Title Image"
         priority
         className="rounded-lg mt-8 border"
-      />
+      />}
       <div className="mt-16 prose prose-blue prose-lg dark:prose-invert prose-li:marker:text-primary prose-a:text-primary">
-        <PortableText value={data?.content || ''} />
-      </div> */}
+        <PortableText value={data?.body || ''} />
+      </div>
     </div>
   );
 }
