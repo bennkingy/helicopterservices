@@ -9,6 +9,7 @@ async function getData(slug: string) {
     *[_type == "training" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
           title,
+          body,
           mainImage,
       }[0]`;
   const data = await client.fetch(query);
@@ -19,8 +20,6 @@ async function getData(slug: string) {
 
 export default async function TrainingPage({ params }: { params: { slug: string } }) {
   const data: any = await getData(params.slug.toLowerCase());
-
-  console.log(data)
 
   return (
     <div className="mt-8">
@@ -40,7 +39,7 @@ export default async function TrainingPage({ params }: { params: { slug: string 
         priority
         className="rounded-lg mt-8 border"
       />}
-      <div className="mt-16 prose prose-blue prose-lg dark:prose-invert prose-li:marker:text-primary prose-a:text-primary">
+      <div className="mt-16">
         <PortableText value={data?.body || ''} />
       </div>
     </div>
