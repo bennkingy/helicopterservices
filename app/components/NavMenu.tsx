@@ -17,32 +17,32 @@ import { cn } from '@/lib/utils';
 const components: { title: string; href: string; description: string }[] = [
   {
     title: 'Flight Examiner Ratings',
-    href: '/',
+    href: '/training/flight-examiner-ratings',
     description: 'ELCAS approved training provider for military personnel.',
   },
   {
     title: 'Commerical Pilot License',
-    href: '/',
+    href: '/training/commerical-pilot-license',
     description: 'ELCAS approved training provider for military personnel.',
   },
   {
     title: 'PBN',
-    href: '/',
+    href: '/training/PBN',
     description: 'ELCAS approved training provider for military personnel.',
   },
   {
     title: 'Simulator',
-    href: '/',
+    href: '/training/simulator',
     description: 'ELCAS approved training provider for military personnel.',
   },
   {
     title: 'Virtual Reality Simulator',
-    href: '/',
+    href: '/training/virtual-reality-simulator',
     description: 'ELCAS approved training provider for military personnel.',
   },
   {
     title: 'FAA',
-    href: '/',
+    href: '/training/FAA',
     description: 'ELCAS approved training provider for military personnel.',
   },
 ];
