@@ -20,17 +20,16 @@ export default async function Home() {
   const data: helicopter[] = await getData();
 
   console.log(data);
-  
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-5xl font-bold">Helicopter Services</h1>
-        {data.map((post: helicopter, idx) => (
-               <Card key={idx}> <CardContent className="mt-5">
-            <h2>Model: {post.model}</h2>
-            <p>Capacity: {post.capacity}</p>          </CardContent>
 
-            </Card>
-        ))}
+  return (
+    <main className="flex min-h-screen flex-col p-24">
+      <h1 className="text-5xl font-bold">Helicopter Services</h1>
+      {data.map((post: helicopter, idx) => (
+        <Card key={idx}> <CardContent className="mt-5">
+          <h2>Model: {post.model}</h2>
+          <p>Capacity: {post.capacity}</p>          </CardContent>
+        </Card>
+      ))}
     </main>
   );
 }
