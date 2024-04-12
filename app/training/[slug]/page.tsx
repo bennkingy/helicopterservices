@@ -34,7 +34,7 @@ export default async function TrainingPage({ params }: { params: { slug: string 
   const data: any = await getData(params.slug.toLowerCase());
 
   return (
-    <main className="py-10 max-w-6xl mx-auto px-4">
+    <main className="max-w-6xl mx-auto px-4">
       <div className="my-8">
         <h1>
           <span className="block text-base text-center text-primary font-semibold tracking-wide uppercase">
