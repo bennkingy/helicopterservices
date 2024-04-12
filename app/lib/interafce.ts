@@ -10,6 +10,6 @@ export interface helicopter {
   capacity: number;
   topSpeed: number;
   introducedAt: string;
-  description: string;
+  description: any;
   mainImage: any;
 }
