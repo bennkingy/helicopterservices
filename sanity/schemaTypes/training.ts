@@ -29,6 +29,16 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'seoDescription',
+      title: 'SEO Description',
+      type: 'string',
+    }),
+    defineField({
+      name: 'seoTitle',
+      title: 'SEO Title',
+      type: 'string',
+    }),
   ],
 
   preview: {

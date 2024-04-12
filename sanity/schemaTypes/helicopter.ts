@@ -101,12 +101,10 @@ export default defineType({
   preview: {
     select: {
       title: 'model',
-      manufacturer: 'manufacturer.name',
       media: 'mainImage',
     },
     prepare(selection) {
-      const {manufacturer} = selection
-      return {...selection, subtitle: manufacturer && `by ${manufacturer}`}
+      return { title: selection.title, media: selection.media }
     },
   },
 })

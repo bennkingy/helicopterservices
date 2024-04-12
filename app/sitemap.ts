@@ -10,7 +10,7 @@ interface Post {
 }
 
 async function getData() {
-  const query = `*[_type == "post"] {
+  const query = `*[_type == "training"] {
     "currentSlug": slug.current,
       "updated": _updatedAt
   }`
@@ -22,25 +22,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const data: any = await getData()
 
   const blogEntries: MetadataRoute.Sitemap = data.map((post: Post) => ({
-    url: `https://acme.com/${post.currentSlug}`,
+    url: `https://helicopterservices.co.uk/training/${post.currentSlug}`,
     changeFrequency: "weekly",
     lastModified: post.updated
-
   }));
 
   // static routes
   return [
     {
-      url: `https://acme.com/`,
+      url: `https://helicopterservices.co.uk`,
       changeFrequency: "weekly",
       lastModified: "2024-01-10"
     },
     {
-      url: `https://acme.com/about`,
+      url: `https://helicopterservices.co.uk/about`,
       changeFrequency: "weekly",
       lastModified: "2024-01-10"
-    }, {
-      url: `https://acme.com/about`,
+    },
+    {
+      url: `https://helicopterservices.co.uk/contact`,
       changeFrequency: "weekly",
       lastModified: "2024-01-10"
     },

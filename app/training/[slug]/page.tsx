@@ -3,17 +3,6 @@ import { PortableText } from "@portabletext/react";
 import type { Metadata } from 'next';
 import Image from "next/image";
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  // read route params
-  const data: any = await getData(params.slug.toLowerCase());
-
-  // fetch data
-  return {
-    title: data?.title,
-    description: data?.title,
-  }
-}
-
 export const revalidate = 30; // revalidate at most 30 seconds
 
 async function getData(slug: string) {
@@ -21,6 +10,8 @@ async function getData(slug: string) {
     *[_type == "training" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
           title,
+          seoTitle,
+          seoDescription,
           body,
           mainImage,
       }[0]`;
@@ -29,11 +20,20 @@ async function getData(slug: string) {
   return data;
 }
 
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const data: any = await getData(params.slug.toLowerCase());
+
+  return {
+    title: data?.seoTitle,
+    description: data?.seoDescription,
+  }
+}
+
 export default async function TrainingPage({ params }: { params: { slug: string } }) {
   const data: any = await getData(params.slug.toLowerCase());
 
   return (
-    <div className="mt-8">
+    <div className="my-8">
       <h1>
         <span className="block text-base text-center text-primary font-semibold tracking-wide uppercase">
           {params.slug}
@@ -50,7 +50,7 @@ export default async function TrainingPage({ params }: { params: { slug: string 
         priority
         className="rounded-lg mt-8 border"
       />}
-      <div className="mt-16">
+      <div className="mt-8">
         <PortableText value={data?.body || ''} />
       </div>
     </div>

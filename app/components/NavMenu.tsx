@@ -18,33 +18,33 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: 'Flight Examiner Ratings',
     href: '/training/flight-examiner-ratings',
-    description: 'ELCAS approved training provider for military personnel.',
+    description: 'Helicopter flight examiners hold a lot of responsibility, setting the standards across the industry and ensuring that they are maintained.',
   },
-  {
-    title: 'Commerical Pilot License',
-    href: '/training/commerical-pilot-license',
-    description: 'ELCAS approved training provider for military personnel.',
-  },
+  // {
+  //   title: 'Commerical Pilot License',
+  //   href: '/training/commerical-pilot-license',
+  //   description: 'ELCAS approved training provider for military personnel.',
+  // },
   {
     title: 'PBN',
     href: '/training/PBN',
-    description: 'ELCAS approved training provider for military personnel.',
+    description: 'The current generation of instrument flying is based on sensors with diverging definitions of precision in different countries.',
   },
-  {
-    title: 'Simulator',
-    href: '/training/simulator',
-    description: 'ELCAS approved training provider for military personnel.',
-  },
-  {
-    title: 'Virtual Reality Simulator',
-    href: '/training/virtual-reality-simulator',
-    description: 'ELCAS approved training provider for military personnel.',
-  },
-  {
-    title: 'FAA',
-    href: '/training/FAA',
-    description: 'ELCAS approved training provider for military personnel.',
-  },
+  // {
+  //   title: 'Simulator',
+  //   href: '/training/simulator',
+  //   description: 'ELCAS approved training provider for military personnel.',
+  // },
+  // {
+  //   title: 'Virtual Reality Simulator',
+  //   href: '/training/virtual-reality-simulator',
+  //   description: 'ELCAS approved training provider for military personnel.',
+  // },
+  // {
+  //   title: 'FAA',
+  //   href: '/training/FAA',
+  //   description: 'ELCAS approved training provider for military personnel.',
+  // },
 ];
 
 export function NavMenu() {
@@ -58,7 +58,7 @@ export function NavMenu() {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <NavigationMenuTrigger>Services</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -93,7 +93,7 @@ export function NavMenu() {
               </ListItem>
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
         <NavigationMenuItem>
           <NavigationMenuTrigger>Training</NavigationMenuTrigger>
           <NavigationMenuContent>
