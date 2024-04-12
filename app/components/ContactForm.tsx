@@ -10,6 +10,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
@@ -25,8 +26,7 @@ const ContacForm = () => {
     defaultValues: {
       email: "",
       name: "",
-      password: "",
-      confirmPassword: "",
+      body: "",
     },
   });
 
@@ -78,25 +78,12 @@ const ContacForm = () => {
             />
             <FormField
               control={form.control}
-              name="password"
+              name="body"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>Inquire</FormLabel>
                   <FormControl>
-                    <Input {...field} type="password" placeholder="******" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="confirmPassword"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Confirm Password</FormLabel>
-                  <FormControl>
-                    <Input {...field} type="password" placeholder="******" />
+                    <Textarea  {...field} placeholder="Your message...." />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

@@ -24,13 +24,7 @@ export const ContactSchema = z.object({
     message: "Name must only contain alphabets, spaces, or dashes"
   }),
 
-  password: passwordComplexity,
-
-  confirmPassword: z.string({
-    required_error: "Confirm Password is required",
-    invalid_type_error: "Confirm Password must be a string",
-    // @ts-ignore
-  }).refine(data => data === passwordComplexity, {
-    message: "Passwords must match"
+  body: z.string().min(1, {
+    message: "Please enter your message"
   })
 });

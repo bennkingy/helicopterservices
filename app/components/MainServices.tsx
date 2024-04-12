@@ -1,34 +1,34 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Icons } from "@/components/ui/icons";
 
-interface FeatureProps {
+interface MainServices {
   icon: JSX.Element;
   title: string;
   description: string;
 }
 
-const features: FeatureProps[] = [
+const features: MainServices[] = [
   {
     icon: <Icons.PlaneTakeoff />,
-    title: "Accesibility",
+    title: "Training",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
   },
   {
     icon: <Icons.PlaneTakeoff />,
-    title: "Community",
+    title: "Flights",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
   },
   {
     icon: <Icons.PlaneTakeoff />,
-    title: "Scalability",
+    title: "Industry",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
   },
   {
     icon: <Icons.PlaneTakeoff />,
-    title: "Gamification",
+    title: "Our company",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
   },
@@ -37,8 +37,7 @@ const features: FeatureProps[] = [
 export const MainServices = () => {
   return (
     <section
-      id="howItWorks"
-      className="text-center pb-5"
+      className="text-center"
     >
       {/* <h2 className="text-3xl md:text-4xl font-bold ">
         How It{" "}
@@ -53,7 +52,7 @@ export const MainServices = () => {
       </p> */}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {features.map(({ icon, title, description }: FeatureProps) => (
+        {features.map(({ icon, title, description }: MainServices) => (
           <Card
             key={title}
             className="bg-muted/50"

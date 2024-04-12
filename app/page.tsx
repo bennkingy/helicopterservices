@@ -31,8 +31,12 @@ export default async function Home() {
   return (
     <main className="">
       <Hero />
+      <div className="py-10 bg-slate-100">
+        <div className="max-w-6xl container">
+          <MainServices />
+        </div>
+      </div>
       <div className="py-10 max-w-6xl mx-auto px-4">
-        <MainServices />
         <h1 className="text-3xl font-bold">Our Fleet</h1>
         <div className="grid sm:grid-cols-3 gap-3">
           {data?.map((helicopter: helicopter, idx: number) => (
