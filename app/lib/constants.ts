@@ -1,4 +1,4 @@
-import { env } from './env.mjs';
+// import { env } from './env.mjs';
 
 export const siteConfig = {
   title: 'Helicopter Services',
@@ -15,6 +15,6 @@ export const siteConfig = {
     'Next-auth',
     'Prisma',
   ],
-  url: env.NEXT_PUBLIC_SITE_URL || 'https://example.com',
-  googleSiteVerificationId: env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION_ID || '',
+  // url: env.NEXT_PUBLIC_SITE_URL || 'https://example.com',
+  // googleSiteVerificationId: env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION_ID || '',
 };
