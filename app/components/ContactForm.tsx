@@ -38,8 +38,8 @@ const ContacForm = () => {
   const { pending } = useFormStatus();
   return (
     <CardWrapper
-      label="Create an account"
-      title="Register"
+      label="Inquire about our services"
+      title="Inquire"
       backButtonHref="/auth/login"
       backButtonLabel="Already have an account? Login here."
     >
@@ -91,7 +91,7 @@ const ContacForm = () => {
             />
           </div>
           <Button type="submit" className="w-full" disabled={pending}>
-            {loading ? "Loading..." : "Register"}
+            {loading ? "Loading..." : "Submit Inquiry"}
           </Button>
         </form>
       </Form>
