@@ -32,9 +32,9 @@ export default async function Home() {
       <Hero />
       <div className="py-10 max-w-6xl mx-auto px-4">
         <h1 className="text-3xl font-bold">Our Fleet</h1>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid sm:grid-cols-3 gap-3">
           {data?.map((helicopter: helicopter, idx: number) => (
-            <Card key={idx} className="mt-10">
+            <Card key={idx} className="mt-5">
               <CardContent className="mt-5">
                 <h2 className="text-1xl font-bold">{helicopter?.model}</h2>
                 <h5>Capacity: {helicopter?.capacity}</h5>
