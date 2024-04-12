@@ -21,7 +21,7 @@ async function getData() {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const data: any = await getData()
 
-  const blogEntries: MetadataRoute.Sitemap = data.map((post: Post) => ({
+  const training: MetadataRoute.Sitemap = data.map((post: Post) => ({
     url: `https://helicopterservices.co.uk/training/${post.currentSlug}`,
     changeFrequency: "weekly",
     lastModified: post.updated
@@ -34,15 +34,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       lastModified: "2024-01-10"
     },
-    {
-      url: `https://helicopterservices.co.uk/about`,
-      changeFrequency: "weekly",
-      lastModified: "2024-01-10"
-    },
+    // {
+    //   url: `https://helicopterservices.co.uk/about`,
+    //   changeFrequency: "weekly",
+    //   lastModified: "2024-01-10"
+    // },
     {
       url: `https://helicopterservices.co.uk/contact`,
       changeFrequency: "weekly",
       lastModified: "2024-01-10"
     },
-    ...blogEntries]
+    ...training]
 }
