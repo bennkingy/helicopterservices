@@ -5,7 +5,7 @@ import { NavMenu } from "./NavMenu";
 
 export default function Navbar() {
   return (
-    <header className="w-full border-b">
+    <header className="w-full border-b-4 border-blue-400">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="font-mono text-lg font-bold">
           <Image
