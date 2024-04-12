@@ -30,7 +30,7 @@ export default async function Home() {
 
   return (
     <main className="">
-      <Hero />
+      <Hero title="Exceeding exacting industry standards." />
       <div className="py-10 bg-slate-100">
         <div className="max-w-6xl container">
           <MainServices />
