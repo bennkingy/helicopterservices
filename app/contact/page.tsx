@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import ContactForm from "../components/ContactForm";
 import { FAQ } from "../components/FAQ";
+
+export const metadata: Metadata = {
+  title: "Contact - Helicopter Services",
+  description: "Helicopter Services",
+};
 
 export default async function Contact() {
   return (
