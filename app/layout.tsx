@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "../components/ui/theme-provider";
 import Footer from "./components/Footer";
-import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import "./globals.css";
 
@@ -35,8 +34,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <Hero />
-          <main className="max-w-2xl mx-auto px-4">{children}</main>
+          {children}
           <Footer />
         </ThemeProvider>
       </body>

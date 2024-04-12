@@ -34,26 +34,28 @@ export default async function TrainingPage({ params }: { params: { slug: string 
   const data: any = await getData(params.slug.toLowerCase());
 
   return (
-    <div className="my-8">
-      <h1>
-        <span className="block text-base text-center text-primary font-semibold tracking-wide uppercase">
-          {params.slug}
-        </span>
-        <span className="mt-2 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">
-          {data?.title || 'no title'}
-        </span>
-      </h1>
-      {data?.mainImage && <Image
-        src={urlFor(data.mainImage).url()}
-        width={800}
-        height={800}
-        alt="Title Image"
-        priority
-        className="rounded-lg mt-8 border"
-      />}
-      <div className="mt-8">
-        <PortableText value={data?.body || ''} />
+    <main className="py-10 max-w-6xl mx-auto px-4">
+      <div className="my-8">
+        <h1>
+          <span className="block text-base text-center text-primary font-semibold tracking-wide uppercase">
+            {params.slug}
+          </span>
+          <span className="mt-2 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">
+            {data?.title || 'no title'}
+          </span>
+        </h1>
+        {data?.mainImage && <Image
+          src={urlFor(data.mainImage).url()}
+          width={2000}
+          height={800}
+          alt="Title Image"
+          priority
+          className="rounded-lg mt-8 border"
+        />}
+        <div className="mt-8">
+          <PortableText value={data?.body || ''} />
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
