@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import Hero from "./components/Hero";
+import { MainServices } from "./components/MainServices";
 import { formatDate } from "./lib/extensions";
 import { helicopter } from "./lib/interafce";
 import { client, urlFor } from "./lib/sanity";
@@ -31,6 +32,7 @@ export default async function Home() {
     <main className="">
       <Hero />
       <div className="py-10 max-w-6xl mx-auto px-4">
+        <MainServices />
         <h1 className="text-3xl font-bold">Our Fleet</h1>
         <div className="grid sm:grid-cols-3 gap-3">
           {data?.map((helicopter: helicopter, idx: number) => (
