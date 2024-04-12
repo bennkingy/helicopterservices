@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact - Helicopter Services",
+  description: "Helicopter Services",
+};
+
 export default async function Contact() {
   return (
     <main className="flex min-h-screen flex-col py-20">
