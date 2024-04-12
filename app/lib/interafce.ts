@@ -1,4 +1,5 @@
 export interface training {
+  updated: any;
   seoDescription: string;
   seoTitle: string;
   title: string;

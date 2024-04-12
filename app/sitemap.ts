@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { training } from "./lib/interafce";
 import { client } from "./lib/sanity";
 
 interface Post {
@@ -19,9 +20,9 @@ async function getData() {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const data: any = await getData()
+  const data: training[] = await getData()
 
-  const training: MetadataRoute.Sitemap = data.map((post: Post) => ({
+  const training: MetadataRoute.Sitemap = data.map((post: training) => ({
     url: `https://helicopterservices.co.uk/training/${post.currentSlug}`,
     changeFrequency: "weekly",
     lastModified: post.updated
