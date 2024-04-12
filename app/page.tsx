@@ -19,7 +19,7 @@ async function getData() {
       "currentSlug": slug.current,
   }`;
 
-  const data = await client.fetch(query);
+  const data: helicopter[] = await client.fetch(query);
   return data;
 }
 
@@ -29,7 +29,7 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col py-20">
       <h1 className="text-5xl font-bold mb-10">Our Fleet</h1>
-      {data.map((helicopter: helicopter, idx) => (
+      {data?.map((helicopter: helicopter, idx: number) => (
         <Card key={idx} className="mt-10">
           <CardContent className="mt-5">
             <h2 className="text-1xl font-bold">{helicopter?.model}</h2>

@@ -1,4 +1,6 @@
-export interface post {
+export interface training {
+  seoDescription: string;
+  seoTitle: string;
   title: string;
   body: string;
   currentSlug: string;

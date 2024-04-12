@@ -1,3 +1,4 @@
+import { training } from "@/app/lib/interafce";
 import { client, urlFor } from "@/app/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import type { Metadata } from 'next';
@@ -21,7 +22,7 @@ async function getData(slug: string) {
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const data: any = await getData(params.slug.toLowerCase());
+  const data: training = await getData(params.slug.toLowerCase());
 
   return {
     title: data?.seoTitle,
