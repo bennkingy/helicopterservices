@@ -4,6 +4,7 @@ import { ThemeProvider } from "../components/ui/theme-provider";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import "./globals.css";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
@@ -29,6 +30,7 @@ export default function RootLayout({
           <Navbar />
           <Hero />
           <main className="max-w-2xl mx-auto px-4">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html >
