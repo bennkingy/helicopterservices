@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
+import Carousel from "./components/Carousel";
 import Enquire from "./components/Enquire";
 import Hero from "./components/Hero";
 import { MainServices } from "./components/MainServices";
@@ -62,6 +63,8 @@ export default async function Home() {
             </Card>
           ))}
         </div>
+        <Carousel />
+        <div className="py-6"></div>
         <Enquire />
       </div>
     </main>

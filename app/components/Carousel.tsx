@@ -1,0 +1,60 @@
+import {
+  Carousel as CarouselComponent,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Image from "next/image";
+
+const Carousel = () => {
+  return (
+    <CarouselComponent>
+      <CarouselContent className="-ml-2 md:-ml-4">
+        <CarouselItem className="basis-1/3 text-center">
+          <Image
+            src={'https://placehold.co/400x400/jpg'}
+            width={400}
+            height={400}
+            alt="Title Image"
+            priority
+            className="my-8 rounded-full"
+          />         <h5>Airport Transfer</h5>
+          <p>We offer training from Private Pilots lisence to Commerical, instruments, instructor and examiner ratings.</p>
+        </CarouselItem>
+        <CarouselItem className="basis-1/3 text-center">          <Image
+          src={'https://placehold.co/400x400/jpg'}
+          width={400}
+          height={400}
+          alt="Title Image"
+          priority
+          className="my-8 rounded-full"
+        />         <h5>Airport Transfer</h5>
+          <p>We offer training from Private Pilots lisence to Commerical, instruments, instructor and examiner ratings.</p></CarouselItem>
+        <CarouselItem className="basis-1/3 text-center">          <Image
+          src={'https://placehold.co/400x400/jpg'}
+          width={400}
+          height={400}
+          alt="Title Image"
+          priority
+          className="my-8 rounded-full"
+        />
+          <h5>Airport Transfer</h5>
+          <p>We offer training from Private Pilots lisence to Commerical, instruments, instructor and examiner ratings.</p>
+        </CarouselItem>
+        <CarouselItem className="basis-1/3">          <Image
+          src={'https://placehold.co/400x400/jpg'}
+          width={400}
+          height={400}
+          alt="Title Image"
+          priority
+          className="my-8 rounded-full"
+        /></CarouselItem>
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </CarouselComponent>
+  )
+}
+
+export default Carousel
