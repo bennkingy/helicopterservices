@@ -1,5 +1,6 @@
 "use client";
 
+import { helloAction } from '@/actions/hello-action';
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -11,6 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from '@/components/ui/use-toast';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
@@ -30,9 +32,15 @@ const ContacForm = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof ContactSchema>) => {
+  const { toast } = useToast();
+
+  const onSubmit = async (data: z.infer<typeof ContactSchema>) => {
     setLoading(true);
-    console.log(data);
+    const { message } = await helloAction(data.name);
+    toast({ description: message });
+    setTimeout(() => {
+      setLoading(false);
+    }, 100);
   };
 
   const { pending } = useFormStatus();
