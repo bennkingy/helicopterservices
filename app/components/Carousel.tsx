@@ -29,8 +29,6 @@ const Carousel = () => {
     })
   }, [api])
 
-  console.log(current)
-
   return (
     <CarouselComponent setApi={setApi}>
       <CarouselContent className="-ml-2 md:-ml-4">
