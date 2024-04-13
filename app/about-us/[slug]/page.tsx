@@ -1,14 +1,17 @@
 import { FAQ } from "@/app/components/FAQ";
 import YouTube from "@/app/components/YouTube";
+import { formatDate } from "@/app/lib/extensions";
 import { training } from "@/app/lib/interafce";
 import { client, urlFor } from "@/app/lib/sanity";
+import { Card, CardContent } from "@/components/ui/card";
 import { PortableText } from "@portabletext/react";
 import type { Metadata } from 'next';
 import Image from "next/image";
+import { helicopter } from "../../lib/interafce";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
-async function getData(slug: string) {
+async function getPageData(slug: string) {
   const query = `
     *[_type == "about" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
@@ -23,8 +26,23 @@ async function getData(slug: string) {
   return data;
 }
 
+async function getHelicopterData() {
+  const query = `
+  *[_type == 'helicopter'] | order(_createdAt desc) {
+    model,
+      capacity,
+      topSpeed,
+      introducedAt,
+      description,
+      mainImage,
+  }`;
+  const data = await client.fetch(query);
+
+  return data;
+};
+
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const data: training = await getData(params.slug.toLowerCase());
+  const data: training = await getPageData(params.slug.toLowerCase());
 
   return {
     title: data?.seoTitle,
@@ -33,10 +51,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function TrainingPage({ params }: { params: { slug: string } }) {
-  const data: any = await getData(params.slug.toLowerCase());
+  const data: training = await getPageData(params.slug.toLowerCase());
+  const helicopterData: any = await getHelicopterData();
 
   const showFaqs = params.slug === 'faqs';
   const showHanger = params.slug === 'the-hanger';
+  const showHelicopters = params.slug === 'helicopter-fleet';
 
   return (
     <>
@@ -62,6 +82,33 @@ export default async function TrainingPage({ params }: { params: { slug: string 
                 <FAQ className="mb-10" />
               </div> : null
             }
+            {showHelicopters ?
+              <div className="py-10 max-w-6xl mx-auto px-4">
+                <h1 className="text-3xl font-bold">See our Fleet</h1>
+                <div className="grid sm:grid-cols-3 gap-3 mb-6">
+                  {helicopterData?.map((helicopter: helicopter, idx: number) => (
+                    <Card key={idx} className="mt-5">
+                      <CardContent className="mt-5">
+                        <h2 className="text-1xl font-bold">{helicopter?.model}</h2>
+                        <h5>Capacity: {helicopter?.capacity}</h5>
+                        <h5>Top speed: {helicopter?.topSpeed}</h5>
+                        <h5>Joined the fleet: {formatDate(helicopter?.introducedAt)}</h5>
+                        {helicopter?.mainImage &&
+                          <Image
+                            src={urlFor(helicopter?.mainImage).url()}
+                            width={800}
+                            height={800}
+                            alt="Title Image"
+                            priority
+                            className="rounded-lg my-8 border"
+                          />
+                        }
+                        <PortableText value={helicopter?.description} />
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div> : null}
           </div>}
       </main >
       {

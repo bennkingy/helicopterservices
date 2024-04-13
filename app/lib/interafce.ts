@@ -1,9 +1,10 @@
 export interface training {
+  mainImage: any;
   updated: any;
   seoDescription: string;
   seoTitle: string;
   title: string;
-  body: string;
+  body: any;
   currentSlug: string;
 }
 
