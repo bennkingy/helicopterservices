@@ -55,8 +55,8 @@ const Carousel = () => {
           <p>We offer training from Private Pilots lisence to Commerical, instruments, instructor and examiner ratings.</p>
         </CarouselItem>
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="ml-[50px]" />
+      <CarouselNext className="mr-[50px]" />
     </CarouselComponent>
   )
 }
