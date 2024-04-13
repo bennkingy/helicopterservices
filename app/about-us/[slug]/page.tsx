@@ -1,4 +1,5 @@
 import { FAQ } from "@/app/components/FAQ";
+import YouTube from "@/app/components/YouTube";
 import { training } from "@/app/lib/interafce";
 import { client, urlFor } from "@/app/lib/sanity";
 import { PortableText } from "@portabletext/react";
@@ -35,35 +36,39 @@ export default async function TrainingPage({ params }: { params: { slug: string 
   const data: any = await getData(params.slug.toLowerCase());
 
   const showFaqs = params.slug === 'faqs';
+  const showHanger = params.slug === 'the-hanger';
 
   return (
-    <main className="max-w-6xl mx-auto px-4">
-      <div className="my-8">
-        <h1>
-          <span className="block text-base text-center text-primary font-semibold tracking-wide uppercase">
-            {params.slug}
-          </span>
-          <span className="mt-2 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">
-            {data?.title || 'no title'}
-          </span>
-        </h1>
-        {data?.mainImage && <Image
-          src={urlFor(data.mainImage).url()}
-          width={2000}
-          height={800}
-          alt="Title Image"
-          priority
-          className="rounded-lg mt-8 border"
-        />}
-        <div className="mt-8">
-          <PortableText value={data?.body || ''} />
-        </div>
-        {showFaqs && (
-          <div className="mt-8">
-            <FAQ />
-          </div>)
-        }
-      </div>
-    </main>
+    <>
+      <main className="max-w-6xl mx-auto px-4">
+        {
+          !showHanger && <div className="my-8">
+            <h1 className="block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">
+              {data?.title || 'no title'}
+            </h1>
+            {data?.mainImage && <Image
+              src={urlFor(data.mainImage).url()}
+              width={2000}
+              height={800}
+              alt="Title Image"
+              priority
+              className="rounded-lg mt-8 border"
+            />}
+            <div className="mt-8">
+              <PortableText value={data?.body || ''} />
+            </div>
+            {showFaqs ?
+              <div className="mt-8">
+                <FAQ className="mb-10" />
+              </div> : null
+            }
+          </div>}
+      </main >
+      {
+        showHanger ?
+          <YouTube />
+          : null
+      }
+    </>
   );
 }
