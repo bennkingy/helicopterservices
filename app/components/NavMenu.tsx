@@ -262,11 +262,11 @@ export function NavMenu() {
         </NavigationMenuList>
       </NavigationMenu>
       <div className='flex visible sm:hidden ml-auto'>
-        <Drawer direction='left'>
+        <Drawer direction='right'>
           <DrawerTrigger className='mr-3'>
             <MenuIcon size={24} />
           </DrawerTrigger>
-          <DrawerContent className='h-full mr-20'>
+          <DrawerContent className='h-full ml-20'>
             Mobile menu
           </DrawerContent>
         </Drawer>
