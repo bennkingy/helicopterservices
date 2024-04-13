@@ -4,29 +4,25 @@ export default function Footer() {
       <div className="mx-auto px-4 sm:px-6 md:pt-3 flex flex-wrap container justify-between">
         <div className="p-5">
           <div className="text-xs uppercase font-medium">Services</div>
-          <a className="my-3 block" href="/#">Training <span className="text-teal-600 text-xs p-1"></span>
+          <a className="my-3 block" href="/#">Trainin
           </a>
-          <a className="my-3 block" href="/#">Flights <span className="text-teal-600 text-xs p-1"></span>
+          <a className="my-3 block" href="/#">Flight
           </a>
-          <a className="my-3 block" href="/#">Industry <span className="text-teal-600 text-xs p-1"></span>
+          <a className="my-3 block" href="/#">Industr
           </a>
-          <a className="my-3 block" href="/#">Our company <span className="text-teal-600 text-xs p-1"></span>
+          <a className="my-3 block" href="/#">Our compan
           </a>
-          <a className="my-3 block" href="/#">Partners <span className="text-teal-600 text-xs p-1">New</span>
+          <a className="my-3 block" href="/#">Partners
           </a>
         </div>
         <div className="p-5">
           <div className="text-xs uppercase font-medium">View the weather</div>
-          <a className="my-3 block" href="/#">Wariwck airport <span className="text-teal-600 text-xs p-1"></span>
+          <a className="my-3 block" href="/#">Wariwck airpor
           </a>
         </div>
         <div className="p-5">
           <div className="text-xs uppercase font-medium">legals</div>
-          <a className="my-3 block" href="/legal/terms-and-conditions">Terms and conditions <span className="text-teal-600 text-xs p-1"></span>
-          </a>
-          <a className="my-3 block" href="/legal/privacy">Privacy<span className="text-teal-600 text-xs p-1"></span>
-          </a>
-          <a className="my-3 block" href="/legal/cookies">Cookies<span className="text-teal-600 text-xs p-1"></span>
+          <a className="my-3 block" href="/legal/terms-and-conditions">Terms and condition
           </a>
         </div>
         <div className="p-5">
@@ -36,7 +32,6 @@ export default function Footer() {
             Maidenhead
             Berkshire
             SL6 3NJ
-            <span className="text-teal-600 text-xs p-1"></span>
           </a>
           <a className="my-3 block" href="/#">generalenquries@helicopterservices.co.uk</a>
         </div>
