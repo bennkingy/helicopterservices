@@ -149,7 +149,7 @@ export function NavMenu() {
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Training</NavigationMenuTrigger>
+            <NavigationMenuTrigger><a href="/training">Training</a></NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[800px] ">
                 {training.map((component) => (
@@ -165,7 +165,7 @@ export function NavMenu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Industry</NavigationMenuTrigger>
+            <NavigationMenuTrigger><a href="/industry">Industry</a></NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <li className="row-span-3">
@@ -199,7 +199,7 @@ export function NavMenu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Flights</NavigationMenuTrigger>
+            <NavigationMenuTrigger><a href="/flights">Flights</a></NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                 {flights.map((component) => (
@@ -215,7 +215,7 @@ export function NavMenu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>About us</NavigationMenuTrigger>
+            <NavigationMenuTrigger><a href="/about-us">About us</a></NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                 {about.map((component) => (
