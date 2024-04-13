@@ -38,6 +38,26 @@ export default async function Home() {
           <MainServices />
         </div>
       </div>
+      <div className="py-10 max-w-6xl mx-auto px-4 grid grid-cols-2">
+        <div>
+
+        </div>
+        <div>
+          <h2 className="max-w-2xl">Over 20 years helicopter
+            operating experience.</h2>
+          <p>We offer training from Private Pilot’s Licence to Commercial, Instruments, Instructor, and Examiner Ratings.  Our senior instructors/examiners in the UK provide type ratings on 17+ helicopter types, and advanced courses. . For gifts, transfers, charters, photography, load lifting, flight learning, helicopter purchase, AOC management, or medical info, we’re here.</p>
+          <ul>
+            <li>Experienced pilots & instructors</li>
+            <li>Professional & accommodating</li>
+            <li>Excellent customer service</li>
+            <li>Operating safely since 2000</li>
+            <li>Exceeding exacting industry standards</li>
+          </ul>
+          <p>
+            Captain Leon Smith<br />Head Pilot / Chief Pilot<br />Helicopter Services
+          </p>
+        </div>
+      </div>
       <div className="py-10 max-w-6xl mx-auto px-4">
         <h1 className="text-3xl font-bold">See our Fleet</h1>
         <div className="grid sm:grid-cols-3 gap-3 mb-6">

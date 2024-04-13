@@ -44,12 +44,12 @@ export const MainServices = () => {
             className="bg-white rounded-none"
           >
             <CardHeader>
-              <CardTitle className="grid gap-4 place-items-start">
+              <CardTitle className="grid gap-4">
                 {icon}
                 {title}
               </CardTitle>
             </CardHeader>
-            <CardContent className="place-items-s" tart>{description}</CardContent>
+            <CardContent>{description}</CardContent>
           </Card>
         ))}
       </div>
