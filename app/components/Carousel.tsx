@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 const Carousel = () => {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
-  const [count, setCount] = useState(5);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (!api) {
