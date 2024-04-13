@@ -46,7 +46,7 @@ const Hero = ({ height = 'h-[70vh]', cta, cta2, title, subtitle }: props) => {
             )}
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 w-full min-h-24 py-5 bg-brand-dark-blue bg-opacity-50 dark:bg-black dark:bg-opacity-50 flex flex-col sm:flex-row items-center justify-center text-white text-center">
+        <div className="absolute bottom-0 left-0 w-full py-3 bg-brand-dark-blue bg-opacity-50 dark:bg-black dark:bg-opacity-50 flex flex-col sm:flex-row items-center justify-center text-white text-center">
           <p className="mb-4 sm:mb-0 sm:mr-10">A leading UK CAA and EASA approved Training Organisation</p>
           <div className="flex justify-center space-x-5">
             <Image

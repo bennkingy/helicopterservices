@@ -42,11 +42,21 @@ async function getLegalData() {
   return data;
 }
 
+async function getIndustryData() {
+  const query = `*[_type == "industry"] {
+    "currentSlug": slug.current,
+      "updated": _updatedAt
+  }`
+  const data: Page[] = await client.fetch(query)
+  return data;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const trainingData: Page[] = await getTrainingData()
   const aboutData: Page[] = await getAboutData()
   const flightsData: Page[] = await getFlightstData()
   const legalData: Page[] = await getLegalData()
+  const industryData: Page[] = await getIndustryData()
 
   const training: MetadataRoute.Sitemap = trainingData.map((page: Page) => ({
     url: `https://helicopterservices.co.uk/training/${page.currentSlug}`,
@@ -72,6 +82,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: page.updated
   }));
 
+  const industry: MetadataRoute.Sitemap = industryData.map((page: Page) => ({
+    url: `https://helicopterservices.co.uk/industry/${page.currentSlug}`,
+    changeFrequency: "weekly",
+    lastModified: page.updated
+  }));
+
   return [
     {
       url: `https://helicopterservices.co.uk`,
@@ -84,6 +100,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: "2024-01-10"
     },
     ...training,
+    {
+      url: `https://helicopterservices.co.uk/industry`,
+      changeFrequency: "weekly",
+      lastModified: "2024-01-10"
+    },
+    ...industry,
     {
       url: `https://helicopterservices.co.uk/industry`,
       changeFrequency: "weekly",
