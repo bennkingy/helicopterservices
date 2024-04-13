@@ -1,5 +1,5 @@
-import { training } from "@/app/lib/interafce";
-import { client, urlFor } from "@/app/lib/sanity";
+import { training } from "@/lib/interface";
+import { client, urlFor } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import type { Metadata } from 'next';
 import Image from "next/image";

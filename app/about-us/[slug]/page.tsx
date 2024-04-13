@@ -1,13 +1,12 @@
 import { FAQ } from "@/app/components/FAQ";
 import YouTube from "@/app/components/YouTube";
-import { formatDate } from "@/app/lib/extensions";
-import { training } from "@/app/lib/interafce";
-import { client, urlFor } from "@/app/lib/sanity";
 import { Card, CardContent } from "@/components/ui/card";
+import { formatDate } from "@/lib/extensions";
+import { helicopter, training } from "@/lib/interface";
+import { client, urlFor } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import type { Metadata } from 'next';
 import Image from "next/image";
-import { helicopter } from "../../lib/interafce";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
