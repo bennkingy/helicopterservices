@@ -11,7 +11,7 @@ const Carousel = () => {
   return (
     <CarouselComponent>
       <CarouselContent className="-ml-2 md:-ml-4">
-        <CarouselItem className="basis-1/3 text-center">
+        <CarouselItem className="basis-1/3 text-center px-20">
           <Image
             src={'https://placehold.co/400x400/jpg'}
             width={400}
@@ -22,7 +22,7 @@ const Carousel = () => {
           />         <h5>Airport Transfer</h5>
           <p>We offer training from Private Pilots lisence to Commerical, instruments, instructor and examiner ratings.</p>
         </CarouselItem>
-        <CarouselItem className="basis-1/3 text-center">          <Image
+        <CarouselItem className="basis-1/3 text-center px-20">          <Image
           src={'https://placehold.co/400x400/jpg'}
           width={400}
           height={400}
@@ -31,7 +31,7 @@ const Carousel = () => {
           className="my-8 rounded-full"
         />         <h5>Airport Transfer</h5>
           <p>We offer training from Private Pilots lisence to Commerical, instruments, instructor and examiner ratings.</p></CarouselItem>
-        <CarouselItem className="basis-1/3 text-center">          <Image
+        <CarouselItem className="basis-1/3 text-center px-20">          <Image
           src={'https://placehold.co/400x400/jpg'}
           width={400}
           height={400}
@@ -42,7 +42,7 @@ const Carousel = () => {
           <h5>Airport Transfer</h5>
           <p>We offer training from Private Pilots lisence to Commerical, instruments, instructor and examiner ratings.</p>
         </CarouselItem>
-        <CarouselItem className="basis-1/3">
+        <CarouselItem className="basis-1/3 text-center px-20">
           <Image
             src={'https://placehold.co/400x400/jpg'}
             width={400}

@@ -37,7 +37,7 @@ const features: MainServices[] = [
 export const MainServices = () => {
   return (
     <section
-      className="text-center -ml-5"
+      className="text-center"
     >
       {/* <h2 className="text-3xl md:text-4xl font-bold ">
         How It{" "}
