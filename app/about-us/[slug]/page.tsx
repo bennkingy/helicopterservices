@@ -1,3 +1,4 @@
+import { FAQ } from "@/app/components/FAQ";
 import { training } from "@/app/lib/interafce";
 import { client, urlFor } from "@/app/lib/sanity";
 import { PortableText } from "@portabletext/react";
@@ -33,6 +34,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default async function TrainingPage({ params }: { params: { slug: string } }) {
   const data: any = await getData(params.slug.toLowerCase());
 
+  const showFaqs = params.slug === 'faqs';
+
   return (
     <main className="max-w-6xl mx-auto px-4">
       <div className="my-8">
@@ -55,6 +58,11 @@ export default async function TrainingPage({ params }: { params: { slug: string 
         <div className="mt-8">
           <PortableText value={data?.body || ''} />
         </div>
+        {showFaqs && (
+          <div className="mt-8">
+            <FAQ />
+          </div>)
+        }
       </div>
     </main>
   );

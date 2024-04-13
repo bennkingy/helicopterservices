@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Image from 'next/image';
 
 type props = {
   height?: string; // e.g. 'h-[70vh]' or 'h-[50vh]'
@@ -45,8 +46,22 @@ const Hero = ({ height = 'h-[70vh]', cta, cta2, title, subtitle }: props) => {
             )}
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-blue-500 dark:bg-black bg-opacity-50 dark:bg-opacity-50 flex items-center justify-center text-white text-center">
-          <p>A leading UK CAA and EASA approved Training Organisation</p>
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-brand-dark-blue bg-opacity-50 dark:bg-black dark:bg-opacity-50 flex items-center justify-center text-white text-center">
+          <p className="mr-10">A leading UK CAA and EASA approved Training Organisation</p>
+          <Image
+            src="/images/easa.svg"
+            alt="Helicopter Services"
+            width={100}
+            height={34}
+            className='min-w-[100px]'
+          />
+          <Image
+            src="/images/caa.svg"
+            alt="Helicopter Services"
+            width={50}
+            height={34}
+            className="ml-5"
+          />
         </div>
       </div>
     </section>

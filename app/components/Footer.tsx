@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="bg-slate-100 dark:bg-black">
+    <div className="bg-brand-dark-blue dark:bg-black text-white">
       <div className="mx-auto px-4 sm:px-6 md:pt-3 flex flex-wrap container justify-between">
         <div className="p-5">
           <div className="text-xs uppercase font-medium">Services</div>

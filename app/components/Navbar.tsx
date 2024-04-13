@@ -7,7 +7,7 @@ import { NavMenu } from "./NavMenu";
 export default function Navbar() {
 
   return (
-    <header className="w-full border-b-4 border-blue-400">
+    <header className="w-full border-b-4 border-brand-light-blue">
       <div className={cn("container flex h-16 items-center justify-between",
         "container", "px-4"
       )}>

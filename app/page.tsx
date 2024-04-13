@@ -33,7 +33,7 @@ export default async function Home() {
   return (
     <main className="">
       <Hero title="Exceeding exacting industry standards." />
-      <div className="py-10 bg-slate-100">
+      <div className="py-10 bg-brand-dark-blue">
         <div className="max-w-6xl container">
           <MainServices />
         </div>
@@ -63,9 +63,15 @@ export default async function Home() {
             </Card>
           ))}
         </div>
-        <Carousel />
-        <div className="py-6"></div>
-        <Enquire />
+      </div>
+      <div className="py-10 bg-brand-light-grey">
+        <div className="max-w-6xl container">
+          <Carousel />
+        </div>
+        <div className="py-10 max-w-6xl mx-auto px-4">
+          <div className="py-6"></div>
+          <Enquire />
+        </div>
       </div>
     </main>
   );
