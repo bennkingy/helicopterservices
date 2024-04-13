@@ -1,6 +1,7 @@
 "use client";
 
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
+import { cn } from "@/lib/utils";
 import { MenuIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,18 +15,22 @@ export default function Navbar() {
 
   return (
     <header className="w-full border-b-4 border-blue-400">
-      <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="font-mono text-lg font-bold">
+      <div className={cn("container flex h-16 items-center justify-between",
+        isDesktop ? "container" : "px-4"
+      )}>
+        <Link href="/" className="font-mono text-lg font-bold start">
           <Image
             src="/images/logo.png"
             alt="Helicopter Services"
             width={100}
             height={34}
+            className='min-w-[100px]'
           />
         </Link>
-        {isDesktop ? <NavMenu /> :
+        {isDesktop ?
+          <NavMenu /> :
           <Drawer direction='left'>
-            <DrawerTrigger>
+            <DrawerTrigger className='ml-auto mr-3'>
               <MenuIcon size={24} />
             </DrawerTrigger>
             <DrawerContent className='h-full mr-20'>
