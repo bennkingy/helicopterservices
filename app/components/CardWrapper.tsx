@@ -7,7 +7,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 
-interface CardWrapperProps {
+interface props {
   label: string
   title: string
   backButtonHref: string
@@ -15,19 +15,15 @@ interface CardWrapperProps {
   children: React.ReactNode
 }
 
-
-
-const CardWrapper = ({ label, title, backButtonHref, backButtonLabel, children }: CardWrapperProps) => {
+const CardWrapper = ({ label, title, backButtonHref, backButtonLabel, children }: props) => {
   return (
     <Card className="w-full shadow-md">
       <CardHeader>
-        {/* <AuthHeader label={label} title={title} /> */}
       </CardHeader>
       <CardContent>
         {children}
       </CardContent>
       <CardFooter>
-        {/* <BackButton label={backButtonLabel} href={backButtonHref} /> */}
       </CardFooter>
     </Card>
   )

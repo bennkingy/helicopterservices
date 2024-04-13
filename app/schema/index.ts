@@ -1,12 +1,5 @@
 import * as z from 'zod';
 
-// Helper function to validate passwords with regex for complexity
-const passwordComplexity = z.string().min(8, {
-  message: "Password must be at least 8 characters long"
-}).regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).*$/, {
-  message: "Password must include upper, lower, number, and special character"
-});
-
 export const ContactSchema = z.object({
   email: z.string().email({
     message: "Please enter a valid email address"
