@@ -11,7 +11,7 @@ const Carousel = () => {
   return (
     <CarouselComponent>
       <CarouselContent className="-ml-2 md:-ml-4">
-        <CarouselItem className="basis-3/3  sm:basis-1/3 text-center px-20">
+        <CarouselItem className="sm:basis-1/3 text-center px-20">
           <Image
             src={'https://placehold.co/400x400/jpg'}
             width={350}
