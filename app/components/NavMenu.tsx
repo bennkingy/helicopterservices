@@ -239,7 +239,7 @@ export function NavMenu() {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-      <div className='visible sm:hidden ml-auto'>
+      <div className='flex visible sm:hidden ml-auto'>
         <Drawer direction='left'>
           <DrawerTrigger className='mr-3'>
             <MenuIcon size={24} />

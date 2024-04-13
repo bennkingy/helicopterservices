@@ -38,7 +38,7 @@ export default async function Home() {
           <MainServices />
         </div>
       </div>
-      <div className="py-10 max-w-6xl mx-auto px-4 grid grid-cols-2">
+      <div className="py-10 max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2">
         <div>
 
         </div>
