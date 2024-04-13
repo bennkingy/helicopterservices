@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
+import Enquire from "./components/Enquire";
 import Hero from "./components/Hero";
 import { MainServices } from "./components/MainServices";
 import { formatDate } from "./lib/extensions";
@@ -38,7 +39,7 @@ export default async function Home() {
       </div>
       <div className="py-10 max-w-6xl mx-auto px-4">
         <h1 className="text-3xl font-bold">Our Fleet</h1>
-        <div className="grid sm:grid-cols-3 gap-3">
+        <div className="grid sm:grid-cols-3 gap-3 mb-6">
           {data?.map((helicopter: helicopter, idx: number) => (
             <Card key={idx} className="mt-5">
               <CardContent className="mt-5">
@@ -61,6 +62,7 @@ export default async function Home() {
             </Card>
           ))}
         </div>
+        <Enquire />
       </div>
     </main>
   );
