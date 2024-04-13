@@ -1,5 +1,5 @@
-import { training } from "@/app/lib/interafce";
-import { client, urlFor } from "@/app/lib/sanity";
+import { training } from "@/lib/interface";
+import { client, urlFor } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import type { Metadata } from 'next';
 import Image from "next/image";
@@ -8,7 +8,7 @@ export const revalidate = 30; // revalidate at most 30 seconds
 
 async function getData(slug: string) {
   const query = `
-    *[_type == "flights" && slug.current == '${slug}'] {
+    *[_type == "industry" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
           title,
           seoTitle,

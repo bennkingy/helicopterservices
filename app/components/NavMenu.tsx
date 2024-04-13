@@ -134,9 +134,31 @@ const about: { title: string; href: string; description: string }[] = [
   },
 ];
 
-export function NavMenu() {
-  // const isDesktop = useMediaQuery('(min-width: 768px)');
+const industry: { title: string; href: string; description: string }[] = [
+  {
+    title: 'Aiport transfer',
+    href: '/industry/airport-transfer',
+    description: 'Some description airport transfer.',
+  },
+  {
+    title: 'Helicopter charter',
+    href: '/industry/helicopter-charter',
+    description: 'Some description about the team.',
+  },
+  {
+    title: 'Photography and filming',
+    href: '/industry/photography-and-filming',
+    description: 'Photography and filming',
+  },
+  {
+    title: 'Load lifting',
+    href: '/industry/load-lifting',
+    description: 'Some description about load lifting.',
+  },
+];
 
+
+export function NavMenu() {
   return (
     <>
       <NavigationMenu className='hidden sm:block'>
@@ -172,7 +194,7 @@ export function NavMenu() {
                   <NavigationMenuLink asChild>
                     <a
                       className="from-muted/50 to-muted flex size-full select-none flex-col justify-start rounded-md bg-gradient-to-b p-6 no-underline outline-none focus:shadow-md"
-                      href="/"
+                      href="/industry/helicopter-charter"
                     >
                       <div className="mb-2 text-lg font-medium">
                         Helicopter charter
@@ -184,15 +206,15 @@ export function NavMenu() {
                     </a>
                   </NavigationMenuLink>
                 </li>
-                <ListItem href="/" title="Airport transfer">
+                <ListItem href="/industry/airport-transfer" title="Airport transfer">
                   We provide helicopter shuttle services to events including horse
                   racing, motorsport, etc.
                 </ListItem>
-                <ListItem href="/" title="Photography and filming">
+                <ListItem href="/industry/photography-and-filming" title="Photography and filming">
                   We offer the ultimate way to see London, one of the most famous
                   cities in the world.
                 </ListItem>
-                <ListItem href="/" title="Load lifting">
+                <ListItem href="/industry/load-lifting" title="Load lifting">
                   Something about load lifting.
                 </ListItem>
               </ul>
