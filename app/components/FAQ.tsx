@@ -47,21 +47,21 @@ const FAQList: FAQProps[] = [
       "How do I keep my licence current?",
     answer:
       "For each type of helicopter that you hold on your licence, you need to fly a minimum of two hours per year to include an LPC (Line Proficiency Check) with an Examiner. Realistically this is not enough flying to be safe.  However, flying dual with a safety pilot, you would be able to maintain your licence economically.",
-    value: "item-5",
+    value: "item-6",
   },
   {
     question:
       "Why is aviation so full of acronyms?",
     answer:
       "Even we can't answer that one. Without it, we'd get through even more paper! To give you an idea, Leon Smith is a CFI. He has an ATPL FIC TRE TRI QHI ratings and he's an FE... and FAA ATP IR CFII. If you want to know what they mean, find out at your next visit!",
-    value: "item-5",
+    value: "item-7",
   },
   {
     question:
       "Is there a waiting list?",
     answer:
       "If you want to book a weekend flight you need about a week's notice; during the week just a day or two is fine. Contact us and we will do everything to help you enjoy an aviation experience.",
-    value: "item-5",
+    value: "item-8",
   },
 ];
 
