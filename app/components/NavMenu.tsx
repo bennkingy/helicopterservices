@@ -90,17 +90,17 @@ const training: { title: string; href: string; description: string }[] = [
 const flights: { title: string; href: string; description: string }[] = [
   {
     title: 'London sightseeing',
-    href: '/training/london-sightseeing',
+    href: '/flights/london-sightseeing',
     description: 'Some description about the tour.',
   },
   {
     title: 'Special events',
-    href: '/training/special-events',
+    href: '/flights/special-events',
     description: 'Some description about the tour.',
   },
   {
     title: 'Trail lessons',
-    href: '/training/traillessons',
+    href: '/flights/trail-lessons',
     description: 'Some description about the tour.',
   },
 ];
@@ -108,27 +108,27 @@ const flights: { title: string; href: string; description: string }[] = [
 const about: { title: string; href: string; description: string }[] = [
   {
     title: 'Brexit',
-    href: '/training/brexit',
+    href: '/about-us/brexit',
     description: 'Some description about us.',
   },
   {
     title: 'Meet the team',
-    href: '/training/meet-the-team',
+    href: '/about-us/meet-the-team',
     description: 'Some description about the team.',
   },
   {
     title: 'Helicopter fleet',
-    href: '/training/traillessons',
+    href: '/about-us/helicopter-fleet',
     description: 'Meet the fleet!',
   },
   {
     title: 'The Hanger',
-    href: '/training/the-hanger',
+    href: '/about-us/the-hanger',
     description: 'Some description about the hanger.',
   },
   {
     title: 'FAQs',
-    href: '/training/faqs',
+    href: '/about-us/faqs',
     description: 'FAQs.',
   },
 ];
