@@ -1,5 +1,5 @@
+import { client } from "@/lib/sanity";
 import { MetadataRoute } from "next";
-import { client } from "./lib/sanity";
 
 interface Page {
   currentSlug: string;
@@ -33,10 +33,20 @@ async function getFlightstData() {
   return data;
 }
 
+async function getLegalData() {
+  const query = `*[_type == "legal"] {
+    "currentSlug": slug.current,
+      "updated": _updatedAt
+  }`
+  const data: Page[] = await client.fetch(query)
+  return data;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const trainingData: Page[] = await getTrainingData()
   const aboutData: Page[] = await getAboutData()
   const flightsData: Page[] = await getFlightstData()
+  const legalData: Page[] = await getLegalData()
 
   const training: MetadataRoute.Sitemap = trainingData.map((page: Page) => ({
     url: `https://helicopterservices.co.uk/training/${page.currentSlug}`,
@@ -51,6 +61,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const flights: MetadataRoute.Sitemap = flightsData.map((page: Page) => ({
+    url: `https://helicopterservices.co.uk/flights/${page.currentSlug}`,
+    changeFrequency: "weekly",
+    lastModified: page.updated
+  }));
+
+  const legal: MetadataRoute.Sitemap = legalData.map((page: Page) => ({
     url: `https://helicopterservices.co.uk/flights/${page.currentSlug}`,
     changeFrequency: "weekly",
     lastModified: page.updated
@@ -90,5 +106,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       lastModified: "2024-01-10"
     },
+    ...legal,
   ]
 }

@@ -22,11 +22,11 @@ export default function Footer() {
         </div>
         <div className="p-5">
           <div className="text-xs uppercase font-medium">legals</div>
-          <a className="my-3 block" href="/#">Terms and conditions <span className="text-teal-600 text-xs p-1"></span>
+          <a className="my-3 block" href="/legal/terms-and-conditions">Terms and conditions <span className="text-teal-600 text-xs p-1"></span>
           </a>
-          <a className="my-3 block" href="/#">Privacy Policy <span className="text-teal-600 text-xs p-1"></span>
+          <a className="my-3 block" href="/legal/privacy">Privacy<span className="text-teal-600 text-xs p-1"></span>
           </a>
-          <a className="my-3 block" href="/#">Conditions <span className="text-teal-600 text-xs p-1"></span>
+          <a className="my-3 block" href="/legal/cookies">Cookies<span className="text-teal-600 text-xs p-1"></span>
           </a>
         </div>
         <div className="p-5">
