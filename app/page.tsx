@@ -39,10 +39,10 @@ export default async function Home() {
         </div>
       </div>
       <div className="py-10 max-w-6xl mx-auto px-4">
-        <h1 className="text-3xl font-bold mb-5">See the Fleet</h1>
-        <div className="grid sm:grid-cols-2 gap-3 mb-6">
+        <h1 className="text-3xl font-bold">See our Fleet</h1>
+        <div className="grid sm:grid-cols-3 gap-3 mb-6">
           {data?.map((helicopter: helicopter, idx: number) => (
-            <Card key={idx}>
+            <Card key={idx} className="mt-5">
               <CardContent className="mt-5">
                 <h2 className="text-1xl font-bold">{helicopter?.model}</h2>
                 <h5>Capacity: {helicopter?.capacity}</h5>
@@ -66,7 +66,7 @@ export default async function Home() {
         <Carousel />
         <div className="py-6"></div>
         <Enquire />
-      </div >
-    </main >
+      </div>
+    </main>
   );
 }
