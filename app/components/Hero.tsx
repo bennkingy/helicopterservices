@@ -22,8 +22,8 @@ const Hero = ({ height = 'h-[70vh]', cta, cta2, title, subtitle, className }: pr
       className={`bg-[url('https://images.pexels.com/photos/1549308/pexels-photo-1549308.jpeg?auto=compress&cs=tinysrgb&w=2000')] bg-hero bg-no-repeat bg-cover bg-center ${height} ${className}`}
     >
       <div className={`backdrop-brightness-50 ${height}`}>
-        <div className='h-full grid max-w-screen-xl px-4 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12'>
-          <div className='mr-auto place-self-center lg:col-span-6 mt-[-96px]'>
+        <div className='h-full grid max-w-6xl container mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12'>
+          <div className='mr-auto place-self-center lg:col-span-8 mt-[-96px]'>
             <h1 className='max-w-2xl mb-4 text-4xl tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white text-white'>
               {title}
             </h1>
@@ -47,7 +47,7 @@ const Hero = ({ height = 'h-[70vh]', cta, cta2, title, subtitle, className }: pr
             )}
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 w-full py-3 bg-brand-dark-blue bg-opacity-50 dark:bg-black dark:bg-opacity-50 flex flex-col sm:flex-row items-center justify-center text-white text-center">
+        <div className="absolute bottom-0 left-0 w-full py-5 sm:py-3 bg-brand-dark-blue bg-opacity-50 dark:bg-black dark:bg-opacity-50 flex flex-col sm:flex-row items-center justify-center text-white text-center px-5">
           <p className="mb-4 sm:mb-0 sm:mr-10">A leading UK CAA and EASA approved Training Organisation</p>
           <div className="flex justify-center space-x-5">
             <Image

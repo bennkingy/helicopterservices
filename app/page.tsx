@@ -7,13 +7,13 @@ export default async function Home() {
 
   return (
     <main className="">
-      <Hero title="Exceeding exacting industry standards." height='h-[calc(100vh_-_68px)] sm:h-[calc(75vh_-_68px)]' />
+      <Hero title="Exceeding exacting industry standards." height='h-[calc(100vh_-_68px)] sm:h-[calc(100vh_-_68px)]' />
       <div className="py-10 bg-brand-dark-blue">
         <div className="max-w-6xl container">
           <MainServices />
         </div>
       </div>
-      <div className="py-10 max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2">
+      <div className="py-10 max-w-6xl container mx-auto grid grid-cols-1 sm:grid-cols-2">
         <div>
           Images go here
         </div>
