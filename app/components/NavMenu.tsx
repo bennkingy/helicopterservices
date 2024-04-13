@@ -1,8 +1,6 @@
 'use client';
 
-import Link from 'next/link';
-import * as React from 'react';
-
+import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,7 +10,10 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
+import { MenuIcon } from 'lucide-react';
+import Link from 'next/link';
+import * as React from 'react';
 
 const training: { title: string; href: string; description: string }[] = [
   {
@@ -134,107 +135,121 @@ const about: { title: string; href: string; description: string }[] = [
 ];
 
 export function NavMenu() {
+  // const isDesktop = useMediaQuery('(min-width: 768px)');
+
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Home
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Training</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[800px] ">
-              {training.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Industry</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <a
-                    className="from-muted/50 to-muted flex size-full select-none flex-col justify-start rounded-md bg-gradient-to-b p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
+    <>
+      <NavigationMenu className='hidden sm:block'>
+        <NavigationMenuList>
+          <NavigationMenuItem className='hidden lg:block'>
+            <Link href="/" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Home
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Training</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[800px] ">
+                {training.map((component) => (
+                  <ListItem
+                    key={component.title}
+                    title={component.title}
+                    href={component.href}
                   >
-                    <div className="mb-2 text-lg font-medium">
-                      Helicopter charter
-                    </div>
-                    <p className="text-muted-foreground text-sm leading-tight">
-                      We are able to operate fast, safe bespoke travel while
-                      maintaining social distance.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <ListItem href="/" title="Airport transfer">
-                We provide helicopter shuttle services to events including horse
-                racing, motorsport, etc.
-              </ListItem>
-              <ListItem href="/" title="Photography and filming">
-                We offer the ultimate way to see London, one of the most famous
-                cities in the world.
-              </ListItem>
-              <ListItem href="/" title="Load lifting">
-                Something about load lifting.
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Flights</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {flights.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
+                    {component.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Industry</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <li className="row-span-3">
+                  <NavigationMenuLink asChild>
+                    <a
+                      className="from-muted/50 to-muted flex size-full select-none flex-col justify-start rounded-md bg-gradient-to-b p-6 no-underline outline-none focus:shadow-md"
+                      href="/"
+                    >
+                      <div className="mb-2 text-lg font-medium">
+                        Helicopter charter
+                      </div>
+                      <p className="text-muted-foreground text-sm leading-tight">
+                        We are able to operate fast, safe bespoke travel while
+                        maintaining social distance.
+                      </p>
+                    </a>
+                  </NavigationMenuLink>
+                </li>
+                <ListItem href="/" title="Airport transfer">
+                  We provide helicopter shuttle services to events including horse
+                  racing, motorsport, etc.
                 </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>About us</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {about.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
+                <ListItem href="/" title="Photography and filming">
+                  We offer the ultimate way to see London, one of the most famous
+                  cities in the world.
                 </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/inquire" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Inquire
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+                <ListItem href="/" title="Load lifting">
+                  Something about load lifting.
+                </ListItem>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Flights</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                {flights.map((component) => (
+                  <ListItem
+                    key={component.title}
+                    title={component.title}
+                    href={component.href}
+                  >
+                    {component.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>About us</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                {about.map((component) => (
+                  <ListItem
+                    key={component.title}
+                    title={component.title}
+                    href={component.href}
+                  >
+                    {component.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/inquire" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Inquire
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+      <div className='visible sm:hidden ml-auto'>
+        <Drawer direction='left'>
+          <DrawerTrigger className='mr-3'>
+            <MenuIcon size={24} />
+          </DrawerTrigger>
+          <DrawerContent className='h-full mr-20'>
+            Mobile menu
+          </DrawerContent>
+        </Drawer>
+      </div >
+    </>
   );
 }
 
