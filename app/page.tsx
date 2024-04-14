@@ -28,7 +28,7 @@ export default async function Home() {
             alt="Helicopter Services"
             width={240}
             height={240}
-            className='min-w-[100px] absolute bottom-20 right-0 md:right-14'
+            className='min-w-[100px] absolute bottom-5 sm:bottom-20 right-0 md:right-14'
           />
         </div>
         <div>
