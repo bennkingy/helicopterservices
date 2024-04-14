@@ -42,7 +42,14 @@ export default async function Home() {
             <li>Operating safely since 2000</li>
             <li>Exceeding exacting industry standards</li>
           </ul>
-          <p className='mt-5'>
+          <Image
+            src="/images/signature.svg"
+            alt="Helicopter Services"
+            width={139}
+            height={43}
+            className='min-w-[100px] mt-5'
+          />
+          <p className='mt-3'>
             Captain Leon Smith<br />Head Pilot / Chief Pilot<br />Helicopter Services
           </p>
         </div>
