@@ -1,4 +1,5 @@
 import Carousel from "./components/Carousel";
+import GetInTouch from "./components/GetInTouch";
 import Hero from "./components/Hero";
 import { MainServices } from "./components/MainServices";
 export const revalidate = 30; // revalidate at most 30 seconds
@@ -38,6 +39,7 @@ export default async function Home() {
           <Carousel />
         </div>
       </div>
+      <GetInTouch />
     </main>
   );
 }
