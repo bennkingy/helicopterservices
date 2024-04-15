@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// @ts-ignore
 export function useIsVisible(ref) {
   const [isIntersecting, setIntersecting] = useState(false);
 
