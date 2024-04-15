@@ -137,7 +137,7 @@ const about: { title: string; href: string; description: string }[] = [
 const industry: { title: string; href: string; description: string }[] = [
   {
     title: 'Aiport transfer',
-    href: '/industry/airport-transfer',
+    href: '/industry/airport-transfers',
     description: 'Some description airport transfer.',
   },
   {
@@ -206,7 +206,7 @@ export function NavMenu() {
                     </a>
                   </NavigationMenuLink>
                 </li>
-                <ListItem href="/industry/airport-transfer" title="Airport transfer">
+                <ListItem href="/industry/airport-transfers" title="Airport transfer">
                   We provide helicopter shuttle services to events including horse
                   racing, motorsport, etc.
                 </ListItem>

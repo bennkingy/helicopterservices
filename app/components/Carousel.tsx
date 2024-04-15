@@ -9,11 +9,16 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
+import { carouselItem } from "@/lib/interface";
 import Image from "next/image";
 import Link from 'next/link';
 import { useEffect, useState } from "react";
 
-const Carousel = () => {
+type props = {
+  slides: carouselItem[]
+};
+
+const Carousel = ({ slides }: props) => {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0);
@@ -30,19 +35,10 @@ const Carousel = () => {
     })
   }, [api])
 
-  // Define data for multiple carousel items, here using placeholder data
-  const items = [
-    { title: "Airport Transfer", description: "We offer training from Private Pilots license to Commercial, instruments, instructor and examiner ratings.", link: "/#" },
-    { title: "City Tours", description: "Explore the city's top attractions with our experienced guides.", link: "/tours" },
-    { title: "Hotel Services", description: "Enjoy our world-class accommodations and hospitality.", link: "/hotels" },
-    { title: "Dining Experiences", description: "Taste the best local and international cuisines.", link: "/dining" },
-    { title: "Adventure Sports", description: "Get your adrenaline pumping with our adventure sports packages.", link: "/adventures" },
-  ];
-
   return (
     <CarouselComponent setApi={setApi}>
       <CarouselContent className="-ml-2 md:-ml-4">
-        {items.map((item, index) => (
+        {slides.map((item, index) => (
           <CarouselItem key={index} className="sm:basis-1/3 text-center px-20">
             <Image
               src={'https://placehold.co/400x400/jpg'}

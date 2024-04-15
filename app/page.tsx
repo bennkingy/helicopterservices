@@ -1,3 +1,4 @@
+import { carouselItem } from '@/lib/interface';
 import Image from 'next/image';
 import Carousel from "./components/Carousel";
 import GetInTouch from "./components/GetInTouch";
@@ -5,6 +6,14 @@ import Hero from "./components/Hero";
 import { MainServices } from "./components/MainServices";
 
 export default async function Home() {
+
+  const items: carouselItem[] = [
+    { title: "Airport Transfer", description: "We offer training from Private Pilots license to Commercial, instruments, instructor and examiner ratings.", link: "/#" },
+    { title: "City Tours", description: "Explore the city's top attractions with our experienced guides.", link: "/tours" },
+    { title: "Hotel Services", description: "Enjoy our world-class accommodations and hospitality.", link: "/hotels" },
+    { title: "Dining Experiences", description: "Taste the best local and international cuisines.", link: "/dining" },
+    { title: "Adventure Sports", description: "Get your adrenaline pumping with our adventure sports packages.", link: "/adventures" },
+  ];
 
   return (
     <main className="">
@@ -21,7 +30,7 @@ export default async function Home() {
             alt="Helicopter Services"
             width={1000}
             height={1000}
-            className='min-w-[100px] pr-0 sm:pr-10 md:pr-10 lg:pr-15 xl:pr-20'
+            className='min-w-[100px] pr-0 sm:pr-10 md:pr-10 lg:pr-20 xl:pr-20'
           />
           <Image
             src="/images/grandad.png"
@@ -56,7 +65,7 @@ export default async function Home() {
       </div>
       <div className="py-10 bg-brand-light-grey">
         <div className="max-w-6xl container">
-          <Carousel />
+          <Carousel slides={items} />
         </div>
       </div>
       <GetInTouch />

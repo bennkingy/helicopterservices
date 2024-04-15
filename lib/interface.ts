@@ -17,3 +17,9 @@ export interface helicopter {
   description: any;
   mainImage: any;
 }
+
+export interface carouselItem {
+  title: string;
+  description: string;
+  link: string;
+}
