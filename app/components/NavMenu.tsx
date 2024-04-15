@@ -268,6 +268,13 @@ export function NavMenu() {
           </DrawerTrigger>
           <DrawerContent className='h-full ml-20'>
             Mobile menu
+            {industry.map((component, i) => (
+              <NavigationMenu key={i + 1}>
+                <NavigationMenuItem>
+                  <ListItem title={component.title} href={component.href} />
+                </NavigationMenuItem>
+              </NavigationMenu>
+            ))}
           </DrawerContent>
         </Drawer>
       </div >
