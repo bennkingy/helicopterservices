@@ -2,7 +2,6 @@
 	"name": "helicopterservices",
 	"version": "0.1.0",
 	"private": true,
-
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -10,7 +9,6 @@
 		"lint": "next lint",
 		"add-component": "npx shadcn-ui@latest add"
 	},
-
 	"dependencies": {
 		"@hookform/resolvers": "^3.3.4",
 		"@radix-ui/react-accordion": "^1.1.2",
@@ -38,7 +36,6 @@
 		"vaul": "^0.9.0",
 		"zod": "^3.22.4"
 	},
-
 	"devDependencies": {
 		"@tailwindcss/typography": "^0.5.12",
 		"@types/node": "^20",
