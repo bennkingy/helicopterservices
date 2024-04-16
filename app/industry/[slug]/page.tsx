@@ -34,9 +34,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default async function TrainingPage({ params }: { params: { slug: string } }) {
   const data: any = await getData(params.slug.toLowerCase());
-  const headerImage = data?.mainImage ? urlFor(data.mainImage).url() : 'https://images.pexels.com/photos/1549308/pexels-photo-1549308.jpeg?auto=compress&cs=tinysrgb&w=2000';
-
-  console.log(headerImage);
 
   return (
     <>

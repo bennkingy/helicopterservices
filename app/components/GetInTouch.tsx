@@ -10,7 +10,7 @@ const GetInTouch = ({ className }: props) => {
       className={`bg-[url('https://images.pexels.com/photos/1549308/pexels-photo-1549308.jpeg?auto=compress&cs=tinysrgb&w=2000')] bg-hero bg-no-repeat bg-cover bg-center ${className} text-white`}
     ><div className={`backdrop-brightness-50`}>
         <div className="py-10">
-          <h2 className="text-center text-3xl pt-8">Get in touch with us</h2>
+          <h2 className="text-center text-3xl pt-8 font-bold">Get in touch with us</h2>
           <div className="max-w-6xl container mx-auto grid grid-cols-1 sm:grid-cols-2">
             <div className="p-5">
               <table className={`table-fixed mx-auto sm:ml-auto sm:mx-0`}>
@@ -78,7 +78,7 @@ const GetInTouch = ({ className }: props) => {
             </div>
           </div>
           <div className="pb-10 pt-5 max-w-6xl grid center mx-auto">
-            <Button className="bg-brand-light-blue text-white mx-auto">General enquiries</Button>
+            <Button size='lg' className="bg-brand-light-blue text-white mx-auto">General enquiries</Button>
           </div></div>
       </div>
     </section>

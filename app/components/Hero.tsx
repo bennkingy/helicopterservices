@@ -24,7 +24,7 @@ const Hero = ({ height = 'h-[70vh]', cta, cta2, title, subtitle, className }: pr
       <div className={`backdrop-brightness-50 ${height}`}>
         <div className='h-full grid max-w-6xl container mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12'>
           <div className='mr-auto place-self-center lg:col-span-8 mt-[-96px]'>
-            <h1 className='max-w-2xl mb-4 text-4xl tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white text-white'>
+            <h1 className='max-w-2xl mb-4 text-4xl tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white text-white font-extralight'>
               {title}
             </h1>
             <p className='max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl dark:text-white'>
@@ -47,8 +47,13 @@ const Hero = ({ height = 'h-[70vh]', cta, cta2, title, subtitle, className }: pr
             )}
           </div>
         </div>
+        <div className="absolute top-0 right-0">
+          <svg className="h-6 w-6 text-brand-light-blue" viewBox="0 0 20 20" fill="currentColor">
+            <polygon points="20 0 20 20 0 0" />
+          </svg>
+        </div>
         <div className="absolute bottom-0 left-0 w-full py-5 sm:py-3 bg-brand-dark-blue bg-opacity-50 dark:bg-black dark:bg-opacity-50 flex flex-col sm:flex-row items-center justify-center text-white text-center px-5">
-          <p className="mb-4 sm:mb-0 sm:mr-10">A leading UK CAA and EASA approved Training Organisation</p>
+          <p className="mb-4 sm:mb-0 sm:mr-10 font-bold">A leading UK CAA and EASA approved Training Organisation</p>
           <div className="flex justify-center space-x-5">
             <Image
               src="/images/easa.svg"

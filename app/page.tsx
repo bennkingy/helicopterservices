@@ -2,6 +2,7 @@ import { carouselItem } from '@/lib/interface';
 import Image from 'next/image';
 import Carousel from "./components/Carousel";
 import GetInTouch from "./components/GetInTouch";
+import Heading from './components/Heading';
 import Hero from "./components/Hero";
 import { MainServices } from "./components/MainServices";
 
@@ -15,15 +16,24 @@ export default async function Home() {
     { title: "Adventure Sports", description: "Get your adrenaline pumping with our adventure sports packages.", link: "/adventures" },
   ];
 
+  const reviews: any[] = [
+    { name: "John Smith", job: "Abc Engineering", description: "Explore the city's top attractions with our experienced guides." },
+    { name: "John Smith", job: "Abc Engineering", description: "Explore the city's top attractions with our experienced guides." },
+    { name: "John Smith", job: "Abc Engineering", description: "Explore the city's top attractions with our experienced guides." },
+    { name: "John Smith", job: "Abc Engineering", description: "Explore the city's top attractions with our experienced guides." },
+    { name: "John Smith", job: "Abc Engineering", description: "Explore the city's top attractions with our experienced guides." },
+    { name: "John Smith", job: "Abc Engineering", description: "Explore the city's top attractions with our experienced guides." },
+  ];
+
   return (
     <main className="">
       <Hero title="Exceeding exacting industry standards." height='h-[calc(100vh_-_68px)] sm:h-[calc(100vh_-_68px)]' />
-      <div className="py-10 bg-brand-dark-blue">
+      <div className="py-20 bg-brand-dark-blue">
         <div className="max-w-6xl container">
           <MainServices />
         </div>
       </div>
-      <div className="py-10 max-w-6xl container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
+      <div className="py-20 max-w-6xl container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
         <div className='pr-10 relative'>
           <Image
             src="/images/grandad-helicopter.png"
@@ -41,31 +51,76 @@ export default async function Home() {
           />
         </div>
         <div>
-          <h2 className="max-w-2xl text-3xl mb-4 mt-8 md:mt-0">Over 20 years helicopter
+          <h2 className="max-w-2xl text-3xl mb-4 mt-8 md:mt-0 font-bold">Over 20 years helicopter
             operating experience.</h2>
           <p>We offer training from Private Pilot’s Licence to Commercial, Instruments, Instructor, and Examiner Ratings.  Our senior instructors/examiners in the UK provide type ratings on 17+ helicopter types, and advanced courses. . For gifts, transfers, charters, photography, load lifting, flight learning, helicopter purchase, AOC management, or medical info, we’re here.</p>
-          <ul className='mt-5'>
-            <li>Experienced pilots & instructors</li>
-            <li>Professional & accommodating</li>
-            <li>Excellent customer service</li>
-            <li>Operating safely since 2000</li>
-            <li>Exceeding exacting industry standards</li>
+          <ul className="max-w-md space-y-1 mt-5 list-inside">
+            <li className="flex items-center">
+              <svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+              </svg>Experienced pilots & instructors
+            </li>
+            <li className="flex items-center"><svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+            </svg>Professional & accommodating</li>
+            <li className="flex items-center"><svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+            </svg>Excellent customer service</li>
+            <li className="flex items-center"><svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+            </svg>Operating safely since 2000</li>
+            <li className="flex items-center"><svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+            </svg>Exceeding exacting industry standards</li>
           </ul>
           <Image
             src="/images/signature.svg"
             alt="Helicopter Services"
             width={139}
             height={43}
-            className='min-w-[100px] mt-5'
+            className='min-w-[100px] mt-6'
           />
-          <p className='mt-3'>
-            Captain Leon Smith<br />Head Pilot / Chief Pilot<br />Helicopter Services
-          </p>
+          <p className='mt-3 font-bold'>Captain Leon Smith</p>
+          <p className='mt-0 text-brand-light-blue'>Head Pilot / Chief Pilot</p>
+          <p className='mt-0'>Helicopter Services</p>
         </div>
       </div>
-      <div className="py-10 bg-brand-light-grey">
+      <div className="py-20 bg-brand-light-grey">
         <div className="max-w-6xl container">
+          <Heading title="For gifts, swift transfers and private charters." center className='mb-10' />
           <Carousel slides={items} />
+        </div>
+      </div>
+      <div className="max-w-6xl container py-20">
+        <Heading title="Client feedback." center className='mb-10' />
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+          {reviews.map((review, index) => (
+            <div key={index} className="p-0" style={{ clipPath: 'polygon(0 0,calc(100% - 80px) 0,100% 80px,100% 100%,0 100%)' }}>
+              <div className="max-w-sm mx-auto border-l-4 border-b border-brand-light-blue bg-white shadow-md overflow-hidden">
+                <div className="flex items-center p-4">
+                  <div className="flex-shrink-0">
+                    <Image
+                      src={'/images/ruth.png'}
+                      width={84}
+                      height={82}
+                      alt="Title Image"
+                      priority
+                      className="h-12 w-12 rounded-full"
+                    />
+                  </div>
+                  <div className="ml-4">
+                    <div className="text-sm font-semibold">{review.name}</div>
+                    <div className="text-sm text-gray-600">{review.job}</div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <blockquote className="text-sm text-gray-600">
+                    {review.description}
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
       <GetInTouch />

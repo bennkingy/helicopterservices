@@ -21,7 +21,7 @@ type props = {
 const Carousel = ({ slides }: props) => {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
     if (!api) {
@@ -48,7 +48,7 @@ const Carousel = ({ slides }: props) => {
               priority
               className="my-8 rounded-full"
             />
-            <h5 className="font-bold mb-4">{item.title}</h5>
+            <h5 className="font-bold mb-3 text-lg">{item.title}</h5>
             <p className="mb-3">{item.description}</p>
             <Link href={item.link} className="text-lg font-bold text-brand-light-blue">
               Discover more

@@ -41,7 +41,7 @@ export const MainServices = () => {
         {features.map(({ icon, title, description }: MainServices) => (
           <Card
             key={title}
-            className="bg-white rounded-none"
+            className="bg-white rounded-none border-b-4 border-brand-light-blue relative"
           >
             <CardHeader>
               <CardTitle className="grid gap-4">
@@ -49,7 +49,12 @@ export const MainServices = () => {
                 {title}
               </CardTitle>
             </CardHeader>
-            <CardContent>{description}</CardContent>
+            <CardContent className="-mt-4">{description}</CardContent>
+            <div className="absolute bottom-0 right-0">
+              <svg className="h-6 w-6 text-brand-light-blue" viewBox="0 0 20 20" fill="currentColor">
+                <polygon points="20 0 20 20 0 20" />
+              </svg>
+            </div>
           </Card>
         ))}
       </div>
