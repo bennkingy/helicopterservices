@@ -1,3 +1,4 @@
+'use client'
 interface HeadingProps {
   title: string;
   titleSize?:
@@ -26,7 +27,7 @@ const Heading: React.FC<HeadingProps> = ({
   className,
 }) => {
   return (
-    <div className={`${center ? 'text-center ' : 'text-start '} max-w-screen-lg ${className}`}>
+    <div className={`${center ? 'text-center ' : 'text-start '} max-w-screen-2xl ${className}`}>
       <div className='font-bold'>{tag}</div>
       <div className={`${'font-bold mt-2 '}${titleSize}`}>{title}</div>
       <div className='font-light text-neutral-500 mt-2'>{subtitle}</div>

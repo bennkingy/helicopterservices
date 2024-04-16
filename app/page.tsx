@@ -85,42 +85,44 @@ export default async function Home() {
           <p className='mt-0'>Helicopter Services</p>
         </div>
       </div>
-      <div className="py-20 bg-brand-light-grey">
+      <div className="pb-20 pt-20 bg-brand-light-grey">
         <div className="max-w-6xl container">
           <Heading title="For gifts, swift transfers and private charters." center className='mb-10' />
           <Carousel slides={items} />
         </div>
       </div>
-      <div className="max-w-6xl container py-20">
-        <Heading title="Client feedback." center className='mb-10' />
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
-          {reviews.map((review, index) => (
-            <div key={index} className="p-0" style={{ clipPath: 'polygon(0 0,calc(100% - 80px) 0,100% 80px,100% 100%,0 100%)' }}>
-              <div className="max-w-sm mx-auto border-l-4 border-b border-brand-light-blue bg-white shadow-md overflow-hidden">
-                <div className="flex items-center p-4">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src={'/images/ruth.png'}
-                      width={84}
-                      height={82}
-                      alt="Title Image"
-                      priority
-                      className="h-12 w-12 rounded-full"
-                    />
+      <div className='bg-brand-light-grey mt-0'>
+        <div className="max-w-6xl container pb-20">
+          <Heading title="Client feedback." center className='mb-10 -mt-2' />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+            {reviews.map((review, index) => (
+              <div key={index} className="p-0" style={{ clipPath: 'polygon(0 0,calc(100% - 35px) 0,100% 35px,100% 100%,0 100%)' }}>
+                <div className="max-w-sm mx-auto border-l-4 border-b border-brand-light-blue bg-white shadow-md overflow-hidden">
+                  <div className="flex items-center p-4">
+                    <div className="flex-shrink-0">
+                      <Image
+                        src={'/images/ruth.png'}
+                        width={84}
+                        height={82}
+                        alt="Title Image"
+                        priority
+                        className="h-12 w-12 rounded-full"
+                      />
+                    </div>
+                    <div className="ml-4">
+                      <div className="text-sm font-semibold">{review.name}</div>
+                      <div className="text-sm text-gray-600">{review.job}</div>
+                    </div>
                   </div>
-                  <div className="ml-4">
-                    <div className="text-sm font-semibold">{review.name}</div>
-                    <div className="text-sm text-gray-600">{review.job}</div>
+                  <div className="p-4">
+                    <blockquote className="text-sm text-gray-600">
+                      {review.description}
+                    </blockquote>
                   </div>
-                </div>
-                <div className="p-4">
-                  <blockquote className="text-sm text-gray-600">
-                    {review.description}
-                  </blockquote>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
       <GetInTouch />

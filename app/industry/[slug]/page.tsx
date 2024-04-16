@@ -1,7 +1,7 @@
 import GetinTouchSmall from "@/app/components/GetinTouchSmall";
 import Header from "@/app/components/Header";
 import { training } from "@/lib/interface";
-import { client, urlFor } from "@/lib/sanity";
+import { client } from "@/lib/sanity";
 import type { Metadata } from 'next';
 import { PortableText } from "next-sanity";
 import Image from "next/image";
@@ -37,7 +37,7 @@ export default async function TrainingPage({ params }: { params: { slug: string 
 
   return (
     <>
-      <Header title={data?.title} image={data.mainImage} backgroundPosition={'bg-bottom'} />
+      <Header title={data?.title} image={data.mainImage} />
       <main className="max-w-6xl mx-auto px-4 grid py-10 grid-cols-1 md:grid-cols-3">
         <div className="pr-0 sm:pr-20 mb-10 sm:mb-0 col-span-2">
           <div className="animate-in fade-in zoom-in prose prose-a:text-blue-400">
