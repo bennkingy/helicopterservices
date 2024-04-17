@@ -51,7 +51,7 @@ export default async function Home() {
           />
         </div>
         <div>
-          <h2 className="max-w-2xl text-3xl mb-4 mt-8 md:mt-0 font-bold">Over 20 years helicopter
+          <h2 className="max-w-2xl text-3xl mb-4 mt-8 md:mt-0 font-bold font-workSans">Over 20 years helicopter
             operating experience.</h2>
           <p>We offer training from Private Pilot’s Licence to Commercial, Instruments, Instructor, and Examiner Ratings.  Our senior instructors/examiners in the UK provide type ratings on 17+ helicopter types, and advanced courses. . For gifts, transfers, charters, photography, load lifting, flight learning, helicopter purchase, AOC management, or medical info, we’re here.</p>
           <ul className="max-w-md space-y-1 mt-5 list-inside">
@@ -97,7 +97,7 @@ export default async function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
             {reviews.map((review, index) => (
               <div key={index} className="p-0" style={{ clipPath: 'polygon(0 0,calc(100% - 35px) 0,100% 35px,100% 100%,0 100%)' }}>
-                <div className="max-w-sm mx-auto border-l-4 border-b border-brand-light-blue bg-white shadow-md overflow-hidden">
+                <div className="max-w-sm mx-auto border-l-4 border-brand-light-blue bg-white shadow-sm">
                   <div className="flex items-center p-4">
                     <div className="flex-shrink-0">
                       <Image
@@ -126,6 +126,6 @@ export default async function Home() {
         </div>
       </div>
       <GetInTouch />
-    </main>
+    </main >
   );
 }

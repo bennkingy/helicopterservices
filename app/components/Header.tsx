@@ -15,7 +15,7 @@ const Header = ({ height = 'h-[420px]', title, subtitle, className, image, }: pr
 
   return (
     <section
-      className={`relative w-screen h-[200px] sm:h-[300px] ${height} ${className}`}
+      className={`relative w-screen h-[150px] sm:h-[300px] ${className}`}
     >
       <Image
         priority
@@ -25,8 +25,8 @@ const Header = ({ height = 'h-[420px]', title, subtitle, className, image, }: pr
         objectPosition="center"
         alt="hero image example"
       />
-      <div className='h-full grid max-w-6xl container'>
-        <h1 className='max-w-2xl mb-4 text-4xl tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white text-white'>
+      <div className='container max-w-6xl relative z-10 flex items-center h-full'>
+        <h1 className='text-4xl tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white text-white'>
           {title}
         </h1>
       </div>

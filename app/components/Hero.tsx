@@ -24,7 +24,7 @@ const Hero = ({ height = 'h-[70vh]', cta, cta2, title, subtitle, className }: pr
       <div className={`backdrop-brightness-50 ${height}`}>
         <div className='h-full grid max-w-6xl container mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12'>
           <div className='mr-auto place-self-center lg:col-span-8 mt-[-96px]'>
-            <h1 className='max-w-2xl mb-4 text-4xl tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white text-white font-extralight'>
+            <h1 className='max-w-2xl mb-4 text-4xl tracking-tight leading-tight md:text-5xl xl:text-5xl dark:text-white text-white font-extralight font-openSans'>
               {title}
             </h1>
             <p className='max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl dark:text-white'>

@@ -41,7 +41,7 @@ export const MainServices = () => {
         {features.map(({ icon, title, description }: MainServices) => (
           <Card
             key={title}
-            className="bg-white rounded-none border-b-4 border-brand-light-blue relative"
+            className="bg-white rounded-none border-0 border-b-4 border-brand-light-blue relative"
           >
             <CardHeader>
               <CardTitle className="grid gap-4">

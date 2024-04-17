@@ -1,5 +1,6 @@
 import GetinTouchSmall from "@/app/components/GetinTouchSmall";
 import Header from "@/app/components/Header";
+import TransferTimesTable from "@/app/components/TransferTimesTable";
 import { training } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import type { Metadata } from 'next';
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default async function TrainingPage({ params }: { params: { slug: string } }) {
   const data: any = await getData(params.slug.toLowerCase());
+  const showTransferTimesTable = params.slug === 'airport-transfers';
 
   return (
     <>
@@ -43,6 +45,12 @@ export default async function TrainingPage({ params }: { params: { slug: string 
           <div className="animate-in fade-in zoom-in prose prose-a:text-blue-400">
             <PortableText value={data?.body || ''} />
           </div>
+          {showTransferTimesTable && (
+            <div className="mt-8">
+              <h2 className="text-2xl font-bold">Transfer Times</h2>
+              <TransferTimesTable />
+            </div>
+          )}
         </div>
         <div className='text-white bg-brand-medium-blue h-fit'>
           <div className='bg-brand-medium-blue py-5 text-white p-10 relative'>

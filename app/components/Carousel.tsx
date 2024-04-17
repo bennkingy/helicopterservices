@@ -13,6 +13,7 @@ import { carouselItem } from "@/lib/interface";
 import Image from "next/image";
 import Link from 'next/link';
 import { useEffect, useState } from "react";
+import FramerAnimation from "./FramerAnimation";
 
 type props = {
   slides: carouselItem[]
@@ -40,19 +41,21 @@ const Carousel = ({ slides }: props) => {
       <CarouselContent className="-ml-2 md:-ml-4">
         {slides.map((item, index) => (
           <CarouselItem key={index} className="sm:basis-1/3 text-center px-20">
-            <Image
-              src={'https://placehold.co/400x400/jpg'}
-              width={400}
-              height={400}
-              alt={item.title}
-              priority
-              className="my-8 rounded-full"
-            />
-            <h5 className="font-bold mb-3 text-lg">{item.title}</h5>
-            <p className="mb-3">{item.description}</p>
-            <Link href={item.link} className="text-lg font-bold text-brand-light-blue">
-              Discover more
-            </Link>
+            <FramerAnimation delay={index < 3 ? 0.75 : 0.2}>
+              <Image
+                src={'https://placehold.co/400x400/jpg'}
+                width={400}
+                height={400}
+                alt={item.title}
+                priority
+                className="my-8 rounded-full"
+              />
+              <h5 className="font-bold mb-3 text-lg">{item.title}</h5>
+              <p className="mb-3">{item.description}</p>
+              <Link href={item.link} className="text-lg font-bold text-brand-light-blue">
+                Discover more
+              </Link>
+            </FramerAnimation>
           </CarouselItem>
         ))}
       </CarouselContent>
