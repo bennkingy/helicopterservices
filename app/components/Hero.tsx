@@ -20,7 +20,7 @@ type props = {
 const Hero = ({ height = 'h-[70vh]', cta, cta2, title, subtitle, className }: props) => {
   return (
     <section
-      className={`bg-[url('/images/0.jpg')] bg-no-repeat bg-cover bg-center ${height} ${className}`}
+      className={`bg-[url('/images/flipped.jpg')] bg-no-repeat bg-cover bg-center ${height} ${className}`}
     >
       <div className={`bg-opacity-20 bg-brand-dark-blue ${height}`}>
         <div className='h-full grid container mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12'>

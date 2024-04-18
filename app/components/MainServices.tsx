@@ -10,25 +10,25 @@ interface MainServices {
 
 const features: MainServices[] = [
   {
-    icon: <Image src='/images/helicopter-icon.svg' width={40} height={40} />,
+    icon: <Image src='/images/helicopter-icon.svg' alt='' width={40} height={40} />,
     title: "Training",
     description:
       "You're in expert hands, from beginner to advanced.",
   },
   {
-    icon: <Image src='/images/helicopter-icon.svg' width={40} height={40} />,
+    icon: <Image src='/images/helicopter-icon.svg' alt='' width={40} height={40} />,
     title: "Flights",
     description:
       "Flight examiner ratingsFE(H), TRE(H), and more.",
   },
   {
-    icon: <Image src='/images/helicopter-icon.svg' width={40} height={40} />,
+    icon: <Image src='/images/helicopter-icon.svg' alt='' width={40} height={40} />,
     title: "Industry",
     description:
       "Elevating industry to new heights. Photography  & filming.",
   },
   {
-    icon: <Image src='/images/helicopter-icon.svg' width={40} height={40} />,
+    icon: <Image src='/images/helicopter-icon.svg' alt='' width={40} height={40} />,
     title: "Our company",
     description:
       "Please feel free to drop us a message, we'd love to hear from you.",

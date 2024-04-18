@@ -15,7 +15,7 @@ export default function Footer() {
           />
         </Link></div>
         <div className="">
-          <div className="text-xs uppercase font-medium mb-4">Training</div>
+          <div className="text-sm uppercase font-bold mb-4">Training</div>
           <ul>
             <li>Private pilot license</li>
             <li>Commercial pilot license</li>
@@ -34,13 +34,13 @@ export default function Footer() {
           </ul>
         </div>
         <div className="">
-          <div className="text-xs uppercase font-medium mb-5 mt-5 sm:mt-0">Flight</div>
+          <div className="text-sm uppercase mb-5 mt-5 sm:mt-0 font-bold">Flight</div>
           <ul>
             <li>London sightseeing</li>
             <li>Special events</li>
             <li>Trail lesson</li>
           </ul>
-          <div className="text-xs uppercase font-medium my-5">Industry</div>
+          <div className="text-sm uppercase my-5 font-bold">Industry</div>
           <ul>
             <li>Airport transfer</li>
             <li>Helicopter charter</li>
@@ -49,7 +49,7 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <div className="text-sm uppercase font-medium mb-5 mt-5 sm:mt-0 font-bold">Contact</div>
+          <div className="text-sm uppercase mb-5 mt-5 sm:mt-0 font-bold">Contact</div>
           <p>
             Helicopter Services<br />
             White Waltham Airfield<br />
@@ -57,12 +57,12 @@ export default function Footer() {
             Berkshire<br />
             SL6 3NJ
           </p>
-          <div className="text-xs uppercase font-medium my-5">Social</div>
+          <div className="text-sm uppercase font-bold my-5">Social</div>
           <ul>
             <li>Instagram</li>
             <li>Facebook</li>
           </ul>
-          <div className="text-xs uppercase font-medium my-5">Legals</div>
+          <div className="text-sm uppercase font-bold my-5">Legals</div>
           <ul>
             <li>Terms and conditions</li>
             <li>Policy</li>
