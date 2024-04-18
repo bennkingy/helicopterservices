@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Heading from "./Heading";
 
 type props = {
   className?: string;
@@ -9,8 +10,8 @@ const GetInTouch = ({ className }: props) => {
     <section
       className={`bg-[url('https://images.pexels.com/photos/1549308/pexels-photo-1549308.jpeg?auto=compress&cs=tinysrgb&w=2000')] bg-hero bg-no-repeat bg-cover bg-center ${className} text-white`}
     ><div className={`backdrop-brightness-50`}>
-        <div className="py-10">
-          <h2 className="text-center text-3xl pt-8 font-bold">Get in touch with us</h2>
+        <div className="py-10 container">
+          <Heading title="Get in touch with us" tag='contact' center className='mb-10' />
           <div className="max-w-6xl container mx-auto grid grid-cols-1 sm:grid-cols-2">
             <div className="p-5">
               <table className={`table-fixed mx-auto sm:ml-auto sm:mx-0`}>

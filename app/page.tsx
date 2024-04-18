@@ -47,14 +47,13 @@ export default async function Home() {
             alt="Helicopter Services"
             width={240}
             height={240}
-            className='min-w-[100px] absolute bottom-5 sm:bottom-20 right-0 md:right-14'
-          />
+            className='min-w-[100px] absolute bottom-5 sm:bottom-20 right-0 md:right-14 border-8 border-white drop-shadow-sm shadow-xl' />
         </div>
         <div>
-          <h2 className="max-w-2xl text-3xl mb-4 mt-8 md:mt-0 font-bold font-workSans">Over 20 years helicopter
-            operating experience.</h2>
-          <p>We offer training from Private Pilot’s Licence to Commercial, Instruments, Instructor, and Examiner Ratings.  Our senior instructors/examiners in the UK provide type ratings on 17+ helicopter types, and advanced courses. . For gifts, transfers, charters, photography, load lifting, flight learning, helicopter purchase, AOC management, or medical info, we’re here.</p>
-          <ul className="max-w-md space-y-1 mt-5 list-inside">
+          <Heading title="Over 20 years helicopter
+            operating experience." tag='contact' className='mb-8 mt-16 sm:mt-0' />
+          <p className='font-openSans'>We offer training from Private Pilot’s Licence to Commercial, Instruments, Instructor, and Examiner Ratings.  Our senior instructors/examiners in the UK provide type ratings on 17+ helicopter types, and advanced courses. . For gifts, transfers, charters, photography, load lifting, flight learning, helicopter purchase, AOC management, or medical info, we’re here.</p>
+          <ul className="max-w-md space-y-1 mt-7 list-inside font-openSans">
             <li className="flex items-center">
               <svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
@@ -78,11 +77,11 @@ export default async function Home() {
             alt="Helicopter Services"
             width={139}
             height={43}
-            className='min-w-[100px] mt-6'
+            className='min-w-[100px] mt-7'
           />
-          <p className='mt-3 font-bold'>Captain Leon Smith</p>
-          <p className='mt-0 text-brand-light-blue'>Head Pilot / Chief Pilot</p>
-          <p className='mt-0'>Helicopter Services</p>
+          <p className='mt-3 font-bold font-openSans'>Captain Leon Smith</p>
+          <p className='mt-0 text-brand-light-blue font-openSans'>Head Pilot / Chief Pilot</p>
+          <p className='mt-0 font-openSans'>Helicopter Services</p>
         </div>
       </div>
       <div className="pb-20 pt-20 bg-brand-light-grey">

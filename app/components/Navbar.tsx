@@ -10,9 +10,9 @@ import { NavMenu } from "./NavMenu";
 export default function Navbar() {
 
   return (
-    <Headroom >
+    <Headroom>
       <header className="w-full border-b-4 border-brand-light-blue bg-white">
-        <div className={cn("container flex h-16 items-center justify-between",
+        <div className={cn("container flex h-14 sm:h-16 items-center justify-between",
           "container", "px-4"
         )}>
           <Link href="/" className="font-mono text-lg font-bold start">
@@ -26,6 +26,11 @@ export default function Navbar() {
           </Link>
           <NavMenu />
           <ModeToggle />
+          <div className="absolute bottom-0 right-0">
+            <svg className="h-6 w-6 text-brand-light-blue" viewBox="0 0 20 20" fill="currentColor">
+              <polygon points="20 0 20 20 0 20" />
+            </svg>
+          </div>
         </div>
       </header>
     </Headroom>
