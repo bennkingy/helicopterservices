@@ -20,7 +20,7 @@ const Header = ({ height = 'h-[420px]', title, subtitle, className, image, }: pr
       <Image
         priority
         src={image ? urlFor(image)?.url() : 'https://cdn.sanity.io/images/0he7nz2b/production/6970de59aa24da2973e3892c2f43231ef132fcee-1680x419.png'}
-        layout="fill"
+        fill
         objectFit="cover"
         objectPosition="center"
         alt="hero image example"

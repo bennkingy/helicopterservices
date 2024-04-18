@@ -161,10 +161,10 @@ const industry: { title: string; href: string; description: string }[] = [
 export function NavMenu() {
   return (
     <>
-      <NavigationMenu className='hidden sm:block'>
+      <NavigationMenu className='hidden sm:block font-workSans'>
         <NavigationMenuList>
           <NavigationMenuItem className='hidden lg:block'>
-            <Link href="/" legacyBehavior passHref>
+            <Link href="/" legacyBehavior passHref className='text-lg'>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Home
               </NavigationMenuLink>
