@@ -8,16 +8,16 @@ type props = {
 const GetInTouch = ({ className }: props) => {
   return (
     <section
-      className={`bg-[url('https://images.pexels.com/photos/1549308/pexels-photo-1549308.jpeg?auto=compress&cs=tinysrgb&w=2000')] bg-hero bg-no-repeat bg-cover bg-center ${className} text-white`}
-    ><div className={`backdrop-brightness-50`}>
+      className={`bg-[url('/images/0.jpg')] bg-no-repeat bg-cover bg-center ${className} text-white`}
+    ><div className={`bg-opacity-80 bg-brand-dark-blue`}>
         <div className="py-10 container">
-          <Heading title="Get in touch with us" tag='contact' center className='mb-10' />
-          <div className="max-w-6xl container mx-auto grid grid-cols-1 sm:grid-cols-2">
-            <div className="p-5">
+          <Heading title="Get in touch with us." tag='Contact' center className='mb-10' />
+          <div className="max-w-6xl container mx-auto grid grid-cols-1 sm:grid-cols-2 font-openSans">
+            <div className="p-5 pr-5 sm:pr-12">
               <table className={`table-fixed mx-auto sm:ml-auto sm:mx-0`}>
                 <thead>
                   <tr>
-                    <th scope="col">General enquiries:</th>
+                    <th scope="col" className="pb-3">General enquiries:</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -45,11 +45,11 @@ const GetInTouch = ({ className }: props) => {
                 </tbody>
               </table>
             </div>
-            <div className="p-5">
+            <div className="p-5 pl-5 sm:pl-12">
               <table className={`table-fixed mx-auto sm:mx-0`}>
                 <thead>
                   <tr>
-                    <th scope="col">Charter enquiries:</th>
+                    <th scope="col" className="pb-3">Charter enquiries:</th>
                   </tr>
                 </thead>
                 <tbody>

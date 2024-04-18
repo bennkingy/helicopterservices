@@ -34,7 +34,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="">
-          <div className="text-xs uppercase font-medium mb-5">Flight</div>
+          <div className="text-xs uppercase font-medium mb-5 mt-5 sm:mt-0">Flight</div>
           <ul>
             <li>London sightseeing</li>
             <li>Special events</li>
@@ -49,7 +49,7 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <div className="text-xs uppercase font-medium mb-5">Contact</div>
+          <div className="text-sm uppercase font-medium mb-5 mt-5 sm:mt-0 font-bold">Contact</div>
           <p>
             Helicopter Services<br />
             White Waltham Airfield<br />

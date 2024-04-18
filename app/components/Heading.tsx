@@ -29,8 +29,8 @@ const Heading: React.FC<HeadingProps> = ({
   className,
 }) => {
   return (
-    <div className={`${center ? 'text-center ' : 'text-start '} max-w-screen-2xl ${className} font-workSans`}>
-      <div className={`${center ? 'justify-center ' : 'justify-start'} font-workSans flex text-brand-light-blue text-lg`}>
+    <div className={`max-w-screen-2xl ${center ? 'text-center max-w-[800px] mx-auto' : 'text-start'} ${className} font-workSans`}>
+      <div className={`${center ? 'justify-center' : 'justify-start'} font-workSans flex text-brand-light-blue text-lg`}>
         <Image src='/images/helicopter-icon-blue.svg' alt='' width={20} height={20} className="mr-2" />
         {tag}
       </div>

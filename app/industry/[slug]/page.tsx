@@ -47,7 +47,7 @@ export default async function TrainingPage({ params }: { params: { slug: string 
           </div>
           {showTransferTimesTable && (
             <div className="mt-8">
-              <h2 className="text-2xl font-bold">Transfer Times</h2>
+              <h2 className="text-2xl font-bold mb-5">Transfer Times</h2>
               <TransferTimesTable />
             </div>
           )}

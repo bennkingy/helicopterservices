@@ -47,12 +47,12 @@ export default async function Home() {
             alt="Helicopter Services"
             width={240}
             height={240}
-            className='min-w-[100px] absolute bottom-5 sm:bottom-20 right-0 md:right-14 border-8 border-white drop-shadow-sm shadow-xl' />
+            className='min-w-[100px] absolute -bottom-20 sm:bottom-20 right-0 md:right-14 border-8 border-white drop-shadow-sm shadow-xl' />
         </div>
         <div>
           <Heading title="Over 20 years helicopter
-            operating experience." tag='contact' className='mb-8 mt-16 sm:mt-0' />
-          <p className='font-openSans'>We offer training from Private Pilot’s Licence to Commercial, Instruments, Instructor, and Examiner Ratings.  Our senior instructors/examiners in the UK provide type ratings on 17+ helicopter types, and advanced courses. . For gifts, transfers, charters, photography, load lifting, flight learning, helicopter purchase, AOC management, or medical info, we’re here.</p>
+            operating experience." tag='About us' className='mb-8 mt-24 sm:mt-0' />
+          <p className='font-openSans'>We offer training from Private Pilot’s Licence to Commercial, Instruments, Instructor, and Examiner Ratings.  Our senior instructors/examiners in the UK provide type ratings on 17+ helicopter types, and advanced courses. For gifts, transfers, charters, photography, load lifting, flight learning, helicopter purchase, AOC management, or medical info, we’re here.</p>
           <ul className="max-w-md space-y-1 mt-7 list-inside font-openSans">
             <li className="flex items-center">
               <svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -86,7 +86,7 @@ export default async function Home() {
       </div>
       <div className="pb-20 pt-20 bg-brand-light-grey">
         <div className="max-w-6xl container">
-          <Heading title="For gifts, swift transfers and private charters." center className='mb-10' />
+          <Heading title="For gifts, swift transfers and private charters." tag='Flights' center className='mb-10' />
           <Carousel slides={items} />
         </div>
       </div>

@@ -12,7 +12,7 @@ const TransferTimesTable = () => {
   return (
     <div>
       <Table>
-        <TableCaption>Transfer Times to Battersea</TableCaption>
+        <TableCaption>More transfers available.</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Departure</TableHead>

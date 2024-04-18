@@ -20,9 +20,9 @@ type props = {
 const Hero = ({ height = 'h-[70vh]', cta, cta2, title, subtitle, className }: props) => {
   return (
     <section
-      className={`bg-[url('/images/0.jpg')] bg-hero bg-no-repeat bg-cover bg-center ${height} ${className}`}
+      className={`bg-[url('/images/0.jpg')] bg-no-repeat bg-cover bg-center ${height} ${className}`}
     >
-      <div className={`backdrop-brightness-50 ${height}`}>
+      <div className={`bg-opacity-20 bg-brand-dark-blue ${height}`}>
         <div className='h-full grid container mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12'>
           <div className='mr-auto place-self-start lg:col-span-8 mt-14 sm:mt-20 text-balance'>
             <FramerAnimation delay={0}>
