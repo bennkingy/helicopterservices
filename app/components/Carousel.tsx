@@ -50,9 +50,9 @@ const Carousel = ({ slides }: props) => {
                 priority
                 className="my-8 rounded-full"
               />
-              <h5 className="font-bold mb-3 text-lg">{item.title}</h5>
-              <p className="mb-3">{item.description}</p>
-              <Link href={item.link} className="text-lg font-bold text-brand-light-blue">
+              <h5 className="font-bold mb-3 text-lgfont-openSans">{item.title}</h5>
+              <p className="mb-3 font-openSans">{item.description}</p>
+              <Link href={item.link} className="text-lg font-bold text-brand-light-blue font-openSans">
                 Discover more
               </Link>
             </FramerAnimation>
