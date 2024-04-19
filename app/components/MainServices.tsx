@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
-import FramerAnimation from "./FramerAnimation";
 
 interface MainServices {
   icon: JSX.Element;
@@ -40,31 +39,28 @@ export const MainServices = () => {
     <section>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {features.map(({ icon, title, description }: MainServices, i) => (
-          <FramerAnimation delay={0.25 + (i / 10)} key={title}>
-            <Card
-              className="bg-white rounded-none border-0 border-b-4 border-brand-light-blue relative"
-            >
-              <CardHeader>
-                <CardTitle className="grid gap-4 font-bold text-lg sm:text-2xl">
-                  {icon}
-                  {title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="-mt-3 sm:-mt-2 text-black text-md sm:text-lg">{description}</CardContent>
-              <div className="absolute bottom-0 right-0">
-                <svg className="text-brand-light-blue h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                  <polygon points="20 0 20 20 0 20" />
-                </svg>
-                <Image
-                  src="/images/caret-right.svg"
-                  alt="Helicopter Services"
-                  width={6}
-                  height={6}
-                  className='absolute bottom-0 right-1'
-                />
-              </div>
-            </Card>
-          </FramerAnimation>
+          <Card key={title} className="bg-white rounded-none border-0 border-b-4 border-brand-light-blue relative"
+          >
+            <CardHeader>
+              <CardTitle className="grid gap-4 font-bold text-lg sm:text-2xl">
+                {icon}
+                {title}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="-mt-3 sm:-mt-2 text-black text-md sm:text-lg">{description}</CardContent>
+            <div className="absolute bottom-0 right-0">
+              <svg className="text-brand-light-blue h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                <polygon points="20 0 20 20 0 20" />
+              </svg>
+              <Image
+                src="/images/caret-right.svg"
+                alt="Helicopter Services"
+                width={6}
+                height={6}
+                className='absolute bottom-0 right-1'
+              />
+            </div>
+          </Card>
         ))}
       </div>
     </section>

@@ -63,7 +63,7 @@ export default async function TrainingPage({ params }: { params: { slug: string 
               className="rounded-lg -top-5 right-5 absolute z-10"
             />
           </div>
-          <div className=' text-white relative z-1'>
+          <div className=' text-white relative z-1 overflow-x-hidden'>
             <h5 className="font-bold mb-4  pl-10 pr-20">“Contact us today for a customised quote tailored to your needs”</h5>
             <p className='pl-10'>Captain Ruth Downey,<br /><span className="text-brand-light-blue">Accountable Manager/Examiner</span></p>
             <table className={`table-fixed mt-5 ml-10 w-full`}>
