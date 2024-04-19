@@ -267,14 +267,13 @@ export function NavMenu() {
             <MenuIcon size={24} />
           </DrawerTrigger>
           <DrawerContent className='h-full ml-20'>
-            Mobile menu
-            {industry.map((component, i) => (
-              <NavigationMenu key={i + 1}>
-                <NavigationMenuItem>
-                  <ListItem title={component.title} href={component.href} />
-                </NavigationMenuItem>
-              </NavigationMenu>
-            ))}
+            <ul>
+              <li className='mb-4 ml-4 mt-4'><a href='/flights'>Flights</a></li>
+              <li className='mb-4 ml-4'><a href='/industry'>Industry</a></li>
+              <li className='mb-4 ml-4'><a href='/training'>Training</a></li>
+              <li className='mb-4 ml-4'><a href='/about-us'>About Us</a></li>
+              <li className='mb-4 ml-4'><a href='/inquire'>Inquire</a></li>
+            </ul>
           </DrawerContent>
         </Drawer>
       </div >

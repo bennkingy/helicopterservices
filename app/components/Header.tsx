@@ -19,14 +19,14 @@ const Header = ({ height = 'h-[420px]', title, subtitle, className, image, }: pr
     >
       <Image
         priority
-        src={image ? urlFor(image)?.url() : 'https://cdn.sanity.io/images/0he7nz2b/production/6970de59aa24da2973e3892c2f43231ef132fcee-1680x419.png'}
+        src={image ? urlFor(image)?.url() : '/images/london.jpg'}
         fill
         objectFit="cover"
         objectPosition="center"
         alt="hero image example"
       />
       <div className='container max-w-6xl relative z-10 flex items-center h-full'>
-        <h1 className='text-4xl tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white text-white'>
+        <h1 className='text-2xl tracking-tight leading-none font-light sm:text-4xl xl:text-5xl dark:text-white text-white font-workSans'>
           {title}
         </h1>
       </div>

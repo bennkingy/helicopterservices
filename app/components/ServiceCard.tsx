@@ -11,8 +11,9 @@ interface ServiceCard {
 const ServiceCard = ({ header, url, description, category }: ServiceCard) => {
   return (
     <a href={url} className="bg-white justify-between shadow-xl rounded-none border-0 border-b-4 border-brand-light-blue relative flex flex-col-reverse	items-center overflow-hidden md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-      <div className="flex flex-col justify-between p-5 leading-normal basis-3/6">
-        <Heading title={header} tag={category} titleSize="text-3xl" tagSize="text-sm" iconSize={15} className="my-5" iconStyles='mb-4' />
+      <div className="flex flex-col justify-between p-5 leading-normal basis-full w-full sm:basis-3/6">
+        {/*@ts-ignore*/}
+        <Heading title={header} tag={category} titleSize="text-2xl sm:text-3xl" tagSize="text-sm" iconSize={15} className="my-3 sm:my-5" iconStyles='mb-4' />
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 font-openSans">{description}</p>
       </div>
       <div className="absolute bottom-0 right-0">

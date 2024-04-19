@@ -41,7 +41,7 @@ const Carousel = ({ slides }: props) => {
       <CarouselContent className="-ml-2 md:-ml-4">
         {slides.map((item, index) => (
           <CarouselItem key={index} className="sm:basis-1/3 text-center px-20">
-            <FramerAnimation delay={index < 3 ? 0.75 : 0.2}>
+            <FramerAnimation delay={0.15}>
               <Image
                 src={'https://placehold.co/400x400/jpg'}
                 width={400}

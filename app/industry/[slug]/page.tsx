@@ -1,3 +1,4 @@
+import ContactCta from "@/app/components/ContactCta";
 import GetinTouchSmall from "@/app/components/GetinTouchSmall";
 import Header from "@/app/components/Header";
 import TransferTimesTable from "@/app/components/TransferTimesTable";
@@ -5,7 +6,6 @@ import { training } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import type { Metadata } from 'next';
 import { PortableText } from "next-sanity";
-import Image from "next/image";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -52,46 +52,8 @@ export default async function TrainingPage({ params }: { params: { slug: string 
             </div>
           )}
         </div>
-        <div className='text-white bg-brand-medium-blue h-fit'>
-          <div className='bg-brand-medium-blue py-5 text-white p-10 relative'>
-            <Image
-              src={'/images/ruth.png'}
-              width={82}
-              height={82}
-              alt="Title Image"
-              priority
-              className="rounded-lg -top-5 right-5 absolute z-10"
-            />
-          </div>
-          <div className=' text-white relative z-1 overflow-x-hidden'>
-            <h5 className="font-bold mb-4  pl-10 pr-20">“Contact us today for a customised quote tailored to your needs”</h5>
-            <p className='pl-10'>Captain Ruth Downey,<br /><span className="text-brand-light-blue">Accountable Manager/Examiner</span></p>
-            <table className={`table-fixed mt-5 ml-10 w-full`}>
-              <tbody>
-                <tr>
-                  <td>Monday:</td> <td>08:30 - 1730</td>
-                </tr>
-                <tr>
-                  <td>Tuesday:</td> <td>08:30 - 1730</td>
-                </tr>
-                <tr>
-                  <td>Wednesday:</td> <td>08:30 - 1730</td>
-                </tr>
-                <tr>
-                  <td>Thursday:</td> <td>08:30 - 1730</td>
-                </tr>
-                <tr>
-                  <td>Friday:</td> <td>08:30 - 1730</td>
-                </tr>
-                <tr className="font-bold">
-                  <td>Saturday:</td> <td>Closed</td>
-                </tr>
-                <tr className="font-bold">
-                  <td>Sunday:</td> <td>Closed</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div>
+          <ContactCta />
           <GetinTouchSmall />
         </div>
       </main >
