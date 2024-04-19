@@ -50,8 +50,7 @@ export default async function Home() {
             className='min-w-[100px] absolute -bottom-20 sm:bottom-20 right-0 md:right-14 border-8 border-white drop-shadow-sm shadow-xl' />
         </div>
         <div>
-          <Heading title="Over 20 years helicopter
-            operating experience." tag='About us' className='mb-8 mt-24 sm:mt-0' />
+          <Heading title="Over 20 years helicopter operating experience." tag='About us' className='mb-8 mt-36 sm:mt-0' />
           <p className='font-openSans'>We offer training from Private Pilot’s Licence to Commercial, Instruments, Instructor, and Examiner Ratings.  Our senior instructors/examiners in the UK provide type ratings on 17+ helicopter types, and advanced courses. For gifts, transfers, charters, photography, load lifting, flight learning, helicopter purchase, AOC management, or medical info, we’re here.</p>
           <ul className="max-w-md space-y-1 mt-7 list-inside font-openSans">
             <li className="flex items-center">
