@@ -2,6 +2,7 @@
 
 import { urlFor } from "@/lib/sanity";
 import Image from "next/image";
+import Heading from "./Heading";
 
 type props = {
   height?: string; // e.g. 'h-[70vh]' or 'h-[50vh]'
@@ -26,9 +27,7 @@ const Header = ({ height = 'h-[420px]', title, subtitle, className, image, }: pr
         alt="hero image example"
       />
       <div className='container max-w-6xl relative z-10 flex items-center h-full'>
-        <h1 className='text-2xl tracking-tight leading-none font-light sm:text-4xl xl:text-5xl dark:text-white text-white font-workSans'>
-          {title}
-        </h1>
+        <Heading title={title || ''} tag='flights' />
       </div>
     </section>
   );

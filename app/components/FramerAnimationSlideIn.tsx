@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const variants = {
   initial: {
     opacity: 0,
-    x: -50,
+    x: -100,
     filter: 'blur(5px)'
   },
   animate: (index: number) => ({
