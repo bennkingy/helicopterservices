@@ -15,7 +15,7 @@ const Header = ({ height = 'h-[420px]', title, subtitle, className, image, }: pr
 
   return (
     <section
-      className={`relative w-screen h-[150px] sm:h-[300px] ${className}`}
+      className={`relative w-screen h-[150px] sm:h-[300px] ${className} z-0 bg-slate-5`}
     >
       <Image
         priority
