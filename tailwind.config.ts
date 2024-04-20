@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      boxShadow: {
+        'brand': '0px 4px 24px rgba(0, 0, 0, 0.25)',
+      },
       fontFamily: {
         openSans: ['var(--font-open-sans)'],
         workSans: ['var(--font-work-sans)'],

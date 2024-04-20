@@ -14,35 +14,35 @@ const flightServices: ServiceCard[] = [
   {
     header: 'Airport transfers.',
     url: '/airport-transfers',
-    description: 'A quick and easy way to get to your destination.',
+    description: 'Your luxury airport transfer service.',
+    category: 'Flights'
+  },
+  {
+    header: 'Helicopter charter.',
+    url: '/heli-charter',
+    description: 'We have been transporting VIPs to special events for well over 20 years.',
+    category: 'Flights'
+  },
+  {
+    header: 'London sightseeing tour.',
+    url: '/london-sightseeing-tour',
+    description: 'The ultimate way to see London, one of the most famous cities in the world.',
     category: 'Flights'
   },
   {
     header: 'Special events.',
-    url: '/airport-transfers',
-    description: 'A quick and easy way to get to your destination.',
+    url: '/special-events',
+    description: 'Treat yourself to a wedding flight, a personalised sightseeing tour, or a day out',
     category: 'Flights'
   },
   {
-    header: 'Airport transfers.',
-    url: '/airport-transfers',
-    description: 'A quick and easy way to get to your destination.',
+    header: 'Local area tours.',
+    url: '/local-area-tours',
+    description: 'Your luxury airport transfer service.',
     category: 'Flights'
   },
   {
-    header: 'Airport transfers.',
-    url: '/airport-transfers',
-    description: 'A quick and easy way to get to your destination.',
-    category: 'Flights'
-  },
-  {
-    header: 'Airport transfers.',
-    url: '/airport-transfers',
-    description: 'A quick and easy way to get to your destination.',
-    category: 'Flights'
-  },
-  {
-    header: 'Airport transfers.',
+    header: 'Trail lessons.',
     url: '/airport-transfers',
     description: 'A quick and easy way to get to your destination.',
     category: 'Flights'
@@ -52,7 +52,7 @@ const flightServices: ServiceCard[] = [
 export default async function Flights() {
   return (
     <>
-      <main>
+      <main className="bg-brand-light-grey">
         <Header title="A leading uk helicopter flight service." />
         <section className="py-10 max-w-6xl mx-auto px-4 mt-14">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
