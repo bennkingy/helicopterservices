@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Suspense } from 'react';
 import GetInTouch from './GetInTouch';
+import Weather from './Weather';
 
 export default function Footer() {
   return (
@@ -16,7 +18,11 @@ export default function Footer() {
               height={34}
               className='min-w-[100px] mb-10 '
             />
-          </Link></div>
+          </Link>
+          <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
+            <Weather city="London" />
+          </Suspense>
+        </div>
           <div className="">
             <div className="text-sm uppercase font-bold mb-4 mt-5 sm:mt-0">Training</div>
             <ul>
