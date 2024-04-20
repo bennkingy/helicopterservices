@@ -2,7 +2,6 @@ import { carouselItem } from '@/lib/interface';
 import Image from 'next/image';
 import Carousel from "./components/Carousel";
 import FramerAnimationSlide from './components/FramerAnimationSlideIn';
-import GetInTouch from "./components/GetInTouch";
 import Heading from './components/Heading';
 import Hero from "./components/Hero";
 import { MainServices } from "./components/MainServices";
@@ -130,7 +129,6 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <GetInTouch />
     </main >
   );
 }
