@@ -18,32 +18,32 @@ import * as React from 'react';
 const training: { title: string; href: string; description: string }[] = [
   {
     title: 'Private pilot license',
-    href: '/training/private-pilot-license',
+    href: '/training/private-pilot-licence',
     description: 'Some description about the training course.',
   },
   {
     title: 'Commerical Pilot License',
-    href: '/training/commerical-pilot-license',
+    href: '/training/commercial-pilot-licence',
     description: 'ELCAS approved training provider for military personnel.',
   },
   {
     title: 'Flight examiner rating',
-    href: '/training/flight-examiner-rating',
+    href: '/training/flight-examiner-ratings',
     description: 'Helicopter flight examiners hold a lot of responsibility, setting the standards across the industry and ensuring that they are maintained.',
   },
   {
     title: 'Type rating',
-    href: '/training/type-rating',
+    href: '/training/type-ratings',
     description: 'Some description about the training course.',
   },
   {
     title: 'Instrument rating',
-    href: '/training/type-rating',
+    href: '/training/instrument-ratings',
     description: 'Some description about the training course.',
   },
   {
     title: 'Flight instructor rating',
-    href: '/training/flight-instructor-rating',
+    href: '/training/flight-instructor-ratings',
     description: 'Some description about the training course.',
   },
   {
