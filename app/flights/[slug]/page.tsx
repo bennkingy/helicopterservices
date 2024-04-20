@@ -35,8 +35,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default async function TrainingPage({ params }: { params: { slug: string } }) {
   const data: any = await getData(params.slug.toLowerCase());
 
-  console.log('hi');
-
   return (
     <>
       <Header title={data?.title} image={data.mainImage} />
