@@ -1,6 +1,8 @@
+import ContactCta from "@/app/components/ContactCta";
+import GetinTouchSmall from "@/app/components/GetinTouchSmall";
 import Header from "@/app/components/Header";
 import { training } from "@/lib/interface";
-import { client, urlFor } from "@/lib/sanity";
+import { client } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import type { Metadata } from 'next';
 
@@ -34,11 +36,19 @@ export default async function TrainingPage({ params }: { params: { slug: string 
   const data: any = await getData(params.slug.toLowerCase());
 
   return (
-    <main className="bg-brand-light-grey">
-      <Header title={data?.title || 'no title'} image={urlFor(data.mainImage).url()} />
-      <div className="prose prose-a:text-brand-light-blue">
-        <PortableText value={data?.body || ''} />
-      </div>
-    </main>
+    <>
+      <Header title={data?.title} image={data.mainImage} />
+      <main className="max-w-6xl mx-auto px-4 grid py-10 grid-cols-1 md:grid-cols-3">
+        <div className="pr-0 sm:pr-20 mb-10 sm:mb-0 col-span-2">
+          <div className="prose prose-a:text-brand-light-blue">
+            <PortableText value={data?.body || ''} />
+          </div>
+        </div>
+        <div>
+          <ContactCta />
+          <GetinTouchSmall />
+        </div>
+      </main >
+    </>
   );
 }

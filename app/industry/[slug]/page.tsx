@@ -46,7 +46,7 @@ export default async function TrainingPage({ params }: { params: { slug: string 
             <PortableText value={data?.body || ''} />
           </div>
           {showTransferTimesTable && (
-            <div className="mt-8">
+            <div className="mt-12">
               <h2 className="text-2xl font-bold mb-5">Transfer Times</h2>
               <TransferTimesTable />
             </div>
