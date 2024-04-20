@@ -13,7 +13,7 @@ import { carouselItem } from "@/lib/interface";
 import Image from "next/image";
 import Link from 'next/link';
 import { useEffect, useState } from "react";
-import FramerAnimation from "./FramerAnimation";
+import FramerAnimationBlurIn from "./FramerAnimationBlurIn";
 
 type props = {
   slides: carouselItem[]
@@ -41,7 +41,7 @@ const Carousel = ({ slides }: props) => {
       <CarouselContent className="-ml-2 md:-ml-4">
         {slides.map((item, index) => (
           <CarouselItem key={index} className="sm:basis-1/3 text-center px-20">
-            <FramerAnimation delay={0.15}>
+            <FramerAnimationBlurIn delay={0.15}>
               <Image
                 src={'https://placehold.co/400x400/jpg'}
                 width={400}
@@ -55,7 +55,7 @@ const Carousel = ({ slides }: props) => {
               <Link href={item.link} className="text-lg font-bold text-brand-light-blue font-openSans">
                 Discover more
               </Link>
-            </FramerAnimation>
+            </FramerAnimationBlurIn>
           </CarouselItem>
         ))}
       </CarouselContent>

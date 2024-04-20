@@ -1,6 +1,7 @@
 import { carouselItem } from '@/lib/interface';
 import Image from 'next/image';
 import Carousel from "./components/Carousel";
+import FramerAnimationSlide from './components/FramerAnimationSlideIn';
 import GetInTouch from "./components/GetInTouch";
 import Heading from './components/Heading';
 import Hero from "./components/Hero";
@@ -35,19 +36,25 @@ export default async function Home() {
       </div>
       <div className="py-20 max-w-6xl container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
         <div className='pr-10 relative'>
-          <Image
-            src="/images/grandad-helicopter.png"
-            alt="Helicopter Services"
-            width={1000}
-            height={1000}
-            className='min-w-[100px] pr-0 sm:pr-10 md:pr-10 lg:pr-20 xl:pr-20'
+          <FramerAnimationSlide
+            items={[
+              <Image
+                src="/images/grandad-helicopter.png"
+                alt="Helicopter Services"
+                width={1000}
+                key={1}
+                height={1000}
+                className='min-w-[100px] pr-0 sm:pr-10 md:pr-10 lg:pr-20 xl:pr-20'
+              />,
+              <Image
+                src="/images/grandad.png"
+                alt="Helicopter Services"
+                width={240}
+                height={240}
+                key={2}
+                className='absolute -bottom-20 sm:bottom-20 right-0 md:right-14 border-8 border-white drop-shadow-sm shadow-xl' />
+            ]}
           />
-          <Image
-            src="/images/grandad.png"
-            alt="Helicopter Services"
-            width={240}
-            height={240}
-            className='min-w-[100px] absolute -bottom-20 sm:bottom-20 right-0 md:right-14 border-8 border-white drop-shadow-sm shadow-xl' />
         </div>
         <div>
           <Heading title="Over 20 years helicopter operating experience." tag='About us' className='mb-8 mt-36 sm:mt-0' />

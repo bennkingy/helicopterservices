@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
-import FramerAnimation from "./FramerAnimation";
+import FramerAnimation from "./FramerAnimationBlurIn";
 
 type props = {
   height?: string; // e.g. 'h-[70vh]' or 'h-[50vh]'

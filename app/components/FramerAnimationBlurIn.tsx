@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-const FramerAnimation = ({ delay = 0.25, className, children }: any) => {
+const FramerAnimationBlurIn = ({ delay = 0.25, className, children }: any) => {
   return (
     <motion.div
       initial={{ opacity: 0, filter: 'blur(4px)' }}
@@ -16,4 +16,4 @@ const FramerAnimation = ({ delay = 0.25, className, children }: any) => {
   )
 }
 
-export default FramerAnimation
+export default FramerAnimationBlurIn
