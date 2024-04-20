@@ -27,8 +27,10 @@ const Header = ({ height = 'h-[420px]', title, subtitle, className, image, }: pr
         alt="hero image example"
       />
       <div className='container max-w-6xl relative z-10 flex items-center h-full'>
-        <Heading title={title || ''} tag='flights' />
+        {/*//@ts-ignore*/}
+        <Heading title={title || ''} tag='flights' titleSize="text-white text-5xl font-light" />
       </div>
+      <div className={`bg-opacity-80 bg-brand-dark-blue top-0 bottom-0 right-0 left-0 absolute`}></div>
     </section>
   );
 };
