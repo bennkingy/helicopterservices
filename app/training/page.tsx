@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { Metadata } from "next";
 import ContactCta from "../components/ContactCta";
 import Header from "../components/Header";
@@ -12,60 +13,140 @@ export const metadata: Metadata = {
 
 const flightServices: ServiceCard[] = [
   {
-    header: 'Airport transfers.',
-    url: '/airport-transfers',
+    header: 'Private pilot license.',
+    url: '/private-pilot-license',
     description: 'A quick and easy way to get to your destination.',
-    category: 'Training'
+    category: 'Training',
+    subCategory: 'Licenses',
   },
   {
-    header: 'Special events.',
-    url: '/airport-transfers',
+    header: 'Commerical pilot license.',
+    url: '/commercial-pilot-license',
     description: 'A quick and easy way to get to your destination.',
-    category: 'Training'
+    category: 'Training',
+    subCategory: 'Licenses',
   },
   {
-    header: 'Airport transfers.',
-    url: '/airport-transfers',
+    header: 'Flight examiner rating.',
+    url: '/flight-examiner-rating',
     description: 'A quick and easy way to get to your destination.',
-    category: 'Training'
+    subCategory: 'Flight Ratings',
+    category: 'Training',
   },
   {
-    header: 'Airport transfers.',
-    url: '/airport-transfers',
+    header: 'Flight instructor rating.',
+    url: '/flight-instructor-rating',
     description: 'A quick and easy way to get to your destination.',
-    category: 'Training'
+    subCategory: 'Flight Ratings',
+    category: 'Training',
   },
   {
-    header: 'Airport transfers.',
-    url: '/airport-transfers',
+    header: 'Instrument rating.',
+    url: '/instrument-rating',
     description: 'A quick and easy way to get to your destination.',
-    category: 'Training'
+    subCategory: 'Flight Ratings',
+    category: 'Training',
   },
   {
-    header: 'Airport transfers.',
-    url: '/airport-transfers',
+    header: 'Type rating.',
+    url: '/type-rating',
     description: 'A quick and easy way to get to your destination.',
-    category: 'Training'
+    subCategory: 'Flight Ratings',
+    category: 'Training',
+  },
+  {
+    header: 'Night rating.',
+    url: '/night-rating',
+    description: 'A quick and easy way to get to your destination.',
+    subCategory: 'Flight Ratings',
+    category: 'Training',
+  },
+  {
+    header: 'Flight simulator.',
+    url: '/flight-simulator',
+    description: 'A quick and easy way to get to your destination.',
+    subCategory: 'Simulators',
+    category: 'Training',
+  },
+  {
+    header: 'Virtual reality simulator.',
+    url: '/virtual-reality-simulator',
+    description: 'A quick and easy way to get to your destination.',
+    subCategory: 'Simulators',
+    category: 'Training',
+  },
+  {
+    header: 'PBN.',
+    url: '/pbn',
+    description: 'A quick and easy way to get to your destination.',
+    subCategory: 'Other training services',
+    category: 'Training',
   }
 ]
 
 export default async function Training() {
   return (
     <>
-      <main>
-        <Header title="A leading uk helicopter flight service." />
+      <main className="bg-brand-light-grey">
+        <Header title="From beginner to advanced, you're in expert hands." tag='Training' />
         <section className="py-10 max-w-6xl mx-auto px-4 mt-14">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {flightServices.map(({ category, url, header, description }: ServiceCard, i) => (
-              <ServiceCard
-                key={i + 1}
-                header={header}
-                url={url}
-                description={description}
-                category={category}
-              />
-            ))}
-          </div>
+          <Tabs defaultValue="account">
+            <TabsList className="mx-auto mb-10 w-full">
+              <TabsTrigger value="account">Training services</TabsTrigger>
+              <TabsTrigger value="password">Training route map</TabsTrigger>
+            </TabsList>
+            <TabsContent value="account">
+              <Heading title="Licenses" titleSize="text-3xl" className="mb-6" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {flightServices.filter(service => service?.subCategory == 'Licenses').map(({ category, url, header, description }: ServiceCard, i) => (
+                  <ServiceCard
+                    key={i + 1}
+                    header={header}
+                    url={url}
+                    description={description}
+                    category={category}
+                  />
+                ))}
+              </div>
+              <Heading title="Flight ratings" titleSize="text-3xl" className="mb-6 mt-12" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {flightServices.filter(service => service?.subCategory == 'Flight Ratings').map(({ category, url, header, description }: ServiceCard, i) => (
+                  <ServiceCard
+                    key={i + 1}
+                    header={header}
+                    url={url}
+                    description={description}
+                    category={category}
+                  />
+                ))}
+              </div>
+              <Heading title="Simulators" titleSize="text-3xl" className="mb-6 mt-12" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {flightServices.filter(service => service?.subCategory == 'Simulators').map(({ category, url, header, description }: ServiceCard, i) => (
+                  <ServiceCard
+                    key={i + 1}
+                    header={header}
+                    url={url}
+                    description={description}
+                    category={category}
+                  />
+                ))}
+              </div>
+              <Heading title="Other training services" titleSize="text-3xl" className="mb-6 mt-12" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {flightServices.filter(service => service?.subCategory == 'Other training services').map(({ category, url, header, description }: ServiceCard, i) => (
+                  <ServiceCard
+                    key={i + 1}
+                    header={header}
+                    url={url}
+                    description={description}
+                    category={category}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+            <TabsContent value="password">Training route map coming soon.</TabsContent>
+          </Tabs>
           <div className="mb-14 mt-20 grid grid-cols-1 sm:grid-cols-3">
             <div className="col-span-2 pr-0 sm:pr-20">
               <Heading title='Can’t find what your looking for?' titleSize="text-3xl" className="mb-6" />

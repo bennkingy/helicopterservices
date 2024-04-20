@@ -7,12 +7,12 @@ import Heading from "./Heading";
 type props = {
   height?: string; // e.g. 'h-[70vh]' or 'h-[50vh]'
   title?: string; // e.g. 'Mallard Plumbing and Heating'
-  subtitle?: string; // e.g. 'From checkout to global sales......'
   className?: string;
   image?: string;
+  tag?: string;
 };
 
-const Header = ({ height = 'h-[420px]', title, subtitle, className, image, }: props) => {
+const Header = ({ height = 'h-[420px]', title, className, image, tag = 'Flights' }: props) => {
 
   return (
     <section
@@ -28,9 +28,9 @@ const Header = ({ height = 'h-[420px]', title, subtitle, className, image, }: pr
       />
       <div className='container max-w-6xl relative z-10 flex items-center h-full'>
         {/*//@ts-ignore*/}
-        <Heading title={title || ''} tag='Flights' tagSize='text-xs' iconSize={14} titleSize="text-white text-xl sm:text-5xl font-light" />
+        <Heading title={title || ''} tag={tag} tagSize='text-xs' iconSize={14} titleSize="text-white text-xl sm:text-5xl font-light max-w-[600px]" />
       </div>
-      <div className={`bg-opacity-80 bg-brand-dark-blue top-0 bottom-0 right-0 left-0 absolute`}></div>
+      <div className={`bg-opacity-70 bg-brand-dark-blue top-0 bottom-0 right-0 left-0 absolute`}></div>
     </section>
   );
 };

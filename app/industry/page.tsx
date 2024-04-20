@@ -12,48 +12,24 @@ export const metadata: Metadata = {
 
 const flightServices: ServiceCard[] = [
   {
-    header: 'Airport transfers.',
-    url: '/airport-transfers',
+    header: 'Photography & Filming.',
+    url: '/photography-filming',
     description: 'A quick and easy way to get to your destination.',
     category: 'Industry'
   },
   {
-    header: 'Special events.',
-    url: '/airport-transfers',
+    header: 'Load lifting.',
+    url: '/load-lifting',
     description: 'A quick and easy way to get to your destination.',
     category: 'Industry'
   },
-  {
-    header: 'Airport transfers.',
-    url: '/airport-transfers',
-    description: 'A quick and easy way to get to your destination.',
-    category: 'Industry'
-  },
-  {
-    header: 'Airport transfers.',
-    url: '/airport-transfers',
-    description: 'A quick and easy way to get to your destination.',
-    category: 'Industry'
-  },
-  {
-    header: 'Airport transfers.',
-    url: '/airport-transfers',
-    description: 'A quick and easy way to get to your destination.',
-    category: 'Industry'
-  },
-  {
-    header: 'Airport transfers.',
-    url: '/airport-transfers',
-    description: 'A quick and easy way to get to your destination.',
-    category: 'Industry'
-  }
 ]
 
 export default async function Industry() {
   return (
     <>
-      <main>
-        <Header title="A leading uk helicopter flight service." />
+      <main className="bg-brand-light-grey">
+        <Header title="Elevating industry to new heights." tag='Industry' />
         <section className="py-10 max-w-6xl mx-auto px-4 mt-14">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {flightServices.map(({ category, url, header, description }: ServiceCard, i) => (

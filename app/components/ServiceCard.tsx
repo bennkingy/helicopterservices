@@ -6,6 +6,7 @@ interface ServiceCard {
   url: string;
   description: string;
   category: string;
+  subCategory?: string;
 }
 
 const ServiceCard = ({ header, url, description, category }: ServiceCard) => {
