@@ -1,8 +1,8 @@
+import Header from "@/app/components/Header";
 import { training } from "@/lib/interface";
 import { client, urlFor } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import type { Metadata } from 'next';
-import Image from "next/image";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -34,27 +34,10 @@ export default async function TrainingPage({ params }: { params: { slug: string 
   const data: any = await getData(params.slug.toLowerCase());
 
   return (
-    <main className="max-w-6xl mx-auto px-4">
-      <div className="my-8">
-        <h1>
-          <span className="block text-base text-center text-primary font-semibold tracking-wide uppercase">
-            {params.slug}
-          </span>
-          <span className="mt-2 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">
-            {data?.title || 'no title'}
-          </span>
-        </h1>
-        {data?.mainImage && <Image
-          src={urlFor(data.mainImage).url()}
-          width={2000}
-          height={800}
-          alt="Title Image"
-          priority
-          className="rounded-lg mt-8 border"
-        />}
-        <div className="mt-8">
-          <PortableText value={data?.body || ''} />
-        </div>
+    <main className="bg-brand-light-grey">
+      <Header title={data?.title || 'no title'} image={urlFor(data.mainImage).url()} />
+      <div className="prose prose-a:text-brand-light-blue">
+        <PortableText value={data?.body || ''} />
       </div>
     </main>
   );
