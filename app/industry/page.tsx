@@ -13,13 +13,13 @@ export const metadata: Metadata = {
 const flightServices: ServiceCard[] = [
   {
     header: 'Photography & Filming.',
-    url: '/photography-filming',
+    url: '/industry/photography-and-filming',
     description: 'A quick and easy way to get to your destination.',
     category: 'Industry'
   },
   {
     header: 'Load lifting.',
-    url: '/load-lifting',
+    url: '/industry/load-lifting',
     description: 'A quick and easy way to get to your destination.',
     category: 'Industry'
   },

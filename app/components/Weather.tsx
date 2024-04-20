@@ -8,12 +8,12 @@ export default async function Weather({ city = 'London' }) {
   }
 
   return (
-    <div className="bg-white max-w-40 rounded-sm text-black">
+    <div className="max-w-40 rounded-sm text-white">
+      <h4>Airport 1</h4>
       <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt={`${data.weather[0].alt}`} />
-      <h1>Weather in {city}</h1>
-      <p>Temperature: {data?.main?.temp}°C</p>
-      <p>Weather: {data?.weather ? data?.weather[0]?.description : null}</p>
-      <p>Humidity: {data?.main?.humidity}%</p>
+      <p className="font-bold">Temperature:<br />{data?.main?.temp}°C</p>
+      <p className="font-bold mt-3">Weather:<br />{data?.weather ? data?.weather[0]?.description : null}</p>
+      <p className="font-bold mt-3">Humidity:<br />{data?.main?.humidity}%</p>
     </div>
   );
 }

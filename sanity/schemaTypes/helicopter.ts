@@ -37,7 +37,7 @@ defineType({
 
 export default defineType({
   name: 'helicopter',
-  title: 'Helicopter',
+  title: 'Helicopters',
   type: 'document',
   fields: [
     defineField({

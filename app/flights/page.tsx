@@ -13,37 +13,31 @@ export const metadata: Metadata = {
 const flightServices: ServiceCard[] = [
   {
     header: 'Airport transfers.',
-    url: '/airport-transfers',
+    url: '/flights/airport-transfers',
     description: 'Your luxury airport transfer service.',
     category: 'Flights'
   },
   {
-    header: 'Helicopter charter.',
-    url: '/heli-charter',
-    description: 'We have been transporting VIPs to special events for well over 20 years.',
-    category: 'Flights'
-  },
-  {
     header: 'London sightseeing tour.',
-    url: '/london-sightseeing-tour',
+    url: '/flights/london-sightseeing',
     description: 'The ultimate way to see London, one of the most famous cities in the world.',
     category: 'Flights'
   },
   {
     header: 'Special events.',
-    url: '/special-events',
+    url: '/flights/special-events',
     description: 'Treat yourself to a wedding flight, a personalised sightseeing tour, or a day out',
     category: 'Flights'
   },
   {
     header: 'Local area tours.',
-    url: '/local-area-tours',
+    url: '/flights/local-area-tours',
     description: 'Your luxury airport transfer service.',
     category: 'Flights'
   },
   {
     header: 'Trail lessons.',
-    url: '/airport-transfers',
+    url: '/flights/trail-lessons',
     description: 'A quick and easy way to get to your destination.',
     category: 'Flights'
   }
