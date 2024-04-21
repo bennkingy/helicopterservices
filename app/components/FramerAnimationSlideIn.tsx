@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 const variants = {
   initial: {
     opacity: 0,
-    x: -100,
-    filter: 'blur(5px)'
+    transform: 'translateX(-150px)',
+    // filter: 'blur(5px)'
   },
   animate: (index: number) => ({
     opacity: 1,
-    x: 0,
-    filter: 'blur(0px)',
+    transform: 'translateX(0px)',
+    // filter: 'blur(0px)',
     transition: {
       duration: 1,
       ease: 'easeInOut',
@@ -28,7 +28,7 @@ const FramerAnimationSlideIn = ({ items }: any) => {
         variants={variants}
         initial="initial"
         whileInView="animate"
-        key={JSON.stringify(item)}
+        key={item.src}
         viewport={{
           once: true,
         }}

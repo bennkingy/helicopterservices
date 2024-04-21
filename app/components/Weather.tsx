@@ -12,8 +12,7 @@ export default async function Weather({ city = 'London' }) {
   return (
     <div className="max-w-40 rounded-sm text-white">
       <h4>Airport 1</h4>
-      {/* // @ts-ignore   */}
-      <Image src={`http://openweathermap.org/img/wn/${data?.weather?[0]?.icon}@2x.png`} width={100} height={100} alt={`${data.weather[0].alt}`} />
+      <Image src={`http://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`} width={100} height={100} alt={`${data.weather[0].alt}`} />
       <p className="font-bold">Temperature:<br />{data?.main?.temp}°C</p>
       <p className="font-bold mt-3">Weather:<br />{data?.weather ? data?.weather[0]?.description : null}</p>
       <p className="font-bold mt-3">Humidity:<br />{data?.main?.humidity}%</p>

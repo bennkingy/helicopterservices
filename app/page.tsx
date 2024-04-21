@@ -34,7 +34,7 @@ export default async function Home() {
         </div>
       </div>
       <div className="py-20 max-w-6xl container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
-        <div className='pr-10 relative'>
+        <div className='pr-0 sm:pr-10 relative'>
           <FramerAnimationSlide
             items={[
               <Image
