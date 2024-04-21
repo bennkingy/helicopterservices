@@ -12,8 +12,8 @@ type props = {
 
 const Header = ({ height = 'h-[420px]', title, className, image, tag = 'Flights' }: props) => {
 
-  const imageUrl = urlFor(image).width(2000).height(400).dpr(2).quality(80).url()
-  const blurUrl = urlFor(image).width(2000).quality(20).url() // Low-quality blurred image
+  const imageUrl = urlFor(image).width(2000).height(400).dpr(2).quality(100).url()
+  const blurUrl = urlFor(image).width(20).quality(20).url()
 
     return (
     <section
