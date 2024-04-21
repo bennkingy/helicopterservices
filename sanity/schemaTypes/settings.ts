@@ -1,9 +1,11 @@
+import { CogIcon, } from '@sanity/icons';
 import { defineField, defineType } from 'sanity';
 
 export const link = defineType({
   name: 'link',
   title: 'Link',
   type: 'object',
+  icon: CogIcon,
   fields: [
     defineField({
       name: 'title',

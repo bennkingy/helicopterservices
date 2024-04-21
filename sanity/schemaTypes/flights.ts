@@ -6,6 +6,12 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'isLandingPage',
+      title: 'Main page',
+      type: 'boolean',
+      initialValue: false,
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
@@ -38,6 +44,13 @@ export default defineType({
       name: 'seoTitle',
       title: 'SEO Title',
       type: 'string',
+    }),
+    defineField({
+      name: 'service',
+      title: 'Services',
+      type: 'array',
+      of: [{type: 'service'}],
+      hidden: ({document}) => document?.isLandingPage !== true,
     }),
   ],
 
