@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
 import ContactCta from "../components/ContactCta";
 import Header from "../components/Header";
@@ -43,17 +44,39 @@ const flightServices: ServiceCard[] = [
   }
 ]
 
-export default async function Flights() {
+async function getData(slug: string) {
+  const query = `
+    *[_type == "flights" && slug.current == '${slug}'] {
+        "currentSlug": slug.current,
+          title,
+          hero,
+          seoTitle,
+          seoDescription,
+          body,
+          service
+      }[0]`;
+  const data = await client.fetch(query);
+
+  return data;
+}
+
+export default async function Flights({ params }: { params: { slug: string } }) {
+
+  const data: any = await getData('flights');
+
+  console.log(data);
+
   return (
     <>
       <main className="bg-brand-light-grey">
-        <Header title="A leading uk helicopter flight service." />
+        <Header title={data?.hero?.heading} tag={data?.hero?.tagline} image={data?.hero.image} />
         <section className="py-10 max-w-6xl mx-auto px-4 mt-14">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {flightServices.map(({ category, url, header, description }: ServiceCard, i) => (
+            {/*//@ts-ignore*/}
+            {data?.service.map(({ category, url, heading, description }: ServiceCard, i: number) => (
               <ServiceCard
                 key={i + 1}
-                header={header}
+                header={heading}
                 url={url}
                 description={description}
                 category={category}
