@@ -19,7 +19,7 @@ const Header = ({ height = 'h-[420px]', title, className, image, tag = 'Flights'
     <section
       className={`relative w-screen h-[150px] sm:h-[300px] ${className} z-0 bg-slate-5`}
     >
-      <Image
+    {blurUrl &&  <Image
         priority
         src={imageUrl}
         blurDataURL={blurUrl}
@@ -27,7 +27,7 @@ const Header = ({ height = 'h-[420px]', title, className, image, tag = 'Flights'
         objectFit="cover"
         objectPosition="center"
         alt="hero image example"
-      />
+      />}
       <div className='container max-w-6xl relative z-10 flex items-center h-full'>
         {/*//@ts-ignore*/}
         <Heading title={title || ''} tag={tag} tagSize='text-xs' iconSize={14} titleSize="text-white text-xl sm:text-5xl font-light max-w-[600px]" />
