@@ -2,7 +2,11 @@ import Image from "next/image";
 
 export default async function Weather({ city = 'London' }) {
   const apiKey = 'f0767f78463d9f6c247a1889989cc1f5' || process.env.OPENWEATHER_API_KEY;
-  const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+  const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`,
+    {headers: {
+    'Cache-Control': 'no-cache'
+    }});
+    
   const data = await response.json();
 
   if (data.cod === 401) {

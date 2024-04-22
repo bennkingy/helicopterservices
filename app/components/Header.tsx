@@ -1,3 +1,5 @@
+'use client'
+
 import { urlFor } from "@/lib/sanity";
 import Image from "next/image";
 import Heading from "./Heading";
@@ -12,8 +14,9 @@ type props = {
 
 const Header = ({ height = 'h-[420px]', title, className, image, tag = 'Flights' }: props) => {
 
-  const imageUrl = image && urlFor(image).width(2000).height(400).dpr(2).quality(100).url()
-  const blurUrl = image && urlFor(image).width(20).quality(20).url()
+  const imageUrl = urlFor(image).width(2000).height(400).dpr(2).quality(100).url() || ''
+  // @ts-ignore
+  const blurUrl = image?.asset?.metadata?.lqip || ''
 
     return (
     <section
@@ -23,9 +26,9 @@ const Header = ({ height = 'h-[420px]', title, className, image, tag = 'Flights'
         priority
         src={imageUrl || ''}
         blurDataURL={blurUrl}
-        fill
         objectFit="cover"
         objectPosition="center"
+        fill
         alt="hero image example"
       />
       <div className='container max-w-6xl relative z-10 flex items-center h-full'>

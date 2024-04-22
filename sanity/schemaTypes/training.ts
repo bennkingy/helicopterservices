@@ -6,6 +6,12 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'isLandingPage',
+      title: 'Main page',
+      type: 'boolean',
+      initialValue: false,
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
@@ -20,9 +26,22 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'hero',
+      type: 'hero',
+      hidden: ({document}) => document?.isLandingPage !== true,
+    }),
+    defineField({
+      name: 'service',
+      title: 'Services',
+      type: 'array',
+      of: [{type: 'service'}],
+      hidden: ({document}) => document?.isLandingPage !== true,
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
+      hidden: ({document}) => document?.isLandingPage === true,
     }),
     defineField({
       name: 'body',
@@ -44,10 +63,12 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      media: 'mainImage',
+      heroImage: 'hero.image',
+      mainImage: 'mainImage',
     },
-    prepare(selection) {
-      return { title: selection.title, media: selection.media }
+    // @ts-ignore
+    prepare(selection, heroImage, mainImage) {
+      return { title: selection.title,  media: heroImage || mainImage}
     },
   },
 })

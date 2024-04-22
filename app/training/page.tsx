@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
 import ContactCta from "../components/ContactCta";
 import Header from "../components/Header";
@@ -7,88 +8,43 @@ import Heading from "../components/Heading";
 import ServiceCard from "../components/ServiceCard";
 
 export const metadata: Metadata = {
-  title: "Flights - Helicopter Services",
+  title: "Training - Helicopter Services",
   description: "Helicopter Services",
 };
 
-const flightServices: ServiceCard[] = [
-  {
-    heading: 'Private pilot license.',
-    url: '/training/private-pilot-licence',
-    description: 'A quick and easy way to get to your destination.',
-    category: 'Training',
-    subCategory: 'Licenses',
-  },
-  {
-    heading: 'Commerical pilot license.',
-    url: '/training/commercial-pilot-licence',
-    description: 'A quick and easy way to get to your destination.',
-    category: 'Training',
-    subCategory: 'Licenses',
-  },
-  {
-    heading: 'Flight examiner rating.',
-    url: '/training/flight-examiner-ratings',
-    description: 'A quick and easy way to get to your destination.',
-    subCategory: 'Flight Ratings',
-    category: 'Training',
-  },
-  {
-    heading: 'Flight instructor rating.',
-    url: '/training/flight-instructor-ratings',
-    description: 'A quick and easy way to get to your destination.',
-    subCategory: 'Flight Ratings',
-    category: 'Training',
-  },
-  {
-    heading: 'Instrument rating.',
-    url: '/training/instrument-ratings',
-    description: 'A quick and easy way to get to your destination.',
-    subCategory: 'Flight Ratings',
-    category: 'Training',
-  },
-  {
-    heading: 'Type rating.',
-    url: '/training/type-ratings',
-    description: 'A quick and easy way to get to your destination.',
-    subCategory: 'Flight Ratings',
-    category: 'Training',
-  },
-  {
-    heading: 'Night rating.',
-    url: '/training/night-rating',
-    description: 'A quick and easy way to get to your destination.',
-    subCategory: 'Flight Ratings',
-    category: 'Training',
-  },
-  {
-    heading: 'Flight simulator.',
-    url: '/training/simulator',
-    description: 'A quick and easy way to get to your destination.',
-    subCategory: 'Simulators',
-    category: 'Training',
-  },
-  {
-    heading: 'Virtual reality simulator.',
-    url: '/training/virtual-reality-simulator',
-    description: 'A quick and easy way to get to your destination.',
-    subCategory: 'Simulators',
-    category: 'Training',
-  },
-  {
-    heading: 'PBN.',
-    url: '/training/pbn',
-    description: 'A quick and easy way to get to your destination.',
-    subCategory: 'Other training services',
-    category: 'Training',
-  }
-]
+async function getData(slug: string) {
+  const query = `
+    *[_type == "training" && slug.current == '${slug}'] {
+        "currentSlug": slug.current,
+          title,
+          hero,
+          "heroImage": hero.image{
+            asset->{
+              _id,
+              url,
+              metadata {
+                dimensions,
+                lqip
+              }
+            }
+          },
+          seoTitle,
+          seoDescription,
+          body,
+          service
+      }[0]`;
+  const data = await client.fetch(query);
 
-export default async function Training() {
+  return data;
+}
+
+export default async function Training({ params }: { params: { slug: string } }) {
+  const data: any = await getData('training');
+
   return (
     <>
       <main className="bg-brand-light-grey">
-        <Header title="From beginner to advanced, you're in expert hands." tag='Training' />
+        <Header title={data?.hero?.heading} tag={data?.hero?.tagline} image={data?.heroImage} />
         <section className="py-10 max-w-6xl mx-auto px-4 mt-14">
           <Tabs defaultValue="account">
             <TabsList className="mx-auto mb-10 w-full">
@@ -98,11 +54,12 @@ export default async function Training() {
             <TabsContent value="account">
               <Heading title="Licenses" titleSize="text-3xl" className="mb-6" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {flightServices.filter(service => service?.subCategory == 'Licenses').map(({ category, url, heading, description }: ServiceCard, i) => (
+                {data?.service?.filter((service: ServiceCard) => service?.category == 'Licenses').map(({ category,image, url, heading, description }: ServiceCard, i) => (
                   <ServiceCard
                     key={i + 1}
                     heading={heading}
                     url={url}
+                    image={image}
                     description={description}
                     category={category}
                   />
@@ -110,11 +67,12 @@ export default async function Training() {
               </div>
               <Heading title="Flight ratings" titleSize="text-3xl" className="mb-6 mt-12" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {flightServices.filter(service => service?.subCategory == 'Flight Ratings').map(({ category, url, heading, description }: ServiceCard, i) => (
+                {data?.service?.filter((service: ServiceCard) => service?.category == 'Ratings').map(({ category, url, heading, description, image }: ServiceCard, i) => (
                   <ServiceCard
                     key={i + 1}
                     heading={heading}
                     url={url}
+                    image={image}
                     description={description}
                     category={category}
                   />
@@ -122,11 +80,12 @@ export default async function Training() {
               </div>
               <Heading title="Simulators" titleSize="text-3xl" className="mb-6 mt-12" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {flightServices.filter(service => service?.subCategory == 'Simulators').map(({ category, url, heading, description }: ServiceCard, i) => (
+                {data?.service?.filter((service: ServiceCard) => service?.category == 'Simulators').map(({ category, url, heading, description, image }: ServiceCard, i) => (
                   <ServiceCard
                     key={i + 1}
                     heading={heading}
                     url={url}
+                    image={image}
                     description={description}
                     category={category}
                   />
@@ -134,11 +93,12 @@ export default async function Training() {
               </div>
               <Heading title="Other training services" titleSize="text-3xl" className="mb-6 mt-12" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {flightServices.filter(service => service?.subCategory == 'Other training services').map(({ category, url, heading, description }: ServiceCard, i) => (
+                {data?.service?.filter((service: ServiceCard) => service?.category == 'Other').map(({ category, url, heading, image, description }: ServiceCard, i) => (
                   <ServiceCard
                     key={i + 1}
                     heading={heading}
                     url={url}
+                    image={image}
                     description={description}
                     category={category}
                   />

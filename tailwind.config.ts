@@ -20,6 +20,7 @@ const config = {
     extend: {
       boxShadow: {
         'brand': '0px 4px 24px rgba(0, 0, 0, 0.25)',
+        'brand-hover': '0px 4px 24px rgba(0, 0, 0, 0.32)',
       },
       fontFamily: {
         openSans: ['var(--font-open-sans)'],

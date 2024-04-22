@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
 import ContactCta from "../components/ContactCta";
 import Header from "../components/Header";
@@ -6,39 +7,44 @@ import Heading from "../components/Heading";
 import ServiceCard from "../components/ServiceCard";
 
 export const metadata: Metadata = {
-  title: "Flights - Helicopter Services",
+  title: "Industry - Helicopter Services",
   description: "Helicopter Services",
 };
 
-const flightServices: ServiceCard[] = [
-  {
-    heading: 'Photography & Filming.',
-    url: '/industry/photography-and-filming',
-    description: 'A quick and easy way to get to your destination.',
-    category: 'Industry'
-  },
-  {
-    heading: 'Load lifting.',
-    url: '/industry/load-lifting',
-    description: 'A quick and easy way to get to your destination.',
-    category: 'Industry'
-  },
-]
+async function getData(slug: string) {
+  const query = `
+    *[_type == "industry" && slug.current == '${slug}'] {
+        "currentSlug": slug.current,
+          title,
+          hero,
+          seoTitle,
+          seoDescription,
+          body,
+          service
+      }[0]`;
+  const data = await client.fetch(query);
 
-export default async function Industry() {
+  return data;
+}
+
+export default async function Industry({ params }: { params: { slug: string } }) {
+
+  const data: any = await getData('industry');
+
   return (
     <>
       <main className="bg-brand-light-grey">
-        <Header title="Elevating industry to new heights." tag='Industry' />
+        <Header title={data?.hero?.heading} tag={data?.hero?.tagline} image={data?.hero.image} />
         <section className="py-10 max-w-6xl mx-auto px-4 mt-14">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {flightServices.map(({ category, url, heading, description }: ServiceCard, i) => (
+            {data?.service.map(({ url, heading, description, image }: ServiceCard, i: number) => (
               <ServiceCard
                 key={i + 1}
                 heading={heading}
                 url={url}
+                image={image || ''}
                 description={description}
-                category={category}
+                category={'Flights'}
               />
             ))}
           </div>
