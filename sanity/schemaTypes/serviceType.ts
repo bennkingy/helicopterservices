@@ -21,6 +21,10 @@ export const serviceType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'url',
+      type: 'string',
+    }),
+    defineField({
       name: 'image',
       type: 'image',
       options: {hotspot: true},

@@ -11,39 +11,6 @@ export const metadata: Metadata = {
   description: "Helicopter Services",
 };
 
-const flightServices: ServiceCard[] = [
-  {
-    header: 'Airport transfers.',
-    url: '/flights/airport-transfers',
-    description: 'Your luxury airport transfer service.',
-    category: 'Flights'
-  },
-  {
-    header: 'London sightseeing tour.',
-    url: '/flights/london-sightseeing',
-    description: 'The ultimate way to see London, one of the most famous cities in the world.',
-    category: 'Flights'
-  },
-  {
-    header: 'Special events.',
-    url: '/flights/special-events',
-    description: 'Treat yourself to a wedding flight, a personalised sightseeing tour, or a day out',
-    category: 'Flights'
-  },
-  {
-    header: 'Local area tours.',
-    url: '/flights/local-area-tours',
-    description: 'Your luxury airport transfer service.',
-    category: 'Flights'
-  },
-  {
-    header: 'Trail lessons.',
-    url: '/flights/trail-lessons',
-    description: 'A quick and easy way to get to your destination.',
-    category: 'Flights'
-  }
-]
-
 async function getData(slug: string) {
   const query = `
     *[_type == "flights" && slug.current == '${slug}'] {
@@ -64,7 +31,7 @@ export default async function Flights({ params }: { params: { slug: string } }) 
 
   const data: any = await getData('flights');
 
-  console.log(data);
+  console.log(JSON.stringify(data));
 
   return (
     <>
@@ -72,14 +39,14 @@ export default async function Flights({ params }: { params: { slug: string } }) 
         <Header title={data?.hero?.heading} tag={data?.hero?.tagline} image={data?.hero.image} />
         <section className="py-10 max-w-6xl mx-auto px-4 mt-14">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/*//@ts-ignore*/}
-            {data?.service.map(({ category, url, heading, description }: ServiceCard, i: number) => (
+            {data?.service.map(({ url, heading, description, image }: ServiceCard, i: number) => (
               <ServiceCard
                 key={i + 1}
-                header={heading}
+                heading={heading}
                 url={url}
+                image={image || ''}
                 description={description}
-                category={category}
+                category={'Flights'}
               />
             ))}
           </div>
