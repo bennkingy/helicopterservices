@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      dropShadow: {
+        'brand': '0px 2px 5px rgba(0, 0, 0, 0.15)',
+      },
       boxShadow: {
         'brand': '0px 4px 24px rgba(0, 0, 0, 0.25)',
         'brand-hover': '0px 4px 24px rgba(0, 0, 0, 0.32)',

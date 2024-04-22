@@ -54,7 +54,7 @@ export default async function Training({ params }: { params: { slug: string } })
             <TabsContent value="account">
               <Heading title="Licenses" titleSize="text-3xl" className="mb-6" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {data?.service?.filter((service: ServiceCard) => service?.category == 'Licenses').map(({ category,image, url, heading, description }: ServiceCard, i) => (
+                {data?.service?.filter((service: ServiceCard) => service?.category == 'Licenses').map(({ category,image, url, heading, description }: ServiceCard, i:number) => (
                   <ServiceCard
                     key={i + 1}
                     heading={heading}
@@ -67,7 +67,7 @@ export default async function Training({ params }: { params: { slug: string } })
               </div>
               <Heading title="Flight ratings" titleSize="text-3xl" className="mb-6 mt-12" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {data?.service?.filter((service: ServiceCard) => service?.category == 'Ratings').map(({ category, url, heading, description, image }: ServiceCard, i) => (
+                {data?.service?.filter((service: ServiceCard) => service?.category == 'Ratings').map(({ category, url, heading, description, image }: ServiceCard, i:number) => (
                   <ServiceCard
                     key={i + 1}
                     heading={heading}
@@ -80,7 +80,7 @@ export default async function Training({ params }: { params: { slug: string } })
               </div>
               <Heading title="Simulators" titleSize="text-3xl" className="mb-6 mt-12" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {data?.service?.filter((service: ServiceCard) => service?.category == 'Simulators').map(({ category, url, heading, description, image }: ServiceCard, i) => (
+                {data?.service?.filter((service: ServiceCard) => service?.category == 'Simulators').map(({ category, url, heading, description, image }: ServiceCard, i:number) => (
                   <ServiceCard
                     key={i + 1}
                     heading={heading}
@@ -93,7 +93,7 @@ export default async function Training({ params }: { params: { slug: string } })
               </div>
               <Heading title="Other training services" titleSize="text-3xl" className="mb-6 mt-12" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {data?.service?.filter((service: ServiceCard) => service?.category == 'Other').map(({ category, url, heading, image, description }: ServiceCard, i) => (
+                {data?.service?.filter((service: ServiceCard) => service?.category == 'Other').map(({ category, url, heading, image, description }: ServiceCard, i:number) => (
                   <ServiceCard
                     key={i + 1}
                     heading={heading}

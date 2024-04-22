@@ -27,7 +27,7 @@ export default async function Home() {
 
   return (
     <main className="">
-      <Hero title="Exceeding exacting industry standards." height='h-[calc(100vh_-_68px)] sm:h-[calc(100vh_-_68px)]' />
+      <Hero title="Exceeding exacting industry standards." height='h-[calc(100vh_-_60px)] sm:h-[calc(100vh_-_68px)]' />
       <div className="py-20 bg-brand-dark-blue">
         <div className="max-w-6xl container">
           <MainServices />
@@ -100,28 +100,30 @@ export default async function Home() {
           <Heading title="Client feedback." center className='mb-10 -mt-2' />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
             {reviews.map((review, index) => (
-              <div key={index} className="p-0" style={{ clipPath: 'polygon(0 0,calc(100% - 35px) 0,100% 35px,100% 100%,0 100%)' }}>
-                <div className="max-w-sm mx-auto border-l-4 border-brand-light-blue bg-white shadow-sm">
-                  <div className="flex items-center p-4">
-                    <div className="flex-shrink-0">
-                      <Image
-                        src={'/images/ruth.png'}
-                        width={84}
-                        height={82}
-                        alt="Title Image"
-                        priority
-                        className="h-12 w-12 rounded-full"
-                      />
+              <div className='text-white drop-shadow-brand' key={index}>
+                <div style={{ clipPath: 'polygon(0 0,calc(100% - 35px) 0,100% 35px,100% 100%,0 100%)' }} className='p-0'>
+                  <div className="max-w-sm mx-auto border-l-4 border-brand-light-blue bg-white">
+                    <div className="flex items-center p-4">
+                      <div className="flex-shrink-0">
+                        <Image
+                          src={'/images/ruth.png'}
+                          width={84}
+                          height={82}
+                          alt="Title Image"
+                          priority
+                          className="h-12 w-12 rounded-full"
+                        />
+                      </div>
+                      <div className="ml-4 brand-shadow">
+                        <div className="text-sm font-semibold">{review.name}</div>
+                        <div className="text-sm text-gray-600">{review.job}</div>
+                      </div>
                     </div>
-                    <div className="ml-4">
-                      <div className="text-sm font-semibold">{review.name}</div>
-                      <div className="text-sm text-gray-600">{review.job}</div>
+                    <div className="p-4">
+                      <blockquote className="text-sm text-gray-600">
+                        {review.description}
+                      </blockquote>
                     </div>
-                  </div>
-                  <div className="p-4">
-                    <blockquote className="text-sm text-gray-600">
-                      {review.description}
-                    </blockquote>
                   </div>
                 </div>
               </div>
