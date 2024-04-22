@@ -13,8 +13,8 @@ interface ServiceCard {
 
 const ServiceCard = ({ heading, url, description, category, image }: ServiceCard) => {
 
-  const imageUrl = image && urlFor(image).width(330).height(330).dpr(2).quality(100).url()
-  const blurUrl = image && urlFor(image).width(20).quality(20).url()
+  const imageUrl = image && urlFor(image).width(400).height(400).dpr(2).quality(100).url()
+  const blurUrl = image && urlFor(image).width(400).height(400).quality(20).url()
 
   return (
     <a href={url} className="bg-white justify-between shadow-brand rounded-none border-0 border-b-4 border-brand-light-blue relative flex flex-col-reverse	items-center overflow-hidden md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 group">
@@ -35,13 +35,14 @@ const ServiceCard = ({ heading, url, description, category, image }: ServiceCard
           className='absolute bottom-0 right-1'
         />
       </div>
-      {blurUrl && <Image className="object-cover h-full rounded-none main-image basis-3/6 w-[full] md:w-[200px] transition-transform duration-300 ease-in-out group-hover:scale-110"
-        width={330}
-        height={330}
-        src={imageUrl || ''}
-        blurDataURL={blurUrl}
-        alt=""
-      />}
+        <Image 
+          className="object-cover h-full rounded-none main-image basis-3/6 w-[full] md:w-[200px] transition-transform duration-300 ease-in-out group-hover:scale-110"
+          width={400}
+          height={400}
+          src={imageUrl || ''}
+          blurDataURL={blurUrl}
+          alt=""
+        />
     </a>
   )
 }
