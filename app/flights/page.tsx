@@ -31,8 +31,6 @@ export default async function Flights({ params }: { params: { slug: string } }) 
 
   const data: any = await getData('flights');
 
-  console.log(JSON.stringify(data));
-
   return (
     <>
       <main className="bg-brand-light-grey">
