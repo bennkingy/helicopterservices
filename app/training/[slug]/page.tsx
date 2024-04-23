@@ -1,11 +1,11 @@
 import ContactCta from "@/app/components/ContactCta";
 import GetinTouchSmall from "@/app/components/GetinTouchSmall";
 import Header from "@/app/components/Header";
+import Map from '@/app/components/Map';
 import { training } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import type { Metadata } from 'next';
-
 export const revalidate = 30; // revalidate at most 30 seconds
 
 async function getData(slug: string) {
@@ -47,6 +47,7 @@ export default async function TrainingPage({ params }: { params: { slug: string 
         <div>
           <ContactCta />
           <GetinTouchSmall />
+          <Map />
         </div>
       </main >
     </>
