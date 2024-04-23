@@ -40,7 +40,7 @@ const Header = async ({ height = 'h-[420px]', title, className, image, tag = 'Fl
         blurDataURL={base64}
         alt="hero image example"
       />
-      <div className='container max-w-6xl relative z-10 flex items-center h-full'>
+      <div className='container relative z-10 flex items-center h-full'>
         {/*//@ts-ignore*/}
         <Heading title={title || ''} tag={tag} tagSize='text-xs' iconSize={14} titleSize="text-white text-xl sm:text-5xl font-light max-w-[600px]" />
       </div>
