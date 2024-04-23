@@ -1,7 +1,7 @@
-'use client'
-
 import { urlFor } from "@/lib/sanity";
 import Image from "next/image";
+// @ts-ignore
+import { getPlaiceholder } from "plaiceholder";
 import Heading from "./Heading";
 
 type props = {
@@ -12,23 +12,32 @@ type props = {
   tag?: string;
 };
 
-const Header = ({ height = 'h-[420px]', title, className, image, tag = 'Flights' }: props) => {
+const Header = async ({ height = 'h-[420px]', title, className, image, tag = 'Flights' }: props) => {
 
   const imageUrl = urlFor(image).width(2000).height(400).dpr(2).quality(100).url() || ''
   // @ts-ignore
-  const blurUrl = image?.asset?.metadata?.lqip || ''
+  // const blurUrl = image?.asset?.metadata?.lqip || ''
+
+  const src = imageUrl;
+
+  const buffer = await fetch(src).then( async (res) => {
+      return Buffer.from(await res.arrayBuffer());
+  })
+
+  const { base64 } = await getPlaiceholder(buffer);
 
     return (
     <section
       className={`relative w-screen h-[150px] sm:h-[300px] ${className} z-0 bg-slate-5`}
     >
-      <Image
+     <Image
         priority
-        src={imageUrl || ''}
-        blurDataURL={blurUrl}
+        src={src || ''}
+        placeholder="blur"
         objectFit="cover"
         objectPosition="center"
         fill
+        blurDataURL={base64}
         alt="hero image example"
       />
       <div className='container max-w-6xl relative z-10 flex items-center h-full'>

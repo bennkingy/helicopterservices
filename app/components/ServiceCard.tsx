@@ -1,5 +1,7 @@
 import { urlFor } from "@/lib/sanity";
 import Image from "next/image";
+// @ts-ignore
+import { getPlaiceholder } from "plaiceholder";
 import Heading from "../components/Heading";
 
 interface ServiceCard {
@@ -11,10 +13,17 @@ interface ServiceCard {
   image?: any;
 }
 
-const ServiceCard = ({ heading, url, description, category, image }: ServiceCard) => {
+const ServiceCard = async ({ heading, url, description, category, image }: ServiceCard) => {
 
   const imageUrl = image && urlFor(image).width(400).height(400).dpr(2).quality(100).url()
-  const blurUrl = image && urlFor(image).width(400).height(400).quality(20).url()
+  
+  const src = imageUrl;
+
+  const buffer = await fetch(src).then( async (res) => {
+      return Buffer.from(await res.arrayBuffer());
+  })
+
+  const { base64 } = await getPlaiceholder(buffer);
 
   return (
     <a href={url} className="bg-white justify-between shadow-brand rounded-none border-0 border-b-4 border-brand-light-blue relative flex flex-col-reverse	items-center overflow-hidden md:flex-row md:max-w-xl transition-shadow duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-800 group hover:shadow-brand-hover">
@@ -40,8 +49,9 @@ const ServiceCard = ({ heading, url, description, category, image }: ServiceCard
           className="object-cover w-full h-full rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
           width={440}
           height={440}
-          src={imageUrl || ''}
-          blurDataURL={blurUrl}
+          src={src || ''}
+          placeholder="blur"
+          blurDataURL={base64}
           alt=""
         />
         </div>
