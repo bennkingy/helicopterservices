@@ -1,6 +1,5 @@
 import { urlFor } from "@/lib/sanity";
 import Image from "next/image";
-// @ts-ignore
 import { getPlaiceholder } from "plaiceholder";
 import Heading from "./Heading";
 

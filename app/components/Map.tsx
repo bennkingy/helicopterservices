@@ -1,6 +1,5 @@
 'use client'
 
-// @ts-ignore
 import GoogleMapReact from 'google-map-react';
 
 const Map = ({ className }: any) => {

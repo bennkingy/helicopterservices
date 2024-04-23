@@ -8,7 +8,6 @@ import { imageGalleryType } from './imageGalleryType'
 import industry from './industry'
 import legal from './legal'
 import pilots from './pilot'
-// @ts-ignore
 import { promotionType } from './promotionType'
 import { serviceType } from './serviceType'
 import settings, { dayHours, link } from './settings'
