@@ -1,7 +1,7 @@
 import ContactCta from "@/app/components/ContactCta";
 import GetinTouchSmall from "@/app/components/GetinTouchSmall";
 import Header from "@/app/components/Header";
-import Map from '@/app/components/Map';
+// import Map from '@/app/components/Map';
 import { training } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
@@ -47,7 +47,7 @@ export default async function TrainingPage({ params }: { params: { slug: string 
         <div>
           <ContactCta />
           <GetinTouchSmall className='mt-3' />
-          <Map className='h-[400px] mt-3'/>
+          {/* <Map className='h-[400px] mt-3'/> */}
         </div>
       </main >
     </>
