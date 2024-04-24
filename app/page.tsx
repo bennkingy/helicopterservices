@@ -110,7 +110,7 @@ export default async function Home() {
                   className='min-w-[100px] pr-0 sm:pr-10 md:pr-10 lg:pr-20 xl:pr-20'
                 />,
                 <Image
-                  src="/images/grandad.png"
+                  src="/images/planes.jpg"
                   alt="Helicopter Services"
                   width={240}
                   height={240}
@@ -147,33 +147,29 @@ export default async function Home() {
       </div>
       <div className='bg-brand-light-grey mt-0'>
         <div className="container pt-12 pb-20">
-          <Heading title="Client feedback." center tag='Testimonials' className='mb-10' />
+          <Heading title="Client feedback." center tag='Testimonials' className='mb-16' />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
             {reviews.map((review, index) => (
               <div className='text-white drop-shadow-brand' key={index}>
                 <div style={{ clipPath: 'polygon(0 0,calc(100% - 35px) 0,100% 35px,100% 100%,0 100%)' }} className='p-0'>
-                  <div className="max-w-sm mx-auto border-l-4 border-brand-light-blue bg-white">
-                    <div className="flex items-center p-4">
-                      <div className="flex-shrink-0">
+                  <div className="max-w-sm mx-auto border-l-4 border-brand-light-blue bg-white p-4">
+                    <div className="ml-4 brand-shadow flex">
+                      <div>
                         <Image
-                          src={'/images/ruth.png'}
+                          src={'/images/testimonial.png'}
                           width={84}
                           height={82}
                           alt="Title Image"
                           priority
-                          className="h-12 w-12 rounded-full"
+                          className='mr-4'
                         />
                       </div>
-                      <div className="ml-4 brand-shadow">
-                        <div className="text-sm font-semibold">{review.name}</div>
+                      <div>
+                        <div className="text-sm font-bold text-gray-600">{review.name}</div>
                         <div className="text-sm text-gray-600">{review.job}</div>
                       </div>
                     </div>
-                    <div className="p-4">
-                      <blockquote className="text-sm text-gray-600">
-                        {review.description}
-                      </blockquote>
-                    </div>
+                    <p className='text-brand-dark-grey p-4'>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation”</p>
                   </div>
                 </div>
               </div>
