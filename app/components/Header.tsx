@@ -13,7 +13,8 @@ type props = {
 
 const Header = async ({ height = 'h-[420px]', title, className, image, tag = 'Flights' }: props) => {
 
-  const imageUrl = urlFor(image).width(2000).height(400).dpr(2).quality(75).url() || ''
+  // .width(2000).height(400).dpr(2).quality(75)
+  const imageUrl = urlFor(image).url() || ''
   // @ts-ignore
   // const blurUrl = image?.asset?.metadata?.lqip || ''
 
