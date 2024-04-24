@@ -7,6 +7,8 @@ import Header from "../components/Header";
 import Heading from "../components/Heading";
 import ServiceCard from "../components/ServiceCard";
 
+export const revalidate = 30; // revalidate at most 30 seconds
+
 export const metadata: Metadata = {
   title: "Training - Helicopter Services",
   description: "Helicopter Services",
