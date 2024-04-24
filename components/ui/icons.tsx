@@ -1,10 +1,14 @@
-import { LogOut, LucideProps, Moon, PlaneTakeoff, Sun } from 'lucide-react';
+import { Facebook, FacebookIcon, Instagram, LogOut, LucideFacebook, LucideProps, Moon, PlaneTakeoff, Sun } from 'lucide-react';
 
 export const Icons = {
   sun: Sun,
   moon: Moon,
   logOut: LogOut,
-  PlaneTakeoff: PlaneTakeoff,
+  planeTakeoff: PlaneTakeoff,
+  facebook: Facebook,
+  instagram: Instagram,
+  facebookIcon: FacebookIcon,
+  lucideFacebook: LucideFacebook,
   github: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path

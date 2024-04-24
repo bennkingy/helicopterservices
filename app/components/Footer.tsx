@@ -19,14 +19,38 @@ export default function Footer() {
               className='min-w-[100px] mb-10 '
             />
           </Link>
-          <div className='hidden sm:block'>
+          <div className="text-sm mb-3 mt-6 sm:mt-0 font-bold font-openSans">Contact</div>
+          <p>
+            Helicopter Services<br />
+            White Waltham Airfield<br />
+            Maidenhead<br />
+            Berkshire<br />
+            <a href='' className='text-brand-light-blue'>SL6 3NJ</a>
+          </p>
+          <div className="text-sm font-bold my-5 mb-3 mt-6 font-openSans">Social</div>
+          <ul>
+            <li className='flex text-brand-light-blue font-bold'><Image src='/images/facebook.png' width={25} height={25} alt='' className='mt-1 mr-1' />Instagram</li>
+            <li className='flex text-brand-light-blue font-bold'><Image src='/images/instagram.png' width={20} height={20} alt='' className='mt-1 mr-[7px] ml-[2px]' />Facebook</li>
+          </ul>
+          <div className="text-sm font-bold mb-3 mt-6 font-openSans">Legals</div>
+          <ul>
+            <li>Terms and conditions</li>
+            <li>Policy</li>
+            <li>Cookies</li>
+          </ul>
+          {/* <div className='hidden sm:block'>
             <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
               <Weather city="London" />
             </Suspense>
-          </div>
+            <div className='mt-5'>
+              <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
+                <Weather city="Manchester" airport='West London Aero Club' />
+              </Suspense>
+            </div>
+          </div> */}
         </div>
           <div className="">
-            <div className="text-sm font-bold mb-3 mt-5 sm:mt-0">Training</div>
+            <div className="text-sm font-bold mb-3 mt-5 sm:mt-0 font-openSans">Training</div>
             <ul>
               <li>Private pilot license</li>
               <li>Commercial pilot license</li>
@@ -45,13 +69,13 @@ export default function Footer() {
             </ul>
           </div>
           <div className="">
-            <div className="text-sm mb-3 mt-6 sm:mt-0 font-bold">Flight</div>
+            <div className="text-sm mb-3 mt-6 sm:mt-0 font-bold font-openSans">Flight</div>
             <ul>
               <li>London sightseeing</li>
               <li>Special events</li>
               <li>Trail lesson</li>
             </ul>
-            <div className="text-sm mb-3 mt-6 font-bold">Industry</div>
+            <div className="text-sm mb-3 mt-6 font-bold font-openSans">Industry</div>
             <ul>
               <li>Airport transfer</li>
               <li>Helicopter charter</li>
@@ -59,34 +83,18 @@ export default function Footer() {
               <li>Load lifting</li>
             </ul>
           </div>
-          <div>
-            <div className="text-sm mb-3 mt-6 sm:mt-0 font-bold">Contact</div>
-            <p>
-              Helicopter Services<br />
-              White Waltham Airfield<br />
-              Maidenhead<br />
-              Berkshire<br />
-              SL6 3NJ
-            </p>
-            <div className="text-sm font-bold my-5 mb-3 mt-6">Social</div>
-            <ul>
-              <li>Instagram</li>
-              <li>Facebook</li>
-            </ul>
-            <div className="text-sm font-bold mb-3 mt-6">Legals</div>
-            <ul>
-              <li>Terms and conditions</li>
-              <li>Policy</li>
-              <li>Cookies</li>
-            </ul>
-          </div>
-          <div className='block sm:hidden mt-6 sm:mt-0'>
+          <div className='mt-8 sm:mt-0'>
             <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
-              <Weather city="London" />
+              <Weather city="Maidenhead" />
             </Suspense>
+            <div className='mt-5'>
+              <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
+                <Weather city="Manchester" airport='West London Aero Club' />
+              </Suspense>
+            </div>
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
     </>
   )
 };

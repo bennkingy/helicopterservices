@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default async function Weather({ city = 'London' }) {
+export default async function Weather({ city = 'London', airport = 'White Waltham Airfield' }) {
   const apiKey = 'f0767f78463d9f6c247a1889989cc1f5' || process.env.OPENWEATHER_API_KEY;
   const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`,
     {
@@ -16,13 +16,13 @@ export default async function Weather({ city = 'London' }) {
   }
 
   return (
-    <div className="max-w-40 rounded-sm text-white p-5 pt-0 bg-brand-light-blue sm:mt-0">
-      <h4 className="font-bold font-xl font-workSans text-center pt-5">Airport 1</h4>
-      <Image src={`http://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`} width={100} height={100} alt={`${data.weather[0].alt}`} />
-      <p className="font-bold">Temperature:<br />{data?.main?.temp}°C</p>
-      <p className="font-bold mt-3 up">Weather:<br />{data?.weather ? data?.weather[0]?.description : null}</p>
-      <p className="font-bold mt-3">Humidity:<br />{data?.main?.humidity}%</p>
-      <p className="font-bold mt-5 bg-green-600 text-white rounded-lg p-1 pl-3">Safe to fly</p>
+    <div className="max-w-50 rounded-sm text-white p-5 pt-0 bg-[#1A3051] sm:mt-0 text-center">
+      <h4 className="text-sm font-bold font-openSans pt-5 mx-auto">{airport}</h4>
+      <Image src={`http://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`} width={100} height={100} alt={`${data.weather[0].alt}`} className='mx-auto' />
+      <p className="">Temperature: {data?.main?.temp}°C</p>
+      <p className="mt-1">Weather: {data?.weather ? data?.weather[0]?.description : null}</p>
+      <p className="mt-1">Humidity: {data?.main?.humidity}%</p>
+      {/* <p className="mt-5 bg-green-600 text-white rounded-lg p-1 pl-3">Safe to fly </p> */}
     </div>
   );
 }
