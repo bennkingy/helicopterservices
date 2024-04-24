@@ -21,21 +21,21 @@ const features: MainServices[] = [
     icon: <Image src='/images/helicopter-icon.svg' alt='' width={40} height={40} />,
     title: "Flights",
     description:
-      "Flight examiner ratingsFE(H), TRE(H), and more.",
+      "Flight examiner ratings FE(H), TRE(H).",
     url: '/flights',
   },
   {
     icon: <Image src='/images/helicopter-icon.svg' alt='' width={40} height={40} />,
     title: "Industry",
     description:
-      "Elevating industry to new heights. Photography  & filming.",
+      "Elevating industry to new heights.",
     url: '/industry',
   },
   {
     icon: <Image src='/images/helicopter-icon.svg' alt='' width={40} height={40} />,
     title: "Our company",
     description:
-      "Please feel free to drop us a message, we'd love to hear from you.",
+      "Please feel free to drop us a message.",
     url: '/about-us',
   },
 ];

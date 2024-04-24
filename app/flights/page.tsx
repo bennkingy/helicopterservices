@@ -50,7 +50,7 @@ export default async function Flights({ params }: { params: { slug: string } }) 
           </div>
           <div className="mb-14 mt-20 grid grid-cols-1 sm:grid-cols-3">
             <div className="col-span-2 pr-0 sm:pr-20">
-              {/* //@ts-ignore */}
+              {/* // @ts-ignore */}
               <Heading title='Can’t find what your looking for?' titleSize="text-3xl text-brand-dark-blue" className="mb-7" />
               <p className="mb-5">We have over 20 years’ operating as one of the UKs most experienced helicopter charter, tours, photography, load lifting and consultancy companies.</p>
               <p className="mb-5">Whether you are looking for a wonderful gift, a time-efficient airport transfer, a private charter for your special occasion, help with aerial photograph, a load lifted economically we can help you.</p>

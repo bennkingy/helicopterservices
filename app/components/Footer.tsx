@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <>
       <GetInTouch />
-      <div className="bg-brand-dark-blue dark:bg-black text-white pt-20 pb-20 sm:pb-28 sm:pt-24 border-t-4 border-brand-light-blue">
+      <div className="bg-brand-dark-blue dark:bg-black text-white pt-20 pb-20 border-t-4 border-brand-light-blue">
         <div className="mx-auto flex flex-wrap container justify-between flex-col sm:flex-row"><div>
           <Link href="/" className="font-mono text-lg font-bold start">
             <Image
@@ -19,12 +19,14 @@ export default function Footer() {
               className='min-w-[100px] mb-10 '
             />
           </Link>
-          <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
-            <Weather city="London" />
-          </Suspense>
+          <div className='hidden sm:block'>
+            <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
+              <Weather city="London" />
+            </Suspense>
+          </div>
         </div>
           <div className="">
-            <div className="text-sm uppercase font-bold mb-4 mt-5 sm:mt-0">Training</div>
+            <div className="text-sm font-bold mb-3 mt-5 sm:mt-0">Training</div>
             <ul>
               <li>Private pilot license</li>
               <li>Commercial pilot license</li>
@@ -43,13 +45,13 @@ export default function Footer() {
             </ul>
           </div>
           <div className="">
-            <div className="text-sm uppercase mb-5 mt-14 sm:mt-0 font-bold">Flight</div>
+            <div className="text-sm mb-3 mt-6 sm:mt-0 font-bold">Flight</div>
             <ul>
               <li>London sightseeing</li>
               <li>Special events</li>
               <li>Trail lesson</li>
             </ul>
-            <div className="text-sm uppercase my-5 mt-14 font-bold">Industry</div>
+            <div className="text-sm mb-3 mt-6 font-bold">Industry</div>
             <ul>
               <li>Airport transfer</li>
               <li>Helicopter charter</li>
@@ -58,7 +60,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <div className="text-sm uppercase mb-5 mt-14 sm:mt-0 font-bold">Contact</div>
+            <div className="text-sm mb-3 mt-6 sm:mt-0 font-bold">Contact</div>
             <p>
               Helicopter Services<br />
               White Waltham Airfield<br />
@@ -66,17 +68,22 @@ export default function Footer() {
               Berkshire<br />
               SL6 3NJ
             </p>
-            <div className="text-sm uppercase font-bold my-5 mt-14">Social</div>
+            <div className="text-sm font-bold my-5 mb-3 mt-6">Social</div>
             <ul>
               <li>Instagram</li>
               <li>Facebook</li>
             </ul>
-            <div className="text-sm uppercase font-bold my-5 mt-14">Legals</div>
+            <div className="text-sm font-bold mb-3 mt-6">Legals</div>
             <ul>
               <li>Terms and conditions</li>
               <li>Policy</li>
               <li>Cookies</li>
             </ul>
+          </div>
+          <div className='block sm:hidden mt-6 sm:mt-0'>
+            <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
+              <Weather city="London" />
+            </Suspense>
           </div>
         </div>
       </div>

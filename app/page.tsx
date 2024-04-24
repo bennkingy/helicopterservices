@@ -1,6 +1,7 @@
 import { carouselItem } from '@/lib/interface';
 import Image from 'next/image';
 import Carousel from "./components/Carousel";
+import Enquire from './components/Enquire';
 import FramerAnimationSlide from './components/FramerAnimationSlideIn';
 import Heading from './components/Heading';
 import Hero from "./components/Hero";
@@ -29,11 +30,11 @@ export default async function Home() {
     <main className="">
       <Hero title="Exceeding exacting industry standards." height='h-[calc(100vh_-_60px)] sm:h-[calc(100vh_-_68px)]' />
       <div className="py-20 bg-brand-dark-blue">
-        <div className="max-w-6xl container">
+        <div className="container">
           <MainServices />
         </div>
       </div>
-      <div className="py-20 max-w-6xl container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
+      <div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
         <div className='pr-0 sm:pr-10 relative'>
           <FramerAnimationSlide
             items={[
@@ -90,14 +91,63 @@ export default async function Home() {
         </div>
       </div>
       <div className="pb-20 pt-20 bg-brand-light-grey">
-        <div className="max-w-6xl container">
+        <div className="container">
           <Heading title="For gifts, swift transfers and private charters." tag='Flights' center className='mb-10' />
           <Carousel slides={items} />
         </div>
       </div>
+      <div className="container pb-20 pt-20 bg-white grid grid-cols-1 md:grid-cols-2">
+        <div className=" mx-auto relative">
+          <div className='pr-0 sm:pr-10 relative'>
+            <FramerAnimationSlide
+              items={[
+                <Image
+                  src="/images/loadlifting.png"
+                  alt="Helicopter Services"
+                  width={1000}
+                  key={1}
+                  height={1000}
+                  className='min-w-[100px] pr-0 sm:pr-10 md:pr-10 lg:pr-20 xl:pr-20'
+                />,
+                <Image
+                  src="/images/grandad.png"
+                  alt="Helicopter Services"
+                  width={240}
+                  height={240}
+                  key={2}
+                  className='absolute -bottom-20 sm:bottom-20 right-0 md:right-14 border-8 border-white drop-shadow-sm shadow-xl' />
+              ]}
+            />
+          </div>
+        </div>
+        <div>
+          <Heading title="Elevating industry to new heights." tag='Industry' className='mb-8 mt-36 sm:mt-0' />
+          <p className='font-openSans'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          <ul className="max-w-md space-y-1 mt-7 list-inside font-openSans">
+            <li className="flex items-center">
+              <svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+              </svg>Lorem ipsum dolor
+            </li>
+            <li className="flex items-center"><svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+            </svg>Amet, consectetur</li>
+            <li className="flex items-center"><svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+            </svg>Adipiscing elit, sed do</li>
+            <li className="flex items-center"><svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+            </svg>Mod tempor incididunt</li>
+            <li className="flex items-center"><svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+            </svg>Labore et dolore magna aliqua</li>
+          </ul>
+          <Enquire className='mt-7' />
+        </div>
+      </div>
       <div className='bg-brand-light-grey mt-0'>
-        <div className="max-w-6xl container pb-20">
-          <Heading title="Client feedback." center className='mb-10 -mt-2' />
+        <div className="container pt-12 pb-20">
+          <Heading title="Client feedback." center tag='Testimonials' className='mb-10' />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
             {reviews.map((review, index) => (
               <div className='text-white drop-shadow-brand' key={index}>
