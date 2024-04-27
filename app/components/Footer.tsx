@@ -85,11 +85,11 @@ export default function Footer() {
           </div>
           <div className='mt-8 sm:mt-0'>
             <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
-              <Weather city="Maidenhead" />
+              <Weather />
             </Suspense>
             <div className='mt-10'>
               <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
-                <Weather city="Manchester" airport='West London Aero Club' />
+                <Weather lat={51.490280} lon={-0.772940} airport='West London Aero Club' />
               </Suspense>
             </div>
           </div>
