@@ -38,7 +38,7 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en" suppressHydrationWarning className='overflow-x-hidden'>
+    <html lang="en" suppressHydrationWarning className=''>
       <body className={`${openSans.variable} ${workSans.variable} text-brand-dark-grey overflow-x-hidden`}>
         <ThemeProvider
           attribute="class"
