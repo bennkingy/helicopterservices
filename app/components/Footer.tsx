@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import GetInTouch from './GetInTouch';
 import Weather from './Weather';
+import logo from "/public/images/LogoDarkV1.svg";
 
 export default function Footer() {
   return (
@@ -12,7 +13,7 @@ export default function Footer() {
         <div className="mx-auto flex flex-wrap container justify-between flex-col sm:flex-row"><div>
           <Link href="/" className="font-mono text-lg font-bold start">
             <Image
-              src="/images/logoDarkV1.svg"
+              src={logo}
               alt="Helicopter Services"
               width={153}
               height={43}

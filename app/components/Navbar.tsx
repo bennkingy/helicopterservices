@@ -7,6 +7,7 @@ import { useState } from "react";
 import Headroom from 'react-headroom';
 import { ModeToggle } from "./ModeToggle";
 import { NavMenu } from "./NavMenu";
+import logo from "/public/images/LogoLightV1.svg";
 
 export default function Navbar() {
   const [isPinned, setIsPinned] = useState(false);
@@ -19,8 +20,8 @@ export default function Navbar() {
       onUnfix={() => setIsPinned(false)}
     >
       {!isPinned ? <div className="h-[40px] w-full bg-brand-dark-blue flex justify-center align-center items-center">
-        <div className="relative h-[14px] sm:h-[24px] w-[14px] sm:[w-[24px]">
-          <Image priority fill src={'/images/check1.svg'} alt="img" className="w-full object-cover " />
+        <div className="relative h-[14px] sm:h-[24px] w-[14px] sm:w-[24px]">
+          <Image priority fill src={'/images/check1.svg'} alt="img" className="w-full object-cover" />
         </div>
         <p className="ml-2 text-white text-center font-workSans text-xs sm:text-base">
           A leading UK CAA and EASA approved Training Organisation
@@ -37,7 +38,7 @@ export default function Navbar() {
         )}>
           <Link href="/" className="font-mono text-lg font-bold start">
             <Image
-              src="/images/LogoLightV1.svg"
+              src={logo}
               alt="Helicopter Services"
               width={191}
               height={117}

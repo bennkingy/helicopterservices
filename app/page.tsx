@@ -205,7 +205,7 @@ export default async function Home() {
         <div className="container pt-12 pb-20">
           <Heading title="Client feedback." center tag='Testimonials' className='mb-16' />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
-            {reviews.map((review, index) => (
+            {reviews.slice(0, 6).map((review, index) => (
               <div className='text-white drop-shadow-brand' key={index}>
                 <div style={{ clipPath: 'polygon(0 0,calc(100% - 35px) 0,100% 35px,100% 100%,0 100%)' }} className='p-0'>
                   <div className="max-w-sm mx-auto border-l-4 border-brand-light-blue bg-white p-4">
