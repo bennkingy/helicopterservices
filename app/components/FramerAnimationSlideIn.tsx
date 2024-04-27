@@ -7,12 +7,12 @@ const variants = {
   initial: {
     opacity: 0,
     transform: 'translateX(-150px)',
-    filter: 'blur(5px)'
+    // filter: 'blur(5px)'
   },
   animate: (index: number) => ({
     opacity: 1,
     transform: 'translateX(0px)',
-    filter: 'blur(0px)',
+    // filter: 'blur(0px)',
     transition: {
       duration: 1,
       ease: 'easeInOut',
