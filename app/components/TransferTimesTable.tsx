@@ -1,18 +1,16 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
+  TableRow
 } from "@/components/ui/table"
 
 const TransferTimesTable = () => {
   return (
     <div>
       <Table>
-        <TableCaption>More transfers available.</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Departure</TableHead>

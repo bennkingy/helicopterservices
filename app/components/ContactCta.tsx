@@ -19,25 +19,25 @@ const ContactCta = () => {
         <table className={`table-fixed mt-5 ml-5 w-full`}>
           <tbody>
             <tr>
-              <td>Monday:</td> <td>08:30 - 1730</td>
+              <td>Monday</td> <td>08:30 - 1730</td>
             </tr>
             <tr>
-              <td>Tuesday:</td> <td>08:30 - 1730</td>
+              <td>Tuesday</td> <td>08:30 - 1730</td>
             </tr>
             <tr>
-              <td>Wednesday:</td> <td>08:30 - 1730</td>
+              <td>Wednesday</td> <td>08:30 - 1730</td>
             </tr>
             <tr>
-              <td>Thursday:</td> <td>08:30 - 1730</td>
+              <td>Thursday</td> <td>08:30 - 1730</td>
             </tr>
             <tr>
-              <td>Friday:</td> <td>08:30 - 1730</td>
+              <td>Friday</td> <td>08:30 - 1730</td>
             </tr>
             <tr className="font-bold">
-              <td>Saturday:</td> <td>Closed</td>
+              <td>Saturday</td> <td>Closed</td>
             </tr>
             <tr className="font-bold">
-              <td>Sunday:</td> <td>Closed</td>
+              <td>Sunday</td> <td>Closed</td>
             </tr>
           </tbody>
         </table>
