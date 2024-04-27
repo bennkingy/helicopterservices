@@ -22,7 +22,7 @@ const Hero = ({ height = 'h-[70vh]', cta, cta2, title, subtitle, className }: pr
     <section
       className={`bg-[url('/images/flipped.jpg')] bg-no-repeat bg-cover bg-center ${height} ${className}`}
     >
-      <div className={`bg-opacity-70 bg-brand-dark-blue h-full`}>
+      <div className={`bg-opacity-70 bg-brand-dark-blue relative h-full`}>
         <div className='h-full grid container mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12'>
           <div className='mr-auto place-self-start lg:col-span-8 mt-[190px] sm:mt-[250px] text-balance'>
             <FramerAnimation delay={0}>
@@ -63,7 +63,6 @@ const Hero = ({ height = 'h-[70vh]', cta, cta2, title, subtitle, className }: pr
               alt="Helicopter Services"
               width={100}
               height={34}
-              className='min-w-[100px]'
             />
             <Image
               src="/images/caa.svg"
