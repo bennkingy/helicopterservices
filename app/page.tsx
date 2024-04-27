@@ -231,7 +231,7 @@ export default async function Home() {
                         </div>
                       </div>
                     </div>
-                    <p className='text-brand-dark-grey p-4 line-clamp-5 pb-0'>{review?.description}”</p>
+                    <p className='text-brand-dark-grey p-4 line-clamp-4 pb-0'>{review?.description}”</p>
                   </div>
                 </div>
               </div>
