@@ -12,7 +12,7 @@ type props = {
   tagColor?: string;
 };
 
-const Header = async ({ height = 'h-[30px]', title, className, image, tag = 'Flights', tagColor = 'white' }: props) => {
+const Header = async ({ height = 'h-[30px]', title, className, image, tag = 'Flights', tagColor = 'blue' }: props) => {
 
   // .width(2000).height(400).dpr(2).quality(75)
   const imageUrl = urlFor(image).url() || ''

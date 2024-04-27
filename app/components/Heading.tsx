@@ -21,7 +21,7 @@ interface HeadingProps {
   className?: string;
   iconSize?: number;
   iconStyles?: string;
-  tagColor?: 'white' | 'blue' | 'light-blue';
+  iconColor?: 'white' | 'dark-blue' | 'light-blue';
 }
 
 const Heading: React.FC<HeadingProps> = ({
@@ -31,7 +31,7 @@ const Heading: React.FC<HeadingProps> = ({
   iconSize,
   iconStyles,
   tag,
-  tagColor = 'white',
+  iconColor = 'light-blue',
   tagSize = 'text-lg',
   center,
   className,
@@ -39,7 +39,7 @@ const Heading: React.FC<HeadingProps> = ({
   return (
     <div className={`${center ? 'text-center max-w-[600px] mx-auto' : 'text-start'} font-workSans ${className}`}>
       <div className={`${center ? 'justify-center' : 'justify-start'} font-workSans flex text-brand-light-blue text-lg`}>
-        {tag ? (<div className={`flex justify-center ${iconStyles}`}><HelicopterIcon iconColor={'dark-blue'} iconSize={iconSize} className={`mr-2`} /><div className={`${tagSize}`}>{tag}</div></div>) : null}
+        {tag ? (<div className={`flex justify-center ${iconStyles}`}><HelicopterIcon iconColor={iconColor} iconSize={iconSize} className={`mr-2`} /><div className={`${tagSize}`}>{tag}</div></div>) : null}
       </div>
       <div className={`font-bold mt-2 text-brand-dark-blue text-5xl ${titleSize}`}>{title}</div>
       <div className='font-light text-neutral-500 mt-2'>{subtitle}</div>
