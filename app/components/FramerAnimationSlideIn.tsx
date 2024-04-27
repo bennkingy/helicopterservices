@@ -1,42 +1,46 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 const variants = {
   initial: {
     opacity: 0,
     transform: 'translateX(-150px)',
-    // filter: 'blur(5px)'
+    filter: 'blur(5px)'
   },
   animate: (index: number) => ({
     opacity: 1,
     transform: 'translateX(0px)',
-    // filter: 'blur(0px)',
+    filter: 'blur(0px)',
     transition: {
       duration: 1,
       ease: 'easeInOut',
       delay: 0.3 * index,
-    }
-  })
+    },
+  }),
 };
 
-const FramerAnimationSlideIn = ({ items }: any) => {
+const FramerAnimationSlideIn = ({ items }: { items: Array<any> }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
-    // @ts-ignore
-    items.map((item, index) => (
-      <motion.div
-        variants={variants}
-        initial="initial"
-        whileInView="animate"
-        key={item.src}
-        viewport={{
-          once: true,
-        }}
-        custom={index}
-      >
-        {item}
-      </motion.div>
-    )))
-}
+    <div ref={ref} className="flex flex-col justify-center gap-2">
+      {items.map((item, index) => (
+        <motion.div
+          key={index}
+          variants={variants}
+          initial="initial"
+          animate={isInView && 'animate'}
+          custom={index}
+          className="flex items-center justify-center"
+        >
+          {item}
+        </motion.div>
+      ))}
+    </div>
+  );
+};
 
 export default FramerAnimationSlideIn;
