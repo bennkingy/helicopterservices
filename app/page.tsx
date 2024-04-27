@@ -24,7 +24,7 @@ export default async function Home() {
     },
     {
       img: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/50/21/8d/a3303xqpaulh.jpg',
-      name: "Paul H", service: "", description: "It's never going to be cheap in a helicopter and your own pilot but we hit it at a quiet time and got a winner. Around the countryside then followed the Thames to the centre of London. West Minster, St Paul's, the shard and more. Best value for money anywhere on this trip. We loved it. We are so lucky."
+      name: "Paul H", service: "", description: "We hit it at a quiet time and got a winner around the countryside then followed the Thames to the centre of London. West Minster, St Paul's, the shard and more. Best value for money anywhere on this trip. We loved it. We are so lucky."
     },
     {
       img: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f2/7a/default-avatar-2020-25.jpg',
@@ -62,7 +62,7 @@ export default async function Home() {
                 width={1000}
                 key={1}
                 height={1000}
-                className='min-w-[100px] pr-0 sm:pr-10 md:pr-10 lg:pr-20 xl:pr-20'
+                className='min-w-[100px] pr-10 sm:pr-10 md:pr-10 lg:pr-20 xl:pr-32'
               />,
               <Image
                 src="/images/grandad.png"
@@ -163,7 +163,7 @@ export default async function Home() {
                   width={1000}
                   key={1}
                   height={1000}
-                  className='min-w-[100px] pr-0 sm:pr-10 md:pr-10 lg:pr-20 xl:pr-20'
+                  className='min-w-[100px] pr-10 sm:pr-10 md:pr-10 lg:pr-20 xl:pr-32'
                 />,
                 <Image
                   src="/images/planes.jpg"
@@ -224,7 +224,7 @@ export default async function Home() {
                         {/* <div className="text-sm text-gray-600">{review.service}</div> */}
                       </div>
                     </div>
-                    <p className='text-brand-dark-grey p-4'>“{review?.description}”</p>
+                    <p className='text-brand-dark-grey p-4 line-clamp-5 pb-0'>{review?.description}”</p>
                   </div>
                 </div>
               </div>
