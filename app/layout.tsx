@@ -5,6 +5,7 @@ import { ThemeProvider } from "../components/ui/theme-provider";
 import "../styles/globals.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import ScrollTop from './components/ScrollTop';
 
 const workSans = Work_Sans({
   subsets: ['latin'],
@@ -37,7 +38,7 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className='overflow-x-hidden'>
       <body className={`${openSans.variable} ${workSans.variable} text-brand-dark-grey overflow-x-hidden`}>
         <ThemeProvider
           attribute="class"
@@ -47,6 +48,7 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
+          <ScrollTop />
           <Footer />
           <Toaster />
         </ThemeProvider>
