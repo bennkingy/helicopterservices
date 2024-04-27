@@ -88,11 +88,11 @@ export default function Footer() {
             <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
               <Weather />
             </Suspense>
-            <div className='mt-10'>
+            {/* <div className='mt-10'>
               <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
                 <Weather lat={51.490280} lon={-0.772940} airport='West London Aero Club' />
               </Suspense>
-            </div>
+            </div> */}
           </div>
         </div >
       </div >
