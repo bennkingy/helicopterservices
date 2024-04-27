@@ -64,10 +64,10 @@ export default async function Weather({ lat = 51.501140, lon = -0.763710, airpor
       <Image src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`} width={100} height={100} alt={''} className='mx-auto' />
       <p className="">Temperature: {data?.main?.temp}°C</p>
       {/* <p className="mt-1">Weather: {data?.weather ? data?.weather[0]?.description : null}</p> */}
-      <p className="mt-1">Pressure: {data?.main?.pressure} hPa</p>
-      <p className="mt-1">Windspeed: {data?.wind?.speed}%</p>
+      <p className="mt-1">Pressure: {data?.main?.pressure}hPa</p>
+      <p className="mt-1">Wind speed: {data?.wind?.speed}%</p>
       <p className="mt-1">Wind degree: {data?.wind?.deg}°</p>
-      <p className="mt-1">Visibility: {data?.visibility} m</p>
+      <p className="mt-1">Visibility: {data?.visibility}m</p>
       <p className="mt-1">Humidity: {data?.main?.humidity}%</p>
       {/* <p className="mt-5 bg-green-600 text-white rounded-lg p-1 pl-3">Safe to fly </p> */}
     </div>
