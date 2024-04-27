@@ -3,24 +3,34 @@
 import { cn } from "@/lib/utils";
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from "react";
 import Headroom from 'react-headroom';
 import { ModeToggle } from "./ModeToggle";
 import { NavMenu } from "./NavMenu";
 
 export default function Navbar() {
+  const [isFixed, setIsFixed] = useState(true);
 
   return (
-    <Headroom>
-      <header className="w-full border-b-4 border-brand-light-blue bg-white">
-        <div className={cn("container flex h-14 sm:h-16 items-center justify-between",
-          "container", "px-4"
+    <Headroom
+      onUnfix={() => setIsFixed(false)}
+      onPin={() => setIsFixed(true)}
+    >
+      <header className={cn(
+        "w-full transition-all duration-300 ease-in-out",
+        isFixed ? "h-[80px]" : "h-[115px]",
+        "border-b-4 border-brand-light-blue bg-white flex"
+      )}>
+        <div className={cn(
+          "container flex items-center justify-between",
+          "px-4"
         )}>
           <Link href="/" className="font-mono text-lg font-bold start">
             <Image
-              src="/images/logo.png"
+              src="/images/LogoLight.svg"
               alt="Helicopter Services"
-              width={100}
-              height={34}
+              width={191}
+              height={117}
               className='min-w-[100px]'
             />
           </Link>

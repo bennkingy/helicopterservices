@@ -10,11 +10,11 @@ import { MainServices } from "./components/MainServices";
 export default async function Home() {
 
   const items: carouselItem[] = [
-    { title: "Airport Transfer", description: "We offer training from Private Pilots license to Commercial, instruments, instructor and examiner ratings.", link: "/#" },
-    { title: "City Tours", description: "Explore the city's top attractions with our experienced guides.", link: "/tours" },
-    { title: "Hotel Services", description: "Enjoy our world-class accommodations and hospitality.", link: "/hotels" },
-    { title: "Dining Experiences", description: "Taste the best local and international cuisines.", link: "/dining" },
-    { title: "Adventure Sports", description: "Get your adrenaline pumping with our adventure sports packages.", link: "/adventures" },
+    { img: '/images/circle-heli.png', title: "Airport Transfer", description: "We offer training from Private Pilots license to Commercial, instruments, instructor and examiner ratings.", link: "/#" },
+    { img: '/images/circle-heli.png', title: "City Tours", description: "Explore the city's top attractions with our experienced guides.", link: "/tours" },
+    { img: '/images/circle-heli.png', title: "Hotel Services", description: "Enjoy our world-class accommodations and hospitality.", link: "/hotels" },
+    { img: '/images/circle-heli.png', title: "Dining Experiences", description: "Taste the best local and international cuisines.", link: "/dining" },
+    { img: '/images/circle-heli.png', title: "Adventure Sports", description: "Get your adrenaline pumping with our adventure sports packages.", link: "/adventures" },
   ];
 
   const reviews: any[] = [
@@ -88,6 +88,44 @@ export default async function Home() {
           <p className='mt-3 font-bold font-openSans'>Captain Leon Smith</p>
           <p className='mt-0 text-brand-light-blue font-openSans'>Head Pilot / Chief Pilot</p>
           <p className='mt-0 font-openSans'>Helicopter Services</p>
+        </div>
+      </div>
+      <div className="py-20 bg-brand-dark-blue">
+        <div className="container relative mx-auto grid grid-cols-1 md:grid-cols-2">
+          <div>
+            <Heading title="From beginner to advanced, you're in expert hands." tag='training' className='mb-8' titleSize='text-white' />
+            <p className='font-openSans text-white'>{`Our highly experienced instructors and examiners are among the UK's most senior. We provide type ratings for over 17 helicopter types, along with Flight Instructor Refresher and Instrument Rating Examiner courses.`}</p>
+            <p className='font-openSans mt-4 text-white'>Additionally, we offer a helicopter flight simulator for safe instrument flying skill development and an advanced program to enhance PPL skills.</p>
+              <div className="flex space-x-5 mt-7">
+                <Image
+                  src="/images/easa.svg"
+                  alt="Helicopter Services"
+                  width={109}
+                  height={36}
+                />
+                <Image
+                  src="/images/caa.svg"
+                  alt="Helicopter Services"
+                  width={50}
+                  height={38}
+                />
+              </div>
+              <Enquire className='mt-7' textStyle='text-white' />
+          </div>
+          <div className='pr-0 sm:pl-10 relative mt-20 sm:mt-0'>
+            <FramerAnimationSlide
+              items={[
+                <Image
+                  src="/images/flying.png"
+                  alt="Helicopter Services"
+                  width={1000}
+                  key={1}
+                  height={1000}
+                  className='min-w-[100px] pr-0 sm:pl-10 md:pl-10 lg:pl-20 xl:pl-20'
+                />
+              ]}
+            />
+          </div>
         </div>
       </div>
       <div className="pb-20 pt-20 bg-brand-light-grey">

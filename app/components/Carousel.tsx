@@ -10,6 +10,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { carouselItem } from "@/lib/interface";
+import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from 'next/link';
 import { useEffect, useState } from "react";
@@ -37,13 +38,22 @@ const Carousel = ({ slides }: props) => {
   }, [api])
 
   return (
-    <CarouselComponent setApi={setApi}>
+    <CarouselComponent setApi={setApi} plugins={[
+      Autoplay({
+        waitForUser: true,
+        speed: 50000,
+      }),
+    ]}
+      opts={{
+        align: "start",
+        loop: true,
+      }}>
       <CarouselContent className="-ml-2 md:-ml-4">
         {slides.map((item, index) => (
           <CarouselItem key={index} className="sm:basis-1/3 text-center px-20">
             <FramerAnimationBlurIn delay={0.15}>
               <Image
-                src={'https://placehold.co/400x400/jpg'}
+                src={item.img}
                 width={400}
                 height={400}
                 alt={item.title}

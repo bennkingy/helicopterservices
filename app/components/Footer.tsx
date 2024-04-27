@@ -12,10 +12,10 @@ export default function Footer() {
         <div className="mx-auto flex flex-wrap container justify-between flex-col sm:flex-row"><div>
           <Link href="/" className="font-mono text-lg font-bold start">
             <Image
-              src="/images/logo.png"
+              src="/images/logoDark.svg"
               alt="Helicopter Services"
-              width={100}
-              height={34}
+              width={153}
+              height={43}
               className='min-w-[100px] mb-10 '
             />
           </Link>
@@ -87,7 +87,7 @@ export default function Footer() {
             <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
               <Weather city="Maidenhead" />
             </Suspense>
-            <div className='mt-5'>
+            <div className='mt-10'>
               <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
                 <Weather city="Manchester" airport='West London Aero Club' />
               </Suspense>

@@ -22,7 +22,7 @@ const Hero = ({ height = 'h-[70vh]', cta, cta2, title, subtitle, className }: pr
     <section
       className={`bg-[url('/images/flipped.jpg')] bg-no-repeat bg-cover bg-center ${height} ${className}`}
     >
-      <div className={`bg-opacity-80 bg-brand-dark-blue h-full`}>
+      <div className={`bg-opacity-70 bg-brand-dark-blue h-full`}>
         <div className='h-full grid container mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12'>
           <div className='mr-auto place-self-start lg:col-span-8 mt-14 sm:mt-20 text-balance'>
             <FramerAnimation delay={0}>

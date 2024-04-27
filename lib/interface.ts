@@ -22,4 +22,5 @@ export interface carouselItem {
   title: string;
   description: string;
   link: string;
+  img: string;
 }
