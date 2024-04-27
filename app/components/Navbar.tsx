@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <Headroom
       downTolerance={10}
-      className="absolute w-full"
+      className="absolute w-full z-50"
       onPin={() => setIsPinned(true)}
       onUnfix={() => setIsPinned(false)}
     >

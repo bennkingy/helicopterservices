@@ -1,5 +1,6 @@
 'use client'
 
+import { cn } from "@/lib/utils";
 import HelicopterIcon from "./HelicopterIcon";
 interface HeadingProps {
   title: string;
@@ -41,7 +42,7 @@ const Heading: React.FC<HeadingProps> = ({
       <div className={`${center ? 'justify-center' : 'justify-start'} font-workSans flex text-brand-light-blue text-lg`}>
         {tag ? (<div className={`flex justify-center ${iconStyles}`}><HelicopterIcon iconColor={iconColor} iconSize={iconSize} className={`mr-2`} /><div className={`${tagSize}`}>{tag}</div></div>) : null}
       </div>
-      <div className={`font-bold mt-2 text-brand-dark-blue text-5xl ${titleSize}`}>{title}</div>
+      <div className={cn(`font-bold mt-2 text-brand-dark-blue text-5xl ${titleSize}`)}>{title}</div>
       <div className='font-light text-neutral-500 mt-2'>{subtitle}</div>
     </div>
   );

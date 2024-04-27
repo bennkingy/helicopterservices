@@ -29,7 +29,7 @@ const Header = async ({ height = 'h-[30px]', title, className, image, tag = 'Fli
 
   return (
     <section
-      className={`relative w-screen h-[330px] sm:h-[575px] ${className} z-0 bg-slate-5`}
+      className={`relative w-screen h-[330px] sm:h-[575px] ${className} z-1 bg-slate-5`}
     >
       <Image
         priority

@@ -31,7 +31,7 @@ const ServiceCard = async ({ heading, url, description, category, image }: Servi
         <Heading title={heading} tag={category} titleSize="text-2xl sm:text-3xl sm:group-hover:text-brand-light-blue" tagSize="text-sm" tagColor="light-blue" iconSize={15} className="my-3 sm:my-5" iconStyles='mb-4' />
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 font-openSans">{description}</p>
       </div>
-      <div className="absolute bottom-0 right-0 z-10">
+      <div className="absolute bottom-0 right-0 z-[1]">
         <svg className="text-brand-light-blue h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
           <polygon points="20 0 20 20 0 20" />
         </svg>

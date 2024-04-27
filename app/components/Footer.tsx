@@ -33,7 +33,7 @@ export default function Footer() {
             <li className='flex text-brand-light-blue font-bold'><Image src='/images/facebook.png' width={25} height={25} alt='' className='mt-1 mr-1' />Instagram</li>
             <li className='flex text-brand-light-blue font-bold'><Image src='/images/instagram.png' width={20} height={20} alt='' className='mt-1 mr-[7px] ml-[2px]' />Facebook</li>
           </ul>
-          <div className="text-sm font-bold mb-3 mt-6 font-openSans">Legals</div>
+          <div className="text-sm font-bold mb-3 mt-7 font-openSans">Legals</div>
           <ul>
             <li>Terms and conditions</li>
             <li>Policy</li>
@@ -88,11 +88,11 @@ export default function Footer() {
             <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
               <Weather />
             </Suspense>
-            {/* <div className='mt-10'>
+            <div className='mt-9 sm:mt-6'>
               <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
                 <Weather lat={51.490280} lon={-0.772940} airport='West London Aero Club' />
               </Suspense>
-            </div> */}
+            </div>
           </div>
         </div >
       </div >
