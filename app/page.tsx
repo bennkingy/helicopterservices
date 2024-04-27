@@ -47,7 +47,7 @@ export default async function Home() {
 
   return (
     <main className="">
-      <Hero title="Exceeding exacting industry standards." height='h-[calc(100vh_-_60px)] sm:h-[calc(100vh_-_68px)]' />
+      <Hero title="Exceeding exacting industry standards." height='h-[calc(100vh_-_0px)] sm:h-[calc(100vh_-_0px)]' />
       <div className="py-20 bg-brand-dark-blue">
         <div className="container">
           <MainServices />
