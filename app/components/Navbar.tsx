@@ -29,7 +29,7 @@ export default function Navbar() {
       </div> : null}
       <header className={cn(
         "w-full transition-all duration-300 ease-in-out",
-        isPinned ? "h-[80px]" : "h-[115px]",
+        isPinned ? "h-[80px]" : "h-[80px] sm:h-[115px]",
         "border-b-4 border-brand-light-blue bg-white flex"
       )}>
         <div className={cn(

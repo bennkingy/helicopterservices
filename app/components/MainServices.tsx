@@ -11,28 +11,28 @@ interface MainServices {
 
 const features: MainServices[] = [
   {
-    icon: <Image src='/images/helicopter-icon.svg' alt='' width={40} height={40} />,
+    icon: <Image src='/images/helicopter-icon-dark-blue.svg' alt='' width={40} height={40} />,
     title: "Training",
     description:
       "You're in expert hands, from beginner to advanced.",
     url: '/training',
   },
   {
-    icon: <Image src='/images/helicopter-icon.svg' alt='' width={40} height={40} />,
+    icon: <Image src='/images/helicopter-icon-dark-blue.svg' alt='' width={40} height={40} />,
     title: "Flights",
     description:
       "Flight examiner ratings FE(H), TRE(H).",
     url: '/flights',
   },
   {
-    icon: <Image src='/images/helicopter-icon.svg' alt='' width={40} height={40} />,
+    icon: <Image src='/images/helicopter-icon-dark-blue.svg' alt='' width={40} height={40} />,
     title: "Industry",
     description:
       "Elevating industry to new heights.",
     url: '/industry',
   },
   {
-    icon: <Image src='/images/helicopter-icon.svg' alt='' width={40} height={40} />,
+    icon: <Image src='/images/helicopter-icon-dark-blue.svg' alt='' width={40} height={40} />,
     title: "Our company",
     description:
       "Please feel free to drop us a message.",

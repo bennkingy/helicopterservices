@@ -1,3 +1,4 @@
+import { Icons } from '@/components/ui/icons';
 import { carouselItem } from '@/lib/interface';
 import Image from 'next/image';
 import Carousel from "./components/Carousel";
@@ -111,7 +112,7 @@ export default async function Home() {
       <div className="py-20 bg-brand-dark-blue">
         <div className="container relative mx-auto grid grid-cols-1 md:grid-cols-2">
           <div>
-            <Heading title="From beginner to advanced, you're in expert hands." tag='training' className='mb-8' titleSize='text-white' />
+            <Heading title="From beginner to advanced, you're in expert hands." tag='training' tagColor='blue' className='mb-8' titleSize='text-white' />
             <p className='font-openSans text-white'>{`Our highly experienced instructors and examiners are among the UK's most senior. We provide type ratings for over 17 helicopter types, along with Flight Instructor Refresher and Instrument Rating Examiner courses.`}</p>
             <p className='font-openSans mt-4 text-white'>Additionally, we offer a helicopter flight simulator for safe instrument flying skill development and an advanced program to enhance PPL skills.</p>
             <div className="flex space-x-5 mt-7">
@@ -148,7 +149,7 @@ export default async function Home() {
       </div>
       <div className="pb-20 pt-20 bg-brand-light-grey">
         <div className="container">
-          <Heading title="For gifts, swift transfers and private charters." tag='Flights' center className='mb-10' />
+          <Heading title="For gifts, swift transfers and private charters." tag='Flights' tagColor='blue' center className='mb-10' />
           <Carousel slides={items} />
         </div>
       </div>
@@ -177,7 +178,7 @@ export default async function Home() {
           </div>
         </div>
         <div>
-          <Heading title="Elevating industry to new heights." tag='Industry' className='mb-8 mt-36 sm:mt-0' />
+          <Heading title="Elevating industry to new heights." tag='Industry' tagColor='blue' className='mb-8 mt-36 sm:mt-0' />
           <p className='font-openSans'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
           <ul className="max-w-md space-y-1 mt-7 list-inside font-openSans">
             <li className="flex items-center">
@@ -203,7 +204,7 @@ export default async function Home() {
       </div>
       <div className='bg-brand-light-grey mt-0'>
         <div className="container pt-12 pb-20">
-          <Heading title="Client feedback." center tag='Testimonials' className='mb-16' />
+          <Heading title="Client feedback." center tag='Testimonials' tagColor='blue' className='mb-16' />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
             {reviews.slice(0, 6).map((review, index) => (
               <div className='text-white drop-shadow-brand' key={index}>
@@ -220,8 +221,14 @@ export default async function Home() {
                         />
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-gray-600">{review.name}</div>
-                        {/* <div className="text-sm text-gray-600">{review.service}</div> */}
+                        <div className="text-md font-bold text-brand-dark-grey">{review.name}</div>
+                        <div className="flex">
+                          <Icons.star fill="#1FB6DE" strokeWidth={0} className='-ml-1' />
+                          <Icons.star fill="#1FB6DE" strokeWidth={0} />
+                          <Icons.star fill="#1FB6DE" strokeWidth={0} />
+                          <Icons.star fill="#1FB6DE" strokeWidth={0} />
+                          <Icons.star fill="#1FB6DE" strokeWidth={0} />
+                        </div>
                       </div>
                     </div>
                     <p className='text-brand-dark-grey p-4 line-clamp-5 pb-0'>{review?.description}”</p>

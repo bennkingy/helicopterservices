@@ -9,9 +9,10 @@ type props = {
   className?: string;
   image?: string;
   tag?: string;
+  tagColor?: string;
 };
 
-const Header = async ({ height = 'h-[30px]', title, className, image, tag = 'Flights' }: props) => {
+const Header = async ({ height = 'h-[30px]', title, className, image, tag = 'Flights', tagColor = 'white' }: props) => {
 
   // .width(2000).height(400).dpr(2).quality(75)
   const imageUrl = urlFor(image).url() || ''
@@ -42,7 +43,7 @@ const Header = async ({ height = 'h-[30px]', title, className, image, tag = 'Fli
       />
       <div className='container relative z-10 flex items-center h-full pt-[115px]'>
         {/*//@ts-ignore*/}
-        <Heading title={title || ''} tag={tag} tagSize='text-xs' iconSize={14} titleSize="text-white text-xl sm:text-5xl font-light max-w-[600px]" />
+        <Heading title={title || ''} tag={tag} tagSize='text-xs text-white' tagColor={tagColor} iconSize={14} titleSize="text-white text-xl sm:text-5xl font-light max-w-[600px]" />
       </div>
       <div className={`bg-opacity-70 bg-brand-dark-blue top-0 bottom-0 right-0 left-0 absolute`}></div>
     </section>

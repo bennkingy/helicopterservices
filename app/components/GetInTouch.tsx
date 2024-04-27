@@ -11,7 +11,7 @@ const GetInTouch = ({ className }: props) => {
       className={`bg-[url('/images/flipped.jpg')] bg-no-repeat bg-cover bg-center ${className} text-white`}
     ><div className={`bg-opacity-80 bg-brand-dark-blue`}>
         <div className="container py-16">
-          <Heading title="Get in touch with us." tag='Contact' center className='mb-10' titleSize='text-white text-3xl sm:text-5xl' />
+          <Heading title="Get in touch with us." tag='Contact' tagColor="blue" center className='mb-10' titleSize='text-white text-3xl sm:text-5xl' />
           <div className="max-w-6xl container p-0 mx-auto grid grid-cols-1 sm:grid-cols-2 font-openSans">
             <div className="p-5 pr-5 sm:pr-12">
               <table className={`table-fixed mx-auto sm:ml-auto sm:mx-0`}>

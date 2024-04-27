@@ -14,7 +14,6 @@ import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from 'next/link';
 import { useEffect, useState } from "react";
-import FramerAnimationBlurIn from "./FramerAnimationBlurIn";
 
 type props = {
   slides: carouselItem[]
@@ -41,7 +40,7 @@ const Carousel = ({ slides }: props) => {
     <CarouselComponent setApi={setApi} plugins={[
       Autoplay({
         waitForUser: true,
-        speed: 50000,
+        speed: 1000,
       }),
     ]}
       opts={{
@@ -51,21 +50,21 @@ const Carousel = ({ slides }: props) => {
       <CarouselContent className="-ml-2 md:-ml-4">
         {slides.map((item, index) => (
           <CarouselItem key={index} className="sm:basis-1/3 text-center px-20">
-            <FramerAnimationBlurIn delay={0.15}>
-              <Image
-                src={item.img}
-                width={400}
-                height={400}
-                alt={item.title}
-                priority
-                className="my-8 rounded-full"
-              />
-              <h5 className="font-bold mb-3 text-lgfont-openSans">{item.title}</h5>
-              <p className="mb-3 font-openSans">{item.description}</p>
-              <Link href={item.link} className="text-lg font-bold text-brand-light-blue font-openSans">
-                Discover more
-              </Link>
-            </FramerAnimationBlurIn>
+            {/* <FramerAnimationBlurIn delay={0.15}> */}
+            <Image
+              src={item.img}
+              width={400}
+              height={400}
+              alt={item.title}
+              priority
+              className="my-8 rounded-full"
+            />
+            <h5 className="font-bold mb-3 text-lgfont-openSans">{item.title}</h5>
+            <p className="mb-3 font-openSans">{item.description}</p>
+            <Link href={item.link} className="text-lg font-bold text-brand-light-blue font-openSans">
+              Discover more
+            </Link>
+            {/* </FramerAnimationBlurIn> */}
           </CarouselItem>
         ))}
       </CarouselContent>

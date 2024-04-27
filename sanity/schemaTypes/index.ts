@@ -14,3 +14,4 @@ import settings, { dayHours, link } from './settings'
 import training from './training'
 
 export const schemaTypes = [serviceType, pilots, imageGalleryType, heroType, training, blockContent, helicopter, flights, legal, about, industry, settings, link, dayHours, promotionType, formType]
+tail
