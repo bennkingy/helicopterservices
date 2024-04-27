@@ -27,11 +27,10 @@ export default function Navbar() {
         )}>
           <Link href="/" className="font-mono text-lg font-bold start">
             <Image
-              src="/images/LogoLight.svg"
+              src="/images/LogoLightV1.svg"
               alt="Helicopter Services"
               width={191}
               height={117}
-              className='min-w-[100px]'
             />
           </Link>
           <NavMenu />

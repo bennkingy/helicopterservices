@@ -15,8 +15,13 @@ const nextConfig = {
         port: "",
       },
       {
-        protocol: "http",
+        protocol: "https",
         hostname: "openweathermap.org",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "dynamic-media-cdn.tripadvisor.com",
         port: "",
       },
     ],

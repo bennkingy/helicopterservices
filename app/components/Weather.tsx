@@ -61,7 +61,7 @@ export default async function Weather({ lat = 51.501140, lon = -0.763710, airpor
   return (
     <div className="max-w-50 rounded-sm text-white p-5 pt-0 bg-[#1A3051] sm:mt-0 text-center">
       <h4 className="text-sm font-bold font-openSans pt-5 mx-auto">{airport}</h4>
-      <Image src={`http://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`} width={100} height={100} alt={''} className='mx-auto' />
+      <Image src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`} width={100} height={100} alt={''} className='mx-auto' />
       <p className="">Temperature: {data?.main?.temp}°C</p>
       {/* <p className="mt-1">Weather: {data?.weather ? data?.weather[0]?.description : null}</p> */}
       <p className="mt-1">Pressure: {data?.main?.pressure} hPa</p>

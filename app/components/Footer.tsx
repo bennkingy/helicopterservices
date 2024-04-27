@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="mx-auto flex flex-wrap container justify-between flex-col sm:flex-row"><div>
           <Link href="/" className="font-mono text-lg font-bold start">
             <Image
-              src="/images/logoDark.svg"
+              src="/images/logoDarkV1.svg"
               alt="Helicopter Services"
               width={153}
               height={43}
