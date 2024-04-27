@@ -52,8 +52,6 @@ export default async function Weather({ lat = 51.501140, lon = -0.763710, airpor
 
   const data: WeatherData = await response.json();
 
-  console.log(JSON.stringify(data));
-
   if (data.cod === 401) {
     console.error('Failed to fetch the weather data.');
   }

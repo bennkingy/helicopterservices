@@ -28,7 +28,7 @@ const ServiceCard = async ({ heading, url, description, category, image }: Servi
     <a href={url} className="bg-white justify-between shadow-brand rounded-none border-0 border-b-4 border-brand-light-blue relative flex flex-col-reverse	items-center overflow-hidden md:flex-row md:max-w-xl transition-shadow duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-800 group hover:shadow-brand-hover">
       <div className="flex flex-col justify-between p-5 leading-normal basis-auto w-full sm:basis-3/6">
         {/*@ts-ignore*/}
-        <Heading title={heading} tag={category} titleSize="text-2xl sm:text-3xl sm:group-hover:text-brand-light-blue" tagSize="text-sm" tagColor="blue" iconSize={15} className="my-3 sm:my-5" iconStyles='mb-4' />
+        <Heading title={heading} tag={category} titleSize="text-2xl sm:text-3xl sm:group-hover:text-brand-light-blue" tagSize="text-sm" tagColor="light-blue" iconSize={15} className="my-3 sm:my-5" iconStyles='mb-4' />
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 font-openSans">{description}</p>
       </div>
       <div className="absolute bottom-0 right-0 z-10">
