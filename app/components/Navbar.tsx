@@ -7,7 +7,7 @@ import { useState } from "react";
 import Headroom from 'react-headroom';
 import { ModeToggle } from "./ModeToggle";
 import { NavMenu } from "./NavMenu";
-import logo from "/public/images/LogoLightV1.svg";
+import logo from "/public/images/LogoDarkV2.svg";
 
 export default function Navbar() {
   const [isPinned, setIsPinned] = useState(false);
