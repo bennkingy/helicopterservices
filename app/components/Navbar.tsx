@@ -9,16 +9,26 @@ import { ModeToggle } from "./ModeToggle";
 import { NavMenu } from "./NavMenu";
 
 export default function Navbar() {
-  const [isFixed, setIsFixed] = useState(true);
+  const [isPinned, setIsPinned] = useState(false);
 
   return (
     <Headroom
-      onUnfix={() => setIsFixed(false)}
-      onPin={() => setIsFixed(true)}
+      downTolerance={10}
+      className="absolute w-full"
+      onPin={() => setIsPinned(true)}
+      onUnfix={() => setIsPinned(false)}
     >
+      {!isPinned ? <div className="h-[40px] w-full bg-brand-dark-blue flex justify-center align-center items-center">
+        <div className="relative h-[14px] sm:h-[24px] w-[14px] sm:[w-[24px]">
+          <Image priority fill src={'/images/check1.svg'} alt="img" className="w-full object-cover " />
+        </div>
+        <p className="ml-2 text-white text-center font-workSans text-xs sm:text-base">
+          A leading UK CAA and EASA approved Training Organisation
+        </p>
+      </div> : null}
       <header className={cn(
         "w-full transition-all duration-300 ease-in-out",
-        isFixed ? "h-[80px]" : "h-[115px]",
+        isPinned ? "h-[80px]" : "h-[115px]",
         "border-b-4 border-brand-light-blue bg-white flex"
       )}>
         <div className={cn(

@@ -11,7 +11,7 @@ type props = {
   tag?: string;
 };
 
-const Header = async ({ height = 'h-[420px]', title, className, image, tag = 'Flights' }: props) => {
+const Header = async ({ height = 'h-[30px]', title, className, image, tag = 'Flights' }: props) => {
 
   // .width(2000).height(400).dpr(2).quality(75)
   const imageUrl = urlFor(image).url() || ''
@@ -28,7 +28,7 @@ const Header = async ({ height = 'h-[420px]', title, className, image, tag = 'Fl
 
   return (
     <section
-      className={`relative w-screen h-[150px] sm:h-[300px] ${className} z-0 bg-slate-5`}
+      className={`relative w-screen h-[330px] sm:h-[575px] ${className} z-0 bg-slate-5`}
     >
       <Image
         priority
@@ -40,7 +40,7 @@ const Header = async ({ height = 'h-[420px]', title, className, image, tag = 'Fl
         blurDataURL={base64}
         alt="hero image example"
       />
-      <div className='container relative z-10 flex items-center h-full'>
+      <div className='container relative z-10 flex items-center h-full pt-[115px]'>
         {/*//@ts-ignore*/}
         <Heading title={title || ''} tag={tag} tagSize='text-xs' iconSize={14} titleSize="text-white text-xl sm:text-5xl font-light max-w-[600px]" />
       </div>

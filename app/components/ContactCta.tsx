@@ -10,7 +10,7 @@ const ContactCta = () => {
           height={82}
           alt="Title Image"
           priority
-          className="rounded-lg -top-5 right-5 absolute z-10"
+          className="rounded-lg -top-5 right-5 absolute"
         />
       </div>
       <div className=' text-white relative z-1 overflow-x-hidden pb-9'>
