@@ -11,28 +11,28 @@ interface MainServices {
 
 const features: MainServices[] = [
   {
-    icon: <Image src='/images/helicopter-icon-dark-blue.svg' alt='' width={40} height={40} />,
+    icon: <Image src='/images/helicopter-icon-dark-blue.svg' alt='' width={35} height={35} />,
     title: "Training",
     description:
       "You're in expert hands, from beginner to advanced.",
     url: '/training',
   },
   {
-    icon: <Image src='/images/helicopter-icon-dark-blue.svg' alt='' width={40} height={40} />,
+    icon: <Image src='/images/helicopter-icon-dark-blue.svg' alt='' width={35} height={35} />,
     title: "Flights",
     description:
       "Flight examiner ratings FE(H), TRE(H).",
     url: '/flights',
   },
   {
-    icon: <Image src='/images/helicopter-icon-dark-blue.svg' alt='' width={40} height={40} />,
+    icon: <Image src='/images/helicopter-icon-dark-blue.svg' alt='' width={35} height={35} />,
     title: "Industry",
     description:
       "Elevating industry to new heights.",
     url: '/industry',
   },
   {
-    icon: <Image src='/images/helicopter-icon-dark-blue.svg' alt='' width={40} height={40} />,
+    icon: <Image src='/images/helicopter-icon-dark-blue.svg' alt='' width={35} height={35} />,
     title: "Our company",
     description:
       "Please feel free to drop us a message.",
@@ -49,7 +49,7 @@ export const MainServices = () => {
             <Card key={title} className="bg-white rounded-none border-0 border-b-4 border-brand-light-blue relative group duration-300 ease-in"
             >
               <CardHeader>
-                <CardTitle className="grid gap-4 font-bold text-lg sm:text-2xl duration-300 ease-in-out group-hover:text-brand-light-blue">
+                <CardTitle className="grid gap-4 font-bold text-lg sm:text-2xl duration-300 ease-in-out sm:group-hover:text-brand-light-blue">
                   {icon}
                   {title}
                 </CardTitle>
