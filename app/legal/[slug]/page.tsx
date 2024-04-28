@@ -32,7 +32,7 @@ export default async function TrainingPage({ params }: { params: { slug: string 
   const data: any = await getPageData(params.slug.toLowerCase());
 
   return (
-    <main className="max-w-6xl mx-auto px-4">
+    <main className="max-w-6xl mx-auto px-4 overflow-x-hidden">
       <div className="my-8">
         <h1 className="block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">
           {data?.title || 'no title'}

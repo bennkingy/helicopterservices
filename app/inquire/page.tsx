@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default async function Contact() {
   return (
-    <main className="py-10 max-w-6xl mx-auto px-4">
+    <main className="py-10 max-w-6xl mx-auto px-4 overflow-x-hidden">
       <h1 className="text-5xl font-bold mb-10">Inquire</h1>
       <ContactForm />
     </main>

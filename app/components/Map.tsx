@@ -1,7 +1,7 @@
 'use client'
 
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
 const containerStyle = {
   width: '100%',
@@ -13,6 +13,44 @@ const center = {
   lng: -0.763710,
 };
 
+const mapStyles = [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#ffffff"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#102039"
+      }
+    ]
+  },
+
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#1FB6DE"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#1FB6DE"
+      }
+    ]
+  },
+];
+
 const Map = ({ className }: any) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-maps-script',
@@ -22,14 +60,22 @@ const Map = ({ className }: any) => {
   const [map, setMap] = React.useState(null)
 
   // @ts-ignore
-  const onLoad = React.useCallback(function callback(map) {
-    setMap(map)
-  }, [])
-
-  // @ts-ignore
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
   }, [])
+
+  const [showInfoWindow, setShowInfoWindow] = useState(false);
+
+  // @ts-ignore
+  const onLoad = useCallback(function callback(map) {
+    const infoWindow = new window.google.maps.InfoWindow({
+      content: '<div><strong>Helicopter Services</strong><br/><a href="" style="color: blue">Directions...</a></div>',
+      position: center,
+    });
+    infoWindow.open(map);
+    setMap(map);
+  }, []);
+
 
   return isLoaded ? (
     <div className={`w-full ${className}`}>
@@ -39,6 +85,7 @@ const Map = ({ className }: any) => {
         zoom={13}
         onLoad={onLoad}
         onUnmount={onUnmount}
+        options={{ styles: mapStyles }}
       >
         <></>
       </GoogleMap>

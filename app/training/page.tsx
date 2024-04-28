@@ -6,6 +6,7 @@ import ContactCta from "../components/ContactCta";
 import Header from "../components/Header";
 import Heading from "../components/Heading";
 import ServiceCard from "../components/ServiceCard";
+import TrainingMap from "../components/TrainingMap";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -45,13 +46,13 @@ export default async function Training({ params }: { params: { slug: string } })
 
   return (
     <>
-      <main className="bg-brand-light-grey">
+      <main className="bg-brand-light-grey overflow-x-hidden">
         <Header title={data?.hero?.heading} tag={data?.hero?.tagline} image={data?.heroImage} />
         <section className="py-10 max-w-6xl mx-auto px-4 mt-14">
           <Tabs defaultValue="account">
             <TabsList className="mx-auto mb-10 w-full">
               <TabsTrigger value="account">Training services</TabsTrigger>
-              <TabsTrigger value="password">Training route map</TabsTrigger>
+              <TabsTrigger value="trainingRoute">Training route map</TabsTrigger>
             </TabsList>
             <TabsContent value="account">
               <Heading title="Licenses" titleSize="text-3xl" className="mb-6" />
@@ -107,7 +108,9 @@ export default async function Training({ params }: { params: { slug: string } })
                 ))}
               </div>
             </TabsContent>
-            <TabsContent value="password">Training route map coming soon.</TabsContent>
+            <TabsContent value="trainingRoute">
+              <TrainingMap />
+            </TabsContent>
           </Tabs>
           <div className="mb-14 mt-20 grid grid-cols-1 sm:grid-cols-3">
             <div className="col-span-2 pr-0 sm:pr-20">

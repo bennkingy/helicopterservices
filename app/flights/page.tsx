@@ -33,7 +33,7 @@ export default async function Flights({ params }: { params: { slug: string } }) 
 
   return (
     <>
-      <main className="bg-brand-light-grey">
+      <main className="bg-brand-light-grey overflow-x-hidden">
         <Header title={data?.hero?.heading} tag={data?.hero?.tagline} image={data?.hero.image} />
         <section className="py-10 max-w-6xl mx-auto px-4 mt-14">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

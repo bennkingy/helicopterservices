@@ -38,7 +38,7 @@ export default async function IndustryPage({ params }: { params: { slug: string 
   return (
     <>
       <Header title={data?.title} image={data.mainImage} />
-      <main className="container mx-auto px-4 grid py-16 grid-cols-1 md:grid-cols-3">
+      <main className="container mx-auto px-4 grid py-16 grid-cols-1 md:grid-cols-3 overflow-x-hidden">
         <div className="pr-0 sm:pr-20 mb-10 sm:mb-0 col-span-2">
           <div className="prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full">
             <PortableText value={data?.body || ''} />
