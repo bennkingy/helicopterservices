@@ -57,7 +57,7 @@ export default async function Flights({ params }: { params: { slug: string } }) 
               <p className="mb-5">We adhere to the highest safety standards and many of our helicopters are able to fly in reduced visibility or at night. We offer both twin-engine or single-engine helicopters and can provide two pilots as may be required.</p>
               <p className="mb-5">Contact us to discuss your requirements and our Charter Manager for a competitive quote.</p>
               <p className="text-lg mt-5"><span className='font-bold'>Outside office hours? </span>Submit our form and out team will get back to you.</p>
-              <Button size='lg' className="bg-brand-light-blue text-white mt-5 mx-auto">General enquiries</Button>
+              <Link href='/enquire'><Button size='lg' className="bg-brand-light-blue text-white mt-5 mx-auto">General enquiries</Button></Link>
             </div>
             <div className="mt-20 sm:mt-0 pt-0 sm:pt-5">
               <ContactCta />

@@ -253,9 +253,9 @@ export function NavMenu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="/inquire" legacyBehavior passHref>
+            <Link href="/Enquire" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Inquire
+                Enquire
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
@@ -272,7 +272,7 @@ export function NavMenu() {
               <li className='mb-4 ml-4'><a href='/industry'>Industry</a></li>
               <li className='mb-4 ml-4'><a href='/training'>Training</a></li>
               <li className='mb-4 ml-4'><a href='/about-us'>About Us</a></li>
-              <li className='mb-4 ml-4'><a href='/inquire'>Inquire</a></li>
+              <li className='mb-4 ml-4'><a href='/Enquire'>Enquire</a></li>
             </ul>
           </DrawerContent>
         </Drawer>

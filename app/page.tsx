@@ -205,12 +205,12 @@ export default async function Home() {
       <div className='bg-brand-light-grey mt-0'>
         <div className="container pt-12 pb-20">
           <Heading title="Client feedback." center tag='Testimonials' iconColor='light-blue' className='mb-16' />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-10">
             {reviews.slice(0, 6).map((review, index) => (
               <div className='text-white drop-shadow-brand' key={index}>
                 <div style={{ clipPath: 'polygon(0 0,calc(100% - 35px) 0,100% 35px,100% 100%,0 100%)' }} className='p-0'>
                   <div className="max-w-sm mx-auto border-l-4 border-brand-light-blue bg-white p-4">
-                    <div className="ml-4 brand-shadow flex">
+                    <div className="ml-4 brand-shadow flex pt-2">
                       <div className='w-[80px] h-[80px] overflow-hidden mr-5' style={{ clipPath: 'polygon(0 0,calc(100% - 20px) 0,100% 20px, 100% 100%,0 100%)' }}>
                         <Image
                           src={review?.img}
@@ -220,8 +220,15 @@ export default async function Home() {
                           priority
                         />
                       </div>
-                      <div>
-                        <div className="text-md font-bold text-brand-dark-grey">{review.name}</div>
+                      <div className='flex-1 pr-6 justify-center flex flex-col'>
+                        <Image
+                          src="/images/quotes.svg"
+                          alt="Helicopter Services"
+                          width={19}
+                          height={10}
+                          className='ml-auto'
+                        />
+                        <div className="text-md font-bold text-brand-dark-grey ">{review.name}</div>
                         <div className="flex">
                           <Icons.star fill="#1FB6DE" strokeWidth={0} className='-ml-1' />
                           <Icons.star fill="#1FB6DE" strokeWidth={0} />
@@ -231,7 +238,7 @@ export default async function Home() {
                         </div>
                       </div>
                     </div>
-                    <p className='text-brand-dark-grey p-4 line-clamp-4 pb-0'>{review?.description}”</p>
+                    <p className='text-brand-dark-grey p-4 line-clamp-4 pb-0 mb-1'><span className='text-lg'>“</span>{review?.description}<span className='text-lg'>”</span></p>
                   </div>
                 </div>
               </div>

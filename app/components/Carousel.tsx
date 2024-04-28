@@ -40,7 +40,9 @@ const Carousel = ({ slides }: props) => {
     <CarouselComponent setApi={setApi} plugins={[
       Autoplay({
         waitForUser: true,
-        speed: 1000,
+        autoplay: true,
+        loop: true,
+        stopOnMouseEnter: true,
       }),
     ]}
       opts={{
@@ -49,7 +51,7 @@ const Carousel = ({ slides }: props) => {
       }}>
       <CarouselContent className="-ml-2 md:-ml-4">
         {slides.map((item, index) => (
-          <CarouselItem key={index} className="sm:basis-1/3 text-center px-20">
+          <CarouselItem key={index} className="lg:basis-1/3 text-center px-20">
             {/* <FramerAnimationBlurIn delay={0.15}> */}
             <Image
               src={item.img}
@@ -57,7 +59,7 @@ const Carousel = ({ slides }: props) => {
               height={400}
               alt={item.title}
               priority
-              className="my-8 rounded-full"
+              className="my-8 rounded-full mx-auto"
             />
             <h5 className="font-bold mb-3 text-lgfont-openSans">{item.title}</h5>
             <p className="mb-3 font-openSans">{item.description}</p>

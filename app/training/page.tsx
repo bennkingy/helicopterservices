@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
+import Link from "next/link";
 import ContactCta from "../components/ContactCta";
 import Header from "../components/Header";
 import Heading from "../components/Heading";
@@ -120,7 +121,7 @@ export default async function Training({ params }: { params: { slug: string } })
               <p className="mb-4">We adhere to the highest safety standards and many of our helicopters are able to fly in reduced visibility or at night. We offer both twin-engine or single-engine helicopters and can provide two pilots as may be required.</p>
               <p className="mb-4">Contact us to discuss your requirements and our Charter Manager for a competitive quote.</p>
               <p className="text-lg"><span className='font-bold'>Outside office hours? </span>Submit our form and out team will get back to you.</p>
-              <Button size='lg' className="bg-brand-light-blue text-white mt-5 mx-auto">General enquiries</Button>
+              <Link href='/enquire'><Button size='lg' className="bg-brand-light-blue text-white mt-5 mx-auto">General enquiries</Button></Link>
             </div>
             <div className="mt-20 sm:mt-0">
               <ContactCta />

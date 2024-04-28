@@ -42,8 +42,8 @@ export default function RootLayout({
       <body className={`${openSans.variable} ${workSans.variable} text-brand-dark-grey overflow-x-hidden`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Navbar />

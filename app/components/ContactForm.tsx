@@ -46,8 +46,8 @@ const ContacForm = () => {
   const { pending } = useFormStatus();
   return (
     <CardWrapper
-      label="Inquire about our services"
-      title="Inquire"
+      label="Enquire about our services"
+      title="Enquire"
       backButtonHref="/auth/login"
       backButtonLabel="Already have an account? Login here."
     >
@@ -89,7 +89,7 @@ const ContacForm = () => {
               name="body"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Inquire</FormLabel>
+                  <FormLabel>Enquire</FormLabel>
                   <FormControl>
                     <Textarea  {...field} placeholder="Your message...." />
                   </FormControl>

@@ -124,7 +124,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...about,
     {
-      url: `https://helicopterservices.co.uk/inquire`,
+      url: `https://helicopterservices.co.uk/Enquire`,
       changeFrequency: "weekly",
       lastModified: "2024-01-10"
     },
