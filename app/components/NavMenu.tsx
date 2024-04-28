@@ -134,30 +134,6 @@ const about: { title: string; href: string; description: string }[] = [
   },
 ];
 
-const industry: { title: string; href: string; description: string }[] = [
-  {
-    title: 'Aiport transfer',
-    href: '/industry/airport-transfers',
-    description: 'Some description airport transfer.',
-  },
-  {
-    title: 'Helicopter charter',
-    href: '/industry/helicopter-charter',
-    description: 'Some description about the team.',
-  },
-  {
-    title: 'Photography and filming',
-    href: '/industry/photography-and-filming',
-    description: 'Photography and filming',
-  },
-  {
-    title: 'Load lifting',
-    href: '/industry/load-lifting',
-    description: 'Some description about load lifting.',
-  },
-];
-
-
 export function NavMenu() {
   return (
     <>
@@ -190,27 +166,7 @@ export function NavMenu() {
             <NavigationMenuTrigger><a href="/industry">Industry</a></NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <a
-                      className="from-muted/50 to-muted flex size-full select-none flex-col justify-start rounded-md bg-gradient-to-b p-6 no-underline outline-none focus:shadow-md"
-                      href="/industry/helicopter-charter"
-                    >
-                      <div className="mb-2 text-lg font-medium">
-                        Helicopter charter
-                      </div>
-                      <p className="text-muted-foreground text-sm leading-tight">
-                        We are able to operate fast, safe bespoke travel while
-                        maintaining social distance.
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-                <ListItem href="/industry/airport-transfers" title="Airport transfer">
-                  We provide helicopter shuttle services to events including horse
-                  racing, motorsport, etc.
-                </ListItem>
-                <ListItem href="/industry/photography-and-filming" title="Photography and filming">
+                <ListItem href="/industry/photography-filming" title="Photography and filming">
                   We offer the ultimate way to see London, one of the most famous
                   cities in the world.
                 </ListItem>
@@ -253,7 +209,7 @@ export function NavMenu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="/Enquire" legacyBehavior passHref>
+            <Link href="/enquire" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Enquire
               </NavigationMenuLink>
@@ -272,7 +228,7 @@ export function NavMenu() {
               <li className='mb-4 ml-4'><a href='/industry'>Industry</a></li>
               <li className='mb-4 ml-4'><a href='/training'>Training</a></li>
               <li className='mb-4 ml-4'><a href='/about-us'>About Us</a></li>
-              <li className='mb-4 ml-4'><a href='/Enquire'>Enquire</a></li>
+              <li className='mb-4 ml-4'><a href='/enquire'>Enquire</a></li>
             </ul>
           </DrawerContent>
         </Drawer>

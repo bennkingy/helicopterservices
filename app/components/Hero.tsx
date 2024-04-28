@@ -24,7 +24,7 @@ const Hero = ({ height = 'h-[70vh]', cta, cta2, title, subtitle, className }: pr
     >
       <div className={`bg-opacity-70 bg-brand-dark-blue relative h-full`}>
         <div className='h-full grid container mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12'>
-          <div className='mr-auto place-self-start lg:col-span-8 mt-[190px] sm:mt-[250px] text-balance'>
+          <div className='mr-auto place-self-start lg:col-span-8 mt-[100px] sm:mt-[250px] text-balance'>
             <FramerAnimation delay={0}>
               <h1 className='mb-4 text-4xl leading-10 md:text-6xl xl:text-7xl dark:text-white text-white font-extralight font-workSans'>
                 {title}

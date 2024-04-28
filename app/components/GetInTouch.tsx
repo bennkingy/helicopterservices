@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import Heading from "./Heading";
 
 type props = {
@@ -79,7 +80,7 @@ const GetInTouch = ({ className }: props) => {
             </div>
           </div>
           <div className="mt-5 max-w-6xl grid center mx-auto">
-            <Button size='lg' className="bg-brand-light-blue text-white mx-auto">General enquiries</Button>
+            <Link href='/enquire'><Button size='lg' className="bg-brand-light-blue text-white mx-auto">General enquiries</Button></Link>
           </div></div>
       </div>
     </section>

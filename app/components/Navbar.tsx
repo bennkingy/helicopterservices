@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from "react";
 import Headroom from 'react-headroom';
 import { ModeToggle } from "./ModeToggle";
@@ -11,6 +12,7 @@ import logo from "/public/images/LogoDarkV2.svg";
 
 export default function Navbar() {
   const [isPinned, setIsPinned] = useState(false);
+  const path = usePathname();
 
   return (
     <Headroom
@@ -19,7 +21,7 @@ export default function Navbar() {
       onPin={() => setIsPinned(true)}
       onUnfix={() => setIsPinned(false)}
     >
-      {!isPinned ? <div className="h-[40px] w-full bg-brand-dark-blue flex justify-center align-center items-center">
+      {path !== "/" && !isPinned ? <div className="topbar h-[40px] w-full bg-brand-dark-blue flex justify-center align-center items-center">
         <div className="relative h-[14px] sm:h-[24px] w-[14px] sm:w-[24px]">
           <Image priority fill src={'/images/check1.svg'} alt="img" className="w-full object-cover" />
         </div>

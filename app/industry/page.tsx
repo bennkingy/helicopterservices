@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
+import Link from "next/link";
 import ContactCta from "../components/ContactCta";
 import Header from "../components/Header";
 import Heading from "../components/Heading";

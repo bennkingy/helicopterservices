@@ -9,8 +9,8 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 51.501140,
-  lng: -0.763710,
+  lat: 51.50340,
+  lng: -0.76480,
 };
 
 const mapStyles = [
@@ -30,7 +30,6 @@ const mapStyles = [
       }
     ]
   },
-
   {
     "featureType": "water",
     "elementType": "geometry",
@@ -69,7 +68,7 @@ const Map = ({ className }: any) => {
   // @ts-ignore
   const onLoad = useCallback(function callback(map) {
     const infoWindow = new window.google.maps.InfoWindow({
-      content: '<div><strong>Helicopter Services</strong><br/><a href="" style="color: blue">Directions...</a></div>',
+      content: '<div><strong>Helicopter Services</strong><br/>White Waltham<br/>Maidenhead<br/>SL6 3NJ<br/>United Kingdom<br /><a href="" style="color: blue">Directions</a></div> ',
       position: center,
     });
     infoWindow.open(map);
