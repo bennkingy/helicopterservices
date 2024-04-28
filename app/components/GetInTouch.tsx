@@ -80,7 +80,7 @@ const GetInTouch = ({ className }: props) => {
             </div>
           </div>
           <div className="mt-5 max-w-6xl grid center mx-auto">
-            <Link href='/enquire'><Button size='lg' className="bg-brand-light-blue text-white mx-auto">General enquiries</Button></Link>
+            <Link href='/enquire' className="mx-auto"><Button size='lg' className="bg-brand-light-blue text-white mx-auto">General enquiries</Button></Link>
           </div></div>
       </div>
     </section>
