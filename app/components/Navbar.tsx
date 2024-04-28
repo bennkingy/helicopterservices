@@ -28,8 +28,8 @@ export default function Navbar() {
         </p>
       </div> : null}
       <header className={cn(
-        "w-full transition-all duration-300 ease-in-out",
-        isPinned ? "h-[80px]" : "h-[80px] sm:h-[115px]",
+        "w-full transition-all duration-300 ease-in-out shadow-md",
+        isPinned ? "h-[65px] sm:h-[80px]" : "h-[65px] sm:h-[115px]",
         "border-b-4 border-brand-light-blue bg-white flex"
       )}>
         <div className={cn(
@@ -42,6 +42,7 @@ export default function Navbar() {
               alt="Helicopter Services"
               width={191}
               height={117}
+              className="w-[135px] sm:w-[191px] sm:h-[117px]"
             />
           </Link>
           <NavMenu />
