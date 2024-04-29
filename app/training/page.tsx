@@ -56,7 +56,7 @@ export default async function Training({ params }: { params: { slug: string } })
               <TabsTrigger value="trainingRoute">Training route map</TabsTrigger>
             </TabsList>
             <TabsContent value="account">
-              <Heading title="Licenses" titleSize="text-3xl" className="mb-6" />
+              <Heading title="Licenses" titleSize="text-3xl" className="mb-6 mt-10" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {data?.service?.filter((service: ServiceCard) => service?.category == 'Licenses').map(({ category, image, url, heading, description }: ServiceCard, i: number) => (
                   <ServiceCard
