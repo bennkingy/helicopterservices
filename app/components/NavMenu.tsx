@@ -90,19 +90,34 @@ const training: { title: string; href: string; description: string }[] = [
 
 const flights: { title: string; href: string; description: string }[] = [
   {
+    title: 'Airpot transfers',
+    href: '/flights/airport-transfers',
+    description: 'Some description about the transfers.',
+  },
+  {
+    title: 'Helicopter Charter',
+    href: '/flights/helicopter-charter',
+    description: 'Some description about the helicopter charter.',
+  },
+  {
     title: 'London sightseeing',
     href: '/flights/london-sightseeing',
-    description: 'Some description about the tour.',
+    description: 'Some description about the sightseeing.',
   },
   {
     title: 'Special events',
     href: '/flights/special-events',
-    description: 'Some description about the tour.',
+    description: 'Some description about the special events.',
   },
   {
     title: 'Trail lessons',
     href: '/flights/trail-lessons',
-    description: 'Some description about the tour.',
+    description: 'Some description about the trail lessons.',
+  },
+  {
+    title: 'Local area tours',
+    href: '/flights/local-area-tours',
+    description: 'Some description about the local area tours.',
   },
 ];
 

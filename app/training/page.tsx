@@ -47,12 +47,12 @@ export default async function Training({ params }: { params: { slug: string } })
 
   return (
     <>
-      <main className="bg-brand-light-grey overflow-x-hidden">
+      <main className="bg-brand-light-grey overflow-x-hidden z-[1] relative">
         <Header title={data?.hero?.heading} tag={data?.hero?.tagline} image={data?.heroImage} />
-        <section className="py-10 max-w-6xl mx-auto px-4 mt-14">
+        <section className="pb-10 max-w-6xl mx-auto px-4 -mt-[50px] z-10 relative">
           <Tabs defaultValue="account">
             <TabsList className="mx-auto mb-10 w-full">
-              <TabsTrigger value="account">Training services</TabsTrigger>
+              <TabsTrigger value="account" className="">Training services</TabsTrigger>
               <TabsTrigger value="trainingRoute">Training route map</TabsTrigger>
             </TabsList>
             <TabsContent value="account">
