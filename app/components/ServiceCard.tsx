@@ -45,7 +45,7 @@ const ServiceCard = async ({ heading, url, description, category, image }: Servi
       </div>
       <div className="basis-auto sm:basis-3/6 w-full h-full overflow-hidden">
         <Image
-          className="object-cover w-full h-full rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
+          className="object-cover w-full h-[220px] sm:h-full rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
           width={440}
           height={440}
           src={src || ''}
