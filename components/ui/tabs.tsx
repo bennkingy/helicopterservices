@@ -29,7 +29,7 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "ml-4 mr-2 border-l-4 border-brand-light-blue inline-flex items-center justify-center whitespace-nowrap px-3 py-1.5 text-sm ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-brand-light-grey data-[state=inactive]:shadow-[inset_0_-2px_4px_rgba(0,0,0,0.2)] data-[state=active]:text-foreground p-5 font-workSans font-bold font-xl",
+      "ml-2 border-l-4 border-brand-light-blue inline-flex items-center justify-center whitespace-nowrap px-3 py-1.5 text-sm ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-brand-light-grey data-[state=inactive]:shadow-[inset_0_-2px_4px_rgba(0,0,0,0.2)] data-[state=active]:text-foreground p-5 font-workSans font-bold font-xl",
       className
     )}
     style={{ clipPath: 'polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)' }}
