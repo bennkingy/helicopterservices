@@ -1,3 +1,4 @@
+import Template from "@/app/components/Template";
 import { client } from "@/lib/sanity";
 import type { Metadata } from 'next';
 
@@ -19,11 +20,11 @@ async function getPageData(slug: string) {
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  // const data: training = await getPageData(params.slug.toLowerCase());
+  const data = await getPageData(params.slug.toLowerCase());
 
   return {
-    // title: data?.seoTitle,
-    // description: data?.seoDescription,
+    title: data?.seoTitle,
+    description: data?.seoDescription,
   }
 }
 
@@ -32,9 +33,7 @@ export default async function FleetItemPage({ params }: { params: { slug: string
 
   return (
     <>
-      <main className="container py-40 overflow-x-hidden">
-        fdsfsdfdsf
-      </main>
+      <Template data={data} />
     </>
   );
 }

@@ -3,14 +3,7 @@ import { urlFor } from "@/lib/sanity";
 import Image from "next/image";
 import { getPlaiceholder } from "plaiceholder";
 
-interface HelicopterCard {
-  model: string;
-  mainImage: any;
-  url: string;
-  type: string;
-}
-
-const HelicopterCard = async ({ helicopter }: HelicopterCard) => {
+const HelicopterCard = async ({ helicopter }: any) => {
 
   const imageUrl = helicopter?.mainImage && urlFor(helicopter?.mainImage).width(240).height(140).url()
 

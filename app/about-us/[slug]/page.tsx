@@ -1,14 +1,10 @@
-import ContactCta from "@/app/components/ContactCta";
 import { FAQ } from "@/app/components/FAQ";
-import GetinTouchSmall from "@/app/components/GetinTouchSmall";
-import Header from "@/app/components/Header";
 import HelicopterCard from "@/app/components/HelicopterCard";
-import Map from '@/app/components/Map';
+import Template from "@/app/components/Template";
 import YouTube from "@/app/components/YouTube";
 import { helicopter, training } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
-import { PortableText } from "@portabletext/react";
 import type { Metadata } from 'next';
 
 export const revalidate = 30; // revalidate at most 30 seconds
@@ -58,66 +54,54 @@ export default async function AboutPage({ params }: { params: { slug: string } }
   const showHanger = params.slug === 'the-hanger';
   const showHelicopters = params.slug === 'helicopter-fleet';
 
-  console.log(helicopterData)
+  console.log(showHanger)
 
   return (
     <>
-      <Header title={data?.title} image={data.mainImage} />
-      <main className="container mx-auto px-4 grid py-16 grid-cols-1 md:grid-cols-3">
-        <div className="pr-0 sm:pr-20 mb-10 sm:mb-0 col-span-2">
-          <div className="prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full">
-            <PortableText value={data?.body || ''} />
-          </div>
-          {
-            !showHanger && <div className="my-8">
-              {showFaqs ?
-                <div className="mt-8">
-                  <FAQ className="mb-10" />
-                </div> : null
-              }
-              {showHelicopters ?
-                <div className="pt-5">
-                  <h1 className="text-xl font-bold font-workSans">Guimbal Type</h1>
-                  <div className={cn("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6")}>
-                    {/* // @ts-ignore */}
-                    {helicopterData?.filter((helicopter: helicopter) => helicopter?.type === 'Guimbal').map((helicopter: helicopter, idx: number) => (
-                      <HelicopterCard key={idx} helicopter={helicopter} />
-                    ))}
-                  </div>
-                  <h1 className="text-xl font-bold font-workSans mt-12">Robinson Type</h1>
-                  <div className={cn("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6")}>
-                    {helicopterData?.map((helicopter: helicopter, idx: number) => (
-                      <HelicopterCard key={idx} helicopter={helicopter} />
-                    ))}
-                  </div>
-                  <h1 className="text-xl font-bold font-workSans mt-12">Aérospatiale, Eurocopter & Airbus Type</h1>
-                  <div className={cn("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6")}>
-                    {helicopterData?.map((helicopter: helicopter, idx: number) => (
-                      <HelicopterCard key={idx} helicopter={helicopter} />
-                    ))}
-                  </div>
-                  <h1 className="text-xl font-bold font-workSans mt-12">Agusta Type</h1>
-                  <div className={cn("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6")}>
-                    {helicopterData?.map((helicopter: helicopter, idx: number) => (
-                      <HelicopterCard key={idx} helicopter={helicopter} />
-                    ))}
-                  </div>
-                  <h1 className="text-xl font-bold font-workSans mt-12">Bell Type</h1>
-                  <div className={cn("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6")}>
-                    {helicopterData?.map((helicopter: helicopter, idx: number) => (
-                      <HelicopterCard key={idx} helicopter={helicopter} />
-                    ))}
-                  </div>
-                </div>
-                : null}
-            </div>}
-        </div>
-        <div>
-          <ContactCta />
-          <GetinTouchSmall className='mt-3' />
-          <Map className='h-[400px] mt-3' />
-        </div>
-      </main >
+      <Template data={data} showHanger={showHanger}>
+        {!showHanger && <div className="my-8">
+          {showFaqs ?
+            <div className="mt-8">
+              <FAQ className="mb-10" />
+            </div> : null
+          }
+          {showHelicopters ?
+            <div className="pt-5">
+              <h1 className="text-xl font-bold font-workSans">Guimbal Type</h1>
+              <div className={cn("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6")}>
+                {/* // @ts-ignore */}
+                {helicopterData?.filter((helicopter: helicopter) => helicopter?.type === 'Guimbal').map((helicopter: helicopter, idx: number) => (
+                  <HelicopterCard key={idx} helicopter={helicopter} />
+                ))}
+              </div>
+              <h1 className="text-xl font-bold font-workSans mt-12">Robinson Type</h1>
+              <div className={cn("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6")}>
+                {helicopterData?.map((helicopter: helicopter, idx: number) => (
+                  <HelicopterCard key={idx} helicopter={helicopter} />
+                ))}
+              </div>
+              <h1 className="text-xl font-bold font-workSans mt-12">Aérospatiale, Eurocopter & Airbus Type</h1>
+              <div className={cn("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6")}>
+                {helicopterData?.map((helicopter: helicopter, idx: number) => (
+                  <HelicopterCard key={idx} helicopter={helicopter} />
+                ))}
+              </div>
+              <h1 className="text-xl font-bold font-workSans mt-12">Agusta Type</h1>
+              <div className={cn("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6")}>
+                {helicopterData?.map((helicopter: helicopter, idx: number) => (
+                  <HelicopterCard key={idx} helicopter={helicopter} />
+                ))}
+              </div>
+              <h1 className="text-xl font-bold font-workSans mt-12">Bell Type</h1>
+              <div className={cn("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6")}>
+                {helicopterData?.map((helicopter: helicopter, idx: number) => (
+                  <HelicopterCard key={idx} helicopter={helicopter} />
+                ))}
+              </div>
+            </div>
+            : null}
+        </div>}
+      </Template>
       {
         showHanger ?
           <YouTube />

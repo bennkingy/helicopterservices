@@ -46,10 +46,6 @@ export default async function FleetPage({ params }: { params: { slug: string } }
   // const data: training = await getPageData(params.slug.toLowerCase());
   const helicopterData: any = await getHelicopterData();
 
-  const showFaqs = params.slug === 'faqs';
-  const showHanger = params.slug === 'the-hanger';
-  const showHelicopters = params.slug === 'helicopter-fleet';
-
   return (
     <>
       <main className="container py-40 overflow-x-hidden">
