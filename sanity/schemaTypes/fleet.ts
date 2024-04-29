@@ -17,6 +17,31 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+    name: 'workType',
+    title: 'Work Type',
+    type: 'object',
+    fields: [
+      {
+        name: 'trainingHelicopter',
+        title: 'Training Helicopter',
+        type: 'boolean',
+        initialValue: false,
+      },
+      {
+        name: 'charterHelicopter',
+        title: 'Charter Helicopter',
+        type: 'boolean',
+        initialValue: false,
+      },
+      {
+        name: 'aerialWorkHelicopter',
+        title: 'Aerial Work Helicopter',
+        type: 'boolean',
+        initialValue: false,
+      }
+    ]
+  }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
