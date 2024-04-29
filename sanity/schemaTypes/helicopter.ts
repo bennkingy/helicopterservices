@@ -92,6 +92,11 @@ export default defineType({
       type: 'datetime',
     }),
     defineField({
+      name: 'type',
+      title: 'Type',
+      type: 'string',
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'array',

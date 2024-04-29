@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from "react";
 import Headroom from 'react-headroom';
-import { ModeToggle } from "./ModeToggle";
+// import { ModeToggle } from "./ModeToggle";
 import { NavMenu } from "./NavMenu";
 import logo from "/public/images/LogoDarkV2.svg";
 
@@ -48,7 +48,7 @@ export default function Navbar() {
             />
           </Link>
           <NavMenu />
-          <ModeToggle />
+          {/* <ModeToggle /> */}
           <div className="absolute bottom-0 right-0">
             <svg className="h-6 w-6 text-brand-light-blue" viewBox="0 0 20 20" fill="currentColor">
               <polygon points="20 0 20 20 0 20" />

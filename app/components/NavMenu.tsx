@@ -193,6 +193,9 @@ export function NavMenu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
+            <NavigationMenuTrigger><a href="/fleet">Fleet</a></NavigationMenuTrigger>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
             <NavigationMenuTrigger><a href="/about-us">About us</a></NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">

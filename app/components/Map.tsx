@@ -68,7 +68,7 @@ const Map = ({ className }: any) => {
   // @ts-ignore
   const onLoad = useCallback(function callback(map) {
     const infoWindow = new window.google.maps.InfoWindow({
-      content: '<div><strong>Helicopter Services</strong><br/>White Waltham<br/>Maidenhead<br/>SL6 3NJ<br/>United Kingdom<br /><a href="" style="color: blue">Directions</a></div> ',
+      content: '<div><strong>Helicopter Services</strong><br/>White Waltham<br/>Maidenhead<br/>SL6 3NJ<br/>United Kingdom<br /><a href="#" style="color: rgb(31, 182, 222)">Directions</a></div> ',
       position: center,
     });
     infoWindow.open(map);

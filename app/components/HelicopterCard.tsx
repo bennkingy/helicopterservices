@@ -4,7 +4,12 @@ import Image from "next/image";
 import { getPlaiceholder } from "plaiceholder";
 
 interface HelicopterCard {
-  helicopter: any;
+  helicopter: {
+    model: string;
+    mainImage: any;
+    url: string;
+    type: string;
+  }
 }
 
 const HelicopterCard = async ({ helicopter }: HelicopterCard) => {
