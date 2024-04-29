@@ -40,11 +40,11 @@ async function getHelicopterData() {
 };
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const data: training = await getPageData(params.slug.toLowerCase());
+  // const data: training = await getPageData(params.slug.toLowerCase());
 
   return {
-    title: data?.seoTitle,
-    description: data?.seoDescription,
+    // title: data?.seoTitle,
+    // description: data?.seoDescription,
   }
 }
 
