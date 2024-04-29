@@ -49,14 +49,14 @@ export default async function Training({ params }: { params: { slug: string } })
     <>
       <main className="bg-brand-light-grey overflow-x-hidden z-[1] relative">
         <Header title={data?.hero?.heading} tag={data?.hero?.tagline} image={data?.heroImage} />
-        <section className="pb-10 max-w-6xl mx-auto px-4 -mt-[50px] z-10 relative">
+        <section className="pb-10 max-w-6xl mx-auto px-4 -mt-[42px] sm:-mt-[50px] z-10 relative">
           <Tabs defaultValue="account">
             <TabsList className="mx-auto mb-10 w-full">
               <TabsTrigger value="account" className="">Training services</TabsTrigger>
               <TabsTrigger value="trainingRoute">Training route map</TabsTrigger>
             </TabsList>
             <TabsContent value="account">
-              <Heading title="Licenses" titleSize="text-3xl" className="mb-6 mt-10" />
+              <Heading title="Licenses" titleSize="text-3xl" className="mb-6 mt-6 sm:mt-10" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {data?.service?.filter((service: ServiceCard) => service?.category == 'Licenses').map(({ category, image, url, heading, description }: ServiceCard, i: number) => (
                   <ServiceCard
