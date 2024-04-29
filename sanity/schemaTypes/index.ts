@@ -1,5 +1,6 @@
 import about from './about'
 import blockContent from './blockContent'
+import fleet from './fleet'
 import flights from './flights'
 import { formType } from './formType'
 import helicopter from './helicopter'
@@ -13,4 +14,4 @@ import { serviceType } from './serviceType'
 import settings, { dayHours, link } from './settings'
 import training from './training'
 
-export const schemaTypes = [serviceType, pilots, imageGalleryType, heroType, training, blockContent, helicopter, flights, legal, about, industry, settings, link, dayHours, promotionType, formType]
+export const schemaTypes = [serviceType, pilots, imageGalleryType, heroType, training, blockContent, helicopter, flights, legal, about, industry, settings, link, dayHours, promotionType, formType, fleet]

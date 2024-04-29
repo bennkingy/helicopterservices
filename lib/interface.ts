@@ -10,6 +10,8 @@ export interface training {
 
 export interface helicopter {
   model: string;
+  url: string;
+  type: string;
   currentSlug: string;
   capacity: number;
   topSpeed: number;

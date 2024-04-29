@@ -18,21 +18,6 @@ async function getPageData(slug: string) {
   return data;
 }
 
-async function getHelicopterData() {
-  const query = `
-  *[_type == 'helicopter'] | order(_createdAt desc) {
-    model,
-      capacity,
-      topSpeed,
-      introducedAt,
-      description,
-      mainImage,
-  }`;
-  const data = await client.fetch(query);
-
-  return data;
-};
-
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   // const data: training = await getPageData(params.slug.toLowerCase());
 
@@ -43,16 +28,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function FleetItemPage({ params }: { params: { slug: string } }) {
-  // const data: training = await getPageData(params.slug.toLowerCase());
-  const helicopterData: any = await getHelicopterData();
-
-  const showFaqs = params.slug === 'faqs';
-  const showHanger = params.slug === 'the-hanger';
-  const showHelicopters = params.slug === 'helicopter-fleet';
+  const data: any = await getPageData(params.slug.toLowerCase());
 
   return (
     <>
       <main className="container py-40 overflow-x-hidden">
+        fdsfsdfdsf
       </main>
     </>
   );

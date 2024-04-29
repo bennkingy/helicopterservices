@@ -34,6 +34,7 @@ async function getHelicopterData() {
       model,
       mainImage,
       type,
+      url,
   }`;
   const data = await client.fetch(query);
 

@@ -54,6 +54,11 @@ export default defineType({
         maxLength: 96,
       },
     }),
+    defineField({
+      name: 'url',
+      title: 'Url',
+      type: 'string',
+    }),
     // defineField({
     //   name: 'manufacturer',
     //   title: 'Manufacturer',
