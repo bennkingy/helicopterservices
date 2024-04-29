@@ -33,7 +33,7 @@ export default async function TrainingPage({ params }: { params: { slug: string 
 
   return (
     <>
-      <Template {...data} />
+      <Template data={data} />
     </>
   );
 }
