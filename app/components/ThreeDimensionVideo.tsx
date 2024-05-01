@@ -12,7 +12,7 @@ const ThreeDimensionVideo = ({ openModal = false, onClose }: props) => {
   return (
     <>
       <Modal isOpen={openModal} onClose={onClose} videoUrl="" />
-      <div className='relative w-full h-[450px] mt-3'>
+      <div className='relative mt-3' style={{ width: '100%', paddingBottom: '100%' }}>
         <Image
           priority
           src={'/images/cockpit.png'}

@@ -38,9 +38,86 @@ const TemplateTwo = ({ data, children }: props) => {
     );
   };
 
+  // Define the Helicopter interface
+  interface Helicopter {
+    type: string;
+    engine: string;
+    carries: number;
+    ifr: boolean;
+    cruise: number;
+    base: string;
+    training: boolean;
+    charter: boolean;
+    aerialWork: boolean;
+  }
+
+  // Example helicopter object
+  const exampleHelicopter: Helicopter = {
+    type: "Utility",
+    engine: "Twin Turbine",
+    carries: 14,
+    ifr: true,
+    cruise: 140,
+    base: "Kathmandu",
+    training: false,
+    charter: true,
+    aerialWork: true
+  };
+
+  const SpecificationTable = ({ helicopter, className }: any) => {
+    return (
+      <div className={className}>
+        <div className="w-full md:w-1/2 flex flex-col space-y-2">
+          {/* Type */}
+          <div className='flex'>
+            <p className="flex justify-between font-bold font-openSans text-sm">Type</p>
+            <span className='flex-1 border-b border-dotted border-gray-400'></span>
+            <span className="text-right">{helicopter.type}</span>
+          </div>
+
+          {/* Engine */}
+          <div className='flex'>
+            <p className="flex justify-between font-bold font-openSans text-sm">Engine</p>
+            <span className='flex-1 border-b border-dotted border-gray-400'></span>
+            <span className="text-right">{helicopter.engine}</span>
+          </div>
+
+          {/* Carries */}
+          <div className='flex'>
+            <p className="flex justify-between font-bold font-openSans text-sm">Carries</p>
+            <span className='flex-1 border-b border-dotted border-gray-400'></span>
+            <span className="text-right">{helicopter.carries}</span>
+          </div>
+        </div>
+
+        <div className="w-full md:w-1/2 flex flex-col space-y-2">
+          {/* IFR */}
+          <div className='flex'>
+            <p className="flex justify-between font-bold font-openSans text-sm">IFR</p>
+            <span className='flex-1 border-b border-dotted border-gray-400'></span>
+            <span className="text-right">{helicopter.ifr ? 'Yes' : 'No'}</span>
+          </div>
+
+          {/* Cruise */}
+          <div className='flex'>
+            <p className="flex justify-between font-bold font-openSans text-sm">Cruise</p>
+            <span className='flex-1 border-b border-dotted border-gray-400'></span>
+            <span className="text-right">{helicopter.cruise}</span>
+          </div>
+
+          {/* Base */}
+          <div className='flex'>
+            <p className="flex justify-between font-bold font-openSans text-sm">Base</p>
+            <span className='flex-1 border-b border-dotted border-gray-400'></span>
+            <span className="text-right">{helicopter.base}</span>
+          </div>
+        </div>
+      </div>
+    );
+  };
   return (
     <>
-      <Breadcrumbs className='container pt-[180px]' slug={data?.title} />
+      <Breadcrumbs className='container pt-[125px] sm:pt-[180px]' slug={data?.title} />
       <main className="container mx-auto px-4 grid pb-16 grid-cols-1 md:grid-cols-5 mt-8">
         <div className="mr-0 sm:mr-20 mb-10 sm:mb-0 col-span-3 relative">
           <Image
@@ -53,7 +130,7 @@ const TemplateTwo = ({ data, children }: props) => {
           />
           <h2 className='text-brand-light-blue text-3xl font-normal font-workSans -ml-[2px]'>Our fleet</h2>
           <h3 className='text-brand-dark-blue text-6xl font-light font-workSans mt-2 -ml-1'>{data?.title}</h3>
-          <div className='mt-7 mb-7'>
+          <div className='mt-7 mb-8'>
             <div className='flex flex-row items-center'><StatusIcon status={data?.workType?.trainingHelicopter} /><p className='m-0 ml-3'>Training Helicopter</p></div>
             <div className='flex flex-row items-center'><StatusIcon status={data?.workType?.charterHelicopter} /><p className='m-0 ml-3'>Charter Helicopter</p></div>
             <div className='flex flex-row items-center'><StatusIcon status={data?.workType?.aerialWorkHelicopter} /><p className='m-0 ml-3'>Aerial Work Helicopter</p></div>
@@ -62,16 +139,19 @@ const TemplateTwo = ({ data, children }: props) => {
             <PortableText value={data?.body || ''} />
             <TextLink label='3D cockpit view' className='mt-7' onClick={() => setIsModalOpen(!isModalOpen)} />
           </div>
+          <h3 className='text-md font-bold mt-10 font-openSans mb-5'>Specifications</h3>
+          <SpecificationTable helicopter={exampleHelicopter} className='mb-6' />
+          <TextLink label='Comparison chart' className='mt-9' onClick={() => setIsModalOpen(!isModalOpen)} />
           {children}
         </div>
         <div className='col-span-2'>
-          <div className='relative w-full h-[450px]'>
+          <div className='relative' style={{ width: '100%', paddingBottom: '100%' }}>
             <Image
               priority
               src={urlFor(data.mainImage).url()}
               objectFit="cover"
               objectPosition="center"
-              fill
+              layout="fill"
               alt="hero image example"
             />
           </div>
