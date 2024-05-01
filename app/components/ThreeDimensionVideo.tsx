@@ -1,15 +1,17 @@
 'use client';
 
 import Image from "next/image";
-import { useState } from "react";
 import Modal from "./Modal";
 
-const ThreeDimensionVideo = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+type props = {
+  openModal?: boolean;
+  onClose: () => void;
+}
 
+const ThreeDimensionVideo = ({ openModal = false, onClose }: props) => {
   return (
     <>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <Modal isOpen={openModal} onClose={onClose} videoUrl="" />
       <div className='relative w-full h-[450px] mt-3'>
         <Image
           priority
@@ -23,7 +25,7 @@ const ThreeDimensionVideo = () => {
           priority
           src={'/images/3d-icon.png'}
           width={150}
-          onClick={() => setIsModalOpen(true)}
+          onClick={onClose}
           height={150}
           alt="hero image example"
           className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:opacity-80 cursor-pointer'

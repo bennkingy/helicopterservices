@@ -1,4 +1,4 @@
-import { LogOut, LucideProps, Moon, PlaneTakeoff, Star, Sun } from 'lucide-react';
+import { CircleArrowRight, LogOut, LucideProps, Moon, PlaneTakeoff, SquareArrowUp, Star, Sun } from 'lucide-react';
 
 export const Icons = {
   sun: Sun,
@@ -6,6 +6,8 @@ export const Icons = {
   logOut: LogOut,
   star: Star,
   planeTakeoff: PlaneTakeoff,
+  circleArrowRight: CircleArrowRight,
+  squareArrowUp: SquareArrowUp,
   github: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path
