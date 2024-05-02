@@ -49,7 +49,7 @@ const GetInTouch = ({ className }: props) => {
                 <a href="tel:+441494513166" className='text-lg font-bold mt-0'>+44 1494 513 166</a>
               </div>
             </div>
-            <div className="p-5 pl-5 sm:pl-12">
+            <div className="p-5 pl-5 sm:pl-12 mt-5 sm:mt-0">
               <table className={`table-fixed mx-auto sm:mx-0`}>
                 <thead>
                   <tr>
