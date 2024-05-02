@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import GetInTouch from './GetInTouch';
 import Weather from './Weather';
-import logo from "/public/images/LogoDarkV1.svg";
+import logo from "/public/images/LogoLightV2New.svg";
 
 export default function Footer() {
   return (

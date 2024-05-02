@@ -38,12 +38,14 @@ const Heading: React.FC<HeadingProps> = ({
   className,
 }) => {
   return (
-    <div className={`${center ? 'text-center max-w-[600px] mx-auto' : 'text-start'} font-workSans ${className}`}>
-      <div className={`${center ? 'justify-center' : 'justify-start'} font-workSans flex text-brand-light-blue text-lg`}>
-        {tag ? (<div className={`flex justify-center ${iconStyles}`}><HelicopterIcon iconColor={iconColor} iconSize={iconSize} className={`mr-2`} /><div className={`${tagSize}`}>{tag}</div></div>) : null}
+    <div className="-mt-[5px]">
+      <div className={`${center ? 'text-center max-w-[600px] mx-auto' : 'text-start'} font-workSans ${className}`}>
+        <div className={`${center ? 'justify-center' : 'justify-start'} font-workSans flex text-brand-light-blue text-lg`}>
+          {tag ? (<div className={`flex justify-center ${iconStyles}`}><HelicopterIcon iconColor={iconColor} iconSize={iconSize} className={`mr-2`} /><div className={`${tagSize}`}>{tag}</div></div>) : null}
+        </div>
+        <div className={cn(`font-bold mt-2 text-brand-dark-blue text-5xl ${titleSize}`)}>{title}</div>
+        <div className='font-light text-neutral-500 mt-2'>{subtitle}</div>
       </div>
-      <div className={cn(`font-bold mt-2 text-brand-dark-blue text-5xl ${titleSize}`)}>{title}</div>
-      <div className='font-light text-neutral-500 mt-2'>{subtitle}</div>
     </div>
   );
 };

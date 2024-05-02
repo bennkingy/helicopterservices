@@ -26,8 +26,8 @@ export default async function Home() {
           <MainServices />
         </div>
       </div>
-      <div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
-        <div className='pr-0 sm:pr-10 relative'>
+      <div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 justify-center relative">
+        <div className='pr-0 relative col-span-1 flex justify-center'>
           <FramerAnimationSlide
             items={[
               <Image
@@ -36,7 +36,7 @@ export default async function Home() {
                 width={1000}
                 key={1}
                 height={1000}
-                className='min-w-[100px] pr-10 sm:pr-10 md:pr-10 lg:pr-20 xl:pr-32'
+                className='pr-10 sm:pr-10 md:pr-10 lg:pr-32'
               />,
               <Image
                 src="/images/grandad.png"
@@ -44,12 +44,12 @@ export default async function Home() {
                 width={240}
                 height={240}
                 key={2}
-                className='absolute -bottom-20 sm:bottom-20 right-0 md:right-14 border-8 border-white drop-shadow-sm shadow-xl' />
+                className='absolute -bottom-20 xl:bottom-20 right-0 lg:right-14 border-8 border-white drop-shadow-sm shadow-xl max-w-[200px] sm:max-w-max' />
             ]}
           />
         </div>
-        <div>
-          <Heading title="Over 20 years helicopter operating experience." tag='About us' className='mb-8 mt-36 sm:mt-0' />
+        <div className='sm:pl-10'>
+          <Heading title="Over 20 years helicopter operating experience." tag='About us' className='mb-8 mt-32 md:mt-0' />
           <p className='font-openSans'>We offer training from Private Pilot’s Licence to Commercial, Instruments, Instructor, and Examiner Ratings.  Our senior instructors/examiners in the UK provide type ratings on 17+ helicopter types, and advanced courses. For gifts, transfers, charters, photography, load lifting, flight learning, helicopter purchase, AOC management, or medical info, we’re here.</p>
           <ul className="max-w-md space-y-1 mt-7 list-inside font-openSans">
             <li className="flex items-center">
@@ -79,7 +79,7 @@ export default async function Home() {
           />
           <p className='mt-3 font-bold font-openSans'>Captain Leon Smith</p>
           <p className='mt-0 text-brand-light-blue font-openSans'>Head Pilot / Chief Pilot</p>
-          <p className='mt-0 font-openSans'>Helicopter Services</p>
+          <p className='mt-0 font-openSans -mb-[5px]'>Helicopter Services</p>
         </div>
       </div>
       <div className="py-20 bg-brand-dark-blue">
