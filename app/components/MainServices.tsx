@@ -49,7 +49,7 @@ export const MainServices = () => {
             <Card key={title} className="bg-white rounded-none border-0 border-b-4 border-brand-light-blue relative group duration-300 ease-in"
             >
               <CardHeader>
-                <CardTitle className="grid gap-4 font-bold text-lg sm:text-2xl duration-300 ease-in-out sm:group-hover:text-brand-light-blue">
+                <CardTitle className="grid gap-4 font-bold text-xl sm:text-2xl duration-300 ease-in-out sm:group-hover:text-brand-light-blue">
                   {icon}
                   {title}
                 </CardTitle>
