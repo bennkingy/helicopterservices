@@ -114,6 +114,22 @@ export default async function Home() {
                   key={1}
                   height={1000}
                   className='pl-0 md:pl-10 lg:pl-20'
+                />,
+                <Image
+                  src="/images/grandad.png"
+                  alt="Helicopter Services"
+                  width={200}
+                  key={2}
+                  height={200}
+                  className='border-8 drop-shadow-sm shadow-xl border-white absolute -bottom-20 right-4'
+                />,
+                <Image
+                  src="/images/grandad.png"
+                  alt="Helicopter Services"
+                  width={200}
+                  key={3}
+                  height={200}
+                  className='border-8 drop-shadow-sm shadow-xl border-white absolute -bottom-[72px] left-24'
                 />
               ]}
             />
