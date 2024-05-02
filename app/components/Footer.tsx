@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <>
       <GetInTouch />
-      <div className="bg-brand-dark-blue dark:bg-black text-white pt-20 pb-20 border-t-4 border-brand-light-blue">
+      <div className="bg-brand-dark-blue dark:bg-black text-white py-20 border-t-4 border-brand-light-blue">
         <div className="mx-auto flex flex-wrap container justify-between flex-col sm:flex-row"><div>
           <Link href="/" className="font-mono text-lg font-bold start">
             <Image
@@ -17,7 +17,7 @@ export default function Footer() {
               alt="Helicopter Services"
               width={153}
               height={43}
-              className='min-w-[100px] mb-10 '
+              className='min-w-[100px] mb-10'
             />
           </Link>
           <div className="text-sm mb-3 mt-6 sm:mt-0 font-bold font-openSans">Contact</div>
@@ -84,7 +84,7 @@ export default function Footer() {
               <li>Load lifting</li>
             </ul>
           </div>
-          <div className='mt-8 sm:mt-0'>
+          <div className='mt-20 sm:mt-0'>
             <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
               <Weather />
             </Suspense>
