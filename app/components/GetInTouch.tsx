@@ -15,7 +15,7 @@ const GetInTouch = ({ className }: props) => {
           <div className="max-w-6xl container p-0 mx-auto grid grid-cols-1 sm:grid-cols-2 font-openSans">
             <div className="p-5 pr-5 sm:pr-12">
               <table className={`table-fixed mx-auto sm:ml-auto sm:mx-0`}>
-                <thead>
+                <thead className="text-center sm:text-left">
                   <tr>
                     <th scope="col" className="pb-3">General enquiries</th>
                   </tr>
@@ -44,9 +44,9 @@ const GetInTouch = ({ className }: props) => {
                   </tr>
                 </tbody>
               </table>
-              <div className={`font-openSans`}>
-                <p className='mb-[2px] font-normal text-sm'>Call General enquiries:</p>
-                <a href="tel:+441494513166" className='text-xl font-bold mt-0'>+44 1494 513 166</a>
+              <div className={`font-openSans text-center sm:text-right mt-10`}>
+                <p className='mb-[2px] font-normal text-sm'>info@helicopterservices.co.uk</p>
+                <a href="tel:+441494513166" className='text-lg font-bold mt-0'>+44 1494 513 166</a>
               </div>
             </div>
             <div className="p-5 pl-5 sm:pl-12">
@@ -80,6 +80,10 @@ const GetInTouch = ({ className }: props) => {
                   </tr>
                 </tbody>
               </table>
+              <div className={`font-openSans text-center sm:text-left mt-10`}>
+                <p className='mb-[2px] font-normal text-sm'>ruth.downey@helicopterservices.co.uk</p>
+                <a href="tel:+441494513166" className='text-lg font-bold mt-0'>+44 1494 513 166</a>
+              </div>
             </div>
           </div>
           <div className="mt-5 max-w-6xl grid center mx-auto">
