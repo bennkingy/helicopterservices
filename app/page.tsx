@@ -44,7 +44,7 @@ export default async function Home() {
                 width={240}
                 height={240}
                 key={2}
-                className='absolute -bottom-20 xl:bottom-20 right-0 lg:right-14 border-8 border-white drop-shadow-sm shadow-xl max-w-[200px] sm:max-w-max' />
+                className='absolute -bottom-20 xl:bottom-20 right-0 lg:right-14 border-8 border-white drop-shadow-sm shadow-xl max-w-[200px] sm:w-full' />
             ]}
           />
         </div>
@@ -104,8 +104,27 @@ export default async function Home() {
             </div>
             <Enquire textStyle='text-white' />
           </div>
-          <div className='relative col-span-1 flex justify-center mt-20 md:mt-0'>
+          <div className='relative col-span-1 flex justify-center mt-20 md:mt-0 mb-20  md:mb-0'>
             <FramerAnimationSlide
+              items={[
+                <Image
+                  src="/images/flying.png"
+                  alt="Helicopter Services"
+                  width={1000}
+                  key={1}
+                  height={1000}
+                  className='pr-10 md:pl-10 sm:pr-10 md:pr-10 lg:pr-20'
+                />,
+                <Image
+                  src="/images/vr.jpg"
+                  alt="Helicopter Services"
+                  width={240}
+                  height={240}
+                  key={2}
+                  className='absolute -bottom-20 xl:bottom-20 right-0 border-8 border-white drop-shadow-sm shadow-xl max-w-[200px] sm:w-full' />
+              ]}
+            />
+            {/* <FramerAnimationSlide
               items={[
                 <Image
                   src="/images/flying.png"
@@ -118,21 +137,21 @@ export default async function Home() {
                 <Image
                   src="/images/grandad.png"
                   alt="Helicopter Services"
-                  width={200}
+                  width={240}
                   key={2}
-                  height={200}
+                  height={240}
                   className='border-8 drop-shadow-sm shadow-xl border-white absolute -bottom-20 right-4'
                 />,
                 <Image
                   src="/images/grandad.png"
                   alt="Helicopter Services"
-                  width={200}
+                  width={240}
                   key={3}
-                  height={200}
+                  height={240}
                   className='border-8 drop-shadow-sm shadow-xl border-white absolute -bottom-[72px] left-24'
                 />
               ]}
-            />
+            /> */}
           </div>
         </div>
       </div>
@@ -160,7 +179,7 @@ export default async function Home() {
                 width={240}
                 height={240}
                 key={2}
-                className='absolute -bottom-20 lg:bottom-20 right-0 lg:right-14 border-8 border-white drop-shadow-sm shadow-xl max-w-[200px] sm:max-w-max' />
+                className='absolute -bottom-20 lg:bottom-20 right-0 lg:right-14 border-8 border-white drop-shadow-sm shadow-xl max-w-[200px] sm:w-full' />
             ]}
           />
         </div>

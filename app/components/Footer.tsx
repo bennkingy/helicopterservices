@@ -39,16 +39,6 @@ export default function Footer() {
             <li>Policy</li>
             <li>Cookies</li>
           </ul>
-          {/* <div className='hidden sm:block'>
-            <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
-              <Weather city="London" />
-            </Suspense>
-            <div className='mt-5'>
-              <Suspense fallback={<p className='bg-red'>Loading weather data...</p>}>
-                <Weather city="Manchester" airport='West London Aero Club' />
-              </Suspense>
-            </div>
-          </div> */}
         </div>
           <div className="">
             <div className="text-sm font-bold mb-3 mt-5 sm:mt-0 font-openSans">Training</div>

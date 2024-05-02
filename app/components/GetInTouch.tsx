@@ -44,6 +44,10 @@ const GetInTouch = ({ className }: props) => {
                   </tr>
                 </tbody>
               </table>
+              {/* <div className={`mt-0 ml-7 font-openSans -mb-[7px]`}>
+                <p className='mb-[2px] font-normal text-sm'>Call General enquiries:</p>
+                <a href="tel:+441494513166" className='text-xl font-bold mt-0'>+44 1494 513 166</a>
+              </div> */}
             </div>
             <div className="p-5 pl-5 sm:pl-12">
               <table className={`table-fixed mx-auto sm:mx-0`}>
