@@ -29,10 +29,14 @@ const reviews: any[] = [
   },
 ];
 
-const Reviews = () => {
+type props = {
+  className?: string;
+}
+
+const Reviews = ({ className }: props) => {
   return (
-    <div className='bg-brand-light-grey mt-0'>
-      <div className="container pt-12 pb-20">
+    <div className={`bg-brand-light-grey ${className}`}>
+      <div className="container">
         <Heading title="Client feedback." center tag='Testimonials' iconColor='light-blue' className='mb-16' />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-10">
           {reviews.slice(0, 6).map((review, index) => (

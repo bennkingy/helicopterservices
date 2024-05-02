@@ -48,10 +48,10 @@ export default async function Home() {
             ]}
           />
         </div>
-        <div className='sm:pl-10'>
+        <div className='md:pl-10'>
           <Heading title="Over 20 years helicopter operating experience." tag='About us' className='mb-8 mt-32 md:mt-0' />
           <p className='font-openSans'>We offer training from Private Pilot’s Licence to Commercial, Instruments, Instructor, and Examiner Ratings.  Our senior instructors/examiners in the UK provide type ratings on 17+ helicopter types, and advanced courses. For gifts, transfers, charters, photography, load lifting, flight learning, helicopter purchase, AOC management, or medical info, we’re here.</p>
-          <ul className="max-w-md space-y-1 mt-7 list-inside font-openSans">
+          <ul className="max-w-md space-y-1 mt-5 list-inside font-openSans">
             <li className="flex items-center">
               <svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
@@ -87,7 +87,7 @@ export default async function Home() {
           <div>
             <Heading title="From beginner to advanced, you're in expert hands." tag='training' iconColor='light-blue' className='mb-8' titleSize='text-white' />
             <p className='font-openSans text-white'>{`Our highly experienced instructors and examiners are among the UK's most senior. We provide type ratings for over 17 helicopter types, along with Flight Instructor Refresher and Instrument Rating Examiner courses.`}</p>
-            <p className='font-openSans mt-4 text-white'>Additionally, we offer a helicopter flight simulator for safe instrument flying skill development and an advanced program to enhance PPL skills.</p>
+            <p className='font-openSans mt-5 text-white'>Additionally, we offer a helicopter flight simulator for safe instrument flying skill development and an advanced program to enhance PPL skills.</p>
             <div className="flex space-x-5 mt-7">
               <Image
                 src="/images/easa.svg"
@@ -126,34 +126,33 @@ export default async function Home() {
           <Carousel slides={items} />
         </div>
       </div>
-      <div className="container pb-20 pt-20 bg-white grid grid-cols-1 md:grid-cols-2">
-        <div className=" mx-auto relative">
-          <div className='pr-0 sm:pr-10 relative'>
-            <FramerAnimationSlide
-              items={[
-                <Image
-                  src="/images/loadlifting.png"
-                  alt="Helicopter Services"
-                  width={1000}
-                  key={1}
-                  height={1000}
-                  className='min-w-[100px] pr-10 sm:pr-10 md:pr-10 lg:pr-20 xl:pr-32'
-                />,
-                <Image
-                  src="/images/planes.jpg"
-                  alt="Helicopter Services"
-                  width={240}
-                  height={240}
-                  key={2}
-                  className='absolute -bottom-20 sm:bottom-20 right-0 md:right-14 border-8 border-white drop-shadow-sm shadow-xl' />
-              ]}
-            />
-          </div>
+      <div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 justify-center relative">
+        <div className="pr-0 relative col-span-1 flex justify-center">
+          <FramerAnimationSlide
+            items={[
+              <Image
+                src="/images/loadlifting.png"
+                alt="Helicopter Services"
+                width={1000}
+                key={1}
+                height={1000}
+                className='pr-10 sm:pr-10 md:pr-10 lg:pr-32'
+              />,
+              <Image
+                src="/images/planes.jpg"
+                alt="Helicopter Services"
+                width={240}
+                height={240}
+                key={2}
+                className='absolute -bottom-20 lg:bottom-20 right-0 lg:right-14 border-8 border-white drop-shadow-sm shadow-xl max-w-[200px] sm:max-w-max' />
+            ]}
+          />
         </div>
-        <div>
-          <Heading title="Elevating industry to new heights." tag='Industry' iconColor='light-blue' className='mb-8 mt-36 sm:mt-0' />
+        <div className='md:pl-10'>
+          <Heading title="Elevating industry to new heights." tag='Industry' iconColor='light-blue' className='mb-8 mt-32 md:mt-0' />
           <p className='font-openSans'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-          <ul className="max-w-md space-y-1 mt-7 list-inside font-openSans">
+          <p className='font-openSans mt-5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          <ul className="max-w-md space-y-1 mt-5 list-inside font-openSans">
             <li className="flex items-center">
               <svg className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
@@ -175,7 +174,7 @@ export default async function Home() {
           <Enquire className='mt-7' />
         </div>
       </div>
-      <Reviews />
+      <Reviews className='py-20' />
     </main >
   );
 }
