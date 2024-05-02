@@ -23,7 +23,7 @@ const TemplateTwo = ({ data, children }: props) => {
   };
 
   const StatusIcon = ({ status }: StatusIconProps) => {
-    const imageUrl = status ? '/images/checkOne.svg' : '/images/checkTwo.svg';
+    const imageUrl = status ? '/images/Check.png' : '/images/checkTwo.svg';
     const altText = status ? 'Option selected' : 'Option not selected';
 
     return (
