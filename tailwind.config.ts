@@ -19,7 +19,7 @@ const config = {
     },
     extend: {
       dropShadow: {
-        'brand': '0px 2px 5px rgba(0, 0, 0, 0.15)',
+        'brand': '0px 2px 5px rgba(0, 0, 0, 0.12)',
       },
       boxShadow: {
         'brand': '0px 4px 24px rgba(0, 0, 0, 0.25)',

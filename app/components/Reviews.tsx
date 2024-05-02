@@ -1,4 +1,7 @@
+'use client'
+
 import { Icons } from '@/components/ui/icons';
+import { useMediaQuery } from '@/hooks/use-media-query';
 import Image from 'next/image';
 import Heading from "../components/Heading";
 
@@ -34,12 +37,17 @@ type props = {
 }
 
 const Reviews = ({ className }: props) => {
+
+  const isMobile = useMediaQuery('(max-width: 640px)');
+
+  const displayedReviews = isMobile ? reviews.slice(0, 3) : reviews.slice(0, 6);
+
   return (
     <div className={`bg-brand-light-grey ${className}`}>
       <div className="container">
         <Heading title="Client feedback." center tag='Testimonials' iconColor='light-blue' className='mb-16' />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-10">
-          {reviews.slice(0, 6).map((review, index) => (
+          {displayedReviews.map((review, index) => (
             <div className='text-white drop-shadow-brand' key={index}>
               <div style={{ clipPath: 'polygon(0 0,calc(100% - 35px) 0,100% 35px,100% 100%,0 100%)' }} className='p-0'>
                 <div className="md:max-w-sm mx-auto border-l-4 border-brand-light-blue bg-white p-4">
@@ -54,13 +62,13 @@ const Reviews = ({ className }: props) => {
                       />
                     </div>
                     <div className='flex-1 pr-6 justify-center flex flex-col'>
-                      <Image
+                      {/* <Image
                         src="/images/quotes.svg"
                         alt="Helicopter Services"
                         width={19}
                         height={10}
                         className='ml-auto'
-                      />
+                      /> */}
                       <div className="text-md font-bold text-brand-dark-grey ">{review.name}</div>
                       <div className="flex">
                         <Icons.star fill="#1FB6DE" strokeWidth={0} className='-ml-1' />

@@ -26,7 +26,7 @@ export default async function Home() {
           <MainServices />
         </div>
       </div>
-      <div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 justify-center relative">
+      <div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
         <div className='pr-0 relative col-span-1 flex justify-center'>
           <FramerAnimationSlide
             items={[
@@ -84,11 +84,11 @@ export default async function Home() {
       </div>
       <div className="py-20 bg-brand-dark-blue">
         <div className="container relative mx-auto grid grid-cols-1 md:grid-cols-2">
-          <div>
+          <div className='md:pr-10'>
             <Heading title="From beginner to advanced, you're in expert hands." tag='training' iconColor='light-blue' className='mb-8' titleSize='text-white' />
             <p className='font-openSans text-white'>{`Our highly experienced instructors and examiners are among the UK's most senior. We provide type ratings for over 17 helicopter types, along with Flight Instructor Refresher and Instrument Rating Examiner courses.`}</p>
             <p className='font-openSans mt-5 text-white'>Additionally, we offer a helicopter flight simulator for safe instrument flying skill development and an advanced program to enhance PPL skills.</p>
-            <div className="flex space-x-5 mt-7">
+            <div className="flex space-x-5 my-10">
               <Image
                 src="/images/easa.svg"
                 alt="Helicopter Services"
@@ -102,9 +102,9 @@ export default async function Home() {
                 height={38}
               />
             </div>
-            <Enquire className='mt-7' textStyle='text-white' />
+            <Enquire textStyle='text-white' />
           </div>
-          <div className='pr-0 sm:pl-10 relative mt-20 sm:mt-0'>
+          <div className='relative col-span-1 flex justify-center mt-20 md:mt-0'>
             <FramerAnimationSlide
               items={[
                 <Image
@@ -113,7 +113,7 @@ export default async function Home() {
                   width={1000}
                   key={1}
                   height={1000}
-                  className='min-w-[100px] pr-0 sm:pl-10 md:pl-10 lg:pl-20 xl:pl-20'
+                  className='pl-0 md:pl-10 lg:pl-20'
                 />
               ]}
             />

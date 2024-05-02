@@ -51,7 +51,7 @@ const Carousel = ({ slides }: props) => {
       }}>
       <CarouselContent className="-ml-2 md:-ml-4">
         {slides.map((item, index) => (
-          <CarouselItem key={index} className="lg:basis-1/3 text-center px-20">
+          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 text-center px-5 sm:px-16">
             {/* <FramerAnimationBlurIn delay={0.15}> */}
             <Image
               src={item.img}
