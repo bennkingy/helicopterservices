@@ -27,7 +27,6 @@ const Gallery = ({ className, galleryType, children }: props) => {
   // Function to open the lightbox
   const handleIconClick = () => {
     if (lgRef.current) {
-      lgRef.current.openGallery();
     }
   };
 
@@ -52,7 +51,6 @@ const Gallery = ({ className, galleryType, children }: props) => {
           autoplay: 1,
           mute: 1
         }}
-        ref={lgRef} // Attach the ref here
         elementClassNames={galleryType}
         mobileSettings={{
           controls: false,
