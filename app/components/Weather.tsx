@@ -57,16 +57,15 @@ export default async function Weather({ lat = 51.501140, lon = -0.763710, airpor
   }
 
   return (
-    <div className="max-w-50 rounded-sm text-white p-5 pt-0 bg-[#1A3051] sm:mt-0 text-center">
-      <h4 className="text-sm font-bold font-openSans pt-5 mx-auto">{airport}</h4>
+    <div className="max-w-50 rounded-sm text-white p-7 bg-[#1A3051] sm:mt-0 text-center">
+      <h4 className="text-sm font-bold font-openSans mx-auto">{airport}</h4>
       <Image src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`} width={100} height={100} alt={''} className='mx-auto' />
-      <p className="">Temperature: {data?.main?.temp}°C</p>
-      {/* <p className="mt-1">Weather: {data?.weather ? data?.weather[0]?.description : null}</p> */}
-      <p className="mt-1">Pressure: {data?.main?.pressure}hPa</p>
-      <p className="mt-1">Wind speed: {data?.wind?.speed}%</p>
-      <p className="mt-1">Wind degree: {data?.wind?.deg}°</p>
-      <p className="mt-1">Visibility: {data?.visibility}m</p>
-      <p className="mt-1">Humidity: {data?.main?.humidity}%</p>
+      <p className=""><span className="font-medium mr-1">Temperature</span> {data?.main?.temp}°C</p>
+      <p className="mt-1"><span className="font-medium mr-1">Pressure</span> {data?.main?.pressure}hPa</p>
+      <p className="mt-1"><span className="font-medium mr-1">Wind speed</span> {data?.wind?.speed}%</p>
+      <p className="mt-1"><span className="font-medium mr-1">Wind degree</span> {data?.wind?.deg}°</p>
+      <p className="mt-1"><span className="font-medium mr-1">Visibility</span> {data?.visibility}m</p>
+      <p className="mt-1"><span className="font-medium mr-1">Humidity</span> {data?.main?.humidity}%</p>
       {/* <p className="mt-5 bg-green-600 text-white rounded-lg p-1 pl-3">Safe to fly </p> */}
     </div>
   );

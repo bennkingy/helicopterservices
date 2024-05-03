@@ -201,7 +201,7 @@ const TemplateTwo = ({ data, children }: props) => {
             />
           </div>
           <div style={{ width: '100%', clipPath: 'polygon(0 0,calc(100% - 20px) 0, 100% 20px,100% 100%, 0 100%)' }}>
-            <Gallery className='sm:mb-10' galleryType="video">
+            <Gallery galleryType="video">
               <a
                 data-lg-size="1000-700"
                 data-pinterest-text="Pin it2"
@@ -223,11 +223,11 @@ const TemplateTwo = ({ data, children }: props) => {
               </a>
             </Gallery>
           </div>
-          <div className='bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue'>
+          <div className='bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-8'>
             <p className='text-white font-bold font-openSans'>This Helicopter is based at:</p>
             <p className='text-white font-openSans font-thin'>White Waltham Airfield, Maidenhead, Berkshire, SL6 3N</p>
           </div>
-          <Map style={{ width: '100%', paddingBottom: '100%' }}></Map>
+          <Map></Map>
         </div>
       </main >
     </>

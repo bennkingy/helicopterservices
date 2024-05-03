@@ -11,7 +11,7 @@ import Image from 'next/image';
 import { useRef } from 'react';
 
 type props = {
-  className: string
+  className?: string
   children: any
   galleryType: 'video' | 'gallery'
 }
