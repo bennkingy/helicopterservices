@@ -116,11 +116,12 @@ const TemplateTwo = ({ data, children }: props) => {
       </div>
     );
   };
+
   return (
     <>
       <Breadcrumbs className='container pt-[125px] sm:pt-[180px]' slug={data?.title} />
       <main className="container mx-auto px-4 grid pb-16 grid-cols-1 md:grid-cols-5 mt-8">
-        <div className="mr-0 sm:mr-20 mb-10 sm:mb-0 col-span-3 relative">
+        <div className="mr-0 md:mr-20 mb-10 sm:mb-0 col-span-3 relative">
           <Image
             priority
             src={'/images/3d-rotate-icon.png'}
@@ -140,14 +141,14 @@ const TemplateTwo = ({ data, children }: props) => {
             <PortableText value={data?.body || ''} />
             <TextLink label='3D cockpit view' className='mt-7' onClick={() => setIsModalOpen(!isModalOpen)} />
           </div>
-          <h3 className='text-md font-bold mt-10 font-openSans mb-5'>Specifications</h3>
+          <h3 className='text-md font-bold mt-7 font-openSans mb-5'>Specifications</h3>
           <SpecificationTable helicopter={exampleHelicopter} className='mb-6' />
           <TextLink label='Comparison chart' className='mt-9' onClick={() => setIsModalOpen(!isModalOpen)} />
           {children}
           <Gallery className='my-10' />
         </div>
         <div className='col-span-2'>
-          <div className='relative' style={{ width: '100%', paddingBottom: '100%' }}>
+          <div className='relative mb-10' style={{ width: '100%', paddingBottom: '100%', clipPath: 'polygon(0 0,calc(100% - 20px) 0, 100% 20px,100% 100%, 0 100%)' }}>
             <Image
               priority
               src={urlFor(data.mainImage).url()}
@@ -158,11 +159,11 @@ const TemplateTwo = ({ data, children }: props) => {
             />
           </div>
           <ThreeDimensionVideo openModal={isModalOpen} onClose={() => setIsModalOpen(!isModalOpen)} />
-          <div className='bg-brand-medium-blue p-3 mt-3'>
-            <Map className='h-[400px]'></Map>
-            <p className='pt-4 text-white font-bold font-openSans'>This Helicopter is based at:</p>
-            <p className='text-white font-openSans'>White Waltham Airfield, Maidenhead, Berkshire, SL6 3N</p>
+          <div className='bg-brand-medium-blue px-5 py-4 mt-10 border-b-4 border-brand-light-blue'>
+            <p className='text-white font-bold font-openSans'>This Helicopter is based at:</p>
+            <p className='text-white font-openSans font-thin'>White Waltham Airfield, Maidenhead, Berkshire, SL6 3N</p>
           </div>
+          <Map className='h-[400px]'></Map>
         </div>
       </main >
     </>

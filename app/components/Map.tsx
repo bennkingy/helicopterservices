@@ -1,7 +1,7 @@
 'use client'
 
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 
 const containerStyle = {
   width: '100%',
@@ -62,8 +62,6 @@ const Map = ({ className }: any) => {
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
   }, [])
-
-  const [showInfoWindow, setShowInfoWindow] = useState(false);
 
   // @ts-ignore
   const onLoad = useCallback(function callback(map) {
