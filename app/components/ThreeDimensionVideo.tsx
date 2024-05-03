@@ -41,7 +41,7 @@ const ThreeDimensionVideo = ({ openModal = false, onClose }: props) => {
             className=""
           />
         </div>
-        <p className='ml-2 text-brand-light-blue text-sm'>Enlarge and view</p>
+        <p className='ml-2 text-brand-light-blue text-sm'>3D view</p>
       </div>
     </>
   )

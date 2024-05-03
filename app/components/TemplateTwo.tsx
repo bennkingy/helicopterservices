@@ -68,48 +68,46 @@ const TemplateTwo = ({ data, children }: props) => {
   const SpecificationTable = ({ helicopter, className }: any) => {
     return (
       <div className={className}>
-        <div className="w-full md:w-1/2 flex flex-col space-y-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
           {/* Type */}
-          <div className='flex'>
+          <div className='flex items-baseline'>
             <p className="flex justify-between font-bold font-openSans text-sm">Type</p>
-            <span className='flex-1 border-b border-dotted border-gray-400'></span>
+            <span className='flex-1 border-b border-dotted border-[#1b1b1b] mx-2'></span>
             <span className="text-right">{helicopter.type}</span>
           </div>
 
           {/* Engine */}
-          <div className='flex'>
+          <div className='flex items-baseline'>
             <p className="flex justify-between font-bold font-openSans text-sm">Engine</p>
-            <span className='flex-1 border-b border-dotted border-gray-400'></span>
+            <span className='flex-1 border-b border-dotted border-[#1b1b1b] mx-2'></span>
             <span className="text-right">{helicopter.engine}</span>
           </div>
 
           {/* Carries */}
-          <div className='flex'>
+          <div className='flex items-baseline'>
             <p className="flex justify-between font-bold font-openSans text-sm">Carries</p>
-            <span className='flex-1 border-b border-dotted border-gray-400'></span>
+            <span className='flex-1 border-b border-dotted border-[#1b1b1b] mx-2'></span>
             <span className="text-right">{helicopter.carries}</span>
           </div>
-        </div>
 
-        <div className="w-full md:w-1/2 flex flex-col space-y-2">
           {/* IFR */}
-          <div className='flex'>
+          <div className='flex items-baseline'>
             <p className="flex justify-between font-bold font-openSans text-sm">IFR</p>
-            <span className='flex-1 border-b border-dotted border-gray-400'></span>
+            <span className='flex-1 border-b border-dotted border-[#1b1b1b] mx-2'></span>
             <span className="text-right">{helicopter.ifr ? 'Yes' : 'No'}</span>
           </div>
 
           {/* Cruise */}
-          <div className='flex'>
+          <div className='flex items-baseline'>
             <p className="flex justify-between font-bold font-openSans text-sm">Cruise</p>
-            <span className='flex-1 border-b border-dotted border-gray-400'></span>
+            <span className='flex-1 border-b border-dotted border-[#1b1b1b] mx-2'></span>
             <span className="text-right">{helicopter.cruise}</span>
           </div>
 
           {/* Base */}
-          <div className='flex'>
+          <div className='flex items-baseline'>
             <p className="flex justify-between font-bold font-openSans text-sm">Base</p>
-            <span className='flex-1 border-b border-dotted border-gray-400'></span>
+            <span className='flex-1 border-b border-dotted border-[#1b1b1b] mx-2'></span>
             <span className="text-right">{helicopter.base}</span>
           </div>
         </div>
@@ -143,9 +141,9 @@ const TemplateTwo = ({ data, children }: props) => {
           </div>
           <h3 className='text-md font-bold mt-7 font-openSans mb-5'>Specifications</h3>
           <SpecificationTable helicopter={exampleHelicopter} className='mb-6' />
-          <TextLink label='Comparison chart' className='mt-9' onClick={() => setIsModalOpen(!isModalOpen)} />
+          <TextLink label='Comparison chart' className='mt-9 mb-10' onClick={() => setIsModalOpen(!isModalOpen)} />
           {children}
-          <Gallery className='my-10' />
+          <Gallery className='sm:mb-10' />
         </div>
         <div className='col-span-2'>
           <div className='relative mb-10' style={{ width: '100%', paddingBottom: '100%', clipPath: 'polygon(0 0,calc(100% - 20px) 0, 100% 20px,100% 100%, 0 100%)' }}>
@@ -163,7 +161,7 @@ const TemplateTwo = ({ data, children }: props) => {
             <p className='text-white font-bold font-openSans'>This Helicopter is based at:</p>
             <p className='text-white font-openSans font-thin'>White Waltham Airfield, Maidenhead, Berkshire, SL6 3N</p>
           </div>
-          <Map className='h-[400px]'></Map>
+          <Map style={{ width: '100%', paddingBottom: '100%' }}></Map>
         </div>
       </main >
     </>
