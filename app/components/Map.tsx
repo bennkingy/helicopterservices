@@ -5,7 +5,7 @@ import React, { useCallback } from 'react';
 
 const containerStyle = {
   width: '100%',
-  height: '400px'
+  aspectRatio: '1 / 1'
 };
 
 const center = {
