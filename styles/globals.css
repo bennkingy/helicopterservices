@@ -74,3 +74,13 @@
       @apply bg-background text-foreground;
     }
   }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* Creates two columns with equal width */
+  gap: 10px; /* Adjusts the gap between grid items */
+}
+
+.gallery img {
+  width: 100%;
+}

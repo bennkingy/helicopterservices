@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useState } from 'react';
 import { FleetItem } from '../fleet/[slug]/page';
 import Breadcrumbs from "./Breadcrumbs";
+import Gallery from './Gallery';
 import TextLink from './TextLink';
 import ThreeDimensionVideo from './ThreeDimensionVideo';
 
@@ -143,6 +144,7 @@ const TemplateTwo = ({ data, children }: props) => {
           <SpecificationTable helicopter={exampleHelicopter} className='mb-6' />
           <TextLink label='Comparison chart' className='mt-9' onClick={() => setIsModalOpen(!isModalOpen)} />
           {children}
+          <Gallery className='my-10' />
         </div>
         <div className='col-span-2'>
           <div className='relative' style={{ width: '100%', paddingBottom: '100%' }}>
