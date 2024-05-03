@@ -7,6 +7,7 @@ import 'lightgallery/css/lightgallery.css';
 import lgVideo from 'lightgallery/plugins/video';
 import lgZoom from 'lightgallery/plugins/zoom';
 import LightGallery from 'lightgallery/react';
+import Image from 'next/image';
 
 type props = {
   className: string
@@ -75,6 +76,18 @@ const Gallery = ({ className }: props) => {
           />
         </a>
       </LightGallery>
+      <div className='flex mt-4 cursor-pointer items-center'>
+        <div>
+          <Image
+            src="/images/maximize.png"
+            alt="arrow"
+            width={11}
+            height={11}
+            className=""
+          />
+        </div>
+        <p className='ml-2 text-brand-light-blue text-sm'>Enlarge and view</p>
+      </div>
     </div>
   )
 }
