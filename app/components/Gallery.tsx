@@ -32,7 +32,7 @@ const Gallery = ({ className, galleryType, children }: props) => {
   };
 
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative group ${className}`}>
       {galleryType == 'video' && <Image
         priority
         src={'/images/3d-icon.png'}
@@ -40,7 +40,7 @@ const Gallery = ({ className, galleryType, children }: props) => {
         height={150}
         alt="hero image example"
         onClick={handleIconClick} // Set onClick handler
-        className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer pointer-events-none z-[1]'
+        className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer pointer-events-none z-[1] group-hover:opacity-80'
       />}
       <LightGallery
         onInit={onInit}
