@@ -155,14 +155,14 @@ export function NavMenu() {
       <NavigationMenu className='hidden sm:block font-workSans'>
         <NavigationMenuList>
           <NavigationMenuItem className='hidden lg:block'>
-            <Link href="/" legacyBehavior passHref className='text-lg'>
+            <Link href="/" legacyBehavior passHref className='text-lg' data-id="headerOptionHome">
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Home
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger><a href="/training">Training</a></NavigationMenuTrigger>
+            <NavigationMenuTrigger><a href="/training" data-id="headerOptionTraining">Training</a></NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[800px] ">
                 {training.map((component) => (
@@ -178,7 +178,7 @@ export function NavMenu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger><a href="/industry">Industry</a></NavigationMenuTrigger>
+            <NavigationMenuTrigger><a href="/industry" data-id="headerOptionIndustry">Industry</a></NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <ListItem href="/industry/photography-filming" title="Photography and filming">
