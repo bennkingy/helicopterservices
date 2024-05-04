@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 export default async function About() {
   return (
     <main className="overflow-x-hidden">
-      <Hero title="About Helicopter Services." height='h-[calc(100vh_-_0px)] sm:h-[calc(100vh_-_0px)]' />
+      <Hero title="About Helicopter Services." height='h-[calc(100vh_-_0px)] sm:h-[calc(100vh_-_0px)]' titleMargins='mt-[162px] sm:mt-[210px]' />
       <div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
         <div className='pr-0 sm:pr-10'>
-          <Heading title="Making your flying experience outstanding." tag='About us' className='mb-8 mt-36 sm:mt-0' />
+          <Heading title="Making your flying experience outstanding." tag='About us' titleStyles='text-3xl sm:text-4xl' className='mb-8 mt-36 sm:mt-0' />
           <p className='font-openSans mt-5'>At Helicopter Services we have the aviation experience to make your experience of flying outstanding.</p>
           <p className='font-openSans mt-5'>From that excited adrenalin rush of your very first flight to the business end of examining a candidate’s procedural flying for a commercial company we set out to make flying safe and fun for you.</p>
           <p className='font-openSans mt-5'>Our lovely new hangar with great facilities at White Waltham is so convenient for flying and we have built a team who are dedicated to helping you enjoy and advance your flying.</p>
@@ -77,12 +77,12 @@ export default async function About() {
           />
         </div>
         <div className='pl-0 sm:pl-20'>
-          <Heading title="The Britannia Trophy 2018." className='mb-8 mt-36 sm:mt-0' />
+          <Heading title="The Britannia Trophy 2018." className='mb-8 mt-36 sm:mt-0' titleStyles='text-3xl sm:text-4xl' />
           <p className='font-openSans'>We supported one of our own pilots with an advanced flying development programme. It was a proud moment when he was awarded the Britannia Trophy, 2018 by the Royal Aero Club of the United Kingdom nominated by the Helicopter Club of Great Britain for his Three Journeys Round project.</p>
           <p className='font-openSans mt-5'>Here Peter Wilson is pictured with our Head of Training, Leon Smith. Well done!</p>
         </div>
       </div>
-      <Reviews />
+      <Reviews className="py-20" />
     </main>
   );
 }

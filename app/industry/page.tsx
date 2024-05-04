@@ -51,7 +51,7 @@ export default async function Industry({ params }: { params: { slug: string } })
           </div>
           <div className="mb-14 mt-20 grid grid-cols-1 sm:grid-cols-3">
             <div className="col-span-2 pr-0 sm:pr-20">
-              <Heading title='Can’t find what your looking for?' titleSize="text-3xl" className="mb-6" />
+              <Heading title='Can’t find what your looking for?' titleStyles="text-3xl" className="mb-6" />
               <p className="mb-4">We have over 20 years’ operating as one of the UKs most experienced helicopter charter, tours, photography, load lifting and consultancy companies.</p>
               <p className="mb-4">Whether you are looking for a wonderful gift, a time-efficient airport transfer, a private charter for your special occasion, help with aerial photograph, a load lifted economically we can help you.</p>
               <p className="mb-4">We adhere to the highest safety standards and many of our helicopters are able to fly in reduced visibility or at night. We offer both twin-engine or single-engine helicopters and can provide two pilots as may be required.</p>

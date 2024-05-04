@@ -45,7 +45,7 @@ const Reviews = ({ className }: props) => {
   return (
     <div className={`bg-brand-light-grey ${className}`}>
       <div className="container">
-        <Heading title="Client feedback." center tag='Testimonials' iconColor='light-blue' className='mb-16' />
+        <Heading title="Client feedback." center tag='Testimonials' iconColor='light-blue' className='mb-16' titleStyles='text-3xl sm:text-4xl' />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-10">
           {displayedReviews.map((review, index) => (
             <div className='text-white drop-shadow-brand' key={index}>

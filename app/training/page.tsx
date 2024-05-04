@@ -48,7 +48,7 @@ export default async function Training({ params }: { params: { slug: string } })
   return (
     <>
       <main className="bg-brand-light-grey overflow-x-hidden z-[1] relative">
-        <Header title={data?.hero?.heading} tag={data?.hero?.tagline} image={data?.heroImage} />
+        <Header className='h-[420px] sm:h-[675px]' title={data?.hero?.heading} tag={data?.hero?.tagline} image={data?.heroImage} />
         <section className="pb-10 max-w-6xl mx-auto px-4 -mt-[42px] sm:-mt-[50px] z-10 relative">
           <Tabs defaultValue="account">
             <TabsList className="mx-auto mb-10 w-full">
@@ -56,7 +56,7 @@ export default async function Training({ params }: { params: { slug: string } })
               <TabsTrigger value="trainingRoute">Training route map</TabsTrigger>
             </TabsList>
             <TabsContent value="account">
-              <Heading title="Licenses" titleSize="text-3xl" className="mb-6 mt-6 sm:mt-10" />
+              <Heading title="Licenses" titleStyles="text-3xl" className="mb-6 mt-6 sm:mt-10" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {data?.service?.filter((service: ServiceCard) => service?.category == 'Licenses').map(({ category, image, url, heading, description }: ServiceCard, i: number) => (
                   <ServiceCard
@@ -69,7 +69,7 @@ export default async function Training({ params }: { params: { slug: string } })
                   />
                 ))}
               </div>
-              <Heading title="Flight ratings" titleSize="text-3xl" className="mb-6 mt-12" />
+              <Heading title="Flight ratings" titleStyles="text-3xl" className="mb-6 mt-12" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {data?.service?.filter((service: ServiceCard) => service?.category == 'Ratings').map(({ category, url, heading, description, image }: ServiceCard, i: number) => (
                   <ServiceCard
@@ -82,7 +82,7 @@ export default async function Training({ params }: { params: { slug: string } })
                   />
                 ))}
               </div>
-              <Heading title="Simulators" titleSize="text-3xl" className="mb-6 mt-12" />
+              <Heading title="Simulators" titleStyles="text-3xl" className="mb-6 mt-12" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {data?.service?.filter((service: ServiceCard) => service?.category == 'Simulators').map(({ category, url, heading, description, image }: ServiceCard, i: number) => (
                   <ServiceCard
@@ -95,7 +95,7 @@ export default async function Training({ params }: { params: { slug: string } })
                   />
                 ))}
               </div>
-              <Heading title="Other training services" titleSize="text-3xl" className="mb-6 mt-12" />
+              <Heading title="Other training services" titleStyles="text-3xl" className="mb-6 mt-12" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {data?.service?.filter((service: ServiceCard) => service?.category == 'Other').map(({ category, url, heading, image, description }: ServiceCard, i: number) => (
                   <ServiceCard
@@ -115,7 +115,7 @@ export default async function Training({ params }: { params: { slug: string } })
           </Tabs>
           <div className="mb-14 mt-20 grid grid-cols-1 sm:grid-cols-3">
             <div className="col-span-2 pr-0 sm:pr-20">
-              <Heading title="Can't find what your looking for?" titleSize="text-3xl" className="mb-6" />
+              <Heading title="Can't find what your looking for?" titleStyles="text-3xl" className="mb-6" />
               <p className="mb-4">We have over 20 years operating as one of the UKs most experienced helicopter charter, tours, photography, load lifting and consultancy companies.</p>
               <p className="mb-4">Whether you are looking for a wonderful gift, a time-efficient airport transfer, a private charter for your special occasion, help with aerial photograph, a load lifted economically we can help you.</p>
               <p className="mb-4">We adhere to the highest safety standards and many of our helicopters are able to fly in reduced visibility or at night. We offer both twin-engine or single-engine helicopters and can provide two pilots as may be required.</p>

@@ -29,7 +29,7 @@ const Header = async ({ height = 'h-[30px]', title, className, image, tag = 'Fli
 
   return (
     <section
-      className={`relative w-screen h-[330px] sm:h-[575px] ${className} z-1 bg-slate-5`}
+      className={`relative w-screen h-[330px] sm:h-[550px] ${className} z-1 bg-slate-5`}
     >
       <Image
         priority
@@ -43,7 +43,7 @@ const Header = async ({ height = 'h-[30px]', title, className, image, tag = 'Fli
       />
       <div className='container relative z-10 flex items-center h-full pt-[115px]'>
         {/*//@ts-ignore*/}
-        <Heading title={title || ''} tag={tag} tagSize='text-xs text-white' iconColor={tagColor} iconSize={14} titleSize="text-white text-xl sm:text-5xl font-light max-w-[600px]" />
+        <Heading title={title || ''} tag={tag} tagSize='text-white text-sm sm:text-lg font-light' iconColor={tagColor} iconSize={14} titleStyles="text-white text-2xl leading-10 sm:text-4xl md:text-6xl font-extralight max-w-[300px] sm:max-w-[600px]" />
       </div>
       <div className={`bg-opacity-70 bg-brand-dark-blue top-0 bottom-0 right-0 left-0 absolute`}></div>
     </section>

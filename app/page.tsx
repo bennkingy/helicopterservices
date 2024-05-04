@@ -20,7 +20,7 @@ export default async function Home() {
 
   return (
     <main className="overflow-x-hidden">
-      <Hero title="Exceeding exacting industry standards." height='h-[calc(95vh_-_0px)] sm:h-[calc(100vh_-_0px)]' />
+      <Hero title="Exceeding exacting industry standards." height='h-[calc(100vh_-_0px)] sm:h-[calc(100vh_-_0px)]' />
       <div className="py-20 bg-brand-dark-blue">
         <div className="container">
           <MainServices />
@@ -49,7 +49,7 @@ export default async function Home() {
           />
         </div>
         <div className='md:pl-10'>
-          <Heading title="Over 20 years helicopter operating experience." tag='About us' className='mb-8 mt-32 md:mt-0' />
+          <Heading title="Over 20 years helicopter operating experience." titleStyles='text-3xl sm:text-4xl' tag='About us' className='mb-8 mt-32 md:mt-0' />
           <p className='font-openSans'>We offer training from Private Pilot’s Licence to Commercial, Instruments, Instructor, and Examiner Ratings.  Our senior instructors/examiners in the UK provide type ratings on 17+ helicopter types, and advanced courses. For gifts, transfers, charters, photography, load lifting, flight learning, helicopter purchase, AOC management, or medical info, we’re here.</p>
           <ul className="max-w-md space-y-1 mt-5 list-inside font-openSans">
             <li className="flex items-center">
@@ -85,7 +85,7 @@ export default async function Home() {
       <div className="py-20 bg-brand-dark-blue">
         <div className="container relative mx-auto grid grid-cols-1 md:grid-cols-2">
           <div className='md:pr-10'>
-            <Heading title="From beginner to advanced, you're in expert hands." tag='training' iconColor='light-blue' className='mb-8' titleSize='text-white' />
+            <Heading title="From beginner to advanced, you're in expert hands." tag='training' iconColor='light-blue' className='mb-8' titleStyles='text-3xl sm:text-4xl text-white' />
             <p className='font-openSans text-white'>{`Our highly experienced instructors and examiners are among the UK's most senior. We provide type ratings for over 17 helicopter types, along with Flight Instructor Refresher and Instrument Rating Examiner courses.`}</p>
             <p className='font-openSans mt-5 text-white'>Additionally, we offer a helicopter flight simulator for safe instrument flying skill development and an advanced program to enhance PPL skills.</p>
             <div className="flex space-x-5 my-10">
@@ -124,40 +124,12 @@ export default async function Home() {
                   className='absolute -bottom-20 xl:bottom-20 right-0 border-8 border-white drop-shadow-sm shadow-xl max-w-[200px] sm:w-full' />
               ]}
             />
-            {/* <FramerAnimationSlide
-              items={[
-                <Image
-                  src="/images/flying.png"
-                  alt="Helicopter Services"
-                  width={1000}
-                  key={1}
-                  height={1000}
-                  className='pl-0 md:pl-10 lg:pl-20'
-                />,
-                <Image
-                  src="/images/grandad.png"
-                  alt="Helicopter Services"
-                  width={240}
-                  key={2}
-                  height={240}
-                  className='border-8 drop-shadow-sm shadow-xl border-white absolute -bottom-20 right-4'
-                />,
-                <Image
-                  src="/images/grandad.png"
-                  alt="Helicopter Services"
-                  width={240}
-                  key={3}
-                  height={240}
-                  className='border-8 drop-shadow-sm shadow-xl border-white absolute -bottom-[72px] left-24'
-                />
-              ]}
-            /> */}
           </div>
         </div>
       </div>
       <div className="pb-20 pt-20 bg-brand-light-grey">
         <div className="container">
-          <Heading title="For gifts, swift transfers and private charters." tag='Flights' iconColor='light-blue' center className='mb-10' />
+          <Heading title="For gifts, swift transfers and private charters." tag='Flights' iconColor='light-blue' center className='mb-10' titleStyles='text-3xl sm:text-4xl' />
           <Carousel slides={items} />
         </div>
       </div>
@@ -184,7 +156,7 @@ export default async function Home() {
           />
         </div>
         <div className='md:pl-10'>
-          <Heading title="Elevating industry to new heights." tag='Industry' iconColor='light-blue' className='mb-8 mt-32 md:mt-0' />
+          <Heading title="Elevating industry to new heights." tag='Industry' iconColor='light-blue' className='mb-8 mt-32 md:mt-0' titleStyles='text-3xl sm:text-4xl' />
           <p className='font-openSans'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
           <p className='font-openSans mt-5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
           <ul className="max-w-md space-y-1 mt-5 list-inside font-openSans">
