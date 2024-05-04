@@ -59,7 +59,7 @@ export default async function AboutPage({ params }: { params: { slug: string } }
   return (
     <>
       <Template data={data} showHanger={showHanger}>
-        {!showHanger && <div className="my-8">
+        {!showHanger && <div className="mt-8">
           {showFaqs ?
             <div className="mt-8">
               <FAQ className="mb-10" />
@@ -93,7 +93,7 @@ export default async function AboutPage({ params }: { params: { slug: string } }
                 ))}
               </div>
               <h1 className="text-xl font-bold font-workSans mt-12">Bell Type</h1>
-              <div className={cn("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6")}>
+              <div className={cn("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3")}>
                 {helicopterData?.map((helicopter: helicopter, idx: number) => (
                   <HelicopterCard key={idx} helicopter={helicopter} />
                 ))}

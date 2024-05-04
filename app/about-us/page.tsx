@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default async function About() {
   return (
     <main className="overflow-x-hidden">
-      <Hero title="About Helicopter Services." height='h-[calc(100vh_-_0px)] sm:h-[calc(100vh_-_0px)]' titleMargins='mt-[162px] sm:mt-[210px]' />
+      <Hero title="About Helicopter Services." height='h-[calc(100vh_-_0px)] sm:h-[calc(100vh_-_0px)]' />
       <div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
         <div className='pr-0 sm:pr-20'>
           <Heading title="Making your flying experience outstanding." tag='About us' titleStyles='text-3xl sm:text-4xl' className='mb-8' />
@@ -55,7 +55,7 @@ export default async function About() {
         </div>
       </div>
       <div className="py-20 pt-0 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
-        <div className='mt-20 md:mt-0 pr-0 relative col-span-1 flex justify-center mb-20 md:mb-10'>
+        <div className='mt-10 sm:mt-20 md:mt-0 pr-0 relative col-span-1 flex justify-center mb-20 md:mb-10'>
           <FramerAnimationSlide
             items={[
               <Image

@@ -25,10 +25,10 @@ const Template = ({ data, children, showHanger = false }: props) => {
             </div>
             <div>
               <ContactCta />
-              <GetinTouchSmall className='mt-3' />
-              <Map className='h-[400px] mt-3' />
+              <GetinTouchSmall className='mt-10 sm:mt-3' />
+              <Map className='mt-10 sm:mt-3' />
             </div>
-          </main >
+          </main>
         </>
         : null}
     </>

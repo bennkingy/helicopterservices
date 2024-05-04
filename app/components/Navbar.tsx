@@ -21,7 +21,7 @@ export default function Navbar() {
       onPin={() => setIsPinned(true)}
       onUnfix={() => setIsPinned(false)}
     >
-      {path !== "/" && !isPinned ? <div className="topbar h-[40px] w-full bg-brand-dark-blue flex justify-center align-center items-center">
+      {path !== "/" && path !== "/about-us" && !isPinned ? <div className="topbar h-[40px] w-full bg-brand-dark-blue flex justify-center align-center items-center">
         <div className="relative h-[14px] sm:h-[24px] w-[14px] sm:w-[24px]">
           <Image priority fill src={'/images/check1.svg'} alt="img" className="w-full object-cover" />
         </div>

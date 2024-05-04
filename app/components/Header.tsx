@@ -1,4 +1,5 @@
 import { urlFor } from "@/lib/sanity";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { getPlaiceholder } from "plaiceholder";
 import Heading from "./Heading";
@@ -29,7 +30,7 @@ const Header = async ({ height = 'h-[30px]', title, className, image, tag = 'Fli
 
   return (
     <section
-      className={`relative w-screen h-[330px] sm:h-[550px] ${className} z-1 bg-slate-5`}
+      className={cn(`relative w-screen h-[330px] sm:h-[550px] ${className} z-1 bg-slate-5`)}
     >
       <Image
         priority
