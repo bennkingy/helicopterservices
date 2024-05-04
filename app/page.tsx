@@ -104,7 +104,7 @@ export default async function Home() {
             </div>
             <Enquire textStyle='text-white' />
           </div>
-          <div className='relative col-span-1 flex justify-center mt-20 md:mt-0 mb-20  md:mb-0'>
+          <div className='relative col-span-1 flex justify-center mt-20 md:mt-0 mb-20 md:mb-0'>
             <FramerAnimationSlide
               items={[
                 <Image
