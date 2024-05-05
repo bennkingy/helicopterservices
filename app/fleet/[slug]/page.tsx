@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 export const revalidate = 30; // revalidate at most 30 seconds
 
 export type FleetItem = {
-	threedVideoUrl: string;
 	currentSlug: string;
 	title: string;
 	seoTitle: string;
@@ -16,13 +15,15 @@ export type FleetItem = {
 		aerialWorkHelicopter: boolean;
 	};
 	body: any; // You can specify a more detailed type if your body has a specific structure
-	mainImage: {
-		asset: {
-			_ref: string;
-			_type: string;
-		};
-		alt?: string; // Assuming there could be an 'alt' text for the image
-	};
+	hero: any;
+	threedVideoUrl: string;
+	gallery?: any;
+	gallerySingle?: any;
+	engineType: string;
+	capacity: number;
+	ifrcapable: boolean;
+	cruiseSpeed: number;
+	base: string;
 };
 
 async function getPageData(slug: string) {
