@@ -35,7 +35,7 @@ export default async function Industry({ params }: { params: { slug: string } })
   return (
     <>
       <main className="bg-brand-light-grey overflow-x-hidden">
-        <Header title={data?.hero?.heading} tag={data?.hero?.tagline} image={data?.hero.image} />
+        <Header title={data?.hero?.heading} tag={data?.hero?.tagline} image={data?.hero.image} className='h-[420px] sm:h-[675px]' />
         <section className="py-10 max-w-6xl mx-auto px-4 mt-14">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {data?.service.map(({ url, heading, description, image }: ServiceCard, i: number) => (

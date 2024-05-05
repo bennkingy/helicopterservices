@@ -29,6 +29,21 @@ export const imageGalleryType = defineType({
         layout: 'grid',
       },
     },
+    // {
+    //   name: 'galleryType',
+    //   type: 'string',
+    //   title: 'Type of Gallery',
+    //   description: 'Select the type of gallery that best describes the content.',
+    //   options: {
+    //     layout: 'radio', // Using radio buttons to ensure only one option can be selected
+    //     list: [
+    //       { title: 'Gallery', value: 'gallery' },
+    //       { title: 'Single Gallery', value: 'single gallery' },
+    //       { title: 'Video', value: 'video' },
+    //       { title: '3D Video', value: '3d video' }
+    //     ],
+    //   },
+    // },
   ],
   icon: ImagesIcon,
   preview: {
