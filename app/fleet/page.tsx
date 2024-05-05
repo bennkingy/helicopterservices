@@ -1,6 +1,5 @@
 import HelicopterCard from "@/app/components/HelicopterCard";
 import Template from "@/app/components/Template";
-import type { helicopter } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
@@ -59,10 +58,8 @@ export default async function FleetPage({
 							)}
 						>
 							{data.service
-								?.filter(
-									(helicopter: helicopter) => helicopter?.category === "Twin",
-								)
-								.map((helicopter: helicopter, idx: number) => (
+								?.filter((helicopter: any) => helicopter?.category === "Twin")
+								.map((helicopter: any, idx: number) => (
 									<HelicopterCard key={idx} helicopter={helicopter} />
 								))}
 						</div>
@@ -76,10 +73,8 @@ export default async function FleetPage({
 						>
 							{/* // @ts-ignore */}
 							{data.service
-								?.filter(
-									(helicopter: helicopter) => helicopter?.category === "Single",
-								)
-								.map((helicopter: helicopter, idx: number) => (
+								?.filter((helicopter: any) => helicopter?.category === "Single")
+								.map((helicopter: any, idx: number) => (
 									<HelicopterCard key={idx} helicopter={helicopter} />
 								))}
 						</div>
