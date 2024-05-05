@@ -54,6 +54,7 @@ const ServiceCard = async ({
 				</p>
 			</div>
 			<div className="absolute bottom-0 right-0 z-[1]">
+				{/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
 				<svg
 					className="text-brand-light-blue h-6 w-6"
 					viewBox="0 0 20 20"

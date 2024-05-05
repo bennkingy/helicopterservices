@@ -39,7 +39,7 @@ const Gallery = forwardRef(
 
 		return (
 			<div className={`relative group ${className}`}>
-				{galleryType == "video" && (
+				{galleryType === "video" && (
 					<Image
 						priority
 						src={"/images/3d-icon.png"}
@@ -58,7 +58,9 @@ const Gallery = forwardRef(
 					mode="lg-fade"
 					thumbnail={true}
 					hideScrollbar={true}
-					autoplayFirstVideo={galleryType === "video" ? true : false}
+					autoplayFirstVideo={
+						galleryType === "video" || galleryType === "3d-video"
+					}
 					youTubePlayerParams={{
 						autoplay: 1,
 						mute: 1,
@@ -84,6 +86,7 @@ const Gallery = forwardRef(
 							className=""
 						/>
 					</div>
+					{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
 					<p
 						className="ml-2 text-brand-light-blue text-sm"
 						onClick={openGallery}
