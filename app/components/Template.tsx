@@ -16,7 +16,7 @@ type props = {
 const Template = ({ data, children, showHanger = false }: props) => {
 
   return (
-    <>
+    <div className='overflow-x-hidden'>
       {!showHanger ?
         <>
           <Header title={data?.title} image={data.mainImage} />
@@ -82,7 +82,7 @@ const Template = ({ data, children, showHanger = false }: props) => {
           </main>
         </>
         : null}
-    </>
+    </div>
   )
 }
 

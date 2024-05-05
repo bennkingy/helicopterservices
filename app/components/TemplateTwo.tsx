@@ -117,6 +117,7 @@ const TemplateTwo = ({ data, children }: props) => {
   const galleryRef = useRef(null);
 
   const handleOpenGallery = () => {
+    // @ts-ignore
     galleryRef.current?.openGallery();
   };
 
