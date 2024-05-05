@@ -49,6 +49,11 @@ export default defineType({
       type: 'blockContent',
     }),
     defineField({
+      name: 'gallery',
+      type: 'gallery',
+      hidden: ({document}) => document?.isLandingPage == true,
+    }),
+    defineField({
       name: 'seoDescription',
       title: 'SEO Description',
       type: 'string',

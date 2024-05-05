@@ -2,7 +2,9 @@ import ContactCta from "@/app/components/ContactCta";
 import GetinTouchSmall from "@/app/components/GetinTouchSmall";
 import Header from "@/app/components/Header";
 import Map from '@/app/components/Map';
+import { urlFor } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
+import Gallery from "./Gallery";
 
 type props = {
   data: any;
@@ -11,6 +13,7 @@ type props = {
 }
 
 const Template = ({ data, children, showHanger = false }: props) => {
+
   return (
     <>
       {!showHanger ?
@@ -22,6 +25,30 @@ const Template = ({ data, children, showHanger = false }: props) => {
                 <PortableText value={data?.body || ''} />
               </div>
               {children}
+              <Gallery galleryType={"gallery"} className="mt-10">
+                {data?.gallery?.images?.map((item: any, index: number) => {
+                  const image = urlFor(item).url();
+                  if (!image) return null;
+
+                  return (
+                    <div key={index}>
+                      <a
+                        data-lg-size="542-305"
+                        data-pinterest-text="Pin it"
+                        data-tweet-text="lightGallery slide 1"
+                        className="gallery__item"
+                        data-src={image}
+                        data-sub-html="<h4>Photo by - <a href='test' >Test </a></h4><p> Test</p>"
+                      >
+                        <img
+                          className="img-responsive cursor-pointer"
+                          style={{ clipPath: 'polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)' }}
+                          src={image} />
+                      </a>
+                    </div>
+                  )
+                })}
+              </Gallery>
             </div>
             <div>
               <ContactCta />
