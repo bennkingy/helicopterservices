@@ -51,6 +51,64 @@ export const metadata: Metadata = {
 	description: "Helicopter Services",
 };
 
+const fleet: { title: string; href: string; description: string }[] = [
+	{
+		title: "A109",
+		href: "/fleet/a109",
+		description: "Some description about the A109.",
+	},
+	{
+		title: "AS355",
+		href: "/fleet/as355",
+		description: "Some description about the AS355.",
+	},
+	{
+		title: "AB206",
+		href: "/fleet/ab206",
+		description: "Some description about the AB206.",
+	},
+	{
+		title: "R66",
+		href: "/fleet/r66",
+		description: "Some description about the R66.",
+	},
+	{
+		title: "R44",
+		href: "/fleet/r44",
+		description: "Some description about the R44.",
+	},
+	{
+		title: "R22",
+		href: "/fleet/r22",
+		description: "Some description about the R22.",
+	},
+	{
+		title: "Cabri G2",
+		href: "/fleet/cabri-g2",
+		description: "Some description about the Cabri G2.",
+	},
+	{
+		title: "AS350",
+		href: "/fleet/as350",
+		description: "Some description about the AS350.",
+	},
+	{
+		title: "B206L",
+		href: "/fleet/b206l",
+		description: "Some description about the B206L.",
+	},
+	{
+		title: "EC135",
+		href: "/fleet/ec135",
+		description: "Some description about the EC135.",
+	},
+	{
+		title: "AW109",
+		href: "/fleet/aw109",
+		description: "Some description about the AW109.",
+	},
+];
+
 export default async function FleetPage({
 	params,
 }: { params: { slug: string } }) {
