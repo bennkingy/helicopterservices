@@ -2,6 +2,7 @@ import { urlFor } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { getPlaiceholder } from "plaiceholder";
+import FramerAnimation from "./FramerAnimationBlurIn";
 import Heading from "./Heading";
 
 type props = {
@@ -52,15 +53,16 @@ const Header = async ({
 				alt="hero image example"
 			/>
 			<div className="container relative z-10 flex items-center h-full pt-[115px]">
-				{/*//@ts-ignore*/}
-				<Heading
-					title={title || ""}
-					tag={tag}
-					tagSize="text-white text-sm sm:text-lg font-light"
-					iconColor={tagColor}
-					iconSize={14}
-					titleStyles="text-white text-2xl leading-10 sm:text-4xl md:text-6xl font-extralight max-w-[300px] sm:max-w-[600px]"
-				/>
+				<FramerAnimation delay={0}>
+					<Heading
+						title={title || ""}
+						tag={tag}
+						tagSize="text-white text-sm sm:text-lg font-light"
+						iconColor={tagColor}
+						iconSize={14}
+						titleStyles="text-white text-2xl leading-10 sm:text-4xl md:text-6xl font-extralight max-w-[300px] sm:max-w-[600px]"
+					/>
+				</FramerAnimation>
 			</div>
 			<div
 				className={`bg-opacity-70 bg-brand-dark-blue top-0 bottom-0 right-0 left-0 absolute`}

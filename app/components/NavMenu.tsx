@@ -169,7 +169,7 @@ const fleet: { title: string; href: string; description: string }[] = [
 	},
 	{
 		title: "R66",
-		href: "/fleet/R66",
+		href: "/fleet/r66",
 		description: "Some description about the R66.",
 	},
 	{
