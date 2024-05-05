@@ -142,6 +142,7 @@ const TemplateTwo = ({ data, children }: props) => {
 				<div className="mr-0 md:mr-20 mb-10 sm:mb-0 col-span-3 relative">
 					<Image
 						priority
+						quality={100}
 						src={"/images/3d-rotate-icon.png"}
 						alt=""
 						width={53}
@@ -278,6 +279,7 @@ const TemplateTwo = ({ data, children }: props) => {
 								>
 									<Image
 										priority
+										quality={100}
 										src={"/images/cockpit2.png"}
 										layout="fill"
 										objectFit="cover"

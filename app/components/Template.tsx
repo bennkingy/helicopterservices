@@ -1,11 +1,11 @@
 import ContactCta from "@/app/components/ContactCta";
 import GetinTouchSmall from "@/app/components/GetinTouchSmall";
-import Header from "@/app/components/Header";
 import Map from "@/app/components/Map";
 import { urlFor } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import Gallery from "./Gallery";
+import Header from "./Header";
 
 type props = {
 	data: any;
@@ -18,9 +18,12 @@ const Template = ({ data, children, showHanger = false }: props) => {
 		<div>
 			{!showHanger ? (
 				<>
-					{data?.mainImage && (
+					{(data?.heroImage || data?.mainImage) && (
 						<div className="overflow-x-hidden">
-							<Header title={data?.title} image={data.mainImage} />
+							<Header
+								title={data?.title}
+								image={data?.heroImage || data?.mainImage}
+							/>
 						</div>
 					)}
 					<main className="container mx-auto px-4 grid pt-16 sm:py-16 grid-cols-1 md:grid-cols-3">
@@ -48,6 +51,7 @@ const Template = ({ data, children, showHanger = false }: props) => {
 												<Image
 													width={400}
 													height={400}
+													quality={100}
 													className="img-responsive cursor-pointer"
 													src={image}
 													alt=""
@@ -74,6 +78,7 @@ const Template = ({ data, children, showHanger = false }: props) => {
 										<Image
 											width={400}
 											height={400}
+											quality={100}
 											className="img-responsive cursor-pointer"
 											src={urlFor(data?.gallerySingle).url()}
 											alt=""

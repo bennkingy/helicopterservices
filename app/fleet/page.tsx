@@ -1,6 +1,6 @@
 import HelicopterCard from "@/app/components/HelicopterCard";
 import Template from "@/app/components/Template";
-import { helicopter, training } from "@/lib/interface";
+import type { helicopter } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
@@ -9,13 +9,24 @@ export const revalidate = 30; // revalidate at most 30 seconds
 
 async function getPageData(slug: string) {
 	const query = `
-    *[_type == "about" && slug.current == '${slug}'] {
+    *[_type == "fleet" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
           title,
           seoTitle,
           seoDescription,
           body,
           mainImage,
+          hero,
+          "heroImage": hero.image{
+            asset->{
+              _id,
+              url,
+              metadata {
+                dimensions,
+                lqip
+              }
+            }
+          },
       }[0]`;
 	const data = await client.fetch(query);
 
@@ -36,14 +47,14 @@ async function getHelicopterData() {
 }
 
 export const metadata: Metadata = {
-	title: "Training - Helicopter Services",
+	title: "Fleet - Helicopter Services",
 	description: "Helicopter Services",
 };
 
 export default async function FleetPage({
 	params,
 }: { params: { slug: string } }) {
-	const data: training = await getPageData("fleet");
+	const data: any = await getPageData("fleet");
 	const helicopterData: any = await getHelicopterData();
 
 	return (

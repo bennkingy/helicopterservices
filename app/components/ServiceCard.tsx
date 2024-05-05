@@ -74,6 +74,7 @@ const ServiceCard = async ({
 				<Image
 					className="object-cover w-full h-[220px] sm:h-full rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
 					width={440}
+					quality={100}
 					height={440}
 					src={src || ""}
 					placeholder="blur"
