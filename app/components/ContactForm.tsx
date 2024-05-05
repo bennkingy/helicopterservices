@@ -59,12 +59,13 @@ const ContacForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel data-testId="emailLabel">Email</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
                       type="email"
-                      placeholder="johndoe@gmail.com"
+                      data-testId="emailField"
+                      placeholder="Please enter your email in the following format: email@gmail.com"
                     />
                   </FormControl>
                   <FormMessage />
@@ -76,9 +77,12 @@ const ContacForm = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel data-testId="nameLabel">Name</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="John Doe" />
+                    <Input {...field}
+                      data-testId="nameField"
+                      placeholder="Please enter your full name"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -89,17 +93,19 @@ const ContacForm = () => {
               name="body"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Enquire</FormLabel>
+                  <FormLabel data-testId="enquiryLabel">Enquire</FormLabel>
                   <FormControl>
-                    <Textarea  {...field} placeholder="Your message...." />
+                    <Textarea  {...field}
+                      data-testId="enquiryField"
+                      placeholder="Please enter your message here" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
           </div>
-          <Button type="submit" className="w-full" disabled={pending}>
-            {loading ? "Loading..." : "Submit Inquiry"}
+          <Button type="submit" className="w-full" disabled={pending} data-testId="submitEnquiryButton">
+            {loading ? "Loading... Please wait while your enquiry is submitted " : "Submit Enquiry"}
           </Button>
         </form>
       </Form>

@@ -155,14 +155,14 @@ export function NavMenu() {
       <NavigationMenu className='hidden sm:block font-workSans'>
         <NavigationMenuList>
           <NavigationMenuItem className='hidden lg:block'>
-            <Link href="/" legacyBehavior passHref className='text-lg' data-id="headerOptionHome">
+            <Link href="/" legacyBehavior passHref className='text-lg' data-TestId="navMenuHome">
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Home
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger><a href="/training" data-id="headerOptionTraining">Training</a></NavigationMenuTrigger>
+            <NavigationMenuTrigger><a href="/training" data-TestId="navMenuTraining">Training</a></NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[800px] ">
                 {training.map((component) => (
@@ -178,7 +178,7 @@ export function NavMenu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger><a href="/industry" data-id="headerOptionIndustry">Industry</a></NavigationMenuTrigger>
+            <NavigationMenuTrigger><a href="/industry" data-TestId="navMenuIndustry">Industry</a></NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <ListItem href="/industry/photography-filming" title="Photography and filming">
@@ -192,7 +192,7 @@ export function NavMenu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger><a href="/flights">Flights</a></NavigationMenuTrigger>
+            <NavigationMenuTrigger><a href="/flights" data-TestId="navMenuFlights">Flights</a></NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                 {flights.map((component) => (
@@ -208,10 +208,10 @@ export function NavMenu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger><a href="/about-us/helicopter-fleet">Fleet</a></NavigationMenuTrigger>
+            <NavigationMenuTrigger><a href="/about-us/helicopter-fleet" data-TestId="navMenuFleet">Fleet</a></NavigationMenuTrigger>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger><a href="/about-us">About us</a></NavigationMenuTrigger>
+            <NavigationMenuTrigger><a href="/about-us" data-TestId="navMenuAboutUs">About us</a></NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                 {about.map((component) => (
@@ -228,7 +228,7 @@ export function NavMenu() {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <Link href="/enquire" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()} data-TestId="navMenuEnquire">
                 Enquire
               </NavigationMenuLink>
             </Link>
