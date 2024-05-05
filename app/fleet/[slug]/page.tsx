@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 export const revalidate = 30; // revalidate at most 30 seconds
 
 export type FleetItem = {
+	threedVideoUrl: string;
 	currentSlug: string;
 	title: string;
 	seoTitle: string;
