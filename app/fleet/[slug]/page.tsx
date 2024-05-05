@@ -34,6 +34,25 @@ async function getPageData(slug: string) {
           seoDescription,
           body,
           mainImage,
+					hero,
+          "heroImage": hero.image{
+            asset->{
+              _id,
+              url,
+              metadata {
+                dimensions,
+                lqip
+              }
+            }
+          },
+					threedVideoUrl,
+					gallerySingle,
+					gallery,
+					engineType,
+					capacity,
+					ifrcapable,
+					cruiseSpeed,
+					base
       }[0]`;
 	const data = await client.fetch(query);
 

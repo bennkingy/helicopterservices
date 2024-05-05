@@ -1,10 +1,11 @@
 "use client";
 
 import Map from "@/app/components/Map";
+import { urlFor } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
-import { useRef, useState } from "react";
-import { FleetItem } from "../fleet/[slug]/page";
+import { useRef } from "react";
+import type { FleetItem } from "../fleet/[slug]/page";
 import Breadcrumbs from "./Breadcrumbs";
 import Gallery from "./Gallery";
 import TextLink from "./TextLink";
@@ -15,8 +16,6 @@ type props = {
 };
 
 const TemplateTwo = ({ data, children }: props) => {
-	const [isModalOpen, setIsModalOpen] = useState(false);
-
 	type StatusIconProps = {
 		status: boolean;
 	};
@@ -50,19 +49,6 @@ const TemplateTwo = ({ data, children }: props) => {
 		aerialWork: boolean;
 	}
 
-	// Example helicopter object
-	const exampleHelicopter: Helicopter = {
-		type: "Utility",
-		engine: "Twin Turbine",
-		carries: 14,
-		ifr: true,
-		cruise: 140,
-		base: "Kathmandu",
-		training: false,
-		charter: true,
-		aerialWork: true,
-	};
-
 	const SpecificationTable = ({ helicopter, className }: any) => {
 		return (
 			<div className={className}>
@@ -72,46 +58,43 @@ const TemplateTwo = ({ data, children }: props) => {
 						<p className="flex justify-between font-bold font-openSans text-sm">
 							Type
 						</p>
-						<span className="flex-1 border-b border-dotted border-[#1b1b1b] mx-2"></span>
-						<span className="text-right">{helicopter.type}</span>
+						<span className="flex-1 border-b border-dotted border-[#1b1b1b] mx-2" />
+						<span className="text-right">{helicopter.title}</span>
 					</div>
-
 					{/* Engine */}
 					<div className="flex items-baseline">
 						<p className="flex justify-between font-bold font-openSans text-sm">
 							Engine
 						</p>
 						<span className="flex-1 border-b border-dotted border-[#1b1b1b] mx-2"></span>
-						<span className="text-right">{helicopter.engine}</span>
+						<span className="text-right">{helicopter.engineType}</span>
 					</div>
-
 					{/* Carries */}
 					<div className="flex items-baseline">
 						<p className="flex justify-between font-bold font-openSans text-sm">
 							Carries
 						</p>
 						<span className="flex-1 border-b border-dotted border-[#1b1b1b] mx-2"></span>
-						<span className="text-right">{helicopter.carries}</span>
+						<span className="text-right">{helicopter.capacity}</span>
 					</div>
-
 					{/* IFR */}
 					<div className="flex items-baseline">
 						<p className="flex justify-between font-bold font-openSans text-sm">
 							IFR
 						</p>
 						<span className="flex-1 border-b border-dotted border-[#1b1b1b] mx-2"></span>
-						<span className="text-right">{helicopter.ifr ? "Yes" : "No"}</span>
+						<span className="text-right">
+							{helicopter.ifrcapable ? "Yes" : "No"}
+						</span>
 					</div>
-
 					{/* Cruise */}
 					<div className="flex items-baseline">
 						<p className="flex justify-between font-bold font-openSans text-sm">
 							Cruise
 						</p>
 						<span className="flex-1 border-b border-dotted border-[#1b1b1b] mx-2"></span>
-						<span className="text-right">{helicopter.cruise}</span>
+						<span className="text-right">{helicopter.cruiseSpeed}</span>
 					</div>
-
 					{/* Base */}
 					<div className="flex items-baseline">
 						<p className="flex justify-between font-bold font-openSans text-sm">
@@ -171,125 +154,142 @@ const TemplateTwo = ({ data, children }: props) => {
 					</div>
 					<div className="prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full">
 						<PortableText value={data?.body || ""} />
-						<TextLink
-							label="3D cockpit view"
-							className="mt-7"
-							onClick={handleOpenGallery}
-						/>
+						{data?.threedVideoUrl && (
+							<TextLink
+								label="3D cockpit view"
+								className="mt-7"
+								onClick={handleOpenGallery}
+							/>
+						)}
 					</div>
 					<h3 className="text-md font-bold mt-7 font-openSans mb-5">
 						Specifications
 					</h3>
-					<SpecificationTable helicopter={exampleHelicopter} className="mb-6" />
-					<TextLink
-						label="Comparison chart"
-						className="mt-9 mb-10"
-						onClick={() => setIsModalOpen(!isModalOpen)}
-					/>
+					<SpecificationTable helicopter={data} className="mb-6" />
+					<TextLink label="Comparison chart" className="mt-8 mb-0" />
 					{children}
-					<Gallery className="sm:mb-10" galleryType="gallery">
-						<a
-							data-lg-size="1600-2400"
-							data-pinterest-text="Pin it2"
-							data-tweet-text="lightGallery slide  2"
-							className="gallery__item"
-							data-src="https://images.unsplash.com/photo-1608481337062-4093bf3ed404?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1600&q=80"
-							data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@therawhunter' >Massimiliano Morosinotto </a></h4><p> Location - <a href='https://unsplash.com/s/photos/tre-cime-di-lavaredo%2C-italia'>Tre Cime di Lavaredo, Italia</a>This is the Way</p>"
-						>
-							<img
-								style={{
-									clipPath:
-										"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-								}}
-								className="img-responsive cursor-pointer"
-								src="https://images.unsplash.com/photo-1608481337062-4093bf3ed404?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=240&q=80"
-							/>
-						</a>
-						<a
-							data-lg-size="1600-2398"
-							data-pinterest-text="Pin it3"
-							data-tweet-text="lightGallery slide  4"
-							className="gallery__item"
-							data-src="https://images.unsplash.com/photo-1526281216101-e55f00f0db7a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1600&q=80"
-							data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@yusufevli' >Yusuf Evli </a></h4><p> Foggy Road</p>"
-						>
-							<img
-								className="img-responsive cursor-pointer"
-								style={{
-									clipPath:
-										"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-								}}
-								src="https://images.unsplash.com/photo-1526281216101-e55f00f0db7a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=240&q=80"
-							/>
-						</a>
-						<a
-							data-lg-size="1600-2400"
-							data-pinterest-text="Pin it3"
-							data-tweet-text="lightGallery slide  4"
-							className="gallery__item"
-							data-src="https://images.unsplash.com/photo-1585338447937-7082f8fc763d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
-							data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@whoisbenjamin' >whoisbenjamin</a></h4>
-          <p>Location - <a href='https://unsplash.com/s/photos/ciuca%C8%99-peak%2C-romania'>Snowdonia National Park, Blaenau Ffestiniog, UK</a> 
-          A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href='https://unsplash.com/photos/9V6EkAoTWJM'>Link</a> </p>"
-						>
-							<img
-								className="img-responsive cursor-pointer"
-								style={{
-									clipPath:
-										"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-								}}
-								src="https://images.unsplash.com/photo-1585338447937-7082f8fc763d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-							/>
-						</a>
-					</Gallery>
-				</div>
-				<div className="col-span-2">
-					{/* <div className='relative mb-10' style={{ width: '100%', paddingBottom: '100%', clipPath: 'polygon(0 0,calc(100% - 20px) 0, 100% 20px,100% 100%, 0 100%)' }}>
-            <Image
-              priority
-              src={urlFor(data.mainImage).url()}
-              objectFit="cover"
-              objectPosition="center"
-              layout="fill"
-              alt="hero image example"
-            />
-          </div> */}
-					<div
-						style={{
-							width: "100%",
-							clipPath:
-								"polygon(0 0,calc(100% - 20px) 0, 100% 20px,100% 100%, 0 100%)",
-						}}
-					>
-						<Gallery ref={galleryRef} galleryType="video">
+					{data.gallery && (
+						<Gallery className="sm:mb-10" galleryType="gallery">
 							<a
-								data-lg-size="1000-700"
+								data-lg-size="1600-2400"
 								data-pinterest-text="Pin it2"
 								data-tweet-text="lightGallery slide  2"
 								className="gallery__item"
-								data-src="https://www.youtube.com/embed/JOpWTNEAsX8?si=EbI2oaTH5s4boI_Y"
+								data-src="https://images.unsplash.com/photo-1608481337062-4093bf3ed404?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1600&q=80"
 								data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@therawhunter' >Massimiliano Morosinotto </a></h4><p> Location - <a href='https://unsplash.com/s/photos/tre-cime-di-lavaredo%2C-italia'>Tre Cime di Lavaredo, Italia</a>This is the Way</p>"
 							>
-								<div
+								<img
 									style={{
-										position: "relative",
-										width: "100%",
-										paddingBottom: "100%",
+										clipPath:
+											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
 									}}
-								>
-									<Image
-										priority
-										quality={100}
-										src={"/images/cockpit2.png"}
-										layout="fill"
-										objectFit="cover"
-										alt="hero image example"
-										className="cursor-pointer"
-									/>
-								</div>
+									className="img-responsive cursor-pointer"
+									src="https://images.unsplash.com/photo-1608481337062-4093bf3ed404?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=240&q=80"
+								/>
+							</a>
+							<a
+								data-lg-size="1600-2398"
+								data-pinterest-text="Pin it3"
+								data-tweet-text="lightGallery slide  4"
+								className="gallery__item"
+								data-src="https://images.unsplash.com/photo-1526281216101-e55f00f0db7a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1600&q=80"
+								data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@yusufevli' >Yusuf Evli </a></h4><p> Foggy Road</p>"
+							>
+								<img
+									className="img-responsive cursor-pointer"
+									style={{
+										clipPath:
+											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+									}}
+									src="https://images.unsplash.com/photo-1526281216101-e55f00f0db7a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=240&q=80"
+								/>
+							</a>
+							<a
+								data-lg-size="1600-2400"
+								data-pinterest-text="Pin it3"
+								data-tweet-text="lightGallery slide  4"
+								className="gallery__item"
+								data-src="https://images.unsplash.com/photo-1585338447937-7082f8fc763d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
+								data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@whoisbenjamin' >whoisbenjamin</a></h4>
+							<p>Location - <a href='https://unsplash.com/s/photos/ciuca%C8%99-peak%2C-romania'>Snowdonia National Park, Blaenau Ffestiniog, UK</a> 
+							A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href='https://unsplash.com/photos/9V6EkAoTWJM'>Link</a> </p>"
+							>
+								<img
+									className="img-responsive cursor-pointer"
+									style={{
+										clipPath:
+											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+									}}
+									src="https://images.unsplash.com/photo-1585338447937-7082f8fc763d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
+								/>
 							</a>
 						</Gallery>
-					</div>
+					)}
+				</div>
+				<div className="col-span-2">
+					{data?.gallerySingle && (
+						<Gallery galleryType={"gallery-single"} className="mt-10 sm:mt-0">
+							<a
+								data-lg-size="1200-799"
+								data-pinterest-text="Pin it"
+								data-tweet-text="lightGallery slide 1"
+								className="gallery__item"
+								data-src={urlFor(data?.gallerySingle).url()}
+								data-sub-html="<h4>Photo by - <a href='test' >Test </a></h4><p> Test</p>"
+							>
+								<Image
+									width={500}
+									height={332}
+									quality={100}
+									className="img-responsive cursor-pointer"
+									src={urlFor(data?.gallerySingle).url()}
+									alt=""
+									style={{
+										clipPath:
+											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+									}}
+								/>
+							</a>
+						</Gallery>
+					)}
+					{data?.threedVideoUrl && (
+						<div
+							style={{
+								width: "100%",
+								clipPath:
+									"polygon(0 0,calc(100% - 20px) 0, 100% 20px,100% 100%, 0 100%)",
+							}}
+						>
+							<Gallery ref={galleryRef} galleryType="video">
+								<a
+									data-lg-size="1000-700"
+									data-pinterest-text="Pin it2"
+									data-tweet-text="lightGallery slide  2"
+									className="gallery__item"
+									data-src="https://www.youtube.com/embed/JOpWTNEAsX8?si=EbI2oaTH5s4boI_Y"
+									data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@therawhunter' >Massimiliano Morosinotto </a></h4><p> Location - <a href='https://unsplash.com/s/photos/tre-cime-di-lavaredo%2C-italia'>Tre Cime di Lavaredo, Italia</a>This is the Way</p>"
+								>
+									<div
+										style={{
+											position: "relative",
+											width: "100%",
+											paddingBottom: "100%",
+										}}
+									>
+										<Image
+											priority
+											quality={100}
+											src={"/images/cockpit2.png"}
+											layout="fill"
+											objectFit="cover"
+											alt="hero image example"
+											className="cursor-pointer"
+										/>
+									</div>
+								</a>
+							</Gallery>
+						</div>
+					)}
 					<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-8">
 						<p className="text-white font-bold font-openSans">
 							This Helicopter is based at:

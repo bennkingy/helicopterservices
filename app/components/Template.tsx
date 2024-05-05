@@ -14,6 +14,8 @@ type props = {
 };
 
 const Template = ({ data, children, showHanger = false }: props) => {
+	console.log(data);
+
 	return (
 		<div>
 			{!showHanger ? (
@@ -21,7 +23,8 @@ const Template = ({ data, children, showHanger = false }: props) => {
 					{(data?.heroImage || data?.mainImage) && (
 						<div className="overflow-x-hidden">
 							<Header
-								title={data?.title}
+								title={data?.hero?.heading || data?.title}
+								tag={data?.hero?.tagline}
 								image={data?.heroImage || data?.mainImage}
 							/>
 						</div>
