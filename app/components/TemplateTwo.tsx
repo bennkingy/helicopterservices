@@ -123,15 +123,17 @@ const TemplateTwo = ({ data, children }: props) => {
 			/>
 			<main className="container mx-auto px-4 grid pb-14 grid-cols-1 md:grid-cols-5 mt-8">
 				<div className="mr-0 md:mr-20 mb-10 sm:mb-0 col-span-3 relative">
-					<Image
-						priority
-						quality={100}
-						src={"/images/3d-rotate-icon.png"}
-						alt=""
-						width={53}
-						height={47}
-						className="absolute top-0 right-0"
-					/>
+					{data?.threedVideoUrl && (
+						<Image
+							priority
+							quality={100}
+							src={"/images/3d-rotate-icon.png"}
+							alt=""
+							width={53}
+							height={47}
+							className="absolute top-0 right-0"
+						/>
+					)}
 					<h2 className="text-brand-light-blue text-3xl font-normal font-workSans -ml-[2px]">
 						Our fleet
 					</h2>
