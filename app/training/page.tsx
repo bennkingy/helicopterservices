@@ -12,12 +12,12 @@ import TrainingMap from "../components/TrainingMap";
 export const revalidate = 30; // revalidate at most 30 seconds
 
 export const metadata: Metadata = {
-  title: "Training - Helicopter Services",
-  description: "Helicopter Services",
+	title: "Training - Helicopter Services",
+	description: "Helicopter Services",
 };
 
 async function getData(slug: string) {
-  const query = `
+	const query = `
     *[_type == "training" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
           title,
@@ -37,98 +37,222 @@ async function getData(slug: string) {
           body,
           service
       }[0]`;
-  const data = await client.fetch(query);
+	const data = await client.fetch(query);
 
-  return data;
+	return data;
 }
 
-export default async function Training({ params }: { params: { slug: string } }) {
-  const data: any = await getData('training');
+export default async function Training({
+	params,
+}: { params: { slug: string } }) {
+	// biome-ignore lint/suspicious/noExplicitAny: TODO: Make a type for the data
+	const data: any = await getData("training");
 
-  return (
-    <>
-      <main className="bg-brand-light-grey overflow-x-hidden z-[1] relative">
-        <Header className='h-[420px] sm:h-[675px]' title={data?.hero?.heading} tag={data?.hero?.tagline} image={data?.heroImage} />
-        <section className="pb-10 max-w-6xl mx-auto px-4 -mt-[42px] sm:-mt-[50px] z-10 relative">
-          <Tabs defaultValue="account">
-            <TabsList className="mx-auto mb-10 w-full">
-              <TabsTrigger value="account" className="">Training services</TabsTrigger>
-              <TabsTrigger value="trainingRoute">Training route map</TabsTrigger>
-            </TabsList>
-            <TabsContent value="account">
-              <Heading title="Licenses" titleStyles="text-3xl" className="mb-6 mt-6 sm:mt-10" />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {data?.service?.filter((service: ServiceCard) => service?.category == 'Licenses').map(({ category, image, url, heading, description }: ServiceCard, i: number) => (
-                  <ServiceCard
-                    key={i + 1}
-                    heading={heading}
-                    url={url}
-                    image={image}
-                    description={description}
-                    category={category}
-                  />
-                ))}
-              </div>
-              <Heading title="Flight ratings" titleStyles="text-3xl" className="mb-6 mt-12" />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {data?.service?.filter((service: ServiceCard) => service?.category == 'Ratings').map(({ category, url, heading, description, image }: ServiceCard, i: number) => (
-                  <ServiceCard
-                    key={i + 1}
-                    heading={heading}
-                    url={url}
-                    image={image}
-                    description={description}
-                    category={category}
-                  />
-                ))}
-              </div>
-              <Heading title="Simulators" titleStyles="text-3xl" className="mb-6 mt-12" />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {data?.service?.filter((service: ServiceCard) => service?.category == 'Simulators').map(({ category, url, heading, description, image }: ServiceCard, i: number) => (
-                  <ServiceCard
-                    key={i + 1}
-                    heading={heading}
-                    url={url}
-                    image={image}
-                    description={description}
-                    category={category}
-                  />
-                ))}
-              </div>
-              <Heading title="Other training services" titleStyles="text-3xl" className="mb-6 mt-12" />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {data?.service?.filter((service: ServiceCard) => service?.category == 'Other').map(({ category, url, heading, image, description }: ServiceCard, i: number) => (
-                  <ServiceCard
-                    key={i + 1}
-                    heading={heading}
-                    url={url}
-                    image={image}
-                    description={description}
-                    category={category}
-                  />
-                ))}
-              </div>
-            </TabsContent>
-            <TabsContent value="trainingRoute">
-              <TrainingMap />
-            </TabsContent>
-          </Tabs>
-          <div className="mb-14 mt-20 grid grid-cols-1 sm:grid-cols-3">
-            <div className="col-span-2 pr-0 sm:pr-20">
-              <Heading title="Can't find what your looking for?" titleStyles="text-3xl" className="mb-6" />
-              <p className="mb-4">We have over 20 years operating as one of the UKs most experienced helicopter charter, tours, photography, load lifting and consultancy companies.</p>
-              <p className="mb-4">Whether you are looking for a wonderful gift, a time-efficient airport transfer, a private charter for your special occasion, help with aerial photograph, a load lifted economically we can help you.</p>
-              <p className="mb-4">We adhere to the highest safety standards and many of our helicopters are able to fly in reduced visibility or at night. We offer both twin-engine or single-engine helicopters and can provide two pilots as may be required.</p>
-              <p className="mb-4">Contact us to discuss your requirements and our Charter Manager for a competitive quote.</p>
-              <p className="text-lg"><span className='font-bold'>Outside office hours? </span>Submit our form and out team will get back to you.</p>
-              <Link href='/enquire'><Button size='lg' className="bg-brand-light-blue text-white mt-5 mx-auto">General enquiries</Button></Link>
-            </div>
-            <div className="mt-20 sm:mt-0">
-              <ContactCta />
-            </div>
-          </div>
-        </section>
-      </main>
-    </>
-  );
+	return (
+		<>
+			<main className="bg-brand-light-grey overflow-x-hidden z-[1] relative">
+				<Header
+					className="h-[420px] sm:h-[675px]"
+					title={data?.hero?.heading}
+					tag={data?.hero?.tagline}
+					image={data?.heroImage}
+				/>
+				<section className="pb-10 max-w-6xl mx-auto px-4 -mt-[42px] sm:-mt-[50px] z-10 relative">
+					<Tabs defaultValue="account">
+						<TabsList className="mx-auto mb-10 w-full">
+							<TabsTrigger value="account" className="">
+								Training services
+							</TabsTrigger>
+							<TabsTrigger value="trainingRoute">
+								Training route map
+							</TabsTrigger>
+						</TabsList>
+						<TabsContent value="account">
+							<Heading
+								title="Licenses"
+								titleStyles="text-3xl"
+								className="mb-6 mt-6 sm:mt-10"
+							/>
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+								{data?.service
+									?.filter(
+										(service: ServiceCard) => service?.category === "Licenses",
+									)
+									.map(
+										(
+											{
+												category,
+												image,
+												url,
+												heading,
+												description,
+											}: ServiceCard,
+											i: number,
+										) => (
+											<ServiceCard
+												// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+												key={i + 1}
+												heading={heading}
+												url={url}
+												image={image}
+												description={description}
+												category={category}
+											/>
+										),
+									)}
+							</div>
+							<Heading
+								title="Flight ratings"
+								titleStyles="text-3xl"
+								className="mb-6 mt-12"
+							/>
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+								{data?.service
+									?.filter(
+										(service: ServiceCard) => service?.category === "Ratings",
+									)
+									.map(
+										(
+											{
+												category,
+												url,
+												heading,
+												description,
+												image,
+											}: ServiceCard,
+											i: number,
+										) => (
+											<ServiceCard
+												// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+												key={i + 1}
+												heading={heading}
+												url={url}
+												image={image}
+												description={description}
+												category={category}
+											/>
+										),
+									)}
+							</div>
+							<Heading
+								title="Simulators"
+								titleStyles="text-3xl"
+								className="mb-6 mt-12"
+							/>
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+								{data?.service
+									?.filter(
+										(service: ServiceCard) =>
+											service?.category === "Simulators",
+									)
+									.map(
+										(
+											{
+												category,
+												url,
+												heading,
+												description,
+												image,
+											}: ServiceCard,
+											i: number,
+										) => (
+											<ServiceCard
+												// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+												key={i + 1}
+												heading={heading}
+												url={url}
+												image={image}
+												description={description}
+												category={category}
+											/>
+										),
+									)}
+							</div>
+							<Heading
+								title="Other training services"
+								titleStyles="text-3xl"
+								className="mb-6 mt-12"
+							/>
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+								{data?.service
+									?.filter(
+										(service: ServiceCard) => service?.category === "Other",
+									)
+									.map(
+										(
+											{
+												category,
+												url,
+												heading,
+												image,
+												description,
+											}: ServiceCard,
+											i: number,
+										) => (
+											<ServiceCard
+												// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+												key={i + 1}
+												heading={heading}
+												url={url}
+												image={image}
+												description={description}
+												category={category}
+											/>
+										),
+									)}
+							</div>
+						</TabsContent>
+						<TabsContent value="trainingRoute">
+							<TrainingMap />
+						</TabsContent>
+					</Tabs>
+					<div className="mb-14 mt-20 grid grid-cols-1 sm:grid-cols-3">
+						<div className="col-span-2 pr-0 sm:pr-20">
+							<Heading
+								title="Can't find what your looking for?"
+								titleStyles="text-3xl"
+								className="mb-6"
+							/>
+							<p className="mb-4">
+								We have over 20 years operating as one of the UKs most
+								experienced helicopter charter, tours, photography, load lifting
+								and consultancy companies.
+							</p>
+							<p className="mb-4">
+								Whether you are looking for a wonderful gift, a time-efficient
+								airport transfer, a private charter for your special occasion,
+								help with aerial photograph, a load lifted economically we can
+								help you.
+							</p>
+							<p className="mb-4">
+								We adhere to the highest safety standards and many of our
+								helicopters are able to fly in reduced visibility or at night.
+								We offer both twin-engine or single-engine helicopters and can
+								provide two pilots as may be required.
+							</p>
+							<p className="mb-4">
+								Contact us to discuss your requirements and our Charter Manager
+								for a competitive quote.
+							</p>
+							<p className="text-lg">
+								<span className="font-bold">Outside office hours? </span>Submit
+								our form and out team will get back to you.
+							</p>
+							<Link href="/enquire">
+								<Button
+									size="lg"
+									className="bg-brand-light-blue text-white mt-5 mx-auto"
+								>
+									General enquiries
+								</Button>
+							</Link>
+						</div>
+						<div className="mt-20 sm:mt-0">
+							<ContactCta />
+						</div>
+					</div>
+				</section>
+			</main>
+		</>
+	);
 }
