@@ -46,7 +46,16 @@ async function getPageData(slug: string) {
             }
           },
 					threedVideoUrl,
-					gallerySingle,
+					"gallerySingle": gallerySingle.asset->{
+            _id,
+            url,
+            metadata {
+                dimensions {
+                    width,
+                    height
+                }
+            }
+       		},
 					gallery,
 					engineType,
 					capacity,
