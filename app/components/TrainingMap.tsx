@@ -1,7 +1,7 @@
 const TrainingMap = () => {
   return (
     <>
-      <div className="grid grid-cols-6 grid-rows-6 gap-4 xs:6 sm:8 md:gap-10 lg:gap-14 text-center text-white mt-14">
+      {/* <div className="grid grid-cols-6 grid-rows-6 gap-4 xs:6 sm:8 md:gap-10 lg:gap-14 text-center text-white mt-14">
         <div className="aspect-square	border border-gray-300 bg-slate-500 drop-shadow-brand" style={{ clipPath: 'polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)' }} ><div className=" bg-slate-500">PPL(H)</div></div>
         <div className="aspect-square"></div>
         <div className="aspect-square"></div>
@@ -49,9 +49,9 @@ const TrainingMap = () => {
         <div className="aspect-square	border border-gray-300 bg-slate-500" style={{ clipPath: 'polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)' }}><div className=" bg-slate-500">IRE</div></div>
         <div className="aspect-square"></div>
         <div className="aspect-square"></div>
-      </div>
+      </div> */}
 
-      {/* <table className="w-full border-separate border-spacing-10">
+      <table className="w-full border-separate border-spacing-5 sm:border-spacing-10">
         <tbody>
           <tr>
             <td>
@@ -145,7 +145,7 @@ const TrainingMap = () => {
             <td>cell</td>
           </tr>
         </tbody >
-      </table > */}
+      </table >
     </>
   )
 }

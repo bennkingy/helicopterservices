@@ -16,14 +16,14 @@ const HelicopterCard = async ({ helicopter }: any) => {
   const { base64 } = await getPlaiceholder(buffer)
 
   return (
-    <a href={helicopter?.url}>
+    <a href={helicopter?.url} className="group">
       <Card className="mt-5 border-0">
-        <CardContent className="p-0 flex justify-between relative bg-white shadow-brand rounded-none border-0 border-b-4 border-brand-light-blue">
+        <CardContent className="p-0 flex justify-between relative bg-white shadow-brand rounded-none border-0 border-b-4 border-brand-light-blue hover:shadow-brand-hover">
           <div className="flex flex-col flex-wrap justify-center pl-3 sm:pl-4">
             <p className="text-sm font-workSans text-brand-dark-grey">Type</p>
             <h3 className="text-xl font-bold font-workSans">{helicopter?.model}</h3>
           </div>
-          <div className="h-[90px] w-[120px] relative">
+          <div className="h-[90px] w-[120px] relative overflow-hidden">
             {helicopter?.mainImage &&
               <Image
                 fill
@@ -31,7 +31,7 @@ const HelicopterCard = async ({ helicopter }: any) => {
                 placeholder="blur"
                 blurDataURL={base64}
                 alt=""
-                className="object-cover  rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
+                className="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
               />
             }
           </div>
