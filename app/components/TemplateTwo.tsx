@@ -296,7 +296,7 @@ const TemplateTwo = ({ data, children }: props) => {
 							White Waltham Airfield, Maidenhead, Berkshire, SL6 3N
 						</p>
 					</div>
-					<Map></Map>
+					<Map />
 				</div>
 			</main>
 		</>
