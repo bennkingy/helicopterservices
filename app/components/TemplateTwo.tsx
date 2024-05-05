@@ -4,7 +4,7 @@ import Map from '@/app/components/Map';
 import { urlFor } from '@/lib/sanity';
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { FleetItem } from '../fleet/[slug]/page';
 import Breadcrumbs from "./Breadcrumbs";
 import Gallery from './Gallery';
@@ -114,6 +114,12 @@ const TemplateTwo = ({ data, children }: props) => {
     );
   };
 
+  const galleryRef = useRef(null);
+
+  const handleOpenGallery = () => {
+    galleryRef.current?.openGallery();
+  };
+
   return (
     <>
       <Breadcrumbs className='container pt-[125px] sm:pt-[180px]' slug={data?.title} />
@@ -136,7 +142,7 @@ const TemplateTwo = ({ data, children }: props) => {
           </div>
           <div className="prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full">
             <PortableText value={data?.body || ''} />
-            <TextLink label='3D cockpit view' className='mt-7' onClick={() => setIsModalOpen(!isModalOpen)} />
+            <TextLink label='3D cockpit view' className='mt-7' onClick={handleOpenGallery} />
           </div>
           <h3 className='text-md font-bold mt-7 font-openSans mb-5'>Specifications</h3>
           <SpecificationTable helicopter={exampleHelicopter} className='mb-6' />
@@ -201,7 +207,7 @@ const TemplateTwo = ({ data, children }: props) => {
             />
           </div>
           <div style={{ width: '100%', clipPath: 'polygon(0 0,calc(100% - 20px) 0, 100% 20px,100% 100%, 0 100%)' }}>
-            <Gallery galleryType="video">
+            <Gallery ref={galleryRef} galleryType="video">
               <a
                 data-lg-size="1000-700"
                 data-pinterest-text="Pin it2"

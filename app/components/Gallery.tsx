@@ -9,7 +9,7 @@ import lgVideo from 'lightgallery/plugins/video';
 import lgZoom from 'lightgallery/plugins/zoom';
 import LightGallery from 'lightgallery/react';
 import Image from 'next/image';
-import { useCallback, useRef } from 'react';
+import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 
 type props = {
   className?: string
@@ -17,15 +17,20 @@ type props = {
   galleryType: '3d-video' | 'video' | 'gallery' | 'gallery-single'
 }
 
-const Gallery = ({ className, galleryType, children }: props) => {
+const Gallery = forwardRef(({ className, galleryType, children }: props, ref) => {
 
   let lightGalleryRef = useRef<ILightGallery>(null);
 
-  const onInit = useCallback((detail): any => {
+  const onInit = useCallback((detail: { instance: any; }): any => {
     if (detail) {
+      // @ts-ignore
       lightGalleryRef.current = detail.instance;
     }
   }, []);
+
+  useImperativeHandle(ref, () => ({
+    openGallery,
+  }));
 
   const openGallery = () => {
     console.log('hit');
@@ -80,6 +85,8 @@ const Gallery = ({ className, galleryType, children }: props) => {
       </div>
     </div>
   )
-}
+});
+
+Gallery.displayName = 'Gallery';
 
 export default Gallery
