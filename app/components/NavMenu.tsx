@@ -136,7 +136,7 @@ const about: { title: string; href: string; description: string }[] = [
 	},
 	{
 		title: "Helicopter fleet",
-		href: "/fleet/helicopter-fleet",
+		href: "/fleet",
 		description: "Meet the fleet!",
 	},
 	{
@@ -278,7 +278,7 @@ export function NavMenu() {
 					</NavigationMenuItem>
 					<NavigationMenuItem>
 						<NavigationMenuTrigger>
-							<a href="/fleet/helicopter-fleet">Fleet</a>
+							<a href="/fleet">Fleet</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
 							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
@@ -341,7 +341,7 @@ export function NavMenu() {
 								<a href="/flights">Flights</a>
 							</li>
 							<li className="mb-4 ml-4">
-								<a href="/fleet/helicopter-fleet">Fleet</a>
+								<a href="/fleet">Fleet</a>
 							</li>
 							<li className="mb-4 ml-4">
 								<a href="/about-us">About us</a>

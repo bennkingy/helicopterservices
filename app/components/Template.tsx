@@ -18,9 +18,11 @@ const Template = ({ data, children, showHanger = false }: props) => {
 		<div>
 			{!showHanger ? (
 				<>
-					<div className="overflow-x-hidden">
-						<Header title={data?.title} image={data.mainImage} />
-					</div>
+					{data?.mainImage && (
+						<div className="overflow-x-hidden">
+							<Header title={data?.title} image={data.mainImage} />
+						</div>
+					)}
 					<main className="container mx-auto px-4 grid pt-16 sm:py-16 grid-cols-1 md:grid-cols-3">
 						<div className="pr-0 md:pr-20 mb-10 sm:mb-0 col-span-2">
 							<div className="prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full">
