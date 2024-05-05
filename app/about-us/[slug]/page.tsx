@@ -54,8 +54,6 @@ export default async function AboutPage({ params }: { params: { slug: string } }
   const showHanger = params.slug === 'the-hanger';
   const showHelicopters = params.slug === 'helicopter-fleet';
 
-  console.log(showHanger)
-
   return (
     <>
       <Template data={data} showHanger={showHanger}>

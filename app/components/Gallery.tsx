@@ -4,30 +4,32 @@ import 'lightgallery/css/lg-thumbnail.css';
 import 'lightgallery/css/lg-video.css';
 import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lightgallery.css';
+import { LightGallery as ILightGallery } from 'lightgallery/lightgallery';
 import lgVideo from 'lightgallery/plugins/video';
 import lgZoom from 'lightgallery/plugins/zoom';
 import LightGallery from 'lightgallery/react';
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
 
 type props = {
   className?: string
   children: any
-  galleryType: 'video' | 'gallery'
+  galleryType: '3d-video' | 'video' | 'gallery' | 'gallery-single'
 }
 
 const Gallery = ({ className, galleryType, children }: props) => {
 
-  const onInit = () => {
-    console.log('lightGallery has been initialized');
-  };
+  let lightGalleryRef = useRef<ILightGallery>(null);
 
-  const lgRef = useRef(null); // Create a ref for LightGallery
-
-  // Function to open the lightbox
-  const handleIconClick = () => {
-    if (lgRef.current) {
+  const onInit = useCallback((detail): any => {
+    if (detail) {
+      lightGalleryRef.current = detail.instance;
     }
+  }, []);
+
+  const openGallery = () => {
+    console.log('hit');
+    lightGalleryRef?.current?.openGallery();
   };
 
   return (
@@ -38,19 +40,22 @@ const Gallery = ({ className, galleryType, children }: props) => {
         width={150}
         height={150}
         alt="hero image example"
-        onClick={handleIconClick} // Set onClick handler
+        onClick={openGallery}
         className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer pointer-events-none z-[1] group-hover:opacity-80'
       />}
       <LightGallery
         onInit={onInit}
+        ref={lightGalleryRef}
         plugins={[lgZoom, lgVideo]}
         mode="lg-fade"
         thumbnail={true}
+        hideScrollbar={true}
         autoplayFirstVideo={galleryType === 'video' ? true : false}
         youTubePlayerParams={{
           autoplay: 1,
           mute: 1
         }}
+        addClass='lightbox-gallery'
         elementClassNames={galleryType}
         mobileSettings={{
           controls: false,
@@ -71,7 +76,7 @@ const Gallery = ({ className, galleryType, children }: props) => {
             className=""
           />
         </div>
-        <p className='ml-2 text-brand-light-blue text-sm'>{galleryType === 'gallery' ? 'Enlarge and view' : '3D view'}</p>
+        <p className='ml-2 text-brand-light-blue text-sm' onClick={openGallery}>{galleryType === 'gallery' || galleryType === 'gallery-single' ? 'Enlarge and view' : '3D view'}</p>
       </div>
     </div>
   )

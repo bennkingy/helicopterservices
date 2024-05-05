@@ -13,7 +13,8 @@ async function getData(slug: string) {
           seoDescription,
           body,
           mainImage,
-          gallery
+          gallery,
+          gallerySingle
       }[0]`;
   const data = await client.fetch(query);
 
@@ -23,6 +24,8 @@ async function getData(slug: string) {
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const data: training = await getData(params.slug.toLowerCase());
 
+  console.log(data);
+
   return {
     title: data?.seoTitle,
     description: data?.seoDescription,
@@ -31,8 +34,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default async function TrainingPage({ params }: { params: { slug: string } }) {
   const data: any = await getData(params.slug.toLowerCase());
-
-  console.log(JSON.stringify(data));
 
   return (
     <>
