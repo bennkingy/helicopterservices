@@ -30,6 +30,13 @@ export default defineType({
 			type: "hero",
 		}),
 		defineField({
+			name: "service",
+			title: "Helicopters",
+			type: "array",
+			of: [{ type: "service" }],
+			hidden: ({ document }) => document?.isLandingPage !== true,
+		}),
+		defineField({
 			name: "workType",
 			title: "Work Type",
 			type: "object",

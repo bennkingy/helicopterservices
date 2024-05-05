@@ -121,7 +121,7 @@ const TemplateTwo = ({ data, children }: props) => {
 				className="container pt-[125px] sm:pt-[180px]"
 				slug={data?.title}
 			/>
-			<main className="container mx-auto px-4 grid pb-16 grid-cols-1 md:grid-cols-5 mt-8">
+			<main className="container mx-auto px-4 grid pb-14 grid-cols-1 md:grid-cols-5 mt-8">
 				<div className="mr-0 md:mr-20 mb-10 sm:mb-0 col-span-3 relative">
 					<Image
 						priority
@@ -211,8 +211,8 @@ const TemplateTwo = ({ data, children }: props) => {
 								className="gallery__item"
 								data-src="https://images.unsplash.com/photo-1585338447937-7082f8fc763d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
 								data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@whoisbenjamin' >whoisbenjamin</a></h4>
-							<p>Location - <a href='https://unsplash.com/s/photos/ciuca%C8%99-peak%2C-romania'>Snowdonia National Park, Blaenau Ffestiniog, UK</a> 
-							A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href='https://unsplash.com/photos/9V6EkAoTWJM'>Link</a> </p>"
+<p>Location - <a href='https://unsplash.com/s/photos/ciuca%C8%99-peak%2C-romania'>Snowdonia National Park, Blaenau Ffestiniog, UK</a> 
+A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href='https://unsplash.com/photos/9V6EkAoTWJM'>Link</a> </p>"
 							>
 								<img
 									className="img-responsive cursor-pointer"
@@ -228,7 +228,7 @@ const TemplateTwo = ({ data, children }: props) => {
 				</div>
 				<div className="col-span-2">
 					{data?.gallerySingle && (
-						<Gallery galleryType={"gallery-single"} className="mt-10 sm:mt-0">
+						<Gallery galleryType={"gallery-single"} className="mt-0">
 							<a
 								data-lg-size="1200-799"
 								data-pinterest-text="Pin it"
