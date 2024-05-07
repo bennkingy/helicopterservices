@@ -181,10 +181,12 @@ const data: Payment[] = data2.map((item, index) => ({
 
 export type Payment = {
 	id: string;
-	amount: number;
-	type: "pending" | "processing" | "success" | "failed";
-	email: string;
 	title: string;
+	engineType: string;
+	capacity: number;
+	ifrcapable: boolean | null;
+	cruiseSpeed: number;
+	base: string;
 };
 
 export const columns: ColumnDef<Payment>[] = [
