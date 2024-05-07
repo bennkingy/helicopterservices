@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Gallery from "./Gallery"; // Assuming this is a custom component you've created
 
-const GallerySingle = ({ data }) => {
+const GallerySingle = ({ data }: any) => {
 	const [blurDataURL, setBlurDataURL] = useState("");
 
 	useEffect(() => {
