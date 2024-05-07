@@ -3,7 +3,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 type props = {
 	isOpen: boolean;
 	onClose: () => void;
-	videoUrl: string;
+	videoUrl?: string;
 	children: React.ReactNode;
 };
 

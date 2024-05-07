@@ -67,7 +67,7 @@ export default async function FleetPage({
 			<Template data={data}>
 				<div className="">
 					<div className="pt-5 mb-10 md:mb-0">
-						<ComparisonTable data={heliCopterData} />
+						<ComparisonTable />
 						<h1 className="text-xl font-bold font-workSans mt-12 text-brand-dark-blue">
 							Twin engine
 						</h1>
