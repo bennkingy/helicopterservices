@@ -4,7 +4,6 @@ import { client } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { ComparisonTable } from "../components/ComparisonTable";
-import TextLink from "../components/TextLink";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -68,7 +67,6 @@ export default async function FleetPage({
 			<Template data={data}>
 				<div className="">
 					<div className="pt-5 mb-10 md:mb-0">
-						<TextLink label="Comparison chart" className="mt-8 mb-0" />
 						<ComparisonTable data={heliCopterData} />
 						<h1 className="text-xl font-bold font-workSans mt-12 text-brand-dark-blue">
 							Twin engine

@@ -22,7 +22,10 @@ import {
 	type VisibilityState,
 } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
+import Link from "next/link";
 import * as React from "react";
+import Modal from "./Modal";
+import TextLink from "./TextLink";
 
 const data2 = [
 	{
@@ -187,48 +190,94 @@ export type Payment = {
 export const columns: ColumnDef<Payment>[] = [
 	{
 		accessorKey: "title",
-		header: ({ column }) => {
-			return (
-				<Button
-					variant="ghost"
-					className=""
-					onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-				>
-					Type
-					<ArrowUpDown className="ml-2 h-4 w-4" />
-				</Button>
-			);
-		},
-		cell: ({ row }) => <div className="lowercase">{row.getValue("title")}</div>,
+		header: ({ column }) => (
+			<Button
+				variant="ghost"
+				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+			>
+				Type
+				<ArrowUpDown className="ml-2 h-4 w-4" />
+			</Button>
+		),
+		cell: ({ row }) => (
+			<Link
+				href={`/fleet/${row.getValue("title").toLowerCase()}`}
+				passHref
+				className="lowercase text-brand-light-blue underline-offset-2 underline"
+			>
+				{row.getValue("title")}
+			</Link>
+		),
 	},
 	{
 		accessorKey: "base",
-		header: () => <div>Base</div>,
+		header: ({ column }) => (
+			<Button
+				variant="ghost"
+				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+			>
+				Base
+				<ArrowUpDown className="ml-2 h-4 w-4" />
+			</Button>
+		),
 		cell: ({ row }) => <div>{row.getValue("base")}</div>,
 	},
 	{
 		accessorKey: "engineType",
-		header: () => <div>Engine Type</div>,
+		header: ({ column }) => (
+			<Button
+				variant="ghost"
+				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+			>
+				Engine
+				<ArrowUpDown className="ml-2 h-4 w-4" />
+			</Button>
+		),
 		cell: ({ row }) => <div>{row.getValue("engineType")}</div>,
 	},
 	{
 		accessorKey: "capacity",
-		header: () => <div>Capacity</div>,
+		header: ({ column }) => (
+			<Button
+				variant="ghost"
+				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+			>
+				Capacity
+				<ArrowUpDown className="ml-2 h-4 w-4" />
+			</Button>
+		),
 		cell: ({ row }) => <div>{row.getValue("capacity")}</div>,
 	},
 	{
 		accessorKey: "ifrcapable",
-		header: () => <div>IFR Capable</div>,
+		header: ({ column }) => (
+			<Button
+				variant="ghost"
+				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+			>
+				IFR
+				<ArrowUpDown className="ml-2 h-4 w-4" />
+			</Button>
+		),
 		cell: ({ row }) => <div>{row.getValue("ifrcapable") ? "Yes" : "No"}</div>,
 	},
 	{
 		accessorKey: "cruiseSpeed",
-		header: () => <div>Cruise Speed</div>,
-		cell: ({ row }) => <div>{`${row.getValue("cruiseSpeed")}kts`}</div>,
+		header: ({ column }) => (
+			<Button
+				variant="ghost"
+				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+			>
+				Cruise Speed
+				<ArrowUpDown className="ml-2 h-4 w-4" />
+			</Button>
+		),
+		cell: ({ row }) => <div>{row.getValue("cruiseSpeed")}</div>,
 	},
 ];
 
 export function ComparisonTable() {
+	const [modalOpen, setModalOpen] = React.useState(false);
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
 		[],
@@ -257,71 +306,82 @@ export function ComparisonTable() {
 	});
 
 	return (
-		<div className="w-full mt-10">
-			<div className="border-b-4 border-brand-light-blue relative">
-				<h3 className="font-workSans text-2xl text-brand-dark-blue p-3 font-extrabold">
-					Compare fleet helicopters
-				</h3>
-				<div className="absolute bottom-0 right-0">
-					<svg
-						className="h-6 w-6 text-brand-light-blue"
-						viewBox="0 0 17 17"
-						fill="currentColor"
-					>
-						<polygon points="17 0 17 17 0 17" />
-					</svg>
-				</div>
-			</div>
-			<div className="">
-				<Table>
-					<TableHeader>
-						{table.getHeaderGroups().map((headerGroup) => (
-							<TableRow key={headerGroup.id}>
-								{headerGroup.headers.map((header) => {
-									return (
-										<TableHead key={header.id}>
-											{header.isPlaceholder
-												? null
-												: flexRender(
-														header.column.columnDef.header,
-														header.getContext(),
+		<>
+			<TextLink
+				label="Comparison chart"
+				className="mt-8 mb-0"
+				onClick={() => {
+					setModalOpen(!modalOpen);
+				}}
+			/>
+			<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+				<div className="w-full">
+					<div className="border-b-4 border-brand-light-blue relative">
+						<h3 className="font-workSans text-2xl text-brand-dark-blue p-4 font-extrabold mt-0">
+							Compare fleet helicopters
+						</h3>
+						<div className="absolute bottom-0 right-0">
+							<svg
+								className="h-6 w-6 text-brand-light-blue"
+								viewBox="0 0 17 17"
+								fill="currentColor"
+							>
+								<polygon points="17 0 17 17 0 17" />
+							</svg>
+						</div>
+					</div>
+					<div className="">
+						<Table>
+							<TableHeader>
+								{table.getHeaderGroups().map((headerGroup) => (
+									<TableRow key={headerGroup.id}>
+										{headerGroup.headers.map((header) => {
+											return (
+												<TableHead key={header.id}>
+													{header.isPlaceholder
+														? null
+														: flexRender(
+																header.column.columnDef.header,
+																header.getContext(),
+															)}
+												</TableHead>
+											);
+										})}
+									</TableRow>
+								))}
+							</TableHeader>
+							<TableBody>
+								{table.getRowModel().rows?.length ? (
+									table.getRowModel().rows.map((row) => (
+										<TableRow
+											key={row.id}
+											data-state={row.getIsSelected() && "selected"}
+										>
+											{row.getVisibleCells().map((cell) => (
+												<TableCell key={cell.id}>
+													{flexRender(
+														cell.column.columnDef.cell,
+														cell.getContext(),
 													)}
-										</TableHead>
-									);
-								})}
-							</TableRow>
-						))}
-					</TableHeader>
-					<TableBody>
-						{table.getRowModel().rows?.length ? (
-							table.getRowModel().rows.map((row) => (
-								<TableRow
-									key={row.id}
-									data-state={row.getIsSelected() && "selected"}
-								>
-									{row.getVisibleCells().map((cell) => (
-										<TableCell key={cell.id}>
-											{flexRender(
-												cell.column.columnDef.cell,
-												cell.getContext(),
-											)}
+												</TableCell>
+											))}
+										</TableRow>
+									))
+								) : (
+									<TableRow>
+										<TableCell
+											colSpan={columns.length}
+											className="h-24 text-center"
+										>
+											No results.
 										</TableCell>
-									))}
-								</TableRow>
-							))
-						) : (
-							<TableRow>
-								<TableCell
-									colSpan={columns.length}
-									className="h-24 text-center"
-								>
-									No results.
-								</TableCell>
-							</TableRow>
-						)}
-					</TableBody>
-				</Table>
-			</div>
-		</div>
+									</TableRow>
+								)}
+							</TableBody>
+						</Table>
+					</div>
+				</div>
+			</Modal>
+		</>
 	);
 }
