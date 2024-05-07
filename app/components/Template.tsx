@@ -92,11 +92,11 @@ const Template = ({ data, children, showHanger = false }: props) => {
 								</Gallery>
 							)}
 						</div>
-						<div>
+						<div className="hidden md:block">
 							<ContactCta />
 							<GetinTouchSmall className="mt-10 md:mt-3" />
-							<Map className="mb-20 sm:mb-0 mt-10 md:mt-3" />
 						</div>
+						<Map className="mb-20 sm:mb-0 mt-10 md:mt-3" />
 					</main>
 				</>
 			) : null}

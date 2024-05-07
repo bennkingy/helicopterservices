@@ -319,7 +319,7 @@ export function ComparisonTable() {
 			/>
 			<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
 				<div className="w-full">
-					<div className="fixed bg-white w-full z-[2]">
+					<div className="fixed bg-white w-full z-[2] shadow-md	 sm:shadow-none">
 						<div className="border-b-4 border-brand-light-blue relative bg-white">
 							<h3 className="font-workSans text-xl sm:text-2xl text-brand-dark-blue p-4 font-extrabold mt-0">
 								Compare fleet helicopters
@@ -335,7 +335,7 @@ export function ComparisonTable() {
 							</div>
 						</div>
 					</div>
-					<div className="relative z-[1] pt-[64px]">
+					<div className="relative z-[1] pt-[64px] md:pt-[70px]">
 						<Table>
 							<TableHeader>
 								{table.getHeaderGroups().map((headerGroup) => (
@@ -363,7 +363,10 @@ export function ComparisonTable() {
 											data-state={row.getIsSelected() && "selected"}
 										>
 											{row.getVisibleCells().map((cell) => (
-												<TableCell key={cell.id} className="p-3 sm:p-4">
+												<TableCell
+													key={cell.id}
+													className="p-3 sm:p-4 text-center"
+												>
 													{flexRender(
 														cell.column.columnDef.cell,
 														cell.getContext(),
