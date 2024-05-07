@@ -21,6 +21,7 @@ export default function Navbar() {
 			onPin={() => setIsPinned(true)}
 			upTolerance={0}
 			onUnfix={() => setIsPinned(false)}
+			calcHeightOnResize={true}
 		>
 			{path !== "/" && path !== "/about-us" && !isPinned ? (
 				<div className="topbar h-[40px] w-full bg-brand-dark-blue flex justify-center align-center items-center">

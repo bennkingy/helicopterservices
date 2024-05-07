@@ -74,7 +74,7 @@ const data2 = [
 			trainingHelicopter: false,
 			charterHelicopter: true,
 		},
-		engineType: "twin",
+		engineType: "Twin",
 		capacity: 7,
 		ifrcapable: true,
 		cruiseSpeed: 140,
@@ -177,6 +177,7 @@ const data: Payment[] = data2.map((item, index) => ({
 	ifrcapable: item.ifrcapable,
 	cruiseSpeed: item.cruiseSpeed,
 	base: item.base,
+	workType: item.workType,
 }));
 
 export type Payment = {
@@ -187,6 +188,7 @@ export type Payment = {
 	ifrcapable: boolean | null;
 	cruiseSpeed: number;
 	base: string;
+	workType: any;
 };
 
 export const columns: ColumnDef<Payment>[] = [
@@ -276,6 +278,48 @@ export const columns: ColumnDef<Payment>[] = [
 			</Button>
 		),
 		cell: ({ row }) => <div>{`${row.getValue("cruiseSpeed")}kts`}</div>,
+	},
+	{
+		accessorFn: (row) => (row.workType.charterHelicopter ? "Yes" : "No"),
+		id: "charterHelicopter",
+		header: ({ column }) => (
+			<Button
+				variant="ghost"
+				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+			>
+				Charter
+				<ArrowUpDown className="ml-2 h-4 w-4" />
+			</Button>
+		),
+		cell: ({ row }) => <div>{row.getValue("charterHelicopter")}</div>,
+	},
+	{
+		accessorFn: (row) => (row.workType.aerialWorkHelicopter ? "Yes" : "No"),
+		id: "aerialWorkHelicopter",
+		header: ({ column }) => (
+			<Button
+				variant="ghost"
+				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+			>
+				Aerial Work
+				<ArrowUpDown className="ml-2 h-4 w-4" />
+			</Button>
+		),
+		cell: ({ row }) => <div>{row.getValue("aerialWorkHelicopter")}</div>,
+	},
+	{
+		accessorFn: (row) => (row.workType.trainingHelicopter ? "Yes" : "No"),
+		id: "trainingHelicopter",
+		header: ({ column }) => (
+			<Button
+				variant="ghost"
+				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+			>
+				Training
+				<ArrowUpDown className="ml-2 h-4 w-4" />
+			</Button>
+		),
+		cell: ({ row }) => <div>{row.getValue("trainingHelicopter")}</div>,
 	},
 ];
 

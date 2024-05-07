@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import type { FleetItem } from "../fleet/[slug]/page";
 import Breadcrumbs from "./Breadcrumbs";
+import { ComparisonTable } from "./ComparisonTable";
 import Gallery from "./Gallery";
 import TextLink from "./TextLink";
 
@@ -168,7 +169,7 @@ const TemplateTwo = ({ data, children }: props) => {
 						Specifications
 					</h3>
 					<SpecificationTable helicopter={data} className="mb-6" />
-					<TextLink label="Comparison chart" className="mt-8 mb-0" />
+					<ComparisonTable />
 					{children}
 					{data.gallery && (
 						<Gallery className="sm:mb-10" galleryType="gallery">
