@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-const ContactCta = () => {
+const ContactCta = ({ className }) => {
 	return (
-		<div className="text-white bg-brand-medium-blue h-fit">
+		<div className={`text-white bg-brand-medium-blue h-fit ${className}`}>
 			<div className="bg-brand-medium-blue py-5 text-white p-10 relative">
 				<Image
 					quality={100}
