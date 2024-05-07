@@ -139,19 +139,6 @@ const data2 = [
 		cruiseSpeed: 100,
 	},
 	{
-		ifrcapable: null,
-		cruiseSpeed: null,
-		base: null,
-		title: "Fleet",
-		workType: {
-			aerialWorkHelicopter: false,
-			trainingHelicopter: false,
-			charterHelicopter: false,
-		},
-		engineType: null,
-		capacity: null,
-	},
-	{
 		base: "White Waltham",
 		title: "A109",
 		workType: {
@@ -237,7 +224,7 @@ export const columns: ColumnDef<Payment>[] = [
 	{
 		accessorKey: "cruiseSpeed",
 		header: () => <div>Cruise Speed</div>,
-		cell: ({ row }) => <div>{row.getValue("cruiseSpeed")}</div>,
+		cell: ({ row }) => <div>{`${row.getValue("cruiseSpeed")}kts`}</div>,
 	},
 ];
 
