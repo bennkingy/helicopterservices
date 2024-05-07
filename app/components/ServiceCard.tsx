@@ -1,6 +1,6 @@
+import { getBase64Blur } from "@/lib/extensions";
 import { urlFor } from "@/lib/sanity";
 import Image from "next/image";
-import { getPlaiceholder } from "plaiceholder";
 import Heading from "../components/Heading";
 
 interface ServiceCard {
@@ -20,16 +20,9 @@ const ServiceCard = async ({
 	category,
 	image,
 }: ServiceCard) => {
-	const imageUrl =
-		image && urlFor(image).width(400).height(400).dpr(2).quality(100).url();
+	const imageUrl = image && urlFor(image).url();
 
-	const src = imageUrl;
-
-	const buffer = await fetch(src).then(async (res) => {
-		return Buffer.from(await res.arrayBuffer());
-	});
-
-	const { base64 } = await getPlaiceholder(buffer);
+	const base64 = imageUrl ? await getBase64Blur(imageUrl) : "";
 
 	return (
 		<a
@@ -76,7 +69,7 @@ const ServiceCard = async ({
 					width={440}
 					quality={100}
 					height={440}
-					src={src || ""}
+					src={imageUrl || ""}
 					placeholder="blur"
 					blurDataURL={base64}
 					alt=""

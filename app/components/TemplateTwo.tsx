@@ -232,19 +232,18 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 					{data?.gallerySingle && (
 						<Gallery galleryType={"gallery-single"} className="mt-0">
 							<a
-								data-lg-size={`${data?.gallerySingle?.metadata?.dimensions?.width}-${data?.gallerySingle?.metadata?.dimensions?.height}`}
+								data-lg-size={`${data.gallerySingle.metadata.dimensions.width}-${data.gallerySingle.metadata.dimensions.height}`}
 								data-pinterest-text="Pin it"
-								data-tweet-text="lightGallery slide 1"
-								className="gallery__item"
-								data-src={urlFor(data?.gallerySingle).url()}
-								data-sub-html="<h4>Photo by - <a href='test' >Test </a></h4><p> Test</p>"
+								data-tweet-text="Helicopter Services"
+								data-src={urlFor(data.gallerySingle).url()}
+								data-sub-html={`<h4>Helicopter Services</h4><p>${data?.title}</p>`}
 							>
 								<Image
 									width={500}
 									height={332}
 									quality={100}
 									className="img-responsive cursor-pointer"
-									src={urlFor(data?.gallerySingle).url()}
+									src={urlFor(data.gallerySingle).url()}
 									alt=""
 									style={{
 										clipPath:
