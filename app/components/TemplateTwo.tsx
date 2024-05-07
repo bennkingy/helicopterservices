@@ -93,7 +93,7 @@ const TemplateTwo = ({ data, children }: props) => {
 							Cruise
 						</p>
 						<span className="flex-1 border-b border-dotted border-[#1b1b1b] mx-2"></span>
-						<span className="text-right">{helicopter.cruiseSpeed}</span>
+						<span className="text-right">{helicopter.cruiseSpeed}kts</span>
 					</div>
 					{/* Base */}
 					<div className="flex items-baseline">
