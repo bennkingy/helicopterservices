@@ -320,7 +320,7 @@ export function ComparisonTable() {
 			<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
 				<div className="w-full">
 					<div className="border-b-4 border-brand-light-blue relative">
-						<h3 className="font-workSans text-2xl text-brand-dark-blue p-4 font-extrabold mt-0">
+						<h3 className="font-workSans text-xl sm:text-2xl text-brand-dark-blue p-4 font-extrabold mt-0">
 							Compare fleet helicopters
 						</h3>
 						<div className="absolute -bottom-[1px] right-0">
@@ -361,7 +361,7 @@ export function ComparisonTable() {
 											data-state={row.getIsSelected() && "selected"}
 										>
 											{row.getVisibleCells().map((cell) => (
-												<TableCell key={cell.id}>
+												<TableCell key={cell.id} className="p-3 sm:p-4">
 													{flexRender(
 														cell.column.columnDef.cell,
 														cell.getContext(),
