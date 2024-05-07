@@ -19,31 +19,32 @@ export default function Navbar() {
 			downTolerance={10}
 			className="absolute w-full z-50"
 			onPin={() => setIsPinned(true)}
+			upTolerance={0}
 			onUnfix={() => setIsPinned(false)}
 		>
+			{path !== "/" && path !== "/about-us" && !isPinned ? (
+				<div className="topbar h-[40px] w-full bg-brand-dark-blue flex justify-center align-center items-center">
+					<div className="relative h-[14px] sm:h-[24px] w-[14px] sm:w-[24px]">
+						<Image
+							priority
+							fill
+							src={"/images/check1.svg"}
+							alt="img"
+							className="w-full object-cover"
+						/>
+					</div>
+					<p className="ml-2 text-white text-center font-workSans text-xs sm:text-base">
+						A leading UK CAA and EASA approved Training Organisation
+					</p>
+				</div>
+			) : null}
 			<header
 				className={cn(
 					"w-full transition-all duration-300 ease-in-out shadow-md",
-					isPinned ? "h-[65px] sm:h-[100px]" : "h-[65px] sm:h-[160px]",
-					"border-b-4 border-brand-light-blue bg-white",
+					isPinned ? "h-[65px] sm:h-[80px]" : "h-[65px] sm:h-[115px]",
+					"border-b-4 border-brand-light-blue bg-white flex",
 				)}
 			>
-				{path !== "/" && path !== "/about-us" && !isPinned ? (
-					<div className="topbar h-[40px] w-full bg-brand-dark-blue flex justify-center align-center items-center">
-						<div className="relative h-[14px] sm:h-[24px] w-[14px] sm:w-[24px]">
-							<Image
-								priority
-								fill
-								src={"/images/check1.svg"}
-								alt="img"
-								className="w-full object-cover"
-							/>
-						</div>
-						<p className="ml-2 text-white text-center font-workSans text-xs sm:text-base">
-							A leading UK CAA and EASA approved Training Organisation
-						</p>
-					</div>
-				) : null}
 				<div
 					className={cn("container flex items-center justify-between", "px-4")}
 				>
