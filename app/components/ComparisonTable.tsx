@@ -275,7 +275,7 @@ export const columns: ColumnDef<Payment>[] = [
 				<ArrowUpDown className="ml-2 h-4 w-4" />
 			</Button>
 		),
-		cell: ({ row }) => <div>{row.getValue("cruiseSpeed")}</div>,
+		cell: ({ row }) => <div>{`${row.getValue("cruiseSpeed")}kts`}</div>,
 	},
 ];
 
@@ -319,21 +319,23 @@ export function ComparisonTable() {
 			/>
 			<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
 				<div className="w-full">
-					<div className="border-b-4 border-brand-light-blue relative">
-						<h3 className="font-workSans text-xl sm:text-2xl text-brand-dark-blue p-4 font-extrabold mt-0">
-							Compare fleet helicopters
-						</h3>
-						<div className="absolute -bottom-[1px] right-0">
-							<svg
-								className="h-6 w-6 text-brand-light-blue"
-								viewBox="0 0 17 17"
-								fill="currentColor"
-							>
-								<polygon points="17 0 17 17 0 17" />
-							</svg>
+					<div className="fixed bg-white w-full z-[2]">
+						<div className="border-b-4 border-brand-light-blue relative bg-white">
+							<h3 className="font-workSans text-xl sm:text-2xl text-brand-dark-blue p-4 font-extrabold mt-0">
+								Compare fleet helicopters
+							</h3>
+							<div className="absolute -bottom-[1px] right-0">
+								<svg
+									className="h-6 w-6 text-brand-light-blue"
+									viewBox="0 0 17 17"
+									fill="currentColor"
+								>
+									<polygon points="17 0 17 17 0 17" />
+								</svg>
+							</div>
 						</div>
 					</div>
-					<div className="">
+					<div className="relative z-[1] pt-[64px]">
 						<Table>
 							<TableHeader>
 								{table.getHeaderGroups().map((headerGroup) => (

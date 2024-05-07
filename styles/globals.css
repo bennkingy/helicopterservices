@@ -97,3 +97,7 @@
     height: auto; /* Keeps the aspect ratio intact */
     aspect-ratio: 1 / 0; /* Ensures the images are square */
   }
+
+  .absolute.rounded-sm.ring-offset-background {
+    z-index: 100;
+  }
