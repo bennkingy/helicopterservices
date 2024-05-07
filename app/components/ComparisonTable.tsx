@@ -203,6 +203,7 @@ export const columns: ColumnDef<Payment>[] = [
 		),
 		cell: ({ row }) => (
 			<Link
+				// @ts-ignore
 				href={`/fleet/${row.getValue("title").toLowerCase()}`}
 				passHref
 				className="lowercase text-brand-light-blue underline-offset-2 underline"
