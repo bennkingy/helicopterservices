@@ -33,7 +33,6 @@ const Gallery = forwardRef(
 		}));
 
 		const openGallery = () => {
-			console.log("hit");
 			lightGalleryRef?.current?.openGallery();
 		};
 

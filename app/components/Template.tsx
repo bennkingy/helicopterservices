@@ -14,8 +14,6 @@ type props = {
 };
 
 const Template = ({ data, children, showHanger = false }: props) => {
-	console.log(data);
-
 	return (
 		<div>
 			{!showHanger ? (

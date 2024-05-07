@@ -26,8 +26,6 @@ export async function generateMetadata({
 }: { params: { slug: string } }): Promise<Metadata> {
 	const data: training = await getData(params.slug.toLowerCase());
 
-	console.log(data);
-
 	return {
 		title: data?.seoTitle,
 		description: data?.seoDescription,

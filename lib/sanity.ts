@@ -29,7 +29,6 @@ export function urlFor(source: any) {
 //     lqip: source.metadata.lqip,
 //   };
 
-//   console.log(metadata)
   
 //   return {
 //     url,

@@ -3,6 +3,8 @@ import Template from "@/app/components/Template";
 import { client } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
+import { ComparisonTable } from "../components/ComparisonTable";
+import TextLink from "../components/TextLink";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -32,6 +34,22 @@ async function getPageData(slug: string) {
 	return data;
 }
 
+async function getHelicopterData() {
+	const query = `
+  *[_type == "fleet"] {
+		      title,
+          workType,
+					engineType,
+					capacity,
+					ifrcapable,
+					cruiseSpeed,
+					base
+      }`;
+	const data = await client.fetch(query);
+
+	return data;
+}
+
 export const metadata: Metadata = {
 	title: "Fleet - Helicopter Services",
 	description: "Helicopter Services",
@@ -41,14 +59,17 @@ export default async function FleetPage({
 	params,
 }: { params: { slug: string } }) {
 	const data: any = await getPageData("fleet");
+	const heliCopterData: any = await getHelicopterData();
 
-	console.log(data);
+	console.log(JSON.stringify(heliCopterData));
 
 	return (
 		<>
 			<Template data={data}>
 				<div className="">
 					<div className="pt-5 mb-10 md:mb-0">
+						<TextLink label="Comparison chart" className="mt-8 mb-0" />
+						<ComparisonTable data={heliCopterData} />
 						<h1 className="text-xl font-bold font-workSans mt-12 text-brand-dark-blue">
 							Twin engine
 						</h1>
