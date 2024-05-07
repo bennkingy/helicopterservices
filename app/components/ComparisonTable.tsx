@@ -323,7 +323,7 @@ export function ComparisonTable() {
 						<h3 className="font-workSans text-2xl text-brand-dark-blue p-4 font-extrabold mt-0">
 							Compare fleet helicopters
 						</h3>
-						<div className="absolute bottom-0 right-0">
+						<div className="absolute -bottom-[1px] right-0">
 							<svg
 								className="h-6 w-6 text-brand-light-blue"
 								viewBox="0 0 17 17"
