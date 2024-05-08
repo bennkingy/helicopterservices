@@ -129,6 +129,7 @@ export const columns: ColumnDef<Payment>[] = [
 	},
 	{
 		accessorFn: (row) =>
+			// @ts-ignore TODO: fix this hack
 			row.original?.workType?.charterHelicopter ? "Yes" : "No",
 		id: "charterHelicopter",
 		header: ({ column }) => (
