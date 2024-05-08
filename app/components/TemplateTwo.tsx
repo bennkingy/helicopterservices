@@ -2,6 +2,7 @@
 
 import Map from "@/app/components/Map";
 import { urlFor } from "@/lib/sanity";
+import { cn } from "@/lib/utils";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { useRef } from "react";
@@ -9,34 +10,16 @@ import type { FleetItem } from "../fleet/[slug]/page";
 import Breadcrumbs from "./Breadcrumbs";
 import { ComparisonTable } from "./ComparisonTable";
 import Gallery from "./Gallery";
+import StatusIcon from "./StatusIcon";
 import TextLink from "./TextLink";
 
 type props = {
 	data: FleetItem;
+	helicopterData?: any;
 	children?: any;
 };
 
-const TemplateTwo = ({ data, children }: props) => {
-	type StatusIconProps = {
-		status: boolean;
-	};
-
-	const StatusIcon = ({ status }: StatusIconProps) => {
-		const imageUrl = status ? "/images/Check.png" : "/images/checkTwo.svg";
-		const altText = status ? "Option selected" : "Option not selected";
-
-		return (
-			<Image
-				priority
-				src={imageUrl}
-				width={18}
-				height={18}
-				alt={altText}
-				className="m-0 p-0"
-			/>
-		);
-	};
-
+const TemplateTwo = ({ data, helicopterData, children }: props) => {
 	// Define the Helicopter interface
 	interface Helicopter {
 		type: string;
@@ -155,7 +138,11 @@ const TemplateTwo = ({ data, children }: props) => {
 							<p className="m-0 ml-3">Aerial Work Helicopter</p>
 						</div>
 					</div>
-					<div className="prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full">
+					<div
+						className={cn(
+							"prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey",
+						)}
+					>
 						<PortableText value={data?.body || ""} />
 						{data?.threedVideoUrl && (
 							<TextLink
@@ -169,7 +156,7 @@ const TemplateTwo = ({ data, children }: props) => {
 						Specifications
 					</h3>
 					<SpecificationTable helicopter={data} className="mb-6" />
-					<ComparisonTable />
+					<ComparisonTable data={helicopterData} />
 					{children}
 					{data.gallery && (
 						<Gallery className="sm:mb-10" galleryType="gallery">
@@ -256,6 +243,7 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 					)}
 					{data?.threedVideoUrl && (
 						<div
+							className="mt-10"
 							style={{
 								width: "100%",
 								clipPath:
@@ -271,28 +259,23 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 									data-src="https://www.youtube.com/embed/JOpWTNEAsX8?si=EbI2oaTH5s4boI_Y"
 									data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@therawhunter' >Massimiliano Morosinotto </a></h4><p> Location - <a href='https://unsplash.com/s/photos/tre-cime-di-lavaredo%2C-italia'>Tre Cime di Lavaredo, Italia</a>This is the Way</p>"
 								>
-									<div
+									<Image
+										width={500}
+										height={332}
+										quality={100}
+										className="img-responsive cursor-pointer"
+										src={"/images/cockpit33.png"}
+										alt=""
 										style={{
-											position: "relative",
-											width: "100%",
-											paddingBottom: "100%",
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
 										}}
-									>
-										<Image
-											priority
-											quality={100}
-											src={"/images/cockpit2.png"}
-											layout="fill"
-											objectFit="cover"
-											alt="hero image example"
-											className="cursor-pointer"
-										/>
-									</div>
+									/>
 								</a>
 							</Gallery>
 						</div>
 					)}
-					<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-8">
+					<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-10">
 						<p className="text-white font-bold font-openSans">
 							This Helicopter is based at:
 						</p>

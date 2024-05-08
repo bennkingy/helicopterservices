@@ -81,14 +81,31 @@ export async function generateMetadata({
 	};
 }
 
+async function getHelicopterData() {
+	const query = `
+  *[_type == "fleet"] {
+		      title,
+          workType,
+					engineType,
+					capacity,
+					ifrcapable,
+					cruiseSpeed,
+					base
+      }`;
+	const data = await client.fetch(query);
+
+	return data;
+}
+
 export default async function FleetItemPage({
 	params,
 }: { params: { slug: string } }) {
 	const data: FleetItem = await getPageData(params.slug.toLowerCase());
+	const helicopterData: any = await getHelicopterData();
 
 	return (
 		<>
-			<TemplateTwo data={data} />
+			<TemplateTwo data={data} helicopterData={helicopterData} />
 		</>
 	);
 }

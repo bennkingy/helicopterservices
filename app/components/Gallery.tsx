@@ -1,5 +1,6 @@
 "use client";
 
+import { Icons } from "@/components/ui/icons";
 import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-video.css";
 import "lightgallery/css/lg-zoom.css";
@@ -42,11 +43,11 @@ const Gallery = forwardRef(
 					<Image
 						priority
 						src={"/images/3d-icon.png"}
-						width={150}
-						height={150}
+						width={140}
+						height={140}
 						alt="hero image example"
 						onClick={openGallery}
-						className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer pointer-events-none z-[1] group-hover:opacity-80"
+						className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer pointer-events-none z-[1] group-hover:opacity-80 -mt-[17px]"
 					/>
 				)}
 				<LightGallery
@@ -75,21 +76,12 @@ const Gallery = forwardRef(
 				>
 					{children}
 				</LightGallery>
-				<div className="flex mt-4 cursor-pointer items-center">
+				<div className="flex mt-4 cursor-pointer items-center text-brand-light-blue transition-colors hover:text-foreground">
 					<div>
-						<Image
-							src="/images/maximize.png"
-							alt="arrow"
-							width={11}
-							height={11}
-							className=""
-						/>
+						<Icons.max height={11} width={11} className="ml-2" />
 					</div>
 					{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-					<p
-						className="ml-2 text-brand-light-blue text-sm"
-						onClick={openGallery}
-					>
+					<p className="ml-2 text-sm " onClick={openGallery}>
 						{galleryType === "gallery" || galleryType === "gallery-single"
 							? "Enlarge and view"
 							: "3D view"}

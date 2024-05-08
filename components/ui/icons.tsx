@@ -2,6 +2,7 @@ import {
 	CircleArrowRight,
 	LogOut,
 	LucideProps,
+	Maximize2,
 	Moon,
 	MoveUp,
 	PlaneTakeoff,
@@ -18,6 +19,7 @@ export const Icons = {
 	circleArrowRight: CircleArrowRight,
 	// squareArrowUp: SquareArrowUp,
 	moveUp: MoveUp,
+	max: Maximize2,
 	github: (props: LucideProps) => (
 		<svg viewBox="0 0 438.549 438.549" {...props}>
 			<path

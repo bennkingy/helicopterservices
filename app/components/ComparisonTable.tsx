@@ -56,24 +56,11 @@ export const columns: ColumnDef<Payment>[] = [
 				// @ts-ignore
 				href={`/fleet/${row.getValue("title").toLowerCase()}`}
 				passHref
-				className="lowercase text-brand-light-blue underline-offset-2 underline"
+				className="text-brand-light-blue underline-offset-2 underline uppercase"
 			>
 				{row.getValue("title")}
 			</Link>
 		),
-	},
-	{
-		accessorKey: "base",
-		header: ({ column }) => (
-			<Button
-				variant="ghost"
-				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-			>
-				Base
-				<ArrowUpDown className="ml-2 h-4 w-4" />
-			</Button>
-		),
-		cell: ({ row }) => <div>{row.getValue("base")}</div>,
 	},
 	{
 		accessorKey: "engineType",
@@ -128,7 +115,21 @@ export const columns: ColumnDef<Payment>[] = [
 		cell: ({ row }) => <div>{`${row.getValue("cruiseSpeed")}kts`}</div>,
 	},
 	{
-		accessorFn: (row) => (row.workType.charterHelicopter ? "Yes" : "No"),
+		accessorKey: "base",
+		header: ({ column }) => (
+			<Button
+				variant="ghost"
+				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+			>
+				Base
+				<ArrowUpDown className="ml-2 h-4 w-4" />
+			</Button>
+		),
+		cell: ({ row }) => <div>{row.getValue("base")}</div>,
+	},
+	{
+		accessorFn: (row) =>
+			row.original?.workType?.charterHelicopter ? "Yes" : "No",
 		id: "charterHelicopter",
 		header: ({ column }) => (
 			<Button
@@ -140,7 +141,13 @@ export const columns: ColumnDef<Payment>[] = [
 			</Button>
 		),
 		cell: ({ row }) => (
-			<StatusIcon status={row.getValue("charterHelicopter")} />
+			<>
+				{/* // @ts-ignore */}
+				<StatusIcon
+					status={row.original?.workType?.charterHelicopter}
+					className="mx-auto"
+				/>
+			</>
 		),
 	},
 	{
@@ -151,13 +158,16 @@ export const columns: ColumnDef<Payment>[] = [
 				variant="ghost"
 				onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
 			>
-				Aerial Work
+				Aerial
 				<ArrowUpDown className="ml-2 h-4 w-4" />
 			</Button>
 		),
 		cell: ({ row }) => (
 			<div>
-				<StatusIcon status={row.getValue("aerialWorkHelicopter")} />
+				<StatusIcon
+					status={row.original?.workType?.aerialWorkHelicopter}
+					className="mx-auto"
+				/>
 			</div>
 		),
 	},
@@ -173,7 +183,12 @@ export const columns: ColumnDef<Payment>[] = [
 				<ArrowUpDown className="ml-2 h-4 w-4" />
 			</Button>
 		),
-		cell: ({ row }) => <div>{row.getValue("trainingHelicopter")}</div>,
+		cell: ({ row }) => (
+			<StatusIcon
+				status={row.original?.workType?.trainingHelicopter}
+				className="mx-auto"
+			/>
+		),
 	},
 ];
 

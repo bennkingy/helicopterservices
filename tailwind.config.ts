@@ -41,7 +41,7 @@ const config = {
 					"dark-blue": "#102039",
 					"light-grey": "#ECF3F5",
 					"medium-grey": "#E2EEF7",
-					"dark-grey": "#1A1A1A",
+					"dark-grey": "#1B1B1B",
 				},
 				primary: {
 					DEFAULT: "hsl(var(--primary))",

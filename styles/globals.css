@@ -92,7 +92,7 @@
     aspect-ratio: 1 / 1; /* Ensures the images are square */
   }
 
-  .gallery-single img {
+  .gallery-single img, .lg-react-element.video img {
     width: 100%; /* Makes each image take up the full width of its cell */
     height: auto; /* Keeps the aspect ratio intact */
     aspect-ratio: 1 / 0; /* Ensures the images are square */

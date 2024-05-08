@@ -70,7 +70,7 @@ const Reviews = ({ className }: props) => {
 					className="mb-16"
 					titleStyles="text-3xl sm:text-4xl"
 				/>
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-10">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 					{displayedReviews.map((review, index) => (
 						<div className="text-white drop-shadow-brand" key={index}>
 							<div
@@ -80,8 +80,8 @@ const Reviews = ({ className }: props) => {
 								}}
 								className="p-0"
 							>
-								<div className="md:max-w-sm mx-auto border-l-4 border-brand-light-blue bg-white p-4">
-									<div className="ml-4 brand-shadow flex pt-2">
+								<div className="md:max-w-sm mx-auto border-l-4 border-brand-light-blue bg-white p-4 pb-7">
+									<div className="ml-4 brand-shadow flex pt-5">
 										<div
 											className="w-[80px] h-[80px] overflow-hidden mr-5"
 											style={{
@@ -99,13 +99,6 @@ const Reviews = ({ className }: props) => {
 											/>
 										</div>
 										<div className="flex-1 pr-6 justify-center flex flex-col">
-											{/* <Image
-                        src="/images/quotes.svg"
-                        alt="Helicopter Services"
-                        width={19}
-                        height={10}
-                        className='ml-auto'
-                      /> */}
 											<div className="text-md font-bold text-brand-dark-grey ">
 												{review.name}
 											</div>
@@ -122,7 +115,7 @@ const Reviews = ({ className }: props) => {
 											</div>
 										</div>
 									</div>
-									<p className="text-brand-dark-grey p-4 line-clamp-4 pb-0 mb-1">
+									<p className="text-brand-dark-grey mt-2 p-4 line-clamp-4 pb-0 mb-1">
 										<span className="text-lg">“</span>
 										{review?.description}
 										<span className="text-lg">”</span>
