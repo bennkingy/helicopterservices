@@ -66,6 +66,7 @@ export default async function FleetPage({
 				<div className="">
 					<div className="pt-5 mb-10 md:mb-0">
 						<ComparisonTable
+							// @ts-ignore
 							data={heliCopterData.filter((page) => page.title !== "Fleet")}
 						/>
 						<h1 className="text-xl font-bold font-workSans mt-12 text-brand-dark-blue">
