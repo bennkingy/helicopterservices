@@ -25,160 +25,8 @@ import { ArrowUpDown } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
 import Modal from "./Modal";
+import StatusIcon from "./StatusIcon";
 import TextLink from "./TextLink";
-
-const data2 = [
-	{
-		title: "AB206",
-		workType: {
-			charterHelicopter: false,
-			aerialWorkHelicopter: false,
-			trainingHelicopter: true,
-		},
-		engineType: "Single",
-		capacity: 5,
-		ifrcapable: null,
-		cruiseSpeed: 109,
-		base: "White Waltham",
-	},
-	{
-		engineType: "Single",
-		capacity: 7,
-		ifrcapable: null,
-		cruiseSpeed: 122,
-		base: "White Waltham",
-		title: "AS350",
-		workType: {
-			aerialWorkHelicopter: false,
-			trainingHelicopter: true,
-			charterHelicopter: false,
-		},
-	},
-	{
-		base: "Bicester",
-		title: "AW109",
-		workType: {
-			aerialWorkHelicopter: false,
-			trainingHelicopter: true,
-			charterHelicopter: true,
-		},
-		engineType: "Twin",
-		capacity: 5,
-		ifrcapable: true,
-		cruiseSpeed: 139,
-	},
-	{
-		title: "EC135",
-		workType: {
-			aerialWorkHelicopter: false,
-			trainingHelicopter: false,
-			charterHelicopter: true,
-		},
-		engineType: "Twin",
-		capacity: 7,
-		ifrcapable: true,
-		cruiseSpeed: 140,
-		base: "Wycombe",
-	},
-	{
-		capacity: 6,
-		ifrcapable: true,
-		cruiseSpeed: 120,
-		base: "White Waltham",
-		title: "AS355",
-		workType: {
-			charterHelicopter: true,
-			aerialWorkHelicopter: true,
-			trainingHelicopter: true,
-		},
-		engineType: "Twin",
-	},
-	{
-		title: "B206L",
-		workType: {
-			trainingHelicopter: true,
-			charterHelicopter: true,
-			aerialWorkHelicopter: false,
-		},
-		engineType: "Single",
-		capacity: 6,
-		ifrcapable: null,
-		cruiseSpeed: 110,
-		base: "Leeds",
-	},
-	{
-		title: "R66",
-		workType: {
-			aerialWorkHelicopter: false,
-			trainingHelicopter: true,
-			charterHelicopter: false,
-		},
-		engineType: "Single",
-		capacity: 5,
-		ifrcapable: null,
-		cruiseSpeed: 110,
-		base: "White Waltham",
-	},
-	{
-		title: "R22",
-		workType: { aerialWorkHelicopter: false, trainingHelicopter: true },
-		engineType: "Single",
-		capacity: 2,
-		ifrcapable: null,
-		cruiseSpeed: 75,
-		base: "White Waltham",
-	},
-	{
-		base: "White Waltham",
-		title: "R44",
-		workType: {
-			charterHelicopter: true,
-			aerialWorkHelicopter: true,
-			trainingHelicopter: true,
-		},
-		engineType: "Single",
-		capacity: 2,
-		ifrcapable: null,
-		cruiseSpeed: 100,
-	},
-	{
-		base: "White Waltham",
-		title: "A109",
-		workType: {
-			aerialWorkHelicopter: true,
-			trainingHelicopter: true,
-			charterHelicopter: true,
-		},
-		engineType: "Twin",
-		capacity: 7,
-		ifrcapable: true,
-		cruiseSpeed: 136,
-	},
-	{
-		cruiseSpeed: 90,
-		base: "White Waltham \t",
-		title: "Cabri G2",
-		workType: {
-			charterHelicopter: false,
-			aerialWorkHelicopter: false,
-			trainingHelicopter: true,
-		},
-		engineType: "Single",
-		capacity: 2,
-		ifrcapable: null,
-	},
-];
-
-const data: Payment[] = data2.map((item, index) => ({
-	id: `generated_${index}`, // Assuming we generate an ID for each entry
-	title: item.title,
-	engineType: item.engineType,
-	capacity: item.capacity,
-	ifrcapable: item.ifrcapable,
-	cruiseSpeed: item.cruiseSpeed,
-	base: item.base,
-	workType: item.workType,
-}));
 
 export type Payment = {
 	id: string;
@@ -291,7 +139,9 @@ export const columns: ColumnDef<Payment>[] = [
 				<ArrowUpDown className="ml-2 h-4 w-4" />
 			</Button>
 		),
-		cell: ({ row }) => <div>{row.getValue("charterHelicopter")}</div>,
+		cell: ({ row }) => (
+			<StatusIcon status={row.getValue("charterHelicopter")} />
+		),
 	},
 	{
 		accessorFn: (row) => (row.workType.aerialWorkHelicopter ? "Yes" : "No"),
@@ -305,7 +155,11 @@ export const columns: ColumnDef<Payment>[] = [
 				<ArrowUpDown className="ml-2 h-4 w-4" />
 			</Button>
 		),
-		cell: ({ row }) => <div>{row.getValue("aerialWorkHelicopter")}</div>,
+		cell: ({ row }) => (
+			<div>
+				<StatusIcon status={row.getValue("aerialWorkHelicopter")} />
+			</div>
+		),
 	},
 	{
 		accessorFn: (row) => (row.workType.trainingHelicopter ? "Yes" : "No"),
@@ -323,7 +177,11 @@ export const columns: ColumnDef<Payment>[] = [
 	},
 ];
 
-export function ComparisonTable() {
+interface ComparisonTableProps {
+	data: any;
+}
+
+export function ComparisonTable({ data }: ComparisonTableProps) {
 	const [modalOpen, setModalOpen] = React.useState(false);
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -409,7 +267,7 @@ export function ComparisonTable() {
 											{row.getVisibleCells().map((cell) => (
 												<TableCell
 													key={cell.id}
-													className="p-3 sm:p-4 text-center"
+													className="p-3 py-2 text-center"
 												>
 													{flexRender(
 														cell.column.columnDef.cell,
