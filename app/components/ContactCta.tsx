@@ -19,7 +19,7 @@ const ContactCta = ({ className }: props) => {
 				/>
 			</div>
 			<div className=" text-white relative z-1 overflow-x-hidden pb-9">
-				<h5 className="font-bold mb-4 pl-5 mt-0 pr-32 font-openSans text-lg">
+				<h5 className="font-bold mb-4 pl-5 mt-0 pr-32 sm:text-lg font-openSans">
 					“Contact us today for a customised quote tailored to your needs”
 				</h5>
 				<p className="pl-5 font-openSans">
