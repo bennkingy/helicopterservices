@@ -49,7 +49,7 @@ export default function Navbar() {
 				<div
 					className={cn("container flex items-center justify-between", "px-4")}
 				>
-					<Link href="/" className="font-mono text-lg font-bold start">
+					<Link href="/" className="font-mono text-lg font-bold start" data-testId="logo">
 						<Image
 							src={logo}
 							alt="Helicopter Services"
