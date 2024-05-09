@@ -64,13 +64,17 @@ const Gallery = forwardRef(
 					youTubePlayerParams={{
 						autoplay: 1,
 						mute: 1,
+						controls: 1,
+						showinfo: 0,
+						rel: 0,
+						loop: 1,
 					}}
 					addClass="lightbox-gallery"
 					elementClassNames={galleryType}
 					mobileSettings={{
-						controls: false,
-						showCloseIcon: false,
-						download: false,
+						controls: true,
+						showCloseIcon: true,
+						download: true,
 						rotate: false,
 					}}
 				>

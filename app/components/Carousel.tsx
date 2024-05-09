@@ -52,18 +52,20 @@ const Carousel = ({ slides }: props) => {
 				loop: true,
 			}}
 		>
-			<CarouselContent className="-ml-2 md:-ml-4">
+			<CarouselContent className="">
 				{slides.map((item, index) => (
 					<CarouselItem
 						key={index + 1}
-						className="md:basis-1/2 lg:basis-1/3 text-center px-5 sm:px-16"
+						className={
+							"md:basis-1/2 lg:basis-1/3 m-0 px-10 md:px-16 text-center"
+						}
 					>
 						{/* <FramerAnimationBlurIn delay={0.15}> */}
 						<Image
 							src={item.img}
-							width={400}
+							width={370}
 							quality={100}
-							height={400}
+							height={370}
 							alt={item.title}
 							priority
 							className="my-8 rounded-full mx-auto"
