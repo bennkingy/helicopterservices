@@ -41,8 +41,10 @@ test("Verifying Enquiry Form components", async ({ page }) => {
 	await expect(page.getByTestId("enquiryTitle")).toHaveText(enquiryTitleContent);
 	// Testing the Email field
 	await expect(page.getByTestId("emailLabel")).toHaveText(emailFieldLabel);
+
 	const emailPLaceholder = await page.getByTestId("emailField");
 	const emailPlaceholderText = await emailPLaceholder.getAttribute("placeholder");
+	console.log(emailPlaceholderText);
 	await expect(emailPlaceholderText).toBe(emailFieldText);
 	await page.getByTestId("emailField").fill(email);
 	// Testing the Name field
