@@ -287,8 +287,8 @@ export function ComparisonTable({ data }: ComparisonTableProps) {
 											{row.getVisibleCells().map((cell) => (
 												<TableCell
 													key={cell.id}
-													className="p-3 py-2 text-center text-brand-dark-grey"
-													style={{ height: 57 }}
+													className="p-0 text-center text-brand-dark-grey"
+													style={{ height: 50 }}
 												>
 													{flexRender(
 														cell.column.columnDef.cell,
