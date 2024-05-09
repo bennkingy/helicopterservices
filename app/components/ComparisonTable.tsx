@@ -260,7 +260,10 @@ export function ComparisonTable({ data }: ComparisonTableProps) {
 									<TableRow key={headerGroup.id}>
 										{headerGroup.headers.map((header) => {
 											return (
-												<TableHead key={header.id}>
+												<TableHead
+													key={header.id}
+													className="text-brand-dark-grey"
+												>
 													{header.isPlaceholder
 														? null
 														: flexRender(
@@ -278,12 +281,14 @@ export function ComparisonTable({ data }: ComparisonTableProps) {
 									table.getRowModel().rows.map((row) => (
 										<TableRow
 											key={row.id}
+											className="border-b border-gray-200 hover:bg-gray-100 transition-colors duration-200"
 											data-state={row.getIsSelected() && "selected"}
 										>
 											{row.getVisibleCells().map((cell) => (
 												<TableCell
 													key={cell.id}
-													className="p-3 py-2 text-center"
+													className="p-3 py-2 text-center text-brand-dark-grey"
+													style={{ height: 57 }}
 												>
 													{flexRender(
 														cell.column.columnDef.cell,

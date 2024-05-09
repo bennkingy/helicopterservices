@@ -19,17 +19,17 @@ const ContactCta = ({ className }: props) => {
 				/>
 			</div>
 			<div className=" text-white relative z-1 overflow-x-hidden pb-9">
-				<h5 className="font-bold mb-4 pl-5 mt-0 pr-32">
+				<h5 className="font-bold mb-4 pl-5 mt-0 pr-32 font-openSans text-lg">
 					“Contact us today for a customised quote tailored to your needs”
 				</h5>
-				<p className="pl-5">
+				<p className="pl-5 font-openSans">
 					Captain Ruth Downey,
 					<br />
 					<span className="text-brand-light-blue">
 						Accountable Manager/Examiner
 					</span>
 				</p>
-				<table className={`table-fixed mt-5 ml-5 w-full`}>
+				<table className={`table-fixed mt-5 ml-5 w-full font-openSans`}>
 					<tbody>
 						<tr>
 							<td>Monday</td> <td>08:30 - 17:30</td>
