@@ -14,8 +14,6 @@ type props = {
 };
 
 const Template = ({ data, children, showHanger = false }: props) => {
-	console.log(data);
-
 	return (
 		<div>
 			{!showHanger ? (
@@ -31,7 +29,7 @@ const Template = ({ data, children, showHanger = false }: props) => {
 					)}
 					<main className="container mx-auto px-4 grid pt-16 sm:py-16 grid-cols-1 md:grid-cols-3">
 						<div className="pr-0 md:pr-20 mb-10 sm:mb-0 col-span-2">
-							<div className="prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full">
+							<div className="prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey">
 								<PortableText value={data?.body || ""} />
 							</div>
 							{children}
@@ -95,9 +93,9 @@ const Template = ({ data, children, showHanger = false }: props) => {
 							)}
 						</div>
 						<div>
-							<ContactCta />
-							<GetinTouchSmall className="mt-10 md:mt-3" />
-							<Map className="mb-20 sm:mb-0 mt-10 md:mt-3" />
+							<ContactCta className="hidden md:block" />
+							<GetinTouchSmall className="mt-10 md:mt-8 hidden md:block" />
+							<Map className="mb-20 mt-7 sm:mb-0 md:mt-8" />
 						</div>
 					</main>
 				</>

@@ -234,7 +234,7 @@ export default async function Home() {
 				</div>
 			</div>
 			<div className="pb-20 pt-20 bg-brand-light-grey">
-				<div className="container">
+				<div className="sm:container">
 					<Heading
 						title="For gifts, swift transfers and private charters."
 						tag="Flights"

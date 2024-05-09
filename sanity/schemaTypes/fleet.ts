@@ -30,6 +30,13 @@ export default defineType({
 			type: "hero",
 		}),
 		defineField({
+			name: "service",
+			title: "Helicopters",
+			type: "array",
+			of: [{ type: "service" }],
+			hidden: ({ document }) => document?.isLandingPage !== true,
+		}),
+		defineField({
 			name: "workType",
 			title: "Work Type",
 			type: "object",
@@ -127,11 +134,13 @@ export default defineType({
 			title: "title",
 			heroImage: "hero.image",
 			mainImage: "mainImage",
+			gallerySingle: "gallerySingle",
 		},
 		prepare(selection) {
 			return {
 				title: selection.title,
-				media: selection.heroImage || selection.mainImage,
+				media:
+					selection.heroImage || selection.mainImage || selection.gallerySingle,
 			};
 		},
 	},

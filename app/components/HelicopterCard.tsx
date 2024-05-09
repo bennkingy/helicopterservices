@@ -5,8 +5,7 @@ import { getPlaiceholder } from "plaiceholder";
 
 const HelicopterCard = async ({ helicopter }: any) => {
 	const imageUrl =
-		helicopter?.mainImage &&
-		urlFor(helicopter?.mainImage).width(240).height(140).url();
+		helicopter?.image && urlFor(helicopter?.image).width(240).height(140).url();
 
 	const src = imageUrl;
 
@@ -22,12 +21,12 @@ const HelicopterCard = async ({ helicopter }: any) => {
 				<CardContent className="p-0 flex justify-between relative bg-white shadow-brand rounded-none border-0 border-b-4 border-brand-light-blue hover:shadow-brand-hover">
 					<div className="flex flex-col flex-wrap justify-center pl-3 sm:pl-4">
 						<p className="text-sm font-workSans text-brand-dark-grey">Type</p>
-						<h3 className="text-xl font-bold font-workSans">
-							{helicopter?.model}
+						<h3 className="text-xl font-bold font-workSans text-brand-dark-blue">
+							{helicopter?.heading}
 						</h3>
 					</div>
 					<div className="h-[90px] w-[120px] relative overflow-hidden">
-						{helicopter?.mainImage && (
+						{helicopter?.image && (
 							<Image
 								fill
 								src={src || ""}

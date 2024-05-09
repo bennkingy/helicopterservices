@@ -15,13 +15,15 @@ export type FleetItem = {
 		aerialWorkHelicopter: boolean;
 	};
 	body: any; // You can specify a more detailed type if your body has a specific structure
-	mainImage: {
-		asset: {
-			_ref: string;
-			_type: string;
-		};
-		alt?: string; // Assuming there could be an 'alt' text for the image
-	};
+	hero: any;
+	threedVideoUrl: string;
+	gallery?: any;
+	gallerySingle?: any;
+	engineType: string;
+	capacity: number;
+	ifrcapable: boolean;
+	cruiseSpeed: number;
+	base: string;
 };
 
 async function getPageData(slug: string) {
@@ -46,7 +48,16 @@ async function getPageData(slug: string) {
             }
           },
 					threedVideoUrl,
-					gallerySingle,
+					"gallerySingle": gallerySingle.asset->{
+            _id,
+            url,
+            metadata {
+                dimensions {
+                    width,
+                    height
+                }
+            }
+       		},
 					gallery,
 					engineType,
 					capacity,
@@ -70,14 +81,31 @@ export async function generateMetadata({
 	};
 }
 
+async function getHelicopterData() {
+	const query = `
+  *[_type == "fleet"] {
+		      title,
+          workType,
+					engineType,
+					capacity,
+					ifrcapable,
+					cruiseSpeed,
+					base
+      }`;
+	const data = await client.fetch(query);
+
+	return data;
+}
+
 export default async function FleetItemPage({
 	params,
 }: { params: { slug: string } }) {
 	const data: FleetItem = await getPageData(params.slug.toLowerCase());
+	const helicopterData: any = await getHelicopterData();
 
 	return (
 		<>
-			<TemplateTwo data={data} />
+			<TemplateTwo data={data} helicopterData={helicopterData} />
 		</>
 	);
 }
