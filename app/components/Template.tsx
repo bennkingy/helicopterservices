@@ -14,6 +14,7 @@ type props = {
 };
 
 const Template = ({ data, children, showHanger = false }: props) => {
+	console.log(data?.gallery);
 	return (
 		<div>
 			{!showHanger ? (
@@ -33,21 +34,25 @@ const Template = ({ data, children, showHanger = false }: props) => {
 								<PortableText value={data?.body || ""} />
 							</div>
 							{children}
-							{data?.gallery?.images.length > 0 && (
+							{data?.gallery?.length > 0 && (
 								<Gallery galleryType={"gallery"} className="mt-10">
-									{data?.gallery?.images?.map((item: any, index: number) => {
-										const image = urlFor(item).url();
+									{data?.gallery?.map((item: any, index: number) => {
+										const image = urlFor(item.imageUrl).url();
 										if (!image) return null;
+
+										const regex = new RegExp(/\.[^/.]+$/);
 
 										return (
 											<a
 												key={index}
-												data-lg-size="542-305"
+												data-lg-size={`${item.width}-${item.height}`}
 												data-pinterest-text="Pin it"
-												data-tweet-text="lightGallery slide 1"
-												className="gallery__item"
+												data-tweet-text="Helicopter Services"
 												data-src={image}
-												data-sub-html="<h4>Photo by - <a href='test' >Test </a></h4><p> Test</p>"
+												data-sub-html={`<h4>Helicopter Services</h4><p>${item?.fileName.replace(
+													regex,
+													"",
+												)}</p>`}
 											>
 												<Image
 													width={400}

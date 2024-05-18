@@ -80,8 +80,11 @@ export default defineType({
 			mainImage: "mainImage",
 		},
 		// @ts-ignore
-		prepare(selection, heroImage, mainImage) {
-			return { title: selection.title, media: heroImage || mainImage };
+		prepare(selection) {
+			return {
+				title: selection.title,
+				media: selection.heroImage || selection.mainImage,
+			};
 		},
 	},
 });

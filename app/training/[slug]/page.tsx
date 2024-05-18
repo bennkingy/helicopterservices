@@ -1,5 +1,5 @@
 import Template from "@/app/components/Template";
-import { training } from "@/lib/interface";
+import type { training } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
 export const revalidate = 30; // revalidate at most 30 seconds
@@ -13,8 +13,13 @@ async function getData(slug: string) {
           seoDescription,
           body,
           mainImage,
-          gallery,
-          gallerySingle
+				  "gallery": gallery.images[]{
+						"imageUrl": asset->url,
+						"height": asset->metadata.dimensions.height,
+						"width": asset->metadata.dimensions.width,
+						"fileName": asset->originalFilename
+					},
+          gallerySingle,
       }[0]`;
 	const data = await client.fetch(query);
 
