@@ -104,6 +104,6 @@
   }
 
 /* hack to fix the headroom issue */
-  .headroom-wrapper {
+  /* .headroom-wrapper {
     height: auto !important;
-  }
+  } */
