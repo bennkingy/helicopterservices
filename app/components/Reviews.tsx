@@ -3,6 +3,7 @@
 import { Icons } from "@/components/ui/icons";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import Image from "next/image";
+import Link from "next/link";
 import Heading from "../components/Heading";
 
 const reviews: any[] = [
@@ -11,14 +12,7 @@ const reviews: any[] = [
 		name: "Alex",
 		service: "",
 		description:
-			"Brilliant brilliant brilliant Leon who owns the company was so helpful and such a gent,not rushed or money grabbing at all, If you ever get the chance to try this I won’t use any other company !!! I booked a flight over London amazing !!!!",
-	},
-	{
-		img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/50/21/8d/a3303xqpaulh.jpg",
-		name: "Paul H",
-		service: "",
-		description:
-			"We hit it at a quiet time and got a winner around the countryside then followed the Thames to the centre of London. West Minster, St Paul's, the shard and more. Best value for money anywhere on this trip. We loved it. We are so lucky.",
+			"Brilliant brilliant brilliant Leon who owns the company was so helpful and such a gent, not rushed or money grabbing at all, If you ever get the chance to try this I won’t use any other company !!! I booked a flight over London amazing !!!!",
 	},
 	{
 		img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f2/7a/default-avatar-2020-25.jpg",
@@ -39,14 +33,21 @@ const reviews: any[] = [
 		name: "Kanwar Tavy",
 		service: "",
 		description:
-			"A nice add-on to a trip to Windsor castle. Closeby - great helicopter rides especially on a clear sunny day - great fun flying low in a small copter and seeing the area.",
+			"A nice add-on to a trip to Windsor castle. Great helicopter rides especially on a clear sunny day - great fun flying low in a small copter and seeing the area.",
 	},
 	{
 		img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-f/01/2e/70/64/avatar042.jpg",
 		name: "Mahendra S",
 		service: "",
 		description:
-			"To find sub a busy airfield at the back of high Wycombe is quite surprising. I booked for a 45 min tour of the chilterns. Never been on a helicopter but it was smooth and comfortable. Our pilot was very nice and showed us the sites. On a beautiful sunny day, we could see the skyscrapers of London. All in all, highly enjoyable.",
+			"I booked for a 45 min tour of the chilterns. Never been on a helicopter but it was smooth and comfortable. Our pilot was very nice and showed us the sites. On a beautiful sunny day, we could see the skyscrapers of London. All in all, highly enjoyable.",
+	},
+	{
+		img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/50/21/8d/a3303xqpaulh.jpg",
+		name: "Paul H",
+		service: "",
+		description:
+			"We hit it at a quiet time and got a winner around the countryside then followed the Thames to the centre of London. West Minster, St Paul's, the shard and more. Best value for money anywhere on this trip. We loved it. We are so lucky.",
 	},
 ];
 
@@ -125,6 +126,20 @@ const Reviews = ({ className }: props) => {
 						</div>
 					))}
 				</div>
+				<Link
+					target="_blank"
+					className="flex mt-10 text-center w-full text-brand-light-blue justify-center items-center group hover:underline underline-offset-2"
+					passHref
+					href="https://www.tripadvisor.co.uk/Attraction_Review-g315927-d7108370-Reviews-Helicopter_Services_Limited-Marlow_Buckinghamshire_England.html"
+				>
+					Read more{"  "}
+					<Image
+						src="/images/tripadvisor.svg"
+						width={200}
+						height={50}
+						className="pl-2"
+					/>
+				</Link>
 			</div>
 		</div>
 	);

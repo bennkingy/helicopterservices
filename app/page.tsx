@@ -11,37 +11,35 @@ import Reviews from "./components/Reviews";
 export default async function Home() {
 	const items: carouselItem[] = [
 		{
-			img: "/images/circle-heli.png",
-			title: "Airport Transfer",
+			img: "/images/Trial lessons.png",
+			title: "Trail lessons",
+			description: "Discover the fun and manoeuvrability of a helicopter!",
+			link: "/flights/trail-lessons",
+		},
+		{
+			img: "/images/Local area tours.png",
+			title: "Local area tours",
+			description: "Experience the UK from the air with our local area tours.",
+			link: "/flights/local-area-tours",
+		},
+		{
+			img: "/images/london millennium dome.png",
+			title: "Helicopter Charter",
+			description: "Transporting VIPs to special events for over 20 years.",
+			link: "/flights/helicopter-charter",
+		},
+		{
+			img: "/images/Virtual reality simulator.png",
+			title: "Virtual Reality Sim",
 			description:
-				"We offer training from Private Pilots license to Commercial, instruments, instructor and examiner ratings.",
-			link: "/#",
+				"An incredibly realistic experience allowing for all flight profiles.",
+			link: "/training/virtual-reality-simulator",
 		},
 		{
-			img: "/images/circle-heli.png",
-			title: "City Tours",
-			description:
-				"Explore the city's top attractions with our experienced guides.",
-			link: "/tours",
-		},
-		{
-			img: "/images/circle-heli.png",
-			title: "Hotel Services",
-			description: "Enjoy our world-class accommodations and hospitality.",
-			link: "/hotels",
-		},
-		{
-			img: "/images/circle-heli.png",
-			title: "Dining Experiences",
-			description: "Taste the best local and international cuisines.",
-			link: "/dining",
-		},
-		{
-			img: "/images/circle-heli.png",
-			title: "Adventure Sports",
-			description:
-				"Get your adrenaline pumping with our adventure sports packages.",
-			link: "/adventures",
+			img: "/images/private-pilot-licence.png",
+			title: "Private pilot license",
+			description: "Fly helicopters privately with a private pilot license.",
+			link: "/training/private-pilot-licence",
 		},
 	];
 
@@ -71,7 +69,7 @@ export default async function Home() {
 							/>,
 							<Image
 								quality={100}
-								src="/images/grandad.png"
+								src="/images/helciopter-caves.jpg"
 								alt="Helicopter Services"
 								width={240}
 								height={240}
@@ -183,7 +181,7 @@ export default async function Home() {
 							className="mb-8"
 							titleStyles="text-3xl sm:text-4xl text-white"
 						/>
-						<p className="font-openSans text-white">{`Our highly experienced instructors and examiners are among the UK's most senior. We provide type ratings for over 17 helicopter types, along with Flight Instructor Refresher and Instrument Rating Examiner courses.`}</p>
+						<p className="font-openSans text-white">{`Our highly experienced instructors and examiners are among the UK's most senior. We provide type ratings for over 11 helicopter types, along with Flight Instructor Refresher and Instrument Rating Examiner courses.`}</p>
 						<p className="font-openSans mt-5 text-white">
 							Additionally, we offer a helicopter flight simulator for safe
 							instrument flying skill development and an advanced program to

@@ -1,4 +1,6 @@
+import { Icons } from "@/components/ui/icons";
 import Image from "next/image";
+import Link from "next/link";
 
 type props = {
 	className?: string;
@@ -6,8 +8,8 @@ type props = {
 
 const ContactCta = ({ className }: props) => {
 	return (
-		<div className={`text-white bg-brand-medium-blue h-fit ${className}`}>
-			<div className="bg-brand-medium-blue py-5 text-white p-10 relative">
+		<div className={`text-white bg-brand-dark-blue h-fit ${className}`}>
+			<div className="bg-brand-dark-blue py-5 text-white p-10 relative">
 				<Image
 					quality={100}
 					src={"/images/ruth2.jpg"}
@@ -54,6 +56,15 @@ const ContactCta = ({ className }: props) => {
 						</tr>
 					</tbody>
 				</table>
+				<div className="flex items-center mt-5 ml-5 group hover:underline underline-offset-2">
+					<Icons.phone className="text-brand-light-blue" height={50} />
+					<Link
+						href="tel:07497497583"
+						className="ml-4 font-openSans text-2xl font-bold"
+					>
+						+44 1494 513 166
+					</Link>
+				</div>
 			</div>
 		</div>
 	);

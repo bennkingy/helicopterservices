@@ -70,13 +70,13 @@ const Carousel = ({ slides }: props) => {
 							priority
 							className="my-8 rounded-full mx-auto"
 						/>
-						<h5 className="font-bold mb-3 text-lgfont-openSans">
+						<h5 className="font-bold mb-3 text-lg font-openSans">
 							{item.title}
 						</h5>
 						<p className="mb-3 font-openSans">{item.description}</p>
 						<Link
 							href={item.link}
-							className="text-lg font-bold text-brand-light-blue font-openSans"
+							className="text-base font-bold text-brand-light-blue font-openSans"
 						>
 							Discover more
 						</Link>
