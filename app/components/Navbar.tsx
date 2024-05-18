@@ -1,5 +1,6 @@
 "use client";
 
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,19 +14,26 @@ import { NavMenu } from "./NavMenu";
 export default function Navbar() {
 	const [isPinned, setIsPinned] = useState(false);
 	const path = usePathname();
+	const isSmallMobile = useMediaQuery("(max-width: 350px)");
+	const isMobile = useMediaQuery("(max-width: 639px)");
 
 	return (
 		<Headroom
 			downTolerance={10}
-			className="absolute w-full z-50"
 			onPin={() => setIsPinned(true)}
 			upTolerance={0}
 			onUnfix={() => setIsPinned(false)}
-			calcHeightOnResize={true}
+			style={{ zIndex: 5 }}
+			disable={isMobile}
 		>
 			{path !== "/" && path !== "/about-us" && !isPinned ? (
-				<div className="topbar h-[40px] w-full bg-brand-dark-blue flex justify-center align-center items-center">
-					<div className="relative h-[14px] sm:h-[24px] w-[14px] sm:w-[24px]">
+				<div
+					className={cn(
+						"topbar w-full bg-brand-dark-blue flex justify-center align-center items-center transition-all duration-500 ease-in-out",
+						!isPinned ? "h-[40px]" : "h-0",
+					)}
+				>
+					<div className="relative h-[14px] sm:h-[24px] w-[14px] sm:w-[24px] min-w-[14px] min-h-[14px]">
 						<Image
 							priority
 							fill
@@ -34,22 +42,29 @@ export default function Navbar() {
 							className="w-full object-cover"
 						/>
 					</div>
-					<p className="ml-2 text-white text-center font-workSans text-xs sm:text-base">
-						A leading UK CAA and EASA approved Training Organisation
+					<p className="ml-1 sm:ml-2 text-white text-center font-workSans text-xs sm:text-base">
+						{isSmallMobile
+							? "UK CAA & EASA approved Training Organisation"
+							: "A leading UK CAA and EASA approved Training Organisation"}
 					</p>
 				</div>
 			) : null}
 			<header
 				className={cn(
 					"w-full transition-all duration-300 ease-in-out shadow-md",
-					isPinned ? "h-[65px] sm:h-[80px]" : "h-[65px] sm:h-[115px]",
+					// isPinned ? "h-[65px] sm:h-[80px]" : "h-[65px] sm:h-[115px]",
+					"h-[65px] sm:h-[80px]",
 					"border-b-4 border-brand-light-blue bg-white flex",
 				)}
 			>
 				<div
 					className={cn("container flex items-center justify-between", "px-4")}
 				>
-					<Link href="/" className="font-mono text-lg font-bold start" data-testId="logo">
+					<Link
+						href="/"
+						className="font-mono text-lg font-bold start"
+						data-testId="logo"
+					>
 						<Image
 							src={logo}
 							alt="Helicopter Services"
@@ -59,7 +74,6 @@ export default function Navbar() {
 						/>
 					</Link>
 					<NavMenu />
-					{/* <ModeToggle /> */}
 					<div className="absolute bottom-0 right-0">
 						<svg
 							className="h-6 w-6 text-brand-light-blue"

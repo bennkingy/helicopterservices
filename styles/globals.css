@@ -80,16 +80,17 @@
     grid-template-columns: repeat(2, 1fr);  /* Creates two columns with equal width */
     gap: 40px; /* Adjusts the gap between grid items */
   }
-  .gallery-single {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);  /* Creates two columns with equal width */
-      gap: 40px; /* Adjusts the gap between grid items */
-    }
 
-  .gallery img {
-    width: 100%; /* Makes each image take up the full width of its cell */
-    height: auto; /* Keeps the aspect ratio intact */
-    aspect-ratio: 1 / 1; /* Ensures the images are square */
+  @media screen and (max-width: 350px) {
+    .gallery {
+      grid-template-columns: repeat(1, 1fr); 
+    }
+  }
+
+  .gallery-single {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);  /* Creates two columns with equal width */
+    gap: 40px; /* Adjusts the gap between grid items */
   }
 
   .gallery-single img, .lg-react-element.video img {

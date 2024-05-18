@@ -38,7 +38,7 @@ const Header = async ({
 	return (
 		<section
 			className={cn(
-				`relative w-screen h-[330px] sm:h-[550px] ${className} z-1 bg-slate-5`,
+				`relative w-screen h-[200px] sm:h-[320px] lg:h-[420px] ${className} z-1 bg-slate-5`,
 			)}
 		>
 			<Image
@@ -52,7 +52,7 @@ const Header = async ({
 				blurDataURL={base64}
 				alt="hero image example"
 			/>
-			<div className="container relative z-10 flex items-center h-full pt-[115px]">
+			<div className="container relative z-[4] flex items-center h-full">
 				<FramerAnimation delay={0}>
 					<Heading
 						title={title || ""}
@@ -60,7 +60,7 @@ const Header = async ({
 						tagSize="text-white text-sm sm:text-lg font-light"
 						iconColor={tagColor}
 						iconSize={14}
-						titleStyles="text-white text-2xl leading-10 sm:text-4xl md:text-6xl font-extralight max-w-[300px] sm:max-w-[600px]"
+						titleStyles="text-white text-2xl leading-10 sm:text-4xl md:text-5xl lg:text-6xl font-extralight max-w-[300px] sm:max-w-[600px]"
 					/>
 				</FramerAnimation>
 			</div>

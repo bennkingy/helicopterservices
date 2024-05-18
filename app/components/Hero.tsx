@@ -25,7 +25,7 @@ const Hero = ({
 	title,
 	subtitle,
 	className,
-	titleMargins = "mt-[122px] sm:mt-[170px]",
+	titleMargins = "mt-[45px] sm:mt-[60px]",
 }: props) => {
 	return (
 		<section

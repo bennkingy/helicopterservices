@@ -53,10 +53,12 @@ const Template = ({ data, children, showHanger = false }: props) => {
 													regex,
 													"",
 												)}</p>`}
+												className="w-full max-h-[330px] relative aspect-square"
 											>
 												<Image
-													width={400}
-													height={400}
+													fill
+													objectFit="cover"
+													objectPosition="center"
 													quality={100}
 													className="img-responsive cursor-pointer"
 													src={image}
