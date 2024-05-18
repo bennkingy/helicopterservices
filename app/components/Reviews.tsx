@@ -134,6 +134,7 @@ const Reviews = ({ className }: props) => {
 				>
 					Read more{"  "}
 					<Image
+						alt="Tripadvisor logo"
 						src="/images/tripadvisor.svg"
 						width={200}
 						height={50}
