@@ -12,6 +12,7 @@ type props = {
 	image?: string;
 	tag?: string;
 	tagColor?: "white" | "light-blue" | "dark-blue";
+	extraPadding?: string;
 };
 
 const Header = async ({
@@ -21,6 +22,7 @@ const Header = async ({
 	image,
 	tag = "Flights",
 	tagColor = "white",
+	extraPadding = "",
 }: props) => {
 	// .width(2000).height(400).dpr(2).quality(75)
 	const imageUrl = urlFor(image).url() || "";
@@ -52,7 +54,9 @@ const Header = async ({
 				blurDataURL={base64}
 				alt="hero image example"
 			/>
-			<div className="container relative z-[4] flex items-center h-full">
+			<div
+				className={`container relative z-[4] flex items-center h-full ${extraPadding}`}
+			>
 				<FramerAnimation delay={0}>
 					<Heading
 						title={title || ""}

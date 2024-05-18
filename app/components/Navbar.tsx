@@ -14,7 +14,7 @@ import { NavMenu } from "./NavMenu";
 export default function Navbar() {
 	const [isPinned, setIsPinned] = useState(false);
 	const path = usePathname();
-	const isSmallMobile = useMediaQuery("(max-width: 350px)");
+	const isSmallMobile = useMediaQuery("(max-width: 400px)");
 	const isMobile = useMediaQuery("(max-width: 639px)");
 
 	return (
@@ -24,6 +24,7 @@ export default function Navbar() {
 			upTolerance={0}
 			onUnfix={() => setIsPinned(false)}
 			style={{ zIndex: 5 }}
+			calcHeightOnResize={true}
 			disable={isMobile}
 		>
 			{path !== "/" && path !== "/about-us" && !isPinned ? (
@@ -52,8 +53,8 @@ export default function Navbar() {
 			<header
 				className={cn(
 					"w-full transition-all duration-300 ease-in-out shadow-md",
-					// isPinned ? "h-[65px] sm:h-[80px]" : "h-[65px] sm:h-[115px]",
-					"h-[65px] sm:h-[80px]",
+					isPinned ? "h-[65px] sm:h-[80px]" : "h-[65px] sm:h-[115px]",
+					// "h-[65px] sm:h-[80px]",
 					"border-b-4 border-brand-light-blue bg-white flex",
 				)}
 			>

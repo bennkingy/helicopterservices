@@ -52,10 +52,11 @@ export default async function Training({
 		<>
 			<main className="bg-brand-light-grey overflow-x-hidden z-[1] relative">
 				<Header
-					className="h-[420px] sm:h-[675px]"
+					className="h-[250px] md:h-[420px] lg:h-[675px]"
 					title={data?.hero?.heading}
 					tag={data?.hero?.tagline}
 					image={data?.heroImage}
+					extraPadding="pb-[28px]"
 				/>
 				<section className="pb-10 max-w-6xl mx-auto px-4 -mt-[42px] sm:-mt-[50px] z-10 relative">
 					<Tabs defaultValue="account">
@@ -78,6 +79,8 @@ export default async function Training({
 									?.filter(
 										(service: ServiceCard) => service?.category === "Licenses",
 									)
+									// @ts-ignore
+									.sort((a, b) => a.heading.localeCompare(b.heading))
 									.map(
 										(
 											{
@@ -111,6 +114,8 @@ export default async function Training({
 									?.filter(
 										(service: ServiceCard) => service?.category === "Ratings",
 									)
+									// @ts-ignore
+									.sort((a, b) => a.heading.localeCompare(b.heading))
 									.map(
 										(
 											{
@@ -145,6 +150,8 @@ export default async function Training({
 										(service: ServiceCard) =>
 											service?.category === "Simulators",
 									)
+									// @ts-ignore
+									.sort((a, b) => a.heading.localeCompare(b.heading))
 									.map(
 										(
 											{
@@ -178,6 +185,8 @@ export default async function Training({
 									?.filter(
 										(service: ServiceCard) => service?.category === "Other",
 									)
+									// @ts-ignore
+									.sort((a, b) => a.heading.localeCompare(b.heading))
 									.map(
 										(
 											{

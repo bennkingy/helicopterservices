@@ -27,9 +27,9 @@ const ServiceCard = async ({
 	return (
 		<a
 			href={url}
-			className="bg-white justify-between shadow-brand rounded-none border-0 border-b-4 border-brand-light-blue relative flex flex-col-reverse	items-center overflow-hidden md:flex-row md:max-w-xl transition-shadow duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-800 group hover:shadow-brand-hover"
+			className="bg-white justify-between shadow-brand rounded-none border-0 border-b-4 border-brand-light-blue relative flex flex-col-reverse	items-center overflow-hidden md:flex-row md:max-w-xl transition-shadow duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-800 group hover:shadow-brand-hover sm:min-h-[330px]"
 		>
-			<div className="flex flex-col justify-between p-5 leading-normal basis-auto w-full sm:basis-3/6">
+			<div className="flex flex-col justify-between p-5 leading-normal w-full self-baseline">
 				{/*@ts-ignore*/}
 				{/* sm:group-hover:text-brand-light-blue */}
 				<Heading
@@ -63,9 +63,9 @@ const ServiceCard = async ({
 					className="absolute bottom-0 right-1"
 				/>
 			</div>
-			<div className="basis-auto sm:basis-3/6 w-full h-full overflow-hidden">
+			<div className="w-full md:w-[150%] h-full overflow-hidden">
 				<Image
-					className="object-cover w-full h-[220px] sm:h-full rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
+					className="object-cover w-full h-[220px] md:h-full rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
 					width={440}
 					quality={100}
 					height={440}
