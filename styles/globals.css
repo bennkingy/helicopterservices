@@ -102,3 +102,8 @@
   .absolute.rounded-sm.ring-offset-background {
     z-index: 100;
   }
+
+/* hack to fix the headroom issue */
+  .headroom-wrapper {
+    height: auto !important;
+  }
