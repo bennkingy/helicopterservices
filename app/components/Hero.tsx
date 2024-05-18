@@ -31,7 +31,7 @@ const Hero = ({
 		<section
 			className={`bg-[url('/images/unflipped.jpg')] bg-no-repeat bg-cover bg-center ${height} ${className}`}
 		>
-			<div className={`bg-opacity-70 bg-brand-dark-blue relative h-full`}>
+			<div className={"bg-opacity-70 bg-brand-dark-blue relative h-full"}>
 				<div className="h-full grid container mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12">
 					<div
 						className={`mr-auto place-self-start lg:col-span-8 ${titleMargins} text-balance`}
