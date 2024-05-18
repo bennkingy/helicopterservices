@@ -79,6 +79,7 @@ export default async function FleetPage({
 						>
 							{data.service
 								?.filter((helicopter: any) => helicopter?.category === "Twin")
+								// @ts-ignore
 								.sort((a, b) => a.heading.localeCompare(b.heading))
 								.map((helicopter: any, idx: number) => (
 									<HelicopterCard key={idx} helicopter={helicopter} />
@@ -95,6 +96,7 @@ export default async function FleetPage({
 							{/* // @ts-ignore */}
 							{data.service
 								?.filter((helicopter: any) => helicopter?.category === "Single")
+								// @ts-ignore
 								.sort((a, b) => a.heading.localeCompare(b.heading))
 								.map((helicopter: any, idx: number) => (
 									<HelicopterCard key={idx} helicopter={helicopter} />
