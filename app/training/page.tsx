@@ -239,10 +239,6 @@ export default async function Training({
 								We offer both twin-engine or single-engine helicopters and can
 								provide two pilots as may be required.
 							</p>
-							<p className="mb-4">
-								Contact us to discuss your requirements and our Charter Manager
-								for a competitive quote.
-							</p>
 							<p className="text-lg">
 								<span className="font-bold">Outside office hours? </span>Submit
 								our form and out team will get back to you.
