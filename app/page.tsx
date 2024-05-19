@@ -7,7 +7,7 @@ import Heading from "./components/Heading";
 import Hero from "./components/Hero";
 import { MainServices } from "./components/MainServices";
 import Reviews from "./components/Reviews";
-import Tvlogos from "./components/tvLogos";
+import Tvlogos from "./components/Tvlogos";
 
 export default async function Home() {
 	const items: carouselItem[] = [
