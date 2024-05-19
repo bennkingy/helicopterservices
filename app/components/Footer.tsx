@@ -6,7 +6,7 @@ import Weather from "./Weather";
 import logo from "/public/images/LogoLightV2New.svg";
 
 export default function Footer() {
-	const training: { title: string; href: string; description: string }[] = [
+	const training: { title: string; href: string }[] = [
 		{
 			title: "Private pilot license",
 			href: "/training/private-pilot-licence",
@@ -65,7 +65,7 @@ export default function Footer() {
 		},
 	];
 
-	const flights: { title: string; href: string; description: string }[] = [
+	const flights: { title: string; href: string }[] = [
 		{
 			title: "Airpot transfers",
 			href: "/flights/airport-transfers",
@@ -92,7 +92,7 @@ export default function Footer() {
 		},
 	];
 
-	const industry: { title: string; href: string; description: string }[] = [
+	const industry: { title: string; href: string }[] = [
 		{
 			title: "Photography and filming",
 			href: "/flights/airport-transfers",
@@ -130,7 +130,7 @@ export default function Footer() {
 							<br />
 							Berkshire
 							<br />
-							<a href="" className="text-brand-light-blue">
+							<a href="/" className="text-brand-light-blue">
 								SL6 3NJ
 							</a>
 						</p>
