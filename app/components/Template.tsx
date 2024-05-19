@@ -14,6 +14,55 @@ type props = {
 };
 
 const Template = ({ data, children, showHanger = false }: props) => {
+	const components = {
+		types: {
+			// custom rendering logic for other types can go here
+		},
+		block: {
+			h2: ({ children }: any) => {
+				return (
+					<>
+						<h2>{children}</h2>
+						{children && !children.isRendered && (
+							<>
+								{(children.isRendered = true) && data?.gallerySingle && (
+									<Gallery
+										galleryType={"gallery-single"}
+										className="mt-0 mb-12"
+									>
+										<a
+											data-lg-size="542-305"
+											data-pinterest-text="Pin it"
+											data-tweet-text="lightGallery slide 1"
+											className="gallery__item"
+											data-src={urlFor(data?.gallerySingle).url()}
+											data-sub-html="<h4>Photo by - <a href='test' >Test </a></h4><p> Test</p>"
+										>
+											<Image
+												width={400}
+												height={400}
+												quality={100}
+												className="img-responsive cursor-pointer"
+												src={urlFor(data?.gallerySingle).url()}
+												alt=""
+												style={{
+													clipPath:
+														"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+													marginBottom: 0,
+													marginTop: 20,
+												}}
+											/>
+										</a>
+									</Gallery>
+								)}
+							</>
+						)}
+					</>
+				);
+			},
+		},
+	};
+
 	return (
 		<div>
 			{!showHanger ? (
@@ -30,7 +79,10 @@ const Template = ({ data, children, showHanger = false }: props) => {
 					<main className="container mx-auto px-4 grid pt-16 sm:py-20 grid-cols-1 md:grid-cols-3">
 						<div className="pr-0 md:pr-20 mb-20 md:mb-0 col-span-2">
 							<div className="prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans  prose-h2:text-3xl sm:prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey">
-								<PortableText value={data?.body || ""} />
+								<PortableText
+									value={data?.body || ""}
+									components={components}
+								/>
 							</div>
 							{children}
 							{data?.gallery?.length > 0 && (
@@ -70,31 +122,6 @@ const Template = ({ data, children, showHanger = false }: props) => {
 											</a>
 										);
 									})}
-								</Gallery>
-							)}
-							{data?.gallerySingle && (
-								<Gallery galleryType={"gallery-single"} className="mt-10">
-									<a
-										data-lg-size="542-305"
-										data-pinterest-text="Pin it"
-										data-tweet-text="lightGallery slide 1"
-										className="gallery__item"
-										data-src={urlFor(data?.gallerySingle).url()}
-										data-sub-html="<h4>Photo by - <a href='test' >Test </a></h4><p> Test</p>"
-									>
-										<Image
-											width={400}
-											height={400}
-											quality={100}
-											className="img-responsive cursor-pointer"
-											src={urlFor(data?.gallerySingle).url()}
-											alt=""
-											style={{
-												clipPath:
-													"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-											}}
-										/>
-									</a>
 								</Gallery>
 							)}
 						</div>

@@ -107,7 +107,7 @@ export default async function Training({
 							<Heading
 								title="Flight ratings"
 								titleStyles="text-3xl"
-								className="mb-6 mt-12"
+								className="mb-6 mt-16"
 							/>
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 								{data?.service
@@ -142,7 +142,7 @@ export default async function Training({
 							<Heading
 								title="Simulators"
 								titleStyles="text-3xl"
-								className="mb-6 mt-12"
+								className="mb-6 mt-16"
 							/>
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 								{data?.service
@@ -178,7 +178,7 @@ export default async function Training({
 							<Heading
 								title="Other training services"
 								titleStyles="text-3xl"
-								className="mb-6 mt-12"
+								className="mb-6 mt-16"
 							/>
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 								{data?.service
@@ -215,7 +215,7 @@ export default async function Training({
 							<TrainingMap />
 						</TabsContent>
 					</Tabs>
-					<div className="mb-10 mt-20 grid grid-cols-1 sm:grid-cols-3">
+					<div className="mb-10 mt-16 grid grid-cols-1 sm:grid-cols-3">
 						<div className="col-span-2 pr-0 sm:pr-20">
 							<Heading
 								title="Can't find what your looking for?"

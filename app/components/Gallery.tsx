@@ -80,12 +80,12 @@ const Gallery = forwardRef(
 				>
 					{children}
 				</LightGallery>
-				<div className="flex mt-4 cursor-pointer items-center text-brand-light-blue transition-colors hover:text-foreground">
+				<div className="flex mt-4 cursor-pointer items-center text-brand-light-blue transition-colors hover:text-foreground h-[20px]">
 					<div>
 						<Icons.max height={11} width={11} className="ml-2" />
 					</div>
 					{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-					<p className="ml-2 text-sm " onClick={openGallery}>
+					<p className="ml-2 text-sm" onClick={openGallery}>
 						{galleryType === "gallery" || galleryType === "gallery-single"
 							? "Enlarge and view"
 							: "3D view"}

@@ -7,6 +7,7 @@ import Heading from "./components/Heading";
 import Hero from "./components/Hero";
 import { MainServices } from "./components/MainServices";
 import Reviews from "./components/Reviews";
+import Tvlogos from "./components/tvLogos";
 
 export default async function Home() {
 	const items: carouselItem[] = [
@@ -278,16 +279,17 @@ export default async function Home() {
 						titleStyles="text-3xl sm:text-4xl"
 					/>
 					<p className="font-openSans">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation.
+						We can help you get the best shots efficiently with over 20 years of
+						experience in aerial photography and filming world-wide in a range
+						of locations from city skylines to mountainous regions to deserts
+						and oceans.
 					</p>
 					<p className="font-openSans mt-5">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation.
+						Our credits include many promotional videos for blue-chip companies,
+						feature films for BBC, ITV, Sky, Channel 4, news gathering missions
+						and photography for national newspapers.
 					</p>
-					<ul className="max-w-md space-y-1 mt-5 list-inside font-openSans">
+					{/* <ul className="max-w-md space-y-1 mt-5 list-inside font-openSans">
 						<li className="flex items-center">
 							<svg
 								className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0"
@@ -348,8 +350,9 @@ export default async function Home() {
 							</svg>
 							Labore et dolore magna aliqua
 						</li>
-					</ul>
-					<Enquire className="mt-7" />
+					</ul> */}
+					<Tvlogos className="my-10" />
+					<Enquire />
 				</div>
 			</div>
 			<Reviews className="py-20" />
