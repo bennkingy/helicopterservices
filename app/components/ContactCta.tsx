@@ -8,8 +8,8 @@ type props = {
 
 const ContactCta = ({ className }: props) => {
 	return (
-		<div className={`text-white bg-brand-dark-blue h-fit ${className}`}>
-			<div className="bg-brand-dark-blue py-5 text-white p-10 relative">
+		<div className={`text-white bg-[#023D67] h-fit ${className}`}>
+			<div className="bg-[#023D67]  py-5 text-white p-10 relative">
 				<Image
 					quality={100}
 					src={"/images/ruth2.jpg"}
