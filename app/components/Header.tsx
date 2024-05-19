@@ -69,7 +69,9 @@ const Header = async ({
 				</FramerAnimation>
 			</div>
 			<div
-				className={`bg-opacity-70 bg-brand-dark-blue top-0 bottom-0 right-0 left-0 absolute`}
+				className={
+					"bg-opacity-70 bg-brand-dark-blue top-0 bottom-0 right-0 left-0 absolute"
+				}
 			/>
 		</section>
 	);

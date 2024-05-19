@@ -30,7 +30,7 @@ export default async function Home() {
 		},
 		{
 			img: "/images/Virtual reality simulator.png",
-			title: "Virtual Reality Sim",
+			title: "Virtual Reality Simulator",
 			description:
 				"An incredibly realistic experience allowing for all flight profiles.",
 			link: "/training/virtual-reality-simulator",

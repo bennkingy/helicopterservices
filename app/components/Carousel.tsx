@@ -84,7 +84,7 @@ const Carousel = ({ slides }: props) => {
 					</CarouselItem>
 				))}
 			</CarouselContent>
-			<div className="flex center justify-center mt-5">
+			<div className="flex center justify-center mt-10">
 				{Array.from(Array(count).keys()).map((i) => (
 					<div key={i}>
 						<Button

@@ -14,7 +14,6 @@ type props = {
 };
 
 const Template = ({ data, children, showHanger = false }: props) => {
-	console.log(data?.gallery);
 	return (
 		<div>
 			{!showHanger ? (
