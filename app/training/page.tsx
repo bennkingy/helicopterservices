@@ -215,7 +215,7 @@ export default async function Training({
 							<TrainingMap />
 						</TabsContent>
 					</Tabs>
-					<div className="mb-14 mt-20 grid grid-cols-1 sm:grid-cols-3">
+					<div className="mb-10 mt-20 grid grid-cols-1 sm:grid-cols-3">
 						<div className="col-span-2 pr-0 sm:pr-20">
 							<Heading
 								title="Can't find what your looking for?"
@@ -256,7 +256,7 @@ export default async function Training({
 								</Button>
 							</Link>
 						</div>
-						<div className="mt-20 sm:mt-0">
+						<div className="mt-20 sm:mt-0 pt-0 sm:pt-5  hidden sm:block">
 							<ContactCta />
 						</div>
 					</div>

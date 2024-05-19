@@ -1,6 +1,7 @@
 "use client";
 
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { Icons } from "@/components/ui/icons";
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -212,7 +213,7 @@ const fleet: { title: string; href: string; description: string }[] = [
 export function NavMenu() {
 	return (
 		<>
-			<NavigationMenu className="hidden sm:block font-workSans">
+			<NavigationMenu className="hidden sm:block font-workSans font-semibold text-brand-dark-blue">
 				<NavigationMenuList>
 					<NavigationMenuItem className="hidden lg:block">
 						<Link href="/" legacyBehavior passHref className="text-lg">
@@ -353,6 +354,7 @@ export function NavMenu() {
 					</DrawerContent>
 				</Drawer>
 			</div>
+			<Icons.phone className="text-brand-light-blue" height={20} />
 		</>
 	);
 }

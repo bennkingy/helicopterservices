@@ -102,7 +102,7 @@ const Template = ({ data, children, showHanger = false }: props) => {
 						<div>
 							<ContactCta className="hidden md:block" />
 							<GetinTouchSmall className="mt-10 md:mt-8 hidden md:block" />
-							<Map className="mb-20 mt-7 sm:mb-0 md:mt-8" />
+							<Map className="mb-20 mt-0 sm:mb-0 md:mt-8" />
 						</div>
 					</main>
 				</>
