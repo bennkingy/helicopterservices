@@ -56,7 +56,7 @@ const ContactCta = ({ className }: props) => {
 						</tr>
 					</tbody>
 				</table>
-				<div className="flex items-center mt-5 ml-5 group hover:underline underline-offset-2">
+				<div className="flex items-center mt-5 ml-5 group hover:underline underline-offset-2 hover:cursor-pointer">
 					<Icons.phone className="text-brand-light-blue" height={50} />
 					<Link
 						href="tel:07497497583"

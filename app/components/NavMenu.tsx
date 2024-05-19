@@ -228,15 +228,17 @@ export function NavMenu() {
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
 							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[800px] ">
-								{training.map((component) => (
-									<ListItem
-										key={component.title}
-										title={component.title}
-										href={component.href}
-									>
-										{component.description}
-									</ListItem>
-								))}
+								{training
+									.sort((a, b) => a.title.localeCompare(b.title))
+									.map((component) => (
+										<ListItem
+											key={component.title}
+											title={component.title}
+											href={component.href}
+										>
+											{component.description}
+										</ListItem>
+									))}
 							</ul>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
@@ -246,15 +248,15 @@ export function NavMenu() {
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
 							<ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+								<ListItem href="/industry/load-lifting" title="Load lifting">
+									Something about load lifting.
+								</ListItem>
 								<ListItem
 									href="/industry/photography-filming"
 									title="Photography and filming"
 								>
 									We offer the ultimate way to see London, one of the most
 									famous cities in the world.
-								</ListItem>
-								<ListItem href="/industry/load-lifting" title="Load lifting">
-									Something about load lifting.
 								</ListItem>
 							</ul>
 						</NavigationMenuContent>
@@ -265,15 +267,17 @@ export function NavMenu() {
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
 							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-								{flights.map((component) => (
-									<ListItem
-										key={component.title}
-										title={component.title}
-										href={component.href}
-									>
-										{component.description}
-									</ListItem>
-								))}
+								{flights
+									.sort((a, b) => a.title.localeCompare(b.title))
+									.map((component) => (
+										<ListItem
+											key={component.title}
+											title={component.title}
+											href={component.href}
+										>
+											{component.description}
+										</ListItem>
+									))}
 							</ul>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
@@ -283,15 +287,17 @@ export function NavMenu() {
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
 							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-								{fleet.map((component) => (
-									<ListItem
-										key={component.title}
-										title={component.title}
-										href={component.href}
-									>
-										{component.description}
-									</ListItem>
-								))}
+								{fleet
+									.sort((a, b) => a.title.localeCompare(b.title))
+									.map((component) => (
+										<ListItem
+											key={component.title}
+											title={component.title}
+											href={component.href}
+										>
+											{component.description}
+										</ListItem>
+									))}
 							</ul>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
@@ -301,15 +307,17 @@ export function NavMenu() {
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
 							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-								{about.map((component) => (
-									<ListItem
-										key={component.title}
-										title={component.title}
-										href={component.href}
-									>
-										{component.description}
-									</ListItem>
-								))}
+								{about
+									.sort((a, b) => a.title.localeCompare(b.title))
+									.map((component) => (
+										<ListItem
+											key={component.title}
+											title={component.title}
+											href={component.href}
+										>
+											{component.description}
+										</ListItem>
+									))}
 							</ul>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
@@ -374,8 +382,10 @@ const ListItem = React.forwardRef<
 					)}
 					{...props}
 				>
-					<div className="text-sm font-medium leading-none">{title}</div>
-					<p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+					<div className="leading-none text-md font-bold text-brand-dark-blue">
+						{title}
+					</div>
+					<p className="line-clamp-2 text-sm leading-snug font-normal">
 						{children}
 					</p>
 				</a>

@@ -55,10 +55,16 @@ const GetInTouch = ({ className }: props) => {
 								</tbody>
 							</table>
 							<div className={`font-openSans text-center sm:text-right mt-10`}>
-								<p className="mb-[2px] font-normal text-sm">
+								<a
+									href="emailto:info@helicopterservices.co.uk"
+									className="mb-[2px] font-normal text-sm block hover:underline underline-offset-2"
+								>
 									info@helicopterservices.co.uk
-								</p>
-								<a href="tel:+441494513166" className="text-lg font-bold mt-0">
+								</a>
+								<a
+									href="tel:+441494513166"
+									className="text-lg font-bold mt-0 hover:underline underline-offset-2"
+								>
 									+44 1494 513 166
 								</a>
 							</div>
@@ -97,10 +103,16 @@ const GetInTouch = ({ className }: props) => {
 								</tbody>
 							</table>
 							<div className={`font-openSans text-center sm:text-left mt-10`}>
-								<p className="mb-[2px] font-normal text-sm">
+								<a
+									href="mailto:ruth.downey@helicopterservices.co.uk"
+									className="mb-[2px] font-normal text-sm block hover:underline underline-offset-2"
+								>
 									ruth.downey@helicopterservices.co.uk
-								</p>
-								<a href="tel:+441494513166" className="text-lg font-bold mt-0">
+								</a>
+								<a
+									href="tel:+441494513166"
+									className="text-lg font-bold mt-0 hover:underline underline-offset-2"
+								>
 									+44 1494 513 166
 								</a>
 							</div>

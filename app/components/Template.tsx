@@ -27,14 +27,14 @@ const Template = ({ data, children, showHanger = false }: props) => {
 							/>
 						</div>
 					)}
-					<main className="container mx-auto px-4 grid pt-16 sm:py-16 grid-cols-1 md:grid-cols-3">
-						<div className="pr-0 md:pr-20 mb-10 sm:mb-0 col-span-2">
+					<main className="container mx-auto px-4 grid pt-16 sm:py-20 grid-cols-1 md:grid-cols-3">
+						<div className="pr-0 md:pr-20 mb-20 md:mb-0 col-span-2">
 							<div className="prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans  prose-h2:text-3xl sm:prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey">
 								<PortableText value={data?.body || ""} />
 							</div>
 							{children}
 							{data?.gallery?.length > 0 && (
-								<Gallery galleryType={"gallery"} className="mt-10">
+								<Gallery galleryType={"gallery"} className="mt-20">
 									{data?.gallery?.map((item: any, index: number) => {
 										const image = urlFor(item.imageUrl).url();
 										if (!image) return null;
@@ -100,7 +100,7 @@ const Template = ({ data, children, showHanger = false }: props) => {
 						</div>
 						<div>
 							<ContactCta className="hidden md:block" />
-							<GetinTouchSmall className="mt-10 md:mt-8 hidden md:block" />
+							<GetinTouchSmall className="mt-20 md:mt-8 hidden md:block" />
 							<Map className="mb-20 mt-0 sm:mb-0 md:mt-8" />
 						</div>
 					</main>
