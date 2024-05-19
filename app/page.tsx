@@ -182,7 +182,7 @@ export default async function Home() {
 							className="mb-8"
 							titleStyles="text-3xl sm:text-4xl text-white"
 						/>
-						<p className="font-openSans text-white">{`Our highly experienced instructors and examiners are among the UK's most senior. We provide type ratings for over 11 helicopter types, along with Flight Instructor Refresher and Instrument Rating Examiner courses.`}</p>
+						<p className="font-openSans text-white">{`Our highly experienced instructors and examiners are among the UK's most senior. We provide type ratings for over 17 helicopter types, along with Flight Instructor Refresher and Instrument Rating Examiner courses.`}</p>
 						<p className="font-openSans mt-5 text-white">
 							Additionally, we offer a helicopter flight simulator for safe
 							instrument flying skill development and an advanced program to

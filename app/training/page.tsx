@@ -72,7 +72,7 @@ export default async function Training({
 							<Heading
 								title="Licenses"
 								titleStyles="text-3xl"
-								className="mb-6 mt-6 sm:mt-10"
+								className="mb-6 sm:mt-[47px]"
 							/>
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 								{data?.service
