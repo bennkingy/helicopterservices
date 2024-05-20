@@ -20,12 +20,12 @@ const training: { title: string; href: string; description: string }[] = [
 	{
 		title: "Private pilot license",
 		href: "/training/private-pilot-licence",
-		description: "Some description about the training course.",
+		description: "Fly helicopters privately with a private pilot license.",
 	},
 	{
 		title: "Commerical Pilot License",
 		href: "/training/commercial-pilot-licence",
-		description: "ELCAS approved training provider for military personnel.",
+		description: "Fly for a living and get paid to do the job you love!",
 	},
 	{
 		title: "Flight examiner rating",
@@ -36,38 +36,42 @@ const training: { title: string; href: string; description: string }[] = [
 	{
 		title: "Type rating",
 		href: "/training/type-ratings",
-		description: "Some description about the training course.",
+		description:
+			"Putting you near the top of the ladder throughout the helicopter industry.",
 	},
 	{
 		title: "Instrument rating",
 		href: "/training/instrument-ratings",
-		description: "Some description about the training course.",
+		description:
+			"The ultimate way to see London, one of the most famous cities in the world.",
 	},
 	{
 		title: "Flight instructor rating",
 		href: "/training/flight-instructor-ratings",
-		description: "Some description about the training course.",
+		description:
+			"Allows you to fly helicopters under IFR down to a decision height of 200ft.",
 	},
 	{
 		title: "Night rating",
 		href: "/training/night-rating",
-		description: "Some description about the training course.",
+		description: "This add-on for your licence is a exciting challenge",
 	},
 	{
 		title: "PBN",
 		href: "/training/PBN",
-		description:
-			"The current generation of instrument flying is based on sensors with diverging definitions of precision in different countries.",
+		description: "Improving aircraft navigation with precision and efficiency.",
 	},
 	{
 		title: "Virtual Reality Simulator",
 		href: "/training/virtual-reality-simulator",
-		description: "Some description about the training course.",
+		description:
+			"An incredibly realistic experience allowing for all flight profiles.",
 	},
 	{
 		title: "Simulator",
 		href: "/training/simulator",
-		description: "Some description about the training course.",
+		description:
+			"Developing safe instrument flying skills, reducing costs, and enabling progress.",
 	},
 	{
 		title: "ELCAS",
@@ -77,17 +81,19 @@ const training: { title: string; href: string; description: string }[] = [
 	{
 		title: "FAA",
 		href: "/training/FAA",
-		description: "Some description about the training course.",
+		description:
+			"Helicopter Services can train and maintain pilots under the FAA.",
 	},
 	{
 		title: "Refresher seminars",
 		href: "/training/refresher-seminars",
-		description: "Some description about the training course.",
+		description: "Expert Instructor and Examiner Seminars.",
 	},
 	{
 		title: "Advanced flying programme",
 		href: "/training/advanced-flying-programme",
-		description: "Some description about the training course.",
+		description:
+			"Develop your skills while you expand your practical flying adventures.",
 	},
 ];
 
@@ -95,32 +101,33 @@ const flights: { title: string; href: string; description: string }[] = [
 	{
 		title: "Airpot transfers",
 		href: "/flights/airport-transfers",
-		description: "Some description about the transfers.",
+		description: "Your luxury airport transfer service.",
 	},
 	{
 		title: "Helicopter Charter",
 		href: "/flights/helicopter-charter",
-		description: "Some description about the helicopter charter.",
+		description: "Transporting VIPs to special events for over 20 years.",
 	},
 	{
 		title: "London sightseeing",
 		href: "/flights/london-sightseeing",
-		description: "Some description about the sightseeing.",
+		description: "Unrivalled views of the most famous city in the world.",
 	},
 	{
 		title: "Special events",
 		href: "/flights/special-events",
-		description: "Some description about the special events.",
+		description:
+			"Private charters for weddings, tours, and celebrations, ensuring excellent service.",
 	},
 	{
 		title: "Trail lessons",
 		href: "/flights/trail-lessons",
-		description: "Some description about the trail lessons.",
+		description: "Discover the fun and manoeuvrability of a helicopter!",
 	},
 	{
 		title: "Local area tours",
 		href: "/flights/local-area-tours",
-		description: "Some description about the local area tours.",
+		description: "Experience the UK from the air with our local area tours.",
 	},
 ];
 
@@ -128,85 +135,86 @@ const about: { title: string; href: string; description: string }[] = [
 	{
 		title: "Brexit",
 		href: "/about-us/brexit",
-		description: "Some description about us.",
+		description: "Our latest brexit infomation",
 	},
 	{
 		title: "Meet the team",
 		href: "/about-us/meet-the-team",
-		description: "Some description about the team.",
+		description: "Meet our lovely team!",
 	},
 	{
 		title: "Helicopter fleet",
 		href: "/fleet",
-		description: "Meet the fleet!",
+		description: "Check out our helicopter fleet.",
 	},
 	{
 		title: "The Hanger",
 		href: "/about-us/the-hanger",
-		description: "Some description about the hanger.",
+		description: "Check out the hanger.",
 	},
 	{
 		title: "FAQs",
 		href: "/about-us/faqs",
-		description: "FAQs.",
+		description: "Fequently asked questions and answers.",
 	},
 ];
 
-const fleet: { title: string; href: string; description: string }[] = [
+const fleet: { title: string; href: string }[] = [
 	{
 		title: "A109",
 		href: "/fleet/a109",
-		description: "Some description about the A109.",
+		// description: "Versatile and high-performance twin-engine helicopter.",
 	},
 	{
 		title: "AS355",
 		href: "/fleet/as355",
-		description: "Some description about the AS355.",
+		// description: "A a multi-purpose, twin-engine light helicopter.",
 	},
 	{
 		title: "AB206",
 		href: "/fleet/ab206",
-		description: "Some description about the AB206.",
+		// description:
+		// 	"A light utility helicopter known for its reliability and versatility.",
 	},
 	{
 		title: "R66",
 		href: "/fleet/r66",
-		description: "Some description about the R66.",
+		// description: "Some description about the R66.",
 	},
 	{
 		title: "R44",
 		href: "/fleet/r44",
-		description: "Some description about the R44.",
+		// description: "Some description about the R44.",
 	},
 	{
 		title: "R22",
 		href: "/fleet/r22",
-		description: "Some description about the R22.",
+		// description: "Some description about the R22.",
 	},
 	{
 		title: "Cabri G2",
 		href: "/fleet/cabri-g2",
-		description: "Some description about the Cabri G2.",
+		// description: "Some description about the Cabri G2.",
 	},
 	{
 		title: "AS350",
 		href: "/fleet/as350",
-		description: "Some description about the AS350.",
+		// description: "A single-engine light utility helicopter.",
 	},
 	{
 		title: "B206L",
 		href: "/fleet/b206l",
-		description: "Some description about the B206L.",
+		// description: "Some description about the B206L.",
 	},
 	{
 		title: "EC135",
 		href: "/fleet/ec135",
-		description: "Some description about the EC135.",
+		// description: "Some description about the EC135.",
 	},
 	{
 		title: "AW109",
 		href: "/fleet/aw109",
-		description: "Some description about the AW109.",
+		// description: "Some description about the AW109.",
 	},
 ];
 
@@ -249,14 +257,15 @@ export function NavMenu() {
 						<NavigationMenuContent>
 							<ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
 								<ListItem href="/industry/load-lifting" title="Load lifting">
-									Something about load lifting.
+									Resolve many load lifting challenges with our range of load
+									lifting services.
 								</ListItem>
 								<ListItem
 									href="/industry/photography-filming"
 									title="Photography and filming"
 								>
-									We offer the ultimate way to see London, one of the most
-									famous cities in the world.
+									Getting the best shots for companies, such as BBC, ITV, Sky,
+									Channel 4.
 								</ListItem>
 							</ul>
 						</NavigationMenuContent>
@@ -286,7 +295,7 @@ export function NavMenu() {
 							<a href="/fleet">Fleet</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
-							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[600px] ">
 								{fleet
 									.sort((a, b) => a.title.localeCompare(b.title))
 									.map((component) => (
@@ -295,7 +304,7 @@ export function NavMenu() {
 											title={component.title}
 											href={component.href}
 										>
-											{component.description}
+											{/* {component.description} */}
 										</ListItem>
 									))}
 							</ul>
