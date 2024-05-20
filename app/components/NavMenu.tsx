@@ -371,7 +371,9 @@ export function NavMenu() {
 					</DrawerContent>
 				</Drawer>
 			</div>
-			<Icons.phone className="text-brand-light-blue" height={20} />
+			<Link href="tel:+44 1494513 166">
+				<Icons.phone className="text-brand-light-blue" height={20} />
+			</Link>
 		</>
 	);
 }
