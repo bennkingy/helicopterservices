@@ -239,7 +239,7 @@ export default async function Training({
 								We offer both twin-engine or single-engine helicopters and can
 								provide two pilots as may be required.
 							</p>
-							<p className="text-lg">
+							<p>
 								<span className="font-bold">Outside office hours? </span>Submit
 								our form and out team will get back to you.
 							</p>

@@ -88,7 +88,7 @@ export default async function Flights({
 								We offer both twin-engine or single-engine helicopters and can
 								provide two pilots as may be required.
 							</p>
-							<p className="text-lg mt-5">
+							<p className="mt-5">
 								<span className="font-bold">Outside office hours? </span>
 								Submit our form and out team will get back to you.
 							</p>

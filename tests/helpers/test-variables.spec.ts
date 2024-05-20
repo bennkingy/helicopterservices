@@ -25,7 +25,7 @@ export const emailFieldLabel = "Email";
 export const emailFieldText =
 	"Please enter your email in the following format: email@gmail.com";
 export const nameFieldLabel = "Name";
-export const nameFieldText = "Please enter your full name";
+export const nameFieldText = "Please enter your name";
 export const enquiryFieldLabel = "Enquire";
 export const enquiryFieldText = "Please enter your message here";
 export const enquiryButtonContent = "Submit Enquiry";

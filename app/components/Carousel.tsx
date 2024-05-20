@@ -60,25 +60,26 @@ const Carousel = ({ slides }: props) => {
 							"md:basis-1/2 lg:basis-1/3 m-0 px-10 md:px-16 text-center"
 						}
 					>
-						{/* <FramerAnimationBlurIn delay={0.15}> */}
-						<Image
-							src={item.img}
-							width={370}
-							quality={100}
-							height={370}
-							alt={item.title}
-							priority
-							className="my-8 rounded-full mx-auto"
-						/>
-						<h5 className="font-bold mb-3 text-lg font-openSans">
-							{item.title}
-						</h5>
-						<p className="mb-3 font-openSans">{item.description}</p>
-						<Link
-							href={item.link}
-							className="text-base font-bold text-brand-light-blue font-openSans"
-						>
-							Discover more
+						<Link href={item.link}>
+							<Image
+								src={item.img}
+								width={370}
+								quality={100}
+								height={370}
+								alt={item.title}
+								priority
+								className="my-8 rounded-full mx-auto"
+							/>
+							<h5 className="font-bold mb-3 text-lg font-openSans">
+								{item.title}
+							</h5>
+							<p className="mb-3 font-openSans">{item.description}</p>
+							<p
+								href={item.link}
+								className="text-base font-bold text-brand-light-blue font-openSans"
+							>
+								Discover more
+							</p>
 						</Link>
 						{/* </FramerAnimationBlurIn> */}
 					</CarouselItem>
