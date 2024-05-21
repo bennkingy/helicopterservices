@@ -74,10 +74,7 @@ const Carousel = ({ slides }: props) => {
 								{item.title}
 							</h5>
 							<p className="mb-3 font-openSans">{item.description}</p>
-							<p
-								href={item.link}
-								className="text-base font-bold text-brand-light-blue font-openSans"
-							>
+							<p className="text-base font-bold text-brand-light-blue font-openSans">
 								Discover more
 							</p>
 						</Link>
