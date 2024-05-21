@@ -31,7 +31,7 @@ const ContactCta = ({ className }: props) => {
 						Accountable Manager/Examiner
 					</span>
 				</p>
-				<table className={`table-fixed mt-5 ml-5 w-full font-openSans`}>
+				<table className={"table-fixed mt-5 ml-5 w-full font-openSans"}>
 					<tbody>
 						<tr>
 							<td>Monday</td> <td>08:30 - 17:30</td>

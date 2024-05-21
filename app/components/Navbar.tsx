@@ -48,6 +48,7 @@ export default function Navbar() {
 			<Headroom
 				onPin={() => setIsPinned(true)}
 				style={{ zIndex: 10 }}
+				// wrapperStyle={{ height: 100 }}
 				onUnfix={() => setIsPinned(false)}
 				pinStart={path !== "/" && path !== "/about-us" ? 40 : 0}
 			>
@@ -55,7 +56,6 @@ export default function Navbar() {
 					className={cn(
 						"w-full transition-all duration-300 delay-0 ease-in-out shadow-md",
 						isPinned ? "h-[65px] sm:h-[80px]" : "h-[65px] sm:h-[115px]",
-						// "h-[65px] sm:h-[80px]",
 						"border-b-4 border-brand-light-blue bg-white flex",
 					)}
 				>
