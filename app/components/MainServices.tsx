@@ -27,7 +27,7 @@ const features: MainServices[] = [
 			/>
 		),
 		title: "Flights",
-		description: "Choose a leading uk helicopter service for your next flight.",
+		description: "Choose a leading UK helicopter service for your next flight.",
 		url: "/flights",
 	},
 	{
