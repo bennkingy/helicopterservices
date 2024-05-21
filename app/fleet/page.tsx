@@ -64,7 +64,7 @@ export default async function FleetPage({
 		<>
 			<Template data={data}>
 				<div className="">
-					<div className="pt-5 mb-10 md:mb-0">
+					<div className="pt-5 mb-0">
 						<ComparisonTable
 							// @ts-ignore
 							data={heliCopterData.filter((page) => page.title !== "Fleet")}
@@ -90,7 +90,7 @@ export default async function FleetPage({
 						</h1>
 						<div
 							className={cn(
-								"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6",
+								"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-2",
 							)}
 						>
 							{/* // @ts-ignore */}
