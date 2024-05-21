@@ -19,7 +19,7 @@ export default function Navbar() {
 
 	return (
 		<>
-			{path !== "/" && path !== "/about-us" && !isPinned ? (
+			{path !== "/" && path !== "/about-us" ? (
 				<div
 					className={cn(
 						"topbar w-full bg-brand-dark-blue flex justify-center align-center items-center transition-all duration-500 ease-in-out h-[40px]",
@@ -53,9 +53,9 @@ export default function Navbar() {
 			>
 				<header
 					className={cn(
-						"w-full transition-all duration-300 ease-in-out shadow-md",
-						// isPinned ? "h-[65px] sm:h-[80px]" : "h-[65px] sm:h-[115px]",
-						"h-[65px] sm:h-[80px]",
+						"w-full transition-all duration-300 delay-0 ease-in-out shadow-md",
+						isPinned ? "h-[65px] sm:h-[80px]" : "h-[65px] sm:h-[115px]",
+						// "h-[65px] sm:h-[80px]",
 						"border-b-4 border-brand-light-blue bg-white flex",
 					)}
 				>
