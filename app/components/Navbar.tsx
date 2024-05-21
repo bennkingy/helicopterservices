@@ -50,7 +50,6 @@ export default function Navbar() {
 				style={{ zIndex: 10 }}
 				onUnfix={() => setIsPinned(false)}
 				pinStart={path !== "/" && path !== "/about-us" ? 40 : 0}
-				// disable={isMobile}
 			>
 				<header
 					className={cn(
