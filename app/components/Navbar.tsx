@@ -25,7 +25,11 @@ export default function Navbar() {
 						"topbar w-full bg-brand-dark-blue flex justify-center align-center items-center transition-all duration-500 ease-in-out h-[40px]",
 					)}
 				>
-					<div className="relative h-[14px] sm:h-[24px] w-[14px] sm:w-[24px] min-w-[14px] min-h-[14px]">
+					<div
+						className={cn(
+							"relative h-[14px] sm:h-[24px] w-[14px] sm:w-[24px] min-w-[14px] min-h-[14px]",
+						)}
+					>
 						<Image
 							priority
 							fill
@@ -42,13 +46,11 @@ export default function Navbar() {
 				</div>
 			) : null}
 			<Headroom
-				// downTolerance={5}
 				onPin={() => setIsPinned(true)}
-				// upTolerance={0}
 				style={{ zIndex: 10 }}
 				onUnfix={() => setIsPinned(false)}
-				// pinStart={40}
-				disable={isMobile}
+				pinStart={path !== "/" && path !== "/about-us" ? 40 : 0}
+				// disable={isMobile}
 			>
 				<header
 					className={cn(
