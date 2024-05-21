@@ -1,4 +1,5 @@
 import TemplateTwo from "@/app/components/TemplateTwo";
+import { getBase64Blur } from "@/lib/extensions";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
 
@@ -66,6 +67,11 @@ async function getPageData(slug: string) {
 					base
       }[0]`;
 	const data = await client.fetch(query);
+
+	if (data?.gallerySingle) {
+		const gallerySingleUrl = data.gallerySingle.url;
+		data.gallerySingle.blurDataURL = await getBase64Blur(gallerySingleUrl);
+	}
 
 	return data;
 }

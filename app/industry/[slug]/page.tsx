@@ -1,6 +1,7 @@
 import Template from "@/app/components/Template";
+import { getBase64Blur } from "@/lib/extensions";
 import type { training } from "@/lib/interface";
-import { client } from "@/lib/sanity";
+import { client, urlFor } from "@/lib/sanity";
 import type { Metadata } from "next";
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -22,7 +23,15 @@ async function getData(slug: string) {
       }[0]`;
 	const data = await client.fetch(query);
 
-	return data;
+	await Promise.all(
+		data.gallery.map(async (item: any) => {
+			const imageUrl = urlFor(item.imageUrl).url();
+			const blurDataURL = await getBase64Blur(imageUrl);
+			item.blurDataURL = blurDataURL;
+		}),
+	);
+
+	return { data };
 }
 
 export async function generateMetadata({

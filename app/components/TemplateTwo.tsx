@@ -233,6 +233,8 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 										quality={100}
 										className="img-responsive cursor-pointer"
 										src={urlFor(data.gallerySingle).url()}
+										placeholder="blur"
+										blurDataURL={data?.gallerySingle?.blurDataURL}
 										alt=""
 										style={{
 											clipPath:
