@@ -32,7 +32,7 @@ async function getData(slug: string) {
 		}),
 	);
 
-	return { data };
+	return data;
 }
 
 export async function generateMetadata({
