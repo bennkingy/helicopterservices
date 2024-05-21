@@ -1,7 +1,6 @@
 import Template from "@/app/components/Template";
 import TransferTimesTable from "@/app/components/TransferTimesTable";
 import { getBase64Blur } from "@/lib/extensions";
-import { training } from "@/lib/interface";
 import { client, urlFor } from "@/lib/sanity";
 import type { Metadata } from "next";
 
@@ -39,7 +38,7 @@ async function getData(slug: string) {
 export async function generateMetadata({
 	params,
 }: { params: { slug: string } }): Promise<Metadata> {
-	const data: training = await getData(params.slug.toLowerCase());
+	const data: any = await getData(params.slug.toLowerCase());
 
 	return {
 		title: data?.seoTitle,
