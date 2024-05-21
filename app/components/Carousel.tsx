@@ -9,7 +9,7 @@ import {
 	CarouselPrevious,
 	type CarouselApi,
 } from "@/components/ui/carousel";
-import { carouselItem } from "@/lib/interface";
+import type { carouselItem } from "@/lib/interface";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from "next/link";
