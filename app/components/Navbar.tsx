@@ -20,7 +20,11 @@ export default function Navbar() {
 	useEffect(() => {
 		if (headerRef.current) {
 			const headroom = new Headroom(headerRef.current, {
-				offset: path !== "/" && path !== "/about-us" ? 40 : 0,
+				offset: path !== "/" && path !== "/about-us" ? 140 : 100,
+				tolerance: {
+					up: 10,
+					down: 10,
+				},
 			});
 			headroom.init();
 		}
@@ -58,7 +62,7 @@ export default function Navbar() {
 				ref={headerRef}
 				className={cn(
 					"w-full transition-all duration-300 delay-0 ease-in-out shadow-md",
-					"h-[65px] sm:h-[115px]",
+					"h-[65px] sm:h-[100px]",
 					"border-b-4 border-brand-light-blue bg-white flex",
 				)}
 			>
