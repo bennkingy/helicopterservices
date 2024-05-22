@@ -105,16 +105,13 @@
 .headroom {
   will-change: transform;
   transition: transform 200ms linear;
+  position: sticky;
+  z-index: 10;
+  top: 0;
 }
 .headroom--pinned {
   transform: translateY(0%);
-  position: sticky;
-  z-index: 10;
-  top: 0;
 }
 .headroom--unpinned {
   transform: translateY(-100%);
-  position: sticky;
-  z-index: 10;
-  top: 0;
 }

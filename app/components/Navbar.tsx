@@ -14,7 +14,6 @@ import { NavMenu } from "./NavMenu";
 export default function Navbar() {
 	const path = usePathname();
 	const isSmallMobile = useMediaQuery("(max-width: 400px)");
-	const isMobile = useMediaQuery("(max-width: 639px)");
 	const headerRef = useRef(null);
 
 	useEffect(() => {
@@ -22,13 +21,13 @@ export default function Navbar() {
 			const headroom = new Headroom(headerRef.current, {
 				offset: path !== "/" && path !== "/about-us" ? 140 : 100,
 				tolerance: {
-					up: 10,
-					down: 10,
+					up: 0,
+					down: 0,
 				},
 			});
 			headroom.init();
 		}
-	}, [path]);
+	}, []);
 
 	return (
 		<>
