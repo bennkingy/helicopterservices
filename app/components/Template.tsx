@@ -28,7 +28,7 @@ const Template = ({ data, children, showHanger = false }: props) => {
 								{(children.isRendered = true) && data?.gallerySingle && (
 									<Gallery
 										galleryType={"gallery-single"}
-										className="mt-0 mb-12"
+										className="mt-0 mb-12 md:mr-20"
 									>
 										<a
 											data-lg-size="542-305"
@@ -86,7 +86,7 @@ const Template = ({ data, children, showHanger = false }: props) => {
 							</div>
 							{children}
 							{data?.gallery?.length > 0 && (
-								<Gallery galleryType={"gallery"} className="mt-16">
+								<Gallery galleryType={"gallery"} className="mt-16 md:mr-20">
 									{data?.gallery?.map((item: any, index: number) => {
 										const image = urlFor(item.imageUrl).url();
 										if (!image) return null;

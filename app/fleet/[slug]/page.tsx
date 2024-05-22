@@ -1,6 +1,6 @@
 import TemplateTwo from "@/app/components/TemplateTwo";
 import { getBase64Blur } from "@/lib/extensions";
-import { client } from "@/lib/sanity";
+import { client, urlFor } from "@/lib/sanity";
 import type { Metadata } from "next";
 
 export const revalidate = 30; // revalidate at most 30 seconds
@@ -69,10 +69,11 @@ async function getPageData(slug: string) {
 	const data = await client.fetch(query);
 
 	if (data?.gallerySingle) {
-		const gallerySingleUrl = data.gallerySingle.url;
+		console.log("hi");
+		const gallerySingleUrl = urlFor(data.gallerySingle).url();
 		data.gallerySingle.blurDataURL = await getBase64Blur(gallerySingleUrl);
 	}
-
+	console.log(data);
 	return data;
 }
 

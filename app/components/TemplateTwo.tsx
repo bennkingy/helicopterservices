@@ -218,7 +218,7 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 						)}
 					</div>
 					<div className="col-span-2">
-						{data?.gallerySingle && (
+						{data?.gallerySingle?.blurDataURL && (
 							<Gallery galleryType={"gallery-single"} className="mt-0">
 								<a
 									data-lg-size={`${data.gallerySingle.metadata.dimensions.width}-${data.gallerySingle.metadata.dimensions.height}`}
