@@ -128,7 +128,7 @@ export const columns: ColumnDef<Payment>[] = [
 		cell: ({ row }) => <div>{row.getValue("base")}</div>,
 	},
 	{
-		accessorFn: (row) => row.workType?.charterHelicopter,
+		accessorFn: (row) => (row.workType?.charterHelicopter ? "Yes" : "No"),
 		id: "charterHelicopter",
 		header: ({ column }) => (
 			<Button
@@ -145,9 +145,10 @@ export const columns: ColumnDef<Payment>[] = [
 				className="mx-auto"
 			/>
 		),
+		sortingFn: "alphanumeric",
 	},
 	{
-		accessorFn: (row) => row.workType?.aerialWorkHelicopter,
+		accessorFn: (row) => (row.workType?.aerialWorkHelicopter ? "Yes" : "No"),
 		id: "aerialWorkHelicopter",
 		header: ({ column }) => (
 			<Button
@@ -164,9 +165,10 @@ export const columns: ColumnDef<Payment>[] = [
 				className="mx-auto"
 			/>
 		),
+		sortingFn: "alphanumeric",
 	},
 	{
-		accessorFn: (row) => row.workType?.trainingHelicopter,
+		accessorFn: (row) => (row.workType?.trainingHelicopter ? "Yes" : "No"),
 		id: "trainingHelicopter",
 		header: ({ column }) => (
 			<Button
@@ -183,6 +185,7 @@ export const columns: ColumnDef<Payment>[] = [
 				className="mx-auto"
 			/>
 		),
+		sortingFn: "alphanumeric",
 	},
 ];
 
