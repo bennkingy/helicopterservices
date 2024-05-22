@@ -102,31 +102,16 @@
   .absolute.rounded-sm.ring-offset-background {
     z-index: 100;
   }
-
-/* hack to fix the headroom issue */
-  /* .headroom-wrapper {
-    height: auto !important;
-  } */
-
-/* 
 .headroom {
-  top: 0;
-  left: 0;
-  right: 0;
-  zIndex: 1;
-}
-.headroom--unfixed {
-  position: relative;
-  transform: translateY(0);
-}
-.headroom--scrolled {
-  transition: transform 200ms ease-in-out;
-}
-.headroom--unpinned {
-  position: sticky;
-  transform: translateY(-100%);
+  will-change: transform;
+  transition: transform 200ms linear;
 }
 .headroom--pinned {
-  position: sticky;
   transform: translateY(0%);
-} */
+  position: sticky;
+  z-index: 10;
+  top: 0;
+}
+.headroom--unpinned {
+  transform: translateY(-100%);
+}

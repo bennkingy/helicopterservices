@@ -2,20 +2,29 @@
 
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
+import Headroom from "headroom.js";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import Headroom from "react-headroom";
+import { useEffect, useRef } from "react";
 import logo from "/public/images/LogoDarkVNew.svg";
 // import { ModeToggle } from "./ModeToggle";
 import { NavMenu } from "./NavMenu";
 
 export default function Navbar() {
-	const [isPinned, setIsPinned] = useState(false);
 	const path = usePathname();
 	const isSmallMobile = useMediaQuery("(max-width: 400px)");
 	const isMobile = useMediaQuery("(max-width: 639px)");
+	const headerRef = useRef(null);
+
+	useEffect(() => {
+		if (headerRef.current) {
+			const headroom = new Headroom(headerRef.current, {
+				offset: path !== "/" && path !== "/about-us" ? 40 : 0,
+			});
+			headroom.init();
+		}
+	}, [path]);
 
 	return (
 		<>
@@ -45,51 +54,41 @@ export default function Navbar() {
 					</p>
 				</div>
 			) : null}
-			<Headroom
-				onPin={() => setIsPinned(true)}
-				style={{ zIndex: 10 }}
-				// wrapperStyle={{ height: 100 }}
-				onUnfix={() => setIsPinned(false)}
-				pinStart={path !== "/" && path !== "/about-us" ? 40 : 0}
+			<header
+				ref={headerRef}
+				className={cn(
+					"w-full transition-all duration-300 delay-0 ease-in-out shadow-md",
+					"h-[65px] sm:h-[115px]",
+					"border-b-4 border-brand-light-blue bg-white flex",
+				)}
 			>
-				<header
-					className={cn(
-						"w-full transition-all duration-300 delay-0 ease-in-out shadow-md",
-						isPinned ? "h-[65px] sm:h-[80px]" : "h-[65px] sm:h-[115px]",
-						"border-b-4 border-brand-light-blue bg-white flex",
-					)}
+				<div
+					className={cn("container flex items-center justify-between", "px-4")}
 				>
-					<div
-						className={cn(
-							"container flex items-center justify-between",
-							"px-4",
-						)}
+					<Link
+						href="/"
+						className="font-mono text-lg font-bold start"
+						data-testId="logo"
 					>
-						<Link
-							href="/"
-							className="font-mono text-lg font-bold start"
-							data-testId="logo"
+						<Image
+							src={logo}
+							alt="Helicopter Services"
+							width={181}
+							className="w-[135px] sm:w-[181px] sm:h-[117px]"
+						/>
+					</Link>
+					<NavMenu />
+					<div className="absolute bottom-0 right-0">
+						<svg
+							className="h-6 w-6 text-brand-light-blue"
+							viewBox="0 0 20 20"
+							fill="currentColor"
 						>
-							<Image
-								src={logo}
-								alt="Helicopter Services"
-								width={181}
-								className="w-[135px] sm:w-[181px] sm:h-[117px]"
-							/>
-						</Link>
-						<NavMenu />
-						<div className="absolute bottom-0 right-0">
-							<svg
-								className="h-6 w-6 text-brand-light-blue"
-								viewBox="0 0 20 20"
-								fill="currentColor"
-							>
-								<polygon points="20 0 20 20 0 20" />
-							</svg>
-						</div>
+							<polygon points="20 0 20 20 0 20" />
+						</svg>
 					</div>
-				</header>
-			</Headroom>
+				</div>
+			</header>
 		</>
 	);
 }
