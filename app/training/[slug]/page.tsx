@@ -1,6 +1,5 @@
 import Template from "@/app/components/Template";
 import { getBase64Blur } from "@/lib/extensions";
-import type { training } from "@/lib/interface";
 import { client, urlFor } from "@/lib/sanity";
 import type { Metadata } from "next";
 export const revalidate = 30; // revalidate at most 30 seconds
@@ -38,7 +37,7 @@ async function getData(slug: string) {
 export async function generateMetadata({
 	params,
 }: { params: { slug: string } }): Promise<Metadata> {
-	const data: training = await getData(params.slug.toLowerCase());
+	const data: any = await getData(params.slug.toLowerCase());
 
 	return {
 		title: data?.seoTitle,
