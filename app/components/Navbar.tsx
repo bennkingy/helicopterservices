@@ -81,7 +81,7 @@ export default function Navbar() {
 						/>
 					</Link>
 					<NavMenu />
-					<div className="absolute bottom-0 right-0">
+					<div className="absolute bottom-0 right-0 hidden sm:block">
 						<svg
 							className="h-6 w-6 text-brand-light-blue"
 							viewBox="0 0 20 20"
