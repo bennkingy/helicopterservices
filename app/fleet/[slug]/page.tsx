@@ -69,11 +69,9 @@ async function getPageData(slug: string) {
 	const data = await client.fetch(query);
 
 	if (data?.gallerySingle) {
-		console.log("hi");
 		const gallerySingleUrl = urlFor(data.gallerySingle).url();
 		data.gallerySingle.blurDataURL = await getBase64Blur(gallerySingleUrl);
 	}
-	console.log(data);
 	return data;
 }
 

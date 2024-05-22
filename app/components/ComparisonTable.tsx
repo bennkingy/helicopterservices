@@ -128,9 +128,7 @@ export const columns: ColumnDef<Payment>[] = [
 		cell: ({ row }) => <div>{row.getValue("base")}</div>,
 	},
 	{
-		accessorFn: (row) =>
-			// @ts-ignore TODO: fix this hack
-			row.original?.workType?.charterHelicopter ? "Yes" : "No",
+		accessorFn: (row) => row.workType?.charterHelicopter,
 		id: "charterHelicopter",
 		header: ({ column }) => (
 			<Button
@@ -142,17 +140,14 @@ export const columns: ColumnDef<Payment>[] = [
 			</Button>
 		),
 		cell: ({ row }) => (
-			<>
-				{/* // @ts-ignore */}
-				<StatusIcon
-					status={row.original?.workType?.charterHelicopter}
-					className="mx-auto"
-				/>
-			</>
+			<StatusIcon
+				status={row.original?.workType?.charterHelicopter}
+				className="mx-auto"
+			/>
 		),
 	},
 	{
-		accessorFn: (row) => (row.workType.aerialWorkHelicopter ? "Yes" : "No"),
+		accessorFn: (row) => row.workType?.aerialWorkHelicopter,
 		id: "aerialWorkHelicopter",
 		header: ({ column }) => (
 			<Button
@@ -164,16 +159,14 @@ export const columns: ColumnDef<Payment>[] = [
 			</Button>
 		),
 		cell: ({ row }) => (
-			<div>
-				<StatusIcon
-					status={row.original?.workType?.aerialWorkHelicopter}
-					className="mx-auto"
-				/>
-			</div>
+			<StatusIcon
+				status={row.original?.workType?.aerialWorkHelicopter}
+				className="mx-auto"
+			/>
 		),
 	},
 	{
-		accessorFn: (row) => (row.workType.trainingHelicopter ? "Yes" : "No"),
+		accessorFn: (row) => row.workType?.trainingHelicopter,
 		id: "trainingHelicopter",
 		header: ({ column }) => (
 			<Button
@@ -223,6 +216,11 @@ export function ComparisonTable({ data }: ComparisonTableProps) {
 			columnFilters,
 			columnVisibility,
 			rowSelection,
+		},
+		initialState: {
+			pagination: {
+				pageSize: 11,
+			},
 		},
 	});
 

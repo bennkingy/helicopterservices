@@ -5,8 +5,6 @@ type props = {
 };
 
 const Tvlogos = ({ className }: props) => {
-	console.log("Tvlogos component is rendering");
-
 	return (
 		<div className={`flex flex-row flex-wrap gap-5 sm:gap-12 ${className}`}>
 			<Image src={"/images/bbc.svg"} alt="" width={96} height={27} />

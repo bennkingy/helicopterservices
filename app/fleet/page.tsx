@@ -67,7 +67,9 @@ export default async function FleetPage({
 					<div className="pt-5 mb-0">
 						<ComparisonTable
 							// @ts-ignore
-							data={heliCopterData.filter((page) => page.title !== "Fleet")}
+							data={heliCopterData.filter(
+								(page: any) => page?.cruiseSpeed !== null,
+							)}
 						/>
 						<h1 className="text-xl font-bold font-workSans mt-12 text-brand-dark-blue">
 							Twin engine
