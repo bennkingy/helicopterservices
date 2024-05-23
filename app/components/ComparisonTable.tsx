@@ -239,11 +239,11 @@ export function ComparisonTable({ data }: ComparisonTableProps) {
 			<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
 				<div className="w-full">
 					<div className="fixed bg-white w-full z-[2] shadow-md	sm:shadow-none">
-						<div className="border-b-4 border-brand-light-blue relative bg-white h-10">
-							<h3 className="font-workSans text-xl sm:text-2xl text-brand-dark-blue p-4 pt-0 font-bold mt-0">
+						<div className="border-b-4 border-brand-light-blue relative bg-white">
+							<h3 className="font-workSans text-xl sm:text-2xl text-brand-dark-blue p-3 pl-4 font-bold mt-0">
 								Compare fleet helicopters
 							</h3>
-							<div className="absolute -bottom-[1px] right-0">
+							<div className="absolute -bottom-[1px] right-0 hidden sm:block">
 								<svg
 									className="h-6 w-6 text-brand-light-blue"
 									viewBox="0 0 17 17"
