@@ -284,7 +284,7 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 						)}
 						<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-10">
 							<p className="text-white font-bold font-openSans">
-								This Helicopter is based at:
+								This helicopter is based at:
 							</p>
 							<p className="text-white font-openSans font-thin">
 								White Waltham Airfield, Maidenhead, Berkshire, SL6 3N

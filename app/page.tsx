@@ -47,7 +47,7 @@ export default async function Home() {
 	return (
 		<main className="overflow-x-hidden">
 			<Hero
-				title="Exceeding exacting industry standards."
+				title="Exceeding exacting industry standards"
 				height="h-[calc(84lvh_-_65px)] sm:h-[calc(100lvh_-_100px)]"
 			/>
 			<div className="py-20 bg-brand-dark-blue z-[9] relative -mt-[1px]">
