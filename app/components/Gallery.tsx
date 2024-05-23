@@ -42,7 +42,7 @@ const Gallery = forwardRef(
 				{galleryType === "video" && (
 					<Image
 						priority
-						src={"/images/3d-icon.png"}
+						src={"/images/3d-rotate-circle.svg"}
 						width={140}
 						height={140}
 						alt="hero image example"

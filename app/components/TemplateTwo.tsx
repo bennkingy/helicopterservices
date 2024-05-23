@@ -112,7 +112,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 							<Image
 								priority
 								quality={100}
-								src={"/images/3d-rotate-icon.png"}
+								src={"/images/3d-rotate-Dark.svg"}
 								alt=""
 								width={53}
 								height={47}
