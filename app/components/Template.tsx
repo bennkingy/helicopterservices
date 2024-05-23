@@ -4,6 +4,7 @@ import Map from "@/app/components/Map";
 import { urlFor } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import Approvals from "./Approvals";
 import Gallery from "./Gallery";
 import Header from "./Header";
 
@@ -84,14 +85,7 @@ const Template = ({ data, children, showHanger = false }: props) => {
 									components={components}
 								/>
 							</div>
-							<Image
-								src="/images/approvals.png"
-								alt="Helicopter Services"
-								width={300}
-								quality={100}
-								height={100}
-								className="mt-12"
-							/>
+							<Approvals />
 							{children}
 							{data?.gallery?.length > 0 && (
 								<Gallery galleryType={"gallery"} className="mt-16 md:mr-20">
