@@ -84,6 +84,14 @@ const Template = ({ data, children, showHanger = false }: props) => {
 									components={components}
 								/>
 							</div>
+							<Image
+								src="/images/approvals.png"
+								alt="Helicopter Services"
+								width={300}
+								quality={100}
+								height={100}
+								className="mt-12"
+							/>
 							{children}
 							{data?.gallery?.length > 0 && (
 								<Gallery galleryType={"gallery"} className="mt-16 md:mr-20">

@@ -56,7 +56,6 @@ const Gallery = forwardRef(
 					ref={lightGalleryRef}
 					plugins={[lgZoom, lgVideo]}
 					mode="lg-fade"
-					thumbnail={true}
 					// hideScrollbar={true}
 					autoplayFirstVideo={
 						galleryType === "video" || galleryType === "3d-video"
