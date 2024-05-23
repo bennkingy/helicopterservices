@@ -7,7 +7,7 @@ type props = {
 const Tvlogos = ({ className }: props) => {
 	return (
 		<div
-			className={`grid grid-cols-2 sm:grid-cols-4 sm:gap-5 lg:gap-8 ${className}`}
+			className={`grid grid-cols-2 sm:grid-cols-4 sm:gap-5 lg:gap-8 ${className} lg:pr-20`}
 		>
 			<div className="flex sm:justify-center items-center">
 				<Image src="/images/bbc.svg" alt="" width={96} height={27} />
