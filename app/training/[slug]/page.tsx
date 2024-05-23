@@ -24,7 +24,7 @@ async function getData(slug: string) {
 	const data = await client.fetch(query);
 
 	await Promise.all(
-		data.gallery.map(async (item: any) => {
+		data?.gallery?.map(async (item: any) => {
 			const imageUrl = urlFor(item.imageUrl).url();
 			const blurDataURL = await getBase64Blur(imageUrl);
 			item.blurDataURL = blurDataURL;
