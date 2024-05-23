@@ -134,7 +134,7 @@ const Template = ({ data, children, showHanger = false }: props) => {
 							<GetinTouchSmall className="mt-20 md:mt-8 hidden md:block" />
 							<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-0 md:mt-8">
 								<p className="text-white font-bold font-openSans">
-									This Service is based at:
+									This service is based at:
 								</p>
 								<p className="text-white font-openSans font-thin">
 									White Waltham Airfield, Maidenhead, Berkshire, SL6 3N
