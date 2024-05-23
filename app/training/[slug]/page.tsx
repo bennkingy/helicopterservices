@@ -23,13 +23,14 @@ async function getData(slug: string) {
       }[0]`;
 	const data = await client.fetch(query);
 
-	await Promise.all(
-		data?.gallery?.map(async (item: any) => {
-			const imageUrl = urlFor(item.imageUrl).url();
-			const blurDataURL = await getBase64Blur(imageUrl);
-			item.blurDataURL = blurDataURL;
-		}),
-	);
+	data?.gallery?.length > 0 &&
+		(await Promise.all(
+			data.gallery.map(async (item: any) => {
+				const imageUrl = urlFor(item.imageUrl).url();
+				const blurDataURL = await getBase64Blur(imageUrl);
+				item.blurDataURL = blurDataURL;
+			}),
+		));
 
 	return { data };
 }

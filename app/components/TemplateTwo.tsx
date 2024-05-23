@@ -158,7 +158,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 						</h3>
 						<SpecificationTable helicopter={data} className="mb-6" />
 						<ComparisonTable // @ts-ignore
-							data={heliCopterData.filter(
+							data={helicopterData.filter(
 								(page: any) => page?.cruiseSpeed !== null,
 							)}
 						/>
