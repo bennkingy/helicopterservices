@@ -157,7 +157,11 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 							Specifications
 						</h3>
 						<SpecificationTable helicopter={data} className="mb-6" />
-						<ComparisonTable data={helicopterData} />
+						<ComparisonTable // @ts-ignore
+							data={heliCopterData.filter(
+								(page: any) => page?.cruiseSpeed !== null,
+							)}
+						/>
 						{children}
 						{data.gallery && (
 							<Gallery className="sm:mb-10" galleryType="gallery">

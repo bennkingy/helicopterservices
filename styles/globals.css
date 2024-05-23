@@ -115,3 +115,9 @@
 .headroom--unpinned {
   transform: translateY(-100%);
 }
+
+@media(max-height: 720px) {
+  .tricky-table  {
+        height: calc(100% - 40px);
+  }
+}
