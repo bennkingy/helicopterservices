@@ -1,7 +1,6 @@
 "use client";
 
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
-import { Icons } from "@/components/ui/icons";
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -13,6 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { MenuIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 
@@ -341,8 +341,9 @@ export function NavMenu() {
 			</NavigationMenu>
 			<div className="flex visible sm:hidden ml-auto">
 				<Drawer direction="right">
-					<DrawerTrigger className="mr-3">
-						<MenuIcon size={24} />
+					<DrawerTrigger className="mr-3 flex font-semibold text-black">
+						{/* Menu */}
+						<MenuIcon size={30} />
 					</DrawerTrigger>
 					<DrawerContent className="h-full ml-20">
 						<ul>
@@ -371,8 +372,14 @@ export function NavMenu() {
 					</DrawerContent>
 				</Drawer>
 			</div>
-			<Link href="tel:+44 1494513 166">
-				<Icons.phone className="text-brand-light-blue" height={20} />
+			<Link href="tel:+44 1494513 166" className="">
+				{/* <Icons.phone className="text-brand-light-blue" height={20} /> */}
+				<Image
+					src="/images/circle-phone.svg"
+					alt="phone"
+					height={30}
+					width={30}
+				/>
 			</Link>
 		</>
 	);
