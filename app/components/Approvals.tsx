@@ -8,7 +8,7 @@ const Approvals = () => {
 
 	return path.includes("training") ? (
 		<Image
-			src="/images/approvals.png"
+			src="/images/approvals.svg"
 			alt="Helicopter Services"
 			width={300}
 			quality={100}
