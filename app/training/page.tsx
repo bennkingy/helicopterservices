@@ -52,7 +52,7 @@ export default async function Training({
 		<>
 			<main className="bg-brand-light-grey overflow-x-hidden z-[1] relative">
 				<Header
-					className="h-[250px] md:h-[420px] lg:h-[675px]"
+					className="h-[320px] md:h-[420px] lg:h-[675px]"
 					title={data?.hero?.heading}
 					tag={data?.hero?.tagline}
 					image={data?.heroImage}
