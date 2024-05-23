@@ -50,8 +50,7 @@ export default async function Home() {
 				title="Exceeding exacting industry standards."
 				height="h-[calc(84lvh_-_65px)] sm:h-[calc(100lvh_-_100px)]"
 			/>
-			<video src={"/videos/videoBg.mp4"} autoPlay loop muted />
-			<div className="py-20 bg-brand-dark-blue">
+			<div className="py-20 bg-brand-dark-blue z-[10] relative -mt-[1px]">
 				<div className="container">
 					<MainServices />
 				</div>
