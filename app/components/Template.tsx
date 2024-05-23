@@ -130,7 +130,15 @@ const Template = ({ data, children, showHanger = false }: props) => {
 						<div>
 							<ContactCta className="hidden md:block" />
 							<GetinTouchSmall className="mt-20 md:mt-8 hidden md:block" />
-							<Map className="mb-20 mt-0 sm:mb-0 md:mt-8" />
+							<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-0 md:mt-8">
+								<p className="text-white font-bold font-openSans">
+									This Service is based at:
+								</p>
+								<p className="text-white font-openSans font-thin">
+									White Waltham Airfield, Maidenhead, Berkshire, SL6 3N
+								</p>
+							</div>
+							<Map className="mb-20 sm:mb-0" />
 						</div>
 					</main>
 				</>
