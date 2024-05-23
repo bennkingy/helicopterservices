@@ -13,6 +13,7 @@ async function getData(slug: string) {
           seoDescription,
           body,
           mainImage,
+					gallerySingle,
           "gallery": gallery.images[]{
 						"imageUrl": asset->url,
 						"height": asset->metadata.dimensions.height,

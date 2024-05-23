@@ -55,6 +55,13 @@ export default defineType({
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
+			name: "gallerySingle",
+			title: "Gallery single",
+			type: "image",
+			description: "Perfect for displaying 1 large image.",
+			hidden: ({ document }) => document?.isLandingPage === true,
+		}),
+		defineField({
 			name: "seoDescription",
 			title: "SEO Description",
 			type: "string",
