@@ -62,7 +62,7 @@ export default async function FleetPage({
 
 	return (
 		<>
-			<Template data={data}>
+			<Template data={data} height="h-[250px] md:h-[420px] lg:h-[675px]">
 				<div className="">
 					<div className="pt-5 mb-0">
 						<ComparisonTable

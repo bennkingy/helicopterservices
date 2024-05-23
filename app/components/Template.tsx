@@ -12,9 +12,10 @@ type props = {
 	data: any;
 	children?: any;
 	showHanger?: boolean;
+	height?: string;
 };
 
-const Template = ({ data, children, showHanger = false }: props) => {
+const Template = ({ data, children, showHanger = false, height }: props) => {
 	const components = {
 		types: {
 			// custom rendering logic for other types can go here
@@ -71,6 +72,7 @@ const Template = ({ data, children, showHanger = false }: props) => {
 					{(data?.heroImage || data?.mainImage) && (
 						<div className="overflow-x-hidden">
 							<Header
+								className={height}
 								title={data?.hero?.heading || data?.title}
 								tag={data?.hero?.tagline}
 								image={data?.heroImage || data?.mainImage}
@@ -82,6 +84,7 @@ const Template = ({ data, children, showHanger = false }: props) => {
 							<div className="prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans  prose-h2:text-3xl sm:prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey">
 								<PortableText
 									value={data?.body || ""}
+									// TODO: https://www.sanity.io/answers/using-portabletext-with-defined-types-in-components-for-a-schema-with-a-hero-object-inside-a-parent-portable-text-array
 									components={components}
 								/>
 							</div>
