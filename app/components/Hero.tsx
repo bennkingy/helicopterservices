@@ -36,7 +36,7 @@ const Hero = ({
 			/>
 			<div className={"relative h-full"}>
 				<video
-					src={"/videos/video4.mp4"}
+					src={"/videos/video4stable.mp4"}
 					autoPlay
 					loop
 					playsInline
