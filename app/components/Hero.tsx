@@ -39,7 +39,7 @@ const Hero = ({
 					src={"/videos/video4.mp4"}
 					autoPlay
 					loop
-					playsinline
+					playsInline
 					muted
 					className={`w-full h-full cover absolute object-cover ${height}`}
 				/>
