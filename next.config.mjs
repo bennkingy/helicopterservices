@@ -2,30 +2,40 @@
 import withPlaiceholder from "@plaiceholder/next";
 
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-        port: "",
-      },
-      {
-        protocol: "https",
-        hostname: "placehold.co",
-        port: "",
-      },
-      {
-        protocol: "https",
-        hostname: "openweathermap.org",
-        port: "",
-      },
-      {
-        protocol: "https",
-        hostname: "dynamic-media-cdn.tripadvisor.com",
-        port: "",
-      },
-    ],
-  },
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "cdn.sanity.io",
+				port: "",
+			},
+			{
+				protocol: "https",
+				hostname: "placehold.co",
+				port: "",
+			},
+			{
+				protocol: "https",
+				hostname: "images.unsplash.com",
+				port: "",
+			},
+			{
+				protocol: "https",
+				hostname: "plus.unsplash.com",
+				port: "",
+			},
+			{
+				protocol: "https",
+				hostname: "openweathermap.org",
+				port: "",
+			},
+			{
+				protocol: "https",
+				hostname: "dynamic-media-cdn.tripadvisor.com",
+				port: "",
+			},
+		],
+	},
 };
 
 export default withPlaiceholder(nextConfig);
