@@ -109,40 +109,41 @@ const Template = async ({
 									galleryType={"gallery"}
 									className="mt-16 mr-12 sm:mr-24 md:mr-10 lg:mr-32"
 								>
-									{imageWithPlaceholder?.map((item: any, index: number) => {
-										const regex = new RegExp(/\.[^/.]+$/);
+									{imageWithPlaceholder.length > 0 &&
+										imageWithPlaceholder?.map((item: any, index: number) => {
+											const regex = new RegExp(/\.[^/.]+$/);
 
-										return (
-											<a
-												key={index}
-												// data-lg-size={`${item.width}-${item.height}`}
-												data-pinterest-text="Pin it"
-												data-tweet-text="Helicopter Services"
-												data-src={item.src}
-												// data-sub-html={`<h4>Helicopter Services</h4><p>${item?.fileName.replace(
-												// 	regex,
-												// 	"",
-												// )}</p>`}
-												className="w-full max-h-[330px] relative aspect-square"
-											>
-												<Image
-													fill
-													objectFit="cover"
-													objectPosition="center"
-													quality={100}
-													className="img-responsive cursor-pointer"
-													src={item.src}
-													placeholder="blur"
-													blurDataURL={item.placeholder}
-													alt=""
-													style={{
-														clipPath:
-															"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-													}}
-												/>
-											</a>
-										);
-									})}
+											return (
+												<a
+													key={index}
+													// data-lg-size={`${item.width}-${item.height}`}
+													data-pinterest-text="Pin it"
+													data-tweet-text="Helicopter Services"
+													data-src={item.src}
+													// data-sub-html={`<h4>Helicopter Services</h4><p>${item?.fileName.replace(
+													// 	regex,
+													// 	"",
+													// )}</p>`}
+													className="w-full max-h-[330px] relative aspect-square"
+												>
+													<Image
+														fill
+														objectFit="cover"
+														objectPosition="center"
+														quality={100}
+														className="img-responsive cursor-pointer"
+														src={item.src}
+														placeholder="blur"
+														blurDataURL={item.placeholder}
+														alt=""
+														style={{
+															clipPath:
+																"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+														}}
+													/>
+												</a>
+											);
+										})}
 								</Gallery>
 							)}
 						</div>
