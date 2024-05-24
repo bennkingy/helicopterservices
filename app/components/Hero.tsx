@@ -33,12 +33,13 @@ const Hero = ({
 				className={
 					"h-full z-[8] bg-opacity-70 absolute bg-brand-dark-blue top-0 left-0 right-0 bottom-0"
 				}
-			></div>
+			/>
 			<div className={"relative h-full"}>
 				<video
 					src={"/videos/video4.mp4"}
 					autoPlay
 					loop
+					playsinline
 					muted
 					className={`w-full h-full cover absolute object-cover ${height}`}
 				/>
