@@ -8,9 +8,9 @@ type props = {
 const GetInTouch = ({ className }: props) => {
 	return (
 		<section
-			className={`bg-[url('/images/0.jpg')] bg-no-repeat bg-cover bg-center ${className} text-white`}
+			className={`bg-[url('/images/0.jpg')] bg-no-repeat bg-cover bg-center ${className} text-white bg-fixed`}
 		>
-			<div className={`bg-opacity-80 bg-brand-dark-blue`}>
+			<div className={"bg-opacity-80 bg-brand-dark-blue"}>
 				<div className="container py-20">
 					<Heading
 						title="Get in touch with us."
