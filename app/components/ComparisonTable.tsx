@@ -254,7 +254,7 @@ export function ComparisonTable({ data }: ComparisonTableProps) {
 							</div>
 						</div>
 					</div>
-					<div className="relative z-[1] pt-[64px] md:pt-[70px]">
+					<div className="relative z-[1] pt-[55px] md:pt-[60px]">
 						<Table>
 							<TableHeader>
 								{table.getHeaderGroups().map((headerGroup) => (
