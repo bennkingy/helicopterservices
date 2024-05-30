@@ -193,8 +193,8 @@ const ContacForm = () => {
 						Thank you {name} for your enquiry.
 					</h3>
 					<p className="mt-5 text-center font-bold text-base text-brand-dark-blue font-workSans">
-						It has lifted off and is now on its way to us. We'll get back to you
-						as soon as it lands.
+						It has lifted off and is now on its way to us. We&apos;ll get back
+						to you as soon as it lands.
 					</p>
 				</div>
 			)}
