@@ -1,6 +1,5 @@
 "use client";
 
-import { helloAction } from "@/actions/hello-action";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -26,6 +25,7 @@ import { ContactSchema } from "../schema";
 const ContacForm = () => {
 	const [loading, setLoading] = useState(false);
 	const [step, setStep] = useState(1);
+	const [name, setName] = useState("");
 
 	const form = useForm({
 		resolver: zodResolver(ContactSchema),
@@ -41,12 +41,11 @@ const ContacForm = () => {
 	const onSubmit = async (data: z.infer<typeof ContactSchema>) => {
 		setLoading(true);
 		await new Promise((resolve) => setTimeout(resolve, 1000));
+		// const { message } = await helloAction(data.name);
+		setName(data.name);
+		// toast({ description: message });
+		setLoading(false);
 		setStep(2);
-		const { message } = await helloAction(data.name);
-		toast({ description: message });
-		setTimeout(() => {
-			setLoading(false);
-		}, 100);
 	};
 
 	const { pending } = useFormStatus();
@@ -181,14 +180,21 @@ const ContacForm = () => {
 					</form>
 				</Form>
 			) : (
-				<div>
+				<div className="min-h-[400px] flex justify-center flex-col align-middle items-center">
 					<Image
-						src="/images/easa.svg"
-						alt="Helicopter Services"
+						src="/images/helicopter-message.svg"
+						alt="Thank you for your enquiry!"
 						width={109}
 						height={36}
 						quality={100}
 					/>
+					<h3 className="mt-10 text-center font-bold text-2xl text-brand-dark-blue font-workSans">
+						Thank you {name} for your enquiry.
+					</h3>
+					<p className="mt-5 text-center font-bold text-base text-brand-dark-blue font-workSans">
+						It has lifted off and is now on its way to us. We'll get back to you
+						as soon as it lands.
+					</p>
 				</div>
 			)}
 		</div>
