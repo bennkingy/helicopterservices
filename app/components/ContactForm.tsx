@@ -11,18 +11,22 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import type { z } from "zod";
 import { ContactSchema } from "../schema";
-import CardWrapper from "./CardWrapper";
 
 const ContacForm = () => {
 	const [loading, setLoading] = useState(false);
+	const [step, setStep] = useState(1);
+
 	const form = useForm({
 		resolver: zodResolver(ContactSchema),
 		defaultValues: {
@@ -36,6 +40,8 @@ const ContacForm = () => {
 
 	const onSubmit = async (data: z.infer<typeof ContactSchema>) => {
 		setLoading(true);
+		await new Promise((resolve) => setTimeout(resolve, 1000));
+		setStep(2);
 		const { message } = await helloAction(data.name);
 		toast({ description: message });
 		setTimeout(() => {
@@ -45,81 +51,147 @@ const ContacForm = () => {
 
 	const { pending } = useFormStatus();
 	return (
-		<CardWrapper
-			label="Enquire about our services"
-			title="Enquire"
-			backButtonHref="/auth/login"
-			backButtonLabel="Already have an account? Login here."
+		<div
+			className="bg-[#E6ECF0] border-l-4 border-brand-light-blue p-10 pt-9 pb-11"
+			style={{
+				clipPath: "polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+			}}
 		>
-			<Form {...form}>
-				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-					<div className="space-y-4">
-						<FormField
-							control={form.control}
-							name="email"
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel data-testId="emailLabel">Email</FormLabel>
-									<FormControl>
-										<Input
-											{...field}
-											type="email"
-											data-testId="emailField"
-											placeholder="Please enter your email"
-										/>
-									</FormControl>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-						<FormField
-							control={form.control}
-							name="name"
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel data-testId="nameLabel">Name</FormLabel>
-									<FormControl>
-										<Input
-											{...field}
-											data-testId="nameField"
-											placeholder="Please enter your full name"
-										/>
-									</FormControl>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-						<FormField
-							control={form.control}
-							name="body"
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel data-testId="enquiryLabel">Enquire</FormLabel>
-									<FormControl>
-										<Textarea
-											{...field}
-											data-testId="enquiryField"
-											placeholder="Please enter your message here"
-										/>
-									</FormControl>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-					</div>
-					<Button
-						type="submit"
-						className="w-full"
-						disabled={pending}
-						data-testId="submitEnquiryButton"
-					>
-						{loading
-							? "Loading... Please wait while your enquiry is submitted "
-							: "Submit Enquiry"}
-					</Button>
-				</form>
-			</Form>
-		</CardWrapper>
+			{step === 1 ? (
+				<Form {...form}>
+					<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+						<div className="space-y-4 mb-5">
+							<FormField
+								control={form.control}
+								name="name"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel data-testId="nameLabel">Name</FormLabel>
+										<FormControl>
+											<Input
+												{...field}
+												type="name"
+												data-testId="nameField"
+												placeholder="Please enter your name"
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="email"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel data-testId="emailLabel">Email</FormLabel>
+										<FormControl>
+											<Input
+												{...field}
+												type="email"
+												data-testId="emailField"
+												placeholder="Please enter your email"
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="contactNumber"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel data-testId="contactNumberLabel">
+											Contact number
+										</FormLabel>
+										<FormControl>
+											<Input
+												{...field}
+												data-testId="contactNumberField"
+												placeholder="Please enter your full contact number"
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							{/* Edit */}
+							<div className="mt-5">
+								<FormLabel data-testId="enquiryLabel">
+									Your requirement
+								</FormLabel>
+							</div>
+							<RadioGroup defaultValue="option-one">
+								<div className="flex items-center space-x-2 -mt-2">
+									<RadioGroupItem value="option-one" id="option-one" />
+									<Label htmlFor="option-one" className="cursor-pointer">
+										Training
+									</Label>
+								</div>
+								<div className="flex items-center space-x-2 mt-1">
+									<RadioGroupItem value="option-two" id="option-two" />
+									<Label htmlFor="option-two" className="cursor-pointer">
+										Flights
+									</Label>
+								</div>
+								<div className="flex items-center space-x-2 mt-1">
+									<RadioGroupItem value="option-three" id="option-three" />
+									<Label htmlFor="option-three" className="cursor-pointer">
+										Industry
+									</Label>
+								</div>
+								<div className="flex items-center space-x-2 mt-1">
+									<RadioGroupItem value="option-four" id="option-four" />
+									<Label htmlFor="option-four" className="cursor-pointer">
+										Other
+									</Label>
+								</div>
+							</RadioGroup>
+							{/* End Edit */}
+							<FormField
+								control={form.control}
+								name="body"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel data-testId="enquiryLabel">Message</FormLabel>
+										<FormControl>
+											<Textarea
+												{...field}
+												data-testId="enquiryField"
+												placeholder="Please enter your message here"
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+						</div>
+						<Button
+							type="submit"
+							className="w-full bg-brand-light-blue"
+							// sm:max-w-[250px]
+							disabled={pending}
+							data-testId="submitEnquiryButton"
+						>
+							{loading
+								? "Loading... Please wait while your enquiry is submitted "
+								: "Submit Enquiry"}
+						</Button>
+					</form>
+				</Form>
+			) : (
+				<div>
+					<Image
+						src="/images/easa.svg"
+						alt="Helicopter Services"
+						width={109}
+						height={36}
+						quality={100}
+					/>
+				</div>
+			)}
+		</div>
 	);
 };
 
