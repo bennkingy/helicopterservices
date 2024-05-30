@@ -1,5 +1,6 @@
 "use client";
 
+import { helloAction } from "@/actions/hello-action";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -41,9 +42,9 @@ const ContacForm = () => {
 	const onSubmit = async (data: z.infer<typeof ContactSchema>) => {
 		setLoading(true);
 		await new Promise((resolve) => setTimeout(resolve, 1000));
-		// const { message } = await helloAction(data.name);
+		const { message } = await helloAction(data.name);
 		setName(data.name);
-		// toast({ description: message });
+		toast({ description: message });
 		setLoading(false);
 		setStep(2);
 	};
