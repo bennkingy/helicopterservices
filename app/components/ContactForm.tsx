@@ -99,6 +99,7 @@ const ContacForm = () => {
 							/>
 							<FormField
 								control={form.control}
+								// @ts-ignore
 								name="contactNumber"
 								render={({ field }) => (
 									<FormItem>
