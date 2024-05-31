@@ -1,6 +1,6 @@
 "use client";
 
-import { helloAction } from "@/actions/hello-action";
+// import { helloAction } from "@/actions/hello-action";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -14,7 +14,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useState } from "react";
@@ -37,14 +36,14 @@ const ContacForm = () => {
 		},
 	});
 
-	const { toast } = useToast();
+	// const { toast } = useToast();
 
 	const onSubmit = async (data: z.infer<typeof ContactSchema>) => {
 		setLoading(true);
 		await new Promise((resolve) => setTimeout(resolve, 1000));
-		const { message } = await helloAction(data.name);
+		// const { message } = await helloAction(data.name);
 		setName(data.name);
-		toast({ description: message });
+		// toast({ description: message });
 		setLoading(false);
 		setStep(2);
 	};
@@ -175,9 +174,7 @@ const ContacForm = () => {
 							disabled={pending}
 							data-testId="submitEnquiryButton"
 						>
-							{loading
-								? "Loading... Please wait while your enquiry is submitted "
-								: "Submit Enquiry"}
+							{loading ? "Submitting..." : "Submit Enquiry"}
 						</Button>
 					</form>
 				</Form>
