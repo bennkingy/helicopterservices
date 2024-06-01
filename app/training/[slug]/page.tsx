@@ -36,11 +36,18 @@ async function getData(slug: string) {
 export async function generateMetadata({
 	params,
 }: { params: { slug: string } }): Promise<Metadata> {
-	const data: any = await getData(params.slug.toLowerCase());
+	const { data }: any = await getData(params.slug.toLowerCase());
+
+	if (!data) {
+		return {
+			title: "Helicopter Services",
+			description: "Default Description",
+		};
+	}
 
 	return {
-		title: data?.seoTitle,
-		description: data?.seoDescription,
+		title: data.seoTitle || "Helicopter Services",
+		description: data.seoDescription || "Default Description",
 	};
 }
 
