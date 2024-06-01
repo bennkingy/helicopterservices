@@ -1,6 +1,5 @@
 import TemplateTwo from "@/app/components/TemplateTwo";
-import { getBase64Blur } from "@/lib/extensions";
-import { client, urlFor } from "@/lib/sanity";
+import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
 
 export const revalidate = 30; // revalidate at most 30 seconds
@@ -49,16 +48,13 @@ async function getPageData(slug: string) {
             }
           },
 					threedVideoUrl,
-					"gallerySingle": gallerySingle.asset->{
-            _id,
-            url,
-            metadata {
-                dimensions {
-                    width,
-                    height
-                }
-            }
-       		},
+		 			"gallerySingle": gallerySingle{
+						"imageUrl": asset->url,
+						"altText": alt,
+						"blur": blur,
+						"height": asset->metadata.dimensions.height,
+						"width": asset->metadata.dimensions.width
+					},
 					gallery,
 					engineType,
 					capacity,
@@ -68,10 +64,6 @@ async function getPageData(slug: string) {
       }[0]`;
 	const data = await client.fetch(query);
 
-	if (data?.gallerySingle) {
-		const gallerySingleUrl = urlFor(data.gallerySingle).url();
-		data.gallerySingle.blurDataURL = await getBase64Blur(gallerySingleUrl);
-	}
 	return data;
 }
 

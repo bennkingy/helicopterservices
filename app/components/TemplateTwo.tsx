@@ -222,14 +222,13 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 						)}
 					</div>
 					<div className="col-span-2">
-						{data?.gallerySingle?.blurDataURL && (
+						{data?.gallerySingle && (
 							<Gallery galleryType={"gallery-single"} className="mt-0">
 								<a
-									href={urlFor(data.gallerySingle).url()}
-									data-lg-size={`${data.gallerySingle.metadata.dimensions.width}-${data.gallerySingle.metadata.dimensions.height}`}
+									data-lg-size={`${data.gallerySingle.width}-${data.gallerySingle.height}`}
 									data-pinterest-text="Pin it"
 									data-tweet-text="Helicopter Services"
-									data-src={urlFor(data.gallerySingle).url()}
+									data-src={urlFor(data.gallerySingle?.imageUrl).url()}
 									data-sub-html={`<h4>Helicopter Services</h4><p>${data?.title}</p>`}
 								>
 									<Image
@@ -237,9 +236,13 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 										height={332}
 										quality={100}
 										className="img-responsive cursor-pointer"
-										src={urlFor(data.gallerySingle).url()}
-										placeholder="blur"
-										blurDataURL={data?.gallerySingle?.blur}
+										src={urlFor(data?.gallerySingle?.imageUrl).url()}
+										placeholder={data?.gallerySingle?.blur ? "blur" : undefined}
+										blurDataURL={
+											data?.gallerySingle?.blur
+												? data?.gallerySingle?.blur
+												: undefined
+										}
 										alt=""
 										style={{
 											clipPath:
