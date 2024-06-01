@@ -1,6 +1,6 @@
 import ContactCta from "@/app/components/ContactCta";
 import GetinTouchSmall from "@/app/components/GetinTouchSmall";
-import Map from "@/app/components/Map";
+import GMap from "@/app/components/GMap";
 import { urlFor } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
@@ -146,7 +146,7 @@ const Template = ({ data, children, showHanger = false, height }: props) => {
 									White Waltham Airfield, Maidenhead, Berkshire, SL6 3N
 								</p>
 							</div>
-							<Map className="mb-20 sm:mb-0" />
+							<GMap className="mb-20 sm:mb-0" />
 						</div>
 					</main>
 				</>

@@ -1,6 +1,6 @@
 "use client";
 
-import Map from "@/app/components/Map";
+import GMap from "@/app/components/GMap";
 import { urlFor } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
 import { PortableText } from "@portabletext/react";
@@ -290,7 +290,7 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 								White Waltham Airfield, Maidenhead, Berkshire, SL6 3N
 							</p>
 						</div>
-						<Map />
+						<GMap />
 					</div>
 				</div>
 			</main>
