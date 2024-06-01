@@ -61,7 +61,7 @@ export default function RootLayout({
 				{/* Gmap fix */}
         <Script id="hide-second-gm-style-iw-t" strategy="lazyOnload">
           {`
-						const elements = document.querySelectorAll('.gm-style-iw-t');
+						const elements = document.querySelectorAll('.gm-style-iw-c');
 						if (elements.length > 1) {
 							elements[1].style.display = 'none';
 						}

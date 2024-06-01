@@ -13,6 +13,7 @@ async function getPageData(slug: string) {
           title,
           seoTitle,
           seoDescription,
+					threedVideoUrl,
           body,
           mainImage,
       }[0]`;
@@ -42,7 +43,7 @@ export default async function AboutPage({
 
 	return (
 		<>
-			<Template data={data} showHanger={showHanger}>
+			<Template data={data}>
 				<div className="mt-8">
 					{showFaqs ? (
 						<div className="mt-8">

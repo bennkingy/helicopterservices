@@ -35,6 +35,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+			name: "threedVideoUrl",
+			title: "3D video url",
+			type: "url",
+		}),
+    defineField({
       name: 'seoTitle',
       title: 'SEO Title',
       type: 'string',
