@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useState } from "react";
+// @ts-ignore
 import { useDropzone } from "react-dropzone";
 
 const getBase64Blur = async (file: File) => {
@@ -47,6 +48,7 @@ export default function UploadPage() {
 
 	const { getRootProps, getInputProps } = useDropzone({
 		onDrop,
+		// @ts-ignore
 		accept: "image/*",
 	});
 
