@@ -7,7 +7,7 @@ type props = {
 };
 
 const YouTubeThreeD = ({ data, className }: props) => {
-	const getYouTubeVideoId = (url) => {
+	const getYouTubeVideoId = (url: string) => {
 		const regex =
 			/(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
 		const matches = url.match(regex);
@@ -28,6 +28,7 @@ const YouTubeThreeD = ({ data, className }: props) => {
 		>
 			<Gallery galleryType="video" className="mr-0 md:mr-20">
 				<a
+					href={imageUrl}
 					data-lg-size="1000-700"
 					data-pinterest-text="Pin it2"
 					data-tweet-text="lightGallery slide  2"
