@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import { MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import * as React from "react";
 
 const training: { title: string; href: string; description: string }[] = [
@@ -214,19 +215,26 @@ const fleet: { title: string; href: string }[] = [
 ];
 
 export function NavMenu() {
+	const path = usePathname();
+
 	return (
 		<>
 			<NavigationMenu className="hidden sm:block font-workSans font-semibold text-brand-dark-blue">
 				<NavigationMenuList>
 					<NavigationMenuItem className="hidden lg:block">
 						<Link href="/" legacyBehavior passHref className="text-lg">
-							<NavigationMenuLink className={navigationMenuTriggerStyle()}>
+							<NavigationMenuLink 	className={cn(
+									navigationMenuTriggerStyle(),
+									path === "/" && "bg-accent text-accent-foreground"
+								)}>
 								Home
 							</NavigationMenuLink>
 						</Link>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
-						<NavigationMenuTrigger>
+						<NavigationMenuTrigger className={cn(
+							path.startsWith("/training") && "bg-accent text-accent-foreground"
+						)}>
 							<a href="/training">Training</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
@@ -246,7 +254,9 @@ export function NavMenu() {
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
-						<NavigationMenuTrigger>
+						<NavigationMenuTrigger className={cn(
+							path.startsWith("/industry") && "bg-accent text-accent-foreground"
+						)}>
 							<a href="/industry">Industry</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
@@ -266,7 +276,9 @@ export function NavMenu() {
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
-						<NavigationMenuTrigger>
+						<NavigationMenuTrigger className={cn(
+							path.startsWith("/flights") && "bg-accent text-accent-foreground"
+						)}>
 							<a href="/flights">Flights</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
@@ -286,7 +298,9 @@ export function NavMenu() {
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
-						<NavigationMenuTrigger>
+						<NavigationMenuTrigger className={cn(
+							path.startsWith("/fleet") && "bg-accent text-accent-foreground"
+						)}>
 							<a href="/fleet">Fleet</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
@@ -306,7 +320,9 @@ export function NavMenu() {
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
-						<NavigationMenuTrigger>
+						<NavigationMenuTrigger className={cn(
+							path.startsWith("/about-us") && "bg-accent text-accent-foreground"
+						)}>
 							<a href="/about-us">About us</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
@@ -327,7 +343,10 @@ export function NavMenu() {
 					</NavigationMenuItem>
 					<NavigationMenuItem>
 						<Link href="/enquire" legacyBehavior passHref>
-							<NavigationMenuLink className={navigationMenuTriggerStyle()}>
+							<NavigationMenuLink className={cn(
+								navigationMenuTriggerStyle(),
+								path === "/enquire" && "bg-accent text-accent-foreground"
+							)}>
 								Enquire
 							</NavigationMenuLink>
 						</Link>

@@ -1,6 +1,7 @@
 import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import { Open_Sans, Work_Sans } from "next/font/google";
+import Script from "next/script";
 import { ThemeProvider } from "../components/ui/theme-provider";
 import "../styles/globals.css";
 import Footer from "./components/Footer";
@@ -57,6 +58,16 @@ export default function RootLayout({
 					<Footer />
 					<Toaster />
 				</ThemeProvider>
+				{/* Gmap fix */}
+        <Script id="hide-second-gm-style-iw-t" strategy="lazyOnload">
+          {`
+						const elements = document.querySelectorAll('.gm-style-iw-t');
+						if (elements.length > 1) {
+							elements[1].style.display = 'none';
+						}
+         
+          `}
+        </Script>
 			</body>
 		</html>
 	);
