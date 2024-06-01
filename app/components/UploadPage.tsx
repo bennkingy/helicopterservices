@@ -69,8 +69,7 @@ export default function UploadPage() {
 			>
 				<input {...getInputProps()} />
 				<p>
-					Drag &apos;n&apos; drop you image files here, then copy the blur
-					string
+					Drag &apos;n&apos; drop you image file here, then copy the blur string
 				</p>
 			</div>
 			{blurDataURL && (
