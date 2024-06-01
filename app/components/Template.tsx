@@ -121,8 +121,8 @@ const Template = ({ data, children, showHanger = false, height }: props) => {
 													quality={100}
 													className="img-responsive cursor-pointer"
 													src={image}
-													placeholder="blur"
-													blurDataURL={item.blur}
+													placeholder={item.blur ? "blur" : undefined}
+													blurDataURL={item.blur ? item.blur : ""}
 													alt=""
 													style={{
 														clipPath:
