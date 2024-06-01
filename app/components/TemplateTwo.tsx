@@ -244,7 +244,11 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 												? data?.gallerySingle?.blur
 												: undefined
 										}
-										alt=""
+										alt={
+											data?.gallerySingle?.alt
+												? data?.gallerySingle?.alt
+												: `Close up photo of ${data?.title} helicopter.`
+										}
 										style={{
 											clipPath:
 												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",

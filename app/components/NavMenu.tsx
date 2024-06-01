@@ -223,18 +223,23 @@ export function NavMenu() {
 				<NavigationMenuList>
 					<NavigationMenuItem className="hidden lg:block">
 						<Link href="/" legacyBehavior passHref className="text-lg">
-							<NavigationMenuLink 	className={cn(
+							<NavigationMenuLink
+								className={cn(
 									navigationMenuTriggerStyle(),
-									path === "/" && "bg-accent text-accent-foreground"
-								)}>
+									path === "/" && "bg-accent text-accent-foreground",
+								)}
+							>
 								Home
 							</NavigationMenuLink>
 						</Link>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
-						<NavigationMenuTrigger className={cn(
-							path.startsWith("/training") && "bg-accent text-accent-foreground"
-						)}>
+						<NavigationMenuTrigger
+							className={cn(
+								path.startsWith("/training") &&
+									"bg-accent text-accent-foreground",
+							)}
+						>
 							<a href="/training">Training</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
@@ -254,9 +259,12 @@ export function NavMenu() {
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
-						<NavigationMenuTrigger className={cn(
-							path.startsWith("/industry") && "bg-accent text-accent-foreground"
-						)}>
+						<NavigationMenuTrigger
+							className={cn(
+								path.startsWith("/industry") &&
+									"bg-accent text-accent-foreground",
+							)}
+						>
 							<a href="/industry">Industry</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
@@ -276,9 +284,12 @@ export function NavMenu() {
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
-						<NavigationMenuTrigger className={cn(
-							path.startsWith("/flights") && "bg-accent text-accent-foreground"
-						)}>
+						<NavigationMenuTrigger
+							className={cn(
+								path.startsWith("/flights") &&
+									"bg-accent text-accent-foreground",
+							)}
+						>
 							<a href="/flights">Flights</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
@@ -298,9 +309,11 @@ export function NavMenu() {
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
-						<NavigationMenuTrigger className={cn(
-							path.startsWith("/fleet") && "bg-accent text-accent-foreground"
-						)}>
+						<NavigationMenuTrigger
+							className={cn(
+								path.startsWith("/fleet") && "bg-accent text-accent-foreground",
+							)}
+						>
 							<a href="/fleet">Fleet</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
@@ -320,9 +333,12 @@ export function NavMenu() {
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
-						<NavigationMenuTrigger className={cn(
-							path.startsWith("/about-us") && "bg-accent text-accent-foreground"
-						)}>
+						<NavigationMenuTrigger
+							className={cn(
+								path.startsWith("/about-us") &&
+									"bg-accent text-accent-foreground",
+							)}
+						>
 							<a href="/about-us">About us</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
@@ -343,10 +359,12 @@ export function NavMenu() {
 					</NavigationMenuItem>
 					<NavigationMenuItem>
 						<Link href="/enquire" legacyBehavior passHref>
-							<NavigationMenuLink className={cn(
-								navigationMenuTriggerStyle(),
-								path === "/enquire" && "bg-accent text-accent-foreground"
-							)}>
+							<NavigationMenuLink
+								className={cn(
+									navigationMenuTriggerStyle(),
+									path === "/enquire" && "bg-accent text-accent-foreground",
+								)}
+							>
 								Enquire
 							</NavigationMenuLink>
 						</Link>
@@ -355,7 +373,10 @@ export function NavMenu() {
 			</NavigationMenu>
 			<div className="flex visible sm:hidden ml-auto">
 				<Drawer direction="right">
-					<DrawerTrigger className="mr-3 flex font-semibold text-black">
+					<DrawerTrigger
+						className="mr-3 flex font-semibold text-black"
+						name="menu"
+					>
 						{/* Menu */}
 						<MenuIcon size={30} />
 					</DrawerTrigger>
