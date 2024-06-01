@@ -16,11 +16,20 @@ async function getData(slug: string) {
           body,
           mainImage,
 					gallerySingle,
-          "gallery": gallery.images[]{
+     			"gallery": gallery.images[]{
 						"imageUrl": asset->url,
 						"height": asset->metadata.dimensions.height,
 						"width": asset->metadata.dimensions.width,
-						"fileName": asset->originalFilename
+						"fileName": asset->originalFilename,
+						"blur": blur,
+						"alt": alt,
+					},
+         	"gallerySingle": gallerySingle{
+						"imageUrl": asset->url,
+						"altText": alt,
+						"blur": blur,
+						"height": asset->metadata.dimensions.height,
+						"width": asset->metadata.dimensions.width
 					},
       }[0]`;
 	const data = await client.fetch(query);

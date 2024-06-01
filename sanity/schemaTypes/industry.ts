@@ -59,6 +59,18 @@ export default defineType({
 			title: "Gallery single",
 			type: "image",
 			description: "Perfect for displaying 1 large image.",
+			fields: [
+				defineField({
+					name: "alt",
+					type: "string",
+					title: "Alternative text",
+				}),
+				defineField({
+					name: "blur",
+					type: "string",
+					title: "Blur hash",
+				}),
+			],
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
