@@ -24,6 +24,16 @@ const nextConfig = {
 				hostname: "dynamic-media-cdn.tripadvisor.com",
 				port: "",
 			},
+			{
+				protocol: "https",
+				hostname: "img.youtube.com",
+				port: "",
+			},
+			{
+				protocol: "http",
+				hostname: "img.youtube.com",
+				port: "",
+			},
 		],
 	},
 };
