@@ -14,18 +14,27 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
+import emailjs from "@emailjs/browser";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import type { z } from "zod";
 import { ContactSchema } from "../schema";
 
 const ContacForm = () => {
+	const service = "service_p8qp31i";
+	const publicKey = "lweYZnq7da8j9Gfxd";
+	const templateId = "template_rgqsdjt";
+
 	const [loading, setLoading] = useState(false);
 	const [step, setStep] = useState(1);
 	const [name, setName] = useState("");
+
+	useEffect(() => {
+		emailjs.init(publicKey);
+	}, []);
 
 	const form = useForm({
 		resolver: zodResolver(ContactSchema),
@@ -33,6 +42,8 @@ const ContacForm = () => {
 			email: "",
 			name: "",
 			body: "",
+			contactNumber: "",
+			requirement: "Training",
 		},
 	});
 
@@ -40,12 +51,24 @@ const ContacForm = () => {
 
 	const onSubmit = async (data: z.infer<typeof ContactSchema>) => {
 		setLoading(true);
-		await new Promise((resolve) => setTimeout(resolve, 1000));
 		// const { message } = await helloAction(data.name);
-		setName(data.name);
 		// toast({ description: message });
-		setLoading(false);
-		setStep(2);
+		console.log(data);
+		try {
+			await emailjs.send(service, templateId, {
+				from_name: data.name,
+				from_email: data.email,
+				contact_number: data.contactNumber,
+				message: data.body,
+				requirement: data.requirement,
+		}, publicKey);
+			setName(data.name);
+			setStep(2);
+		} catch (error) {
+			console.error("Failed to send the email:", error);
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	const { pending } = useFormStatus();
@@ -98,7 +121,6 @@ const ContacForm = () => {
 							/>
 							<FormField
 								control={form.control}
-								// @ts-ignore
 								name="contactNumber"
 								render={({ field }) => (
 									<FormItem>
@@ -116,39 +138,53 @@ const ContacForm = () => {
 									</FormItem>
 								)}
 							/>
-							{/* Edit */}
-							<div className="mt-5">
-								<FormLabel data-testId="enquiryLabel">
-									Your requirement
-								</FormLabel>
-							</div>
-							<RadioGroup defaultValue="option-one">
-								<div className="flex items-center space-x-2 -mt-2">
-									<RadioGroupItem value="option-one" id="option-one" />
-									<Label htmlFor="option-one" className="cursor-pointer">
-										Training
-									</Label>
-								</div>
-								<div className="flex items-center space-x-2 mt-1">
-									<RadioGroupItem value="option-two" id="option-two" />
-									<Label htmlFor="option-two" className="cursor-pointer">
-										Flights
-									</Label>
-								</div>
-								<div className="flex items-center space-x-2 mt-1">
-									<RadioGroupItem value="option-three" id="option-three" />
-									<Label htmlFor="option-three" className="cursor-pointer">
-										Industry
-									</Label>
-								</div>
-								<div className="flex items-center space-x-2 mt-1">
-									<RadioGroupItem value="option-four" id="option-four" />
-									<Label htmlFor="option-four" className="cursor-pointer">
-										Other
-									</Label>
-								</div>
-							</RadioGroup>
-							{/* End Edit */}
+						<FormField
+							control={form.control}
+							name="requirement"
+							// @ts-ignore
+							render={({ field }) => (
+								<FormItem>
+									<div className="mt-5">
+										<FormLabel data-testId="enquiryLabel">
+											Your requirement
+										</FormLabel>
+									</div>
+									<Controller
+										control={form.control}
+										name="requirement"
+										//@ts-ignore
+										render={({ field }) => (
+											<RadioGroup {...field} onValueChange={field.onChange} value={field.value}>
+												<div className="flex items-center space-x-2 mt-0">
+													<RadioGroupItem value="Training" id="option-one" />
+													<Label htmlFor="option-one" className="cursor-pointer">
+														Training
+													</Label>
+												</div>
+												<div className="flex items-center space-x-2 mt-1">
+													<RadioGroupItem value="Flights" id="option-two" />
+													<Label htmlFor="option-two" className="cursor-pointer">
+														Flights
+													</Label>
+												</div>
+												<div className="flex items-center space-x-2 mt-1">
+													<RadioGroupItem value="Industry" id="option-three" />
+													<Label htmlFor="option-three" className="cursor-pointer">
+														Industry
+													</Label>
+												</div>
+												<div className="flex items-center space-x-2 mt-1">
+													<RadioGroupItem value="Other" id="option-four" />
+													<Label htmlFor="option-four" className="cursor-pointer">
+														Other
+													</Label>
+												</div>
+											</RadioGroup>
+										)}
+									/>
+								</FormItem>
+							)}
+						/>
 							<FormField
 								control={form.control}
 								name="body"
@@ -188,11 +224,11 @@ const ContacForm = () => {
 						quality={100}
 					/>
 					<h3 className="mt-10 text-center font-bold text-2xl text-brand-dark-blue font-workSans">
-						Thank you {name} for your enquiry.
+						Thank you for your enquiry, {name}!
 					</h3>
-					<p className="mt-5 text-center font-bold text-base text-brand-dark-blue font-workSans">
-						It has lifted off and is now on its way to us. We&apos;ll get back
-						to you as soon as it lands.
+					<p className="mt-5 text-center font-semibold text-base text-brand-dark-blue font-workSans">
+						Your enquiry has lifted off and is now on its way to us. We&apos;ll
+						get back to you as soon as it lands, usually within 24 hours.
 					</p>
 				</div>
 			)}

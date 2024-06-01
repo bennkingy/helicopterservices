@@ -133,11 +133,6 @@ const flights: { title: string; href: string; description: string }[] = [
 
 const about: { title: string; href: string; description: string }[] = [
 	{
-		title: "Brexit",
-		href: "/about-us/brexit",
-		description: "Our latest brexit infomation",
-	},
-	{
 		title: "Meet the team",
 		href: "/about-us/meet-the-team",
 		description: "Meet our lovely team!",

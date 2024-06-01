@@ -17,6 +17,16 @@ export const ContactSchema = z.object({
     message: "Name must only contain alphabets, spaces, or dashes"
   }),
 
+  contactNumber: z.string().min(10, {
+    message: "Please enter a valid contact number with at least 10 digits"
+  }).regex(/^\d+$/, {
+    message: "Contact number must contain only digits"
+  }),
+
+  requirement: z.string().min(1, {
+    message: "Please select your requirement"
+  }),
+  
   body: z.string().min(1, {
     message: "Please enter your message"
   })
