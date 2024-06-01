@@ -58,7 +58,7 @@ export const imageGalleryType = defineType({
 		prepare({ images }) {
 			return {
 				title: images
-					? `${images.length === 1 ? `1 image` : `${images.length} images`} `
+					? `${images.length === 1 ? "1 image" : `${images.length} images`} `
 					: "No images",
 				subtitle: "Gallery",
 				media: images ? images[0] : ImagesIcon,
