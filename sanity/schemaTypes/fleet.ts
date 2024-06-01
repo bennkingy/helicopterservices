@@ -66,6 +66,7 @@ export default defineType({
 			name: "engineType",
 			title: "Engine Type",
 			type: "string",
+			description: "Single or Twin?",
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({

@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default async function Enquire() {
-
 	const AdditionalContent = () => (
 		<>
 			<Link href="/" className="font-mono text-lg font-bold start">
@@ -63,15 +62,15 @@ export default async function Enquire() {
 			</div>
 		</>
 	);
-	
+
 	return (
 		<main className="pt-16 sm:pt-20 py-20 bg-brand-dark-blue">
 			<div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-6">
 				<div className="mr-0 md:mr-20 col-span-3 relative">
-					<h3 className="text-5xl font-light font-workSans -ml-1 text-white">
+					<h3 className="text-3xl sm:text-5xl font-light font-workSans -ml-1 text-white">
 						Enquire
 					</h3>
-					<p className="mt-5 font-bold text-2xl max-w-[400px] text-white font-workSans">
+					<p className="mt-5 font-semibold text-base sm:text-2xl max-w-[400px] text-white font-workSans">
 						Tell us how we can help and we&apos;ll get in touch as soon as we
 						can.
 					</p>
@@ -82,17 +81,17 @@ export default async function Enquire() {
 				<div className="col-span-3 mt-10 md:mt-0">
 					<ContactForm />
 					<div className="block md:hidden mt-10">
-					<div className="max-w-[397px]">
-				<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-10">
-					<p className="text-white font-bold font-openSans">
-						We are located at:
-					</p>
-					<p className="text-white font-openSans font-thin">
-						White Waltham Airfield, Maidenhead, Berkshire, SL6 3N
-					</p>
-				</div>
-				<GMap className="w-full" />
-			</div>
+						<div className="max-w-[397px]">
+							<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-10">
+								<p className="text-white font-bold font-openSans">
+									We are located at:
+								</p>
+								<p className="text-white font-openSans font-thin">
+									White Waltham Airfield, Maidenhead, Berkshire, SL6 3N
+								</p>
+							</div>
+							<GMap className="w-full" />
+						</div>
 					</div>
 				</div>
 			</div>
