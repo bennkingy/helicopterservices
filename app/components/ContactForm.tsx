@@ -51,7 +51,7 @@ const ContacForm = () => {
 	const { pending } = useFormStatus();
 	return (
 		<div
-			className="bg-[#E6ECF0] border-l-4 border-brand-light-blue p-10 pt-9 pb-11"
+			className="bg-[#E6ECF0] border-l-4 border-brand-light-blue p-6 pb-8 pt-5 sm:p-10 sm:pt-9 sm:pb-11"
 			style={{
 				clipPath: "polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
 			}}
@@ -59,7 +59,7 @@ const ContacForm = () => {
 			{step === 1 ? (
 				<Form {...form}>
 					<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-						<div className="space-y-4 mb-5">
+						<div className="space-y-4 mb-0 sm:mb-5">
 							<FormField
 								control={form.control}
 								name="name"
