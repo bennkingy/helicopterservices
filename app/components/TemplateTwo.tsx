@@ -154,7 +154,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 							)}
 						</div>
 						<h3 className="text-md font-bold mt-7 font-openSans mb-5">
-							Specifications
+							Specifications:
 						</h3>
 						<SpecificationTable helicopter={data} className="mb-6" />
 						<ComparisonTable // @ts-ignore
