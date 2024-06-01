@@ -40,14 +40,20 @@ export async function generateMetadata({
 
 	if (!data) {
 		return {
-			title: "Helicopter Services",
-			description: "Default Description",
+			title:
+				"Experienced helicopter training | White Waltham Airfield | Maidenhead",
+			description:
+				"Helicopter Services | Experienced helicopter training for pilots, instructors and examiners | Helicopter charter & photography | Helicopter load lifting & consultancy | London helicopter tours | White Waltham Airfield | Maidenhead",
 		};
 	}
 
 	return {
-		title: data.seoTitle || "Helicopter Services",
-		description: data.seoDescription || "Default Description",
+		title:
+			data.seoTitle ||
+			"Experienced helicopter training | White Waltham Airfield | Maidenhead",
+		description:
+			data.seoDescription ||
+			"Helicopter Services | Experienced helicopter training for pilots, instructors and examiners | Helicopter charter & photography | Helicopter load lifting & consultancy | London helicopter tours | White Waltham Airfield | Maidenhead",
 	};
 }
 

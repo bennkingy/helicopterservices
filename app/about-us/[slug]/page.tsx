@@ -27,12 +27,24 @@ export async function generateMetadata({
 }: { params: { slug: string } }): Promise<Metadata> {
 	const data: training = await getPageData(params.slug.toLowerCase());
 
+	if (!data) {
+		return {
+			title:
+				"Experienced helicopter training | White Waltham Airfield | Maidenhead",
+			description:
+				"Helicopter Services | Experienced helicopter training for pilots, instructors and examiners | Helicopter charter & photography | Helicopter load lifting & consultancy | London helicopter tours | White Waltham Airfield | Maidenhead",
+		};
+	}
+
 	return {
-		title: data?.seoTitle,
-		description: data?.seoDescription,
+		title:
+			data.seoTitle ||
+			"Experienced helicopter training | White Waltham Airfield | Maidenhead",
+		description:
+			data.seoDescription ||
+			"Helicopter Services | Experienced helicopter training for pilots, instructors and examiners | Helicopter charter & photography | Helicopter load lifting & consultancy | London helicopter tours | White Waltham Airfield | Maidenhead",
 	};
 }
-
 export default async function AboutPage({
 	params,
 }: { params: { slug: string } }) {
