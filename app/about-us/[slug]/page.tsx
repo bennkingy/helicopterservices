@@ -1,6 +1,5 @@
 import { FAQ } from "@/app/components/FAQ";
 import Template from "@/app/components/Template";
-import YouTube from "@/app/components/YouTube";
 import type { training } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
@@ -44,17 +43,14 @@ export default async function AboutPage({
 	return (
 		<>
 			<Template data={data} showHanger={showHanger}>
-				{!showHanger && (
-					<div className="mt-8">
-						{showFaqs ? (
-							<div className="mt-8">
-								<FAQ className="mb-10" />
-							</div>
-						) : null}
-					</div>
-				)}
+				<div className="mt-8">
+					{showFaqs ? (
+						<div className="mt-8">
+							<FAQ className="mb-10" />
+						</div>
+					) : null}
+				</div>
 			</Template>
-			{showHanger ? <YouTube /> : null}
 		</>
 	);
 }
