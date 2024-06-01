@@ -138,8 +138,8 @@ export default function Footer() {
 							Social
 						</div>
 						<ul>
-							<Link href="#" passHref>
-								<li className="flex text-brand-light-blue font-bold">
+							<li className=" text-brand-light-blue font-bold">
+								<Link href="#" passHref className="flex">
 									<Image
 										src="/images/facebook.png"
 										width={25}
@@ -148,24 +148,26 @@ export default function Footer() {
 										className="mt-1 mr-1"
 									/>
 									Instagram
-								</li>
-							</Link>
-							<li className="flex text-brand-light-blue font-bold">
-								<Image
-									src="/images/instagram.png"
-									width={20}
-									height={20}
-									alt=""
-									className="mt-1 mr-[7px] ml-[2px]"
-								/>
-								Facebook
+								</Link>
+							</li>
+							<li className=" text-brand-light-blue font-bold">
+								<Link href="#" passHref className="flex">
+									<Image
+										src="/images/instagram.png"
+										width={20}
+										height={20}
+										alt=""
+										className="mt-1 mr-[7px] ml-[2px]"
+									/>
+									Facebook
+								</Link>
 							</li>
 						</ul>
 						<div className="text-sm font-bold mb-3 mt-7 font-openSans">
 							Legals
 						</div>
 						<ul>
-							<Link href="cookies" passHref>
+							<Link href="cookies" passHref className="flex">
 								<li className="transition-colors hover:text-brand-light-blue">
 									Cookies
 								</li>
