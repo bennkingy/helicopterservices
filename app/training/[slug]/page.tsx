@@ -20,7 +20,13 @@ async function getData(slug: string) {
 						"blur": blur,
 						"alt": alt,
 					},
-          gallerySingle,
+         	"gallerySingle": gallerySingle{
+						"imageUrl": asset->url,
+						"altText": alt,
+						"blur": blur,
+						"height": asset->metadata.dimensions.height,
+						"width": asset->metadata.dimensions.width
+					},
       }[0]`;
 	const data = await client.fetch(query);
 

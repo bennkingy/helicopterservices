@@ -225,6 +225,7 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 						{data?.gallerySingle?.blurDataURL && (
 							<Gallery galleryType={"gallery-single"} className="mt-0">
 								<a
+									href={urlFor(data.gallerySingle).url()}
 									data-lg-size={`${data.gallerySingle.metadata.dimensions.width}-${data.gallerySingle.metadata.dimensions.height}`}
 									data-pinterest-text="Pin it"
 									data-tweet-text="Helicopter Services"
@@ -238,7 +239,7 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 										className="img-responsive cursor-pointer"
 										src={urlFor(data.gallerySingle).url()}
 										placeholder="blur"
-										blurDataURL={data?.gallerySingle?.blurDataURL}
+										blurDataURL={data?.gallerySingle?.blur}
 										alt=""
 										style={{
 											clipPath:

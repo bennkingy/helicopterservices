@@ -38,6 +38,12 @@ export default defineType({
 			hidden: ({ document }) => document?.isLandingPage !== true,
 		}),
 		defineField({
+			name: "pilot",
+			title: "Pilot",
+			type: "reference",
+			to: [{ type: "pilots" }],
+		}),
+		defineField({
 			name: "mainImage",
 			title: "Main image",
 			type: "image",
@@ -72,6 +78,18 @@ export default defineType({
 			title: "Gallery single",
 			type: "image",
 			description: "Perfect for displaying 1 large image.",
+			fields: [
+				defineField({
+					name: "alt",
+					type: "string",
+					title: "Alternative text",
+				}),
+				defineField({
+					name: "blur",
+					type: "string",
+					title: "Blur hash",
+				}),
+			],
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({

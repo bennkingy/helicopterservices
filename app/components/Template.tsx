@@ -28,7 +28,7 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 				return (
 					<>
 						<h2>{children}</h2>
-						{children && !children.isRendered && (
+						{children && !children.isRendered && data?.gallerySingle && (
 							<>
 								{(children.isRendered = true) && data?.gallerySingle && (
 									<Gallery
@@ -36,11 +36,12 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 										className="mt-0 mb-12 mr-0 sm:mr-24 md:mr-10 lg:mr-32"
 									>
 										<a
-											data-lg-size="542-305"
+											href={urlFor(data?.gallerySingle?.imageUrl).url()}
+											data-lg-size={`${data.gallerySingle.width}-${data.gallerySingle.height}`}
 											data-pinterest-text="Pin it"
 											data-tweet-text="lightGallery slide 1"
 											className="gallery__item"
-											data-src={urlFor(data?.gallerySingle).url()}
+											data-src={urlFor(data?.gallerySingle?.imageUrl).url()}
 											data-sub-html="<h4>Photo by - <a href='test' >Test </a></h4><p> Test</p>"
 										>
 											<Image
@@ -48,7 +49,7 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 												height={400}
 												quality={100}
 												className="img-responsive cursor-pointer"
-												src={urlFor(data?.gallerySingle).url()}
+												src={urlFor(data?.gallerySingle?.imageUrl).url()}
 												alt=""
 												style={{
 													clipPath:
@@ -56,6 +57,10 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 													marginBottom: 0,
 													marginTop: 20,
 												}}
+												placeholder={
+													data?.gallerySingle?.blur ? "blur" : undefined
+												}
+												blurDataURL={data?.gallerySingle?.blur || ""}
 											/>
 										</a>
 									</Gallery>
@@ -109,6 +114,7 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 
 								return (
 									<a
+										href={image}
 										key={index}
 										data-lg-size={`${item.width}-${item.height}`}
 										data-pinterest-text="Pin it"
