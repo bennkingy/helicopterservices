@@ -78,11 +78,11 @@ export default async function Enquire() {
 						<AdditionalContent />
 					</div>
 				</div>
-				<div className="col-span-3 mt-10 md:mt-0">
+				<div className="col-span-3 mt-16 md:mt-10">
 					<ContactForm />
-					<div className="block md:hidden mt-10">
-						<div className="max-w-[397px]">
-							<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-10">
+					<div className="block md:hidden">
+						<div>
+							<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-20 sm:mt-10">
 								<p className="text-white font-bold font-openSans">
 									We are located at:
 								</p>
