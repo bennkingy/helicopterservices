@@ -225,6 +225,7 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 						{data?.gallerySingle && (
 							<Gallery galleryType={"gallery-single"} className="mt-0">
 								<a
+									href="#0"
 									data-lg-size={`${data.gallerySingle.width}-${data.gallerySingle.height}`}
 									data-pinterest-text="Pin it"
 									data-tweet-text="Helicopter Services"
