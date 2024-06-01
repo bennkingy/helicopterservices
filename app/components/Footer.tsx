@@ -167,21 +167,21 @@ export default function Footer() {
 							Legals
 						</div>
 						<ul>
-							<Link href="cookies" passHref className="flex">
-								<li className="transition-colors hover:text-brand-light-blue">
+							<li className="transition-colors hover:text-brand-light-blue flex">
+								<Link href="cookies" passHref className="flex">
 									Cookies
-								</li>
-							</Link>
-							<Link href="Policy" passHref>
-								<li className="transition-colors hover:text-brand-light-blue">
+								</Link>
+							</li>
+							<li className="transition-colors hover:text-brand-light-blue flex">
+								<Link href="Policy" passHref>
 									Policy
-								</li>
-							</Link>
-							<Link href="terms-conditions" passHref>
-								<li className="transition-colors hover:text-brand-light-blue">
+								</Link>
+							</li>
+							<li className="transition-colors hover:text-brand-light-blue flex">
+								<Link href="terms-conditions" passHref>
 									Terms and conditions
-								</li>
-							</Link>
+								</Link>
+							</li>
 						</ul>
 					</div>
 					<div className="">
@@ -192,11 +192,14 @@ export default function Footer() {
 							{training
 								.sort((a, b) => a.title.localeCompare(b.title))
 								.map((item, index) => (
-									<Link href={item.href} key={index} passHref>
-										<li className="transition-colors hover:text-brand-light-blue">
+									<li
+										className="transition-colors hover:text-brand-light-blue"
+										key={index}
+									>
+										<Link href={item.href} passHref>
 											{item.title}
-										</li>
-									</Link>
+										</Link>
+									</li>
 								))}
 						</ul>
 					</div>
@@ -208,11 +211,14 @@ export default function Footer() {
 							{flights
 								.sort((a, b) => a.title.localeCompare(b.title))
 								.map((item, index) => (
-									<Link href={item.href} key={index} passHref>
-										<li className="transition-colors hover:text-brand-light-blue">
+									<li
+										className="transition-colors hover:text-brand-light-blue"
+										key={index}
+									>
+										<Link href={item.href} passHref>
 											{item.title}
-										</li>
-									</Link>
+										</Link>
+									</li>
 								))}
 						</ul>
 						<div className="text-sm mb-3 mt-6 font-bold font-openSans">
@@ -222,11 +228,14 @@ export default function Footer() {
 							{industry
 								.sort((a, b) => a.title.localeCompare(b.title))
 								.map((item, index) => (
-									<Link href={item.href} key={index} passHref>
-										<li className="transition-colors hover:text-brand-light-blue">
+									<li
+										className="transition-colors hover:text-brand-light-blue"
+										key={index}
+									>
+										<Link href={item.href} passHref>
 											{item.title}
-										</li>
-									</Link>
+										</Link>
+									</li>
 								))}
 						</ul>
 					</div>
