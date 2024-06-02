@@ -116,12 +116,17 @@
   transform: translateY(-100%);
 }
 
-@media(max-height: 720px) {
+/* @media(max-height: 720px) {
   .tricky-table  {
         height: calc(100% - 40px);
   }
-}
+} */
 
 .gm-style-iw-chr {
   display: none;
 }
+
+/* .contentBlockGalleryFix div.flex.mt-4.cursor-pointer.items-center.text-brand-light-blue.transition-colors.hover\:text-foreground.h-\[20px\]
+{
+  margin-top: 3rem;
+} */

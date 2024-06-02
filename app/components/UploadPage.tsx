@@ -68,7 +68,7 @@ export default function UploadPage() {
 				}}
 			>
 				<input {...getInputProps()} />
-				<p>
+				<p className="font-semibold">
 					Drag &apos;n&apos; drop you image file here, then copy the blur string
 				</p>
 			</div>

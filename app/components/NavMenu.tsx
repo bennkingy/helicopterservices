@@ -242,8 +242,8 @@ export function NavMenu() {
 						>
 							<a href="/training">Training</a>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent>
-							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[800px] ">
+						<NavigationMenuContent className="flex rounded-none">
+							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[400px]">
 								{training
 									.sort((a, b) => a.title.localeCompare(b.title))
 									.map((component) => (
@@ -252,10 +252,19 @@ export function NavMenu() {
 											title={component.title}
 											href={component.href}
 										>
-											{component.description}
+											{/* {component.description} */}
 										</ListItem>
 									))}
 							</ul>
+							<div className="w-[250px] h-[230px]">
+								<Image
+									src="/images/helciopter-caves.jpg"
+									alt="industry"
+									width={250}
+									height={230}
+									className="h-full"
+								/>
+							</div>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
@@ -267,20 +276,29 @@ export function NavMenu() {
 						>
 							<a href="/industry">Industry</a>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent>
-							<ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+						<NavigationMenuContent className="flex">
+							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-1 lg:w-[400px]">
 								<ListItem href="/industry/load-lifting" title="Load lifting">
-									Resolve many load lifting challenges with our range of load
-									lifting services.
+									{/* Resolve many load lifting challenges with our range of load
+									lifting services. */}
 								</ListItem>
 								<ListItem
 									href="/industry/photography-filming"
 									title="Photography and filming"
 								>
-									Getting the best shots for companies, such as BBC, ITV, Sky,
-									Channel 4.
+									{/* Getting the best shots for companies, such as BBC, ITV, Sky,
+									Channel 4. */}
 								</ListItem>
 							</ul>
+							<div className="w-[350px] h-[230px]">
+								<Image
+									src="/images/helciopter-caves.jpg"
+									alt="industry"
+									width={350}
+									height={230}
+									className="h-full"
+								/>
+							</div>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
@@ -302,7 +320,7 @@ export function NavMenu() {
 											title={component.title}
 											href={component.href}
 										>
-											{component.description}
+											{/* {component.description} */}
 										</ListItem>
 									))}
 							</ul>
@@ -351,7 +369,7 @@ export function NavMenu() {
 											title={component.title}
 											href={component.href}
 										>
-											{component.description}
+											{/* {component.description} */}
 										</ListItem>
 									))}
 							</ul>
@@ -425,17 +443,17 @@ const ListItem = React.forwardRef<
 	React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {
 	return (
-		<li>
+		<li className="group hover:text-brand-light-blue">
 			<NavigationMenuLink asChild>
 				<a
 					ref={ref}
 					className={cn(
-						"hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
+						"hover:text-brand-light-blue focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-0 leading-none no-underline outline-none transition-colors",
 						className,
 					)}
 					{...props}
 				>
-					<div className="leading-none text-md font-bold text-brand-dark-blue">
+					<div className="leading-none text-md font-bold text-brand-dark-blue hover:text-brand-light-blue">
 						{title}
 					</div>
 					<p className="line-clamp-2 text-sm leading-snug font-normal">
