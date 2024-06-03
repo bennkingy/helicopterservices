@@ -13,23 +13,28 @@ async function getData(slug: string) {
           title,
           seoTitle,
           seoDescription,
-          body,
-          mainImage,
-     			"gallery": gallery.images[]{
+					body[]{
+					...,
+					_type == 'gallery' => {
+						...,
+						images[]{
+							...,
+							"imageUrl": asset->url,
+							"width": asset->metadata.dimensions.width,
+							"height": asset->metadata.dimensions.height,
+							alt,
+							blur
+						}
+					},
+					_type == 'image' => {
+						...,
 						"imageUrl": asset->url,
-						"height": asset->metadata.dimensions.height,
 						"width": asset->metadata.dimensions.width,
-						"fileName": asset->originalFilename,
-						"blur": blur,
-						"alt": alt,
-					},
-         	"gallerySingle": gallerySingle{
-						"imageUrl": asset->url,
-						"altText": alt,
-						"blur": blur,
 						"height": asset->metadata.dimensions.height,
-						"width": asset->metadata.dimensions.width
+						alt,
+						blur
 					},
+				},
       }[0]`;
 	const data = await client.fetch(query);
 

@@ -47,6 +47,7 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 			gallery: ({ value }: any) => {
 				return (
 					<Gallery
+						amount={value?.images.length}
 						galleryType={`gallery${
 							value?.images.length === 1 ? "-single" : ""
 						}`}
@@ -55,7 +56,10 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 						{value.images.map((item: any, index: number) => {
 							const image = urlFor(item).url();
 							if (!image) return null;
-
+							console.log(index);
+							if (index >= 4) {
+								return <></>;
+							}
 							return (
 								<a
 									key={index}
@@ -112,11 +116,7 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 			>
 				<div className="pr-0 md:pr-20 mb-16 md:mb-0 col-span-2">
 					<div className="prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans  prose-h2:text-3xl sm:prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey">
-						<PortableText
-							value={data?.body || ""}
-							// TODO: https://www.sanity.io/answers/using-portabletext-with-defined-types-in-components-for-a-schema-with-a-hero-object-inside-a-parent-portable-text-array
-							components={components}
-						/>
+						<PortableText value={data?.body || ""} components={components} />
 					</div>
 					<Approvals />
 					{children}

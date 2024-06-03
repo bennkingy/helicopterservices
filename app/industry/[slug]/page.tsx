@@ -7,11 +7,32 @@ export const revalidate = 30; // revalidate at most 30 seconds
 async function getData(slug: string) {
 	const query = `
     *[_type == "industry" && slug.current == '${slug}'] {
-        "currentSlug": slug.current,
+             "currentSlug": slug.current,
           title,
           seoTitle,
           seoDescription,
-          body,
+					body[]{
+					...,
+					_type == 'gallery' => {
+						...,
+						images[]{
+							...,
+							"imageUrl": asset->url,
+							"width": asset->metadata.dimensions.width,
+							"height": asset->metadata.dimensions.height,
+							alt,
+							blur
+						}
+					},
+					_type == 'image' => {
+						...,
+						"imageUrl": asset->url,
+						"width": asset->metadata.dimensions.width,
+						"height": asset->metadata.dimensions.height,
+						alt,
+						blur
+					},
+				},
           mainImage,
 				  "gallery": gallery.images[]{
 						"imageUrl": asset->url,

@@ -14,12 +14,13 @@ import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
 type props = {
 	className?: string;
+	amount?: number;
 	children: any;
 	galleryType: "3d-video" | "video" | "gallery" | "gallery-single";
 };
 
 const Gallery = forwardRef(
-	({ className, galleryType, children }: props, ref) => {
+	({ className, galleryType, children, amount }: props, ref) => {
 		let lightGalleryRef = useRef<ILightGallery>(null);
 
 		const onInit = useCallback((detail: { instance: any }): any => {
@@ -87,7 +88,8 @@ const Gallery = forwardRef(
 					<p className="ml-2 text-sm" onClick={openGallery}>
 						{galleryType === "gallery" || galleryType === "gallery-single"
 							? "Enlarge and view"
-							: "3D view"}
+							: "3D view"}{" "}
+						{amount && amount > 4 && `(+${amount - 4} more)`}
 					</p>
 				</div>
 			</div>
