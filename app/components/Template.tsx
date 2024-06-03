@@ -66,7 +66,7 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 									data-sub-html={`<h4>Helicopter Services</h4><p>${
 										item?.alt || "No description"
 									}</p>`}
-									className="w-full  max-h-[240px] md:max-h-[330px] relative aspect-square"
+									className="w-full max-h-[230px] sm:max-h-[280px] lg:max-h-[280px] xl:max-h-[330px]  relative aspect-square"
 								>
 									<Image
 										fill
