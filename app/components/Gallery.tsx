@@ -5,7 +5,8 @@ import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-video.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lightgallery.css";
-import { LightGallery as ILightGallery } from "lightgallery/lightgallery";
+import type { LightGallery as ILightGallery } from "lightgallery/lightgallery";
+import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgVideo from "lightgallery/plugins/video";
 import lgZoom from "lightgallery/plugins/zoom";
 import LightGallery from "lightgallery/react";
@@ -55,7 +56,7 @@ const Gallery = forwardRef(
 					onInit={onInit}
 					// @ts-ignore
 					ref={lightGalleryRef}
-					plugins={[lgZoom, lgVideo]}
+					plugins={[lgZoom, lgVideo, lgThumbnail]}
 					mode="lg-fade"
 					// hideScrollbar={true}
 					autoplayFirstVideo={
@@ -77,6 +78,7 @@ const Gallery = forwardRef(
 						download: true,
 						rotate: false,
 					}}
+					zoomFromOrigin={false}
 				>
 					{children}
 				</LightGallery>

@@ -126,6 +126,14 @@
   display: none;
 }
 
+.contentBlockGalleryFix a:nth-child(n+5) {
+  display: none;
+}
+
+.lg-outer .lg-thumb-item.active, .lg-outer .lg-thumb-item:hover {
+    border-color: rgb(31, 182, 222) !important;
+}
+
 /* .contentBlockGalleryFix div.flex.mt-4.cursor-pointer.items-center.text-brand-light-blue.transition-colors.hover\:text-foreground.h-\[20px\]
 {
   margin-top: 3rem;

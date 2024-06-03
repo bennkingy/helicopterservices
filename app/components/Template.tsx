@@ -56,10 +56,6 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 						{value.images.map((item: any, index: number) => {
 							const image = urlFor(item).url();
 							if (!image) return null;
-							console.log(index);
-							if (index >= 4) {
-								return <></>;
-							}
 							return (
 								<a
 									key={index}
