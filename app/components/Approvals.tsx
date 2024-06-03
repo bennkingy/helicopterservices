@@ -4,9 +4,12 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const Approvals = () => {
-	const path = usePathname();
+	let path = usePathname();
+	path = path.toLocaleLowerCase();
 
-	return path.includes("training") ? (
+	return path.includes("training") &&
+		!path.includes("faa") &&
+		!path.includes("elcas") ? (
 		<Image
 			src="/images/approvals.svg"
 			alt="Helicopter Services"

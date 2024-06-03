@@ -10,7 +10,28 @@ async function getData(slug: string) {
           title,
           seoTitle,
           seoDescription,
-          body,
+					body[]{
+					...,
+					_type == 'gallery' => {
+						...,
+						images[]{
+							...,
+							"imageUrl": asset->url,
+							"width": asset->metadata.dimensions.width,
+							"height": asset->metadata.dimensions.height,
+							alt,
+							blur
+						}
+					},
+					_type == 'image' => {
+						...,
+						"imageUrl": asset->url,
+						"width": asset->metadata.dimensions.width,
+						"height": asset->metadata.dimensions.height,
+						alt,
+						blur
+					},
+				},
           mainImage,
 				  "gallery": gallery.images[]{
 						"imageUrl": asset->url,

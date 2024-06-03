@@ -21,53 +21,72 @@ type props = {
 const Template = ({ data, children, height, sidebar = true }: props) => {
 	const components = {
 		types: {
-			// custom rendering logic for other types can go here
-		},
-		block: {
-			h2: ({ children }: any) => {
+			image: ({ value }: any) => {
+				const imageUrl = urlFor(value).url();
+				if (!imageUrl) return null;
+
 				return (
-					<>
-						<h2>{children}</h2>
-						{children && !children.isRendered && data?.gallerySingle && (
-							<>
-								{(children.isRendered = true) && data?.gallerySingle && (
-									<Gallery
-										galleryType={"gallery-single"}
-										className="mt-0 mb-12 mr-0 sm:mr-24 md:mr-10 lg:mr-32"
-									>
-										<a
-											href={urlFor(data?.gallerySingle?.imageUrl).url()}
-											data-lg-size={`${data.gallerySingle.width}-${data.gallerySingle.height}`}
-											data-pinterest-text="Pin it"
-											data-tweet-text="lightGallery slide 1"
-											className="gallery__item"
-											data-src={urlFor(data?.gallerySingle?.imageUrl).url()}
-											data-sub-html="<h4>Photo by - <a href='test' >Test </a></h4><p> Test</p>"
-										>
-											<Image
-												width={400}
-												height={400}
-												quality={100}
-												className="img-responsive cursor-pointer"
-												src={urlFor(data?.gallerySingle?.imageUrl).url()}
-												alt=""
-												style={{
-													clipPath:
-														"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-													marginBottom: 0,
-													marginTop: 20,
-												}}
-												placeholder={
-													data?.gallerySingle?.blur ? "blur" : undefined
-												}
-												blurDataURL={data?.gallerySingle?.blur || ""}
-											/>
-										</a>
-									</Gallery>
-								)}
-							</>
-						)}
-					</>
+					<div
+						className={`relative h-[${value.height / 2}px] w-[${
+							value.width / 2
+						}px] my-20 mt-0`}
+					>
+						<Image
+							src={imageUrl}
+							alt={value.alt || "Image"}
+							height={value.height / 2}
+							width={value.width / 2}
+							objectFit="cover"
+							placeholder={value.blur ? "blur" : undefined}
+							blurDataURL={value.blur ? value.blur : ""}
+						/>
+					</div>
+				);
+			},
+			// Add custom rendering logic for gallery type
+			gallery: ({ value }: any) => {
+				return (
+					<Gallery
+						galleryType={`gallery${
+							value?.images.length === 1 ? "-single" : ""
+						}`}
+						className="my-10 mr-10 sm:mr-24 md:mr-10 lg:mr-32 contentBlockGalleryFix"
+					>
+						{value.images.map((item: any, index: number) => {
+							const image = urlFor(item).url();
+							if (!image) return null;
+
+							return (
+								<a
+									key={index}
+									data-lg-size={`${item.width}-${item.height}`}
+									data-pinterest-text="Pin it"
+									data-tweet-text="Helicopter Services"
+									data-src={image}
+									data-sub-html={`<h4>Helicopter Services</h4><p>${
+										item?.alt || "No description"
+									}</p>`}
+									className="w-full  max-h-[240px] md:max-h-[330px] relative aspect-square"
+								>
+									<Image
+										fill
+										objectFit="cover"
+										objectPosition="center"
+										quality={100}
+										className="img-responsive cursor-pointer m-0"
+										src={image}
+										placeholder={item.blur ? "blur" : undefined}
+										blurDataURL={item.blur ? item.blur : ""}
+										alt={item.alt || ""}
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+										}}
+									/>
+								</a>
+							);
+						})}
+					</Gallery>
 				);
 			},
 		},
@@ -101,10 +120,10 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 					</div>
 					<Approvals />
 					{children}
-					{data?.gallery?.length > 0 && (
+					{/* {data?.gallery?.length > 0 && (
 						<Gallery
 							galleryType={"gallery"}
-							className="mt-16 mr-0 sm:mr-24 md:mr-10 lg:mr-32"
+							className="mt-16 mr-10 sm:mr-24 md:mr-10 lg:mr-32"
 						>
 							{data?.gallery?.map((item: any, index: number) => {
 								const image = urlFor(item.imageUrl).url();
@@ -145,7 +164,7 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 								);
 							})}
 						</Gallery>
-					)}
+					)} */}
 					{data?.threedVideoUrl && (
 						<YouTubeThreeD data={data?.threedVideoUrl} />
 					)}
