@@ -185,61 +185,72 @@ const about: { title: string; href: string; description: string }[] = [
 	},
 ];
 
-const fleet: { title: string; href: string }[] = [
+const fleet: { title: string; href: string; category: string }[] = [
 	{
 		title: "A109",
 		href: "/fleet/a109",
+		category: "Agusta",
 		// description: "Versatile and high-performance twin-engine helicopter.",
 	},
 	{
 		title: "AS355",
 		href: "/fleet/as355",
+		category: "Agusta",
 		// description: "A a multi-purpose, twin-engine light helicopter.",
 	},
 	{
 		title: "AB206",
 		href: "/fleet/ab206",
+		category: "Agusta",
 		// description:
 		// 	"A light utility helicopter known for its reliability and versatility.",
 	},
 	{
 		title: "R66",
 		href: "/fleet/r66",
+		category: "Robinson",
 		// description: "Some description about the R66.",
 	},
 	{
 		title: "R44",
 		href: "/fleet/r44",
+		category: "Robinson",
 		// description: "Some description about the R44.",
 	},
 	{
 		title: "R22",
 		href: "/fleet/r22",
+		category: "Robinson",
 		// description: "Some description about the R22.",
 	},
 	{
 		title: "Cabri G2",
 		href: "/fleet/cabri-g2",
+		category: "Guimbal",
 		// description: "Some description about the Cabri G2.",
 	},
 	{
 		title: "AS350",
 		href: "/fleet/as350",
+		category: "Airbus",
 		// description: "A single-engine light utility helicopter.",
 	},
 	{
 		title: "B206L",
 		href: "/fleet/b206l",
+		category: "Airbus",
 		// description: "Some description about the B206L.",
 	},
 	{
 		title: "EC135",
 		href: "/fleet/ec135",
+		category: "Airbus",
 		// description: "Some description about the EC135.",
 	},
 	{
 		title: "AW109",
 		href: "/fleet/aw109",
+		category: "Airbus",
 		// description: "Some description about the AW109.",
 	},
 ];
@@ -487,20 +498,32 @@ export function NavMenu() {
 								About us
 							</a>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent>
-							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-								{about
-									.sort((a, b) => a.title.localeCompare(b.title))
-									.map((component) => (
-										<ListItem
-											key={component.title}
-											title={component.title}
-											href={component.href}
-										>
-											{/* {component.description} */}
-										</ListItem>
-									))}
-							</ul>
+						<NavigationMenuContent className="flex">
+							<div className="p-7 pb-4 max-w-[250px]">
+								<p className="text-brand-light-blue">About us</p>
+								<ul className="grid mt-2">
+									{about
+										.sort((a, b) => a.title.localeCompare(b.title))
+										.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{/* {component.description} */}
+											</ListItem>
+										))}
+								</ul>
+							</div>
+							<div className="w-[500px] h-[200px] ml-auto">
+								<Image
+									src="/images/helciopter-caves.jpg"
+									alt="industry"
+									width={500}
+									height={200}
+									className="h-full object-fill"
+								/>
+							</div>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
