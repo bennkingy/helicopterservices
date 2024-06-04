@@ -262,7 +262,7 @@ export function NavMenu() {
 		<>
 			<NavigationMenu className="hidden md:block font-workSans font-semibold text-brand-dark-blue">
 				<NavigationMenuList>
-					<NavigationMenuItem className="hidden lg:block">
+					<NavigationMenuItem className="hidden lg:block" id="home">
 						<Link href="/" legacyBehavior passHref className="text-lg">
 							<NavigationMenuLink
 								className={cn(
@@ -499,23 +499,7 @@ export function NavMenu() {
 							</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex">
-							<div className="p-7 pb-4 max-w-[250px]">
-								<p className="text-brand-light-blue">About us</p>
-								<ul className="grid mt-2">
-									{about
-										.sort((a, b) => a.title.localeCompare(b.title))
-										.map((component) => (
-											<ListItem
-												key={component.title}
-												title={component.title}
-												href={component.href}
-											>
-												{/* {component.description} */}
-											</ListItem>
-										))}
-								</ul>
-							</div>
-							<div className="w-[500px] h-[200px] ml-auto">
+							<div className="w-[500px] h-[200px]">
 								<Image
 									src="/images/helciopter-caves.jpg"
 									alt="industry"
@@ -524,9 +508,27 @@ export function NavMenu() {
 									className="h-full object-fill"
 								/>
 							</div>
+							<div className="p-7 pb-4 max-w-[250px]">
+								<div className="ml-auto">
+									<p className="text-brand-light-blue">About us</p>
+									<ul className="grid mt-2">
+										{about
+											.sort((a, b) => a.title.localeCompare(b.title))
+											.map((component) => (
+												<ListItem
+													key={component.title}
+													title={component.title}
+													href={component.href}
+												>
+													{/* {component.description} */}
+												</ListItem>
+											))}
+									</ul>
+								</div>
+							</div>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
-					<NavigationMenuItem>
+					<NavigationMenuItem id="enquire">
 						<Link href="/enquire" legacyBehavior passHref>
 							<NavigationMenuLink
 								className={cn(

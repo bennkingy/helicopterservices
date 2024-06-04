@@ -138,3 +138,8 @@
 {
   margin-top: 3rem;
 } */
+
+
+#home:hover > a, #enquire:hover > a {
+  color: #15B1D7
+}
