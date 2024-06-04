@@ -65,7 +65,7 @@ export default async function Weather({
 		<div className="max-w-[219px] rounded-sm text-white p-7 bg-[#1A3051] sm:mt-0 text-center">
 			<h4 className="text-sm font-bold font-openSans mx-auto">{airport}</h4>
 			<Image
-				src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`}
+				src={`https://openweathermap.org/img/wn/${data?.weather?.[0]?.icon}@2x.png`}
 				width={100}
 				height={100}
 				alt={""}
