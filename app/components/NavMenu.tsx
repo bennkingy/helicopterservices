@@ -17,116 +17,146 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as React from "react";
 
-const training: { title: string; href: string; description: string }[] = [
+const training: {
+	title: string;
+	href: string;
+	description: string;
+	category: string;
+}[] = [
 	{
 		title: "Private pilot license",
+		category: "Licenses",
 		href: "/training/private-pilot-licence",
 		description: "Fly helicopters privately with a private pilot license.",
 	},
 	{
 		title: "Commerical Pilot License",
+		category: "Licenses",
 		href: "/training/commercial-pilot-licence",
 		description: "Fly for a living and get paid to do the job you love!",
 	},
 	{
 		title: "Flight examiner rating",
 		href: "/training/flight-examiner-ratings",
+		category: "FlightRatings",
 		description:
 			"Helicopter flight examiners hold a lot of responsibility, setting the standards across the industry and ensuring that they are maintained.",
 	},
 	{
 		title: "Type rating",
 		href: "/training/type-ratings",
+		category: "FlightRatings",
 		description:
 			"Putting you near the top of the ladder throughout the helicopter industry.",
 	},
 	{
 		title: "Instrument rating",
 		href: "/training/instrument-ratings",
+		category: "FlightRatings",
 		description:
 			"The ultimate way to see London, one of the most famous cities in the world.",
 	},
 	{
 		title: "Flight instructor rating",
+		category: "FlightRatings",
 		href: "/training/flight-instructor-ratings",
 		description:
 			"Allows you to fly helicopters under IFR down to a decision height of 200ft.",
 	},
 	{
 		title: "Night rating",
+		category: "FlightRatings",
 		href: "/training/night-rating",
 		description: "This add-on for your licence is a exciting challenge",
 	},
 	{
 		title: "PBN",
 		href: "/training/PBN",
+		category: "Other",
 		description: "Improving aircraft navigation with precision and efficiency.",
 	},
 	{
 		title: "Virtual Reality Simulator",
 		href: "/training/virtual-reality-simulator",
+		category: "Simulators",
 		description:
 			"An incredibly realistic experience allowing for all flight profiles.",
 	},
 	{
 		title: "Simulator",
+		category: "Simulators",
 		href: "/training/simulator",
 		description:
 			"Developing safe instrument flying skills, reducing costs, and enabling progress.",
 	},
 	{
 		title: "ELCAS",
+		category: "Other",
 		href: "/training/ELCAS",
 		description: "ELCAS approved training provider for military personnel.",
 	},
 	{
 		title: "FAA",
+		category: "Other",
 		href: "/training/FAA",
 		description:
 			"Helicopter Services can train and maintain pilots under the FAA.",
 	},
 	{
 		title: "Refresher seminars",
+		category: "Other",
 		href: "/training/refresher-seminars",
 		description: "Expert Instructor and Examiner Seminars.",
 	},
 	{
 		title: "Advanced flying programme",
+		category: "Other",
 		href: "/training/advanced-flying-programme",
 		description:
 			"Develop your skills while you expand your practical flying adventures.",
 	},
 ];
 
-const flights: { title: string; href: string; description: string }[] = [
+const flights: {
+	title: string;
+	href: string;
+	description: string;
+	category: string;
+}[] = [
 	{
 		title: "Airpot transfers",
+		category: "Flights",
 		href: "/flights/airport-transfers",
 		description: "Your luxury airport transfer service.",
 	},
 	{
 		title: "Helicopter Charter",
+		category: "Flights",
 		href: "/flights/helicopter-charter",
 		description: "Transporting VIPs to special events for over 20 years.",
 	},
 	{
 		title: "London sightseeing",
+		category: "Tours",
 		href: "/flights/london-sightseeing",
 		description: "Unrivalled views of the most famous city in the world.",
 	},
 	{
 		title: "Special events",
+		category: "Flights",
 		href: "/flights/special-events",
 		description:
 			"Private charters for weddings, tours, and celebrations, ensuring excellent service.",
 	},
 	{
 		title: "Trail lessons",
+		category: "Flights",
 		href: "/flights/trail-lessons",
 		description: "Discover the fun and manoeuvrability of a helicopter!",
 	},
 	{
 		title: "Local area tours",
+		category: "Tours",
 		href: "/flights/local-area-tours",
 		description: "Experience the UK from the air with our local area tours.",
 	},
@@ -219,7 +249,7 @@ export function NavMenu() {
 
 	return (
 		<>
-			<NavigationMenu className="hidden sm:block font-workSans font-semibold text-brand-dark-blue">
+			<NavigationMenu className="hidden md:block font-workSans font-semibold text-brand-dark-blue">
 				<NavigationMenuList>
 					<NavigationMenuItem className="hidden lg:block">
 						<Link href="/" legacyBehavior passHref className="text-lg">
@@ -229,7 +259,7 @@ export function NavMenu() {
 									path === "/" && "bg-accent text-accent-foreground",
 								)}
 							>
-								Home
+								<span className="hover:text-brand-light-blue">Home</span>
 							</NavigationMenuLink>
 						</Link>
 					</NavigationMenuItem>
@@ -240,28 +270,87 @@ export function NavMenu() {
 									"bg-accent text-accent-foreground",
 							)}
 						>
-							<a href="/training">Training</a>
+							<a href="/training" className="hover:text-brand-light-blue">
+								Training
+							</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex rounded-none">
-							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[400px]">
-								{training
-									.sort((a, b) => a.title.localeCompare(b.title))
-									.map((component) => (
-										<ListItem
-											key={component.title}
-											title={component.title}
-											href={component.href}
-										>
-											{/* {component.description} */}
-										</ListItem>
-									))}
-							</ul>
-							<div className="w-[250px] h-[230px]">
+							{/* <div className="p-5"> */}
+							<div className="p-7 pb-4 max-w-[250px]">
+								<p className="text-brand-light-blue">Licenses</p>
+								<ul className="grid mt-2">
+									{training
+										.filter((component) => component.category === "Licenses")
+										.sort((a, b) => a.title.localeCompare(b.title))
+										.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{/* {component.description} */}
+											</ListItem>
+										))}
+								</ul>
+								<p className="text-brand-light-blue mt-5">Flight ratings</p>
+								<ul className="grid mt-2">
+									{training
+										.filter(
+											(component) => component.category === "FlightRatings",
+										)
+										.sort((a, b) => a.title.localeCompare(b.title))
+										.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{/* {component.description} */}
+											</ListItem>
+										))}
+								</ul>
+							</div>
+							<div className="p-7 pb-0 max-w-[350px]">
+								<p className="text-brand-light-blue">Simulators</p>
+								<ul className="grid mt-2">
+									{training
+										.filter((component) => component.category === "Simulators")
+										.sort((a, b) => a.title.localeCompare(b.title))
+										.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{/* {component.description} */}
+											</ListItem>
+										))}
+								</ul>
+								<p className="text-brand-light-blue mt-5">
+									Other training services
+								</p>
+								<ul className="grid mt-2">
+									{training
+										.filter((component) => component.category === "Other")
+										.sort((a, b) => a.title.localeCompare(b.title))
+										.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{/* {component.description} */}
+											</ListItem>
+										))}
+								</ul>
+							</div>
+							{/* </div> */}
+							<div className="w-[250px] h-full ml-auto">
 								<Image
 									src="/images/helciopter-caves.jpg"
 									alt="industry"
 									width={250}
-									height={230}
+									height={400}
 									className="h-full"
 								/>
 							</div>
@@ -274,29 +363,34 @@ export function NavMenu() {
 									"bg-accent text-accent-foreground",
 							)}
 						>
-							<a href="/industry">Industry</a>
+							<a href="/industry" className="hover:text-brand-light-blue">
+								Industry
+							</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex">
-							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-1 lg:w-[400px]">
-								<ListItem href="/industry/load-lifting" title="Load lifting">
-									{/* Resolve many load lifting challenges with our range of load
+							<div className="p-7 pb-4 max-w-[250px]">
+								<p className="text-brand-light-blue">Industry</p>
+								<ul className="grid mt-2">
+									<ListItem href="/industry/load-lifting" title="Load lifting">
+										{/* Resolve many load lifting challenges with our range of load
 									lifting services. */}
-								</ListItem>
-								<ListItem
-									href="/industry/photography-filming"
-									title="Photography and filming"
-								>
-									{/* Getting the best shots for companies, such as BBC, ITV, Sky,
+									</ListItem>
+									<ListItem
+										href="/industry/photography-filming"
+										title="Photography and filming"
+									>
+										{/* Getting the best shots for companies, such as BBC, ITV, Sky,
 									Channel 4. */}
-								</ListItem>
-							</ul>
-							<div className="w-[350px] h-[230px]">
+									</ListItem>
+								</ul>
+							</div>
+							<div className="w-[500px] h-[200px] ml-auto">
 								<Image
 									src="/images/helciopter-caves.jpg"
 									alt="industry"
-									width={350}
-									height={230}
-									className="h-full"
+									width={500}
+									height={200}
+									className="h-full object-fill"
 								/>
 							</div>
 						</NavigationMenuContent>
@@ -308,33 +402,65 @@ export function NavMenu() {
 									"bg-accent text-accent-foreground",
 							)}
 						>
-							<a href="/flights">Flights</a>
+							<a href="/flights" className="hover:text-brand-light-blue">
+								Flights
+							</a>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent>
-							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-								{flights
-									.sort((a, b) => a.title.localeCompare(b.title))
-									.map((component) => (
-										<ListItem
-											key={component.title}
-											title={component.title}
-											href={component.href}
-										>
-											{/* {component.description} */}
-										</ListItem>
-									))}
-							</ul>
+						<NavigationMenuContent className="flex">
+							<div className="p-7 pb-4 max-w-[250px]">
+								<p className="text-brand-light-blue">Flights</p>
+								<ul className="grid mt-2">
+									{flights
+										.filter((component) => component.category === "Flights")
+										.sort((a, b) => a.title.localeCompare(b.title))
+										.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{/* {component.description} */}
+											</ListItem>
+										))}
+								</ul>
+								<p className="text-brand-light-blue mt-5">Tours</p>
+								<ul className="grid mt-2">
+									{flights
+										.filter((component) => component.category === "Tours")
+										.sort((a, b) => a.title.localeCompare(b.title))
+										.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{/* {component.description} */}
+											</ListItem>
+										))}
+								</ul>
+							</div>
+							<div className="w-[500px] h-[310px] ml-auto">
+								<Image
+									src="/images/helciopter-caves.jpg"
+									alt="industry"
+									width={500}
+									height={310}
+									className="h-full object-fill"
+								/>
+							</div>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
-					<NavigationMenuItem>
+					<NavigationMenuItem className="hidden lg:block">
 						<NavigationMenuTrigger
 							className={cn(
 								path.startsWith("/fleet") && "bg-accent text-accent-foreground",
 							)}
 						>
-							<a href="/fleet">Fleet</a>
+							<a href="/fleet" className="hover:text-brand-light-blue">
+								Fleet
+							</a>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent>
+						<NavigationMenuContent className="flex">
 							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[600px] ">
 								{fleet
 									.sort((a, b) => a.title.localeCompare(b.title))
@@ -357,7 +483,9 @@ export function NavMenu() {
 									"bg-accent text-accent-foreground",
 							)}
 						>
-							<a href="/about-us">About us</a>
+							<a href="/about-us" className="hover:text-brand-light-blue">
+								About us
+							</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
 							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
@@ -383,13 +511,13 @@ export function NavMenu() {
 									path === "/enquire" && "bg-accent text-accent-foreground",
 								)}
 							>
-								Enquire
+								<span className="hover:text-brand-light-blue">Enquire</span>
 							</NavigationMenuLink>
 						</Link>
 					</NavigationMenuItem>
 				</NavigationMenuList>
 			</NavigationMenu>
-			<div className="flex visible sm:hidden ml-auto">
+			<div className="flex visible md:hidden ml-auto">
 				<Drawer direction="right">
 					<DrawerTrigger
 						className="mr-3 flex font-semibold text-black"
@@ -443,20 +571,20 @@ const ListItem = React.forwardRef<
 	React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {
 	return (
-		<li className="group hover:text-brand-light-blue">
+		<li className="group hover:text-brand-light-blue mt-2">
 			<NavigationMenuLink asChild>
 				<a
 					ref={ref}
 					className={cn(
-						"hover:text-brand-light-blue focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-0 leading-none no-underline outline-none transition-colors",
+						"hover:text-brand-light-blue font-openSans focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-0 leading-none no-underline outline-none transition-colors",
 						className,
 					)}
 					{...props}
 				>
-					<div className="leading-none text-md font-bold text-brand-dark-blue hover:text-brand-light-blue">
+					<div className="leading-none text-base text-brand-dark-blue hover:text-brand-light-blue font-openSans">
 						{title}
 					</div>
-					<p className="line-clamp-2 text-sm leading-snug font-normal">
+					<p className="line-clamp-2 text-sm leading-snug font-normal text-base">
 						{children}
 					</p>
 				</a>
