@@ -45,6 +45,7 @@ export default function Navbar() {
 						<Image
 							priority
 							fill
+							quality={100}
 							src={"/images/check1.svg"}
 							alt="img"
 							className="w-full object-cover"
@@ -75,6 +76,8 @@ export default function Navbar() {
 					>
 						<Image
 							src={logo}
+							priority
+							quality={100}
 							alt="Helicopter Services"
 							width={181}
 							className="w-[135px] sm:w-[181px] sm:h-[117px]"

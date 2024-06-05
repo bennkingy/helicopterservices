@@ -11,7 +11,14 @@ async function getHelicopterData() {
       capacity,
       ifrcapable,
       cruiseSpeed,
-      base
+      base,
+			"gallerySingle": gallerySingle{
+				"imageUrl": asset->url,
+				"altText": alt,
+				"blur": blur,
+				"height": asset->metadata.dimensions.height,
+				"width": asset->metadata.dimensions.width
+			},
     }`;
 	const data = await client.fetch(query);
 

@@ -358,7 +358,7 @@ export function NavMenu() {
 							{/* </div> */}
 							<div className="w-[250px] h-[400px] ml-auto relative">
 								<Image
-									src="/images/helciopter-caves.jpg"
+									src="/images/nav-training.jpg"
 									alt="industry"
 									fill
 									priority
@@ -398,7 +398,7 @@ export function NavMenu() {
 							</div>
 							<div className="w-[500px] h-[200px] ml-auto relative">
 								<Image
-									src="https://helicopterservices.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0he7nz2b%2Fproduction%2F2c9262636f3315890615df07f01a56bc9c82768c-1680x419.jpg&w=3840&q=100"
+									src="/images/nav-industry.jpg"
 									alt="industry"
 									fill
 									priority
@@ -484,10 +484,11 @@ export function NavMenu() {
 											title={component.title}
 											href={component.href}
 										>
-											{/* {component.description} */}
+											{/*  */}
 										</ListItem>
 									))}
 							</ul>
+							{/* <NavCopters /> */}
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
@@ -585,9 +586,11 @@ export function NavMenu() {
 			<Link href="tel:+44 1494513 166" className="">
 				{/* <Icons.phone className="text-brand-light-blue" height={20} /> */}
 				<Image
-					src="/images/circle-phone.svg"
+					priority
+					src="/images/square-phone.svg"
 					alt="phone"
 					height={30}
+					quality={100}
 					width={30}
 				/>
 			</Link>
