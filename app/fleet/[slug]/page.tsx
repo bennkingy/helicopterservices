@@ -96,6 +96,7 @@ async function getHelicopterData() {
   *[_type == "fleet"] {
 		      title,
           workType,
+					helicopterType,
 					engineType,
 					capacity,
 					ifrcapable,

@@ -502,10 +502,10 @@ export function NavMenu() {
 							</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex">
-							<div className="w-[500px] h-[200px] relative">
+							<div className="w-[500px] h-[250px] relative">
 								<Image
-									src="https://helicopterservices.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0he7nz2b%2Fproduction%2F470a21081bd9f233c7b6c5ab58f9ef2d2956883a-1600x645.jpg&w=750&q=100"
-									alt="industry"
+									src="/images/nav-copters.jpg"
+									alt="flights"
 									fill
 									className="h-full object-cover"
 									priority

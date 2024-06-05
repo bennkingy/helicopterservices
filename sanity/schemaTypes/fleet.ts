@@ -37,6 +37,58 @@ export default defineType({
 			hidden: ({ document }) => document?.isLandingPage !== true,
 		}),
 		defineField({
+			name: "helicopterType",
+			title: "Helicopter Type",
+			type: "object",
+			fields: [
+				{
+					name: "guimbalType",
+					title: "Guimbal Type",
+					type: "boolean",
+					initialValue: false,
+				},
+				{
+					name: "robinsonType",
+					title: "Robinson Type",
+					type: "boolean",
+					initialValue: false,
+				},
+				{
+					name: "aerospatialeEurocopterAirbusType",
+					title: "Aérospatiale, Eurocopter & Airbus Type",
+					type: "boolean",
+					initialValue: false,
+				},
+				{
+					name: "agustaType",
+					title: "Agusta Type",
+					type: "boolean",
+					initialValue: false,
+				},
+				{
+					name: "bellType",
+					title: "Bell Type",
+					type: "boolean",
+					initialValue: false,
+				},
+			],
+			hidden: ({ document }) => document?.isLandingPage === true,
+			validation: (Rule) =>
+				Rule.custom((fields) => {
+					const selectedFields = [
+						fields?.agustaType,
+						fields?.bellType,
+						fields?.aerospatialeEurocopterAirbusType,
+						fields?.robinsonType,
+						fields?.guimbalType,
+					].filter(Boolean);
+
+					return selectedFields.length > 1
+						? "Only one helicopter type can be selected."
+						: true;
+				}),
+		}),
+		defineField({
 			name: "workType",
 			title: "Work Type",
 			type: "object",
