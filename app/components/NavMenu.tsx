@@ -356,13 +356,14 @@ export function NavMenu() {
 								</ul>
 							</div>
 							{/* </div> */}
-							<div className="w-[250px] h-full ml-auto">
+							<div className="w-[250px] h-[400px] ml-auto relative">
 								<Image
 									src="/images/helciopter-caves.jpg"
 									alt="industry"
-									width={250}
-									height={400}
-									className="h-full"
+									fill
+									priority
+									quality={100}
+									className="object-cover"
 								/>
 							</div>
 						</NavigationMenuContent>
@@ -395,13 +396,14 @@ export function NavMenu() {
 									</ListItem>
 								</ul>
 							</div>
-							<div className="w-[500px] h-[200px] ml-auto">
+							<div className="w-[500px] h-[200px] ml-auto relative">
 								<Image
-									src="/images/helciopter-caves.jpg"
+									src="https://helicopterservices.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0he7nz2b%2Fproduction%2F2c9262636f3315890615df07f01a56bc9c82768c-1680x419.jpg&w=3840&q=100"
 									alt="industry"
-									width={500}
-									height={200}
-									className="h-full object-fill"
+									fill
+									priority
+									quality={100}
+									className="object-cover"
 								/>
 							</div>
 						</NavigationMenuContent>
@@ -450,13 +452,14 @@ export function NavMenu() {
 										))}
 								</ul>
 							</div>
-							<div className="w-[500px] h-[310px] ml-auto">
+							<div className="w-[500px] h-[310px] ml-auto relative">
 								<Image
-									src="/images/helciopter-caves.jpg"
+									src="https://cdn.sanity.io/images/0he7nz2b/production/60e72d0df6aa15d699ebce3c6b1a75790f1deafc-1024x685.webp"
 									alt="industry"
-									width={500}
-									height={310}
-									className="h-full object-fill"
+									fill
+									className="h-full object-cover"
+									priority
+									quality={100}
 								/>
 							</div>
 						</NavigationMenuContent>
@@ -499,13 +502,14 @@ export function NavMenu() {
 							</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex">
-							<div className="w-[500px] h-[200px]">
+							<div className="w-[500px] h-[200px] relative">
 								<Image
-									src="/images/helciopter-caves.jpg"
+									src="https://helicopterservices.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F0he7nz2b%2Fproduction%2F470a21081bd9f233c7b6c5ab58f9ef2d2956883a-1600x645.jpg&w=750&q=100"
 									alt="industry"
-									width={500}
-									height={200}
-									className="h-full object-fill"
+									fill
+									className="h-full object-cover"
+									priority
+									quality={100}
 								/>
 							</div>
 							<div className="p-7 pb-4 max-w-[250px]">
