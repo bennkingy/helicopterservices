@@ -10,6 +10,7 @@ import type { FleetItem } from "../fleet/[slug]/page";
 import Breadcrumbs from "./Breadcrumbs";
 import { ComparisonTable } from "./ComparisonTable";
 import Gallery from "./Gallery";
+import SanityImage from "./SanityImage";
 import StatusIcon from "./StatusIcon";
 import TextLink from "./TextLink";
 
@@ -230,30 +231,10 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 									data-pinterest-text="Pin it"
 									data-tweet-text="Helicopter Services"
 									data-src={urlFor(data.gallerySingle?.imageUrl).url()}
+									// TODO: Update to use the alt text from the image
 									data-sub-html={`<h4>Helicopter Services</h4><p>${data?.title}</p>`}
 								>
-									<Image
-										width={500}
-										height={332}
-										quality={100}
-										className="img-responsive cursor-pointer"
-										src={urlFor(data?.gallerySingle?.imageUrl).url()}
-										placeholder={data?.gallerySingle?.blur ? "blur" : undefined}
-										blurDataURL={
-											data?.gallerySingle?.blur
-												? data?.gallerySingle?.blur
-												: undefined
-										}
-										alt={
-											data?.gallerySingle?.alt
-												? data?.gallerySingle?.alt
-												: `Close up photo of ${data?.title} helicopter.`
-										}
-										style={{
-											clipPath:
-												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										}}
-									/>
+									<SanityImage sanityImage={data.gallerySingle} cutCorner/>
 								</a>
 							</Gallery>
 						)}
@@ -272,7 +253,7 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 										data-pinterest-text="Pin it2"
 										data-tweet-text="lightGallery slide  2"
 										className="gallery__item"
-										data-src="https://www.youtube.com/embed/JOpWTNEAsX8?si=EbI2oaTH5s4boI_Y"
+										data-src={data?.threedVideoUrl}
 										data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@therawhunter' >Massimiliano Morosinotto </a></h4><p> Location - <a href='https://unsplash.com/s/photos/tre-cime-di-lavaredo%2C-italia'>Tre Cime di Lavaredo, Italia</a>This is the Way</p>"
 									>
 										<Image

@@ -20,27 +20,19 @@ export default defineType({
 			},
 		}),
 		defineField({
+			name: "role",
+			title: "Role",
+			type: "string",
+		}),
+		defineField({
 			name: "mainImage",
-			title: "Main image",
+			title: "Profile picture",
 			type: "image",
 			hidden: ({ document }) => document?.isLandingPage === true,
-			options: { hotspot: true },
-			fields: [
-				defineField({
-					name: "alt",
-					type: "string",
-					title: "Alternative text",
-				}),
-				defineField({
-					name: "blur",
-					type: "string",
-					title: "Blur hash",
-				}),
-			],
 		}),
 		defineField({
 			name: "bio",
-			title: "Bio",
+			title: "Qualifications",
 			type: "array",
 			of: [
 				{

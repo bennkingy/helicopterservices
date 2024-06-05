@@ -16,6 +16,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as React from "react";
+// import TextLink from "./TextLink";
 
 const training: {
 	title: string;
@@ -382,6 +383,11 @@ export function NavMenu() {
 									className="object-cover"
 								/>
 							</div>
+								{/* <TextLink
+									label="Comparison chart"
+									className="mt-8 mb-0 absolute bottom-0 left-10"
+									onClick={() => {}}
+								/> */}
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>

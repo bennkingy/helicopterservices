@@ -39,6 +39,7 @@ async function getPageData(slug: string) {
 					hero,
           "heroImage": hero.image{
             asset->{
+							...,
               _id,
               url,
               metadata {
@@ -49,11 +50,13 @@ async function getPageData(slug: string) {
           },
 					threedVideoUrl,
 		 			"gallerySingle": gallerySingle{
+						...,
 						"imageUrl": asset->url,
 						"altText": alt,
 						"blur": blur,
+            "lqip": asset->metadata.lqip,
 						"height": asset->metadata.dimensions.height,
-						"width": asset->metadata.dimensions.width
+						"width": asset->metadata.dimensions.width,
 					},
 					gallery,
 					engineType,
