@@ -185,23 +185,31 @@ const about: { title: string; href: string; description: string }[] = [
 	},
 ];
 
-const fleet: { title: string; href: string; category: string }[] = [
+const fleet: {
+	title: string;
+	href: string;
+	category: string;
+	engine: string;
+}[] = [
 	{
 		title: "A109",
 		href: "/fleet/a109",
 		category: "Agusta",
+		engine: "Twin Engine",
 		// description: "Versatile and high-performance twin-engine helicopter.",
 	},
 	{
 		title: "AS355",
 		href: "/fleet/as355",
 		category: "Agusta",
+		engine: "Twin Engine",
 		// description: "A a multi-purpose, twin-engine light helicopter.",
 	},
 	{
 		title: "AB206",
 		href: "/fleet/ab206",
 		category: "Agusta",
+		engine: "Single Engine",
 		// description:
 		// 	"A light utility helicopter known for its reliability and versatility.",
 	},
@@ -209,22 +217,26 @@ const fleet: { title: string; href: string; category: string }[] = [
 		title: "R66",
 		href: "/fleet/r66",
 		category: "Robinson",
+		engine: "Single Engine",
 		// description: "Some description about the R66.",
 	},
 	{
 		title: "R44",
 		href: "/fleet/r44",
+		engine: "Single Engine",
 		category: "Robinson",
 		// description: "Some description about the R44.",
 	},
 	{
 		title: "R22",
 		href: "/fleet/r22",
+		engine: "Single Engine",
 		category: "Robinson",
 		// description: "Some description about the R22.",
 	},
 	{
 		title: "Cabri G2",
+		engine: "Single Engine",
 		href: "/fleet/cabri-g2",
 		category: "Guimbal",
 		// description: "Some description about the Cabri G2.",
@@ -232,24 +244,28 @@ const fleet: { title: string; href: string; category: string }[] = [
 	{
 		title: "AS350",
 		href: "/fleet/as350",
+		engine: "Single Engine",
 		category: "Airbus",
 		// description: "A single-engine light utility helicopter.",
 	},
 	{
 		title: "B206L",
 		href: "/fleet/b206l",
+		engine: "Single Engine",
 		category: "Airbus",
 		// description: "Some description about the B206L.",
 	},
 	{
 		title: "EC135",
 		href: "/fleet/ec135",
+		engine: "Single Engine",
 		category: "Airbus",
 		// description: "Some description about the EC135.",
 	},
 	{
 		title: "AW109",
 		href: "/fleet/aw109",
+		engine: "Twin Engine",
 		category: "Airbus",
 		// description: "Some description about the AW109.",
 	},
@@ -356,7 +372,7 @@ export function NavMenu() {
 								</ul>
 							</div>
 							{/* </div> */}
-							<div className="w-[250px] h-[400px] ml-auto relative">
+							<div className="w-[250px] h-[350px] ml-auto relative">
 								<Image
 									src="/images/nav-training.jpg"
 									alt="industry"
@@ -474,21 +490,72 @@ export function NavMenu() {
 								Fleet
 							</a>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent className="flex">
-							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[600px] ">
-								{fleet
-									.sort((a, b) => a.title.localeCompare(b.title))
-									.map((component) => (
-										<ListItem
-											key={component.title}
-											title={component.title}
-											href={component.href}
-										>
-											{/*  */}
-										</ListItem>
-									))}
-							</ul>
-							{/* <NavCopters /> */}
+						<NavigationMenuContent className="flex rounded-none">
+							{/* <div className="p-5"> */}
+							<div className="p-7 pb-4 max-w-[250px]">
+								<p className="text-brand-light-blue">Single Engine</p>
+								<ul className="grid mt-2">
+									{fleet
+										.filter((component) => component.engine === "Single Engine")
+										.sort((a, b) => a.title.localeCompare(b.title))
+										.slice(0, 4)
+										.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{/* {component.description} */}
+											</ListItem>
+										))}
+								</ul>
+							</div>
+							<div className="p-7 pb-0">
+								<p className="text-brand-light-blue">&nbsp;</p>
+								<ul className="grid mt-2">
+									{fleet
+										.filter((component) => component.engine === "Single Engine")
+										.sort((a, b) => a.title.localeCompare(b.title))
+										.slice(4, 10)
+										.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{/* {component.description} */}
+											</ListItem>
+										))}
+								</ul>
+							</div>
+							{/* </div> */}
+							<div className="p-7 pb-0 max-w-[350px]">
+								<p className="text-brand-light-blue">Twin Engine</p>
+								<ul className="grid mt-2">
+									{fleet
+										.filter((component) => component.engine === "Twin Engine")
+										.sort((a, b) => a.title.localeCompare(b.title))
+										.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{/* {component.description} */}
+											</ListItem>
+										))}
+								</ul>{" "}
+							</div>
+							<div className="w-[300px] h-[200px] ml-auto relative">
+								<Image
+									src="/images/Heli006.jpg"
+									alt="industry"
+									fill
+									priority
+									quality={100}
+									className="object-cover"
+								/>
+							</div>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>

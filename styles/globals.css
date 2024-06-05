@@ -92,7 +92,12 @@
     grid-template-columns: repeat(1, 1fr);  /* Creates two columns with equal width */
     gap: 40px; /* Adjusts the gap between grid items */
   }
-
+  
+  @media screen and (max-width: 639px)  {
+    .gallery {
+      gap: 25px; /* Adjusts the gap between grid items */
+    }
+  }
   .gallery-single img, .lg-react-element.video img {
     width: 100%; /* Makes each image take up the full width of its cell */
     height: auto; /* Keeps the aspect ratio intact */
