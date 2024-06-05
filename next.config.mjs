@@ -34,6 +34,16 @@ const nextConfig = {
 				hostname: "img.youtube.com",
 				port: "",
 			},
+			{
+				protocol: "http",
+				hostname: "helicopterservices.vercel.app",
+				port: "",
+			},
+			{
+				protocol: "https",
+				hostname: "helicopterservices.vercel.app",
+				port: "",
+			},
 		],
 	},
 };
