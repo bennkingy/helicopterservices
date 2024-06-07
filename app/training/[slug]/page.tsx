@@ -32,22 +32,27 @@ async function getData(slug: string) {
 						blur
 					},
 				},
-          mainImage,
+        mainImage,
 				  "gallery": gallery.images[]{
-						"imageUrl": asset->url,
-						"height": asset->metadata.dimensions.height,
-						"width": asset->metadata.dimensions.width,
-						"fileName": asset->originalFilename,
-						"blur": blur,
-						"alt": alt,
-					},
-         	"gallerySingle": gallerySingle{
-						"imageUrl": asset->url,
-						"altText": alt,
-						"blur": blur,
-						"height": asset->metadata.dimensions.height,
-						"width": asset->metadata.dimensions.width
-					},
+					"imageUrl": asset->url,
+					"height": asset->metadata.dimensions.height,
+					"width": asset->metadata.dimensions.width,
+					"fileName": asset->originalFilename,
+					"blur": blur,
+					"alt": alt,
+				},
+				"gallerySingle": gallerySingle{
+					"imageUrl": asset->url,
+					"altText": alt,
+					"blur": blur,
+					"height": asset->metadata.dimensions.height,
+					"width": asset->metadata.dimensions.width
+				},
+				"pilot": pilot->{
+            name,
+						role,
+            pilotImage
+        }
       }[0]`;
 	const data = await client.fetch(query);
 

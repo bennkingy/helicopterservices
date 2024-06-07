@@ -4,9 +4,11 @@ import Link from "next/link";
 
 type props = {
 	className?: string;
+	// @ ts-ignore
+	pilot?: any;
 };
 
-const ContactCta = ({ className }: props) => {
+const ContactCta = ({ className, pilot }: props) => {
 	return (
 		<div className={`text-white bg-[#023D67] h-fit ${className}`}>
 			<div className="bg-[#023D67]  py-5 text-white p-10 relative">
@@ -25,10 +27,10 @@ const ContactCta = ({ className }: props) => {
 					“Contact us today for a customised quote tailored to your needs”
 				</p>
 				<p className="pl-5 font-openSans">
-					Captain Ruth Downey,
+					{pilot?.name || "Captain Ruth Downey"},
 					<br />
 					<span className="text-brand-light-blue">
-						Accountable Manager/Examiner
+						{pilot?.role || "Accountable Manager/Examiner"}
 					</span>
 				</p>
 				<table className={"table-fixed mt-5 ml-5 w-full font-openSans"}>

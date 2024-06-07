@@ -167,7 +167,7 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 				</div>
 				{sidebar && (
 					<div>
-						<ContactCta className="hidden md:block" />
+						<ContactCta className="hidden md:block" pilot={data?.pilot} />
 						<GetinTouchSmall className="mt-20 md:mt-8 hidden md:block" />
 						<GMapHeader className="" />
 						<GMap className="mb-20 sm:mb-0" />
