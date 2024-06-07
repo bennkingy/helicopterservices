@@ -5,7 +5,7 @@ import SanityImage from "./SanityImage";
 const Team = (pilotData) => {
 	return (
 		<>
-			{/* @ ts-ignore */}
+			{/* @ts-ignore */}
 			{pilotData?.pilotData?.map((pilot) => (
 				<div key={pilot.slug.current} className="rounded text-center">
 					<div className="w-[190px] mx-auto">

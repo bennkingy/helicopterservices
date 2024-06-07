@@ -62,6 +62,7 @@ async function getData(slug: string) {
 export async function generateMetadata({
 	params,
 }: { params: { slug: string } }): Promise<Metadata> {
+	// @ts-ignore
 	const { data }: any = await getData(params.slug.toLowerCase());
 
 	if (!data) {
@@ -86,6 +87,7 @@ export async function generateMetadata({
 export default async function TrainingPage({
 	params,
 }: { params: { slug: string } }) {
+	// @ts-ignore
 	const { data }: any = await getData(params.slug.toLowerCase());
 
 	return (

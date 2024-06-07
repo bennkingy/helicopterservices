@@ -4,7 +4,7 @@ import Link from "next/link";
 
 type props = {
 	className?: string;
-	// @ ts-ignore
+	// @ts-ignore
 	pilot?: any;
 };
 
