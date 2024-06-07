@@ -25,7 +25,7 @@ async function getPageData(slug: string) {
                 dimensions,
                 lqip
               }
-            }
+x            }
           },
       }[0]`;
 	const data = await client.fetch(query);

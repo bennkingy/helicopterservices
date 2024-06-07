@@ -61,8 +61,6 @@ export default async function AboutPage({
 	const data: training = await getPageData();
 	const pilotData: any = await getPilotData();
 
-	console.log(pilotData);
-
 	return (
 		<>
 			<div className="container mt-14 mb-20">

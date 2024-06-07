@@ -58,7 +58,7 @@ export default async function Weather({
 	const data: WeatherData = await response.json();
 
 	if (data.cod === 401) {
-		console.error("Failed to fetch the weather data.");
+		console.error("Failed to fetch the weather data");
 	}
 
 	return (

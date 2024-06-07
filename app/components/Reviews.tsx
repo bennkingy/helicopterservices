@@ -26,28 +26,28 @@ const reviews: any[] = [
 		name: "Oscar Wildetime",
 		service: "",
 		description:
-			"From the moment that Natalie explained the experience to me, took the booking and sent the confirmation etc within the hour I knew we were dealing with people who understood service. We had opted for my wife's birthday and 1 hour sightseeing helicopter trip over Central London. Arrived promptly and Tom, our pilot, was ready to start the trip. Firstly a safety briefing and then into the Robinson R44 chopper for a trip that was both stunning and informative. Tom really knew his stuff and we thoroughly enjoyed the whole experience and I have to say it was fantastic value for money. A great Birthday present and if you want everything for a great day out then choose Helicopter Services... you will not regret it. Thanks to all from both Tina and I.",
+			"From the moment that Natalie explained the experience to me, took the booking and sent the confirmation etc within the hour I knew we were dealing with people who understood service. We had opted for my wife's birthday and 1 hour sightseeing helicopter trip over Central London. Arrived promptly and Tom, our pilot, was ready to start the trip. Firstly a safety briefing and then into the Robinson R44 chopper for a trip that was both stunning and informative. Tom really knew his stuff and we thoroughly enjoyed the whole experience and I have to say it was fantastic value for money. A great Birthday present and if you want everything for a great day out then choose Helicopter Services... you will not regret it. Thanks to all from both Tina and I",
 	},
 	{
 		img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/ed/00/default-avatar-2020-4.jpg",
 		name: "Kanwar Tavy",
 		service: "",
 		description:
-			"A nice add-on to a trip to Windsor castle. Great helicopter rides especially on a clear sunny day - great fun flying low in a small copter and seeing the area.",
+			"A nice add-on to a trip to Windsor castle. Great helicopter rides especially on a clear sunny day - great fun flying low in a small copter and seeing the area",
 	},
 	{
 		img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-f/01/2e/70/64/avatar042.jpg",
 		name: "Mahendra S",
 		service: "",
 		description:
-			"I booked for a 45 min tour of the chilterns. Never been on a helicopter but it was smooth and comfortable. Our pilot was very nice and showed us the sites. On a beautiful sunny day, we could see the skyscrapers of London. All in all, highly enjoyable.",
+			"I booked for a 45 min tour of the chilterns. Never been on a helicopter but it was smooth and comfortable. Our pilot was very nice and showed us the sites. On a beautiful sunny day, we could see the skyscrapers of London. All in all, highly enjoyable",
 	},
 	{
 		img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/50/21/8d/a3303xqpaulh.jpg",
 		name: "Paul H",
 		service: "",
 		description:
-			"We hit it at a quiet time and got a winner around the countryside then followed the Thames to the centre of London. West Minster, St Paul's, the shard and more. Best value for money anywhere on this trip. We loved it. We are so lucky.",
+			"We hit it at a quiet time and got a winner around the countryside then followed the Thames to the centre of London. West Minster, St Paul's, the shard and more. Best value for money anywhere on this trip. We loved it. We are so lucky",
 	},
 ];
 
@@ -64,7 +64,7 @@ const Reviews = ({ className }: props) => {
 		<div className={`bg-brand-light-grey ${className}`}>
 			<div className="container">
 				<Heading
-					title="Client feedback."
+					title="Client feedback"
 					center
 					tag="Testimonials"
 					iconColor="light-blue"

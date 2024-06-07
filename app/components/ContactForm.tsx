@@ -53,15 +53,19 @@ const ContacForm = () => {
 		setLoading(true);
 		// const { message } = await helloAction(data.name);
 		// toast({ description: message });
-		console.log(data);
 		try {
-			await emailjs.send(service, templateId, {
-				from_name: data.name,
-				from_email: data.email,
-				contact_number: data.contactNumber,
-				message: data.body,
-				requirement: data.requirement,
-		}, publicKey);
+			await emailjs.send(
+				service,
+				templateId,
+				{
+					from_name: data.name,
+					from_email: data.email,
+					contact_number: data.contactNumber,
+					message: data.body,
+					requirement: data.requirement,
+				},
+				publicKey,
+			);
 			setName(data.name);
 			setStep(2);
 		} catch (error) {
@@ -88,12 +92,12 @@ const ContacForm = () => {
 								name="name"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel data-testId="nameLabel">Name</FormLabel>
+										<FormLabel data-test-id="nameLabel">Name</FormLabel>
 										<FormControl>
 											<Input
 												{...field}
 												type="name"
-												data-testId="nameField"
+												data-test-id="nameField"
 												placeholder="Please enter your name"
 											/>
 										</FormControl>
@@ -106,12 +110,12 @@ const ContacForm = () => {
 								name="email"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel data-testId="emailLabel">Email</FormLabel>
+										<FormLabel data-test-id="emailLabel">Email</FormLabel>
 										<FormControl>
 											<Input
 												{...field}
 												type="email"
-												data-testId="emailField"
+												data-test-id="emailField"
 												placeholder="Please enter your email"
 											/>
 										</FormControl>
@@ -124,13 +128,13 @@ const ContacForm = () => {
 								name="contactNumber"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel data-testId="contactNumberLabel">
+										<FormLabel data-test-id="contactNumberLabel">
 											Contact number
 										</FormLabel>
 										<FormControl>
 											<Input
 												{...field}
-												data-testId="contactNumberField"
+												data-test-id="contactNumberField"
 												placeholder="Please enter your full contact number"
 											/>
 										</FormControl>
@@ -138,63 +142,82 @@ const ContacForm = () => {
 									</FormItem>
 								)}
 							/>
-						<FormField
-							control={form.control}
-							name="requirement"
-							// @ts-ignore
-							render={({ field }) => (
-								<FormItem>
-									<div className="mt-5">
-										<FormLabel data-testId="enquiryLabel">
-											Your requirement
-										</FormLabel>
-									</div>
-									<Controller
-										control={form.control}
-										name="requirement"
-										//@ts-ignore
-										render={({ field }) => (
-											<RadioGroup {...field} onValueChange={field.onChange} value={field.value}>
-												<div className="flex items-center space-x-2 mt-0">
-													<RadioGroupItem value="Training" id="option-one" />
-													<Label htmlFor="option-one" className="cursor-pointer">
-														Training
-													</Label>
-												</div>
-												<div className="flex items-center space-x-2 mt-1">
-													<RadioGroupItem value="Flights" id="option-two" />
-													<Label htmlFor="option-two" className="cursor-pointer">
-														Flights
-													</Label>
-												</div>
-												<div className="flex items-center space-x-2 mt-1">
-													<RadioGroupItem value="Industry" id="option-three" />
-													<Label htmlFor="option-three" className="cursor-pointer">
-														Industry
-													</Label>
-												</div>
-												<div className="flex items-center space-x-2 mt-1">
-													<RadioGroupItem value="Other" id="option-four" />
-													<Label htmlFor="option-four" className="cursor-pointer">
-														Other
-													</Label>
-												</div>
-											</RadioGroup>
-										)}
-									/>
-								</FormItem>
-							)}
-						/>
+							<FormField
+								control={form.control}
+								name="requirement"
+								// @ts-ignore
+								render={({ field }) => (
+									<FormItem>
+										<div className="mt-5">
+											<FormLabel data-test-id="enquiryLabel">
+												Your requirement
+											</FormLabel>
+										</div>
+										<Controller
+											control={form.control}
+											name="requirement"
+											//@ts-ignore
+											render={({ field }) => (
+												<RadioGroup
+													{...field}
+													onValueChange={field.onChange}
+													value={field.value}
+												>
+													<div className="flex items-center space-x-2 mt-0">
+														<RadioGroupItem value="Training" id="option-one" />
+														<Label
+															htmlFor="option-one"
+															className="cursor-pointer"
+														>
+															Training
+														</Label>
+													</div>
+													<div className="flex items-center space-x-2 mt-1">
+														<RadioGroupItem value="Flights" id="option-two" />
+														<Label
+															htmlFor="option-two"
+															className="cursor-pointer"
+														>
+															Flights
+														</Label>
+													</div>
+													<div className="flex items-center space-x-2 mt-1">
+														<RadioGroupItem
+															value="Industry"
+															id="option-three"
+														/>
+														<Label
+															htmlFor="option-three"
+															className="cursor-pointer"
+														>
+															Industry
+														</Label>
+													</div>
+													<div className="flex items-center space-x-2 mt-1">
+														<RadioGroupItem value="Other" id="option-four" />
+														<Label
+															htmlFor="option-four"
+															className="cursor-pointer"
+														>
+															Other
+														</Label>
+													</div>
+												</RadioGroup>
+											)}
+										/>
+									</FormItem>
+								)}
+							/>
 							<FormField
 								control={form.control}
 								name="body"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel data-testId="enquiryLabel">Message</FormLabel>
+										<FormLabel data-test-id="enquiryLabel">Message</FormLabel>
 										<FormControl>
 											<Textarea
 												{...field}
-												data-testId="enquiryField"
+												data-test-id="enquiryField"
 												placeholder="Please enter your message here"
 											/>
 										</FormControl>
@@ -208,7 +231,7 @@ const ContacForm = () => {
 							className="w-full bg-brand-light-blue"
 							// sm:max-w-[250px]
 							disabled={pending}
-							data-testId="submitEnquiryButton"
+							data-test-id="submitEnquiryButton"
 						>
 							{loading ? "Submitting..." : "Submit Enquiry"}
 						</Button>

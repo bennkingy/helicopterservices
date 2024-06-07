@@ -28,7 +28,7 @@ const training: {
 		title: "Private pilot license",
 		category: "Licenses",
 		href: "/training/private-pilot-licence",
-		description: "Fly helicopters privately with a private pilot license.",
+		description: "Fly helicopters privately with a private pilot license",
 	},
 	{
 		title: "Commerical Pilot License",
@@ -41,28 +41,28 @@ const training: {
 		href: "/training/flight-examiner-ratings",
 		category: "FlightRatings",
 		description:
-			"Helicopter flight examiners hold a lot of responsibility, setting the standards across the industry and ensuring that they are maintained.",
+			"Helicopter flight examiners hold a lot of responsibility, setting the standards across the industry and ensuring that they are maintained",
 	},
 	{
 		title: "Type rating",
 		href: "/training/type-ratings",
 		category: "FlightRatings",
 		description:
-			"Putting you near the top of the ladder throughout the helicopter industry.",
+			"Putting you near the top of the ladder throughout the helicopter industry",
 	},
 	{
 		title: "Instrument rating",
 		href: "/training/instrument-ratings",
 		category: "FlightRatings",
 		description:
-			"The ultimate way to see London, one of the most famous cities in the world.",
+			"The ultimate way to see London, one of the most famous cities in the world",
 	},
 	{
 		title: "Flight instructor rating",
 		category: "FlightRatings",
 		href: "/training/flight-instructor-ratings",
 		description:
-			"Allows you to fly helicopters under IFR down to a decision height of 200ft.",
+			"Allows you to fly helicopters under IFR down to a decision height of 200ft",
 	},
 	{
 		title: "Night rating",
@@ -74,47 +74,47 @@ const training: {
 		title: "PBN",
 		href: "/training/PBN",
 		category: "Other",
-		description: "Improving aircraft navigation with precision and efficiency.",
+		description: "Improving aircraft navigation with precision and efficiency",
 	},
 	{
 		title: "Virtual Reality Simulator",
 		href: "/training/virtual-reality-simulator",
 		category: "Simulators",
 		description:
-			"An incredibly realistic experience allowing for all flight profiles.",
+			"An incredibly realistic experience allowing for all flight profiles",
 	},
 	{
 		title: "Simulator",
 		category: "Simulators",
 		href: "/training/simulator",
 		description:
-			"Developing safe instrument flying skills, reducing costs, and enabling progress.",
+			"Developing safe instrument flying skills, reducing costs, and enabling progress",
 	},
 	{
 		title: "ELCAS",
 		category: "Other",
 		href: "/training/ELCAS",
-		description: "ELCAS approved training provider for military personnel.",
+		description: "ELCAS approved training provider for military personnel",
 	},
 	{
 		title: "FAA",
 		category: "Other",
 		href: "/training/FAA",
 		description:
-			"Helicopter Services can train and maintain pilots under the FAA.",
+			"Helicopter Services can train and maintain pilots under the FAA",
 	},
 	{
 		title: "Refresher seminars",
 		category: "Other",
 		href: "/training/refresher-seminars",
-		description: "Expert Instructor and Examiner Seminars.",
+		description: "Expert Instructor and Examiner Seminars",
 	},
 	{
 		title: "Advanced flying programme",
 		category: "Other",
 		href: "/training/advanced-flying-programme",
 		description:
-			"Develop your skills while you expand your practical flying adventures.",
+			"Develop your skills while you expand your practical flying adventures",
 	},
 ];
 
@@ -128,26 +128,26 @@ const flights: {
 		title: "Airpot transfers",
 		category: "Flights",
 		href: "/flights/airport-transfers",
-		description: "Your luxury airport transfer service.",
+		description: "Your luxury airport transfer service",
 	},
 	{
 		title: "Helicopter Charter",
 		category: "Flights",
 		href: "/flights/helicopter-charter",
-		description: "Transporting VIPs to special events for over 20 years.",
+		description: "Transporting VIPs to special events for over 20 years",
 	},
 	{
 		title: "London sightseeing",
 		category: "Tours",
 		href: "/flights/london-sightseeing",
-		description: "Unrivalled views of the most famous city in the world.",
+		description: "Unrivalled views of the most famous city in the world",
 	},
 	{
 		title: "Special events",
 		category: "Flights",
 		href: "/flights/special-events",
 		description:
-			"Private charters for weddings, tours, and celebrations, ensuring excellent service.",
+			"Private charters for weddings, tours, and celebrations, ensuring excellent service",
 	},
 	{
 		title: "Trail lessons",
@@ -159,7 +159,7 @@ const flights: {
 		title: "Local area tours",
 		category: "Tours",
 		href: "/flights/local-area-tours",
-		description: "Experience the UK from the air with our local area tours.",
+		description: "Experience the UK from the air with our local area tours",
 	},
 ];
 
@@ -172,17 +172,17 @@ const about: { title: string; href: string; description: string }[] = [
 	{
 		title: "Helicopter fleet",
 		href: "/fleet",
-		description: "Check out our helicopter fleet.",
+		description: "Check out our helicopter fleet",
 	},
 	{
 		title: "The Hanger",
 		href: "/about-us/the-hanger",
-		description: "Check out the hanger.",
+		description: "Check out the hanger",
 	},
 	{
 		title: "FAQs",
 		href: "/about-us/faqs",
-		description: "Fequently asked questions and answers.",
+		description: "Fequently asked questions and answers",
 	},
 ];
 
@@ -197,14 +197,14 @@ const fleet: {
 		href: "/fleet/a109",
 		category: "Agusta",
 		engine: "Twin Engine",
-		// description: "Versatile and high-performance twin-engine helicopter.",
+		// description: "Versatile and high-performance twin-engine helicopter",
 	},
 	{
 		title: "AS355",
 		href: "/fleet/as355",
 		category: "Agusta",
 		engine: "Twin Engine",
-		// description: "A a multi-purpose, twin-engine light helicopter.",
+		// description: "A a multi-purpose, twin-engine light helicopter",
 	},
 	{
 		title: "AB206",
@@ -212,63 +212,63 @@ const fleet: {
 		category: "Agusta",
 		engine: "Single Engine",
 		// description:
-		// 	"A light utility helicopter known for its reliability and versatility.",
+		// 	"A light utility helicopter known for its reliability and versatility",
 	},
 	{
 		title: "R66",
 		href: "/fleet/r66",
 		category: "Robinson",
 		engine: "Single Engine",
-		// description: "Some description about the R66.",
+		// description: "Some description about the R66",
 	},
 	{
 		title: "R44",
 		href: "/fleet/r44",
 		engine: "Single Engine",
 		category: "Robinson",
-		// description: "Some description about the R44.",
+		// description: "Some description about the R44",
 	},
 	{
 		title: "R22",
 		href: "/fleet/r22",
 		engine: "Single Engine",
 		category: "Robinson",
-		// description: "Some description about the R22.",
+		// description: "Some description about the R22",
 	},
 	{
 		title: "Cabri G2",
 		engine: "Single Engine",
 		href: "/fleet/cabri-g2",
 		category: "Guimbal",
-		// description: "Some description about the Cabri G2.",
+		// description: "Some description about the Cabri G2",
 	},
 	{
 		title: "AS350",
 		href: "/fleet/as350",
 		engine: "Single Engine",
 		category: "Airbus",
-		// description: "A single-engine light utility helicopter.",
+		// description: "A single-engine light utility helicopter",
 	},
 	{
 		title: "B206L",
 		href: "/fleet/b206l",
 		engine: "Single Engine",
 		category: "Airbus",
-		// description: "Some description about the B206L.",
+		// description: "Some description about the B206L",
 	},
 	{
 		title: "EC135",
 		href: "/fleet/ec135",
 		engine: "Single Engine",
 		category: "Airbus",
-		// description: "Some description about the EC135.",
+		// description: "Some description about the EC135",
 	},
 	{
 		title: "AW109",
 		href: "/fleet/aw109",
 		engine: "Twin Engine",
 		category: "Airbus",
-		// description: "Some description about the AW109.",
+		// description: "Some description about the AW109",
 	},
 ];
 
@@ -383,7 +383,7 @@ export function NavMenu() {
 									className="object-cover"
 								/>
 							</div>
-								{/* <TextLink
+							{/* <TextLink
 									label="Comparison chart"
 									className="mt-8 mb-0 absolute bottom-0 left-10"
 									onClick={() => {}}

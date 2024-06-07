@@ -14,7 +14,7 @@ const features: MainServices[] = [
 		icon: <Image src="/images/Training.png" alt="" width={40} height={40} />,
 		title: "Training",
 		description:
-			"From beginner to advanced, you're in expert hands. EASA and UK CAA approved.",
+			"From beginner to advanced, you're in expert hands. EASA and UK CAA approved",
 		url: "/training",
 	},
 	{
@@ -27,21 +27,21 @@ const features: MainServices[] = [
 			/>
 		),
 		title: "Flights",
-		description: "Choose a leading UK helicopter service for your next flight.",
+		description: "Choose a leading UK helicopter service for your next flight",
 		url: "/flights",
 	},
 	{
 		icon: <Image src="/images/Industry.png" alt="" width={40} height={40} />,
 		title: "Industry",
 		description:
-			"Elevating industry to new heights with film and lifting services.",
+			"Elevating industry to new heights with film and lifting services",
 		url: "/industry",
 	},
 	{
 		icon: <Image src="/images/Company.png" alt="" width={40} height={40} />,
 		title: "Our company",
 		description:
-			"Trust a company with over 20 years helicopter operating experence.",
+			"Trust a company with over 20 years helicopter operating experence",
 		url: "/about-us",
 	},
 ];

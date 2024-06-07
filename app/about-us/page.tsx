@@ -14,13 +14,13 @@ export default async function About() {
 	return (
 		<main className="overflow-x-hidden">
 			<Hero
-				title="About Helicopter Services."
+				title="About Helicopter Services"
 				height="h-[calc(84lvh_-_65px)] sm:h-[calc(100lvh_-_100px)]"
 			/>
 			<div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
 				<div className="pr-0 sm:pr-20">
 					<Heading
-						title="Making your flying experience outstanding."
+						title="Making your flying experience outstanding"
 						tag="About us"
 						titleStyles="text-3xl sm:text-4xl"
 						className="mb-8"
@@ -105,7 +105,7 @@ export default async function About() {
 				</div>
 				<div className="pl-0 md:pl-10 order-first md:order-none">
 					<Heading
-						title="The Britannia Trophy 2018."
+						title="The Britannia Trophy 2018"
 						className="mb-8 mt-16 md:mt-0"
 						titleStyles="text-3xl sm:text-4xl"
 					/>

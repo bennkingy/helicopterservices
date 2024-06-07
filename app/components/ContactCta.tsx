@@ -1,6 +1,7 @@
 import { Icons } from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
+import SanityImage from "./SanityImage";
 
 type props = {
 	className?: string;
@@ -12,15 +13,20 @@ const ContactCta = ({ className, pilot }: props) => {
 	return (
 		<div className={`text-white bg-[#023D67] h-fit ${className}`}>
 			<div className="bg-[#023D67]  py-5 text-white p-10 relative">
-				<Image
-					quality={100}
-					src={"/images/ruth2.jpg"}
-					width={82}
-					height={82}
-					alt="Title Image"
-					priority
-					className="-top-5 right-5 border-4 absolute border-white drop-shadow-sm shadow-xl"
-				/>
+				<div className="-top-5 right-5 border-4 absolute border-white drop-shadow-sm shadow-xl w-[90px] h-[90px]">
+					{pilot?.mainImage ? (
+						<SanityImage sanityImage={pilot.mainImage} />
+					) : (
+						<Image
+							quality={100}
+							src={"/images/ruth2.jpg"}
+							width={82}
+							height={82}
+							alt="Title Image"
+							priority
+						/>
+					)}
+				</div>
 			</div>
 			<div className=" text-white relative z-1 overflow-x-hidden pb-9">
 				<p className="font-bold mb-4 pl-5 mt-0 pr-32 sm:text-lg font-openSans">

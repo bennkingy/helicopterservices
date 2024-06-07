@@ -72,7 +72,7 @@ export default function Navbar() {
 					<Link
 						href="/"
 						className="font-mono text-lg font-bold start"
-						data-testId="logo"
+						data-test-id="logo"
 					>
 						<Image
 							src={logo}

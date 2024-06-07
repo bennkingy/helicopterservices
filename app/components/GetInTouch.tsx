@@ -13,7 +13,7 @@ const GetInTouch = ({ className }: props) => {
 			<div className={"bg-opacity-80 bg-brand-dark-blue"}>
 				<div className="container py-20">
 					<Heading
-						title="Get in touch with us."
+						title="Get in touch with us"
 						tag="Contact"
 						iconColor="light-blue"
 						center

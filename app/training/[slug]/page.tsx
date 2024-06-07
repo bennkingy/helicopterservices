@@ -51,7 +51,15 @@ async function getData(slug: string) {
 				"pilot": pilot->{
             name,
 						role,
-            pilotImage
+           "mainImage": mainImage{
+					  ...,
+					 "mainImage": asset->url,
+							"metadata": asset->metadata {
+                dimensions,
+                lqip
+              },
+							"altText": asset->altText
+					},
         }
       }[0]`;
 	const data = await client.fetch(query);

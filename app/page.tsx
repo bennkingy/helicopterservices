@@ -20,26 +20,26 @@ export default async function Home() {
 		{
 			img: "/images/Local area tours.png",
 			title: "Local area tours",
-			description: "Experience the UK from the air with our local area tours.",
+			description: "Experience the UK from the air with our local area tours",
 			link: "/flights/local-area-tours",
 		},
 		{
 			img: "/images/london millennium dome.png",
 			title: "Helicopter Charter",
-			description: "Transporting VIPs to special events for over 20 years.",
+			description: "Transporting VIPs to special events for over 20 years",
 			link: "/flights/helicopter-charter",
 		},
 		{
 			img: "/images/Virtual reality simulator.png",
 			title: "Virtual Reality Simulator",
 			description:
-				"An incredibly realistic experience allowing for all flight profiles.",
+				"An incredibly realistic experience allowing for all flight profiles",
 			link: "/training/virtual-reality-simulator",
 		},
 		{
 			img: "/images/private-pilot-licence.png",
 			title: "Private pilot license",
-			description: "Fly helicopters privately with a private pilot license.",
+			description: "Fly helicopters privately with a private pilot license",
 			link: "/training/private-pilot-licence",
 		},
 	];
@@ -47,7 +47,7 @@ export default async function Home() {
 	return (
 		<main className="overflow-x-hidden">
 			<Hero
-				title="Exceeding exacting industry standards."
+				title="Exceeding exacting industry standards"
 				height="h-[calc(84lvh_-_65px)] sm:h-[calc(100lvh_-_100px)]"
 			/>
 			<div className="py-20 bg-brand-dark-blue z-[9] relative -mt-[1px]">
@@ -82,7 +82,7 @@ export default async function Home() {
 				</div>
 				<div className="md:pl-10">
 					<Heading
-						title="Over 20 years helicopter operating experience."
+						title="Over 20 years helicopter operating experience"
 						titleStyles="text-3xl sm:text-4xl"
 						tag="About us"
 						className="mb-8 mt-32 md:mt-0"
@@ -176,7 +176,7 @@ export default async function Home() {
 				<div className="container relative mx-auto grid grid-cols-1 md:grid-cols-2">
 					<div className="md:pr-10">
 						<Heading
-							title="From beginner to advanced, you're in expert hands."
+							title="From beginner to advanced, you're in expert hands"
 							tag="training"
 							iconColor="light-blue"
 							className="mb-8"
@@ -235,7 +235,7 @@ export default async function Home() {
 			<div className="pb-20 pt-20 bg-brand-light-grey">
 				<div className="sm:container">
 					<Heading
-						title="For gifts, swift transfers and private charters."
+						title="For gifts, swift transfers and private charters"
 						tag="Flights"
 						iconColor="light-blue"
 						center
@@ -272,7 +272,7 @@ export default async function Home() {
 				</div>
 				<div className="md:pl-10">
 					<Heading
-						title="Elevating industry to new heights."
+						title="Elevating industry to new heights"
 						tag="Industry"
 						iconColor="light-blue"
 						className="mb-8 mt-32 md:mt-0"

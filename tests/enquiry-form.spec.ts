@@ -1,24 +1,23 @@
 import { expect, test } from "@playwright/test";
 import {
-	homeUrl,
-	enquiryUrl,
+	blackFont,
 	email,
-	name,
-	enquiryMessage,
-	enquiryTitleContent,
+	emailErrorMessage,
 	emailFieldLabel,
 	emailFieldText,
-	nameFieldLabel,
-	nameFieldText,
+	enquiryButtonContent,
+	enquiryErrorMessage,
 	enquiryFieldLabel,
 	enquiryFieldText,
-	enquiryButtonContent,
-	successToaster,
-	blackFont,
-	redFont,
-	emailErrorMessage,
+	enquiryMessage,
+	enquiryTitleContent,
+	enquiryUrl,
+	name,
 	nameErrorMessage,
-	enquiryErrorMessage,
+	nameFieldLabel,
+	nameFieldText,
+	redFont,
+	successToaster,
 } from "./helpers/test-variables.spec";
 
 test("Verifying Enquiry Form components", async ({ page }) => {
@@ -38,13 +37,15 @@ test("Verifying Enquiry Form components", async ({ page }) => {
 	// await expect(page.getByTestId("navMenuEnquire")).toBeVisible();
 
 	// Verifying the page title
-	await expect(page.getByTestId("enquiryTitle")).toHaveText(enquiryTitleContent);
+	await expect(page.getByTestId("enquiryTitle")).toHaveText(
+		enquiryTitleContent,
+	);
 	// Testing the Email field
 	await expect(page.getByTestId("emailLabel")).toHaveText(emailFieldLabel);
 
 	const emailPLaceholder = await page.getByTestId("emailField");
-	const emailPlaceholderText = await emailPLaceholder.getAttribute("placeholder");
-	console.log(emailPlaceholderText);
+	const emailPlaceholderText =
+		await emailPLaceholder.getAttribute("placeholder");
 	await expect(emailPlaceholderText).toBe(emailFieldText);
 	await page.getByTestId("emailField").fill(email);
 	// Testing the Name field
@@ -56,10 +57,15 @@ test("Verifying Enquiry Form components", async ({ page }) => {
 	// Testing the Enquiry field
 	await expect(page.getByTestId("enquiryLabel")).toHaveText(enquiryFieldLabel);
 	const enquiryPlaceholder = page.getByTestId("enquiryField");
-	await expect(enquiryPlaceholder).toHaveAttribute("placeholder", enquiryFieldText);
+	await expect(enquiryPlaceholder).toHaveAttribute(
+		"placeholder",
+		enquiryFieldText,
+	);
 	await page.getByTestId("enquiryField").fill(enquiryMessage);
 	// Testing the Enquiry Button
-	const enquiryButton = await page.getByTestId("submitEnquiryButton").textContent();
+	const enquiryButton = await page
+		.getByTestId("submitEnquiryButton")
+		.textContent();
 	await expect(enquiryButtonContent).toBe(enquiryButton);
 	await page.getByTestId("submitEnquiryButton").click();
 	// Testing the Successful toaster
@@ -77,7 +83,7 @@ test("Validating enquiry form error handling", async ({ page }) => {
 		const selectedLabel = await page.getByTestId(label);
 
 		// Get the computed style of the element
-		const labelStyle = await selectedLabel.evaluate(element => {
+		const labelStyle = await selectedLabel.evaluate((element) => {
 			const style = window.getComputedStyle(element);
 			return {
 				color: style.getPropertyValue("color"),
@@ -95,7 +101,7 @@ test("Validating enquiry form error handling", async ({ page }) => {
 		const selectedLabel = await page.getByTestId(label);
 
 		// Getting the computed style of the element
-		const labelStyle = await selectedLabel.evaluate(element => {
+		const labelStyle = await selectedLabel.evaluate((element) => {
 			const style = window.getComputedStyle(element);
 			return {
 				color: style.getPropertyValue("color"),
@@ -105,14 +111,18 @@ test("Validating enquiry form error handling", async ({ page }) => {
 	}
 
 	// Verifying expected error messages are displayed with the correct style
-	const errorMessages = [emailErrorMessage, nameErrorMessage, enquiryErrorMessage];
+	const errorMessages = [
+		emailErrorMessage,
+		nameErrorMessage,
+		enquiryErrorMessage,
+	];
 
 	for (const errorMessage of errorMessages) {
 		const selectedMessage = await page.locator(`text=${errorMessage}`);
 		await expect(selectedMessage.isVisible()).resolves.toBe(true);
 
 		// Get the computed color of the element
-		const messageColour = await selectedMessage.evaluate(element => {
+		const messageColour = await selectedMessage.evaluate((element) => {
 			const style = window.getComputedStyle(element);
 			return style.color;
 		});

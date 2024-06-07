@@ -4,36 +4,36 @@
 
 // test("Test Actions", async ({ page }) => {
 // 	await page.goto(enquireUrl);
-// 	// Check if element with data-testid "emailLabel" has specific attribute
+// 	// Check if element with data-test-id "emailLabel" has specific attribute
 // 	await expect(page.getByTestId("emailLabel")).toHaveAttribute("data-type", "email");
 
-// 	// Check if element with data-testid "emailLabel" contains specific text
+// 	// Check if element with data-test-id "emailLabel" contains specific text
 // 	await expect(page.getByTestId("emailLabel")).toContainText("Email");
 
-// 	// Check if element with data-testid "emailLabel" has specific style
+// 	// Check if element with data-test-id "emailLabel" has specific style
 // 	await expect(page.getByTestId("emailLabel")).toHaveStyle({ color: "blue" });
 
-// 	// Check if element with data-testid "emailLabel" is disabled
+// 	// Check if element with data-test-id "emailLabel" is disabled
 // 	await expect(page.getByTestId("emailLabel")).toBeDisabled();
 
-// 	// Check if element with data-testid "emailLabel" has specific attribute
+// 	// Check if element with data-test-id "emailLabel" has specific attribute
 // 	await expect(page.getByTestId("emailLabel")).toHaveAttribute("data-type", "email");
 
-// 	// Check if element with data-testid "emailLabel" has specific attribute
+// 	// Check if element with data-test-id "emailLabel" has specific attribute
 // 	await expect(page.getByTestId("emailLabel")).toHaveAttribute("data-type", "email");
 
-// 	// Check if element with data-testid "emailLabel" has specific attribute
+// 	// Check if element with data-test-id "emailLabel" has specific attribute
 // 	await expect(page.getByTestId("emailLabel")).toHaveAttribute("data-type", "email");
 
 // 	await page.getByTestId("emailLabel").check();
 // 	const emailLabel = await page.$eval(
-// 		'[data-testId="emailLabel"]',
+// 		'[data-test-id="emailLabel"]',
 // 		label => label.textContent,
 // 	);
 
 // 	expect(emailLabel).toBe("Email");
 
-// 	const inputType = await page.$eval('[data-testId="emailField"]', input => input.type);
+// 	const inputType = await page.$eval('[data-test-id="emailField"]', input => input.type);
 // 	expect(inputType).toBe("email");
 
 // 	expect(await page.getByTestId("nameLabel").check());

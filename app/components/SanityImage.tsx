@@ -9,18 +9,21 @@ const SanityImage = ({
 	sanityImage,
 	cutCorner = false,
 	isCircle = false,
+	// @ts-ignore
 }: any) => {
 	const imageProps = useNextSanityImage(client, sanityImage);
+
+	console.log("sanityImage", sanityImage);
 
 	const image = (
 		<Img
 			// @ts-ignore
 			{...imageProps}
-			alt={sanityImage.altText}
+			alt={sanityImage?.altText || "Helicopter Services"}
 			layout="responsive"
 			sizes="(max-width: 800px) 100vw, 800px"
-			placeholder="blur"
-			blurDataURL={sanityImage.lqip}
+			placeholder={sanityImage?.lqip ? "blur" : undefined}
+			blurDataURL={sanityImage?.lqip ? sanityImage.lqip : ""}
 			className={isCircle ? "rounded-full" : ""}
 		/>
 	);
