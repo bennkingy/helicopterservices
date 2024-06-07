@@ -1,6 +1,7 @@
 import { PortableText } from "next-sanity";
 import SanityImage from "./SanityImage";
 
+// @ts-ignore
 const Team = (pilotData) => {
 	return (
 		<>
