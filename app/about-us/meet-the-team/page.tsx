@@ -2,6 +2,7 @@ import Team from "@/app/components/Team";
 import type { training } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -65,13 +66,25 @@ export default async function AboutPage({
 	return (
 		<>
 			<div className="container mt-14 mb-20">
-				<h3 className="text-brand-dark-blue text-6xl font-light font-workSans -ml-1 mb-5">
+				<div className="flex items-baseline">
+					<Image
+						src="/images/company.svg"
+						alt="Helicopter Services"
+						width={23}
+						quality={100}
+						height={23}
+					/>
+					<p className="text-brand-light-blue text-base sm:text-[22px] font-workSans ml-2">
+						About us
+					</p>
+				</div>
+				<h3 className="text-brand-dark-blue text-6xl font-light font-workSans -ml-1 mb-5 mt-3">
 					{data?.title}
 				</h3>
-				<p className="mt-5 mb-10 font-semibold text-base sm:text-2xl font-workSans">
+				<p className="mt-5 mb-10 text-base sm:text-2xl font-workSans max-w-[800px] font-bold">
 					Meet our team of highly qualified pilots.
 				</p>
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-24 mt-24 mb-40 sm:px-20">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-24 mt-24 mb-30 sm:px-20">
 					<Team pilotData={pilotData} />
 				</div>
 			</div>
