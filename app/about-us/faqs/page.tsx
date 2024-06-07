@@ -2,6 +2,7 @@ import { FAQ } from "@/app/components/FAQ";
 import type { training } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -39,16 +40,26 @@ export default async function AboutPage({
 
 	return (
 		<>
-			<div className="container mt-10 mb-20">
-				<div className="mt-8">
-					<h3 className="text-brand-dark-blue text-6xl font-light font-workSans -ml-1 mb-5">
-						{data?.title}
-					</h3>
-					<p className="mt-5 mb-10 font-semibold text-base sm:text-2xl font-workSans">
-						Frequently asked questions about flying with Helicopter Services.
+			<div className="container mt-14 mb-20">
+				<div className="flex items-baseline">
+					<Image
+						src="/images/company.svg"
+						alt="Helicopter Services"
+						width={23}
+						quality={100}
+						height={23}
+					/>
+					<p className="text-brand-light-blue text-base sm:text-[22px] font-workSans ml-2">
+						About us
 					</p>
-					<FAQ className="mb-10" />
 				</div>
+				<h3 className="text-brand-dark-blue text-6xl font-light font-workSans -ml-1 mb-5 mt-3">
+					{data?.title}
+				</h3>
+				<p className="mt-5 mb-10 font-bold text-base sm:text-2xl font-workSans">
+					Frequently asked questions about flying with Helicopter Services.
+				</p>
+				<FAQ className="mb-10" />
 			</div>
 		</>
 	);

@@ -84,7 +84,7 @@ export default async function AboutPage({
 				<p className="mt-5 mb-10 text-base sm:text-2xl font-workSans max-w-[800px] font-bold">
 					Meet our team of highly qualified pilots.
 				</p>
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-24 mt-24 mb-30 sm:px-20">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20 mt-20 mb-30 sm:px-20">
 					<Team pilotData={pilotData} />
 				</div>
 			</div>
