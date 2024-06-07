@@ -14,6 +14,7 @@ const SanityImage = ({
 
 	const image = (
 		<Img
+			// @ts-ignore
 			{...imageProps}
 			alt={sanityImage.altText}
 			layout="responsive"
