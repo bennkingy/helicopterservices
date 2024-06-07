@@ -624,7 +624,7 @@ export function NavMenu() {
 				<Drawer direction="right">
 					<DrawerTrigger
 						className="mr-3 flex font-semibold text-black"
-						name="menu"
+						aria-label="Open navigation menu"
 					>
 						{/* Menu */}
 						<MenuIcon size={30} />
