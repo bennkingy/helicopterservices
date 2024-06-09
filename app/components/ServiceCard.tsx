@@ -1,7 +1,6 @@
-import { getBase64Blur } from "@/lib/extensions";
-import { urlFor } from "@/lib/sanity";
 import Image from "next/image";
 import Heading from "../components/Heading";
+import SanityImage from "./SanityImage";
 
 interface ServiceCard {
 	heading: string;
@@ -20,18 +19,12 @@ const ServiceCard = async ({
 	category,
 	image,
 }: ServiceCard) => {
-	const imageUrl = image && urlFor(image).url();
-
-	const base64 = imageUrl ? await getBase64Blur(imageUrl) : "";
-
 	return (
 		<a
 			href={url}
 			className="bg-white justify-between shadow-brand rounded-none border-0 border-b-4 border-brand-light-blue relative flex flex-col-reverse	items-center overflow-hidden md:flex-row md:max-w-xl transition-shadow duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-800 group hover:shadow-brand-hover sm:min-h-[330px]"
 		>
 			<div className="flex flex-col justify-between p-5 leading-normal w-full self-baseline">
-				{/*@ts-ignore*/}
-				{/* sm:group-hover:text-brand-light-blue */}
 				<Heading
 					title={heading}
 					tag={category}
@@ -64,7 +57,7 @@ const ServiceCard = async ({
 				/>
 			</div>
 			<div className="w-full md:w-[150%] h-full overflow-hidden">
-				<Image
+				{/* <Image
 					className="object-cover w-full h-[220px] md:h-full rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
 					width={440}
 					quality={100}
@@ -73,6 +66,11 @@ const ServiceCard = async ({
 					placeholder="blur"
 					blurDataURL={base64}
 					alt=""
+				/> */}
+				<SanityImage
+					cover
+					sanityImage={image}
+					imageClasses="transition-transform w-full h-[220px] md:h-full"
 				/>
 			</div>
 		</a>

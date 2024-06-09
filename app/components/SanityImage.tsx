@@ -11,6 +11,7 @@ const SanityImage = ({
 	cutCorner = false,
 	isCircle = false,
 	cover = false,
+	imageClasses,
 	// @ts-ignore
 }: any) => {
 	const imageProps = useNextSanityImage(client, sanityImage);
@@ -38,7 +39,8 @@ const SanityImage = ({
 			}
 			className={cn(
 				isCircle ? "rounded-full" : "",
-				cover ? "absolute h-full object-cover w-full" : "",
+				cover ? "absolute h-full object-cover object-center	w-full" : "",
+				imageClasses,
 			)}
 		/>
 	);
@@ -46,7 +48,7 @@ const SanityImage = ({
 	return (
 		<>
 			{!cutCorner ? (
-				image
+				<div className="overflow-hidden">{image}</div>
 			) : (
 				<div
 					style={{

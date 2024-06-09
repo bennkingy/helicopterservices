@@ -34,8 +34,19 @@ async function getData(slug: string) {
           },
           seoTitle,
           seoDescription,
-          body,
-          service
+          body, 
+					service[] {
+					category,
+					"image": {
+						...image,
+						"url": image.asset->url,
+						"metadata": image.asset->metadata,
+						"altText": image.altText
+					},
+					url,
+					heading,
+					description
+				}
       }[0]`;
 	const data = await client.fetch(query);
 
