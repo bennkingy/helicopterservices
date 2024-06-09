@@ -1,6 +1,5 @@
 "use client";
 
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -11,11 +10,11 @@ import {
 	navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as React from "react";
+import MobileMenu from "./MobileMenu";
 // import TextLink from "./TextLink";
 
 const training: {
@@ -620,46 +619,7 @@ export function NavMenu() {
 					</NavigationMenuItem>
 				</NavigationMenuList>
 			</NavigationMenu>
-			<div className="flex visible md:hidden ml-auto">
-				<Drawer direction="right">
-					<DrawerTrigger
-						className="mr-3 flex font-semibold text-black"
-						aria-label="Open navigation menu"
-					>
-						{/* Menu */}
-						<MenuIcon size={30} />
-					</DrawerTrigger>
-					<DrawerContent className="h-full ml-20 z-50">
-						<ul>
-							<li className="mb-4 ml-4">
-								<Link href="/" passHref className="w-full block">
-									Home
-								</Link>
-							</li>
-							<li className="mb-4 ml-4">
-								<Link href="/training" passHref className="w-full block">
-									Training
-								</Link>
-							</li>
-							<li className="mb-4 ml-4">
-								<a href="/industry">Industry</a>
-							</li>
-							<li className="mb-4 ml-4 mt-4">
-								<a href="/flights">Flights</a>
-							</li>
-							<li className="mb-4 ml-4">
-								<a href="/fleet">Fleet</a>
-							</li>
-							<li className="mb-4 ml-4">
-								<a href="/about-us">About us</a>
-							</li>
-							<li className="mb-4 ml-4">
-								<a href="/enquire">Enquire</a>
-							</li>
-						</ul>
-					</DrawerContent>
-				</Drawer>
-			</div>
+			<MobileMenu />
 			<Link href="tel:+44 1494513 166" className="">
 				{/* <Icons.phone className="text-brand-light-blue" height={20} /> */}
 				<Image
