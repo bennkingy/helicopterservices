@@ -116,51 +116,6 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 					</div>
 					<Approvals />
 					{children}
-					{/* {data?.gallery?.length > 0 && (
-						<Gallery
-							galleryType={"gallery"}
-							className="mt-16 mr-10 sm:mr-24 md:mr-10 lg:mr-32"
-						>
-							{data?.gallery?.map((item: any, index: number) => {
-								const image = urlFor(item.imageUrl).url();
-								if (!image) return null;
-
-								const regex = new RegExp(/\.[^/.]+$/);
-
-								return (
-									<a
-										href={image}
-										key={index}
-										data-lg-size={`${item.width}-${item.height}`}
-										data-pinterest-text="Pin it"
-										data-tweet-text="Helicopter Services"
-										data-src={image}
-										data-sub-html={`<h4>Helicopter Services</h4><p>${item?.fileName.replace(
-											regex,
-											"",
-										)}</p>`}
-										className="w-full max-h-[330px] relative aspect-square"
-									>
-										<Image
-											fill
-											objectFit="cover"
-											objectPosition="center"
-											quality={100}
-											className="img-responsive cursor-pointer"
-											src={image}
-											placeholder={item.blur ? "blur" : undefined}
-											blurDataURL={item.blur ? item.blur : ""}
-											alt=""
-											style={{
-												clipPath:
-													"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-											}}
-										/>
-									</a>
-								);
-							})}
-						</Gallery>
-					)} */}
 					{data?.threedVideoUrl && (
 						<YouTubeThreeD data={data?.threedVideoUrl} />
 					)}

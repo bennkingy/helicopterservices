@@ -32,22 +32,15 @@ async function getData(slug: string) {
 						blur
 					},
 				},
-        mainImage,
-				  "gallery": gallery.images[]{
-					"imageUrl": asset->url,
-					"height": asset->metadata.dimensions.height,
-					"width": asset->metadata.dimensions.width,
-					"fileName": asset->originalFilename,
-					"blur": blur,
-					"alt": alt,
-				},
-				"gallerySingle": gallerySingle{
-					"imageUrl": asset->url,
-					"altText": alt,
-					"blur": blur,
-					"height": asset->metadata.dimensions.height,
-					"width": asset->metadata.dimensions.width
-				},
+				mainImage{
+					...,
+					"mainImage": asset->url,
+						"metadata": asset->metadata {
+							dimensions,
+							lqip
+						},
+						"altText": asset->altText
+					},
 				"pilot": pilot->{
             name,
 						role,

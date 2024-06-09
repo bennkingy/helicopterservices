@@ -1,9 +1,7 @@
-import { urlFor } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { getPlaiceholder } from "plaiceholder";
 import FramerAnimation from "./FramerAnimationBlurIn";
 import Heading from "./Heading";
+import SanityImage from "./SanityImage";
 
 type props = {
 	height?: string; // e.g. 'h-[70vh]' or 'h-[50vh]'
@@ -24,36 +22,13 @@ const Header = async ({
 	tagColor = "white",
 	extraPadding = "",
 }: props) => {
-	// .width(2000).height(400).dpr(2).quality(75)
-	const imageUrl = urlFor(image).url() || "";
-	// @ts-ignore
-	// const blurUrl = image?.asset?.metadata?.lqip || ''
-
-	const src = imageUrl;
-
-	const buffer = await fetch(src).then(async (res) => {
-		return Buffer.from(await res.arrayBuffer());
-	});
-
-	const { base64 } = await getPlaiceholder(buffer);
-
 	return (
 		<section
 			className={cn(
 				`relative w-screen h-[200px] sm:h-[320px] lg:h-[420px] ${className} z-1 bg-slate-5`,
 			)}
 		>
-			<Image
-				quality={100}
-				priority
-				src={src || ""}
-				placeholder="blur"
-				objectFit="cover"
-				objectPosition="center"
-				fill
-				blurDataURL={base64}
-				alt="hero image example"
-			/>
+			<SanityImage sanityImage={image} alt={title} cover />
 			<div
 				className={`container relative z-[4] flex items-center h-full ${extraPadding}`}
 			>
