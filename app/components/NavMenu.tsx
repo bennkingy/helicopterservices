@@ -558,6 +558,8 @@ export function NavMenu() {
 									fill
 									priority
 									quality={100}
+									blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAP0lEQVR4nAE0AMv/APL6/+Dp/9Tf/d/n/gCTmq+mrr+Fh5nO2fEAlJuVrrOuBQIAODs8ALasTL2vUbutTreqTpEEHq3vNREcAAAAAElFTkSuQmCC"
+									placeholder="blur"
 									className="object-cover"
 								/>
 							</div>
