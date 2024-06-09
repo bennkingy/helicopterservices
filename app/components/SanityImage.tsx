@@ -27,7 +27,7 @@ const SanityImage = ({
 				"Helicopter Services"
 			}
 			layout={cover ? undefined : "responsive"}
-			// sizes="(max-width: 800px) 100vw, 800px"
+			sizes="(max-width: 800px) 100vw, 800px"
 			placeholder={
 				sanityImage?.lqip || sanityImage?.metadata?.lqip ? "blur" : undefined
 			}
