@@ -94,13 +94,13 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 
 	return (
 		<div>
-			{(data?.heroImage || data?.mainImage) && (
+			{(data?.heroImage || data?.mainImage || data?.hero) && (
 				<div className="overflow-x-hidden">
 					<Header
 						className={height}
 						title={data?.hero?.heading || data?.title}
 						tag={data?.hero?.tagline}
-						image={data?.heroImage || data?.mainImage}
+						image={data?.hero?.image || data?.heroImage || data?.mainImage}
 					/>
 				</div>
 			)}

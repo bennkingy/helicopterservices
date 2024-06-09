@@ -36,18 +36,16 @@ async function getPageData(slug: string) {
           seoDescription,
           body,
           mainImage,
-					hero,
-          "heroImage": hero.image{
-            asset->{
-							...,
-              _id,
-              url,
-              metadata {
-                dimensions,
-                lqip
-              }
-            }
-          },
+				  hero{
+						heading,
+						tagline,
+						"image": {
+							...image,
+							"url": image.asset->url,
+							"metadata": image.asset->metadata,
+							"altText": image.alt
+						}
+					},
 					threedVideoUrl,
 		 			"gallerySingle": gallerySingle{
 						...,

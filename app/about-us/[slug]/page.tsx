@@ -15,7 +15,15 @@ async function getPageData(slug: string) {
           seoDescription,
 					threedVideoUrl,
           body,
-          mainImage,
+					"mainImage": mainImage{
+						...,
+						"imageUrl": asset->url,
+						"altText": alt,
+						"blur": blur,
+						"lqip": asset->metadata.lqip,
+						"height": asset->metadata.dimensions.height,
+						"width": asset->metadata.dimensions.width,
+					}
       }[0]`;
 	const data = await client.fetch(query);
 

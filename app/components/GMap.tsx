@@ -1,5 +1,6 @@
 "use client";
 
+import { mapLocation } from "@/lib/constants";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import React, { useCallback } from "react";
 
@@ -66,8 +67,7 @@ const GMap = ({ className }: any) => {
 	// @ts-ignore
 	const onLoad = useCallback(function callback(map) {
 		const infoWindow = new window.google.maps.InfoWindow({
-			content:
-				'<div style="padding-top: 10px;"><strong>Helicopter Services</strong><br/><br/>White Waltham<br/>Maidenhead<br/>SL6 3NJ<br/>United Kingdom<br /><br/><a target="_blank" href="https://www.google.com/maps/place/Helicopter+Services+Ltd/@51.4948917,-0.7733532,15z/data=!4m2!3m1!1s0x0:0x943b2fff6b33f0ee?sa=X&ved=1t:2428&ictx=111" style="color: rgb(31, 182, 222)">Get directions</a></div> ',
+			content: `<div style="padding-top: 10px;"><strong>Helicopter Services</strong><br/><br/>White Waltham<br/>Maidenhead<br/>SL6 3NJ<br/>United Kingdom<br /><br/><a target="_blank" href="${mapLocation}" style="color: rgb(31, 182, 222)">Get directions</a></div>`,
 			position: center,
 		});
 		infoWindow.open(map);

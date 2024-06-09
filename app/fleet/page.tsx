@@ -15,18 +15,17 @@ async function getPageData(slug: string) {
           seoTitle,
           seoDescription,
           body,
-          hero,
+          hero{
+						heading,
+						tagline,
+						"image": {
+							...image,
+							"url": image.asset->url,
+							"metadata": image.asset->metadata,
+							"altText": image.alt
+						}
+					},
 					service,
-          "heroImage": hero.image{
-            asset->{
-              _id,
-              url,
-              metadata {
-                dimensions,
-                lqip
-              }
-            }
-          },
       }[0]`;
 	const data = await client.fetch(query);
 

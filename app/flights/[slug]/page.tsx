@@ -1,7 +1,6 @@
 import Template from "@/app/components/Template";
 import TransferTimesTable from "@/app/components/TransferTimesTable";
-import { getBase64Blur } from "@/lib/extensions";
-import { client, urlFor } from "@/lib/sanity";
+import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
 
 export const revalidate = 30; // revalidate at most 30 seconds
@@ -59,15 +58,6 @@ async function getData(slug: string) {
         }
       }[0]`;
 	const data = await client.fetch(query);
-
-	data?.gallery?.length > 0 &&
-		(await Promise.all(
-			data.gallery.map(async (item: any) => {
-				const imageUrl = urlFor(item.imageUrl).url();
-				const blurDataURL = await getBase64Blur(imageUrl);
-				item.blurDataURL = blurDataURL;
-			}),
-		));
 
 	return data;
 }

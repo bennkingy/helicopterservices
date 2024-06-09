@@ -67,18 +67,6 @@ export default defineType({
 		defineArrayMember({
 			type: "image",
 			options: { hotspot: true },
-			fields: [
-				{
-					name: "alt",
-					type: "string",
-					title: "Alternative text",
-				},
-				{
-					name: "blur",
-					type: "string",
-					title: "Blur placeholder image",
-				},
-			],
 		}),
 		// Image gallery type
 		defineArrayMember({

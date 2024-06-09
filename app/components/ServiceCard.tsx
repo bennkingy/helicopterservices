@@ -57,16 +57,9 @@ const ServiceCard = async ({
 				/>
 			</div>
 			<div className="w-full md:w-[150%] h-full overflow-hidden">
-				{/* <Image
+				{/* 
 					className="object-cover w-full h-[220px] md:h-full rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
-					width={440}
-					quality={100}
-					height={440}
-					src={imageUrl || ""}
-					placeholder="blur"
-					blurDataURL={base64}
-					alt=""
-				/> */}
+				*/}
 				<SanityImage
 					cover
 					sanityImage={image}

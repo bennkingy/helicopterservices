@@ -24,18 +24,6 @@ export default defineType({
 			title: "Main image",
 			type: "image",
 			options: { hotspot: true },
-			fields: [
-				defineField({
-					name: "alt",
-					type: "string",
-					title: "Alternative text",
-				}),
-				defineField({
-					name: "blur",
-					type: "string",
-					title: "Blur hash",
-				}),
-			],
 		}),
 		defineField({
 			name: "body",
@@ -43,14 +31,14 @@ export default defineType({
 			type: "blockContent",
 		}),
 		defineField({
-			name: "seoDescription",
-			title: "SEO Description",
-			type: "string",
-		}),
-		defineField({
 			name: "threedVideoUrl",
 			title: "3D video url",
 			type: "url",
+		}),
+		defineField({
+			name: "seoDescription",
+			title: "SEO Description",
+			type: "string",
 		}),
 		defineField({
 			name: "seoTitle",
