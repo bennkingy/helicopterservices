@@ -32,7 +32,9 @@ async function getData(slug: string) {
 						blur
 					},
 				},
-							"mainImage": asset->url,
+				mainImage{
+				...,
+				"mainImage": asset->url,
 					"metadata": asset->metadata {
 						dimensions,
 						lqip

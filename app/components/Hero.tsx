@@ -31,7 +31,7 @@ const Hero = ({
 		<section className={`${height} ${className} overflow-hidden relative`}>
 			<div
 				className={
-					"h-full z-[8] bg-opacity-70 absolute bg-brand-dark-blue top-0 left-0 right-0 bottom-0"
+					"h-full z-[8] bg-opacity-50 absolute bg-brand-dark-blue top-0 left-0 right-0 bottom-0"
 				}
 			/>
 			<div className={"relative h-full"}>
