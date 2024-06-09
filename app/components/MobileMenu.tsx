@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { createPortal } from "react-dom";
 
 const menus = {
 	main: [
@@ -109,42 +110,49 @@ const MobileMenu = () => {
 					{/* Menu */}
 					<MenuIcon size={30} />
 				</DrawerTrigger>
-				<DrawerContent className="h-full ml-20 z-50 overflow-hidden">
-					<AnimatePresence>
-						<motion.ul
-							key={activeMenu}
-							initial={{ opacity: 0, x: 100 }}
-							animate={{ opacity: 1, x: 0 }}
-							exit={{ opacity: 0, x: -100 }}
-							transition={{ duration: 0.3 }}
-							className="z-[60] absolute top-0 font-openSans text-brand-light-blue p-3 pt-5 font-bold"
-						>
-							{
-								// @ts-ignore
-								menus[activeMenu].map((item, index) => (
-									<li className="mb-4 ml-4" key={index}>
-										{item.isBack ? (
-											<a href="#" onClick={handleBackClick}>
-												{item.name}
-											</a>
-										) : item.submenu ? (
-											<a
-												href={item.href}
-												onClick={(e) => handleMenuClick(e, item.submenu)}
-											>
-												{item.name}
-											</a>
-										) : (
-											<Link href={item.href} passHref className="w-full block">
-												{item.name}
-											</Link>
-										)}
-									</li>
-								))
-							}
-						</motion.ul>
-					</AnimatePresence>
-				</DrawerContent>
+				{createPortal(
+					<DrawerContent className="h-full ml-20 z-50 overflow-hidden">
+						<AnimatePresence>
+							<motion.ul
+								key={activeMenu}
+								initial={{ opacity: 0, x: 100 }}
+								animate={{ opacity: 1, x: 0 }}
+								exit={{ opacity: 0, x: -100 }}
+								transition={{ duration: 0.3 }}
+								className="z-[60] absolute top-0 font-openSans text-brand-light-blue p-3 pt-5 font-bold"
+							>
+								{
+									// @ts-ignore
+									menus[activeMenu].map((item, index) => (
+										<li className="mb-4 ml-4" key={index}>
+											{item.isBack ? (
+												<a href="#" onClick={handleBackClick}>
+													{item.name}
+												</a>
+											) : item.submenu ? (
+												<a
+													href={item.href}
+													onClick={(e) => handleMenuClick(e, item.submenu)}
+												>
+													{item.name}
+												</a>
+											) : (
+												<Link
+													href={item.href}
+													passHref
+													className="w-full block"
+												>
+													{item.name}
+												</Link>
+											)}
+										</li>
+									))
+								}
+							</motion.ul>
+						</AnimatePresence>
+					</DrawerContent>,
+					document.body,
+				)}
 			</Drawer>
 		</div>
 	);
