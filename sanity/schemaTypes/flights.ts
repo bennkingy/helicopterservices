@@ -43,36 +43,11 @@ export default defineType({
 			type: "image",
 			hidden: ({ document }) => document?.isLandingPage === true,
 			options: { hotspot: true },
-			fields: [
-				defineField({
-					name: "alt",
-					type: "string",
-					title: "Alternative text",
-				}),
-				defineField({
-					name: "blur",
-					type: "string",
-					title: "Blur hash",
-				}),
-			],
 		}),
 		defineField({
 			name: "body",
 			title: "Body",
 			type: "blockContent",
-		}),
-		defineField({
-			name: "gallery",
-			type: "gallery",
-			description: "Perfect for displaying 2 or more images",
-			hidden: ({ document }) => document?.isLandingPage === true,
-		}),
-		defineField({
-			name: "gallerySingle",
-			title: "Gallery single",
-			type: "image",
-			description: "Perfect for displaying 1 large image",
-			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
 			name: "seoDescription",

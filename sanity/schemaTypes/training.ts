@@ -49,18 +49,6 @@ export default defineType({
 			type: "image",
 			hidden: ({ document }) => document?.isLandingPage === true,
 			options: { hotspot: true },
-			fields: [
-				defineField({
-					name: "alt",
-					type: "string",
-					title: "Alternative text",
-				}),
-				defineField({
-					name: "blur",
-					type: "string",
-					title: "Blur hash",
-				}),
-			],
 		}),
 		defineField({
 			name: "body",
