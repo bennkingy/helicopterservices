@@ -119,28 +119,29 @@ const MobileMenu = () => {
 							transition={{ duration: 0.3 }}
 							className="z-[60] absolute top-0 font-openSans text-brand-light-blue p-3 pt-5 font-bold"
 						>
-							{/* // @ts-ignore */}
-							{menus[activeMenu].map((item, index) => (
-								<li className="mb-4 ml-4" key={index}>
-									{item.isBack ? (
-										// @ts-ignore
-										<a href="#" onClick={handleBackClick}>
-											{item.name}
-										</a>
-									) : item.submenu ? (
-										<a
-											href={item.href}
-											onClick={(e) => handleMenuClick(e, item.submenu)}
-										>
-											{item.name}
-										</a>
-									) : (
-										<Link href={item.href} passHref className="w-full block">
-											{item.name}
-										</Link>
-									)}
-								</li>
-							))}
+							{
+								// @ts-ignore
+								menus[activeMenu].map((item, index) => (
+									<li className="mb-4 ml-4" key={index}>
+										{item.isBack ? (
+											<a href="#" onClick={handleBackClick}>
+												{item.name}
+											</a>
+										) : item.submenu ? (
+											<a
+												href={item.href}
+												onClick={(e) => handleMenuClick(e, item.submenu)}
+											>
+												{item.name}
+											</a>
+										) : (
+											<Link href={item.href} passHref className="w-full block">
+												{item.name}
+											</Link>
+										)}
+									</li>
+								))
+							}
 						</motion.ul>
 					</AnimatePresence>
 				</DrawerContent>
