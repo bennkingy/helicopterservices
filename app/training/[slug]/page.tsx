@@ -32,15 +32,13 @@ async function getData(slug: string) {
 						blur
 					},
 				},
-				mainImage{
-					...,
-					"mainImage": asset->url,
-						"metadata": asset->metadata {
-							dimensions,
-							lqip
-						},
-						"altText": asset->altText
+							"mainImage": asset->url,
+					"metadata": asset->metadata {
+						dimensions,
+						lqip
 					},
+					"altText": asset->altText
+				},
 				"pilot": pilot->{
             name,
 						role,

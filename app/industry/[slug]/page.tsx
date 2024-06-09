@@ -33,7 +33,15 @@ async function getData(slug: string) {
 						blur
 					},
 				},
-          mainImage,
+				mainImage{
+					...,
+					"mainImage": asset->url,
+						"metadata": asset->metadata {
+							dimensions,
+							lqip
+						},
+						"altText": asset->altText
+					},
 				  "gallery": gallery.images[]{
 						"imageUrl": asset->url,
 						"height": asset->metadata.dimensions.height,

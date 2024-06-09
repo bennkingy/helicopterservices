@@ -13,6 +13,15 @@ async function getData(slug: string) {
           title,
           seoTitle,
           seoDescription,
+					mainImage{
+					...,
+					"mainImage": asset->url,
+						"metadata": asset->metadata {
+							dimensions,
+							lqip
+						},
+						"altText": asset->altText
+					},
 					body[]{
 					...,
 					_type == 'gallery' => {
@@ -35,6 +44,19 @@ async function getData(slug: string) {
 						blur
 					},
 				},
+				"pilot": pilot->{
+            name,
+						role,
+           "mainImage": mainImage{
+					  ...,
+					 "mainImage": asset->url,
+							"metadata": asset->metadata {
+                dimensions,
+                lqip
+              },
+							"altText": asset->altText
+					},
+        }
       }[0]`;
 	const data = await client.fetch(query);
 
