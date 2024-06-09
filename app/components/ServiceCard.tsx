@@ -70,7 +70,7 @@ const ServiceCard = async ({
 				<SanityImage
 					cover
 					sanityImage={image}
-					imageClasses="transition-transform w-full h-[220px] md:h-full"
+					imageClasses="transition-transform w-full h-[220px] md:h-full relative md:absolute"
 				/>
 			</div>
 		</a>
