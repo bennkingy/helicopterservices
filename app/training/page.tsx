@@ -21,17 +21,16 @@ async function getData(slug: string) {
     *[_type == "training" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
           title,
-          hero,
-          "heroImage": hero.image{
-            asset->{
-              _id,
-              url,
-              metadata {
-                dimensions,
-                lqip
-              }
-            }
-          },
+          hero{
+						heading,
+						tagline,
+						"image": {
+							...image,
+							"url": image.asset->url,
+							"metadata": image.asset->metadata,
+							"altText": image.alt
+						}
+					},
           seoTitle,
           seoDescription,
           body, 
@@ -66,7 +65,7 @@ export default async function Training({
 					className="h-[320px] md:h-[420px] lg:h-[675px]"
 					title={data?.hero?.heading}
 					tag={data?.hero?.tagline}
-					image={data?.heroImage}
+					image={data?.hero?.image}
 					extraPadding="pb-[28px]"
 				/>
 				<section className="pb-10 max-w-6xl mx-auto px-4 -mt-[42px] sm:-mt-[50px] z-10 relative">

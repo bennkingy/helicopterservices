@@ -17,7 +17,16 @@ async function getData(slug: string) {
     *[_type == "flights" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
           title,
-          hero,
+          hero{
+						heading,
+						tagline,
+						"image": {
+							...image,
+							"url": image.asset->url,
+							"metadata": image.asset->metadata,
+							"altText": image.alt
+						}
+					},
           seoTitle,
           seoDescription,
           body,
@@ -50,7 +59,7 @@ export default async function Flights({
 				<Header
 					title={data?.hero?.heading}
 					tag={data?.hero?.tagline}
-					image={data?.hero.image}
+					image={data?.hero?.image}
 					className="h-[250px] md:h-[420px] lg:h-[675px]"
 				/>
 				<section className="py-10 max-w-6xl mx-auto px-4 mt-14">
