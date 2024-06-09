@@ -116,7 +116,7 @@ const MobileMenu = () => {
 							animate={{ opacity: 1, x: 0 }}
 							exit={{ opacity: 0, x: -100 }}
 							transition={{ duration: 0.3 }}
-							className="z-[60] absolute top-0 font-openSans text-brand-light-blue p-3 font-bold"
+							className="z-[60] absolute top-0 font-openSans text-brand-light-blue p-3 pt-5 font-bold"
 						>
 							{menus[activeMenu].map((item, index) => (
 								<li className="mb-4 ml-4" key={index}>
