@@ -629,13 +629,17 @@ export function NavMenu() {
 						{/* Menu */}
 						<MenuIcon size={30} />
 					</DrawerTrigger>
-					<DrawerContent className="h-full ml-20">
+					<DrawerContent className="h-full ml-20 z-50">
 						<ul>
 							<li className="mb-4 ml-4">
-								<a href="/">Home</a>
+								<Link href="/" passHref className="w-full block">
+									Home
+								</Link>
 							</li>
 							<li className="mb-4 ml-4">
-								<a href="/training">Training</a>
+								<Link href="/training" passHref className="w-full block">
+									Training
+								</Link>
 							</li>
 							<li className="mb-4 ml-4">
 								<a href="/industry">Industry</a>
