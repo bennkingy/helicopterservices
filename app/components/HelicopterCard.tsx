@@ -1,20 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { urlFor } from "@/lib/sanity";
 import Image from "next/image";
-import { getPlaiceholder } from "plaiceholder";
+import SanityImage from "./SanityImage";
 
 const HelicopterCard = async ({ helicopter }: any) => {
-	const imageUrl =
-		helicopter?.image && urlFor(helicopter?.image).width(240).height(140).url();
-
-	const src = imageUrl;
-
-	const buffer = await fetch(src).then(async (res) => {
-		return Buffer.from(await res.arrayBuffer());
-	});
-
-	const { base64 } = await getPlaiceholder(buffer);
-
 	return (
 		<a href={helicopter?.url} className="group">
 			<Card className="mt-5 border-0">
@@ -27,14 +15,10 @@ const HelicopterCard = async ({ helicopter }: any) => {
 					</div>
 					<div className="h-[90px] w-[120px] relative overflow-hidden">
 						{helicopter?.image && (
-							<Image
-								fill
-								src={src || ""}
-								placeholder="blur"
-								quality={100}
-								blurDataURL={base64}
-								alt=""
-								className="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
+							<SanityImage
+								sanityImage={helicopter?.image}
+								cover
+								imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
 							/>
 						)}
 					</div>
