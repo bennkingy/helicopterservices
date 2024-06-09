@@ -87,12 +87,13 @@ const menus = {
 
 const MobileMenu = () => {
 	const [activeMenu, setActiveMenu] = useState("main");
-
+	// @ts-ignore
 	const handleMenuClick = (e, submenu) => {
 		e.preventDefault();
 		setActiveMenu(submenu);
 	};
 
+	// @ts-ignore
 	const handleBackClick = (e) => {
 		e.preventDefault();
 		setActiveMenu("main");
@@ -118,9 +119,11 @@ const MobileMenu = () => {
 							transition={{ duration: 0.3 }}
 							className="z-[60] absolute top-0 font-openSans text-brand-light-blue p-3 pt-5 font-bold"
 						>
+							{/* // @ts-ignore */}
 							{menus[activeMenu].map((item, index) => (
 								<li className="mb-4 ml-4" key={index}>
 									{item.isBack ? (
+										// @ts-ignore
 										<a href="#" onClick={handleBackClick}>
 											{item.name}
 										</a>
