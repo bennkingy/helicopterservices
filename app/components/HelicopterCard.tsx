@@ -5,7 +5,7 @@ import SanityImage from "./SanityImage";
 const HelicopterCard = async ({ helicopter }: any) => {
 
 	return (
-		<a href={helicopter?.url} className="group">
+		<a href={helicopter?.url} className="group cursor-pointer">
 			<Card className="mt-5 border-0">
 				<CardContent className="p-0 flex justify-between relative bg-white shadow-brand rounded-none border-0 border-b-4 border-brand-light-blue hover:shadow-brand-hover">
 					<div className="flex flex-col flex-wrap justify-center pl-3 sm:pl-4">

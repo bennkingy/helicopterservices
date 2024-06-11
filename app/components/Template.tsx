@@ -120,13 +120,16 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 					{data?.threedVideoUrl && (
 						<YouTubeThreeD data={data?.threedVideoUrl} />
 					)}
-					{data?.fleetItems.length > 0 && <div className="max-w-[500px]">
+					{data?.fleetItems?.length > 0 && <div className="max-w-[500px]">
 						<h2 className="mt-10 mb-7 text-2xl font-bold font-workSans text-brand-dark-grey">Helicopters for this service includes</h2>
 						{data?.fleetItems
 								// @ts-ignore
 								.map((helicopter: any, idx: number) => (
 									<HelicopterCard key={idx} helicopter={helicopter} />
 								))}
+										<p className="ml-2 text-sm text-brand-light-blue mt-5">
+										See full fleet
+									</p>
 					</div>}
 				</div>
 				{sidebar && (
