@@ -12,6 +12,7 @@ const SanityImage = ({
 	isCircle = false,
 	cover = false,
 	imageClasses,
+	priority = false,
 	// @ts-ignore
 }: any) => {
 	const imageProps = useNextSanityImage(client, sanityImage);
@@ -27,6 +28,7 @@ const SanityImage = ({
 				sanityImage?.metadata?.altText ||
 				"Helicopter Services"
 			}
+			priority={priority}
 			layout={cover ? undefined : "responsive"}
 			sizes="(max-width: 800px) 100vw, 800px"
 			placeholder={

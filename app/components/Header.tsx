@@ -28,7 +28,7 @@ const Header = async ({
 				`relative w-screen h-[200px] sm:h-[320px] lg:h-[420px] ${className} z-1 bg-slate-5`,
 			)}
 		>
-			<SanityImage sanityImage={image} alt={title} cover />
+			<SanityImage sanityImage={image} alt={title} cover priority />
 			<div
 				className={`container relative z-[4] flex items-center h-full ${extraPadding}`}
 			>
