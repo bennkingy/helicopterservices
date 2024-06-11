@@ -262,13 +262,13 @@ const ContacForm = () => {
           {...field}
           onValueChange={field.onChange}
           data-test-id="serviceField"
-          className="mt-1 block w-full"
         >
          <SelectTrigger>
                       <SelectValue placeholder="Select an option" />
                     </SelectTrigger>
                     <SelectContent>
-                      {serviceOptions[selectedRequirement]?.map((option) => (
+											{/* @ts-ignore */
+											serviceOptions[selectedRequirement]?.map((option) => (
                         <SelectItem key={option} value={option}>
                           {option}
                         </SelectItem>
