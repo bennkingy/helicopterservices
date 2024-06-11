@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { createPortal } from "react-dom";
+// import { createPortal } from "react-dom";
 
 const menus = {
 	main: [
@@ -110,7 +110,7 @@ const MobileMenu = () => {
 					{/* Menu */}
 					<MenuIcon size={30} />
 				</DrawerTrigger>
-				{createPortal(
+				{/* {createPortal( */}
 					<DrawerContent className="h-full ml-20 z-50 overflow-hidden">
 						<AnimatePresence>
 							<motion.ul
@@ -151,8 +151,8 @@ const MobileMenu = () => {
 							</motion.ul>
 						</AnimatePresence>
 					</DrawerContent>,
-					document.body,
-				)}
+					{/* document.body,
+				)} */}
 			</Drawer>
 		</div>
 	);
