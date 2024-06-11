@@ -55,7 +55,19 @@ async function getData(slug: string) {
               },
 							"altText": asset->altText
 					},
-        }
+        },
+				"fleetItems": fleetItems[]->{
+					title,
+ 					"gallerySingle": gallerySingle{
+						...,
+						"mainImage": asset->url,
+						"metadata": asset->metadata {
+							dimensions,
+							lqip
+						},
+						"altText": asset->altText
+					},	
+				},
       }[0]`;
 	const data = await client.fetch(query);
 

@@ -3,6 +3,7 @@ import Image from "next/image";
 import SanityImage from "./SanityImage";
 
 const HelicopterCard = async ({ helicopter }: any) => {
+
 	return (
 		<a href={helicopter?.url} className="group">
 			<Card className="mt-5 border-0">
@@ -10,13 +11,13 @@ const HelicopterCard = async ({ helicopter }: any) => {
 					<div className="flex flex-col flex-wrap justify-center pl-3 sm:pl-4">
 						<p className="text-sm font-workSans text-brand-dark-grey">Type</p>
 						<h3 className="text-xl font-bold font-workSans text-brand-dark-blue">
-							{helicopter?.heading}
+							{helicopter?.heading || helicopter?.title}
 						</h3>
 					</div>
 					<div className="h-[90px] w-[120px] relative overflow-hidden">
-						{helicopter?.image && (
+						{helicopter?.image || helicopter?.gallerySingle && (
 							<SanityImage
-								sanityImage={helicopter?.image}
+								sanityImage={helicopter?.image || helicopter?.gallerySingle }
 								cover
 								imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
 							/>

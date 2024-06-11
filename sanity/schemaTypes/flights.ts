@@ -38,17 +38,29 @@ export default defineType({
 			hidden: ({ document }) => document?.isLandingPage !== true,
 		}),
 		defineField({
+			name: "pilot",
+			title: "Pilot",
+			type: "reference",
+			to: [{ type: "pilots" }],
+		}),
+		defineField({
 			name: "mainImage",
-			title: "Main image",
+			title: "Hero Image",
 			type: "image",
 			hidden: ({ document }) => document?.isLandingPage === true,
 			options: { hotspot: true },
 		}),
 		defineField({
 			name: "body",
-			title: "Body",
+			title: "Content",
 			type: "blockContent",
 		}),
+		defineField({
+      name: "fleetItems",
+      title: "Helicopters that provide this service",
+      type: "array",
+      of: [{ type: "reference", to: { type: "fleet" } }],
+    }),
 		defineField({
 			name: "seoDescription",
 			title: "SEO Description",

@@ -17,8 +17,6 @@ const SanityImage = ({
 }: any) => {
 	const imageProps = useNextSanityImage(client, sanityImage);
 
-	console.log(sanityImage);
-
 	const image = (
 		<Img
 			// @ts-ignore

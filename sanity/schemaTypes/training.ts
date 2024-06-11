@@ -45,14 +45,14 @@ export default defineType({
 		}),
 		defineField({
 			name: "mainImage",
-			title: "Main image",
+			title: "Hero Image",
 			type: "image",
 			hidden: ({ document }) => document?.isLandingPage === true,
 			options: { hotspot: true },
 		}),
 		defineField({
 			name: "body",
-			title: "Body",
+			title: "Content",
 			type: "blockContent",
 		}),
 		defineField({

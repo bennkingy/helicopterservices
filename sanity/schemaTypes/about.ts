@@ -21,13 +21,13 @@ export default defineType({
 		}),
 		defineField({
 			name: "mainImage",
-			title: "Main image",
+			title: "Hero Image",
 			type: "image",
 			options: { hotspot: true },
 		}),
 		defineField({
 			name: "body",
-			title: "Body",
+			title: "Content",
 			type: "blockContent",
 		}),
 		defineField({

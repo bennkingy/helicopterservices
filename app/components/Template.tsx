@@ -10,6 +10,7 @@ import GMapHeader from "./GMapHeader";
 import Gallery from "./Gallery";
 import Header from "./Header";
 import YouTubeThreeD from "./YouTubeThreeD";
+import HelicopterCard from "./HelicopterCard";
 
 type props = {
 	data: any;
@@ -51,13 +52,13 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 						galleryType={`gallery${
 							value?.images.length === 1 ? "-single" : ""
 						}`}
-						className="my-10 mr-10 sm:mr-24 md:mr-10 lg:mr-32 contentBlockGalleryFix"
+						className="my-10 mr-10 sm:mrF-24 md:mr-10 lg:mr-32 contentBlockGalleryFix"
 					>
 						{value.images.map((item: any, index: number) => {
 							const image = urlFor(item).url();
 							if (!image) return null;
 							return (
-								<a
+								<span
 									key={index}
 									data-lg-size={`${item.width}-${item.height}`}
 									data-pinterest-text="Pin it"
@@ -83,7 +84,7 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
 										}}
 									/>
-								</a>
+								</span>
 							);
 						})}
 					</Gallery>
@@ -119,6 +120,15 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 					{data?.threedVideoUrl && (
 						<YouTubeThreeD data={data?.threedVideoUrl} />
 					)}
+					<div className="max-w-[500px]">
+						<h2 className="mt-10 mb-5 text-2xl font-bold font-workSans text-brand-dark-grey">Helicopters for this service includes</h2>
+						{data?.fleetItems
+								// @ts-ignore
+								.sort((a, b) => a.title.localeCompare(b.title))
+								.map((helicopter: any, idx: number) => (
+									<HelicopterCard key={idx} helicopter={helicopter} />
+								))}
+					</div>
 				</div>
 				{sidebar && (
 					<div>

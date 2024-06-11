@@ -10,6 +10,7 @@ type props = {
 };
 
 const ContactCta = ({ className, pilot }: props) => {
+
 	return (
 		<div className={`text-white bg-[#023D67] h-fit ${className}`}>
 			<div className="bg-[#023D67]  py-5 text-white p-10 relative">

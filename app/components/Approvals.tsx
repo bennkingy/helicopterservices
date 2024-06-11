@@ -17,6 +17,8 @@ const Approvals = () => {
 			quality={100}
 			height={100}
 			className="mt-12"
+			placeholder="blur"
+			blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAGklEQVR4nGNgELI6zcBmdIbBNuHMs3//TwMAKT4HM0/7dVEAAAAASUVORK5CYII=" 
 		/>
 	) : null;
 };
