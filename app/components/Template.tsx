@@ -120,15 +120,14 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 					{data?.threedVideoUrl && (
 						<YouTubeThreeD data={data?.threedVideoUrl} />
 					)}
-					<div className="max-w-[500px]">
-						<h2 className="mt-10 mb-5 text-2xl font-bold font-workSans text-brand-dark-grey">Helicopters for this service includes</h2>
+					{data?.fleetItems.length > 0 && <div className="max-w-[500px]">
+						<h2 className="mt-10 mb-7 text-2xl font-bold font-workSans text-brand-dark-grey">Helicopters for this service includes</h2>
 						{data?.fleetItems
 								// @ts-ignore
-								.sort((a, b) => a.title.localeCompare(b.title))
 								.map((helicopter: any, idx: number) => (
 									<HelicopterCard key={idx} helicopter={helicopter} />
 								))}
-					</div>
+					</div>}
 				</div>
 				{sidebar && (
 					<div>
