@@ -10,7 +10,7 @@ import GMapHeader from "./GMapHeader";
 import Gallery from "./Gallery";
 import Header from "./Header";
 import YouTubeThreeD from "./YouTubeThreeD";
-import HelicopterCard from "./HelicopterCard";
+import HelicopterCard2 from "./HelicopterCard2";
 
 type props = {
 	data: any;
@@ -125,7 +125,7 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 						{data?.fleetItems
 								// @ts-ignore
 								.map((helicopter: any, idx: number) => (
-									<HelicopterCard key={idx} helicopter={helicopter} />
+									<HelicopterCard2 key={idx} helicopter={helicopter} />
 								))}
 										<p className="ml-2 text-sm text-brand-light-blue mt-5">
 										See full fleet

@@ -28,6 +28,7 @@ async function getPageData(slug: string) {
 					"service": service[]{
 					heading,
 					category,
+					url,
 					"mainImage": {
 						...image,
 						"image": image.asset->url,

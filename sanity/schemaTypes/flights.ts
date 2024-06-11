@@ -57,7 +57,7 @@ export default defineType({
 		}),
 		defineField({
       name: "fleetItems",
-      title: "Helicopters that provide this service",
+      title: "Helicopters That Provide This Service",
       type: "array",
       of: [{ type: "reference", to: { type: "fleet" } }],
     }),

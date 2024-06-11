@@ -26,7 +26,7 @@ export default defineType({
 		}),
 		defineField({
 			name: "mainImage",
-			title: "Profile picture",
+			title: "Profile Picture",
 			type: "image",
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),

@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 export const revalidate = 30; // revalidate at most 30 seconds
 
 async function getData(slug: string) {
+
 	const query = `
     *[_type == "flights" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
@@ -58,6 +59,7 @@ async function getData(slug: string) {
         },
 				"fleetItems": fleetItems[]->{
 					title,
+					"url": slug.current,
  					"gallerySingle": gallerySingle{
 						...,
 						"mainImage": asset->url,
