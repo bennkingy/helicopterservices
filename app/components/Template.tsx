@@ -52,7 +52,7 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 						galleryType={`gallery${
 							value?.images.length === 1 ? "-single" : ""
 						}`}
-						className="my-10 mr-10 sm:mrF-24 md:mr-10 lg:mr-32 contentBlockGalleryFix"
+						className="my-10 mr-10 sm:mr-24 md:mr-10 lg:mr-32 contentBlockGalleryFix"
 					>
 						{value.images.map((item: any, index: number) => {
 							const image = urlFor(item).url();

@@ -22,15 +22,50 @@ import { useFormStatus } from "react-dom";
 import { Controller, useForm } from "react-hook-form";
 import type { z } from "zod";
 import { ContactSchema } from "../schema";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const ContacForm = () => {
 	const service = "service_p8qp31i";
 	const publicKey = "lweYZnq7da8j9Gfxd";
 	const templateId = "template_rgqsdjt";
 
+	const serviceOptions = {
+		Training: [
+			"Service 1",
+			"Service 2",
+			"Service 3",
+			// Add more services for Training
+		],
+		Flights: [
+			"Flight Service 1",
+			"Flight Service 2",
+			"Flight Service 3",
+			// Add more services for Flights
+		],
+		Industry: [
+			"Industry Service 1",
+			"Industry Service 2",
+			"Industry Service 3",
+			// Add more services for Industry
+		],
+		Other: [
+			"Other Service 1",
+			"Other Service 2",
+			"Other Service 3",
+			// Add more services for Other
+		],
+	};
+
 	const [loading, setLoading] = useState(false);
 	const [step, setStep] = useState(1);
 	const [name, setName] = useState("");
+  const [selectedRequirement, setSelectedRequirement] = useState("Training");
 
 	useEffect(() => {
 		emailjs.init(publicKey);
@@ -44,6 +79,7 @@ const ContacForm = () => {
 			body: "",
 			contactNumber: "",
 			requirement: "Training",
+      service: "",
 		},
 	});
 
@@ -63,6 +99,8 @@ const ContacForm = () => {
 					contact_number: data.contactNumber,
 					message: data.body,
 					requirement: data.requirement,
+					// @ts-ignore
+					service: data.service, 
 				},
 				publicKey,
 			);
@@ -160,7 +198,10 @@ const ContacForm = () => {
 											render={({ field }) => (
 												<RadioGroup
 													{...field}
-													onValueChange={field.onChange}
+											    onValueChange={(value) => {
+                            field.onChange(value);
+                            setSelectedRequirement(value);
+                          }}
 													value={field.value}
 												>
 													<div className="flex items-center space-x-2 mt-0">
@@ -208,6 +249,37 @@ const ContacForm = () => {
 									</FormItem>
 								)}
 							/>
+<FormField
+  control={form.control}
+  name="service"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel data-test-id="serviceLabel">
+        Select Service
+      </FormLabel>
+      <FormControl>
+        <Select
+          {...field}
+          onValueChange={field.onChange}
+          data-test-id="serviceField"
+          className="mt-1 block w-full"
+        >
+         <SelectTrigger>
+                      <SelectValue placeholder="Select an option" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {serviceOptions[selectedRequirement]?.map((option) => (
+                        <SelectItem key={option} value={option}>
+                          {option}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+        </Select>
+      </FormControl>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
 							<FormField
 								control={form.control}
 								name="body"
