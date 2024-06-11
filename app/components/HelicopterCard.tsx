@@ -15,9 +15,9 @@ const HelicopterCard = async ({ helicopter }: any) => {
 						</h3>
 					</div>
 					<div className="h-[90px] w-[120px] relative overflow-hidden">
-						{helicopter?.image || helicopter?.gallerySingle && (
+						{helicopter?.image || helicopter?.gallerySingle || helicopter?.mainImage && (
 							<SanityImage
-								sanityImage={helicopter?.image || helicopter?.gallerySingle }
+								sanityImage={helicopter?.image || helicopter?.gallerySingle || helicopter?.mainImage }
 								cover
 								imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
 							/>

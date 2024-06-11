@@ -25,7 +25,19 @@ async function getPageData(slug: string) {
 							"altText": image.alt
 						}
 					},
-					service,
+					"service": service[]{
+					heading,
+					category,
+					"mainImage": {
+						...image,
+						"image": image.asset->url,
+						"metadata": image.asset->metadata {
+							dimensions,
+							lqip
+						},
+						"altText": image.altText
+					}
+      }
       }[0]`;
 	const data = await client.fetch(query);
 
@@ -41,8 +53,8 @@ async function getHelicopterData() {
 					capacity,
 					ifrcapable,
 					cruiseSpeed,
-					base
-      }`;
+			base,
+		}`;
 	const data = await client.fetch(query);
 
 	return data;
@@ -58,7 +70,8 @@ export default async function FleetPage({
 }: { params: { slug: string } }) {
 	const data: any = await getPageData("fleet");
 	const heliCopterData: any = await getHelicopterData();
-
+	
+	console.log(data.service)
 	return (
 		<>
 			<Template data={data} height="h-[250px] md:h-[420px] lg:h-[675px]">
