@@ -28,7 +28,7 @@ const SanityImage = ({
 			}
 			priority={priority}
 			layout={cover ? undefined : "responsive"}
-			sizes="(max-width: 800px) 100vw, 800px"
+			sizes="(max-width: 800px) 100vw, 2000px"
 			placeholder={
 				sanityImage?.lqip || sanityImage?.metadata?.lqip ? "blur" : undefined
 			}
@@ -42,6 +42,7 @@ const SanityImage = ({
 				cover ? "absolute h-full object-cover object-center	w-full" : "",
 				imageClasses,
 			)}
+			quality={100}
 		/>
 	);
 
