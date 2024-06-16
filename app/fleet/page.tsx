@@ -72,7 +72,6 @@ export default async function FleetPage({
 	const data: any = await getPageData("fleet");
 	const heliCopterData: any = await getHelicopterData();
 	
-	console.log(data.service)
 	return (
 		<>
 			<Template data={data} height="h-[250px] md:h-[420px] lg:h-[675px]">

@@ -11,7 +11,7 @@ interface MainServices {
 
 const features: MainServices[] = [
 	{
-		icon: <Image priority src="/images/icons/trainingDark.svg" alt="Helicopter flight training" width={40} height={40} />,
+		icon: <Image priority src="/images/icons/TrainingDark.svg" alt="Helicopter flight training" width={40} height={40} />,
 		title: "Training",
 		description:
 			"From beginner to advanced, you're in expert hands. EASA and UK CAA approved",
@@ -21,7 +21,7 @@ const features: MainServices[] = [
 		icon: (
 			<Image
 			priority
-				src="/images/icons/flightsDark.svg"
+				src="/images/icons/FlightsDark.svg"
 				alt="Helicopter flight services"
 				width={40}
 				height={40}

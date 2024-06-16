@@ -43,7 +43,7 @@ export default async function AboutPage({
 			<div className="container mt-14 mb-20">
 				<div className="flex items-baseline">
 					<Image
-						src="/images/company.svg"
+						src="/images/icons/CompanyBlue.svg"
 						alt="Helicopter Services"
 						width={23}
 						quality={100}

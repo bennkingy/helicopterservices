@@ -8,6 +8,12 @@ import Hero from "./components/Hero";
 import { MainServices } from "./components/MainServices";
 import Reviews from "./components/Reviews";
 import Tvlogos from "./components/Tvlogos";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Helicopter Services | Experienced helicopter training | White Waltham Airfield | Maidenhead ",
+	description: "Helicopter Services | Experienced helicopter training for pilots, instructors and examiners | Helicopter charter & photography | Helicopter load lifting & consultancy | London helicopter tours | White Waltham Airfield | Maidenhead",
+};
 
 export default async function Home() {
 	const items: carouselItem[] = [
