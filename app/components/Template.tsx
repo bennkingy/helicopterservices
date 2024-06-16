@@ -17,9 +17,10 @@ type props = {
 	children?: any;
 	height?: string;
 	sidebar?: boolean;
+	iconType?: 'Industry' | 'Company' | 'Flights' | 'Training';
 };
 
-const Template = ({ data, children, height, sidebar = true }: props) => {
+const Template = ({ data, children, height, sidebar = true, iconType }: props) => {
 	const components = {
 		types: {
 			image: ({ value }: any) => {
@@ -100,7 +101,8 @@ const Template = ({ data, children, height, sidebar = true }: props) => {
 					<Header
 						className={height}
 						title={data?.hero?.heading || data?.title}
-						tag={data?.hero?.tagline}
+						tag={data?.hero?.tagline || iconType}
+						iconType={iconType}
 						image={data?.hero?.image || data?.heroImage || data?.mainImage}
 					/>
 				</div>

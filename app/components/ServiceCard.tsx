@@ -13,12 +13,21 @@ interface ServiceCard {
 }
 
 const ServiceCard = async ({
-	heading,
+	heading, 
 	url,
 	description,
 	category,
 	image,
 }: ServiceCard) => {
+
+	const getIconType = (url: string) => {
+    if (url.includes('/training')) return 'Training';
+    if (url.includes('/industry')) return 'Industry';
+    if (url.includes('/flights')) return 'Flights';
+    if (url.includes('/about-us')) return 'Company';
+    return 'Flights';
+};
+
 	return (
 		<a
 			href={url}
@@ -30,7 +39,8 @@ const ServiceCard = async ({
 					tag={category}
 					titleStyles="text-2xl sm:text-3xl"
 					tagSize="text-sm"
-					iconColor="light-blue"
+					iconColor="Blue"
+					iconType={getIconType(url)}
 					iconSize={15}
 					className="my-3 sm:my-5"
 					iconStyles="mb-4"

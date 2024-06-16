@@ -93,7 +93,7 @@ export default async function TrainingPage({
 
 	return (
 		<>
-			<Template data={data} />
+			<Template data={data} iconType="Training"/>
 		</>
 	);
 }

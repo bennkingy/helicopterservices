@@ -95,7 +95,7 @@ export default async function FlightsgPage({
 
 	return (
 		<>
-			<Template data={data}>
+			<Template data={data} iconType={'Flights'}>
 				{showTransferTimesTable && (
 					<div className="mt-10">
 						<TransferTimesTable />

@@ -66,6 +66,7 @@ export default async function Training({
 					title={data?.hero?.heading}
 					tag={data?.hero?.tagline}
 					image={data?.hero?.image}
+					iconType="Training"
 					extraPadding="pb-[28px]"
 				/>
 				<section className="pb-10 max-w-6xl mx-auto px-4 -mt-[42px] sm:-mt-[50px] z-10 relative">

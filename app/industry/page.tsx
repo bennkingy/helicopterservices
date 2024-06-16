@@ -61,6 +61,7 @@ export default async function Industry({
 					title={data?.hero?.heading}
 					tag={data?.hero?.tagline}
 					image={data?.hero?.image}
+					iconType="Industry"
 				/>
 				<section className="py-10 max-w-6xl mx-auto px-4 mt-14">
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -78,7 +79,7 @@ export default async function Industry({
 										url={url}
 										image={image || ""}
 										description={description}
-										category={"Flights"}
+										category={"Industry"}
 									/>
 								),
 							)}

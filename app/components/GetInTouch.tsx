@@ -15,7 +15,7 @@ const GetInTouch = ({ className }: props) => {
 					<Heading
 						title="Get in touch with us"
 						tag="Contact"
-						iconColor="light-blue"
+						iconColor="Blue"
 						center
 						className="mb-10"
 						titleStyles="text-3xl sm:text-4xl text-white balance-text"

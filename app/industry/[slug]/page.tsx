@@ -90,5 +90,5 @@ export default async function IndustryPage({
 }: { params: { slug: string } }) {
 	const data: any = await getData(params.slug.toLowerCase());
 
-	return <Template data={data} />;
+	return <Template data={data} iconType={'Industry'} />;
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from "@/lib/utils";
-import HelicopterIcon from "./HelicopterIcon";
+import IconsHelper from "./IconsHelper";
 interface HeadingProps {
   title: string;
   titleStyles?: any;
@@ -12,7 +12,8 @@ interface HeadingProps {
   className?: string;
   iconSize?: number;
   iconStyles?: string;
-  iconColor?: 'white' | 'dark-blue' | 'light-blue';
+  iconColor?: 'White' | 'Dark' | 'Blue';
+  iconType?: 'Industry' | 'Company' | 'Flights' | 'Training';
 }
 
 const Heading: React.FC<HeadingProps> = ({
@@ -22,7 +23,8 @@ const Heading: React.FC<HeadingProps> = ({
   iconSize,
   iconStyles,
   tag,
-  iconColor = 'light-blue',
+  iconColor = 'Blue',
+  iconType = 'Flights',
   tagSize = 'text-lg',
   center,
   className,
@@ -31,7 +33,7 @@ const Heading: React.FC<HeadingProps> = ({
     <div className="-mt-[5px]">
       <div className={`${center ? 'text-center max-w-[600px] mx-auto' : 'text-start'} font-workSans ${className}`}>
         <div className={`${center ? 'justify-center' : 'justify-start'} font-workSans flex text-brand-light-blue text-lg`}>
-          {tag ? (<div className={`flex justify-center ${iconStyles}`}><HelicopterIcon iconColor={iconColor} iconSize={iconSize} className={`mr-2`} /><div className={cn(`font-normal ${tagSize}`)}>{tag}</div></div>) : null}
+          {tag ? (<div className={`flex justify-center ${iconStyles}`}><IconsHelper iconColor={iconColor} iconSize={iconSize} iconType={iconType} className={'mr-2'} /><div className={cn(`font-normal ${tagSize}`)}>{tag}</div></div>) : null}
         </div>
         <div className={cn(`font-bold mt-2 text-brand-dark-blue ${titleStyles}`)}>{title}</div>
         <div className='font-light text-neutral-500 mt-2'>{subtitle}</div>

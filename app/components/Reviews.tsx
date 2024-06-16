@@ -67,7 +67,7 @@ const Reviews = ({ className }: props) => {
 					title="Client feedback"
 					center
 					tag="Testimonials"
-					iconColor="light-blue"
+					iconColor="Blue"
 					className="mb-16"
 					titleStyles="text-3xl sm:text-4xl"
 				/>

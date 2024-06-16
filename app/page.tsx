@@ -184,7 +184,7 @@ export default async function Home() {
 						<Heading
 							title="From beginner to advanced, you're in expert hands"
 							tag="training"
-							iconColor="light-blue"
+							iconColor="Blue"
 							className="mb-8"
 							titleStyles="text-3xl sm:text-4xl text-white"
 						/>
@@ -243,7 +243,7 @@ export default async function Home() {
 					<Heading
 						title="For gifts, swift transfers and private charters"
 						tag="Flights"
-						iconColor="light-blue"
+						iconColor="Blue"
 						center
 						className="mb-10"
 						titleStyles="text-3xl sm:text-4xl"
@@ -280,7 +280,7 @@ export default async function Home() {
 					<Heading
 						title="Elevating industry to new heights"
 						tag="Industry"
-						iconColor="light-blue"
+						iconColor="Blue"
 						className="mb-8 mt-32 md:mt-0"
 						titleStyles="text-3xl sm:text-4xl"
 					/>

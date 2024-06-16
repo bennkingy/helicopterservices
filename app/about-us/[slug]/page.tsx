@@ -63,7 +63,7 @@ export default async function AboutPage({
 
 	return (
 		<>
-			<Template data={data}>
+			<Template data={data} iconType="Company">
 				<div className="mt-8">
 					{showFaqs ? (
 						<div className="mt-8">

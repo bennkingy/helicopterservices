@@ -9,8 +9,9 @@ type props = {
 	className?: string;
 	image?: string;
 	tag?: string;
-	tagColor?: "white" | "light-blue" | "dark-blue";
+	tagColor?: "White" | "Blue" | "Dark";
 	extraPadding?: string;
+	iconType?: "Industry" | "Company" | "Flights" | "Training";
 };
 
 const Header = async ({
@@ -19,8 +20,9 @@ const Header = async ({
 	className,
 	image,
 	tag = "Flights",
-	tagColor = "white",
+	tagColor = "White",
 	extraPadding = "",
+	iconType = "Flights",
 }: props) => {
 	return (
 		<section
@@ -39,6 +41,7 @@ const Header = async ({
 						tagSize="text-white text-sm sm:text-lg font-light"
 						iconColor={tagColor}
 						iconSize={14}
+						iconType={iconType}
 						titleStyles="text-white text-2xl leading-10 sm:text-4xl md:text-5xl lg:text-6xl font-extralight max-w-[300px] sm:max-w-[600px]"
 					/>
 				</FramerAnimation>

@@ -7,6 +7,7 @@ import "../styles/globals.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollTop from "./components/ScrollTop";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const workSans = Work_Sans({
 	subsets: ["latin"],
