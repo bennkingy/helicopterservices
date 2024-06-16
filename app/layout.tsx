@@ -32,19 +32,15 @@ export const metadata: Metadata = {
 	},
 };
 
-{
-	/* <meta name="apple-mobile-web-app-capable" content="yes"></meta>; */
-}
-
 export default function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" suppressHydrationWarning className="">
+		<html lang="en" suppressHydrationWarning className="scroll-smooth">
 			<body
-				className={`${openSans.variable} ${workSans.variable} antialiased text-rendering-optimizeLegibility text-brand-dark-grey overflow-x-hidden`}
+				className={`${openSans.variable} ${workSans.variable} antialiased text-rendering-optimizeLegibility font-openSans text-brand-dark-grey overflow-x-hidden scroll-smooth`}
 			>
 				<ThemeProvider
 					attribute="class"
