@@ -423,6 +423,8 @@ export function NavMenu() {
 								<Image
 									src="/images/nav-industry.jpg"
 									alt="industry"
+									placeholder="blur"
+									blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAI0lEQVR4nGN49uzF7n1HM7Ny//37wcDJwsDJx+noJZWQpQIAueIK57IS+4IAAAAASUVORK5CYII="
 									fill
 									priority
 									quality={100}
@@ -480,6 +482,8 @@ export function NavMenu() {
 									src="https://cdn.sanity.io/images/0he7nz2b/production/60e72d0df6aa15d699ebce3c6b1a75790f1deafc-1024x685.webp"
 									alt="industry"
 									fill
+									placeholder="blur"
+									blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAMklEQVR4nAEnANj/AFqe5KHQ/3rH/6/l/wBwsOZKcJS00fDr/f8AAAgFAAITGCUyAA4UygISgzsbSj4AAAAASUVORK5CYII="
 									className="h-full object-cover"
 									priority
 									quality={100}
