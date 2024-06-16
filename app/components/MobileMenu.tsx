@@ -88,6 +88,8 @@ const menus = {
 
 const MobileMenu = () => {
 	const [activeMenu, setActiveMenu] = useState("main");
+	const [menuOpen, setMenuOpen] = useState(false);
+
 	// @ts-ignore
 	const handleMenuClick = (e, submenu) => {
 		e.preventDefault();
@@ -102,13 +104,13 @@ const MobileMenu = () => {
 
 	return (
 		<div className="flex visible md:hidden ml-auto">
-			<Drawer direction="right">
+			<Drawer direction="right" open={menuOpen}>
 				<DrawerTrigger
 					className="mr-3 flex font-semibold text-black"
 					aria-label="Open navigation menu"
 				>
 					{/* Menu */}
-					<MenuIcon size={30} />
+					<MenuIcon size={30} onClick={()=> setMenuOpen(true)}/>
 				</DrawerTrigger>
 				{/* {createPortal( */}
 					<DrawerContent className="h-full ml-20 z-50 overflow-hidden">
@@ -132,12 +134,13 @@ const MobileMenu = () => {
 											) : item.submenu ? (
 												<a
 													href={item.href}
-													onClick={(e) => handleMenuClick(e, item.submenu)}
+													onClick={(e) => {handleMenuClick(e, item.submenu);}}
 												>
 													{item.name}
 												</a>
 											) : (
 												<Link
+													onClick={()=> {setMenuOpen(false); setActiveMenu("main");}}
 													href={item.href}
 													passHref
 													className="w-full block"
