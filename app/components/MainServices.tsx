@@ -11,7 +11,7 @@ interface MainServices {
 
 const features: MainServices[] = [
 	{
-		icon: <Image src="/images/icons/trainingDark.svg" alt="Helicopter flight training" width={40} height={40} />,
+		icon: <Image priority src="/images/icons/trainingDark.svg" alt="Helicopter flight training" width={40} height={40} />,
 		title: "Training",
 		description:
 			"From beginner to advanced, you're in expert hands. EASA and UK CAA approved",
@@ -20,6 +20,7 @@ const features: MainServices[] = [
 	{
 		icon: (
 			<Image
+			priority
 				src="/images/icons/flightsDark.svg"
 				alt="Helicopter flight services"
 				width={40}
@@ -31,14 +32,14 @@ const features: MainServices[] = [
 		url: "/flights",
 	},
 	{
-		icon: <Image src="/images/icons/IndustryDark.svg" alt="Helicopter industry flight services" width={40} height={40} />,
+		icon: <Image priority src="/images/icons/IndustryDark.svg" alt="Helicopter industry flight services" width={40} height={40} />,
 		title: "Industry",
 		description:
 			"Elevating industry to new heights with film and lifting services",
 		url: "/industry",
 	},
 	{
-		icon: <Image src="/images/icons/CompanyDark.svg" alt="About helicopter services" width={40} height={40} />,
+		icon: <Image priority src="/images/icons/CompanyDark.svg" alt="About helicopter services" width={40} height={40} />,
 		title: "Our company",
 		description:
 			"Trust a company with over 20 years helicopter operating experence",
