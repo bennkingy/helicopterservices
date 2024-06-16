@@ -395,7 +395,7 @@ export function NavMenu() {
 						<NavigationMenuTrigger
 							className={cn(
 								path.startsWith("/industry") &&
-									"bg-accent text-accent-foreground",
+									"bg-accent text-accent-foreground"
 							)}
 						>
 							<a href="/industry" className="hover:text-brand-light-blue">

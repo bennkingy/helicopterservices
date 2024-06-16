@@ -150,7 +150,7 @@ const MobileMenu = () => {
 								}
 							</motion.ul>
 						</AnimatePresence>
-					</DrawerContent>,
+					</DrawerContent>
 					{/* document.body,
 				)} */}
 			</Drawer>
