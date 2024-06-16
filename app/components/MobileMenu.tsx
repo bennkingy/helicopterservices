@@ -4,7 +4,8 @@ import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { AnimatePresence, motion } from "framer-motion";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 // import { createPortal } from "react-dom";
 
 const menus = {
@@ -90,6 +91,14 @@ const MobileMenu = () => {
 	const [activeMenu, setActiveMenu] = useState("main");
 	const [menuOpen, setMenuOpen] = useState(false);
 
+	const pathname = usePathname()
+
+	useEffect(() => {
+		// hide sidebar on path change
+		setMenuOpen(false)
+		setActiveMenu("main")
+	}, [pathname])
+
 	// @ts-ignore
 	const handleMenuClick = (e, submenu) => {
 		e.preventDefault();
@@ -140,7 +149,6 @@ const MobileMenu = () => {
 												</a>
 											) : (
 												<Link
-													onClick={()=> {setMenuOpen(false); setActiveMenu("main");}}
 													href={item.href}
 													passHref
 													className="w-full block"
