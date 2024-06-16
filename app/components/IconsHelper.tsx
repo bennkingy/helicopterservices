@@ -8,7 +8,6 @@ type props = {
 }
 
 const IconHelper = ({ iconType = "Flights", iconColor = 'White', iconSize = 20, className }: props) => {
-  console.log(iconType, iconColor, iconSize, className)
   return (
     <Image 
       src={`/images/icons/${iconType}${iconColor}.svg`} 

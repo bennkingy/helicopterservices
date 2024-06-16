@@ -91,6 +91,7 @@ export default async function Home() {
 						title="Over 20 years helicopter operating experience"
 						titleStyles="text-3xl sm:text-4xl"
 						tag="About us"
+						iconType="Company"
 						className="mb-8 mt-32 md:mt-0"
 					/>
 					<p className="font-openSans">
@@ -183,8 +184,9 @@ export default async function Home() {
 					<div className="md:pr-10">
 						<Heading
 							title="From beginner to advanced, you're in expert hands"
-							tag="training"
+							tag="Training"
 							iconColor="Blue"
+							iconType="Training"
 							className="mb-8"
 							titleStyles="text-3xl sm:text-4xl text-white"
 						/>
@@ -280,83 +282,22 @@ export default async function Home() {
 					<Heading
 						title="Elevating industry to new heights"
 						tag="Industry"
+						iconType="Industry"
 						iconColor="Blue"
 						className="mb-8 mt-32 md:mt-0"
 						titleStyles="text-3xl sm:text-4xl"
-					/>
+					/> 
 					<p className="font-openSans">
 						We can help you get the best shots efficiently with over 20 years of
 						experience in aerial photography and filming world-wide in a range
 						of locations from city skylines to mountainous regions to deserts
-						and oceans.
+						and oceans. 
 					</p>
 					<p className="font-openSans mt-5">
 						Our credits include many promotional videos for blue-chip companies,
 						feature films for BBC, ITV, Sky, Channel 4, news gathering missions
 						and photography for national newspapers.
 					</p>
-					{/* <ul className="max-w-md space-y-1 mt-5 list-inside font-openSans">
-						<li className="flex items-center">
-							<svg
-								className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0"
-								aria-hidden="true"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-							>
-								<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-							</svg>
-							Lorem ipsum dolor
-						</li>
-						<li className="flex items-center">
-							<svg
-								className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0"
-								aria-hidden="true"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-							>
-								<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-							</svg>
-							Amet, consectetur
-						</li>
-						<li className="flex items-center">
-							<svg
-								className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0"
-								aria-hidden="true"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-							>
-								<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-							</svg>
-							Adipiscing elit, sed do
-						</li>
-						<li className="flex items-center">
-							<svg
-								className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0"
-								aria-hidden="true"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-							>
-								<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-							</svg>
-							Mod tempor incididunt
-						</li>
-						<li className="flex items-center">
-							<svg
-								className="w-3.5 h-3.5 me-2 text-brand-light-blue flex-shrink-0"
-								aria-hidden="true"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-							>
-								<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-							</svg>
-							Labore et dolore magna aliqua
-						</li>
-					</ul> */}
 					<Tvlogos className="my-10" />
 					<Enquire />
 				</div>
