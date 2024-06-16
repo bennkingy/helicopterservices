@@ -54,7 +54,7 @@ export const MainServices = () => {
 					<Link href={url} key={i}>
 						<Card
 							key={title}
-							className="bg-white rounded-none border-0 border-b-4 border-brand-light-blue relative group duration-300 ease-in"
+							className="bg-white rounded-none border-0 border-b-4 border-brand-light-blue relative group duration-300 ease-in lg:min-h-[252px] h-full"
 						>
 							<CardHeader>
 								<CardTitle className="grid gap-4 font-bold text-xl sm:text-2xl duration-300 ease-in-out sm:group-hover:text-brand-light-blue">
@@ -62,7 +62,7 @@ export const MainServices = () => {
 									{title}
 								</CardTitle>
 							</CardHeader>
-							<CardContent className="-mt-3 sm:-mt-2 text-black text-md sm:text-lg duration-300 ease-in-out ">
+							<CardContent className="-mt-3 sm:-mt-2 text-black text-md sm:text-md duration-300 ease-in-out ">
 								{description}
 							</CardContent>
 							<div className="absolute bottom-0 right-0">
