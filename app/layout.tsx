@@ -54,6 +54,7 @@ export default function RootLayout({
 					<ScrollTop />
 					<Footer />
 					<Toaster />
+					<SpeedInsights />
 				</ThemeProvider>
 				{/* Gmap fix */}
         <Script id="hide-second-gm-style-iw-t" strategy="lazyOnload">
