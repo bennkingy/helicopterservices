@@ -65,7 +65,7 @@ const ContacForm = () => {
 	const [loading, setLoading] = useState(false);
 	const [step, setStep] = useState(1);
 	const [name, setName] = useState("");
-  const [selectedRequirement, setSelectedRequirement] = useState("Training");
+  // const [selectedRequirement, setSelectedRequirement] = useState("Training");
 
 	useEffect(() => {
 		emailjs.init(publicKey);
@@ -79,7 +79,7 @@ const ContacForm = () => {
 			body: "",
 			contactNumber: "",
 			requirement: "Training",
-      service: "",
+      // service: "",
 		},
 	});
 
@@ -100,7 +100,7 @@ const ContacForm = () => {
 					message: data.body,
 					requirement: data.requirement,
 					// @ts-ignore
-					service: data.service, 
+					// service: data.service, 
 				},
 				publicKey,
 			);
@@ -200,7 +200,7 @@ const ContacForm = () => {
 													{...field}
 											    onValueChange={(value) => {
                             field.onChange(value);
-                            setSelectedRequirement(value);
+                            // setSelectedRequirement(value);
                           }}
 													value={field.value}
 												>
@@ -249,37 +249,6 @@ const ContacForm = () => {
 									</FormItem>
 								)}
 							/>
-<FormField
-  control={form.control}
-  name="service"
-  render={({ field }) => (
-    <FormItem>
-      <FormLabel data-test-id="serviceLabel">
-        Select Service
-      </FormLabel>
-      <FormControl>
-        <Select
-          {...field}
-          onValueChange={field.onChange}
-          data-test-id="serviceField"
-        >
-         <SelectTrigger>
-                      <SelectValue placeholder="Select an option" />
-                    </SelectTrigger>
-                    <SelectContent>
-											{/* @ts-ignore */
-											serviceOptions[selectedRequirement]?.map((option) => (
-                        <SelectItem key={option} value={option}>
-                          {option}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-        </Select>
-      </FormControl>
-      <FormMessage />
-    </FormItem>
-  )}
-/>
 							<FormField
 								control={form.control}
 								name="body"

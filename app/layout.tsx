@@ -38,9 +38,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" suppressHydrationWarning className="scroll-smooth">
+		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${openSans.variable} ${workSans.variable} antialiased text-rendering-optimizeLegibility font-openSans text-brand-dark-grey overflow-x-hidden scroll-smooth`}
+				className={`${openSans.variable} ${workSans.variable} antialiased text-rendering-optimizeLegibility font-openSans text-brand-dark-grey overflow-x-hidden`}
 			>
 				<ThemeProvider
 					attribute="class"

@@ -377,6 +377,8 @@ export function NavMenu() {
 									src="/images/nav-training.jpg"
 									alt="industry"
 									fill
+									placeholder="blur"
+									blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAECAIAAAArjXluAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAJUlEQVR4nGNgl1VlYONluPX/f/vS3QwNq7Y1z57OoObgpu7iAQCHQwoQq8g8EgAAAABJRU5ErkJggg=="
 									priority
 									quality={100}
 									className="object-cover"
@@ -582,6 +584,8 @@ export function NavMenu() {
 									src="/images/nav-copters.jpg"
 									alt="flights"
 									fill
+									placeholder="blur"
+									blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAI0lEQVR4nGMw1lJxtDFlYWLg5uZmuH9k2/8/n69fvxUZEQcAXXwKOWElP7QAAAAASUVORK5CYII="
 									className="h-full object-cover"
 									priority
 									quality={100}
