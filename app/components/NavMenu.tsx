@@ -503,7 +503,7 @@ export function NavMenu() {
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex rounded-none">
 							{/* <div className="p-5"> */}
-							<div className="p-7 pb-4 max-w-[250px]">
+							<div className="p-7 pb-4">
 								<p className="text-brand-light-blue">Single Engine</p>
 								<ul className="grid mt-2">
 									{fleet
@@ -521,7 +521,7 @@ export function NavMenu() {
 										))}
 								</ul>
 							</div>
-							<div className="p-7 pb-0">
+							<div className="p-7 pb-0 -ml-10">
 								<p className="text-brand-light-blue">&nbsp;</p>
 								<ul className="grid mt-2">
 									{fleet

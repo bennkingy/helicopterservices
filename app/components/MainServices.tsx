@@ -11,7 +11,7 @@ interface MainServices {
 
 const features: MainServices[] = [
 	{
-		icon: <Image src="/images/Training.png" alt="" width={40} height={40} />,
+		icon: <Image src="/images/icons/trainingDark.svg" alt="" width={40} height={40} />,
 		title: "Training",
 		description:
 			"From beginner to advanced, you're in expert hands. EASA and UK CAA approved",
