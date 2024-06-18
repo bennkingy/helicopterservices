@@ -6,7 +6,6 @@ import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-// import { createPortal } from "react-dom";
 
 const menus = {
 	main: [
@@ -113,7 +112,7 @@ const MobileMenu = () => {
 
 	return (
 		<div className="flex visible md:hidden ml-auto">
-			<Drawer direction="right" open={menuOpen} dismissible onClose={()=>(setMenuOpen(!menuOpen))}>
+			<Drawer direction="right" open={menuOpen} dismissible onClose={()=>(setMenuOpen(false))} fixed>
 				<DrawerTrigger
 					className="mr-3 flex font-semibold text-black"
 					aria-label="Open navigation menu"

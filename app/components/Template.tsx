@@ -127,7 +127,7 @@ const Template = ({ data, children, height, sidebar = true, iconType }: props) =
 						{data?.fleetItems
 								// @ts-ignore
 								.map((helicopter: any, idx: number) => (
-									<HelicopterCard2 key={idx} helicopter={helicopter} />
+									<HelicopterCard2 key={idx} helicopter={helicopter} url={'/fleet/'}/>
 								))}
 										<p className="ml-2 text-sm text-brand-light-blue mt-5">
 										See full fleet
