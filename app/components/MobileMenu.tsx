@@ -121,7 +121,7 @@ const MobileMenu = () => {
 					<MenuIcon size={30} onClick={()=> setMenuOpen(true)}/>
 				</DrawerTrigger>
 				{/* {createPortal( */}
-					<DrawerContent className="h-full ml-20 z-50 overflow-hidden">
+					<DrawerContent className="h-full ml-20 z-50 overflow-hidden" onInteractOutside={(e) => {e.preventDefault(); setMenuOpen(false);}}>
 						<AnimatePresence>
 							<motion.ul
 								key={activeMenu}

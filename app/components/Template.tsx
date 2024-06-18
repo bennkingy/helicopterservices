@@ -132,7 +132,7 @@ const Template = ({ data, children, height, sidebar = true, iconType }: props) =
 									<HelicopterCard2 key={idx} helicopter={helicopter} url={'/fleet/'}/>
 								))}
 								<div className='flex mt-4 cursor-pointer items-center text-brand-light-blue transition-colors hover:text-foreground h-[20px]'>
-								<IconsHelper iconColor={'Blue'} iconSize={20} iconType={'Flights'} className={'mr-2'} />
+								<IconsHelper iconColor={'Blue'} iconSize={17} iconType={'Flights'} className={'mr-2'} />
 								<Link href='/fleet/' className="text-sm text-brand-light-blue mt-0 transition-colors hover:text-foreground">
 										See full fleet
 									</Link>
