@@ -22,13 +22,6 @@ import { useFormStatus } from "react-dom";
 import { Controller, useForm } from "react-hook-form";
 import type { z } from "zod";
 import { ContactSchema } from "../schema";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 const ContacForm = () => {
 	const service = "service_p8qp31i";
@@ -105,6 +98,7 @@ const ContacForm = () => {
 				publicKey,
 			);
 			setName(data.name);
+			window.scrollTo({ top: 0, behavior: 'smooth' });
 			setStep(2);
 		} catch (error) {
 			console.error("Failed to send the email:", error);
@@ -283,15 +277,16 @@ const ContacForm = () => {
 					<Image
 						src="/images/helicopter-message.svg"
 						alt="Thank you for your enquiry!"
-						width={109}
-						height={36}
+						width={139}
+						height={250}
 						quality={100}
+						className="w-[139px] h-[250px]"
 					/>
 					<h3 className="mt-10 text-center font-bold text-2xl text-brand-dark-blue font-workSans">
 						Thank you for your enquiry, {name}!
 					</h3>
-					<p className="mt-5 text-center font-semibold text-base text-brand-dark-blue font-workSans">
-						Your enquiry has lifted off and is now on its way to us. We&apos;ll
+					<p className="mt-5 text-center text-base text-brand-dark-blue font-openSans">
+						Your enquiry has lifted off and is now on its way to us.<br/>We&apos;ll
 						get back to you as soon as it lands, usually within 24 hours.
 					</p>
 				</div>

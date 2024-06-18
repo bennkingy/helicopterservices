@@ -11,6 +11,8 @@ import Gallery from "./Gallery";
 import Header from "./Header";
 import YouTubeThreeD from "./YouTubeThreeD";
 import HelicopterCard2 from "./HelicopterCard2";
+import Link from "next/link";
+import IconsHelper from "./IconsHelper";
 
 type props = {
 	data: any;
@@ -114,7 +116,7 @@ const Template = ({ data, children, height, sidebar = true, iconType }: props) =
 				)}
 			>
 				<div className="pr-0 md:pr-20 mb-16 md:mb-0 col-span-2">
-					<div className="prose prose-a:text-brand-light-blue font-openSans prose-h2:font-workSans prose-h2:text-3xl sm:prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey">
+					<div className="prose prose-a:text-brand-light-blue prose-a:transition-colors hover:prose-a:text-brand-dark-blue font-openSans prose-h2:font-workSans prose-h2:text-3xl sm:prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey">
 						<PortableText value={data?.body || ""} components={components} />
 					</div>
 					<Approvals />
@@ -123,15 +125,18 @@ const Template = ({ data, children, height, sidebar = true, iconType }: props) =
 						<YouTubeThreeD data={data?.threedVideoUrl} />
 					)}
 					{data?.fleetItems?.length > 0 && <div className="max-w-[500px]">
-						<h2 className="mt-10 mb-7 text-2xl font-bold font-workSans text-brand-dark-grey">Helicopters for this service includes</h2>
+						<h2 className="mt-14 mb-7 text-2xl font-bold font-workSans text-brand-dark-grey">Helicopters for this service includes</h2>
 						{data?.fleetItems
 								// @ts-ignore
 								.map((helicopter: any, idx: number) => (
 									<HelicopterCard2 key={idx} helicopter={helicopter} url={'/fleet/'}/>
 								))}
-										<p className="ml-2 text-sm text-brand-light-blue mt-5">
+								<div className='flex mt-4 cursor-pointer items-center text-brand-light-blue transition-colors hover:text-foreground h-[20px]'>
+								<IconsHelper iconColor={'Blue'} iconSize={20} iconType={'Flights'} className={'mr-2'} />
+								<Link href='/fleet/' className="text-sm text-brand-light-blue mt-0 transition-colors hover:text-foreground">
 										See full fleet
-									</p>
+									</Link>
+								</div>
 					</div>}
 				</div>
 				{sidebar && (

@@ -38,6 +38,12 @@ export default defineType({
 			hidden: ({ document }) => document?.isLandingPage !== true,
 		}),
 		defineField({
+      name: "fleetItems",
+      title: "Helicopters That Provide This Service",
+      type: "array",
+      of: [{ type: "reference", to: { type: "fleet" } }],
+    }),
+		defineField({
 			name: "pilot",
 			title: "Pilot",
 			type: "reference",
