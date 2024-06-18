@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollTop from "./components/ScrollTop";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 const workSans = Work_Sans({
 	subsets: ["latin"],
@@ -55,6 +56,7 @@ export default function RootLayout({
 					<Footer />
 					<Toaster />
 					<SpeedInsights />
+					<Analytics /> 
 				</ThemeProvider>
 				{/* Gmap fix */}
         <Script id="hide-second-gm-style-iw-t" strategy="lazyOnload">
