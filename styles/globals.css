@@ -131,7 +131,7 @@
   display: none;
 }
 
-.contentBlockGalleryFix a:nth-child(n+5) {
+.lg-react-element.gallery span:nth-child(n+5), .lg-react-element.gallery a:nth-child(n+5)  {
   display: none;
 }
 
