@@ -113,7 +113,7 @@ const MobileMenu = () => {
 
 	return (
 		<div className="flex visible md:hidden ml-auto">
-			<Drawer direction="right" open={menuOpen}>
+			<Drawer direction="right" open={menuOpen} dismissible onClose={()=>(setMenuOpen(!menuOpen))}>
 				<DrawerTrigger
 					className="mr-3 flex font-semibold text-black"
 					aria-label="Open navigation menu"
