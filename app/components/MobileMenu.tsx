@@ -86,17 +86,18 @@ const menus = {
 	],
 };
 
-const MobileMenu = () => {
+// @ts-ignore
+const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 	const [activeMenu, setActiveMenu] = useState("main");
 	const [menuOpen, setMenuOpen] = useState(false);
 
-	const pathname = usePathname()
+	const pathname = usePathname();
 
 	useEffect(() => {
 		// hide sidebar on path change
-		setMenuOpen(false)
-		setActiveMenu("main")
-	}, [pathname])
+		setMenuOpen(false);
+		setActiveMenu("main");
+	}, [pathname]);
 
 	// @ts-ignore
 	const handleMenuClick = (e, submenu) => {
@@ -112,56 +113,71 @@ const MobileMenu = () => {
 
 	return (
 		<div className="flex visible md:hidden ml-auto">
-			<Drawer direction="right" open={menuOpen} dismissible onClose={()=>(setMenuOpen(false))} fixed>
+			<Drawer
+				direction="right"
+				open={menuOpen}
+				onOpenChange={(isOpen) => {
+					if (isOpen) {
+						onMobileOpen();
+					}
+				}}
+				dismissible
+				onClose={() => setMenuOpen(false)}
+				fixed
+			>
 				<DrawerTrigger
 					className="mr-3 flex font-semibold text-black"
 					aria-label="Open navigation menu"
 				>
 					{/* Menu */}
-					<MenuIcon size={30} onClick={()=> setMenuOpen(true)}/>
+					<MenuIcon size={30} onClick={() => setMenuOpen(true)} />
 				</DrawerTrigger>
 				{/* {createPortal( */}
-					<DrawerContent className="h-full ml-20 z-50 overflow-hidden" onInteractOutside={(e) => {e.preventDefault(); setMenuOpen(false);}}>
-						<AnimatePresence>
-							<motion.ul
-								key={activeMenu}
-								initial={{ opacity: 0, x: 100 }}
-								animate={{ opacity: 1, x: 0 }}
-								exit={{ opacity: 0, x: -100 }}
-								transition={{ duration: 0.3 }}
-								className="z-[60] absolute top-0 font-openSans text-brand-light-blue p-3 pt-5 font-bold"
-							>
-								{
-									// @ts-ignore
-									menus[activeMenu].map((item, index) => (
-										<li className="mb-4 ml-4" key={index}>
-											{item.isBack ? (
-												<a href="#" onClick={handleBackClick}>
-													{item.name}
-												</a>
-											) : item.submenu ? (
-												<a
-													href={item.href}
-													onClick={(e) => {handleMenuClick(e, item.submenu);}}
-												>
-													{item.name}
-												</a>
-											) : (
-												<Link
-													href={item.href}
-													passHref
-													className="w-full block"
-												>
-													{item.name}
-												</Link>
-											)}
-										</li>
-									))
-								}
-							</motion.ul>
-						</AnimatePresence>
-					</DrawerContent>
-					{/* document.body,
+				<DrawerContent
+					className="h-full ml-20 z-50 overflow-hidden"
+					onInteractOutside={(e) => {
+						e.preventDefault();
+						setMenuOpen(false);
+					}}
+				>
+					<AnimatePresence>
+						<motion.ul
+							key={activeMenu}
+							initial={{ opacity: 0, x: 100 }}
+							animate={{ opacity: 1, x: 0 }}
+							exit={{ opacity: 0, x: -100 }}
+							transition={{ duration: 0.3 }}
+							className="z-[60] absolute top-0 font-openSans text-brand-light-blue p-3 pt-5 font-bold"
+						>
+							{
+								// @ts-ignore
+								menus[activeMenu].map((item, index) => (
+									<li className="mb-4 ml-4" key={index}>
+										{item.isBack ? (
+											<a href="#" onClick={handleBackClick}>
+												{item.name}
+											</a>
+										) : item.submenu ? (
+											<a
+												href={item.href}
+												onClick={(e) => {
+													handleMenuClick(e, item.submenu);
+												}}
+											>
+												{item.name}
+											</a>
+										) : (
+											<Link href={item.href} passHref className="w-full block">
+												{item.name}
+											</Link>
+										)}
+									</li>
+								))
+							}
+						</motion.ul>
+					</AnimatePresence>
+				</DrawerContent>
+				{/* document.body,
 				)} */}
 			</Drawer>
 		</div>

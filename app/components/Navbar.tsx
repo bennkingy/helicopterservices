@@ -15,19 +15,31 @@ export default function Navbar() {
 	const path = usePathname();
 	const isSmallMobile = useMediaQuery("(max-width: 400px)");
 	const headerRef = useRef(null);
+	const headroomRef = useRef(null);
 
 	useEffect(() => {
 		if (headerRef.current) {
-			const headroom = new Headroom(headerRef.current, {
+			const headroomInstance = new Headroom(headerRef.current, {
 				offset: path !== "/" && path !== "/about-us" ? 140 : 100,
 				tolerance: {
 					up: 0,
 					down: 0,
 				},
 			});
-			headroom.init();
+			headroomInstance.init();
+			// @ts-ignore
+			headroomRef.current = headroomInstance;
 		}
-	}, []);
+	}, [path]);
+
+	const freezeHeader = () => {
+		console.log("Freezing header");
+		if (headroomRef.current) {
+			console.log(headroomRef.current);
+			// @ts-ignore
+			headroomRef.current.freeze();
+		}
+	};
 
 	return (
 		<>
@@ -83,7 +95,7 @@ export default function Navbar() {
 							className="w-[135px] sm:w-[181px] sm:h-[117px]"
 						/>
 					</Link>
-					<NavMenu />
+					<NavMenu onMobileOpen={freezeHeader} />
 					<div className="absolute bottom-0 right-0 hidden sm:block">
 						<svg
 							className="h-6 w-6 text-brand-light-blue"

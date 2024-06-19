@@ -271,7 +271,8 @@ const fleet: {
 	},
 ];
 
-export function NavMenu() {
+// @ts-ignore
+export function NavMenu({ onMobileOpen }: { onMobileOpen: () => void }) {
 	const path = usePathname();
 
 	return (
@@ -395,7 +396,7 @@ export function NavMenu() {
 						<NavigationMenuTrigger
 							className={cn(
 								path.startsWith("/industry") &&
-									"bg-accent text-accent-foreground"
+									"bg-accent text-accent-foreground",
 							)}
 						>
 							<a href="/industry" className="hover:text-brand-light-blue">
@@ -629,7 +630,7 @@ export function NavMenu() {
 					</NavigationMenuItem>
 				</NavigationMenuList>
 			</NavigationMenu>
-			<MobileMenu />
+			<MobileMenu onMobileOpen={() => onMobileOpen()} />
 			<Link href="tel:+44 1494513 166" className="">
 				{/* <Icons.phone className="text-brand-light-blue" height={20} /> */}
 				<Image
