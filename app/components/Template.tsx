@@ -13,16 +13,23 @@ import YouTubeThreeD from "./YouTubeThreeD";
 import HelicopterCard2 from "./HelicopterCard2";
 import Link from "next/link";
 import IconsHelper from "./IconsHelper";
+import SanityImage from "./SanityImage";
 
 type props = {
 	data: any;
 	children?: any;
 	height?: string;
 	sidebar?: boolean;
-	iconType?: 'Industry' | 'Company' | 'Flights' | 'Training';
+	iconType?: "Industry" | "Company" | "Flights" | "Training";
 };
 
-const Template = ({ data, children, height, sidebar = true, iconType }: props) => {
+const Template = ({
+	data,
+	children,
+	height,
+	sidebar = true,
+	iconType,
+}: props) => {
 	const components = {
 		types: {
 			image: ({ value }: any) => {
@@ -70,22 +77,12 @@ const Template = ({ data, children, height, sidebar = true, iconType }: props) =
 									data-sub-html={`<h4>Helicopter Services</h4><p>${
 										item?.alt || "No description"
 									}</p>`}
-									className="w-full max-h-[230px] sm:max-h-[330px] relative aspect-square"
+									className="w-full max-h-[230px] sm:max-h-[330px] relative overflow-hidden cursor-pointer"
 								>
-									<Image
-										fill
-										objectFit="cover"
-										objectPosition="center"
-										quality={100}
-										className="img-responsive cursor-pointer m-0"
-										src={image}
-										placeholder={item.blur ? "blur" : undefined}
-										blurDataURL={item.blur ? item.blur : ""}
-										alt={item.alt || ""}
-										style={{
-											clipPath:
-												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										}}
+									<SanityImage
+										sanityImage={item}
+										cutCorner
+										imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110 h-full"
 									/>
 								</span>
 							);
@@ -124,20 +121,36 @@ const Template = ({ data, children, height, sidebar = true, iconType }: props) =
 					{data?.threedVideoUrl && (
 						<YouTubeThreeD data={data?.threedVideoUrl} />
 					)}
-					{data?.fleetItems?.length > 0 && <div className="max-w-[500px]">
-						<h2 className="mt-14 mb-7 text-2xl font-bold font-workSans text-brand-dark-grey">Helicopters for this service includes</h2>
-						{data?.fleetItems
+					{data?.fleetItems?.length > 0 && (
+						<div className="max-w-[500px]">
+							<h2 className="mt-14 mb-7 text-2xl font-bold font-workSans text-brand-dark-grey">
+								Helicopters for this service includes
+							</h2>
+							{data?.fleetItems
 								// @ts-ignore
 								.map((helicopter: any, idx: number) => (
-									<HelicopterCard2 key={idx} helicopter={helicopter} url={'/fleet/'}/>
+									<HelicopterCard2
+										key={idx}
+										helicopter={helicopter}
+										url={"/fleet/"}
+									/>
 								))}
-								<div className='flex mt-4 cursor-pointer items-center text-brand-light-blue transition-colors hover:text-foreground h-[20px]'>
-								<IconsHelper iconColor={'Blue'} iconSize={17} iconType={'Flights'} className={'mr-2'} />
-								<Link href='/fleet/' className="text-sm text-brand-light-blue mt-0 transition-colors hover:text-foreground">
-										See full fleet
-									</Link>
-								</div>
-					</div>}
+							<div className="flex mt-4 cursor-pointer items-center text-brand-light-blue transition-colors hover:text-foreground h-[20px]">
+								<IconsHelper
+									iconColor={"Blue"}
+									iconSize={17}
+									iconType={"Flights"}
+									className={"mr-2"}
+								/>
+								<Link
+									href="/fleet/"
+									className="text-sm text-brand-light-blue mt-0 transition-colors hover:text-foreground"
+								>
+									See full fleet
+								</Link>
+							</div>
+						</div>
+					)}
 				</div>
 				{sidebar && (
 					<div>
