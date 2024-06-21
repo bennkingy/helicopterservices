@@ -36,7 +36,7 @@ export default function Navbar() {
 		// TODO: Fix IOS error
 		const isIOS = () =>
 			// @ts-ignore
-			/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+			/iPad|iPhone|iPod/.test(navigator.userAgent);
 
 		if (isIOS()) {
 			// console.log("Freezing header");
