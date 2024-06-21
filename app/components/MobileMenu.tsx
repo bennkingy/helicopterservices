@@ -92,7 +92,7 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 	const [activeMenu, setActiveMenu] = useState("main");
 	const [menuOpen, setMenuOpen] = useState(false);
 
-	const isSmallMobile = useMediaQuery("(max-width: 400px)");
+	// const isSmallMobile = useMediaQuery("(max-width: 400px)");
 
 	const pathname = usePathname();
 	useEffect(() => {
@@ -113,21 +113,21 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 		setActiveMenu("main");
 	};
 
-	useEffect(() => {
-		const handleResize = () => {
-			if (window.innerWidth > 767 && menuOpen) {
-				setMenuOpen(!menuOpen);
-			}
-		};
+	// useEffect(() => {
+	// 	const handleResize = () => {
+	// 		if (window.innerWidth > 767 && menuOpen) {
+	// 			setMenuOpen(!menuOpen);
+	// 		}
+	// 	};
 
-		// Attach resize event listener
-		window.addEventListener("resize", handleResize);
+	// 	// Attach resize event listener
+	// 	window.addEventListener("resize", handleResize);
 
-		// Clean up event listener on component unmount
-		return () => {
-			window.removeEventListener("resize", handleResize);
-		};
-	}, [menuOpen]);
+	// 	// Clean up event listener on component unmount
+	// 	return () => {
+	// 		window.removeEventListener("resize", handleResize);
+	// 	};
+	// }, [menuOpen]);
 
 	const isIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
 
