@@ -11,8 +11,10 @@ import Tvlogos from "./components/Tvlogos";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Helicopter Services | Experienced helicopter training | White Waltham Airfield | Maidenhead ",
-	description: "Helicopter Services | Experienced helicopter training for pilots, instructors and examiners | Helicopter charter & photography | Helicopter load lifting & consultancy | London helicopter tours | White Waltham Airfield | Maidenhead",
+	title:
+		"Helicopter Services | Experienced helicopter training | White Waltham Airfield | Maidenhead ",
+	description:
+		"Helicopter Services | Experienced helicopter training for pilots, instructors and examiners | Helicopter charter & photography | Helicopter load lifting & consultancy | London helicopter tours | White Waltham Airfield | Maidenhead",
 };
 
 export default async function Home() {
@@ -54,7 +56,7 @@ export default async function Home() {
 		<main className="overflow-x-hidden">
 			<Hero
 				title="Exceeding exacting industry standards"
-				height="h-[calc(84lvh_-_65px)] sm:h-[calc(100lvh_-_100px)]"
+				height="h-[calc(10lvh_-_65px)] sm:h-[calc(100lvh_-_100px)]"
 			/>
 			<div className="py-20 bg-brand-dark-blue z-[9] relative -mt-[1px]">
 				<div className="container">
@@ -286,12 +288,12 @@ export default async function Home() {
 						iconColor="Blue"
 						className="mb-8 mt-32 md:mt-0"
 						titleStyles="text-3xl sm:text-4xl"
-					/> 
+					/>
 					<p className="font-openSans">
 						We can help you get the best shots efficiently with over 20 years of
 						experience in aerial photography and filming world-wide in a range
 						of locations from city skylines to mountainous regions to deserts
-						and oceans. 
+						and oceans.
 					</p>
 					<p className="font-openSans mt-5">
 						Our credits include many promotional videos for blue-chip companies,

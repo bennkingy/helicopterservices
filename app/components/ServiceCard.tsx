@@ -13,20 +13,19 @@ interface ServiceCard {
 }
 
 const ServiceCard = async ({
-	heading, 
+	heading,
 	url,
 	description,
 	category,
 	image,
 }: ServiceCard) => {
-
 	const getIconType = (url: string) => {
-    if (url.includes('/training')) return 'Training';
-    if (url.includes('/industry')) return 'Industry';
-    if (url.includes('/flights')) return 'Flights';
-    if (url.includes('/about-us')) return 'Company';
-    return 'Flights';
-};
+		if (url.includes("/training")) return "Training";
+		if (url.includes("/industry")) return "Industry";
+		if (url.includes("/flights")) return "Flights";
+		if (url.includes("/about-us")) return "Company";
+		return "Flights";
+	};
 
 	return (
 		<a
@@ -66,14 +65,14 @@ const ServiceCard = async ({
 					className="absolute bottom-0 right-1"
 				/>
 			</div>
-			<div className="w-full md:w-[150%] h-full overflow-hidden">
+			<div className="w-full md:w-[150%] h-full relative overflow-hidden">
 				{/* 
 					className="object-cover w-full h-[220px] md:h-full rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
 				*/}
 				<SanityImage
 					cover
 					sanityImage={image}
-					imageClasses="transition-transform w-full h-[220px] md:h-full relative md:absolute"
+					imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
 				/>
 			</div>
 		</a>

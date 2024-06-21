@@ -1,6 +1,7 @@
 "use client";
 
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { AnimatePresence, motion } from "framer-motion";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
@@ -91,8 +92,9 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 	const [activeMenu, setActiveMenu] = useState("main");
 	const [menuOpen, setMenuOpen] = useState(false);
 
-	const pathname = usePathname();
+	const isSmallMobile = useMediaQuery("(max-width: 400px)");
 
+	const pathname = usePathname();
 	useEffect(() => {
 		// hide sidebar on path change
 		setMenuOpen(false);
@@ -110,6 +112,22 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 		e.preventDefault();
 		setActiveMenu("main");
 	};
+
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth > 767 && menuOpen) {
+				setMenuOpen(!menuOpen);
+			}
+		};
+
+		// Attach resize event listener
+		window.addEventListener("resize", handleResize);
+
+		// Clean up event listener on component unmount
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, [menuOpen]);
 
 	return (
 		<div className="flex visible md:hidden ml-auto">

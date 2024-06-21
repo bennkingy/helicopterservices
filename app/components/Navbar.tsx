@@ -33,11 +33,17 @@ export default function Navbar() {
 	}, [path]);
 
 	const freezeHeader = () => {
-		console.log("Freezing header");
-		if (headroomRef.current) {
-			console.log(headroomRef.current);
-			// @ts-ignore
-			headroomRef.current.freeze();
+		// TODO: Fix IOS error
+		const isIOS = () =>
+			/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+		if (isIOS()) {
+			// console.log("Freezing header");
+			// if (headroomRef.current) {
+			// 	console.log(headroomRef.current);
+			// 	headroomRef.current.freeze();
+			// }
+			window.scrollTo(0, 0);
 		}
 	};
 
