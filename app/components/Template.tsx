@@ -77,12 +77,12 @@ const Template = ({
 									data-sub-html={`<h4>Helicopter Services</h4><p>${
 										item?.alt || "No description"
 									}</p>`}
-									className="w-full max-h-[230px] sm:max-h-[330px] relative overflow-hidden cursor-pointer"
+									className="cursor-pointer w-full max-h-[230px] sm:max-h-[330px] relative aspect-square"
 								>
 									<SanityImage
 										sanityImage={item}
 										cutCorner
-										imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110 h-full"
+										imageClasses="m-0 p-0 object-cover aspect-square transition-transform duration-300 ease-in-out hover:scale-110"
 									/>
 								</span>
 							);
