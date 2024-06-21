@@ -35,6 +35,7 @@ export default function Navbar() {
 	const freezeHeader = () => {
 		// TODO: Fix IOS error
 		const isIOS = () =>
+			// @ts-ignore
 			/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
 		if (isIOS()) {
