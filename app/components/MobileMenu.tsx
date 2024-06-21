@@ -131,28 +131,11 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 
 	const isIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-	const handleScrollToTop = useCallback(() => {
-		if (isIOS()) {
-			window.scrollTo(0, 0);
-		}
-	}, [isIOS]);
-
-	useEffect(() => {
-		if (menuOpen) {
-			handleScrollToTop();
-		}
-	}, [menuOpen, handleScrollToTop]);
-
 	return (
 		<div className="flex visible md:hidden ml-auto">
 			<Drawer
 				direction="right"
 				open={menuOpen}
-				onOpenChange={(isOpen) => {
-					if (!isOpen) {
-						handleScrollToTop();
-					}
-				}}
 				dismissible
 				onClose={() => setMenuOpen(false)}
 				fixed
@@ -162,7 +145,13 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 					aria-label="Open navigation menu"
 				>
 					{/* Menu */}
-					<MenuIcon size={30} onClick={() => setMenuOpen(true)} />
+					<MenuIcon
+						size={30}
+						onClick={() => {
+							setMenuOpen(true);
+							isIOS() && window.scrollTo(0, 0);
+						}}
+					/>
 				</DrawerTrigger>
 				{/* {createPortal( */}
 				<DrawerContent
