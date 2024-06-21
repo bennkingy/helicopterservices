@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const menus = {
 	main: [
@@ -129,14 +129,28 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 		};
 	}, [menuOpen]);
 
+	const isIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+	const handleScrollToTop = useCallback(() => {
+		if (isIOS()) {
+			window.scrollTo(0, 0);
+		}
+	}, [isIOS]);
+
+	useEffect(() => {
+		if (menuOpen) {
+			handleScrollToTop();
+		}
+	}, [menuOpen, handleScrollToTop]);
+
 	return (
 		<div className="flex visible md:hidden ml-auto">
 			<Drawer
 				direction="right"
 				open={menuOpen}
 				onOpenChange={(isOpen) => {
-					if (isOpen) {
-						onMobileOpen();
+					if (!isOpen) {
+						handleScrollToTop();
 					}
 				}}
 				dismissible

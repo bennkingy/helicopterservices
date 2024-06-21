@@ -15,7 +15,7 @@ export default async function About() {
 		<main className="overflow-x-hidden">
 			<Hero
 				title="About Helicopter Services"
-				height="h-[calc(10lvh_-_65px)] sm:h-[calc(100lvh_-_100px)]"
+				height="h-[calc(100lvh_-_65px)] sm:h-[calc(100lvh_-_100px)]"
 			/>
 			<div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
 				<div className="pr-0 sm:pr-20">
@@ -66,6 +66,7 @@ export default async function About() {
 								width={1000}
 								key={1}
 								height={1000}
+								quality={100}
 								className="pr-10 md:pl-10 sm:pr-10 md:pr-10 lg:pr-20"
 							/>,
 							<Image
@@ -74,6 +75,7 @@ export default async function About() {
 								width={240}
 								height={240}
 								key={2}
+								quality={100}
 								className="absolute -bottom-20 xl:bottom-20 right-0 border-8 border-white drop-shadow-sm shadow-xl max-w-[200px] sm:w-full"
 							/>,
 						]}
@@ -90,6 +92,7 @@ export default async function About() {
 								width={1000}
 								key={1}
 								height={1000}
+								quality={100}
 								className="pr-10 sm:pr-10 md:pr-10 lg:pr-32"
 							/>,
 							<Image
@@ -97,6 +100,7 @@ export default async function About() {
 								alt="Helicopter Services"
 								width={240}
 								height={240}
+								quality={100}
 								key={2}
 								className="absolute -bottom-20 xl:bottom-20 right-0 lg:right-14 border-8 border-white drop-shadow-sm shadow-xl max-w-[200px] sm:w-full"
 							/>,
