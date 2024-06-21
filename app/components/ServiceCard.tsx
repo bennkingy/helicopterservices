@@ -65,7 +65,7 @@ const ServiceCard = async ({
 					className="absolute bottom-0 right-1"
 				/>
 			</div>
-			<div className="w-full md:w-[150%] h-full relative overflow-hidden">
+			<div className="w-full h-[250px] md:w-[150%] md:h-full relative overflow-hidden">
 				{/* 
 					className="object-cover w-full h-[220px] md:h-full rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
 				*/}

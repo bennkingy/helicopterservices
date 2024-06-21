@@ -148,8 +148,10 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 					<MenuIcon
 						size={30}
 						onClick={() => {
-							setMenuOpen(true);
 							isIOS() && window.scrollTo(0, 0);
+							setTimeout(() => {
+								setMenuOpen(true);
+							}, 10);
 						}}
 					/>
 				</DrawerTrigger>
