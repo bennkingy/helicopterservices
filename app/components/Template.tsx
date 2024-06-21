@@ -13,7 +13,6 @@ import YouTubeThreeD from "./YouTubeThreeD";
 import HelicopterCard2 from "./HelicopterCard2";
 import Link from "next/link";
 import IconsHelper from "./IconsHelper";
-import SanityImage from "./SanityImage";
 
 type props = {
 	data: any;
@@ -77,12 +76,22 @@ const Template = ({
 									data-sub-html={`<h4>Helicopter Services</h4><p>${
 										item?.alt || "No description"
 									}</p>`}
-									className="cursor-pointer w-full max-h-[230px] sm:max-h-[330px] relative aspect-square"
+									style={{
+										clipPath:
+											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+									}}
+									className="w-full max-h-[230px] sm:max-h-[330px] relative aspect-square overflow-hidden"
 								>
-									<SanityImage
-										sanityImage={item}
-										cutCorner
-										imageClasses="m-0 p-0 object-cover aspect-square transition-transform duration-300 ease-in-out hover:scale-110"
+									<Image
+										fill
+										objectFit="cover"
+										objectPosition="center"
+										quality={100}
+										className="img-responsive cursor-pointer m-0 p-0 object-cover aspect-square transition-transform duration-300 ease-in-out hover:scale-110"
+										src={image}
+										placeholder={item.blur ? "blur" : undefined}
+										blurDataURL={item.blur ? item.blur : ""}
+										alt={item.alt || ""}
 									/>
 								</span>
 							);
