@@ -113,6 +113,8 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 		setActiveMenu("main");
 	};
 
+	console.log("activeMenu", activeMenu);
+
 	// useEffect(() => {
 	// 	const handleResize = () => {
 	// 		if (window.innerWidth > 767 && menuOpen) {
