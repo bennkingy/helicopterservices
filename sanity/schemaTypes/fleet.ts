@@ -10,11 +10,19 @@ export default defineType({
 			title: "Main page",
 			type: "boolean",
 			initialValue: false,
+			description:
+				"Indicate if this is the main landing page for the fleet section.",
 		}),
 		defineField({
 			name: "title",
 			title: "Title",
 			type: "string",
+			description: "The main title of the fleet page.",
+			validation: (Rule) =>
+				Rule.required()
+					.min(5)
+					.max(100)
+					.warning("Titles should be between 5 and 100 characters."),
 		}),
 		defineField({
 			name: "slug",
@@ -24,10 +32,13 @@ export default defineType({
 				source: "title",
 				maxLength: 96,
 			},
+			description: "The unique identifier for the page, used in URLs.",
+			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: "hero",
 			type: "hero",
+			description: "Hero section for the fleet page.",
 		}),
 		defineField({
 			name: "service",
@@ -35,6 +46,8 @@ export default defineType({
 			type: "array",
 			of: [{ type: "service" }],
 			hidden: ({ document }) => document?.isLandingPage !== true,
+			description:
+				"List of helicopters provided, shown only on the landing page.",
 		}),
 		defineField({
 			name: "helicopterType",
@@ -46,30 +59,36 @@ export default defineType({
 					title: "Guimbal Type",
 					type: "boolean",
 					initialValue: false,
+					description: "Indicate if the helicopter is a Guimbal type.",
 				},
 				{
 					name: "robinsonType",
 					title: "Robinson Type",
 					type: "boolean",
 					initialValue: false,
+					description: "Indicate if the helicopter is a Robinson type.",
 				},
 				{
 					name: "aerospatialeEurocopterAirbusType",
 					title: "Aérospatiale, Eurocopter & Airbus Type",
 					type: "boolean",
 					initialValue: false,
+					description:
+						"Indicate if the helicopter is an Aérospatiale, Eurocopter or Airbus type.",
 				},
 				{
 					name: "agustaType",
 					title: "Agusta Type",
 					type: "boolean",
 					initialValue: false,
+					description: "Indicate if the helicopter is an Agusta type.",
 				},
 				{
 					name: "bellType",
 					title: "Bell Type",
 					type: "boolean",
 					initialValue: false,
+					description: "Indicate if the helicopter is a Bell type.",
 				},
 			],
 			hidden: ({ document }) => document?.isLandingPage === true,
@@ -87,6 +106,7 @@ export default defineType({
 						? "Only one helicopter type can be selected"
 						: true;
 				}),
+			description: "Specify the type of helicopter.",
 		}),
 		defineField({
 			name: "workType",
@@ -98,88 +118,104 @@ export default defineType({
 					title: "Training Helicopter",
 					type: "boolean",
 					initialValue: false,
+					description: "Indicate if the helicopter is used for training.",
 				},
 				{
 					name: "charterHelicopter",
 					title: "Charter Helicopter",
 					type: "boolean",
 					initialValue: false,
+					description: "Indicate if the helicopter is used for charters.",
 				},
 				{
 					name: "aerialWorkHelicopter",
 					title: "Aerial Work Helicopter",
 					type: "boolean",
 					initialValue: false,
+					description: "Indicate if the helicopter is used for aerial work.",
 				},
 			],
 			hidden: ({ document }) => document?.isLandingPage === true,
+			description: "Specify the type of work the helicopter is used for.",
 		}),
 		defineField({
 			name: "engineType",
 			title: "Engine Type",
 			type: "string",
-			description: "Single or Twin?",
+			description: "Single or Twin engine?",
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
 			name: "capacity",
 			title: "Capacity",
 			type: "number",
-			description: "Number of passengers the helicopter can carry",
+			description: "Number of passengers the helicopter can carry.",
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
 			name: "ifrcapable",
 			title: "IFR Capable",
 			type: "boolean",
+			description: "Indicate if the helicopter is IFR capable.",
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
 			name: "cruiseSpeed",
 			title: "Cruise Speed",
 			type: "number",
-			description: "Cruising speed in knots",
+			description: "Cruising speed in knots.",
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
 			name: "base",
 			title: "Base",
 			type: "string",
+			description: "Base location of the helicopter.",
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
 			name: "body",
 			title: "Description",
 			type: "blockContent",
+			description: "Detailed description of the helicopter.",
 		}),
 		defineField({
 			name: "gallery",
 			type: "gallery",
-			description: "Perfect for displaying 2 or more images",
+			description: "Gallery for displaying multiple images of the helicopter.",
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
 			name: "gallerySingle",
-			title: "Gallery single",
+			title: "Gallery Single",
 			type: "image",
-			description: "Perfect for displaying 1 large image",
+			description: "Perfect for displaying a single large image.",
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
 			name: "threedVideoUrl",
-			title: "3D video url",
+			title: "3D Video URL",
 			type: "url",
+			description: "URL for a 3D video of the helicopter.",
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
 			name: "seoDescription",
 			title: "SEO Description",
 			type: "string",
+			description: "Description for SEO purposes.",
+			validation: (Rule) =>
+				Rule.max(160).warning(
+					"SEO Descriptions should be at most 160 characters.",
+				),
 		}),
 		defineField({
 			name: "seoTitle",
 			title: "SEO Title",
 			type: "string",
+			description: "Title for SEO purposes.",
+			validation: (Rule) =>
+				Rule.max(60).warning("SEO Titles should be at most 60 characters."),
 		}),
 	],
 	preview: {
@@ -191,8 +227,7 @@ export default defineType({
 		prepare(selection) {
 			return {
 				title: selection.title,
-				media:
-					selection.heroImage || selection.gallerySingle,
+				media: selection.heroImage || selection.gallerySingle,
 			};
 		},
 	},
