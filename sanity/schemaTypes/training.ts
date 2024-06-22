@@ -10,11 +10,28 @@ export default defineType({
 			title: "Main page",
 			type: "boolean",
 			initialValue: false,
+			description:
+				"Indicates if this is the main landing page for the training section.",
 		}),
 		defineField({
 			name: "title",
 			title: "Title",
 			type: "string",
+			description: "The main title of the training page.",
+			validation: (Rule) =>
+				Rule.required()
+					.min(5)
+					.max(100)
+					.warning("Titles should be between 5 and 100 characters."),
+		}),
+		defineField({
+			name: "shortTitle",
+			title: "Short Title",
+			type: "string",
+			hidden: ({ document }) => document?.isLandingPage === true,
+			description: "A shorter version of the title, used in navigation menus.",
+			validation: (Rule) =>
+				Rule.max(50).warning("Short titles should be at most 50 characters."),
 		}),
 		defineField({
 			name: "slug",
@@ -24,11 +41,61 @@ export default defineType({
 				source: "title",
 				maxLength: 96,
 			},
+			description: "The unique identifier for the page, used in URLs.",
+			validation: (Rule) => Rule.required(),
+		}),
+		defineField({
+			name: "category",
+			title: "Category",
+			type: "object",
+			description: "The training category.",
+			hidden: ({ document }) => document?.isLandingPage === true,
+			fields: [
+				{
+					name: "licenses",
+					title: "Licenses",
+					type: "boolean",
+					initialValue: false,
+					description: "Indicates if the training involves licenses.",
+				},
+				{
+					name: "flightRatings",
+					title: "Flight Ratings",
+					type: "boolean",
+					initialValue: false,
+					description: "Indicates if the training involves flight ratings.",
+				},
+				{
+					name: "simulators",
+					title: "Simulators",
+					type: "boolean",
+					initialValue: false,
+					description: "Indicates if the training involves simulators.",
+				},
+				{
+					name: "other",
+					title: "Other",
+					type: "boolean",
+					initialValue: false,
+					description: "Indicates if the training involves other categories.",
+				},
+			],
+			validation: (Rule) =>
+				Rule.custom((fields) => {
+					// @ts-ignore
+					const selectedFields = Object.values(fields).filter(
+						(value) => value === true,
+					);
+					return selectedFields.length <= 1
+						? true
+						: "Only one category can be selected";
+				}),
 		}),
 		defineField({
 			name: "hero",
 			type: "hero",
 			hidden: ({ document }) => document?.isLandingPage !== true,
+			description: "Hero section for the landing page.",
 		}),
 		defineField({
 			name: "service",
@@ -36,18 +103,23 @@ export default defineType({
 			type: "array",
 			of: [{ type: "service" }],
 			hidden: ({ document }) => document?.isLandingPage !== true,
+			description: "List of services provided, shown only on the landing page.",
 		}),
-		defineField({
-      name: "fleetItems",
-      title: "Helicopters That Provide This Service",
-      type: "array",
-      of: [{ type: "reference", to: { type: "fleet" } }],
-    }),
 		defineField({
 			name: "pilot",
 			title: "Pilot",
 			type: "reference",
 			to: [{ type: "pilots" }],
+			description: "Reference to the lead pilot associated with this training.",
+			validation: (Rule) => Rule.required(),
+		}),
+		defineField({
+			name: "fleetItems",
+			title: "Helicopters That Provide This Training",
+			type: "array",
+			hidden: ({ document }) => document?.isLandingPage === true,
+			of: [{ type: "reference", to: { type: "fleet" } }],
+			description: "References to the fleet items involved in this training.",
 		}),
 		defineField({
 			name: "mainImage",
@@ -55,34 +127,46 @@ export default defineType({
 			type: "image",
 			hidden: ({ document }) => document?.isLandingPage === true,
 			options: { hotspot: true },
+			description: "The main image for the training page.",
+			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: "body",
 			title: "Content",
 			type: "blockContent",
+			description: "The main content of the training page.",
+			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: "seoDescription",
 			title: "SEO Description",
 			type: "string",
+			description: "Description for SEO purposes.",
+			validation: (Rule) =>
+				Rule.max(160).warning(
+					"SEO Descriptions should be at most 160 characters.",
+				),
 		}),
 		defineField({
 			name: "seoTitle",
 			title: "SEO Title",
 			type: "string",
+			description: "Title for SEO purposes.",
+			validation: (Rule) =>
+				Rule.max(60).warning("SEO Titles should be at most 60 characters."),
 		}),
 	],
 
 	preview: {
 		select: {
 			title: "title",
+			shortTitle: "shortTitle",
 			heroImage: "hero.image",
 			mainImage: "mainImage",
 		},
-		// @ts-ignore
 		prepare(selection) {
 			return {
-				title: selection.title,
+				title: selection.shortTitle || selection.title,
 				media: selection.heroImage || selection.mainImage,
 			};
 		},

@@ -63,13 +63,13 @@ export default defineType({
 			type: "image",
 			description: "Upload the logo for dark mode display settings",
 		}),
-		defineField({
-			name: "navigationMenu",
-			title: "Navigation Menu",
-			type: "array",
-			of: [{ type: "link" }],
-			description: "Define the navigation headers and their respective links",
-		}),
+		// defineField({
+		// 	name: "navigationMenu",
+		// 	title: "Navigation Menu",
+		// 	type: "array",
+		// 	of: [{ type: "link" }],
+		// 	description: "Define the navigation headers and their respective links",
+		// }),
 		defineField({
 			name: "openingHours",
 			title: "Opening Hours",

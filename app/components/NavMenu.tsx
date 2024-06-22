@@ -272,8 +272,13 @@ const fleet: {
 ];
 
 // @ts-ignore
-export function NavMenu({ onMobileOpen }: { onMobileOpen: () => void }) {
+export function NavMenu({
+	menuData,
+	onMobileOpen,
+}: { onMobileOpen: () => void; menuData: any }) {
 	const path = usePathname();
+
+	console.log("menuData", menuData);
 
 	return (
 		<>
