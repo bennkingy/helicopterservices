@@ -5,103 +5,21 @@ import GetInTouch from "./GetInTouch";
 import Weather from "./Weather";
 import logo from "/public/images/LogoLightV2New.svg";
 
-export default function Footer() {
-	const training: { title: string; href: string }[] = [
-		{
-			title: "Private pilot license",
-			href: "/training/private-pilot-licence",
-		},
-		{
-			title: "Commerical Pilot License",
-			href: "/training/commercial-pilot-licence",
-		},
-		{
-			title: "Flight examiner rating",
-			href: "/training/flight-examiner-ratings",
-		},
-		{
-			title: "Type rating",
-			href: "/training/type-ratings",
-		},
-		{
-			title: "Instrument rating",
-			href: "/training/instrument-ratings",
-		},
-		{
-			title: "Flight instructor rating",
-			href: "/training/flight-instructor-ratings",
-		},
-		{
-			title: "Night rating",
-			href: "/training/night-rating",
-		},
-		{
-			title: "PBN",
-			href: "/training/PBN",
-		},
-		{
-			title: "Virtual Reality Simulator",
-			href: "/training/virtual-reality-simulator",
-		},
-		{
-			title: "Simulator",
-			href: "/training/simulator",
-		},
-		{
-			title: "ELCAS",
-			href: "/training/ELCAS",
-		},
-		{
-			title: "FAA",
-			href: "/training/FAA",
-		},
-		{
-			title: "Refresher seminars",
-			href: "/training/refresher-seminars",
-		},
-		{
-			title: "Advanced flying programme",
-			href: "/training/advanced-flying-programme",
-		},
-	];
+async function getNavigationData() {
+	let data: any;
 
-	const flights: { title: string; href: string }[] = [
-		{
-			title: "Airpot transfers",
-			href: "/flights/airport-transfers",
-		},
-		{
-			title: "Helicopter Charter",
-			href: "/flights/helicopter-charter",
-		},
-		{
-			title: "London sightseeing",
-			href: "/flights/london-sightseeing",
-		},
-		{
-			title: "Special events",
-			href: "/flights/special-events",
-		},
-		{
-			title: "Trail lessons",
-			href: "/flights/trail-lessons",
-		},
-		{
-			title: "Local area tours",
-			href: "/flights/local-area-tours",
-		},
-	];
+	try {
+		const response = await fetch("http://localhost:3000/api/navigation");
+		data = await response.json();
+	} catch (error) {
+		console.error("Failed to fetch navigation data:", error);
+	}
 
-	const industry: { title: string; href: string }[] = [
-		{
-			title: "Photography and filming",
-			href: "/flights/airport-transfers",
-		},
-		{
-			title: "Load lifting",
-			href: "/flights/helicopter-charter",
-		},
-	];
+	return data;
+}
+
+export default async function Footer() {
+	const data = await getNavigationData();
 
 	return (
 		<>
@@ -167,21 +85,18 @@ export default function Footer() {
 							Legals
 						</div>
 						<ul>
-							<li className="transition-colors hover:text-brand-light-blue flex">
-								<Link href="cookies" passHref className="flex">
-									Cookies
-								</Link>
-							</li>
-							<li className="transition-colors hover:text-brand-light-blue flex">
-								<Link href="Policy" passHref>
-									Policy
-								</Link>
-							</li>
-							<li className="transition-colors hover:text-brand-light-blue flex">
-								<Link href="terms-conditions" passHref>
-									Terms and conditions
-								</Link>
-							</li>
+							{data?.legal
+								.sort((a, b) => a.title.localeCompare(b.title))
+								.map((item, index) => (
+									<li
+										className="transition-colors hover:text-brand-light-blue"
+										key={index}
+									>
+										<Link href={`/legal/${item.slug}`} passHref>
+											{item.title}
+										</Link>
+									</li>
+								))}
 						</ul>
 					</div>
 					<div className="">
@@ -189,14 +104,14 @@ export default function Footer() {
 							Training
 						</div>
 						<ul>
-							{training
+							{data?.training
 								.sort((a, b) => a.title.localeCompare(b.title))
 								.map((item, index) => (
 									<li
 										className="transition-colors hover:text-brand-light-blue"
 										key={index}
 									>
-										<Link href={item.href} passHref>
+										<Link href={`/training/${item.slug}`} passHref>
 											{item.title}
 										</Link>
 									</li>
@@ -208,14 +123,14 @@ export default function Footer() {
 							Flight
 						</div>
 						<ul>
-							{flights
+							{data?.flights
 								.sort((a, b) => a.title.localeCompare(b.title))
 								.map((item, index) => (
 									<li
 										className="transition-colors hover:text-brand-light-blue"
 										key={index}
 									>
-										<Link href={item.href} passHref>
+										<Link href={`/flights/${item.slug}`} passHref>
 											{item.title}
 										</Link>
 									</li>
@@ -225,14 +140,14 @@ export default function Footer() {
 							Industry
 						</div>
 						<ul>
-							{industry
+							{data?.industry
 								.sort((a, b) => a.title.localeCompare(b.title))
 								.map((item, index) => (
 									<li
 										className="transition-colors hover:text-brand-light-blue"
 										key={index}
 									>
-										<Link href={item.href} passHref>
+										<Link href={`/industry/${item.slug}`} passHref>
 											{item.title}
 										</Link>
 									</li>
