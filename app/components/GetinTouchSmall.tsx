@@ -15,10 +15,7 @@ const GetinTouchSmall = ({ className }: any) => {
 					form and out team will get back to you.
 				</p>
 				<Link href="/enquire">
-					<Button
-						size="lg"
-						className="bg-brand-light-blue text-white w-full mt-3"
-					>
+					<Button size="lg" className="bg-brand-orange text-white w-full mt-3">
 						General enquiries
 					</Button>
 				</Link>

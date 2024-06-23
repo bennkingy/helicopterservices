@@ -42,6 +42,7 @@ const config = {
 					"light-grey": "#ECF3F5",
 					"medium-grey": "#E2EEF7",
 					"dark-grey": "#1B1B1B",
+					orange: "#F77005",
 				},
 				primary: {
 					DEFAULT: "hsl(var(--primary))",

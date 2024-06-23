@@ -257,7 +257,7 @@ export default async function Training({
 							<Link href="/enquire">
 								<Button
 									size="lg"
-									className="bg-brand-light-blue text-white mt-5 mx-auto"
+									className="bg-brand-orange text-white mt-5 mx-auto"
 								>
 									General enquiries
 								</Button>

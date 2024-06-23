@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -49,7 +51,7 @@ export default async function Footer() {
 							<br />
 							Berkshire
 							<br />
-							<Link href={mapLocation} className="text-brand-light-blue">
+							<Link href={mapLocation} className="text-brand-orange">
 								SL6 3NJ
 							</Link>
 						</p>
@@ -58,7 +60,7 @@ export default async function Footer() {
 						</div>
 						{/* https://twitter.com/HeliServicesUK */}
 						<ul>
-							<li className=" text-brand-light-blue font-bold">
+							<li className=" text-white font-semibold ">
 								<Link
 									href="https://www.facebook.com/heliservicesuk/"
 									passHref
@@ -74,7 +76,7 @@ export default async function Footer() {
 									Instagram
 								</Link>
 							</li>
-							<li className=" text-brand-light-blue font-bold">
+							<li className=" text-white font-semibold">
 								<Link
 									href="https://www.instagram.com/helicopterservices/"
 									passHref
@@ -151,7 +153,9 @@ export default async function Footer() {
 						</div>
 						<ul>
 							{data?.industry
+								// @ts-ignore
 								.sort((a, b) => a.title.localeCompare(b.title))
+								// @ts-ignore
 								.map((item, index) => (
 									<li
 										className="transition-colors hover:text-brand-light-blue"

@@ -58,7 +58,7 @@ const ContacForm = () => {
 	const [loading, setLoading] = useState(false);
 	const [step, setStep] = useState(1);
 	const [name, setName] = useState("");
-  // const [selectedRequirement, setSelectedRequirement] = useState("Training");
+	// const [selectedRequirement, setSelectedRequirement] = useState("Training");
 
 	useEffect(() => {
 		emailjs.init(publicKey);
@@ -72,7 +72,7 @@ const ContacForm = () => {
 			body: "",
 			contactNumber: "",
 			requirement: "Training",
-      // service: "",
+			// service: "",
 		},
 	});
 
@@ -93,12 +93,12 @@ const ContacForm = () => {
 					message: data.body,
 					requirement: data.requirement,
 					// @ts-ignore
-					// service: data.service, 
+					// service: data.service,
 				},
 				publicKey,
 			);
 			setName(data.name);
-			window.scrollTo({ top: 0, behavior: 'smooth' });
+			window.scrollTo({ top: 0, behavior: "smooth" });
 			setStep(2);
 		} catch (error) {
 			console.error("Failed to send the email:", error);
@@ -192,10 +192,10 @@ const ContacForm = () => {
 											render={({ field }) => (
 												<RadioGroup
 													{...field}
-											    onValueChange={(value) => {
-                            field.onChange(value);
-                            // setSelectedRequirement(value);
-                          }}
+													onValueChange={(value) => {
+														field.onChange(value);
+														// setSelectedRequirement(value);
+													}}
 													value={field.value}
 												>
 													<div className="flex items-center space-x-2 mt-0">
@@ -263,8 +263,7 @@ const ContacForm = () => {
 						</div>
 						<Button
 							type="submit"
-							className="w-full bg-brand-light-blue"
-							// sm:max-w-[250px]
+							className="w-full sm:max-w-[240px] bg-brand-orange py-6 flex m-auto"
 							disabled={pending}
 							data-test-id="submitEnquiryButton"
 						>
@@ -286,8 +285,10 @@ const ContacForm = () => {
 						Thank you for your enquiry, {name}!
 					</h3>
 					<p className="mt-5 text-center text-base text-brand-dark-blue font-openSans">
-						Your enquiry has lifted off and is now on its way to us.<br/>We&apos;ll
-						get back to you as soon as it lands, usually within 24 hours.
+						Your enquiry has lifted off and is now on its way to us.
+						<br />
+						We&apos;ll get back to you as soon as it lands, usually within 24
+						hours.
 					</p>
 				</div>
 			)}

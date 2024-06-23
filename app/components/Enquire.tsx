@@ -10,7 +10,7 @@ const Enquire = ({ className, textStyle }: props) => {
 	return (
 		<div className={`flex sm:items-center flex-col sm:flex-row ${className}`}>
 			<Link href="/enquire">
-				<Button className="uppercase bg-brand-light-blue text-white w-[150px] py-6">
+				<Button className="uppercase bg-brand-orange text-white w-[150px] py-6">
 					Enquire Today
 				</Button>
 			</Link>

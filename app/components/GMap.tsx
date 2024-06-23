@@ -14,9 +14,146 @@ const center = {
 	lng: -0.7648,
 };
 
+// const mapStyles = [
+// 	{
+// 		elementType: "geometry",
+// 		stylers: [
+// 			{
+// 				color: "#ffffff",
+// 			},
+// 		],
+// 	},
+// 	{
+// 		elementType: "labels.text.fill",
+// 		stylers: [
+// 			{
+// 				color: "#102039",
+// 			},
+// 		],
+// 	},
+// 	{
+// 		featureType: "water",
+// 		elementType: "geometry",
+// 		stylers: [
+// 			{
+// 				color: "#1FB6DE",
+// 			},
+// 		],
+// 	},
+// 	{
+// 		featureType: "road",
+// 		elementType: "geometry",
+// 		stylers: [
+// 			{
+// 				color: "#1FB6DE",
+// 			},
+// 		],
+// 	},
+// ];
+
 const mapStyles = [
 	{
+		featureType: "landscape.man_made",
 		elementType: "geometry",
+		stylers: [
+			{
+				color: "#f7f1df",
+			},
+		],
+	},
+	{
+		featureType: "landscape.natural",
+		elementType: "geometry",
+		stylers: [
+			{
+				color: "#d0e3b4",
+			},
+		],
+	},
+	{
+		featureType: "landscape.natural.terrain",
+		elementType: "geometry",
+		stylers: [
+			{
+				visibility: "off",
+			},
+		],
+	},
+	{
+		featureType: "poi",
+		elementType: "labels",
+		stylers: [
+			{
+				visibility: "off",
+			},
+		],
+	},
+	{
+		featureType: "poi.business",
+		elementType: "all",
+		stylers: [
+			{
+				visibility: "off",
+			},
+		],
+	},
+	{
+		featureType: "poi.medical",
+		elementType: "geometry",
+		stylers: [
+			{
+				color: "#fbd3da",
+			},
+		],
+	},
+	{
+		featureType: "poi.park",
+		elementType: "geometry",
+		stylers: [
+			{
+				color: "#bde6ab",
+			},
+		],
+	},
+	{
+		featureType: "road",
+		elementType: "geometry.stroke",
+		stylers: [
+			{
+				visibility: "off",
+			},
+		],
+	},
+	{
+		featureType: "road",
+		elementType: "labels",
+		stylers: [
+			{
+				visibility: "off",
+			},
+		],
+	},
+	{
+		featureType: "road.highway",
+		elementType: "geometry.fill",
+		stylers: [
+			{
+				color: "#ffe15f",
+			},
+		],
+	},
+	{
+		featureType: "road.highway",
+		elementType: "geometry.stroke",
+		stylers: [
+			{
+				color: "#efd151",
+			},
+		],
+	},
+	{
+		featureType: "road.arterial",
+		elementType: "geometry.fill",
 		stylers: [
 			{
 				color: "#ffffff",
@@ -24,10 +161,20 @@ const mapStyles = [
 		],
 	},
 	{
-		elementType: "labels.text.fill",
+		featureType: "road.local",
+		elementType: "geometry.fill",
 		stylers: [
 			{
-				color: "#102039",
+				color: "black",
+			},
+		],
+	},
+	{
+		featureType: "transit.station.airport",
+		elementType: "geometry.fill",
+		stylers: [
+			{
+				color: "#cfb2db",
 			},
 		],
 	},
@@ -36,16 +183,7 @@ const mapStyles = [
 		elementType: "geometry",
 		stylers: [
 			{
-				color: "#1FB6DE",
-			},
-		],
-	},
-	{
-		featureType: "road",
-		elementType: "geometry",
-		stylers: [
-			{
-				color: "#1FB6DE",
+				color: "#a2daf2",
 			},
 		],
 	},
