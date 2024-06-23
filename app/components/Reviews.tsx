@@ -116,7 +116,8 @@ const Reviews = ({ className }: props) => {
 											</div>
 										</div>
 									</div>
-									<p className="text-brand-dark-grey mt-2 p-4 line-clamp-4 pb-0 mb-1">
+									<p className="text-brand-dark-grey mt-2 p-4 line-clamp-[4] pb-0 mb-1">
+										{/* sm:min-h-[190px] */}
 										<span className="text-lg">“</span>
 										{review?.description}
 										<span className="text-lg">”</span>

@@ -26,7 +26,7 @@ export default async function Enquire() {
 				Social
 			</div>
 			<ul>
-				<Link href="#" passHref>
+				<Link href="https://www.facebook.com/heliservicesuk/" passHref>
 					<li className="flex text-brand-light-blue font-bold">
 						<Image
 							src="/images/facebook.png"
@@ -38,16 +38,18 @@ export default async function Enquire() {
 						Instagram
 					</li>
 				</Link>
-				<li className="flex text-brand-light-blue font-bold">
-					<Image
-						src="/images/instagram.png"
-						width={20}
-						height={20}
-						alt=""
-						className="mt-1 mr-[7px] ml-[2px]"
-					/>
-					Facebook
-				</li>
+				<Link href="https://www.instagram.com/helicopterservices/" passHref>
+					<li className="flex text-brand-light-blue font-bold">
+						<Image
+							src="/images/instagram.png"
+							width={20}
+							height={20}
+							alt=""
+							className="mt-1 mr-[7px] ml-[2px]"
+						/>
+						Facebook
+					</li>
+				</Link>
 			</ul>
 			<div className="max-w-[397px]">
 				<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-10">

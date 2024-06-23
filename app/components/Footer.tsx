@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import GetInTouch from "./GetInTouch";
 import Weather from "./Weather";
 import logo from "/public/images/LogoLightV2New.svg";
+import { mapLocation } from "@/lib/constants";
 
 async function getNavigationData() {
 	let data: any;
@@ -48,16 +49,21 @@ export default async function Footer() {
 							<br />
 							Berkshire
 							<br />
-							<a href="/" className="text-brand-light-blue">
+							<Link href={mapLocation} className="text-brand-light-blue">
 								SL6 3NJ
-							</a>
+							</Link>
 						</p>
 						<div className="text-sm font-bold my-5 mb-3 mt-6 font-openSans">
 							Social
 						</div>
+						{/* https://twitter.com/HeliServicesUK */}
 						<ul>
 							<li className=" text-brand-light-blue font-bold">
-								<Link href="#" passHref className="flex">
+								<Link
+									href="https://www.facebook.com/heliservicesuk/"
+									passHref
+									className="flex"
+								>
 									<Image
 										src="/images/facebook.png"
 										width={25}
@@ -69,7 +75,11 @@ export default async function Footer() {
 								</Link>
 							</li>
 							<li className=" text-brand-light-blue font-bold">
-								<Link href="#" passHref className="flex">
+								<Link
+									href="https://www.instagram.com/helicopterservices/"
+									passHref
+									className="flex"
+								>
 									<Image
 										src="/images/instagram.png"
 										width={20}
