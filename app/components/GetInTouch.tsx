@@ -1,5 +1,7 @@
+import { Icons } from "@/components/ui/icons";
 import Button from "./Button";
 import Heading from "./Heading";
+import Link from "next/link";
 
 type props = {
 	className?: string;
@@ -54,19 +56,35 @@ const GetInTouch = ({ className }: props) => {
 									</tr>
 								</tbody>
 							</table>
-							<div className={`font-openSans text-center sm:text-right mt-10`}>
-								<a
-									href="emailto:info@helicopterservices.co.uk"
-									className="mb-[2px] font-normal text-sm block hover:underline underline-offset-2"
-								>
-									info@helicopterservices.co.uk
-								</a>
-								<a
-									href="tel:+441494513166"
-									className="text-lg font-bold mt-0 hover:underline underline-offset-2"
-								>
-									+44 1494 513 166
-								</a>
+							<div
+								className={
+									"font-openSans sm:text-right mt-10 flex flex-col items-end"
+								}
+							>
+								<div className="flex items-center">
+									<Icons.mail
+										className="text-brand-light-blue mr-1"
+										height={17}
+									/>
+									<Link
+										href="emailto:info@helicopterservices.co.uk"
+										className="mb-[2px] font-normal text-sm hover:underline underline-offset-2 flex"
+									>
+										info@helicopterservices.co.uk
+									</Link>
+								</div>
+								<div className="flex items-center">
+									<Icons.phone
+										className="text-brand-light-blue mr-1"
+										height={17}
+									/>
+									<Link
+										href="tel:+441494513166"
+										className="text-lg font-bold mt-0 hover:underline underline-offset-2"
+									>
+										+44 1494 513 166
+									</Link>
+								</div>
 							</div>
 						</div>
 						<div className="p-5 pl-5 sm:pl-12 mt-5 sm:mt-0">
@@ -103,18 +121,30 @@ const GetInTouch = ({ className }: props) => {
 								</tbody>
 							</table>
 							<div className={`font-openSans text-center sm:text-left mt-10`}>
-								<a
-									href="mailto:ruth.downey@helicopterservices.co.uk"
-									className="mb-[2px] font-normal text-sm block hover:underline underline-offset-2"
-								>
-									ruth.downey@helicopterservices.co.uk
-								</a>
-								<a
-									href="tel:+441494513166"
-									className="text-lg font-bold mt-0 hover:underline underline-offset-2"
-								>
-									+44 1494 513 166
-								</a>
+								<div className="flex items-center">
+									<Icons.mail
+										className="text-brand-light-blue mr-1"
+										height={17}
+									/>
+									<Link
+										href="mailto:ruth.downey@helicopterservices.co.uk"
+										className="mb-[2px] font-normal text-sm block hover:underline underline-offset-2"
+									>
+										ruth.downey@helicopterservices.co.uk
+									</Link>
+								</div>
+								<div className="flex items-center">
+									<Icons.phone
+										className="text-brand-light-blue mr-1"
+										height={17}
+									/>
+									<Link
+										href="tel:+441494513166"
+										className="text-lg font-bold mt-0 hover:underline underline-offset-2"
+									>
+										+44 1494 513 166
+									</Link>
+								</div>
 							</div>
 						</div>
 					</div>

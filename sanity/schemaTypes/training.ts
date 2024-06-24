@@ -1,5 +1,10 @@
 import { defineField, defineType } from "sanity";
 
+// @ts-ignore
+const shouldShow = (document) => {
+	return document.conditionField === "show";
+};
+
 export default defineType({
 	name: "training",
 	title: "Training",
@@ -128,7 +133,12 @@ export default defineType({
 			hidden: ({ document }) => document?.isLandingPage === true,
 			options: { hotspot: true },
 			description: "The main image for the training page.",
-			validation: (Rule) => Rule.required(),
+			validation: (rule) =>
+				rule.custom((currentValue, { document }) => {
+					if (shouldShow(document) && currentValue === undefined)
+						return "This is required.";
+					return true;
+				}),
 		}),
 		defineField({
 			name: "body",

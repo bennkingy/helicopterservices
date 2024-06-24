@@ -13,6 +13,7 @@ import YouTubeThreeD from "./YouTubeThreeD";
 import HelicopterCard2 from "./HelicopterCard2";
 import Link from "next/link";
 import IconsHelper from "./IconsHelper";
+import { Icons } from "@/components/ui/icons";
 
 type props = {
 	data: any;
@@ -122,7 +123,7 @@ const Template = ({
 				)}
 			>
 				<div className="pr-0 md:pr-20 mb-16 md:mb-0 col-span-2">
-					<div className="prose prose-a:text-brand-light-blue prose-a:transition-colors hover:prose-a:text-brand-dark-blue font-openSans prose-h2:font-workSans prose-h2:text-3xl sm:prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey">
+					<div className="prose prose-a:text-brand-orange prose-a:transition-colors hover:prose-a:text-brand-dark-blue prose-a:no-underline font-openSans prose-h2:font-workSans prose-h2:text-3xl sm:prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey">
 						<PortableText value={data?.body || ""} components={components} />
 					</div>
 					<Approvals />
@@ -144,16 +145,14 @@ const Template = ({
 										url={"/fleet/"}
 									/>
 								))}
-							<div className="flex mt-4 cursor-pointer items-center text-brand-light-blue transition-colors hover:text-foreground h-[20px]">
-								<IconsHelper
-									iconColor={"Blue"}
-									iconSize={17}
-									iconType={"Flights"}
-									className={"mr-2"}
+							<div className="flex items-center mt-4 cursor-pointer text-brand-light-blue transition-colors group hover:text-foreground h-[20px]">
+								<Icons.warehouse
+									className="mr-1 text-brand-orange transition-colors group-hover:text-foreground -mt-[1px]"
+									height={15}
 								/>
 								<Link
 									href="/fleet/"
-									className="text-sm text-brand-light-blue mt-0 transition-colors hover:text-foreground"
+									className="text-sm text-brand-orange mt-0 transition-colors group-hover:text-foreground"
 								>
 									See full fleet
 								</Link>

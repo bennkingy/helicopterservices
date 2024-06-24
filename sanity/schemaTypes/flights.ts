@@ -1,5 +1,10 @@
 import { defineField, defineType } from "sanity";
 
+// @ts-ignore
+const shouldShow = (document) => {
+	return document.conditionField === "show";
+};
+
 export default defineType({
 	name: "flights",
 	title: "Flights",
@@ -20,9 +25,9 @@ export default defineType({
 			description: "The main title of the flight document.",
 			validation: (Rule) =>
 				Rule.required()
-					.min(10)
+					.min(1)
 					.max(100)
-					.warning("Titles should be between 10 and 100 characters."),
+					.warning("Titles should be between 1 and 100 characters."),
 		}),
 		defineField({
 			name: "shortTitle",
@@ -73,7 +78,12 @@ export default defineType({
 			hidden: ({ document }) => document?.isLandingPage === true,
 			options: { hotspot: true },
 			description: "The main image for the flight page.",
-			validation: (Rule) => Rule.required(),
+			validation: (rule) =>
+				rule.custom((currentValue, { document }) => {
+					if (shouldShow(document) && currentValue === undefined)
+						return "This is required.";
+					return true;
+				}),
 		}),
 		defineField({
 			name: "body",

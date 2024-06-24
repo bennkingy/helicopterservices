@@ -57,7 +57,7 @@ const Carousel = ({ slides }: props) => {
 					<CarouselItem
 						key={index + 1}
 						className={
-							"md:basis-1/2 lg:basis-1/3 m-0 px-10 md:px-16 text-center"
+							"md:basis-1/2 lg:basis-1/3 m-0 px-10 md:px-16 text-center group hover:text-brand-dark-blue"
 						}
 					>
 						<Link href={item.link}>
@@ -74,7 +74,7 @@ const Carousel = ({ slides }: props) => {
 								{item.title}
 							</h5>
 							<p className="mb-3 font-openSans">{item.description}</p>
-							<p className="text-base font-bold text-brand-light-blue font-openSans">
+							<p className="text-base font-bold text-brand-orange font-openSans ">
 								Discover more
 							</p>
 						</Link>

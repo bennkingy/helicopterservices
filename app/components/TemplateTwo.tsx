@@ -142,7 +142,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 						</div>
 						<div
 							className={cn(
-								"prose prose-a:text-brand-light-blue prose-a:transition-colors hover:prose-a:text-brand-dark-blue  font-openSans prose-h2:font-workSans prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey",
+								"prose prose-a:text-brand-orange prose-a:transition-colors prose-a hover:prose-a:text-brand-dark-blue prose-a:no-underline  font-openSans prose-h2:font-workSans prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey",
 							)}
 						>
 							<PortableText value={data?.body || ""} />

@@ -9,6 +9,9 @@ import {
 	PlaneTakeoff,
 	Star,
 	Sun,
+	Mail,
+	PlaneLandingIcon,
+	Warehouse,
 } from "lucide-react";
 
 export const Icons = {
@@ -22,6 +25,9 @@ export const Icons = {
 	// squareArrowUp: SquareArrowUp,
 	moveUp: MoveUp,
 	max: Maximize2,
+	mail: Mail,
+	plane: PlaneLandingIcon,
+	warehouse: Warehouse,
 	github: (props: LucideProps) => (
 		<svg viewBox="0 0 438.549 438.549" {...props}>
 			<path

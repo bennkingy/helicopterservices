@@ -148,3 +148,21 @@
 #home:hover > a, #enquire:hover > a {
   color: #15B1D7
 }
+
+@media(min-width: 640px) and (max-width: 1200px) {
+  .weather-fix {
+    display: flex;
+    max-width: 100% !important;
+    align-items: center;
+    margin-top: 70px !important;
+    p {
+      padding: 7px;
+    }
+  }
+}
+
+@media(max-width: 639px)  {
+  .weather-fix {
+    margin-top: 70px !important;
+  }
+}

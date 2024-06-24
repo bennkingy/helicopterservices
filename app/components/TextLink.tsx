@@ -12,7 +12,7 @@ const TextLink = ({ onClick, navigateTo, label, className }: props) => {
 	return (
 		<p
 			className={cn(
-				`font-bold text-brand-light-blue flex items-center font-openSans cursor-pointer transition-colors hover:text-foreground ${className}`,
+				`font-bold text-brand-orange flex items-center font-openSans cursor-pointer transition-colors hover:text-foreground ${className}`,
 			)}
 			onClick={onClick}
 		>

@@ -60,7 +60,7 @@ export default async function Footer() {
 						</div>
 						{/* https://twitter.com/HeliServicesUK */}
 						<ul>
-							<li className=" text-white font-semibold ">
+							<li className=" font-semibold text-brand-light-blue ">
 								<Link
 									href="https://www.facebook.com/heliservicesuk/"
 									passHref
@@ -76,7 +76,7 @@ export default async function Footer() {
 									Instagram
 								</Link>
 							</li>
-							<li className=" text-white font-semibold">
+							<li className="text-brand-light-blue font-semibold">
 								<Link
 									href="https://www.instagram.com/helicopterservices/"
 									passHref
@@ -168,7 +168,7 @@ export default async function Footer() {
 								))}
 						</ul>
 					</div>
-					<div className="mt-20 md:mt-0 max-w-80">
+					<div className="w-full sm:w-auto md:mt-0">
 						<Suspense
 							fallback={<p className="bg-red">Loading weather data...</p>}
 						>
