@@ -20,9 +20,9 @@ export default defineType({
 			description: "The main title of the training page.",
 			validation: (Rule) =>
 				Rule.required()
-					.min(5)
+					.min(1)
 					.max(100)
-					.warning("Titles should be between 5 and 100 characters."),
+					.warning("Titles should be between 1 and 100 characters."),
 		}),
 		defineField({
 			name: "shortTitle",
