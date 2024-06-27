@@ -34,7 +34,7 @@ const YouTubeThreeD = ({ data, className = "md:mr-20" }: props) => {
 					data-tweet-text="lightGallery slide  2"
 					className="gallery__item"
 					data-src={data}
-					data-sub-html={`<h4>Helicopter Services</h4><p>360 Video</p>`}
+					data-sub-html={`<h4>Helicopter Services</h4><p>360 video</p>`}
 				>
 					<Image
 						width={500}
