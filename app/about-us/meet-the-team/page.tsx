@@ -24,11 +24,12 @@ async function getPageData() {
 
 async function getPilotData() {
 	const query = `
-    *[_type == "pilots"] {
+    *[_type == "pilots"] | order(order asc) {
       name,
       slug,
       role,
       bio,
+			order,
       "mainImage": mainImage{
 				...,
 				"imageUrl": asset->url,
