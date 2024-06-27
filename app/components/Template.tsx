@@ -128,7 +128,16 @@ const Template = ({
 					<Approvals />
 					{children}
 					{data?.threedVideoUrl && (
-						<YouTubeThreeD data={data?.threedVideoUrl} />
+						<div
+							className="mt-10"
+							style={{
+								width: "100%",
+								clipPath:
+									"polygon(0 0,calc(100% - 20px) 0, 100% 20px,100% 100%, 0 100%)",
+							}}
+						>
+							<YouTubeThreeD data={data?.threedVideoUrl} className="" />
+						</div>
 					)}
 					{data?.fleetItems?.length > 0 && (
 						<div className="max-w-[500px]">
