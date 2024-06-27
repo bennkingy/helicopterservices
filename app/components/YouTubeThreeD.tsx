@@ -17,7 +17,7 @@ const YouTubeThreeD = ({ data, className = "md:mr-20" }: props) => {
 	const videoId = getYouTubeVideoId(data);
 	const imageUrl = videoId ? `https://img.youtube.com/vi/${videoId}/0.jpg` : "";
 
-	return (
+	return imageUrl && videoId ? (
 		<div
 			className="mt-10"
 			style={{
@@ -51,7 +51,7 @@ const YouTubeThreeD = ({ data, className = "md:mr-20" }: props) => {
 				</a>
 			</Gallery>
 		</div>
-	);
+	) : null;
 };
 
 export default YouTubeThreeD;
