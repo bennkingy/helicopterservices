@@ -13,6 +13,7 @@ import Gallery from "./Gallery";
 import SanityImage from "./SanityImage";
 import StatusIcon from "./StatusIcon";
 import TextLink from "./TextLink";
+import YouTubeThreeD from "./YouTubeThreeD";
 
 type props = {
 	data: FleetItem;
@@ -206,9 +207,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 									data-tweet-text="lightGallery slide  4"
 									className="gallery__item"
 									data-src="https://images.unsplash.com/photo-1585338447937-7082f8fc763d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
-									data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@whoisbenjamin' >whoisbenjamin</a></h4>
-<p>Location - <a href='https://unsplash.com/s/photos/ciuca%C8%99-peak%2C-romania'>Snowdonia National Park, Blaenau Ffestiniog, UK</a> 
-A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href='https://unsplash.com/photos/9V6EkAoTWJM'>Link</a> </p>"
+									data-sub-html={`<h4>Helicopter Services</h4><p>${data?.title}</p>`}
 								>
 									<img
 										className="img-responsive cursor-pointer"
@@ -252,29 +251,10 @@ A swan on a calm misty lake in the mountains of Snowdonia, North Wales. <a href=
 										"polygon(0 0,calc(100% - 20px) 0, 100% 20px,100% 100%, 0 100%)",
 								}}
 							>
-								<Gallery ref={galleryRef} galleryType="video">
-									<a
-										data-lg-size="1000-700"
-										data-pinterest-text="Pin it2"
-										data-tweet-text="lightGallery slide  2"
-										className="gallery__item"
-										data-src={data?.threedVideoUrl}
-										data-sub-html="<h4>Photo by - <a href='https://unsplash.com/@therawhunter' >Massimiliano Morosinotto </a></h4><p> Location - <a href='https://unsplash.com/s/photos/tre-cime-di-lavaredo%2C-italia'>Tre Cime di Lavaredo, Italia</a>This is the Way</p>"
-									>
-										<Image
-											width={500}
-											height={332}
-											quality={100}
-											className="img-responsive cursor-pointer"
-											src={"/images/ezgif-4-d9b45d08be.jpg"}
-											alt=""
-											style={{
-												clipPath:
-													"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-											}}
-										/>
-									</a>
-								</Gallery>
+								<YouTubeThreeD
+									data={data?.threedVideoUrl}
+									className="md:mr-0"
+								/>
 							</div>
 						)}
 						<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-10">

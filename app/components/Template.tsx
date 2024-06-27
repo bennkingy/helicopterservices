@@ -159,7 +159,7 @@ const Template = ({
 						</div>
 					)}
 				</div>
-				{sidebar && (
+				{/* {sidebar && (
 					<>
 						<div className="hidden lg:block col-span-3">
 							<ContactCta className="hidden md:block" pilot={data?.pilot} />
@@ -172,6 +172,14 @@ const Template = ({
 							<GMap className="mb-20 sm:mb-0" />
 						</div>
 					</>
+				)} */}
+				{sidebar && (
+					<div className="col-span-3 lg:col-span-3">
+						<ContactCta className="hidden md:block" pilot={data?.pilot} />
+						<GetinTouchSmall className="mt-20 md:mt-8 hidden md:block" />
+						<GMapHeader className="" />
+						<GMap className="mb-20 sm:mb-0" />
+					</div>
 				)}
 			</main>
 		</div>
