@@ -12,7 +12,6 @@ import Header from "./Header";
 import YouTubeThreeD from "./YouTubeThreeD";
 import HelicopterCard2 from "./HelicopterCard2";
 import Link from "next/link";
-import IconsHelper from "./IconsHelper";
 import { Icons } from "@/components/ui/icons";
 
 type props = {
@@ -119,10 +118,10 @@ const Template = ({
 			<main
 				className={cn(
 					"container mx-auto px-4 grid pt-16 sm:py-20 grid-cols-1",
-					{ "md:grid-cols-3": sidebar, "md:grid-cols-1": !sidebar },
+					{ "md:grid-cols-8": sidebar, "md:grid-cols-1": !sidebar },
 				)}
 			>
-				<div className="pr-0 md:pr-20 mb-16 md:mb-0 col-span-2">
+				<div className="pr-0 md:pr-20 mb-16 md:mb-0 col-span-5 lg:col-span-5">
 					<div className="prose prose-a:text-brand-orange prose-a:transition-colors hover:prose-a:text-brand-dark-blue prose-a:no-underline font-openSans prose-h2:font-workSans prose-h2:text-3xl sm:prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey">
 						<PortableText value={data?.body || ""} components={components} />
 					</div>
@@ -161,7 +160,7 @@ const Template = ({
 					)}
 				</div>
 				{sidebar && (
-					<div>
+					<div className="col-span-3 lg:col-span-3">
 						<ContactCta className="hidden md:block" pilot={data?.pilot} />
 						<GetinTouchSmall className="mt-20 md:mt-8 hidden md:block" />
 						<GMapHeader className="" />

@@ -12,8 +12,8 @@ type props = {
 const ContactCta = ({ className, pilot }: props) => {
 	return (
 		<div className={`text-white bg-[#023D67] h-fit ${className}`}>
-			<div className="bg-[#023D67]  py-5 text-white p-10 relative">
-				<div className="-top-5 right-5 border-4 absolute border-white drop-shadow-sm shadow-xl w-[90px] h-[90px]">
+			<div className="bg-[#023D67] py-5 text-white p-10 relative">
+				<div className="absolute sm:inset-0 lg:inset-auto m-auto -mt-[50px] lg:right-5 border-4 border-white drop-shadow-sm shadow-xl w-[90px] h-[90px]">
 					{pilot?.mainImage ? (
 						<SanityImage sanityImage={pilot.mainImage} />
 					) : (
@@ -28,8 +28,8 @@ const ContactCta = ({ className, pilot }: props) => {
 					)}
 				</div>
 			</div>
-			<div className=" text-white relative z-1 overflow-x-hidden pb-9">
-				<p className="font-bold mb-4 pl-5 mt-0 pr-32 sm:text-lg font-openSans">
+			<div className=" text-white relative z-1 overflow-x-hidden pb-3">
+				<p className="font-bold mb-4 pl-5 mt-6 lg:mt-0 pr-3 lg:pr-32 sm:text-lg font-openSans">
 					“Contact us today for a customised quote tailored to your needs”
 				</p>
 				<p className="pl-5 font-openSans">
