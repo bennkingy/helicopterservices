@@ -103,6 +103,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 	};
 
 	const handleOpenVideoGallery = () => {
+		// @ts-ignore
 		videoGalleryRef.current?.openGallery();
 	};
 
