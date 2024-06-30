@@ -58,7 +58,7 @@ const GetInTouch = ({ className }: props) => {
 							</table>
 							<div
 								className={
-									"font-openSans sm:text-right mt-10 flex flex-col items-end"
+									"font-openSans sm:text-right mt-10 flex flex-col items-center md:items-end"
 								}
 							>
 								<div className="flex items-center">
@@ -120,7 +120,9 @@ const GetInTouch = ({ className }: props) => {
 									</tr>
 								</tbody>
 							</table>
-							<div className={`font-openSans text-center sm:text-left mt-10`}>
+							<div
+								className={`font-openSans text-center sm:text-left mt-10 flex flex-col items-center md:items-start`}
+							>
 								<div className="flex items-center">
 									<Icons.mail
 										className="text-brand-light-blue mr-1"
