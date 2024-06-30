@@ -95,10 +95,15 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 	};
 
 	const galleryRef = useRef(null);
+	const videoGalleryRef = useRef(null);
 
 	const handleOpenGallery = () => {
 		// @ts-ignore
 		galleryRef.current?.openGallery();
+	};
+
+	const handleOpenVideoGallery = () => {
+		videoGalleryRef.current?.openGallery();
 	};
 
 	return (
@@ -151,7 +156,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 								<TextLink
 									label="3D cockpit view"
 									className="mt-7"
-									onClick={handleOpenGallery}
+									onClick={handleOpenVideoGallery}
 								/>
 							)}
 						</div>
@@ -252,6 +257,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 								}}
 							>
 								<YouTubeThreeD
+									ref={videoGalleryRef}
 									data={data?.threedVideoUrl}
 									className="md:mr-0"
 								/>
