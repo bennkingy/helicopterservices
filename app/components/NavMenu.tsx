@@ -143,8 +143,11 @@ export function NavMenu({
 								<p className="text-brand-light-blue">Licenses</p>
 								<ul className="grid mt-2">
 									{menuData?.menuData?.training
+										// @ts-ignore
 										.filter((component) => component.category?.licenses)
-										?.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
+										.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -157,9 +160,13 @@ export function NavMenu({
 								</ul>
 								<p className="text-brand-light-blue mt-5">Flight ratings</p>
 								<ul className="grid mt-2">
+									{/* // @ts-ignore */}
 									{menuData?.menuData?.training
+										// @ts-ignore
 										.filter((component) => component.category?.flightRatings)
-										?.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
+										.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -175,8 +182,11 @@ export function NavMenu({
 								<p className="text-brand-light-blue">Simulators</p>
 								<ul className="grid mt-2">
 									{menuData?.menuData?.training
+										// @ts-ignore
 										.filter((component) => component.category?.simulators)
-										?.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
+										.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -192,8 +202,11 @@ export function NavMenu({
 								</p>
 								<ul className="grid mt-2">
 									{menuData?.menuData?.training
+										// @ts-ignore
 										.filter((component) => component.category?.other)
-										?.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
+										.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -241,8 +254,11 @@ export function NavMenu({
 								<p className="text-brand-light-blue">Industry</p>
 								<ul className="grid mt-2">
 									{menuData?.menuData?.industry
+										// @ts-ignore
 										?.filter((component) => component.slug !== "industry")
-										?.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
+										.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -284,8 +300,11 @@ export function NavMenu({
 								<p className="text-brand-light-blue">Flights</p>
 								<ul className="grid mt-2">
 									{menuData?.menuData?.flights
+										// @ts-ignore
 										.filter((component) => component.category?.flights)
-										?.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
+										.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -299,8 +318,11 @@ export function NavMenu({
 								<p className="text-brand-light-blue mt-5">Tours</p>
 								<ul className="grid mt-2">
 									{menuData?.menuData?.flights
+										// @ts-ignore
 										.filter((component) => component.category?.tours)
-										?.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
+										.sort((a, b) => a.title.localeCompare(b.title))
+										// @ts-ignore
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -343,7 +365,7 @@ export function NavMenu({
 								<ul className="grid mt-2">
 									{fleet
 										.filter((component) => component.engine === "Single Engine")
-										?.sort((a, b) => a.title.localeCompare(b.title))
+										.sort((a, b) => a.title.localeCompare(b.title))
 										.slice(0, 4)
 										.map((component) => (
 											<ListItem
@@ -361,7 +383,7 @@ export function NavMenu({
 								<ul className="grid mt-2">
 									{fleet
 										.filter((component) => component.engine === "Single Engine")
-										?.sort((a, b) => a.title.localeCompare(b.title))
+										.sort((a, b) => a.title.localeCompare(b.title))
 										.slice(4, 10)
 										.map((component) => (
 											<ListItem
@@ -380,7 +402,7 @@ export function NavMenu({
 								<ul className="grid mt-2">
 									{fleet
 										.filter((component) => component.engine === "Twin Engine")
-										?.sort((a, b) => a.title.localeCompare(b.title))
+										.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -435,7 +457,9 @@ export function NavMenu({
 									<p className="text-brand-light-blue">About us</p>
 									<ul className="grid mt-2">
 										{menuData?.menuData?.about
-											??.sort((a, b) => a?.title.localeCompare(b.title))
+											// @ts-ignore
+											?.sort((a, b) => a?.title.localeCompare(b.title))
+											// @ts-ignore
 											.map((component) => (
 												<ListItem
 													key={component?.title}
