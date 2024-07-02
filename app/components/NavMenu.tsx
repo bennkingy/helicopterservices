@@ -110,7 +110,6 @@ export function NavMenu({
 	onMobileOpen,
 }: { onMobileOpen: () => void; menuData: any }) {
 	const path = usePathname();
-
 	return (
 		<>
 			<NavigationMenu className="hidden md:block font-workSans font-semibold text-brand-dark-blue">
