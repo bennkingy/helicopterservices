@@ -56,7 +56,7 @@ export const columns: ColumnDef<Payment>[] = [
 				// @ts-ignore
 				href={`/fleet/${row.getValue("title").toLowerCase()}`}
 				passHref
-				className="text-brand-light-blue underline-offset-2 underline uppercase"
+				className="text-brand-orange underline-offset-2 underline uppercase"
 			>
 				{row.getValue("title")}
 			</Link>
