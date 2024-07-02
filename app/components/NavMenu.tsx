@@ -17,174 +17,6 @@ import * as React from "react";
 import MobileMenu from "./MobileMenu";
 // import TextLink from "./TextLink";
 
-const training: {
-	title: string;
-	href: string;
-	description: string;
-	category: string;
-}[] = [
-	{
-		title: "Private pilot license",
-		category: "Licenses",
-		href: "/training/private-pilot-licence",
-		description: "Fly helicopters privately with a private pilot license",
-	},
-	{
-		title: "Commerical Pilot License",
-		category: "Licenses",
-		href: "/training/commercial-pilot-licence",
-		description: "Fly for a living and get paid to do the job you love!",
-	},
-	{
-		title: "Flight examiner rating",
-		href: "/training/flight-examiner-ratings",
-		category: "FlightRatings",
-		description:
-			"Helicopter flight examiners hold a lot of responsibility, setting the standards across the industry and ensuring that they are maintained",
-	},
-	{
-		title: "Type rating",
-		href: "/training/type-ratings",
-		category: "FlightRatings",
-		description:
-			"Putting you near the top of the ladder throughout the helicopter industry",
-	},
-	{
-		title: "Instrument rating",
-		href: "/training/instrument-ratings",
-		category: "FlightRatings",
-		description:
-			"The ultimate way to see London, one of the most famous cities in the world",
-	},
-	{
-		title: "Flight instructor rating",
-		category: "FlightRatings",
-		href: "/training/flight-instructor-ratings",
-		description:
-			"Allows you to fly helicopters under IFR down to a decision height of 200ft",
-	},
-	{
-		title: "Night rating",
-		category: "FlightRatings",
-		href: "/training/night-rating",
-		description: "This add-on for your licence is a exciting challenge",
-	},
-	{
-		title: "PBN",
-		href: "/training/PBN",
-		category: "Other",
-		description: "Improving aircraft navigation with precision and efficiency",
-	},
-	{
-		title: "Virtual Reality Simulator",
-		href: "/training/virtual-reality-simulator",
-		category: "Simulators",
-		description:
-			"An incredibly realistic experience allowing for all flight profiles",
-	},
-	{
-		title: "Simulator",
-		category: "Simulators",
-		href: "/training/simulator",
-		description:
-			"Developing safe instrument flying skills, reducing costs, and enabling progress",
-	},
-	{
-		title: "ELCAS",
-		category: "Other",
-		href: "/training/ELCAS",
-		description: "ELCAS approved training provider for military personnel",
-	},
-	{
-		title: "FAA",
-		category: "Other",
-		href: "/training/FAA",
-		description:
-			"Helicopter Services can train and maintain pilots under the FAA",
-	},
-	{
-		title: "Refresher seminars",
-		category: "Other",
-		href: "/training/refresher-seminars",
-		description: "Expert Instructor and Examiner Seminars",
-	},
-	{
-		title: "Advanced flying programme",
-		category: "Other",
-		href: "/training/advanced-flying-programme",
-		description:
-			"Develop your skills while you expand your practical flying adventures",
-	},
-];
-
-const flights: {
-	title: string;
-	href: string;
-	description: string;
-	category: string;
-}[] = [
-	{
-		title: "Airpot transfers",
-		category: "Flights",
-		href: "/flights/airport-transfers",
-		description: "Your luxury airport transfer service",
-	},
-	{
-		title: "Helicopter Charter",
-		category: "Flights",
-		href: "/flights/helicopter-charter",
-		description: "Transporting VIPs to special events for over 20 years",
-	},
-	{
-		title: "London sightseeing",
-		category: "Tours",
-		href: "/flights/london-sightseeing",
-		description: "Unrivalled views of the most famous city in the world",
-	},
-	{
-		title: "Special events",
-		category: "Flights",
-		href: "/flights/special-events",
-		description:
-			"Private charters for weddings, tours, and celebrations, ensuring excellent service",
-	},
-	{
-		title: "Trail lessons",
-		category: "Flights",
-		href: "/flights/trail-lessons",
-		description: "Discover the fun and manoeuvrability of a helicopter!",
-	},
-	{
-		title: "Local area tours",
-		category: "Tours",
-		href: "/flights/local-area-tours",
-		description: "Experience the UK from the air with our local area tours",
-	},
-];
-
-const about: { title: string; href: string; description: string }[] = [
-	{
-		title: "Meet the team",
-		href: "/about-us/meet-the-team",
-		description: "Meet our lovely team!",
-	},
-	{
-		title: "Helicopter fleet",
-		href: "/fleet",
-		description: "Check out our helicopter fleet",
-	},
-	{
-		title: "The Hanger",
-		href: "/about-us/the-hanger",
-		description: "Check out the hanger",
-	},
-	{
-		title: "FAQs",
-		href: "/about-us/faqs",
-		description: "Fequently asked questions and answers",
-	},
-];
-
 const fleet: {
 	title: string;
 	href: string;
@@ -278,8 +110,6 @@ export function NavMenu({
 }: { onMobileOpen: () => void; menuData: any }) {
 	const path = usePathname();
 
-	console.log("menuData", menuData);
-
 	return (
 		<>
 			<NavigationMenu className="hidden md:block font-workSans font-semibold text-brand-dark-blue">
@@ -312,8 +142,8 @@ export function NavMenu({
 							<div className="p-7 pb-4 max-w-[250px]">
 								<p className="text-brand-light-blue">Licenses</p>
 								<ul className="grid mt-2">
-									{training
-										.filter((component) => component.category === "Licenses")
+									{menuData?.menuData?.training
+										.filter((component) => component.category?.licenses)
 										.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
@@ -327,10 +157,8 @@ export function NavMenu({
 								</ul>
 								<p className="text-brand-light-blue mt-5">Flight ratings</p>
 								<ul className="grid mt-2">
-									{training
-										.filter(
-											(component) => component.category === "FlightRatings",
-										)
+									{menuData?.menuData?.training
+										.filter((component) => component.category?.flightRatings)
 										.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
@@ -346,8 +174,8 @@ export function NavMenu({
 							<div className="p-7 pb-0 max-w-[350px]">
 								<p className="text-brand-light-blue">Simulators</p>
 								<ul className="grid mt-2">
-									{training
-										.filter((component) => component.category === "Simulators")
+									{menuData?.menuData?.training
+										.filter((component) => component.category?.simulators)
 										.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
@@ -363,8 +191,8 @@ export function NavMenu({
 									Other training services
 								</p>
 								<ul className="grid mt-2">
-									{training
-										.filter((component) => component.category === "Other")
+									{menuData?.menuData?.training
+										.filter((component) => component.category?.other)
 										.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
@@ -412,17 +240,18 @@ export function NavMenu({
 							<div className="p-7 pb-4 max-w-[250px]">
 								<p className="text-brand-light-blue">Industry</p>
 								<ul className="grid mt-2">
-									<ListItem href="/industry/load-lifting" title="Load lifting">
-										{/* Resolve many load lifting challenges with our range of load
-									lifting services. */}
-									</ListItem>
-									<ListItem
-										href="/industry/photography-filming"
-										title="Photography and filming"
-									>
-										{/* Getting the best shots for companies, such as BBC, ITV, Sky,
-									Channel 4. */}
-									</ListItem>
+									{menuData?.menuData?.industry
+										?.filter((component) => component.slug !== "industry")
+										.sort((a, b) => a.title.localeCompare(b.title))
+										.map((component) => (
+											<ListItem
+												key={component.title}
+												title={component.title}
+												href={component.href}
+											>
+												{/* {component.description} */}
+											</ListItem>
+										))}
 								</ul>
 							</div>
 							<div className="w-[500px] h-[200px] ml-auto relative">
@@ -454,8 +283,8 @@ export function NavMenu({
 							<div className="p-7 pb-4 max-w-[250px]">
 								<p className="text-brand-light-blue">Flights</p>
 								<ul className="grid mt-2">
-									{flights
-										.filter((component) => component.category === "Flights")
+									{menuData?.menuData?.flights
+										.filter((component) => component.category?.flights)
 										.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
@@ -469,8 +298,8 @@ export function NavMenu({
 								</ul>
 								<p className="text-brand-light-blue mt-5">Tours</p>
 								<ul className="grid mt-2">
-									{flights
-										.filter((component) => component.category === "Tours")
+									{menuData?.menuData?.flights
+										.filter((component) => component.category?.tours)
 										.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
@@ -605,13 +434,13 @@ export function NavMenu({
 								<div className="ml-auto">
 									<p className="text-brand-light-blue">About us</p>
 									<ul className="grid mt-2">
-										{about
-											.sort((a, b) => a.title.localeCompare(b.title))
+										{menuData?.menuData?.about
+											?.sort((a, b) => a?.title.localeCompare(b.title))
 											.map((component) => (
 												<ListItem
-													key={component.title}
-													title={component.title}
-													href={component.href}
+													key={component?.title}
+													title={component?.title}
+													href={component?.slug}
 												>
 													{/* {component.description} */}
 												</ListItem>
@@ -656,7 +485,7 @@ const ListItem = React.forwardRef<
 	React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {
 	return (
-		<li className="group hover:text-brand-light-blue mt-2">
+		<li className="group hover:text-brand-light-blue mt-2 cursor-pointer">
 			<NavigationMenuLink asChild>
 				<a
 					ref={ref}

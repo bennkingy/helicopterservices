@@ -50,6 +50,39 @@ export default defineType({
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
+			name: "category",
+			title: "Category",
+			type: "object",
+			description: "The flights category.",
+			hidden: ({ document }) => document?.isLandingPage === true,
+			fields: [
+				{
+					name: "flights",
+					title: "Flights",
+					type: "boolean",
+					initialValue: false,
+					description: "Indicates if this a flights service.",
+				},
+				{
+					name: "tours",
+					title: "Tours",
+					type: "boolean",
+					initialValue: false,
+					description: "Indicates if this a tours ervice.",
+				},
+			],
+			validation: (Rule) =>
+				Rule.custom((fields) => {
+					// @ts-ignore
+					const selectedFields = Object.values(fields).filter(
+						(value) => value === true,
+					);
+					return selectedFields.length <= 1
+						? true
+						: "Only one category can be selected";
+				}),
+		}),
+		defineField({
 			name: "hero",
 			type: "hero",
 			hidden: ({ document }) => document?.isLandingPage !== true,

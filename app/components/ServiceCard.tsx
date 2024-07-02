@@ -32,7 +32,7 @@ const ServiceCard = async ({
 			href={url}
 			className="bg-white justify-between shadow-brand rounded-none border-0 border-b-4 border-brand-light-blue relative flex flex-col-reverse	items-center overflow-hidden md:flex-row md:max-w-xl transition-shadow duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-800 group hover:shadow-brand-hover sm:min-h-[330px]"
 		>
-			<div className="flex flex-col justify-between p-5 leading-normal w-full self-baseline">
+			<div className="flex flex-col justify-between p-5 leading-normal w-full self-baseline break-words">
 				<Heading
 					title={heading}
 					tag={category}

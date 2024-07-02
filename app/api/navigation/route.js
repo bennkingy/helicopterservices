@@ -9,16 +9,20 @@ const queries = {
 	fleet: `
     *[_type == "fleet"] {
       title,
+			category,
       "slug": slug.current,
     }`,
 	training: `
     *[_type == "training"] {
       title,
+			category,
       "slug": slug.current,
     }`,
 	flights: `
     *[_type == "flights"] {
       title,
+			isLandingPage,
+			category,
       "slug": slug.current,
     }`,
 	about: `

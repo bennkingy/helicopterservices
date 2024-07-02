@@ -10,7 +10,7 @@ type props = {
 const GetInTouch = ({ className }: props) => {
 	return (
 		<section
-			className={`bg-[url('/images/0.jpg')] bg-no-repeat bg-cover bg-center ${className} text-white lg:bg-fixed`}
+			className={`bg-[url('/images/0.jpg')] bg-no-repeat bg-cover bg-center ${className} text-white lg:bg-fixed parallax`}
 		>
 			<div className={"bg-opacity-80 bg-brand-dark-blue"}>
 				<div className="container py-20">
