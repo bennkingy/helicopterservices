@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import {
@@ -145,7 +144,7 @@ export function NavMenu({
 								<ul className="grid mt-2">
 									{menuData?.menuData?.training
 										.filter((component) => component.category?.licenses)
-										.sort((a, b) => a.title.localeCompare(b.title))
+										?.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -160,7 +159,7 @@ export function NavMenu({
 								<ul className="grid mt-2">
 									{menuData?.menuData?.training
 										.filter((component) => component.category?.flightRatings)
-										.sort((a, b) => a.title.localeCompare(b.title))
+										?.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -177,7 +176,7 @@ export function NavMenu({
 								<ul className="grid mt-2">
 									{menuData?.menuData?.training
 										.filter((component) => component.category?.simulators)
-										.sort((a, b) => a.title.localeCompare(b.title))
+										?.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -194,7 +193,7 @@ export function NavMenu({
 								<ul className="grid mt-2">
 									{menuData?.menuData?.training
 										.filter((component) => component.category?.other)
-										.sort((a, b) => a.title.localeCompare(b.title))
+										?.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -243,7 +242,7 @@ export function NavMenu({
 								<ul className="grid mt-2">
 									{menuData?.menuData?.industry
 										?.filter((component) => component.slug !== "industry")
-										.sort((a, b) => a.title.localeCompare(b.title))
+										?.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -286,7 +285,7 @@ export function NavMenu({
 								<ul className="grid mt-2">
 									{menuData?.menuData?.flights
 										.filter((component) => component.category?.flights)
-										.sort((a, b) => a.title.localeCompare(b.title))
+										?.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -301,7 +300,7 @@ export function NavMenu({
 								<ul className="grid mt-2">
 									{menuData?.menuData?.flights
 										.filter((component) => component.category?.tours)
-										.sort((a, b) => a.title.localeCompare(b.title))
+										?.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -344,7 +343,7 @@ export function NavMenu({
 								<ul className="grid mt-2">
 									{fleet
 										.filter((component) => component.engine === "Single Engine")
-										.sort((a, b) => a.title.localeCompare(b.title))
+										?.sort((a, b) => a.title.localeCompare(b.title))
 										.slice(0, 4)
 										.map((component) => (
 											<ListItem
@@ -362,7 +361,7 @@ export function NavMenu({
 								<ul className="grid mt-2">
 									{fleet
 										.filter((component) => component.engine === "Single Engine")
-										.sort((a, b) => a.title.localeCompare(b.title))
+										?.sort((a, b) => a.title.localeCompare(b.title))
 										.slice(4, 10)
 										.map((component) => (
 											<ListItem
@@ -381,7 +380,7 @@ export function NavMenu({
 								<ul className="grid mt-2">
 									{fleet
 										.filter((component) => component.engine === "Twin Engine")
-										.sort((a, b) => a.title.localeCompare(b.title))
+										?.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
 												key={component.title}
@@ -436,7 +435,7 @@ export function NavMenu({
 									<p className="text-brand-light-blue">About us</p>
 									<ul className="grid mt-2">
 										{menuData?.menuData?.about
-											?.sort((a, b) => a?.title.localeCompare(b.title))
+											??.sort((a, b) => a?.title.localeCompare(b.title))
 											.map((component) => (
 												<ListItem
 													key={component?.title}
