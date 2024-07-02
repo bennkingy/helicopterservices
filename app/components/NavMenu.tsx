@@ -464,7 +464,7 @@ export function NavMenu({
 												<ListItem
 													key={component?.title}
 													title={component?.title}
-													href={component?.slug}
+													href={`/about-us/${component.slug}`}
 												>
 													{/* {component.description} */}
 												</ListItem>
