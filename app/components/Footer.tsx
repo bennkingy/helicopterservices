@@ -11,8 +11,11 @@ import { mapLocation } from "@/lib/constants";
 async function getNavigationData() {
 	let data: any;
 
+	// const response = await fetch(`${process?.env?.CURRENT_URL}/api/navigation`);
 	try {
-		const response = await fetch(`${process?.env?.CURRENT_URL}/api/navigation`);
+		const response = await fetch(
+			`https://helicopterservices.vercel.app/api/navigation`,
+		);
 		data = await response.json();
 	} catch (error) {
 		console.error("Failed to fetch navigation data:", error);

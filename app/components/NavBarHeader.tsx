@@ -30,8 +30,6 @@ export default function NavbarHeader(menuData: any) {
 		}
 	}, [path]);
 
-	console.log(menuData);
-
 	return (
 		<header
 			ref={headerRef}
