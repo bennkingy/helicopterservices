@@ -21,7 +21,7 @@ const queries = {
 	flights: `
     *[_type == "flights"] {
       title,
-			isLandingPage,
+			isLandingPage
 			category,
       "slug": slug.current,
     }`,

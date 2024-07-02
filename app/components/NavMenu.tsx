@@ -19,27 +19,27 @@ import MobileMenu from "./MobileMenu";
 
 const fleet: {
 	title: string;
-	href: string;
+	slug: string;
 	category: string;
 	engine: string;
 }[] = [
 	{
 		title: "A109",
-		href: "/fleet/a109",
+		slug: "/fleet/a109",
 		category: "Agusta",
 		engine: "Twin Engine",
 		// description: "Versatile and high-performance twin-engine helicopter",
 	},
 	{
 		title: "AS355",
-		href: "/fleet/as355",
+		slug: "/fleet/as355",
 		category: "Agusta",
 		engine: "Twin Engine",
 		// description: "A a multi-purpose, twin-engine light helicopter",
 	},
 	{
 		title: "AB206",
-		href: "/fleet/ab206",
+		slug: "/fleet/ab206",
 		category: "Agusta",
 		engine: "Single Engine",
 		// description:
@@ -47,21 +47,21 @@ const fleet: {
 	},
 	{
 		title: "R66",
-		href: "/fleet/r66",
+		slug: "/fleet/r66",
 		category: "Robinson",
 		engine: "Single Engine",
 		// description: "Some description about the R66",
 	},
 	{
 		title: "R44",
-		href: "/fleet/r44",
+		slug: "/fleet/r44",
 		engine: "Single Engine",
 		category: "Robinson",
 		// description: "Some description about the R44",
 	},
 	{
 		title: "R22",
-		href: "/fleet/r22",
+		slug: "/fleet/r22",
 		engine: "Single Engine",
 		category: "Robinson",
 		// description: "Some description about the R22",
@@ -69,34 +69,34 @@ const fleet: {
 	{
 		title: "Cabri G2",
 		engine: "Single Engine",
-		href: "/fleet/cabri-g2",
+		slug: "/fleet/cabri-g2",
 		category: "Guimbal",
 		// description: "Some description about the Cabri G2",
 	},
 	{
 		title: "AS350",
-		href: "/fleet/as350",
+		slug: "/fleet/as350",
 		engine: "Single Engine",
 		category: "Airbus",
 		// description: "A single-engine light utility helicopter",
 	},
 	{
 		title: "B206L",
-		href: "/fleet/b206l",
+		slug: "/fleet/b206l",
 		engine: "Single Engine",
 		category: "Airbus",
 		// description: "Some description about the B206L",
 	},
 	{
 		title: "EC135",
-		href: "/fleet/ec135",
+		slug: "/fleet/ec135",
 		engine: "Single Engine",
 		category: "Airbus",
 		// description: "Some description about the EC135",
 	},
 	{
 		title: "AW109",
-		href: "/fleet/aw109",
+		slug: "/fleet/aw109",
 		engine: "Twin Engine",
 		category: "Airbus",
 		// description: "Some description about the AW109",
@@ -149,7 +149,7 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={component.title}
-												href={component.href}
+												href={`/training/${component.slug}`}
 											>
 												{/* {component.description} */}
 											</ListItem>
@@ -164,7 +164,7 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={component.title}
-												href={component.href}
+												href={`/training/${component.slug}`}
 											>
 												{/* {component.description} */}
 											</ListItem>
@@ -181,7 +181,7 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={component.title}
-												href={component.href}
+												href={`/training/${component.slug}`}
 											>
 												{/* {component.description} */}
 											</ListItem>
@@ -198,7 +198,7 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={component.title}
-												href={component.href}
+												href={`/training/${component.slug}`}
 											>
 												{/* {component.description} */}
 											</ListItem>
@@ -247,7 +247,7 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={component.title}
-												href={component.href}
+												href={`/industry/${component.slug}`}
 											>
 												{/* {component.description} */}
 											</ListItem>
@@ -290,7 +290,7 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={component.title}
-												href={component.href}
+												href={`/flights/${component.slug}`}
 											>
 												{/* {component.description} */}
 											</ListItem>
@@ -305,7 +305,7 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={component.title}
-												href={component.href}
+												href={`/flights/${component.slug}`}
 											>
 												{/* {component.description} */}
 											</ListItem>
@@ -349,7 +349,7 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={component.title}
-												href={component.href}
+												href={component.slug}
 											>
 												{/* {component.description} */}
 											</ListItem>
@@ -367,7 +367,7 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={component.title}
-												href={component.href}
+												href={component.slug}
 											>
 												{/* {component.description} */}
 											</ListItem>
@@ -385,7 +385,7 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={component.title}
-												href={component.href}
+												href={component.slug}
 											>
 												{/* {component.description} */}
 											</ListItem>
@@ -445,6 +445,13 @@ export function NavMenu({
 													{/* {component.description} */}
 												</ListItem>
 											))}
+										<ListItem
+											key={"Our Fleet"}
+											title={"Our Helicopter Fleet"}
+											href={"/fleet"}
+										>
+											{/* {component.description} */}
+										</ListItem>
 									</ul>
 								</div>
 							</div>
