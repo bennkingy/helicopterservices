@@ -22,6 +22,7 @@ const fleet: {
 	slug: string;
 	category: string;
 	engine: string;
+	shortTitle?: string;
 }[] = [
 	{
 		title: "A109",
