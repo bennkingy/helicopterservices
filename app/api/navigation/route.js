@@ -16,12 +16,14 @@ const queries = {
     *[_type == "training"] {
       title,
 			category,
+			shortTitle,
       "slug": slug.current,
     }`,
 	flights: `
     *[_type == "flights"] {
       title,
 			category,
+			shortTitle,
       "slug": slug.current,
     }`,
 	about: `

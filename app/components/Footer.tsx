@@ -94,19 +94,19 @@ export default async function Footer() {
 									</Link>
 								</li>
 							</ul>
-							<div className="text-sm font-bold mb-3 mt-7 font-openSans">
-								Legals
+							<div className="text-xs font-bold mb-3 mt-7 font-openSans">
+								{/* '' */}
 							</div>
 							<ul>
 								{data?.legal
 									.sort((a, b) => a.title.localeCompare(b.title))
 									.map((item, index) => (
 										<li
-											className="transition-colors hover:text-brand-light-blue"
+											className="transition-colors hover:text-brand-light-blue text-sm mb-[2px]"
 											key={index}
 										>
 											<Link href={`/legal/${item.slug}`} passHref>
-												{item.title}
+												{item.shortTitle ? item.shortTitle : item.title}
 											</Link>
 										</li>
 									))}
@@ -125,7 +125,7 @@ export default async function Footer() {
 											key={index}
 										>
 											<Link href={`/training/${item.slug}`} passHref>
-												{item.title}
+												{item.shortTitle ? item.shortTitle : item.title}
 											</Link>
 										</li>
 									))}
@@ -144,7 +144,7 @@ export default async function Footer() {
 											key={index}
 										>
 											<Link href={`/flights/${item.slug}`} passHref>
-												{item.title}
+												{item.shortTitle ? item.shortTitle : item.title}
 											</Link>
 										</li>
 									))}
@@ -163,7 +163,7 @@ export default async function Footer() {
 											key={index}
 										>
 											<Link href={`/industry/${item.slug}`} passHref>
-												{item.title}
+												{item.shortTitle ? item.shortTitle : item.title}
 											</Link>
 										</li>
 									))}

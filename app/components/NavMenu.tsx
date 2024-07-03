@@ -151,7 +151,11 @@ export function NavMenu({
 										.map((component) => (
 											<ListItem
 												key={component.title}
-												title={component.title}
+												title={
+													component.shortTitle
+														? component.shortTitle
+														: component.title
+												}
 												href={`/training/${component.slug}`}
 											>
 												{/* {component.description} */}
@@ -170,7 +174,11 @@ export function NavMenu({
 										.map((component) => (
 											<ListItem
 												key={component.title}
-												title={component.title}
+												title={
+													component.shortTitle
+														? component.shortTitle
+														: component.title
+												}
 												href={`/training/${component.slug}`}
 											>
 												{/* {component.description} */}
@@ -190,7 +198,11 @@ export function NavMenu({
 										.map((component) => (
 											<ListItem
 												key={component.title}
-												title={component.title}
+												title={
+													component.shortTitle
+														? component.shortTitle
+														: component.title
+												}
 												href={`/training/${component.slug}`}
 											>
 												{/* {component.description} */}
@@ -210,7 +222,11 @@ export function NavMenu({
 										.map((component) => (
 											<ListItem
 												key={component.title}
-												title={component.title}
+												title={
+													component.shortTitle
+														? component.shortTitle
+														: component.title
+												}
 												href={`/training/${component.slug}`}
 											>
 												{/* {component.description} */}
@@ -219,7 +235,7 @@ export function NavMenu({
 								</ul>
 							</div>
 							{/* </div> */}
-							<div className="w-[250px] h-[350px] ml-auto relative">
+							<div className="w-[250px] h-[370px] ml-auto relative">
 								<Image
 									src="/images/nav-training.jpg"
 									alt="industry"
@@ -262,7 +278,11 @@ export function NavMenu({
 										.map((component) => (
 											<ListItem
 												key={component.title}
-												title={component.title}
+												title={
+													component.shortTitle
+														? component.shortTitle
+														: component.title
+												}
 												href={`/industry/${component.slug}`}
 											>
 												{/* {component.description} */}
@@ -308,7 +328,11 @@ export function NavMenu({
 										.map((component) => (
 											<ListItem
 												key={component.title}
-												title={component.title}
+												title={
+													component.shortTitle
+														? component.shortTitle
+														: component.title
+												}
 												href={`/flights/${component.slug}`}
 											>
 												{/* {component.description} */}
@@ -326,7 +350,11 @@ export function NavMenu({
 										.map((component) => (
 											<ListItem
 												key={component.title}
-												title={component.title}
+												title={
+													component.shortTitle
+														? component.shortTitle
+														: component.title
+												}
 												href={`/flights/${component.slug}`}
 											>
 												{/* {component.description} */}
@@ -334,7 +362,7 @@ export function NavMenu({
 										))}
 								</ul>
 							</div>
-							<div className="w-[500px] h-[310px] ml-auto relative">
+							<div className="w-[500px] h-[325px] ml-auto relative">
 								<Image
 									src="https://cdn.sanity.io/images/0he7nz2b/production/60e72d0df6aa15d699ebce3c6b1a75790f1deafc-1024x685.webp"
 									alt="industry"
@@ -370,7 +398,11 @@ export function NavMenu({
 										.map((component) => (
 											<ListItem
 												key={component.title}
-												title={component.title}
+												title={
+													component.shortTitle
+														? component.shortTitle
+														: component.title
+												}
 												href={component.slug}
 											>
 												{/* {component.description} */}
@@ -388,7 +420,11 @@ export function NavMenu({
 										.map((component) => (
 											<ListItem
 												key={component.title}
-												title={component.title}
+												title={
+													component.shortTitle
+														? component.shortTitle
+														: component.title
+												}
 												href={component.slug}
 											>
 												{/* {component.description} */}
@@ -406,7 +442,11 @@ export function NavMenu({
 										.map((component) => (
 											<ListItem
 												key={component.title}
-												title={component.title}
+												title={
+													component.shortTitle
+														? component.shortTitle
+														: component.title
+												}
 												href={component.slug}
 											>
 												{/* {component.description} */}
