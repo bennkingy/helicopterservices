@@ -17,10 +17,12 @@ async function getNavigationData() {
 export default async function Navbar() {
 	const data = await getNavigationData();
 
+	console.log(data);
+
 	return (
 		<>
 			<AccrediationsText />
-			<NavbarHeader menuData={data} />
+			{/* <NavbarHeader menuData={data} /> */}
 		</>
 	);
 }
