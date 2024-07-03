@@ -106,7 +106,7 @@ export default async function Footer() {
 											key={index}
 										>
 											<Link href={`/legal/${item.slug}`} passHref>
-												{item.shortTitle ? item.shortTitle : item.title}
+												{item?.shortTitle ? item?.shortTitle : item.title}
 											</Link>
 										</li>
 									))}
@@ -125,7 +125,7 @@ export default async function Footer() {
 											key={index}
 										>
 											<Link href={`/training/${item.slug}`} passHref>
-												{item.shortTitle ? item.shortTitle : item.title}
+												{item?.shortTitle ? item?.shortTitle : item.title}
 											</Link>
 										</li>
 									))}
@@ -144,7 +144,7 @@ export default async function Footer() {
 											key={index}
 										>
 											<Link href={`/flights/${item.slug}`} passHref>
-												{item.shortTitle ? item.shortTitle : item.title}
+												{item?.shortTitle ? item?.shortTitle : item.title}
 											</Link>
 										</li>
 									))}
@@ -163,7 +163,7 @@ export default async function Footer() {
 											key={index}
 										>
 											<Link href={`/industry/${item.slug}`} passHref>
-												{item.shortTitle ? item.shortTitle : item.title}
+												{item?.shortTitle ? item?.shortTitle : item.title}
 											</Link>
 										</li>
 									))}

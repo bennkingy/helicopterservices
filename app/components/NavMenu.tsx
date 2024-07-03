@@ -152,8 +152,8 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={
-													component.shortTitle
-														? component.shortTitle
+													component?.shortTitle
+														? component?.shortTitle
 														: component.title
 												}
 												href={`/training/${component.slug}`}
@@ -175,8 +175,8 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={
-													component.shortTitle
-														? component.shortTitle
+													component?.shortTitle
+														? component?.shortTitle
 														: component.title
 												}
 												href={`/training/${component.slug}`}
@@ -199,8 +199,8 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={
-													component.shortTitle
-														? component.shortTitle
+													component?.shortTitle
+														? component?.shortTitle
 														: component.title
 												}
 												href={`/training/${component.slug}`}
@@ -223,8 +223,8 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={
-													component.shortTitle
-														? component.shortTitle
+													component?.shortTitle
+														? component?.shortTitle
 														: component.title
 												}
 												href={`/training/${component.slug}`}
@@ -279,8 +279,8 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={
-													component.shortTitle
-														? component.shortTitle
+													component?.shortTitle
+														? component?.shortTitle
 														: component.title
 												}
 												href={`/industry/${component.slug}`}
@@ -329,8 +329,8 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={
-													component.shortTitle
-														? component.shortTitle
+													component?.shortTitle
+														? component?.shortTitle
 														: component.title
 												}
 												href={`/flights/${component.slug}`}
@@ -351,8 +351,8 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={
-													component.shortTitle
-														? component.shortTitle
+													component?.shortTitle
+														? component?.shortTitle
 														: component.title
 												}
 												href={`/flights/${component.slug}`}
@@ -399,8 +399,8 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={
-													component.shortTitle
-														? component.shortTitle
+													component?.shortTitle
+														? component?.shortTitle
 														: component.title
 												}
 												href={component.slug}
@@ -421,8 +421,8 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={
-													component.shortTitle
-														? component.shortTitle
+													component?.shortTitle
+														? component?.shortTitle
 														: component.title
 												}
 												href={component.slug}
@@ -443,8 +443,8 @@ export function NavMenu({
 											<ListItem
 												key={component.title}
 												title={
-													component.shortTitle
-														? component.shortTitle
+													component?.shortTitle
+														? component?.shortTitle
 														: component.title
 												}
 												href={component.slug}
