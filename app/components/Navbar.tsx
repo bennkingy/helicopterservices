@@ -1,23 +1,23 @@
 import NavbarHeader from "./NavBarHeader";
 import AccrediationsText from "./AccrediationsText";
 
-async function getNavigationData() {
-	let data: any;
+// async function getNavigationData() {
+// 	let data: any;
 
-	try {
-		const response = await fetch(`${process?.env?.CURRENT_URL}/api/navigation`);
-		data = await response.json();
-	} catch (error) {
-		console.error("Failed to fetch navigation data:", error);
-	}
+// 	try {
+// 		const response = await fetch(`${process?.env?.CURRENT_URL}/api/navigation`);
+// 		data = await response.json();
+// 	} catch (error) {
+// 		console.error("Failed to fetch navigation data:", error);
+// 	}
 
-	return data;
-}
+// 	return data;
+// }
 
 export default async function Navbar() {
-	const data = await getNavigationData();
+	// const data = await getNavigationData();
 
-	console.log(data);
+	// console.log(data);
 
 	return (
 		<>
