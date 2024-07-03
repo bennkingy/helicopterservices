@@ -24,5 +24,5 @@ async function getNavigationData() {
 export default async function Footer() {
 	const data = await getNavigationData();
 
-	return <></>;
+	return null;
 }
