@@ -27,7 +27,7 @@ export default async function Enquire() {
 			</div>
 			<ul>
 				<Link href="https://www.facebook.com/heliservicesuk/" passHref>
-					<li className="flex text-brand-light-blue font-bold">
+					<li className="flex text-brand-orange font-semibold">
 						<Image
 							src="/images/facebook.png"
 							width={25}
@@ -39,7 +39,7 @@ export default async function Enquire() {
 					</li>
 				</Link>
 				<Link href="https://www.instagram.com/helicopterservices/" passHref>
-					<li className="flex text-brand-light-blue font-bold">
+					<li className="flex text-brand-orange font-semibold">
 						<Image
 							src="/images/instagram.png"
 							width={20}
