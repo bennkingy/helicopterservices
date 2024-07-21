@@ -61,11 +61,11 @@ export default async function Footer() {
 							</div>
 							{/* https://twitter.com/HeliServicesUK */}
 							<ul>
-								<li className=" font-semibold text-brand-orange">
+								<li className="font-normal text-brand-orange">
 									<Link
 										href="https://www.facebook.com/heliservicesuk/"
 										passHref
-										className="flex"
+										className="flex font-normal"
 									>
 										<Image
 											src="/images/facebook.png"
@@ -77,7 +77,7 @@ export default async function Footer() {
 										Instagram
 									</Link>
 								</li>
-								<li className="text-brand-orange font-semibold">
+								<li className="text-brand-orange font-normal">
 									<Link
 										href="https://www.instagram.com/helicopterservices/"
 										passHref
