@@ -175,5 +175,5 @@
 }
 
 .cky-btn-revisit-wrapper {
-  display: none;
+  display: none !important;
 }

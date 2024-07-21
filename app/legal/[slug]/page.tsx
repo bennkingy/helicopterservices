@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function TrainingPage({ params }: { params: { slug: string } }) {
+export default async function LegalPage({ params }: { params: { slug: string } }) {
   const data: any = await getPageData(params.slug.toLowerCase());
 
   return (
