@@ -275,6 +275,7 @@ const ContacForm = () => {
 						</div>
 						<ReCAPTCHA
 							sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+							// @ts-ignore
 							onChange={(token) => setRecaptchaToken(token || "")}
 						/>
 						<Button
