@@ -87,7 +87,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const legal: MetadataRoute.Sitemap = legalData.map((page: Page) => ({
-    url: `https://helicopterservices.co.uk/flights/${page.currentSlug}`,
+    url: `https://helicopterservices.co.uk/legal/${page.currentSlug}`,
     changeFrequency: "weekly",
     lastModified: page.updated
   }));
