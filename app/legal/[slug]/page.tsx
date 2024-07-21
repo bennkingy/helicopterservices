@@ -1,4 +1,5 @@
 import { client, urlFor } from "@/lib/sanity";
+import { cn } from "@/lib/utils";
 import { PortableText } from "@portabletext/react";
 import type { Metadata } from 'next';
 import Image from "next/image";
@@ -32,23 +33,31 @@ export default async function LegalPage({ params }: { params: { slug: string } }
   const data: any = await getPageData(params.slug.toLowerCase());
 
   return (
-    <main className="max-w-6xl mx-auto px-4 overflow-x-hidden">
-      <div className="my-8">
-        <h1 className="block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">
-          {data?.title || 'no title'}
-        </h1>
-        {data?.mainImage && <Image
-          src={urlFor(data.mainImage).url()}
-          width={2000}
-          height={800}
-          alt="Title Image"
-          priority
-          className="rounded-lg mt-8 border"
-        />}
-        <div className="mt-8">
+    	<>
+			<div className="container mt-14 mb-20">
+				<div className="flex items-baseline">
+					<Image
+						src="/images/icons/CompanyBlue.svg"
+						alt="Helicopter Services"
+						width={23}
+						quality={100}
+						height={23}
+					/>
+					<p className="text-brand-light-blue text-base sm:text-[22px] font-workSans ml-2">
+						Legal
+					</p>
+				</div>
+				<h3 className="text-brand-dark-blue text-6xl font-light font-workSans -ml-1 mb-5 mt-3">
+					{data?.title}
+				</h3>
+       	<div
+          className={cn(
+            "prose prose-a:text-brand-orange prose-a:transition-colors prose-a hover:prose-a:text-brand-dark-blue prose-a:no-underline  font-openSans prose-h2:font-workSans prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey mt-8",
+          )}
+				>
           <PortableText value={data?.body || ''} />
         </div>
-      </div>
-    </main >
+			</div>
+		</>
   );
 }

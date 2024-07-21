@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-import withPlaiceholder from "@plaiceholder/next";
+// import withPlaiceholder from "@plaiceholder/next";
 
 const nextConfig = {
 	images: {
@@ -46,6 +46,16 @@ const nextConfig = {
 			},
 		],
 	},
+	async redirects() {
+		return [
+			{
+				source: '/hello-world-4',
+				destination: '/training',
+				permanent: true, // This makes it a 301 redirect
+			},
+		];
+	},
 };
 
-export default withPlaiceholder(nextConfig);
+// export default withPlaiceholder(nextConfig);
+export default nextConfig;

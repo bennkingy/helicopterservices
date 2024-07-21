@@ -51,12 +51,22 @@ async function getIndustryData() {
   return data;
 }
 
+async function getFleetData() {
+  const query = `*[_type == "fleet"] {
+    "currentSlug": slug.current,
+      "updated": _updatedAt
+  }`
+  const data: Page[] = await client.fetch(query)
+  return data;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const trainingData: Page[] = await getTrainingData()
   const aboutData: Page[] = await getAboutData()
   const flightsData: Page[] = await getFlightstData()
   const legalData: Page[] = await getLegalData()
   const industryData: Page[] = await getIndustryData()
+  const fleetData: Page[] = await getFleetData()
 
   const training: MetadataRoute.Sitemap = trainingData.map((page: Page) => ({
     url: `https://helicopterservices.co.uk/training/${page.currentSlug}`,
@@ -78,6 +88,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const legal: MetadataRoute.Sitemap = legalData.map((page: Page) => ({
     url: `https://helicopterservices.co.uk/flights/${page.currentSlug}`,
+    changeFrequency: "weekly",
+    lastModified: page.updated
+  }));
+
+  const fleet: MetadataRoute.Sitemap = fleetData.map((page: Page) => ({
+    url: `https://helicopterservices.co.uk/fleet/${page.currentSlug}`,
     changeFrequency: "weekly",
     lastModified: page.updated
   }));
@@ -107,16 +123,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...industry,
     {
-      url: `https://helicopterservices.co.uk/industry`,
-      changeFrequency: "weekly",
-      lastModified: "2024-01-10"
-    },
-    {
       url: `https://helicopterservices.co.uk/flights`,
       changeFrequency: "weekly",
       lastModified: "2024-01-10"
     },
     ...flights,
+    {
+      url: `https://helicopterservices.co.uk/fleet`,
+      changeFrequency: "weekly",
+      lastModified: "2024-01-10"
+    },
+    ...fleet,
     {
       url: `https://helicopterservices.co.uk/about-us`,
       changeFrequency: "weekly",
