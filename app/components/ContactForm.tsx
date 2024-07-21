@@ -61,7 +61,7 @@ const ContacForm = () => {
 	// const [selectedRequirement, setSelectedRequirement] = useState("Training");
 
 	useEffect(() => {
-		emailjs.init(publicKey);
+		emailjs.init(process.env.EMAIL_API || "");
 	}, []);
 
 	const form = useForm({
@@ -95,7 +95,7 @@ const ContacForm = () => {
 					// @ts-ignore
 					// service: data.service,
 				},
-				publicKey,
+				process.env.EMAIL_API,
 			);
 			setName(data.name);
 			window.scrollTo({ top: 0, behavior: "smooth" });
@@ -204,7 +204,7 @@ const ContacForm = () => {
 															htmlFor="option-one"
 															className="cursor-pointer"
 														>
-															Training
+															Training services
 														</Label>
 													</div>
 													<div className="flex items-center space-x-2 mt-1">
@@ -213,7 +213,7 @@ const ContacForm = () => {
 															htmlFor="option-two"
 															className="cursor-pointer"
 														>
-															Flights
+															Flights services
 														</Label>
 													</div>
 													<div className="flex items-center space-x-2 mt-1">
@@ -225,7 +225,7 @@ const ContacForm = () => {
 															htmlFor="option-three"
 															className="cursor-pointer"
 														>
-															Industry
+															Industry services
 														</Label>
 													</div>
 													<div className="flex items-center space-x-2 mt-1">

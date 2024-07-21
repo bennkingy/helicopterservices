@@ -46,8 +46,7 @@ export default async function Weather({
 	lon = -0.76371,
 	airport = "White Waltham Airfield",
 }) {
-	const apiKey =
-		"f0767f78463d9f6c247a1889989cc1f5" || process.env.OPENWEATHER_API_KEY;
+	const apiKey = process.env.WEATHER_API;
 	const response = await fetch(
 		`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`,
 		{
