@@ -22,6 +22,7 @@ import { useFormStatus } from "react-dom";
 import { Controller, useForm } from "react-hook-form";
 import type { z } from "zod";
 import { ContactSchema } from "../schema";
+// @ts-ignore
 import ReCAPTCHA from "react-google-recaptcha";
 
 const ContacForm = () => {
