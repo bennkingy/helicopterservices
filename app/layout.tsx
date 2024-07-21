@@ -60,13 +60,11 @@ export default function RootLayout({
 				</ThemeProvider>
 				{/* Gmap fix */}
 				<Script
-					id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid="efdb81ab-0311-436f-8c4b-ebf6822f57ca"
-          data-blockingmode="auto"
+					id="cookieyes"
+          src="https://cdn-cookieyes.com/client_data/e2ee9be7bb054050144f0f50/script.js"
 					type="text/javascript"
           async
- 				/>
+				/>
         <Script id="hide-second-gm-style-iw-t" strategy="lazyOnload">
           {`
 						const elements = document.querySelectorAll('.gm-style-iw-c');
