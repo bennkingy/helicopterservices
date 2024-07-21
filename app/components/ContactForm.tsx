@@ -60,6 +60,7 @@ const ContacForm = () => {
 	// const [selectedRequirement, setSelectedRequirement] = useState("Training");
 
 	// https://www.google.com/recaptcha/admin/site/706025020/setup
+	// https://dev.to/jameswallis/recaptcha-verification-with-emailjs-29ai
 
 	useEffect(() => {
 		emailjs.init(process.env.NEXT_PUBLIC_EMAIL_API || "");
