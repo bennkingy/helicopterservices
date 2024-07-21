@@ -176,6 +176,11 @@
 
 .cky-btn-revisit-wrapper {
   /* display: none !important; */
-      height: 20px  !important;
-    width: 20px  !important;
+  height: 20px  !important;
+  width: 20px  !important;
+}
+.cky-btn-revisit-wrapper img {
+    background: #f77005;
+    border-radius: 100px;
+    padding: 3px;
 }
