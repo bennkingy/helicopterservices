@@ -24,9 +24,8 @@ import type { z } from "zod";
 import { ContactSchema } from "../schema";
 
 const ContacForm = () => {
-	const service = "service_p8qp31i";
-	const publicKey = "lweYZnq7da8j9Gfxd";
-	const templateId = "template_rgqsdjt";
+	const service = "service_vu59y7v";
+	const templateId = "template_xbmamql";
 
 	const serviceOptions = {
 		Training: [
