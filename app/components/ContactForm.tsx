@@ -22,6 +22,7 @@ import { useFormStatus } from "react-dom";
 import { Controller, useForm } from "react-hook-form";
 import type { z } from "zod";
 import { ContactSchema } from "../schema";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ContacForm = () => {
 	const service = "service_vu59y7v";
@@ -58,6 +59,7 @@ const ContacForm = () => {
 	const [step, setStep] = useState(1);
 	const [name, setName] = useState("");
 	// const [selectedRequirement, setSelectedRequirement] = useState("Training");
+	const [recaptchaToken, setRecaptchaToken] = useState("");
 
 	// https://www.google.com/recaptcha/admin/site/706025020/setup
 	// https://dev.to/jameswallis/recaptcha-verification-with-emailjs-29ai
@@ -81,9 +83,15 @@ const ContacForm = () => {
 	// const { toast } = useToast();
 
 	const onSubmit = async (data: z.infer<typeof ContactSchema>) => {
+		if (!recaptchaToken) {
+			alert("Please complete the reCAPTCHA.");
+			return;
+		}
+
 		setLoading(true);
 		// const { message } = await helloAction(data.name);
 		// toast({ description: message });
+
 		try {
 			await emailjs.send(
 				service,
@@ -96,6 +104,7 @@ const ContacForm = () => {
 					requirement: data.requirement,
 					// @ts-ignore
 					// service: data.service,
+					"g-recaptcha-response": recaptchaToken,
 				},
 				process.env.NEXT_PUBLIC_EMAIL_API,
 			);
@@ -206,7 +215,7 @@ const ContacForm = () => {
 															htmlFor="option-one"
 															className="cursor-pointer"
 														>
-															Training services
+															Training
 														</Label>
 													</div>
 													<div className="flex items-center space-x-2 mt-1">
@@ -215,7 +224,7 @@ const ContacForm = () => {
 															htmlFor="option-two"
 															className="cursor-pointer"
 														>
-															Flights services
+															Flights
 														</Label>
 													</div>
 													<div className="flex items-center space-x-2 mt-1">
@@ -227,7 +236,7 @@ const ContacForm = () => {
 															htmlFor="option-three"
 															className="cursor-pointer"
 														>
-															Industry services
+															Industry
 														</Label>
 													</div>
 													<div className="flex items-center space-x-2 mt-1">
@@ -263,6 +272,10 @@ const ContacForm = () => {
 								)}
 							/>
 						</div>
+						<ReCAPTCHA
+							sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+							onChange={(token) => setRecaptchaToken(token || "")}
+						/>
 						<Button
 							type="submit"
 							className="w-full sm:max-w-[240px] bg-brand-orange py-6 flex m-auto"
