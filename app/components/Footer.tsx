@@ -102,7 +102,7 @@ export default async function Footer() {
 									.sort((a, b) => a.title.localeCompare(b.title))
 									.map((item, index) => (
 										<li
-											className="transition-colors hover:text-brand-light-blue text-sm mb-[2px]"
+											className="transition-colors hover:text-brand-orange text-sm mb-[2px]"
 											key={index}
 										>
 											<Link href={`/legal/${item.slug}`} passHref>
@@ -121,7 +121,7 @@ export default async function Footer() {
 									.sort((a, b) => a.title.localeCompare(b.title))
 									.map((item, index) => (
 										<li
-											className="transition-colors hover:text-brand-light-blue"
+											className="transition-colors hover:text-brand-orange"
 											key={index}
 										>
 											<Link href={`/training/${item.slug}`} passHref>
@@ -140,7 +140,7 @@ export default async function Footer() {
 									.sort((a, b) => a.title.localeCompare(b.title))
 									.map((item, index) => (
 										<li
-											className="transition-colors hover:text-brand-light-blue"
+											className="transition-colors hover:text-brand-orange"
 											key={index}
 										>
 											<Link href={`/flights/${item.slug}`} passHref>
@@ -159,7 +159,7 @@ export default async function Footer() {
 									// @ts-ignore
 									.map((item, index) => (
 										<li
-											className="transition-colors hover:text-brand-light-blue"
+											className="transition-colors hover:text-brand-orange"
 											key={index}
 										>
 											<Link href={`/industry/${item.slug}`} passHref>
