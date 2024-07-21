@@ -1,6 +1,5 @@
 import { client } from "@/lib/sanity";
 import { MetadataRoute } from "next";
-
 interface Page {
 	currentSlug: string;
 	updated: Date;

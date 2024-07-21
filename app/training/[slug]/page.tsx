@@ -1,6 +1,7 @@
 import Template from "@/app/components/Template";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 export const revalidate = 30; // revalidate at most 30 seconds
 
 async function getData(slug: string) {
@@ -104,9 +105,13 @@ export default async function TrainingPage({
 	// @ts-ignore
 	const { data }: any = await getData(params.slug.toLowerCase());
 
+	if (!data?.title) {
+		notFound();
+	}
+
 	return (
 		<>
-			<Template data={data} iconType="Training"/>
+			<Template data={data} iconType="Training" />
 		</>
 	);
 }

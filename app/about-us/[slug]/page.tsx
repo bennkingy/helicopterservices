@@ -3,6 +3,7 @@ import Template from "@/app/components/Template";
 import type { training } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -60,6 +61,10 @@ export default async function AboutPage({
 
 	const showFaqs = params.slug === "faqs";
 	const showHanger = params.slug === "the-hanger";
+
+	if (!data?.title) {
+		notFound();
+	}
 
 	return (
 		<>

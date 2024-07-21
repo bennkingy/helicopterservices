@@ -1,6 +1,7 @@
 import TemplateTwo from "@/app/components/TemplateTwo";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -114,6 +115,10 @@ export default async function FleetItemPage({
 }: { params: { slug: string } }) {
 	const data: FleetItem = await getPageData(params.slug.toLowerCase());
 	const helicopterData: any = await getHelicopterData();
+
+	if (!data?.title) {
+		notFound();
+	}
 
 	return (
 		<>

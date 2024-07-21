@@ -2,11 +2,11 @@ import Template from "@/app/components/Template";
 import TransferTimesTable from "@/app/components/TransferTimesTable";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
 async function getData(slug: string) {
-
 	const query = `
     *[_type == "flights" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
@@ -93,9 +93,13 @@ export default async function FlightsgPage({
 	const data: any = await getData(params.slug.toLowerCase());
 	const showTransferTimesTable = params.slug === "airport-transfers";
 
+	if (!data?.title) {
+		notFound();
+	}
+
 	return (
 		<>
-			<Template data={data} iconType={'Flights'}>
+			<Template data={data} iconType={"Flights"}>
 				{showTransferTimesTable && (
 					<div className="mt-10">
 						<TransferTimesTable />

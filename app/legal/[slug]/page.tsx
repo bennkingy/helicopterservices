@@ -1,10 +1,12 @@
-import { client, urlFor } from "@/lib/sanity";
+import { client } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
 import { PortableText } from "@portabletext/react";
 import type { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
-export const revalidate = 30; // revalidate at most 30 seconds
+// Define the allowed slugs
+const allowedSlugs = ["cookies", "privacy", "terms-conditions"];
 
 async function getPageData(slug: string) {
 	const query = `
@@ -14,7 +16,7 @@ async function getPageData(slug: string) {
           seoTitle,
           seoDescription,
           body,
-      }[0]`;
+    }[0]`;
 	const data = await client.fetch(query);
 
 	return data;
@@ -34,7 +36,13 @@ export async function generateMetadata({
 export default async function LegalPage({
 	params,
 }: { params: { slug: string } }) {
-	const data: any = await getPageData(params.slug.toLowerCase());
+	const slug = params.slug.toLowerCase();
+
+	const data: any = await getPageData(slug);
+
+	if (!data?.title) {
+		notFound();
+	}
 
 	return (
 		<>
