@@ -173,3 +173,7 @@
     background-attachment: scroll;
   }
 }
+
+.cky-btn-revisit-wrapper {
+  display: none;
+}
