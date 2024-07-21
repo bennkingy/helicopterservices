@@ -129,7 +129,7 @@ const Reviews = ({ className }: props) => {
 				</div>
 				<Link
 					target="_blank"
-					className="flex mt-10 text-center w-full text-brand-light-blue justify-center items-center group hover:underline underline-offset-2"
+					className="flex mt-10 text-center w-full text-brand-orange justify-center items-center group hover:underline underline-offset-2"
 					passHref
 					href="https://www.tripadvisor.co.uk/Attraction_Review-g315927-d7108370-Reviews-Helicopter_Services_Limited-Marlow_Buckinghamshire_England.html"
 				>
