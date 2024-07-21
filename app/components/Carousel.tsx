@@ -41,9 +41,6 @@ const Carousel = ({ slides }: props) => {
 			setApi={setApi}
 			plugins={[
 				Autoplay({
-					waitForUser: true,
-					autoplay: true,
-					loop: true,
 					stopOnMouseEnter: true,
 				}),
 			]}

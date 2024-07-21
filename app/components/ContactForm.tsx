@@ -60,7 +60,7 @@ const ContacForm = () => {
 	// const [selectedRequirement, setSelectedRequirement] = useState("Training");
 
 	useEffect(() => {
-		emailjs.init(process.env.EMAIL_API || "");
+		emailjs.init(process.env.NEXT_PUBLIC_EMAIL_API || "");
 	}, []);
 
 	const form = useForm({
@@ -94,7 +94,7 @@ const ContacForm = () => {
 					// @ts-ignore
 					// service: data.service,
 				},
-				process.env.EMAIL_API,
+				process.env.NEXT_PUBLIC_EMAIL_API,
 			);
 			setName(data.name);
 			window.scrollTo({ top: 0, behavior: "smooth" });

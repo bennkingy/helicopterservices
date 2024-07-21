@@ -192,7 +192,7 @@ const mapStyles = [
 const GMap = ({ className }: any) => {
 	const { isLoaded } = useJsApiLoader({
 		id: "google-maps-script",
-		googleMapsApiKey: process.env.GMAP_API || "",
+		googleMapsApiKey: process.env.NEXT_PUBLIC_GMAP_API || "",
 	});
 
 	const [map, setMap] = React.useState(null);
