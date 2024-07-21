@@ -175,5 +175,7 @@
 }
 
 .cky-btn-revisit-wrapper {
-  display: none !important;
+  /* display: none !important; */
+      height: 20px  !important;
+    width: 20px  !important;
 }
