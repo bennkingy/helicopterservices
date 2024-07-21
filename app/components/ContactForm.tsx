@@ -59,6 +59,8 @@ const ContacForm = () => {
 	const [name, setName] = useState("");
 	// const [selectedRequirement, setSelectedRequirement] = useState("Training");
 
+	// https://www.google.com/recaptcha/admin/site/706025020/setup
+
 	useEffect(() => {
 		emailjs.init(process.env.NEXT_PUBLIC_EMAIL_API || "");
 	}, []);
