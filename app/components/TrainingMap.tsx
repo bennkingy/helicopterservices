@@ -68,7 +68,7 @@ const TrainingMap = () => {
 								&nbsp;&nbsp;&nbsp;Private&nbsp;&nbsp;&nbsp;
 							</span>
 						</td>
-						<td className="p-2 sm:p-3">
+						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"

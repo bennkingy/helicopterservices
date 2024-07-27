@@ -254,5 +254,35 @@
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
   border-left: 10px solid #646E7E;
-      transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.lineDownSmall::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  width: calc(100%);
+  height: 2px;
+  background: #646E7E;
+  transform: rotate(90deg);
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.lineDownSmallArrow::after {
+  content: '';
+  position: absolute;
+  top: 103%;
+  left: calc(50%);
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 10px solid #646E7E;
+  transform: rotate(90deg);
+  Z-INDEX: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
