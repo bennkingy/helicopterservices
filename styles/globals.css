@@ -201,3 +201,25 @@
         font-size: 9px;
   }
 }
+        .line::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            width: calc(100% + 2px); /* Adjust this value based on table layout */
+            height: 2px;
+            background: #646E7E;
+            transform: translateY(-50%);
+        }
+         .lineArrow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: calc(95%);
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 10px solid #646E7E;
+            transform: translateY(-50%);
+        }
