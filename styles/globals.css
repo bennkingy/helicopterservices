@@ -212,6 +212,16 @@
     background: #646E7E;
     transform: translateY(-50%);
 }
+.lineHalf::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    width: calc(50%); /* Adjust this value based on table layout */
+    height: 2px;
+    background: #646E7E;
+    transform: translateY(-50%);
+}
 .lineAndHalf::before {
     content: '';
     position: absolute;
@@ -260,6 +270,16 @@
     content: '';
     position: absolute;
     top: 50%;
+    left: 0%;
+    width: calc(100%); /* Adjust this value based on table layout */
+    height: 2px;
+    background: #646E7E;
+    transform: rotate(90deg);
+}
+.lineDownHalfway::before {
+    content: '';
+    position: absolute;
+    top: 100%;
     left: 0%;
     width: calc(100%); /* Adjust this value based on table layout */
     height: 2px;
