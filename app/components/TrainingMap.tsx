@@ -1,6 +1,6 @@
 const TrainingMap = () => {
 	return (
-		<div className="md:px-20 mb-18 max-w-[1000px] mx-auto">
+		<div className="sm:px-20 mb-10 sm:mb-16 max-w-[1000px] mx-auto">
 			<table className="w-full border-separate border-spacing-0 table-fixed">
 				<tbody>
 					<tr className="row2">

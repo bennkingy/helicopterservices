@@ -250,7 +250,7 @@ export default async function Training({
 								training courses. Access our flight simulator for safe
 								instrument training and explore our PPL enhancement program.
 							</p>
-							<p className="text-center w-full mt-8 font-bold mb-16">
+							<p className="text-center w-full mt-8 font-bold mb-10 sm:mb-16">
 								Click on a service below for more information
 							</p>
 							<TrainingMap />
