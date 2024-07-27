@@ -173,6 +173,7 @@
     background-attachment: scroll;
   }
 }
+
 .cky-btn-revisit-wrapper {
   display: none !important;
   height: 20px  !important;
@@ -182,4 +183,17 @@
     background: #f77005;
     border-radius: 100px;
     padding: 3px;
+}
+
+.mapTitle {
+  transform: rotate(270deg);
+  display: block;
+  text-align: center;
+  font-weight: bold;
+    @media(max-width: 1100px) {
+    font-size: 14px;
+  }
+  @media(max-width: 639px) {
+        font-size: 9px;
+  }
 }

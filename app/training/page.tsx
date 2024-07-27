@@ -237,6 +237,22 @@ export default async function Training({
 							</div>
 						</TabsContent>
 						<TabsContent value="trainingRoute">
+							<Heading
+								title="Training route map"
+								titleStyles="text-3xl text-center mt-5"
+							/>
+							<p className="font-openSans max-w-[900px] text-center mx-auto mt-8">
+								With two decades of experience, we&apos;re a top UK helicopter
+								training company. Our instructors cover currency, advanced
+								flying, type ratings, and more. All instructors are commercial
+								pilots, enriching students aiming for commercial piloting. We
+								offer type ratings for 17+ helicopter types and advanced
+								training courses. Access our flight simulator for safe
+								instrument training and explore our PPL enhancement program.
+							</p>
+							<p className="text-center w-full mt-8 font-bold mb-16">
+								Click on a service below for more information
+							</p>
 							<TrainingMap />
 						</TabsContent>
 					</Tabs>
