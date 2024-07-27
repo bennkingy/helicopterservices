@@ -14,19 +14,19 @@ export const revalidate = 30; // revalidate at most 30 seconds
 export const metadata: Metadata = {
 	title: "Training - Helicopter Services",
 	description: "Helicopter Services",
-	openGraph: {
-		title: "Training - Helicopter Services",
-		description:
-			"Helicopter Services | Experienced Helicopter Training | White Waltham Airfield | Maidenhead",
-		images: [
-			{
-				url: "https://cdn.sanity.io/images/0he7nz2b/production/b0089479789c970d270fcea18b0182e1f90b88b7-1200x900.webp?w=1200&h=630&q=100&fit=clip&auto=format",
-				width: 1200,
-				height: 630,
-				alt: "Helicopter Services",
-			},
-		],
-	},
+	// openGraph: {
+	// 	title: "Training - Helicopter Services",
+	// 	description:
+	// 		"Helicopter Services | Experienced Helicopter Training | White Waltham Airfield | Maidenhead",
+	// 	images: [
+	// 		{
+	// 			url: "https://cdn.sanity.io/images/0he7nz2b/production/b0089479789c970d270fcea18b0182e1f90b88b7-1200x900.webp?w=1200&h=630&q=100&fit=clip&auto=format",
+	// 			width: 1200,
+	// 			height: 630,
+	// 			alt: "Helicopter Services",
+	// 		},
+	// 	],
+	// },
 };
 
 async function getData(slug: string) {
