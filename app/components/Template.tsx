@@ -74,7 +74,7 @@ const Template = ({
 									data-tweet-text="Helicopter Services"
 									data-src={image}
 									data-sub-html={`<h4>Helicopter Services</h4><p>${
-										item?.alt || "No description"
+										item?.alt || ""
 									}</p>`}
 									style={{
 										clipPath:

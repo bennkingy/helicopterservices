@@ -1,11 +1,11 @@
 # TODO
 
-DONE - Finish the interactive training map on the training page
-INPROGRESS - Hook up social share images (when you share links on FB, Whatsapp, etc) to use the main image for each page
-Finish mobile menu
-Implement Paul's designer's feedback throughout the website
+DONE - Remove unused images from Media
+DONE - Hook up social share images
+DONE - YouTube descriptions and sounded added for 360 videos
 Add a fallback description to images without descriptions entered
-YouTube thumbnails/descriptions added for 360 videos (plus mute the videos or add a sound over)
+Finish mobile menu
 Finish content for pages that aren't checked in green in the spreadsheet
+Finish the interactive training map on the training page
 Some iPad view fixes (see spreadsheet)
-Remove unused images from Media
+Implement Paul's designer's feedback throughout the website
