@@ -25,7 +25,7 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
 	title: {
 		default: "Helicopter Services",
-		template: "%s - Helicopter Services",
+		template: "%s",
 	},
 	description: "Helicopter Services",
 	twitter: {
