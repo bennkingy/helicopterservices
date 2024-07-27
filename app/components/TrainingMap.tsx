@@ -164,7 +164,7 @@ const TrainingMap = () => {
 					</tr>
 					<tr className="row5" style={{ backgroundColor: "#E3E9F1" }}>
 						<span className="mapTitle font-openSans">Commerical</span>
-						<td className="p-2 sm:p-3" />
+						<td className="p-2 sm:p-3 relative lineDown lineDownSmallArrow" />
 						<td className="p-2 sm:p-3" />
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
