@@ -14,7 +14,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base py-5 sm:py-10">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base py-5 sm:py-10">
 										&nbsp;&nbsp;&nbsp;PPL(H)&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -33,7 +33,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base py-5 sm:py-10">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base py-5 sm:py-10">
 										&nbsp;&nbsp;&nbsp;AFP&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -53,7 +53,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										&nbsp;&nbsp;&nbsp;Single&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -67,6 +67,7 @@ const TrainingMap = () => {
 							<span className="mapTitle font-openSans">
 								&nbsp;&nbsp;&nbsp;Private&nbsp;&nbsp;&nbsp;
 							</span>
+							<span className="lineArrow"></span>
 						</td>
 						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
@@ -78,13 +79,14 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										Night
 										<br />
 										Rating
 									</div>
 								</div>
 							</div>
+							<span className="lineHalf"></span>
 						</td>
 						<td className="p-2 sm:p-3 relative z-[2]">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
@@ -96,7 +98,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										Type
 										<br />
 										Rating
@@ -105,7 +107,7 @@ const TrainingMap = () => {
 							</div>
 						</td>
 						<td className="p-2 sm:p-3" />
-						<td className="p-2 sm:p-3" />
+						<td className="p-2 sm:p-3"></td>
 					</tr>
 					<tr className="row4" style={{ backgroundColor: "#E3E9F1" }}>
 						<td className="p-2 sm:p-3" />
@@ -119,7 +121,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										CPL(H)
 									</div>
 								</div>
@@ -139,7 +141,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										&nbsp;&nbsp;&nbsp;Twin&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -155,7 +157,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										Simulator
 									</div>
 								</div>
@@ -165,7 +167,9 @@ const TrainingMap = () => {
 					<tr className="row5" style={{ backgroundColor: "#E3E9F1" }}>
 						<span className="mapTitle font-openSans">Commerical</span>
 						<td className="p-2 sm:p-3 relative lineDown lineDownSmallArrow" />
-						<td className="p-2 sm:p-3" />
+						<td className="p-2 sm:p-3 relative lineDownHalfway lineDownSmallArrow">
+							<span className="lineArrow"></span>
+						</td>
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
@@ -176,7 +180,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										&nbsp;&nbsp;&nbsp;IR(H)&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -192,7 +196,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										PBN
 									</div>
 								</div>
@@ -213,7 +217,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										&nbsp;&nbsp;&nbsp;FI(H)&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -229,7 +233,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										&nbsp;&nbsp;&nbsp;TRI&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -245,7 +249,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										&nbsp;&nbsp;&nbsp;IRI&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -267,7 +271,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										&nbsp;&nbsp;&nbsp;FI(H)&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -283,7 +287,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										&nbsp;&nbsp;&nbsp;TRI&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -299,13 +303,15 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 										&nbsp;&nbsp;&nbsp;IRI&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
 							</div>
 						</td>
-						<td className="p-2 sm:p-3" />
+						<td className="p-2 sm:p-3 text-[8px] sm:text-[10px] md:text-base text-center">
+							QMP/ICAO license holders should call us for advice
+						</td>
 					</tr>
 				</tbody>
 			</table>
