@@ -14,6 +14,18 @@ export const revalidate = 30; // revalidate at most 30 seconds
 export const metadata: Metadata = {
 	title: "Training - Helicopter Services",
 	description: "Helicopter Services",
+	openGraph: {
+		title: "Training - Helicopter Services",
+		description: "Helicopter Services",
+		images: [
+			{
+				url: "https://dummyimage.com/800x600",
+				width: 800,
+				height: 600,
+				alt: "Helicopter Services",
+			},
+		],
+	},
 };
 
 async function getData(slug: string) {
