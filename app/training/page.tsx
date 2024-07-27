@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 			"Helicopter Services | Experienced Helicopter Training | White Waltham Airfield | Maidenhead",
 		images: [
 			{
-				url: "https://dummyimage.com/1200x630",
+				url: "https://cdn.sanity.io/images/0he7nz2b/production/b0089479789c970d270fcea18b0182e1f90b88b7-1200x900.webp?w=1200&h=630&q=100&fit=clip&auto=format",
 				width: 1200,
 				height: 630,
 				alt: "Helicopter Services",
