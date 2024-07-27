@@ -7,8 +7,8 @@ import "../styles/globals.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollTop from "./components/ScrollTop";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const workSans = Work_Sans({
 	subsets: ["latin"],
@@ -32,6 +32,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		site: "@helicopterservices",
 	},
+	metadataBase: new URL("https://helicopterservices.vercel.app/"),
 };
 
 export default function RootLayout({
@@ -56,24 +57,24 @@ export default function RootLayout({
 					<Footer />
 					<Toaster />
 					<SpeedInsights />
-					<Analytics /> 
+					<Analytics />
 				</ThemeProvider>
 				{/* Gmap fix */}
 				<Script
 					id="cookieyes"
-          src="https://cdn-cookieyes.com/client_data/e2ee9be7bb054050144f0f50/script.js"
+					src="https://cdn-cookieyes.com/client_data/e2ee9be7bb054050144f0f50/script.js"
 					type="text/javascript"
-          async
+					async
 				/>
-        <Script id="hide-second-gm-style-iw-t" strategy="lazyOnload">
-          {`
+				<Script id="hide-second-gm-style-iw-t" strategy="lazyOnload">
+					{`
 						const elements = document.querySelectorAll('.gm-style-iw-c');
 						if (elements.length > 1) {
 							elements[1].style.display = 'none';
 						}
          
           `}
-        </Script>
+				</Script>
 			</body>
 		</html>
 	);
