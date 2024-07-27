@@ -74,6 +74,8 @@ async function getData(slug: string) {
 	return { data };
 }
 
+// https://nextjs.org/docs/app/building-your-application/optimizing/metadata
+
 export async function generateMetadata({
 	params,
 }: { params: { slug: string } }): Promise<Metadata> {
