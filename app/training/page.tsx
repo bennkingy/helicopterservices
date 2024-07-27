@@ -16,12 +16,13 @@ export const metadata: Metadata = {
 	description: "Helicopter Services",
 	openGraph: {
 		title: "Training - Helicopter Services",
-		description: "Helicopter Services",
+		description:
+			"Helicopter Services | Experienced Helicopter Training | White Waltham Airfield | Maidenhead",
 		images: [
 			{
-				url: "https://dummyimage.com/800x600",
-				width: 800,
-				height: 600,
+				url: "https://dummyimage.com/1200x630",
+				width: 1200,
+				height: 630,
 				alt: "Helicopter Services",
 			},
 		],

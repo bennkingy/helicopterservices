@@ -12,7 +12,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title:
-		"Helicopter Services | Experienced helicopter training | White Waltham Airfield | Maidenhead ",
+		"Helicopter Services | Experienced Helicopter Training | White Waltham Airfield | Maidenhead",
 	description:
 		"Helicopter Services | Experienced helicopter training for pilots, instructors and examiners | Helicopter charter & photography | Helicopter load lifting & consultancy | London helicopter tours | White Waltham Airfield | Maidenhead",
 };
