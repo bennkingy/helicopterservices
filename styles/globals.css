@@ -234,6 +234,28 @@
   border-left: 10px solid #646E7E;
   transform: translateY(-50%);
 }
+.lineArrowLeft::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: calc(95%);
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 10px solid #646E7E;
+  transform: translateY(-50%);
+}
+.lineUp::before {
+    content: '';
+    position: absolute;
+    top: calc(0%);
+    left: 0%;
+    width: calc(100%); /* Adjust this value based on table layout */
+    height: 2px;
+    background: #646E7E;
+    transform: rotate(90deg);
+}
 .lineDown::before {
     content: '';
     position: absolute;
@@ -255,6 +277,7 @@
   border-bottom: 5px solid transparent;
   border-left: 10px solid #646E7E;
   transform: rotate(90deg);
+  z-index: 10;
 }
 .lineDownSmall::before {
   content: '';
@@ -280,7 +303,7 @@
   border-bottom: 5px solid transparent;
   border-left: 10px solid #646E7E;
   transform: rotate(90deg);
-  Z-INDEX: 1;
+  Z-INDEX: 3;
   position: absolute;
   left: 0;
   right: 0;

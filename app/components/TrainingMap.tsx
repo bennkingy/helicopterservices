@@ -43,7 +43,7 @@ const TrainingMap = () => {
 					<tr className="row2">
 						<td className="p-2 sm:p-3 relative lineDown" />
 						<td className="relative lineAndHalf lineArrow" />
-						<td className="p-2 sm:p-3">
+						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
@@ -86,7 +86,7 @@ const TrainingMap = () => {
 								</div>
 							</div>
 						</td>
-						<td className="p-2 sm:p-3">
+						<td className="p-2 sm:p-3 relative z-[2]">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
@@ -125,8 +125,11 @@ const TrainingMap = () => {
 								</div>
 							</div>
 						</td>
-						<td className="p-2 sm:p-3" />
-						<td className="p-2 sm:p-3">
+						<td className="p-2 sm:p-3 line line relative lineArrow">
+							<span className="lineArrowLeft"></span>
+							<span className="lineUp"></span>
+						</td>
+						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
@@ -163,7 +166,7 @@ const TrainingMap = () => {
 						<span className="mapTitle font-openSans">Commerical</span>
 						<td className="p-2 sm:p-3" />
 						<td className="p-2 sm:p-3" />
-						<td className="p-2 sm:p-3">
+						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
@@ -200,7 +203,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3">
 							<span className="mapTitle font-openSans">Instructor</span>
 						</td>
-						<td className="p-2 sm:p-3">
+						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
@@ -216,7 +219,7 @@ const TrainingMap = () => {
 								</div>
 							</div>
 						</td>
-						<td className="p-2 sm:p-3">
+						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
@@ -232,7 +235,7 @@ const TrainingMap = () => {
 								</div>
 							</div>
 						</td>
-						<td className="p-2 sm:p-3">
+						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
