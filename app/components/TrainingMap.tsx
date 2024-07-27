@@ -41,8 +41,8 @@ const TrainingMap = () => {
 						</td>
 					</tr>
 					<tr className="row2">
-						<td className="p-2 sm:p-3" />
-						<td />
+						<td className="p-2 sm:p-3 relative lineDown" />
+						<td className="relative lineAndHalf lineArrow" />
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
@@ -63,7 +63,7 @@ const TrainingMap = () => {
 						<td />
 					</tr>
 					<tr className="row3">
-						<td className="p-2 sm:p-3">
+						<td className="p-2 sm:p-3 relative lineDown">
 							<span className="mapTitle font-openSans">
 								&nbsp;&nbsp;&nbsp;Private&nbsp;&nbsp;&nbsp;
 							</span>
