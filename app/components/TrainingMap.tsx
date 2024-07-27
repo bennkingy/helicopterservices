@@ -1,6 +1,6 @@
 const TrainingMap = () => {
 	return (
-		<div className="sm:px-20 mb-10 sm:mb-16 max-w-[960px] mx-auto">
+		<div className="sm:px-20 mb-10 sm:mb-24 max-w-[960px] mx-auto">
 			<table className="w-full border-separate border-spacing-0 table-fixed">
 				<tbody>
 					<tr className="row2">
@@ -20,9 +20,9 @@ const TrainingMap = () => {
 								</div>
 							</div>
 						</td>
-						<td className="p-2 sm:p-3" />
-						<td className="p-2 sm:p-3" />
-						<td className="p-2 sm:p-3" />
+						<td className="p-2 sm:p-3 relative line" />
+						<td className="p-2 sm:p-3 relative line" />
+						<td className="p-2 sm:p-3 relative line lineArrow" />
 						<td colSpan={1} className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
