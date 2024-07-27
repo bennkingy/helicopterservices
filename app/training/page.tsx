@@ -13,7 +13,8 @@ export const revalidate = 30; // revalidate at most 30 seconds
 
 export const metadata: Metadata = {
 	title: "Training - Helicopter Services",
-	description: "Helicopter Services",
+	description:
+		"Experienced Helicopter Training | White Waltham Airfield | Maidenhead",
 	// openGraph: {
 	// 	title: "Training - Helicopter Services",
 	// 	description:
