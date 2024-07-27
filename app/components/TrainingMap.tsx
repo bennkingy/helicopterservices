@@ -14,7 +14,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base py-5 sm:py-10">
+									<div className="font-workSans font-bold text-[10px] sm:text-base py-5 sm:py-10">
 										&nbsp;&nbsp;&nbsp;PPL(H)&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -33,7 +33,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base text-center py-5 sm:py-10 max-h-[162px]">
+									<div className="font-workSans font-bold text-[10px] sm:text-base text-center py-5 sm:py-10 max-h-[162px]">
 										Advanced flying
 										<br />
 										programme
@@ -55,7 +55,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-base">
 										&nbsp;&nbsp;&nbsp;Single&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -81,7 +81,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-base">
 										Night
 										<br />
 										Rating
@@ -99,7 +99,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-base">
 										Type
 										<br />
 										Rating
@@ -123,7 +123,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-base">
 										CPL(H)
 									</div>
 								</div>
@@ -140,7 +140,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-base">
 										&nbsp;&nbsp;&nbsp;Twin&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -156,7 +156,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base text-center py-5 sm:py-10 max-h-[162px]">
+									<div className="font-workSans font-bold text-[10px] sm:text-base text-center py-5 sm:py-10 max-h-[162px]">
 										Simulator
 									</div>
 								</div>
@@ -177,7 +177,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-base">
 										&nbsp;&nbsp;&nbsp;IR(H)&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -193,7 +193,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base text-center py-5 sm:py-10 max-h-[162px]">
+									<div className="font-workSans font-bold text-[10px] sm:text-base text-center py-5 sm:py-10 max-h-[162px]">
 										PBN
 									</div>
 								</div>
@@ -214,7 +214,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-base">
 										&nbsp;&nbsp;&nbsp;FI(H)&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -230,7 +230,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-base">
 										&nbsp;&nbsp;&nbsp;TRI&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -246,7 +246,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-base">
 										&nbsp;&nbsp;&nbsp;IRI&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -269,7 +269,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-base">
 										&nbsp;&nbsp;&nbsp;FI(H)&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -285,7 +285,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-base">
 										&nbsp;&nbsp;&nbsp;TRI&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
@@ -301,7 +301,7 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-xs sm:text-base">
+									<div className="font-workSans font-bold text-[10px] sm:text-base">
 										&nbsp;&nbsp;&nbsp;IRI&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
