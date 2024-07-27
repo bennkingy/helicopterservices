@@ -5,7 +5,7 @@ const TrainingMap = () => {
 				<tbody>
 					<tr className="row2">
 						<td className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
 									style={{
@@ -24,7 +24,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3" />
 						<td className="p-2 sm:p-3" />
 						<td colSpan={2} className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="bg-white flex items-center justify-center"
 									style={{
@@ -46,7 +46,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3" />
 						<td />
 						<td className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
 									style={{
@@ -90,7 +90,7 @@ const TrainingMap = () => {
 							</div>
 						</td>
 						<td className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
 									style={{
@@ -114,7 +114,7 @@ const TrainingMap = () => {
 					<tr className="row4" style={{ backgroundColor: "#E3E9F1" }}>
 						<td className="p-2 sm:p-3" />
 						<td className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
 									style={{
@@ -129,7 +129,7 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3" />
 						<td className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
 									style={{
@@ -145,7 +145,7 @@ const TrainingMap = () => {
 							</div>
 						</td>
 						<td colSpan={2} className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="bg-white flex items-center justify-center"
 									style={{
@@ -166,7 +166,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3" />
 						<td className="p-2 sm:p-3" />
 						<td className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
 									style={{
@@ -182,7 +182,7 @@ const TrainingMap = () => {
 							</div>
 						</td>
 						<td colSpan={2} className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="bg-white flex items-center justify-center"
 									style={{
@@ -203,7 +203,7 @@ const TrainingMap = () => {
 							<span className="mapTitle font-openSans">Instructor</span>
 						</td>
 						<td className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
 									style={{
@@ -219,7 +219,7 @@ const TrainingMap = () => {
 							</div>
 						</td>
 						<td className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
 									style={{
@@ -235,7 +235,7 @@ const TrainingMap = () => {
 							</div>
 						</td>
 						<td className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
 									style={{
@@ -258,7 +258,7 @@ const TrainingMap = () => {
 							<span className="mapTitle font-openSans">Examiner</span>
 						</td>
 						<td className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
 									style={{
@@ -274,7 +274,7 @@ const TrainingMap = () => {
 							</div>
 						</td>
 						<td className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
 									style={{
@@ -290,7 +290,7 @@ const TrainingMap = () => {
 							</div>
 						</td>
 						<td className="p-2 sm:p-3">
-							<div className="shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
 									style={{
