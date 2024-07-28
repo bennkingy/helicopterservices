@@ -76,6 +76,7 @@ const TrainingMap = () => {
 								&nbsp;&nbsp;&nbsp;Private&nbsp;&nbsp;&nbsp;
 							</span>
 							<span className="lineArrow"></span>
+							<span className="lineUp"></span>
 						</td>
 						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
