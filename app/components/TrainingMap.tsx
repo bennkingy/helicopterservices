@@ -17,7 +17,7 @@ const TrainingMap = () => {
 											maxHeight: "136px",
 										}}
 									>
-										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base py-5 sm:py-10">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 											&nbsp;&nbsp;&nbsp;PPL(H)&nbsp;&nbsp;&nbsp;
 										</div>
 									</div>
@@ -29,7 +29,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3 relative line lineArrow" />
 						<td colSpan={1} className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
+								<Link href="/training/advanced-flying-programme">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
@@ -38,7 +38,7 @@ const TrainingMap = () => {
 											maxHeight: "136px",
 										}}
 									>
-										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base py-5 sm:py-10">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 											&nbsp;&nbsp;&nbsp;AFP&nbsp;&nbsp;&nbsp;
 										</div>
 									</div>
@@ -50,21 +50,19 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3 relative lineDown" />
 						<td className="relative lineAndHalf lineArrow" />
 						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow">
-							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
-									<div
-										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-										style={{
-											clipPath:
-												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-											maxHeight: "136px",
-										}}
-									>
-										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-											&nbsp;&nbsp;&nbsp;Single&nbsp;&nbsp;&nbsp;
-										</div>
+							<div className="shadow-sm sm:shadow-lg">
+								<div
+									className="aspect-square bg-[#E3E9F1] transition-all duration-300 flex items-center justify-center"
+									style={{
+										clipPath:
+											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+										maxHeight: "136px",
+									}}
+								>
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+										&nbsp;&nbsp;&nbsp;Single&nbsp;&nbsp;&nbsp;
 									</div>
-								</Link>
+								</div>
 							</div>
 						</td>
 						<td />
@@ -77,6 +75,7 @@ const TrainingMap = () => {
 							</span>
 							<span className="lineArrow"></span>
 							<span className="lineUp"></span>
+							{/* FIXME: TODO: Maybe delete */}
 						</td>
 						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
@@ -301,7 +300,7 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
+								<Link href="/training/#">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
@@ -311,7 +310,7 @@ const TrainingMap = () => {
 										}}
 									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-											&nbsp;&nbsp;&nbsp;FI(H)&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;FE(H)&nbsp;&nbsp;&nbsp;
 										</div>
 									</div>
 								</Link>
@@ -319,7 +318,7 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
+								<Link href="/training/#">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
@@ -329,7 +328,7 @@ const TrainingMap = () => {
 										}}
 									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-											&nbsp;&nbsp;&nbsp;TRI&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;TRE(H)&nbsp;&nbsp;&nbsp;
 										</div>
 									</div>
 								</Link>
@@ -337,20 +336,18 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
-									<div
-										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-										style={{
-											clipPath:
-												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-											maxHeight: "136px",
-										}}
-									>
-										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-											&nbsp;&nbsp;&nbsp;IRI&nbsp;&nbsp;&nbsp;
-										</div>
+								<div
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+									style={{
+										clipPath:
+											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+										maxHeight: "136px",
+									}}
+								>
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+										&nbsp;&nbsp;&nbsp;IRE&nbsp;&nbsp;&nbsp;
 									</div>
-								</Link>
+								</div>
 							</div>
 						</td>
 						<td className="p-2 sm:p-3 text-[8px] sm:text-[10px] lg:text-base text-center">
