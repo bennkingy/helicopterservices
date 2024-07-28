@@ -52,7 +52,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg">
 								<div
-									className="aspect-square bg-[#E3E9F1] transition-all duration-300 flex items-center justify-center"
+									className="aspect-square bg-[#ccd1d8] transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -149,22 +149,20 @@ const TrainingMap = () => {
 							<span className="lineArrowLeft"></span>
 							<span className="lineUp"></span>
 						</td>
-						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
-							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
-									<div
-										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-										style={{
-											clipPath:
-												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-											maxHeight: "136px",
-										}}
-									>
-										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-											&nbsp;&nbsp;&nbsp;Twin&nbsp;&nbsp;&nbsp;
-										</div>
+						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow cursor-default">
+							<div className="shadow-sm sm:shadow-lg cursor-default">
+								<div
+									className="aspect-square bg-[#ccd1d8]  transition-all duration-300 flex items-center justify-center"
+									style={{
+										clipPath:
+											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+										maxHeight: "136px",
+									}}
+								>
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+										&nbsp;&nbsp;&nbsp;Twin&nbsp;&nbsp;&nbsp;
 									</div>
-								</Link>
+								</div>
 							</div>
 						</td>
 						<td colSpan={1} className="p-2 sm:p-3">
@@ -335,9 +333,9 @@ const TrainingMap = () => {
 							</div>
 						</td>
 						<td className="p-2 sm:p-3">
-							<div className="shadow-sm sm:shadow-lg cursor-pointer">
+							<div className="shadow-sm sm:shadow-lg cursor-default">
 								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+									className="aspect-square bg-[#ccd1d8]  transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
