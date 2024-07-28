@@ -73,8 +73,8 @@ const TrainingMap = () => {
 							<span className="mapTitle font-openSans">
 								&nbsp;&nbsp;&nbsp;Private&nbsp;&nbsp;&nbsp;
 							</span>
-							<span className="lineArrow"></span>
-							<span className="lineUp"></span>
+							<span className="lineArrow" />
+							<span className="lineUp" />
 							{/* FIXME: TODO: Maybe delete */}
 						</td>
 						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow">
@@ -96,7 +96,7 @@ const TrainingMap = () => {
 									</div>
 								</Link>
 							</div>
-							<span className="lineHalf"></span>
+							<span className="lineHalf" />
 						</td>
 						<td className="p-2 sm:p-3 relative z-[2]">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
@@ -119,12 +119,12 @@ const TrainingMap = () => {
 							</div>
 						</td>
 						<td className="p-2 sm:p-3" />
-						<td className="p-2 sm:p-3"></td>
+						<td className="p-2 sm:p-3" />
 					</tr>
 					<tr className="row4" style={{ backgroundColor: "#E3E9F1" }}>
 						<td className="p-2 sm:p-3 relative">
-							<span className="lineUp"></span>
-							<span className="lineArrow"></span>
+							<span className="lineUp" />
+							<span className="lineArrow" />
 						</td>
 						<td className="p-2 sm:p-3 relative">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
@@ -143,11 +143,11 @@ const TrainingMap = () => {
 									</div>
 								</Link>
 							</div>
-							<span className="lineHalf"></span>
+							<span className="lineHalf" />
 						</td>
 						<td className="p-2 sm:p-3 line line relative lineArrow">
-							<span className="lineArrowLeft"></span>
-							<span className="lineUp"></span>
+							<span className="lineArrowLeft" />
+							<span className="lineUp" />
 						</td>
 						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow cursor-default">
 							<div className="shadow-sm sm:shadow-lg cursor-default">
@@ -187,13 +187,13 @@ const TrainingMap = () => {
 					<tr className="row5" style={{ backgroundColor: "#E3E9F1" }}>
 						<span className="mapTitle font-openSans">Commerical</span>
 						<td className="p-2 sm:p-3 relative lineDown lineDownSmallArrow">
-							<span className="lineDownHalfway"></span>
+							<span className="lineDownHalfway" />
 						</td>
 						<td className="p-2 sm:p-3 relative lineDownHalfway lineDownSmallArrow">
-							<span className="line"></span>
-							<span className="lineHalf"></span>
-							<span className="lineArrow"></span>
-							<span className="absolute line z-[2]"></span>
+							<span className="line" />
+							<span className="lineHalf" />
+							<span className="lineArrow" />
+							<span className="absolute line z-[2]" />
 						</td>
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
