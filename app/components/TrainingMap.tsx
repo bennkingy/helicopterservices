@@ -8,20 +8,20 @@ const TrainingMap = () => {
 					<tr className="row2">
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<Link href="/training/private-pilot-licence">
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base py-5 sm:py-10">
 											&nbsp;&nbsp;&nbsp;PPL(H)&nbsp;&nbsp;&nbsp;
 										</div>
-									</Link>
-								</div>
+									</div>
+								</Link>
 							</div>
 						</td>
 						<td className="p-2 sm:p-3 relative line" />
@@ -29,20 +29,20 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3 relative line lineArrow" />
 						<td colSpan={1} className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<Link href="/training/private-pilot-licence">
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base py-5 sm:py-10">
 											&nbsp;&nbsp;&nbsp;AFP&nbsp;&nbsp;&nbsp;
 										</div>
-									</Link>
-								</div>
+									</div>
+								</Link>
 							</div>
 						</td>
 					</tr>
@@ -51,20 +51,20 @@ const TrainingMap = () => {
 						<td className="relative lineAndHalf lineArrow" />
 						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<Link href="/training/private-pilot-licence">
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 											&nbsp;&nbsp;&nbsp;Single&nbsp;&nbsp;&nbsp;
 										</div>
-									</Link>
-								</div>
+									</div>
+								</Link>
 							</div>
 						</td>
 						<td />
@@ -79,43 +79,43 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<Link href="/training/private-pilot-licence">
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 											Night
 											<br />
 											Rating
 										</div>
-									</Link>
-								</div>
+									</div>
+								</Link>
 							</div>
 							<span className="lineHalf"></span>
 						</td>
 						<td className="p-2 sm:p-3 relative z-[2]">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<Link href="/training/private-pilot-licence">
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 											Type
 											<br />
 											Rating
 										</div>
-									</Link>
-								</div>
+									</div>
+								</Link>
 							</div>
 						</td>
 						<td className="p-2 sm:p-3" />
@@ -128,20 +128,20 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3 relative">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<Link href="/training/private-pilot-licence">
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 											CPL(H)
 										</div>
-									</Link>
-								</div>
+									</div>
+								</Link>
 							</div>
 							<span className="lineHalf"></span>
 						</td>
@@ -151,38 +151,38 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<Link href="/training/private-pilot-licence">
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 											&nbsp;&nbsp;&nbsp;Twin&nbsp;&nbsp;&nbsp;
 										</div>
-									</Link>
-								</div>
+									</div>
+								</Link>
 							</div>
 						</td>
 						<td colSpan={1} className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<Link href="/training/private-pilot-licence">
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 											Simulator
 										</div>
-									</Link>
-								</div>
+									</div>
+								</Link>
 							</div>
 						</td>
 					</tr>
@@ -199,36 +199,38 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all duration-300"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										&nbsp;&nbsp;&nbsp;IR(H)&nbsp;&nbsp;&nbsp;
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all duration-300"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											&nbsp;&nbsp;&nbsp;IR(H)&nbsp;&nbsp;&nbsp;
+										</div>
 									</div>
-								</div>
+								</Link>
 							</div>
 						</td>
 						<td colSpan={1} className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<Link href="/training/private-pilot-licence">
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 											PBN
 										</div>
-									</Link>
-								</div>
+									</div>
+								</Link>
 							</div>
 						</td>
 					</tr>
@@ -238,56 +240,56 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<Link href="/training/private-pilot-licence">
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 											&nbsp;&nbsp;&nbsp;FI(H)&nbsp;&nbsp;&nbsp;
 										</div>
-									</Link>
-								</div>
+									</div>
+								</Link>
 							</div>
 						</td>
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<Link href="/training/private-pilot-licence">
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 											&nbsp;&nbsp;&nbsp;TRI&nbsp;&nbsp;&nbsp;
 										</div>
-									</Link>
-								</div>
+									</div>
+								</Link>
 							</div>
 						</td>
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<Link href="/training/private-pilot-licence">
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
 										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
 											&nbsp;&nbsp;&nbsp;IRI&nbsp;&nbsp;&nbsp;
 										</div>
-									</Link>
-								</div>
+									</div>
+								</Link>
 							</div>
 						</td>
 						<td className="p-2 sm:p-3" />
@@ -298,50 +300,56 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										&nbsp;&nbsp;&nbsp;FI(H)&nbsp;&nbsp;&nbsp;
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											&nbsp;&nbsp;&nbsp;FI(H)&nbsp;&nbsp;&nbsp;
+										</div>
 									</div>
-								</div>
+								</Link>
 							</div>
 						</td>
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										&nbsp;&nbsp;&nbsp;TRI&nbsp;&nbsp;&nbsp;
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											&nbsp;&nbsp;&nbsp;TRI&nbsp;&nbsp;&nbsp;
+										</div>
 									</div>
-								</div>
+								</Link>
 							</div>
 						</td>
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<div
-									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-									style={{
-										clipPath:
-											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-										maxHeight: "136px",
-									}}
-								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										&nbsp;&nbsp;&nbsp;IRI&nbsp;&nbsp;&nbsp;
+								<Link href="/training/private-pilot-licence">
+									<div
+										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
+										style={{
+											clipPath:
+												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+											maxHeight: "136px",
+										}}
+									>
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											&nbsp;&nbsp;&nbsp;IRI&nbsp;&nbsp;&nbsp;
+										</div>
 									</div>
-								</div>
+								</Link>
 							</div>
 						</td>
 						<td className="p-2 sm:p-3 text-[8px] sm:text-[10px] lg:text-base text-center">
