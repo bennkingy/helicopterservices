@@ -110,8 +110,11 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3"></td>
 					</tr>
 					<tr className="row4" style={{ backgroundColor: "#E3E9F1" }}>
-						<td className="p-2 sm:p-3" />
-						<td className="p-2 sm:p-3">
+						<td className="p-2 sm:p-3 relative">
+							<span className="lineUp"></span>
+							<span className="lineArrow"></span>
+						</td>
+						<td className="p-2 sm:p-3 relative">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
 									className="aspect-square bg-white flex items-center justify-center"
@@ -126,6 +129,7 @@ const TrainingMap = () => {
 									</div>
 								</div>
 							</div>
+							<span className="lineHalf"></span>
 						</td>
 						<td className="p-2 sm:p-3 line line relative lineArrow">
 							<span className="lineArrowLeft"></span>
@@ -168,7 +172,10 @@ const TrainingMap = () => {
 						<span className="mapTitle font-openSans">Commerical</span>
 						<td className="p-2 sm:p-3 relative lineDown lineDownSmallArrow" />
 						<td className="p-2 sm:p-3 relative lineDownHalfway lineDownSmallArrow">
+							<span className="line"></span>
+							<span className="lineHalf"></span>
 							<span className="lineArrow"></span>
+							<span className="absolute line z-[2]"></span>
 						</td>
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
@@ -309,7 +316,7 @@ const TrainingMap = () => {
 								</div>
 							</div>
 						</td>
-						<td className="p-2 sm:p-3 text-[8px] sm:text-[10px] md:text-base text-center">
+						<td className="p-2 sm:p-3 text-[8px] sm:text-[10px] lg:text-base text-center">
 							QMP/ICAO license holders should call us for advice
 						</td>
 					</tr>
