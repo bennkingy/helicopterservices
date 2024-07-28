@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const TrainingMap = () => {
 	return (
 		<div className="sm:px-20 mb-10 sm:mb-24 max-w-[960px] mx-auto">
@@ -14,9 +16,11 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base py-5 sm:py-10">
-										&nbsp;&nbsp;&nbsp;PPL(H)&nbsp;&nbsp;&nbsp;
-									</div>
+									<Link href="/training/private-pilot-licence">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base py-5 sm:py-10">
+											&nbsp;&nbsp;&nbsp;PPL(H)&nbsp;&nbsp;&nbsp;
+										</div>
+									</Link>
 								</div>
 							</div>
 						</td>
@@ -33,9 +37,11 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base py-5 sm:py-10">
-										&nbsp;&nbsp;&nbsp;AFP&nbsp;&nbsp;&nbsp;
-									</div>
+									<Link href="/training/private-pilot-licence">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base py-5 sm:py-10">
+											&nbsp;&nbsp;&nbsp;AFP&nbsp;&nbsp;&nbsp;
+										</div>
+									</Link>
 								</div>
 							</div>
 						</td>
@@ -53,9 +59,11 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										&nbsp;&nbsp;&nbsp;Single&nbsp;&nbsp;&nbsp;
-									</div>
+									<Link href="/training/private-pilot-licence">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											&nbsp;&nbsp;&nbsp;Single&nbsp;&nbsp;&nbsp;
+										</div>
+									</Link>
 								</div>
 							</div>
 						</td>
@@ -79,11 +87,13 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										Night
-										<br />
-										Rating
-									</div>
+									<Link href="/training/private-pilot-licence">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											Night
+											<br />
+											Rating
+										</div>
+									</Link>
 								</div>
 							</div>
 							<span className="lineHalf"></span>
@@ -98,11 +108,13 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										Type
-										<br />
-										Rating
-									</div>
+									<Link href="/training/private-pilot-licence">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											Type
+											<br />
+											Rating
+										</div>
+									</Link>
 								</div>
 							</div>
 						</td>
@@ -124,9 +136,11 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										CPL(H)
-									</div>
+									<Link href="/training/private-pilot-licence">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											CPL(H)
+										</div>
+									</Link>
 								</div>
 							</div>
 							<span className="lineHalf"></span>
@@ -145,9 +159,11 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										&nbsp;&nbsp;&nbsp;Twin&nbsp;&nbsp;&nbsp;
-									</div>
+									<Link href="/training/private-pilot-licence">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											&nbsp;&nbsp;&nbsp;Twin&nbsp;&nbsp;&nbsp;
+										</div>
+									</Link>
 								</div>
 							</div>
 						</td>
@@ -161,16 +177,20 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										Simulator
-									</div>
+									<Link href="/training/private-pilot-licence">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											Simulator
+										</div>
+									</Link>
 								</div>
 							</div>
 						</td>
 					</tr>
 					<tr className="row5" style={{ backgroundColor: "#E3E9F1" }}>
 						<span className="mapTitle font-openSans">Commerical</span>
-						<td className="p-2 sm:p-3 relative lineDown lineDownSmallArrow" />
+						<td className="p-2 sm:p-3 relative lineDown lineDownSmallArrow">
+							<span className="lineDownHalfway"></span>
+						</td>
 						<td className="p-2 sm:p-3 relative lineDownHalfway lineDownSmallArrow">
 							<span className="line"></span>
 							<span className="lineHalf"></span>
@@ -203,9 +223,11 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										PBN
-									</div>
+									<Link href="/training/private-pilot-licence">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											PBN
+										</div>
+									</Link>
 								</div>
 							</div>
 						</td>
@@ -224,9 +246,11 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										&nbsp;&nbsp;&nbsp;FI(H)&nbsp;&nbsp;&nbsp;
-									</div>
+									<Link href="/training/private-pilot-licence">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											&nbsp;&nbsp;&nbsp;FI(H)&nbsp;&nbsp;&nbsp;
+										</div>
+									</Link>
 								</div>
 							</div>
 						</td>
@@ -240,9 +264,11 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										&nbsp;&nbsp;&nbsp;TRI&nbsp;&nbsp;&nbsp;
-									</div>
+									<Link href="/training/private-pilot-licence">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											&nbsp;&nbsp;&nbsp;TRI&nbsp;&nbsp;&nbsp;
+										</div>
+									</Link>
 								</div>
 							</div>
 						</td>
@@ -256,9 +282,11 @@ const TrainingMap = () => {
 										maxHeight: "136px",
 									}}
 								>
-									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-										&nbsp;&nbsp;&nbsp;IRI&nbsp;&nbsp;&nbsp;
-									</div>
+									<Link href="/training/private-pilot-licence">
+										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+											&nbsp;&nbsp;&nbsp;IRI&nbsp;&nbsp;&nbsp;
+										</div>
+									</Link>
 								</div>
 							</div>
 						</td>

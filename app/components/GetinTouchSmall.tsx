@@ -12,7 +12,7 @@ const GetinTouchSmall = ({ className }: any) => {
 			<div>
 				<p>
 					<span className="font-bold">Outside office hours?</span> Submit our
-					form and out team will get back to you.
+					form and our team will get back to you.
 				</p>
 				<Link href="/enquire">
 					<Button size="lg" className="bg-brand-orange text-white w-full mt-3">

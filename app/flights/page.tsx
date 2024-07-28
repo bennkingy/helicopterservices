@@ -110,7 +110,7 @@ export default async function Flights({
 							</p>
 							<p className="mt-5">
 								<span className="font-bold">Outside office hours? </span>
-								Submit our form and out team will get back to you.
+								Submit our form and our team will get back to you.
 							</p>
 							<Link href="/enquire">
 								<Button

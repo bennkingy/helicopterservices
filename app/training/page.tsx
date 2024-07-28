@@ -282,7 +282,7 @@ export default async function Training({
 							</p>
 							<p>
 								<span className="font-bold">Outside office hours? </span>Submit
-								our form and out team will get back to you.
+								our form and our team will get back to you.
 							</p>
 							<Link href="/enquire">
 								<Button

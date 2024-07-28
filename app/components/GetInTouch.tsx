@@ -67,7 +67,7 @@ const GetInTouch = ({ className }: props) => {
 										height={17}
 									/>
 									<Link
-										href="emailto:info@helicopterservices.co.uk"
+										href="mailto:info@helicopterservices.co.uk"
 										className="mb-[2px] font-normal text-sm hover:underline underline-offset-2 flex"
 									>
 										info@helicopterservices.co.uk
