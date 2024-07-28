@@ -79,7 +79,7 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
+								<Link href="/training/night-rating">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
@@ -100,7 +100,7 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3 relative z-[2]">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
+								<Link href="/training/type-ratings">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
@@ -128,7 +128,7 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3 relative">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
+								<Link href="/training/commercial-pilot-licence">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
@@ -167,7 +167,7 @@ const TrainingMap = () => {
 						</td>
 						<td colSpan={1} className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
+								<Link href="/training/simulator">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
@@ -197,7 +197,7 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
+								<Link href="/training/instrument-ratings">
 									<div
 										className="aspect-square bg-white flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all duration-300"
 										style={{
@@ -215,7 +215,7 @@ const TrainingMap = () => {
 						</td>
 						<td colSpan={1} className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
+								<Link href="/training/pbn">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
@@ -238,7 +238,7 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
+								<Link href="/training/flight-instructor-ratings">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
@@ -255,39 +255,35 @@ const TrainingMap = () => {
 							</div>
 						</td>
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
-							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
-									<div
-										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-										style={{
-											clipPath:
-												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-											maxHeight: "136px",
-										}}
-									>
-										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-											&nbsp;&nbsp;&nbsp;TRI&nbsp;&nbsp;&nbsp;
-										</div>
+							<div className="shadow-sm sm:shadow-lg cursor-default">
+								<div
+									className="aspect-square bg-[#ccd1d8] transition-all duration-300 flex items-center justify-center"
+									style={{
+										clipPath:
+											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+										maxHeight: "136px",
+									}}
+								>
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+										&nbsp;&nbsp;&nbsp;TRI&nbsp;&nbsp;&nbsp;
 									</div>
-								</Link>
+								</div>
 							</div>
 						</td>
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
-							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/private-pilot-licence">
-									<div
-										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
-										style={{
-											clipPath:
-												"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
-											maxHeight: "136px",
-										}}
-									>
-										<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
-											&nbsp;&nbsp;&nbsp;IRI&nbsp;&nbsp;&nbsp;
-										</div>
+							<div className="shadow-sm sm:shadow-lg cursor-default">
+								<div
+									className="aspect-square bg-[#ccd1d8]  transition-all duration-300 flex items-center justify-center"
+									style={{
+										clipPath:
+											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+										maxHeight: "136px",
+									}}
+								>
+									<div className="font-workSans font-bold text-[10px] sm:text-[12px] md:text-base">
+										&nbsp;&nbsp;&nbsp;IRI&nbsp;&nbsp;&nbsp;
 									</div>
-								</Link>
+								</div>
 							</div>
 						</td>
 						<td className="p-2 sm:p-3" />
@@ -298,7 +294,7 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/#">
+								<Link href="/training/flight-examiner-ratings">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
@@ -316,7 +312,7 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/#">
+								<Link href="/training/flight-examiner-ratings">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
