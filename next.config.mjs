@@ -66,6 +66,11 @@ const nextConfig = {
 			},
 			// Training
 			{
+				source: "/training/training",
+				destination: "/training",
+				permanent: true,
+			},
+			{
 				source: "/vr-simulator",
 				destination: "/training/virtual-reality-simulator",
 				permanent: true,
@@ -137,6 +142,11 @@ const nextConfig = {
 			},
 			// About us
 			{
+				source: "/about-us/about-us",
+				destination: "/about-us",
+				permanent: true,
+			},
+			{
 				source: "/company",
 				destination: "/about-us",
 				permanent: true,
@@ -162,7 +172,18 @@ const nextConfig = {
 				destination: "/enquire",
 				permanent: true,
 			},
+			// Fleet
+			{
+				source: "/fleet/fleet",
+				destination: "/fleet",
+				permanent: true,
+			},
 			// Flights
+			{
+				source: "/flights/flights",
+				destination: "/flights",
+				permanent: true,
+			},
 			{
 				source: "/special-events",
 				destination: "/flights/special-events",
@@ -199,6 +220,11 @@ const nextConfig = {
 				permanent: true,
 			},
 			// Industry
+			{
+				source: "/industry/industry",
+				destination: "/industry",
+				permanent: true,
+			},
 			{
 				source: "/aerial-photography",
 				destination: "/industry/photography-filming",
