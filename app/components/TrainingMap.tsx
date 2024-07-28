@@ -7,7 +7,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -26,7 +26,7 @@ const TrainingMap = () => {
 						<td colSpan={1} className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -46,7 +46,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -72,7 +72,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3 relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -91,7 +91,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3 relative z-[2]">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -117,7 +117,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3 relative">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -138,7 +138,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -154,7 +154,7 @@ const TrainingMap = () => {
 						<td colSpan={1} className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -180,7 +180,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all duration-300"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -196,7 +196,7 @@ const TrainingMap = () => {
 						<td colSpan={1} className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -217,7 +217,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -233,7 +233,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -249,7 +249,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3  relative lineDownSmall lineDownSmallArrow">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -271,7 +271,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -287,7 +287,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
@@ -303,7 +303,7 @@ const TrainingMap = () => {
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
 								<div
-									className="aspect-square bg-white flex items-center justify-center"
+									className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
