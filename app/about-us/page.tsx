@@ -41,7 +41,7 @@ export default async function About() {
 					</p>
 					<p className="font-openSans mt-5">
 						If you feel like joining the “Aviation Nation, Helicopter Tribe”
-						please contact us ...and be aware that this helicopter flying
+						please contact us... and be aware that this helicopter flying
 						malarkey is addictive!
 					</p>
 					<Image
@@ -116,9 +116,9 @@ export default async function About() {
 					<p className="font-openSans">
 						We supported one of our own pilots with an advanced flying
 						development programme. It was a proud moment when he was awarded the
-						Britannia Trophy, 2018 by the Royal Aero Club of the United
-						Kingdom nominated by the Helicopter Club of Great Britain for his
-						Three Journeys Round project.
+						Britannia Trophy, 2018 by the Royal Aero Club of the United Kingdom
+						nominated by the Helicopter Club of Great Britain for his Three
+						Journeys Round project.
 					</p>
 					<p className="font-openSans mt-5">
 						Here Peter Wilson is pictured with our Head of Training, Leon Smith.
