@@ -169,7 +169,7 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 							animate={{ opacity: 1, x: 0 }}
 							exit={{ opacity: 0, x: -100 }}
 							transition={{ duration: 0.3 }}
-							className="z-[60] absolute top-0 font-openSans text-brand-light-blue font-bold w-full"
+							className="z-[60] absolute top-0 font-openSans text-brand-light-blue font-bold w-full h-full overflow-y-scroll"
 						>
 							{
 								// @ts-ignore
