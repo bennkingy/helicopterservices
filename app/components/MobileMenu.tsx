@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
@@ -6,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const initialMenus = {
 	main: [
@@ -18,11 +17,26 @@ const initialMenus = {
 		{ title: "About us", slug: "/about-us", submenu: "aboutMenu" },
 		{ title: "Enquire", slug: "/enquire" },
 	],
-	trainingMenu: [{ title: "Back", slug: "#", isBack: true }],
-	industryMenu: [{ title: "Back", slug: "#", isBack: true }],
-	flightsMenu: [{ title: "Back", slug: "#", isBack: true }],
-	fleetMenu: [{ title: "Back", slug: "#", isBack: true }],
-	aboutMenu: [{ title: "Back", slug: "#", isBack: true }],
+	trainingMenu: [
+		{ title: "Back", slug: "#", isBack: true },
+		{ title: "View All Training Services", slug: "/training", viewALL: true },
+	],
+	industryMenu: [
+		{ title: "Back", slug: "#", isBack: true },
+		{ title: "View All Indstry Services", slug: "/industry", viewALL: true },
+	],
+	flightsMenu: [
+		{ title: "Back", slug: "#", isBack: true },
+		{ title: "View All Flights Services", slug: "/flights", viewALL: true },
+	],
+	fleetMenu: [
+		{ title: "Back", slug: "#", isBack: true },
+		{ title: "View all Fleet Helicopters", slug: "/fleet", viewALL: true },
+	],
+	aboutMenu: [
+		{ title: "Back", slug: "#", isBack: true },
+		{ title: "About us", slug: "/about-us" },
+	],
 };
 
 const MobileMenu = ({
@@ -47,6 +61,11 @@ const MobileMenu = ({
 				updatedMenus[`${menuName}Menu`] = [
 					{ title: "Back", slug: "#", isBack: true },
 					...menuItems,
+					{
+						title: `View All ${menuName} Services`,
+						slug: `/${menuName}`,
+						isViewAll: true,
+					},
 				];
 			};
 
@@ -150,10 +169,15 @@ const MobileMenu = ({
 							animate={{ opacity: 1, x: 0 }}
 							exit={{ opacity: 0, x: -100 }}
 							transition={{ duration: 0.3 }}
-							className="z-[60] absolute top-0 font-openSans text-brand-light-blue font-bold w-full h-full overflow-y-scroll"
+							className="mobile-ul z-[60] absolute top-0 font-openSans text-brand-light-blue font-bold w-full h-full overflow-y-scroll"
 						>
 							{menufromCMS[activeMenu].map((item, index) => (
-								<li className="py-3 border-b pl-3" key={index}>
+								<li
+									className={`py-3 border-b pl-3 ${
+										item.isViewAll ? "text-brand-orange" : ""
+									}`}
+									key={index}
+								>
 									{item.isBack ? (
 										<a href="#" onClick={handleBackClick}>
 											{item.title}
@@ -172,15 +196,17 @@ const MobileMenu = ({
 									)}
 								</li>
 							))}
-							<div className="flex items-start flex-col pl-3 mt-3 pb-3">
-								<p className="text-brand-dark-blue">Enquire now</p>
-								<a
-									className="text-lg font-bold mt-0 hover:underline underline-offset-2 text-brand-orange"
-									href="tel:+441494513166"
-								>
-									+44 1494 513 166
-								</a>
-							</div>
+							{activeMenu === "main" && (
+								<div className="flex items-start flex-col pl-3 mt-3 pb-3">
+									<p className="text-brand-dark-blue">Enquire now</p>
+									<a
+										className="text-lg font-bold mt-0 hover:underline underline-offset-2 text-brand-orange"
+										href="tel:+441494513166"
+									>
+										+44 1494 513 166
+									</a>
+								</div>
+							)}
 						</motion.ul>
 					</AnimatePresence>
 				</DrawerContent>

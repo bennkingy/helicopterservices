@@ -329,3 +329,8 @@
   right: 0;
   margin: 0 auto;
 }
+
+
+.mobile-ul li:last-child {
+ border-bottom: none;
+}
