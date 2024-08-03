@@ -9,7 +9,7 @@ interface props {
 const Enquire = ({ className, textStyle }: props) => {
 	return (
 		<div className={`flex sm:items-center flex-col sm:flex-row ${className}`}>
-			<Link href="/enquire">
+			<Link href="/enquire/">
 				<Button className="uppercase bg-brand-orange text-white w-[150px] py-6">
 					Enquire Today
 				</Button>

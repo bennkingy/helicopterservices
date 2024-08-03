@@ -7,7 +7,7 @@ interface props {
 
 const Button = ({ href, className }: props) => {
 	return (
-		<Link href="/enquire" className={className}>
+		<Link href="/enquire/" className={className}>
 			<ButtonUI
 				className={`uppercase bg-brand-orange text-white w-[150px] py-6`}
 			>
