@@ -135,9 +135,11 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 			<Drawer
 				direction="right"
 				open={menuOpen}
-				dismissible
+				dismissible={false}
 				onClose={() => setMenuOpen(false)}
 				fixed
+				disablePreventScroll
+				onDrag={() => console.log("dragging")}
 			>
 				<DrawerTrigger
 					className="mr-3 flex font-semibold text-black"
