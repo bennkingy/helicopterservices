@@ -536,7 +536,7 @@ export function NavMenu({
 					</NavigationMenuItem>
 				</NavigationMenuList>
 			</NavigationMenu>
-			<MobileMenu onMobileOpen={() => onMobileOpen()} />
+			<MobileMenu menuData={menuData} onMobileOpen={() => onMobileOpen()} />
 			<Link href="tel:+44 1494513 166" className="">
 				{/* <Icons.phone className="text-brand-light-blue" height={20} /> */}
 				<Image
