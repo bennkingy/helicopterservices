@@ -169,12 +169,12 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 							animate={{ opacity: 1, x: 0 }}
 							exit={{ opacity: 0, x: -100 }}
 							transition={{ duration: 0.3 }}
-							className="z-[60] absolute top-0 font-openSans text-brand-light-blue p-3 pt-5 font-bold"
+							className="z-[60] absolute top-0 font-openSans text-brand-light-blue font-bold w-full"
 						>
 							{
 								// @ts-ignore
 								menus[activeMenu].map((item, index) => (
-									<li className="mb-4 ml-4" key={index}>
+									<li className="py-3 border-b pl-3" key={index}>
 										{item.isBack ? (
 											<a href="#" onClick={handleBackClick}>
 												{item.name}
@@ -196,6 +196,15 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 									</li>
 								))
 							}
+							<div className="flex items-start flex-col pl-3 mt-3">
+								<p className="text-brand-dark-blue">Enquire now:</p>
+								<a
+									className="text-lg font-bold mt-0 hover:underline underline-offset-2 text-brand-orange"
+									href="tel:+441494513166"
+								>
+									+44 1494 513 166
+								</a>
+							</div>
 						</motion.ul>
 					</AnimatePresence>
 				</DrawerContent>
