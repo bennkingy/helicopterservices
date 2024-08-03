@@ -57,7 +57,7 @@ const MobileMenu = ({
 			const updateMenuItems = (menuName, items) => {
 				const menuItems = items.map((item: any) => ({
 					title: item.title,
-					slug: `/${menuName}/${item.slug}`,
+					slug: `/${menuName === "about" ? "about-us" : menuName}/${item.slug}`,
 				}));
 
 				updatedMenus[`${menuName}Menu`] = [
