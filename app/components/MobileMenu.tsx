@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
@@ -5,101 +6,68 @@ import { AnimatePresence, motion } from "framer-motion";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
-const menus = {
+const initialMenus = {
 	main: [
-		{ name: "Home", href: "/" },
-		{ name: "Training", href: "/training", submenu: "trainingMenu" },
-		{ name: "Industry", href: "/industry", submenu: "industryMenu" },
-		{ name: "Flights", href: "/flights", submenu: "flightsMenu" },
-		{ name: "Fleet", href: "/fleet", submenu: "fleetMenu" },
-		{ name: "About us", href: "/about-us", submenu: "aboutMenu" },
-		{ name: "Enquire", href: "/enquire" },
+		{ title: "Home", slug: "/" },
+		{ title: "Training", slug: "/training", submenu: "trainingMenu" },
+		{ title: "Industry", slug: "/industry", submenu: "industryMenu" },
+		{ title: "Flights", slug: "/flights", submenu: "flightsMenu" },
+		{ title: "Fleet", slug: "/fleet", submenu: "fleetMenu" },
+		{ title: "About us", slug: "/about-us", submenu: "aboutMenu" },
+		{ title: "Enquire", slug: "/enquire" },
 	],
-	trainingMenu: [
-		{ name: "Back", href: "#", isBack: true },
-		{ name: "Private pilot license", href: "/training/private-pilot-licence" },
-		{
-			name: "Commerical Pilot License",
-			href: "/training/commercial-pilot-licence",
-		},
-		{
-			name: "Flight examiner rating",
-			href: "/training/flight-examiner-ratings",
-		},
-		{ name: "Type rating", href: "/training/type-ratings" },
-		{ name: "Instrument rating", href: "/training/instrument-ratings" },
-		{
-			name: "Flight instructor rating",
-			href: "/training/flight-instructor-ratings",
-		},
-		{ name: "Night rating", href: "/training/night-rating" },
-		{ name: "PBN", href: "/training/PBN" },
-		{
-			name: "Virtual Reality Simulator",
-			href: "/training/virtual-reality-simulator",
-		},
-		{ name: "Simulator", href: "/training/simulator" },
-		{ name: "ELCAS", href: "/training/ELCAS" },
-		{ name: "FAA", href: "/training/FAA" },
-		{ name: "Refresher seminars", href: "/training/refresher-seminars" },
-		{
-			name: "Advanced flying programme",
-			href: "/training/advanced-flying-programme",
-		},
-	],
-	industryMenu: [
-		{ name: "Back", href: "#", isBack: true },
-		{ name: "Load lifting", href: "/industry/load-lifting" },
-		{ name: "Photography and filming", href: "/industry/photography-filming" },
-	],
-	flightsMenu: [
-		{ name: "Back", href: "#", isBack: true },
-		{ name: "Airport transfers", href: "/flights/airport-transfers" },
-		{ name: "Helicopter Charter", href: "/flights/helicopter-charter" },
-		{ name: "London sightseeing", href: "/flights/london-sightseeing" },
-		{ name: "Special events", href: "/flights/special-events" },
-		{ name: "Trail lessons", href: "/flights/trail-lessons" },
-		{ name: "Local area tours", href: "/flights/local-area-tours" },
-	],
-	fleetMenu: [
-		{ name: "Back", href: "#", isBack: true },
-		{ name: "A109", href: "/fleet/a109" },
-		{ name: "AS355", href: "/fleet/as355" },
-		{ name: "AB206", href: "/fleet/ab206" },
-		{ name: "R66", href: "/fleet/r66" },
-		{ name: "R44", href: "/fleet/r44" },
-		{ name: "R22", href: "/fleet/r22" },
-		{ name: "Cabri G2", href: "/fleet/cabri-g2" },
-		{ name: "AS350", href: "/fleet/as350" },
-		{ name: "B206L", href: "/fleet/b206l" },
-		{ name: "EC135", href: "/fleet/ec135" },
-		{ name: "AW109", href: "/fleet/aw109" },
-	],
-	aboutMenu: [
-		{ name: "Back", href: "#", isBack: true },
-		{ name: "Meet the team", href: "/about-us/meet-the-team" },
-		{ name: "Helicopter fleet", href: "/fleet" },
-		{ name: "The Hanger", href: "/about-us/the-hanger" },
-		{ name: "FAQs", href: "/about-us/faqs" },
-	],
+	trainingMenu: [{ title: "Back", slug: "#", isBack: true }],
+	industryMenu: [{ title: "Back", slug: "#", isBack: true }],
+	flightsMenu: [{ title: "Back", slug: "#", isBack: true }],
+	fleetMenu: [{ title: "Back", slug: "#", isBack: true }],
+	aboutMenu: [{ title: "Back", slug: "#", isBack: true }],
 };
 
-// @ts-ignore
 const MobileMenu = ({
 	onMobileOpen,
 	menuData,
 }: { onMobileOpen: () => void; menuData: any }) => {
 	const [activeMenu, setActiveMenu] = useState("main");
 	const [menuOpen, setMenuOpen] = useState(false);
-	const [test, setTest] = useState(false);
-
-	console.log(test);
+	const [menufromCMS, setMenufromCMS] = useState(initialMenus);
 
 	useEffect(() => {
 		if (menuData) {
-			setTest(menuData);
+			const formattedData = menuData.menuData;
+			const updatedMenus = { ...initialMenus };
+
+			const updateMenuItems = (menuName, items) => {
+				const menuItems = items.map((item: any) => ({
+					title: item.title,
+					slug: `/${menuName}/${item.slug}`,
+				}));
+
+				updatedMenus[`${menuName}Menu`] = [
+					{ title: "Back", slug: "#", isBack: true },
+					...menuItems,
+				];
+			};
+
+			// Update the menus with data from CMS
+			if (formattedData.training) {
+				updateMenuItems("training", formattedData.training);
+			}
+			if (formattedData.industry) {
+				updateMenuItems("industry", formattedData.industry);
+			}
+			if (formattedData.flights) {
+				updateMenuItems("flights", formattedData.flights);
+			}
+			if (formattedData.fleet) {
+				updateMenuItems("fleet", formattedData.fleet);
+			}
+			if (formattedData.about) {
+				updateMenuItems("about", formattedData.about);
+			}
+
+			setMenufromCMS(updatedMenus);
 		}
 	}, [menuData]);
 
@@ -110,31 +78,31 @@ const MobileMenu = ({
 		setActiveMenu("main");
 	}, [pathname]);
 
-	// @ts-ignore
-	const handleMenuClick = (e, submenu) => {
+	const handleMenuClick = useCallback((e, submenu) => {
 		e.preventDefault();
 		setActiveMenu(submenu);
-	};
+	}, []);
 
-	// @ts-ignore
-	const handleBackClick = (e) => {
+	const handleBackClick = useCallback((e) => {
 		e.preventDefault();
 		setActiveMenu("main");
-	};
+	}, []);
 
 	useEffect(() => {
 		const handleResize = () => {
 			if (window.innerWidth > 767 && menuOpen) {
-				setMenuOpen(!menuOpen);
+				setMenuOpen(false);
 			}
 		};
 
+		const debounceResize = debounce(handleResize, 200);
+
 		// Attach resize event listener
-		window.addEventListener("resize", handleResize);
+		window.addEventListener("resize", debounceResize);
 
 		// Clean up event listener on component unmount
 		return () => {
-			window.removeEventListener("resize", handleResize);
+			window.removeEventListener("resize", debounceResize);
 		};
 	}, [menuOpen]);
 
@@ -158,7 +126,6 @@ const MobileMenu = ({
 					className="mr-3 flex font-semibold text-black"
 					aria-label="Open navigation menu"
 				>
-					{/* Menu */}
 					<MenuIcon
 						size={30}
 						onClick={() => {
@@ -169,7 +136,6 @@ const MobileMenu = ({
 						}}
 					/>
 				</DrawerTrigger>
-				{/* {createPortal( */}
 				<DrawerContent
 					className="h-full ml-20 z-50 overflow-hidden"
 					onInteractOutside={(e) => {
@@ -186,31 +152,26 @@ const MobileMenu = ({
 							transition={{ duration: 0.3 }}
 							className="z-[60] absolute top-0 font-openSans text-brand-light-blue font-bold w-full h-full overflow-y-scroll"
 						>
-							{
-								// @ts-ignore
-								menus[activeMenu].map((item, index) => (
-									<li className="py-3 border-b pl-3" key={index}>
-										{item.isBack ? (
-											<a href="#" onClick={handleBackClick}>
-												{item.name}
-											</a>
-										) : item.submenu ? (
-											<a
-												href={item.href}
-												onClick={(e) => {
-													handleMenuClick(e, item.submenu);
-												}}
-											>
-												{item.name}
-											</a>
-										) : (
-											<Link href={item.href} passHref className="w-full block">
-												{item.name}
-											</Link>
-										)}
-									</li>
-								))
-							}
+							{menufromCMS[activeMenu].map((item, index) => (
+								<li className="py-3 border-b pl-3" key={index}>
+									{item.isBack ? (
+										<a href="#" onClick={handleBackClick}>
+											{item.title}
+										</a>
+									) : item.submenu ? (
+										<a
+											href={item.href}
+											onClick={(e) => handleMenuClick(e, item.submenu)}
+										>
+											{item.title}
+										</a>
+									) : (
+										<Link href={item.slug} passHref className="w-full block">
+											{item.title}
+										</Link>
+									)}
+								</li>
+							))}
 							<div className="flex items-start flex-col pl-3 mt-3 pb-3">
 								<p className="text-brand-dark-blue">Enquire now</p>
 								<a
@@ -223,11 +184,18 @@ const MobileMenu = ({
 						</motion.ul>
 					</AnimatePresence>
 				</DrawerContent>
-				{/* document.body,
-				)} */}
 			</Drawer>
 		</div>
 	);
 };
 
 export default MobileMenu;
+
+// Helper function to debounce resize events
+function debounce(func, wait) {
+	let timeout;
+	return function (...args) {
+		clearTimeout(timeout);
+		timeout = setTimeout(() => func.apply(this, args), wait);
+	};
+}
