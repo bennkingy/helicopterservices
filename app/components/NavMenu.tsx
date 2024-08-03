@@ -236,7 +236,7 @@ export function NavMenu({
 								</ul>
 							</div>
 							{/* </div> */}
-							<div className="w-[250px] h-[370px] ml-auto relative">
+							<div className="w-[250px] h-auto  ml-auto relative">
 								<Image
 									src="/images/nav-training.jpg"
 									alt="industry"
@@ -291,7 +291,7 @@ export function NavMenu({
 										))}
 								</ul>
 							</div>
-							<div className="w-[500px] h-[200px] ml-auto relative">
+							<div className="w-[500px] h-auto ml-auto relative">
 								<Image
 									src="/images/nav-industry.jpg"
 									alt="industry"
@@ -363,7 +363,7 @@ export function NavMenu({
 										))}
 								</ul>
 							</div>
-							<div className="w-[500px] h-[325px] ml-auto relative">
+							<div className="w-[500px] h-auto ml-auto relative">
 								<Image
 									src="https://cdn.sanity.io/images/0he7nz2b/production/60e72d0df6aa15d699ebce3c6b1a75790f1deafc-1024x685.webp"
 									alt="industry"
@@ -455,7 +455,7 @@ export function NavMenu({
 										))}
 								</ul>{" "}
 							</div>
-							<div className="w-[300px] h-[200px] ml-auto relative">
+							<div className="w-[300px] h-auto  ml-auto relative">
 								<Image
 									src="/images/Heli006.jpg"
 									alt="industry"
@@ -481,7 +481,7 @@ export function NavMenu({
 							</a>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex">
-							<div className="w-[500px] h-[250px] relative">
+							<div className="w-[500px] h-auto relative">
 								<Image
 									src="/images/nav-copters.jpg"
 									alt="flights"
