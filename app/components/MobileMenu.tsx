@@ -175,24 +175,34 @@ const MobileMenu = ({
 						>
 							{menufromCMS[activeMenu].map((item, index) => (
 								<li
-									className={`py-3 border-b pl-3 ${
+									className={`border-b ${
 										item.isViewAll ? "text-brand-orange" : ""
 									}`}
 									key={index}
 								>
 									{item.isBack ? (
-										<a href="#" onClick={handleBackClick}>
+										<Link
+											href="#"
+											onClick={handleBackClick}
+											className="py-3 pl-3 w-full block "
+										>
 											{item.title}
-										</a>
+										</Link>
 									) : item.submenu ? (
-										<a
-											href={item.href}
+										<Link
+											passHref
+											className="w-full block  py-3  pl-3 "
+											href={item.slug}
 											onClick={(e) => handleMenuClick(e, item.submenu)}
 										>
 											{item.title}
-										</a>
+										</Link>
 									) : (
-										<Link href={item.slug} passHref className="w-full block">
+										<Link
+											href={item.slug}
+											passHref
+											className="w-full block  py-3  pl-3 "
+										>
 											{item.title}
 										</Link>
 									)}

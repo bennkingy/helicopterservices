@@ -334,3 +334,8 @@
 .mobile-ul li:last-child {
  border-bottom: none;
 }
+
+
+.mobile-ul  {
+text-transform: capitalize;
+}
