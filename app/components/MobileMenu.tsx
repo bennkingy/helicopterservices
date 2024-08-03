@@ -8,6 +8,7 @@ import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import { Icons } from "@/components/ui/icons";
 
 const initialMenus = {
 	main: [
@@ -21,23 +22,23 @@ const initialMenus = {
 	],
 	trainingMenu: [
 		{ title: "Back", slug: "#", isBack: true },
-		{ title: "View All Training Services", slug: "/training", viewALL: true },
+		{ title: "View all Training Sersices", slug: "/training", viewAll: true },
 	],
 	industryMenu: [
 		{ title: "Back", slug: "#", isBack: true },
-		{ title: "View All Indstry Services", slug: "/industry", viewALL: true },
+		{ title: "View all Indstry Servsces", slug: "/industry", viewAll: true },
 	],
 	flightsMenu: [
 		{ title: "Back", slug: "#", isBack: true },
-		{ title: "View All Flights Services", slug: "/flights", viewALL: true },
+		{ title: "View all Flights Servsces", slug: "/flights", viewAll: true },
 	],
 	fleetMenu: [
 		{ title: "Back", slug: "#", isBack: true },
-		{ title: "View all Fleet Helicopters", slug: "/fleet", viewALL: true },
+		{ title: "View all Fleet Helicosters", slug: "/fleet", viewAll: true },
 	],
 	aboutMenu: [
 		{ title: "Back", slug: "#", isBack: true },
-		{ title: "About us", slug: "/about-us" },
+		{ title: "About us", slug: "/about-us", viewAll: false },
 	],
 };
 
@@ -66,11 +67,11 @@ const MobileMenu = ({
 					{
 						title: `${
 							menuName !== "about"
-								? `View All ${menuName} Services`
-								: `Read ${menuName} Us`
+								? `All ${menuName} services`
+								: `${menuName} Us`
 						}`,
-						slug: `/${menuName}`,
-						isViewAll: true,
+						slug: `/${menuName === "about" ? "about-us" : menuName}`,
+						isViewAll: menuName !== "about",
 					},
 				];
 			};
@@ -123,6 +124,12 @@ const MobileMenu = ({
 		setActiveMenu(submenu);
 	}, []);
 
+	const checkIfOnThisPage = (slug) => {
+		if (pathname === slug) {
+			setMenuOpen(false);
+		}
+	};
+
 	const handleBackClick = useCallback((e) => {
 		e.preventDefault();
 		setActiveMenu("main");
@@ -160,7 +167,6 @@ const MobileMenu = ({
 				}}
 				fixed
 				disablePreventScroll
-				onDrag={() => console.log("dragging")}
 			>
 				<DrawerTrigger
 					className="mr-3 flex font-semibold text-black"
@@ -186,7 +192,7 @@ const MobileMenu = ({
 					<AnimatePresence>
 						{/* {activeMenu !== "main" && ( */}
 						<div className="h-[50px] w-full bg-gray-100 text-xl flex items-center justify-center font-bold capitalize">
-							{activeMenu}
+							{activeMenu === "main" ? "Home" : activeMenu.replace("Menu", "")}
 						</div>
 						{/* )} */}
 						<motion.ul
@@ -195,48 +201,54 @@ const MobileMenu = ({
 							animate={{ opacity: 1, x: 0 }}
 							exit={{ opacity: 0, x: -100 }}
 							transition={{ duration: 0.3 }}
-							className="mobile-ul z-[60] absolute top-[50px] font-openSans text-brand-dark-blue font-bold w-full h-full overflow-y-scroll"
+							className="mobile-ul z-[60] absolute top-[50px] font-openSans text-brand-dark-blue font-bold w-full overflow-y-scroll h-full pb-[52px]"
 						>
 							{menufromCMS[activeMenu].map((item, index) => (
 								<li
 									className={`border-b border-gray-100 hover:text-brand-light-blue ${
-										item.isViewAll ? "text-brand-orange" : ""
+										item.isViewAll ? "text-brand-dark-blue" : ""
 									}`}
-									key={index}
+									key={item.title + (index + 1)}
 								>
 									{item.isBack ? (
 										<Link
 											href="#"
 											onClick={handleBackClick}
-											className="py-3 pl-3 w-full block "
+											className="py-3 pl-[7px] w-full flex items-center"
 										>
+											<Icons.chevronLeft size={20} />
 											{item.title}
 										</Link>
 									) : item.submenu ? (
 										<Link
 											passHref
-											className="w-full block  py-3  pl-3 "
+											className="w-full flex items-center py-3 pl-3 justify-between"
 											href={item.slug}
 											onClick={(e) => handleMenuClick(e, item.submenu)}
 										>
 											{item.title}
+											<Icons.chevronRight size={20} className="mr-2" />
 										</Link>
 									) : (
 										<Link
 											href={item.slug}
 											passHref
-											className="w-full block  py-3  pl-3 "
+											onClick={() => checkIfOnThisPage(item.slug)}
+											className="w-full flex items-center justify-between py-3 pl-3"
 										>
 											{item.title}
+											{item.isViewAll && (
+												<Icons.chevronRight size={20} className="mr-2" />
+											)}
 										</Link>
 									)}
 								</li>
 							))}
 							{activeMenu === "main" && (
 								<div className="flex items-start flex-col pl-3 mt-3 pb-3">
-									<p className="text-brand-dark-blue">Enquire now</p>
+									{/* <p className="text-brand-dark-blue">Enquire now</p> */}
 									<a
-										className="text-lg font-bold mt-0 hover:underline underline-offset-2 text-brand-orange"
+										className="text-xl font-bold mt-0 hover:underline underline-offset-2 text-brand-orange"
 										href="tel:+441494513166"
 									>
 										+44 1494 513 166
