@@ -64,7 +64,11 @@ const MobileMenu = ({
 					{ title: "Back", slug: "#", isBack: true },
 					...menuItems,
 					{
-						title: `View All ${menuName} Services`,
+						title: `${
+							menuName !== "about"
+								? `View All ${menuName} Services`
+								: `Read ${menuName} Us`
+						}`,
 						slug: `/${menuName}`,
 						isViewAll: true,
 					},
@@ -73,13 +77,28 @@ const MobileMenu = ({
 
 			// Update the menus with data from CMS
 			if (formattedData.training) {
-				updateMenuItems("training", formattedData.training);
+				updateMenuItems(
+					"training",
+					formattedData.training.filter(
+						(item) => item.title.toLowerCase() !== "training",
+					),
+				);
 			}
 			if (formattedData.industry) {
-				updateMenuItems("industry", formattedData.industry);
+				updateMenuItems(
+					"industry",
+					formattedData.industry.filter(
+						(item) => item.title.toLowerCase() !== "industry",
+					),
+				);
 			}
 			if (formattedData.flights) {
-				updateMenuItems("flights", formattedData.flights);
+				updateMenuItems(
+					"flights",
+					formattedData.flights.filter(
+						(item) => item.title.toLowerCase() !== "flights",
+					),
+				);
 			}
 			if (formattedData.fleet) {
 				updateMenuItems("fleet", formattedData.fleet);
@@ -165,17 +184,22 @@ const MobileMenu = ({
 					}}
 				>
 					<AnimatePresence>
+						{/* {activeMenu !== "main" && ( */}
+						<div className="h-[50px] w-full bg-gray-100 text-xl flex items-center justify-center font-bold capitalize">
+							{activeMenu}
+						</div>
+						{/* )} */}
 						<motion.ul
 							key={activeMenu}
 							initial={{ opacity: 0, x: 100 }}
 							animate={{ opacity: 1, x: 0 }}
 							exit={{ opacity: 0, x: -100 }}
 							transition={{ duration: 0.3 }}
-							className="mobile-ul z-[60] absolute top-0 font-openSans text-brand-light-blue font-bold w-full h-full overflow-y-scroll"
+							className="mobile-ul z-[60] absolute top-[50px] font-openSans text-brand-dark-blue font-bold w-full h-full overflow-y-scroll"
 						>
 							{menufromCMS[activeMenu].map((item, index) => (
 								<li
-									className={`border-b ${
+									className={`border-b border-gray-100 hover:text-brand-light-blue ${
 										item.isViewAll ? "text-brand-orange" : ""
 									}`}
 									key={index}
