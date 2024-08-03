@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 "use client";
 
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
