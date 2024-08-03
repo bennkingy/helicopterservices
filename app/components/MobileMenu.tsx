@@ -136,7 +136,10 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 				direction="right"
 				open={menuOpen}
 				dismissible={false}
-				onClose={() => setMenuOpen(false)}
+				onClose={() => {
+					setMenuOpen(false);
+					setActiveMenu("main");
+				}}
 				fixed
 				disablePreventScroll
 				onDrag={() => console.log("dragging")}
@@ -198,8 +201,8 @@ const MobileMenu = ({ onMobileOpen }: { onMobileOpen: () => void }) => {
 									</li>
 								))
 							}
-							<div className="flex items-start flex-col pl-3 mt-3">
-								<p className="text-brand-dark-blue">Enquire now:</p>
+							<div className="flex items-start flex-col pl-3 mt-3 pb-3">
+								<p className="text-brand-dark-blue">Enquire now</p>
 								<a
 									className="text-lg font-bold mt-0 hover:underline underline-offset-2 text-brand-orange"
 									href="tel:+441494513166"
