@@ -20,7 +20,7 @@ export default async function Navbar() {
 	return (
 		<>
 			<AccrediationsText />
-			{data && <NavbarHeader menuData={data} />}
+			<NavbarHeader menuData={data} />
 		</>
 	);
 }

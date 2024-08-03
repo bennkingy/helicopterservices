@@ -67,7 +67,7 @@ const MobileMenu = ({
 					{
 						title: `${
 							menuName !== "about"
-								? `All ${menuName} services`
+								? `All ${menuName} ${menuName !== "fleet" && "services"}`
 								: `${menuName} Us`
 						}`,
 						slug: `/${menuName === "about" ? "about-us" : menuName}`,
@@ -237,9 +237,9 @@ const MobileMenu = ({
 											className="w-full flex items-center justify-between py-3 pl-3"
 										>
 											{item.title}
-											{item.isViewAll && (
+											{/* {item.isViewAll && (
 												<Icons.chevronRight size={20} className="mr-2" />
-											)}
+											)} */}
 										</Link>
 									)}
 								</li>
