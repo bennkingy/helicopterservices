@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { type SetStateAction, useCallback, useEffect, useState } from "react";
 import { Icons } from "@/components/ui/icons";
 
 const initialMenus = {
@@ -152,18 +152,21 @@ const MobileMenu = ({ onMobileOpen, menuData }) => {
 		setActiveMenu("main");
 	}, [pathname]);
 
-	const handleMenuClick = useCallback((e, submenu) => {
-		e.preventDefault();
-		setActiveMenu(submenu);
-	}, []);
+	const handleMenuClick = useCallback(
+		(e: { preventDefault: () => void }, submenu: SetStateAction<string>) => {
+			e.preventDefault();
+			setActiveMenu(submenu);
+		},
+		[],
+	);
 
-	const checkIfOnThisPage = (slug) => {
+	const checkIfOnThisPage = (slug: string) => {
 		if (pathname === slug) {
 			setMenuOpen(false);
 		}
 	};
 
-	const handleBackClick = useCallback((e) => {
+	const handleBackClick = useCallback((e: { preventDefault: () => void }) => {
 		e.preventDefault();
 		setActiveMenu("main");
 	}, []);
@@ -241,55 +244,51 @@ const MobileMenu = ({ onMobileOpen, menuData }) => {
 							transition={{ duration: 0.3 }}
 							className="mobile-ul z-[60] absolute top-[50px] font-openSans text-brand-dark-blue font-bold w-full overflow-y-scroll h-full pb-[52px]"
 						>
-							{menufromCMS[activeMenu].map((item, index) => (
-								<li
-									className={` hover:text-brand-light-blue ${
-										item.isViewAll ? "text-brand-dark-blue" : ""
-									} ${
-										item.isCategoryTitle
-											? "text-gray-500"
-											: "border-b border-gray-100 pb-0"
-									}`}
-									key={item.title + (index + 1)}
-								>
-									{item.isBack ? // <Link
-									// 	href="#"
-									// 	onClick={handleBackClick}
-									// 	className="py-3 pl-[7px] w-full flex items-center"
-									// >
-									// 	<Icons.chevronLeft size={20} />
-									// 	{item.title}
-									// </Link>
-									null : item.isCategoryTitle ? (
-										<div className="pt-3 pb-0 pl-3 text-gray-500 text-sm uppercase">
-											{item.title}
-										</div>
-									) : item.submenu ? (
-										<Link
-											passHref
-											className="w-full flex items-center py-3 pl-3 justify-between"
-											href={item.slug}
-										>
-											{item.title}
-											<div
-												className="px-2"
-												onClick={(e) => handleMenuClick(e, item.submenu)}
-											>
-												<Icons.chevronRight size={20} className="mr-2" />
+							{
+								// @ts-ignore
+								menufromCMS[activeMenu].map((item, index) => (
+									<li
+										className={` hover:text-brand-light-blue ${
+											item.isViewAll ? "text-brand-dark-blue" : ""
+										} ${
+											item.isCategoryTitle
+												? "text-gray-500"
+												: "border-b border-gray-100 pb-0"
+										}`}
+										key={item.title + (index + 1)}
+									>
+										{item.isCategoryTitle ? (
+											<div className="pt-3 pb-0 pl-3 text-gray-500 text-sm uppercase">
+												{item.title}
 											</div>
-										</Link>
-									) : (
-										<Link
-											href={item.slug}
-											passHref
-											onClick={() => checkIfOnThisPage(item.slug)}
-											className="w-full flex items-center justify-between py-3 pl-3"
-										>
-											{item.title}
-										</Link>
-									)}
-								</li>
-							))}
+										) : item.submenu ? (
+											<Link
+												passHref
+												className="w-full flex items-center py-3 pl-3 justify-between"
+												href={item.slug}
+											>
+												{item.title}
+												{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+												<div
+													className="px-2"
+													onClick={(e) => handleMenuClick(e, item.submenu)}
+												>
+													<Icons.chevronRight size={20} className="mr-2" />
+												</div>
+											</Link>
+										) : (
+											<Link
+												href={item.slug}
+												passHref
+												onClick={() => checkIfOnThisPage(item.slug)}
+												className="w-full flex items-center justify-between py-3 pl-3"
+											>
+												{item.title}
+											</Link>
+										)}
+									</li>
+								))
+							}
 							{activeMenu === "main" && (
 								<div className="flex items-start flex-col pl-3 mt-3 pb-3">
 									<a
@@ -310,9 +309,10 @@ const MobileMenu = ({ onMobileOpen, menuData }) => {
 
 export default MobileMenu;
 
-function debounce(func, wait) {
-	let timeout;
-	return function (...args) {
+function debounce(func: { (): void; apply?: any }, wait: number | undefined) {
+	// biome-ignore lint/suspicious/noImplicitAnyLet: <explanation>
+	let timeout: any;
+	return function (...args: any) {
 		clearTimeout(timeout);
 		timeout = setTimeout(() => func.apply(this, args), wait);
 	};
