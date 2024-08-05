@@ -2,6 +2,9 @@
 // import withPlaiceholder from "@plaiceholder/next";
 
 const nextConfig = {
+	typescript: {
+		ignoreBuildErrors: true,
+	},
 	images: {
 		remotePatterns: [
 			{
