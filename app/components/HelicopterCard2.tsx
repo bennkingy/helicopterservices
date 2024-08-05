@@ -1,11 +1,14 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import SanityImage from "./SanityImage";
+import Link from "next/link";
 
 const HelicopterCard2 = async ({ helicopter, url }: any) => {
-
 	return (
-		<a href={url ? url + helicopter?.url : helicopter?.url} className="group cursor-pointer">
+		<Link
+			href={url ? url + helicopter?.url : helicopter?.url}
+			className="group cursor-pointer"
+		>
 			<Card className="mt-5 border-0">
 				<CardContent className="p-0 flex justify-between relative bg-white shadow-brand rounded-none border-0 border-b-4 border-brand-light-blue hover:shadow-brand-hover">
 					<div className="flex flex-col flex-wrap justify-center pl-3 sm:pl-4">
@@ -15,13 +18,14 @@ const HelicopterCard2 = async ({ helicopter, url }: any) => {
 						</h3>
 					</div>
 					<div className="h-[90px] w-[120px] relative overflow-hidden">
-						{helicopter?.image || helicopter?.gallerySingle  && (
-							<SanityImage
-								sanityImage={helicopter?.image || helicopter?.gallerySingle }
-								cover
-								imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
-							/>
-						)}
+						{helicopter?.image ||
+							(helicopter?.gallerySingle && (
+								<SanityImage
+									sanityImage={helicopter?.image || helicopter?.gallerySingle}
+									cover
+									imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
+								/>
+							))}
 					</div>
 					{/* <PortableText value={helicopter?.description} /> */}
 					<div className="absolute bottom-0 right-0 z-[1]">
@@ -42,7 +46,7 @@ const HelicopterCard2 = async ({ helicopter, url }: any) => {
 					</div>
 				</CardContent>
 			</Card>
-		</a>
+		</Link>
 	);
 };
 

@@ -134,9 +134,9 @@ export function NavMenu({
 									"bg-accent text-accent-foreground",
 							)}
 						>
-							<a href="/training" className="hover:text-brand-light-blue">
+							<Link href="/training" className="hover:text-brand-light-blue">
 								Training
-							</a>
+							</Link>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex rounded-none">
 							{/* <div className="p-5"> */}
@@ -262,9 +262,9 @@ export function NavMenu({
 									"bg-accent text-accent-foreground",
 							)}
 						>
-							<a href="/industry" className="hover:text-brand-light-blue">
+							<Link href="/industry" className="hover:text-brand-light-blue">
 								Industry
-							</a>
+							</Link>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex">
 							<div className="p-7 pb-4 max-w-[250px]">
@@ -312,9 +312,9 @@ export function NavMenu({
 									"bg-accent text-accent-foreground",
 							)}
 						>
-							<a href="/flights" className="hover:text-brand-light-blue">
+							<Link href="/flights" className="hover:text-brand-light-blue">
 								Flights
-							</a>
+							</Link>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex">
 							<div className="p-7 pb-4 max-w-[250px]">
@@ -383,9 +383,9 @@ export function NavMenu({
 								path.startsWith("/fleet") && "bg-accent text-accent-foreground",
 							)}
 						>
-							<a href="/fleet" className="hover:text-brand-light-blue">
+							<Link href="/fleet" className="hover:text-brand-light-blue">
 								Fleet
-							</a>
+							</Link>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex rounded-none">
 							{/* <div className="p-5"> */}
@@ -476,9 +476,9 @@ export function NavMenu({
 									"bg-accent text-accent-foreground",
 							)}
 						>
-							<a href="/about-us" className="hover:text-brand-light-blue">
+							<Link href="/about-us" className="hover:text-brand-light-blue">
 								About us
-							</a>
+							</Link>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex">
 							<div className="w-[500px] h-auto relative">
