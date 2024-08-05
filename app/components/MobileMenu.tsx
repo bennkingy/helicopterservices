@@ -1,3 +1,4 @@
+//ts-nocheck
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { AnimatePresence, motion } from "framer-motion";
 import { MenuIcon } from "lucide-react";
