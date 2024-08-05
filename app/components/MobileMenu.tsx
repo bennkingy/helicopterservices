@@ -24,7 +24,7 @@ const initialMenus = {
 	aboutMenu: [{ title: "About us", slug: "/about-us", viewAll: false }],
 };
 
-const MobileMenu = ({ onMobileOpen, menuData }) => {
+const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 	const [activeMenu, setActiveMenu] = useState("main");
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [menufromCMS, setMenufromCMS] = useState(initialMenus);
@@ -33,13 +33,15 @@ const MobileMenu = ({ onMobileOpen, menuData }) => {
 		if (menuData) {
 			const formattedData = menuData.menuData;
 			const updatedMenus = { ...initialMenus };
-
+			// @ts-ignore
 			const updateMenuItems = (menuName, items) => {
+				// @ts-ignore
 				const menuItems = items.map((item) => ({
 					title: item.title,
 					slug: `/${menuName === "about" ? "about-us" : menuName}/${item.slug}`,
 				}));
 
+				// @ts-ignore
 				updatedMenus[`${menuName}Menu`] = [...menuItems];
 			};
 
@@ -50,8 +52,8 @@ const MobileMenu = ({ onMobileOpen, menuData }) => {
 					simulators: [],
 					other: [],
 				};
-
-				formattedData.training.forEach((item) => {
+				// biome-ignore lint/complexity/noForEach: <explanation>
+				formattedData.training.forEach((item: any) => {
 					const category = item.category;
 					if (category) {
 						if (category.licenses) trainingCategories.licenses.push(item);
