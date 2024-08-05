@@ -1,7 +1,3 @@
-// @ts-nocheck
-
-"use client";
-
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { AnimatePresence, motion } from "framer-motion";
 import { MenuIcon } from "lucide-react";
@@ -20,32 +16,17 @@ const initialMenus = {
 		{ title: "About us", slug: "/about-us", submenu: "aboutMenu" },
 		{ title: "Enquire", slug: "/enquire" },
 	],
-	trainingMenu: [
-		{ title: "Back", slug: "#", isBack: true },
-		{ title: "View all Training Sersices", slug: "/training", viewAll: true },
-	],
-	industryMenu: [
-		{ title: "Back", slug: "#", isBack: true },
-		{ title: "View all Indstry Servsces", slug: "/industry", viewAll: true },
-	],
-	flightsMenu: [
-		{ title: "Back", slug: "#", isBack: true },
-		{ title: "View all Flights Servsces", slug: "/flights", viewAll: true },
-	],
-	fleetMenu: [
-		{ title: "Back", slug: "#", isBack: true },
-		{ title: "View all Fleet Helicosters", slug: "/fleet", viewAll: true },
-	],
+	trainingMenu: [{ title: "Back", slug: "#", isBack: true }],
+	industryMenu: [{ title: "Back", slug: "#", isBack: true }],
+	flightsMenu: [{ title: "Back", slug: "#", isBack: true }],
+	fleetMenu: [{ title: "Back", slug: "#", isBack: true }],
 	aboutMenu: [
 		{ title: "Back", slug: "#", isBack: true },
 		{ title: "About us", slug: "/about-us", viewAll: false },
 	],
 };
 
-const MobileMenu = ({
-	onMobileOpen,
-	menuData,
-}: { onMobileOpen: () => void; menuData: any }) => {
+const MobileMenu = ({ onMobileOpen, menuData }) => {
 	const [activeMenu, setActiveMenu] = useState("main");
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [menufromCMS, setMenufromCMS] = useState(initialMenus);
@@ -56,7 +37,7 @@ const MobileMenu = ({
 			const updatedMenus = { ...initialMenus };
 
 			const updateMenuItems = (menuName, items) => {
-				const menuItems = items.map((item: any) => ({
+				const menuItems = items.map((item) => ({
 					title: item.title,
 					slug: `/${menuName === "about" ? "about-us" : menuName}/${item.slug}`,
 				}));
@@ -64,27 +45,55 @@ const MobileMenu = ({
 				updatedMenus[`${menuName}Menu`] = [
 					{ title: "Back", slug: "#", isBack: true },
 					...menuItems,
-					{
-						title: `${
-							menuName !== "about"
-								? `All ${menuName} ${menuName !== "fleet" && "services"}`
-								: `${menuName} Us`
-						}`,
-						slug: `/${menuName === "about" ? "about-us" : menuName}`,
-						isViewAll: menuName !== "about",
-					},
 				];
 			};
 
-			// Update the menus with data from CMS
 			if (formattedData.training) {
-				updateMenuItems(
-					"training",
-					formattedData.training.filter(
-						(item) => item.title.toLowerCase() !== "training",
-					),
-				);
+				const trainingCategories = {
+					licenses: [],
+					flightRatings: [],
+					simulators: [],
+					other: [],
+				};
+
+				formattedData.training.forEach((item) => {
+					const category = item.category;
+					if (category) {
+						if (category.licenses) trainingCategories.licenses.push(item);
+						if (category.flightRatings)
+							trainingCategories.flightRatings.push(item);
+						if (category.simulators) trainingCategories.simulators.push(item);
+						if (category.other) trainingCategories.other.push(item);
+					}
+				});
+
+				const sortItems = (a, b) => a.title.localeCompare(b.title);
+
+				updatedMenus.trainingMenu = [
+					{ title: "Back", slug: "#", isBack: true },
+					{ title: "Licenses", slug: "#", isCategoryTitle: true },
+					...trainingCategories.licenses.sort(sortItems).map((item) => ({
+						title: item.title,
+						slug: `/training/${item.slug}`,
+					})),
+					{ title: "Flight Ratings", slug: "#", isCategoryTitle: true },
+					...trainingCategories.flightRatings.sort(sortItems).map((item) => ({
+						title: item.title,
+						slug: `/training/${item.slug}`,
+					})),
+					{ title: "Simulators", slug: "#", isCategoryTitle: true },
+					...trainingCategories.simulators.sort(sortItems).map((item) => ({
+						title: item.title,
+						slug: `/training/${item.slug}`,
+					})),
+					{ title: "Other", slug: "#", isCategoryTitle: true },
+					...trainingCategories.other.sort(sortItems).map((item) => ({
+						title: item.title,
+						slug: `/training/${item.slug}`,
+					})),
+				];
 			}
+
 			if (formattedData.industry) {
 				updateMenuItems(
 					"industry",
@@ -93,14 +102,38 @@ const MobileMenu = ({
 					),
 				);
 			}
+
 			if (formattedData.flights) {
-				updateMenuItems(
-					"flights",
-					formattedData.flights.filter(
-						(item) => item.title.toLowerCase() !== "flights",
-					),
-				);
+				const flightCategories = {
+					flights: [],
+					tours: [],
+				};
+
+				formattedData.flights.forEach((item) => {
+					const category = item.category;
+					if (category) {
+						if (category.flights) flightCategories.flights.push(item);
+						if (category.tours) flightCategories.tours.push(item);
+					}
+				});
+
+				const sortItems = (a, b) => a.title.localeCompare(b.title);
+
+				updatedMenus.flightsMenu = [
+					{ title: "Back", slug: "#", isBack: true },
+					{ title: "Flights", slug: "#", isCategoryTitle: true },
+					...flightCategories.flights.sort(sortItems).map((item) => ({
+						title: item.title,
+						slug: `/flights/${item.slug}`,
+					})),
+					{ title: "Tours", slug: "#", isCategoryTitle: true },
+					...flightCategories.tours.sort(sortItems).map((item) => ({
+						title: item.title,
+						slug: `/flights/${item.slug}`,
+					})),
+				];
 			}
+
 			if (formattedData.fleet) {
 				updateMenuItems("fleet", formattedData.fleet);
 			}
@@ -114,7 +147,6 @@ const MobileMenu = ({
 
 	const pathname = usePathname();
 	useEffect(() => {
-		// hide sidebar on path change
 		setMenuOpen(false);
 		setActiveMenu("main");
 	}, [pathname]);
@@ -144,10 +176,8 @@ const MobileMenu = ({
 
 		const debounceResize = debounce(handleResize, 200);
 
-		// Attach resize event listener
 		window.addEventListener("resize", debounceResize);
 
-		// Clean up event listener on component unmount
 		return () => {
 			window.removeEventListener("resize", debounceResize);
 		};
@@ -190,11 +220,18 @@ const MobileMenu = ({
 					}}
 				>
 					<AnimatePresence>
-						{/* {activeMenu !== "main" && ( */}
 						<div className="h-[50px] w-full bg-gray-100 text-xl flex items-center justify-center font-bold capitalize">
+							{activeMenu !== "main" && (
+								<Link
+									href="#"
+									onClick={handleBackClick}
+									className="absolute left-4 py-3 flex items-center"
+								>
+									<Icons.chevronLeft size={20} />
+								</Link>
+							)}
 							{activeMenu === "main" ? "Home" : activeMenu.replace("Menu", "")}
 						</div>
-						{/* )} */}
 						<motion.ul
 							key={activeMenu}
 							initial={{ opacity: 0, x: 100 }}
@@ -205,29 +242,40 @@ const MobileMenu = ({
 						>
 							{menufromCMS[activeMenu].map((item, index) => (
 								<li
-									className={`border-b border-gray-100 hover:text-brand-light-blue ${
+									className={` hover:text-brand-light-blue ${
 										item.isViewAll ? "text-brand-dark-blue" : ""
+									} ${
+										item.isCategoryTitle
+											? "text-gray-500"
+											: "border-b border-gray-100 pb-0"
 									}`}
 									key={item.title + (index + 1)}
 								>
-									{item.isBack ? (
-										<Link
-											href="#"
-											onClick={handleBackClick}
-											className="py-3 pl-[7px] w-full flex items-center"
-										>
-											<Icons.chevronLeft size={20} />
+									{item.isBack ? // <Link
+									// 	href="#"
+									// 	onClick={handleBackClick}
+									// 	className="py-3 pl-[7px] w-full flex items-center"
+									// >
+									// 	<Icons.chevronLeft size={20} />
+									// 	{item.title}
+									// </Link>
+									null : item.isCategoryTitle ? (
+										<div className="pt-3 pb-0 pl-3 text-gray-500 text-sm uppercase">
 											{item.title}
-										</Link>
+										</div>
 									) : item.submenu ? (
 										<Link
 											passHref
 											className="w-full flex items-center py-3 pl-3 justify-between"
 											href={item.slug}
-											onClick={(e) => handleMenuClick(e, item.submenu)}
 										>
 											{item.title}
-											<Icons.chevronRight size={20} className="mr-2" />
+											<div
+												className="px-2"
+												onClick={(e) => handleMenuClick(e, item.submenu)}
+											>
+												<Icons.chevronRight size={20} className="mr-2" />
+											</div>
 										</Link>
 									) : (
 										<Link
@@ -237,16 +285,12 @@ const MobileMenu = ({
 											className="w-full flex items-center justify-between py-3 pl-3"
 										>
 											{item.title}
-											{/* {item.isViewAll && (
-												<Icons.chevronRight size={20} className="mr-2" />
-											)} */}
 										</Link>
 									)}
 								</li>
 							))}
 							{activeMenu === "main" && (
 								<div className="flex items-start flex-col pl-3 mt-3 pb-3">
-									{/* <p className="text-brand-dark-blue">Enquire now</p> */}
 									<a
 										className="text-xl font-bold mt-0 hover:underline underline-offset-2 text-brand-orange"
 										href="tel:+441494513166"
@@ -265,7 +309,6 @@ const MobileMenu = ({
 
 export default MobileMenu;
 
-// Helper function to debounce resize events
 function debounce(func, wait) {
 	let timeout;
 	return function (...args) {
