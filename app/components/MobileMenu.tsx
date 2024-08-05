@@ -17,14 +17,11 @@ const initialMenus = {
 		{ title: "About us", slug: "/about-us", submenu: "aboutMenu" },
 		{ title: "Enquire", slug: "/enquire" },
 	],
-	trainingMenu: [{ title: "Back", slug: "#", isBack: true }],
-	industryMenu: [{ title: "Back", slug: "#", isBack: true }],
-	flightsMenu: [{ title: "Back", slug: "#", isBack: true }],
-	fleetMenu: [{ title: "Back", slug: "#", isBack: true }],
-	aboutMenu: [
-		{ title: "Back", slug: "#", isBack: true },
-		{ title: "About us", slug: "/about-us", viewAll: false },
-	],
+	trainingMenu: [],
+	industryMenu: [],
+	flightsMenu: [],
+	fleetMenu: [],
+	aboutMenu: [{ title: "About us", slug: "/about-us", viewAll: false }],
 };
 
 const MobileMenu = ({ onMobileOpen, menuData }) => {
@@ -43,10 +40,7 @@ const MobileMenu = ({ onMobileOpen, menuData }) => {
 					slug: `/${menuName === "about" ? "about-us" : menuName}/${item.slug}`,
 				}));
 
-				updatedMenus[`${menuName}Menu`] = [
-					{ title: "Back", slug: "#", isBack: true },
-					...menuItems,
-				];
+				updatedMenus[`${menuName}Menu`] = [...menuItems];
 			};
 
 			if (formattedData.training) {
@@ -71,7 +65,6 @@ const MobileMenu = ({ onMobileOpen, menuData }) => {
 				const sortItems = (a, b) => a.title.localeCompare(b.title);
 
 				updatedMenus.trainingMenu = [
-					{ title: "Back", slug: "#", isBack: true },
 					{ title: "Licenses", slug: "#", isCategoryTitle: true },
 					...trainingCategories.licenses.sort(sortItems).map((item) => ({
 						title: item.title,
@@ -121,7 +114,6 @@ const MobileMenu = ({ onMobileOpen, menuData }) => {
 				const sortItems = (a, b) => a.title.localeCompare(b.title);
 
 				updatedMenus.flightsMenu = [
-					{ title: "Back", slug: "#", isBack: true },
 					{ title: "Flights", slug: "#", isCategoryTitle: true },
 					...flightCategories.flights.sort(sortItems).map((item) => ({
 						title: item.title,
