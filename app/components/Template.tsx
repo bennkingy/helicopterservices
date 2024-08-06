@@ -49,6 +49,7 @@ const Template = ({
 							objectFit="cover"
 							placeholder={value.blur ? "blur" : undefined}
 							blurDataURL={value.blur ? value.blur : ""}
+							className="mb-0"
 						/>
 					</div>
 				);

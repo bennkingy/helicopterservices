@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type SetStateAction, useCallback, useEffect, useState } from "react";
 import { Icons } from "@/components/ui/icons";
+import Image from "next/image";
 
 const initialMenus = {
 	main: [
@@ -299,6 +300,16 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 								</>
 							)}
 						</motion.ul>
+						{/* <Image
+							src="/images/approvals.svg"
+							alt="Helicopter Services"
+							width={250}
+							quality={100}
+							height={100}
+							className="mt-12 ml-3 pl-[2px] absolute bottom-0 mb-[16px]"
+							placeholder="blur"
+							blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAGklEQVR4nGNgELI6zcBmdIbBNuHMs3//TwMAKT4HM0/7dVEAAAAASUVORK5CYII="
+						/> */}
 					</AnimatePresence>
 				</DrawerContent>
 			</Drawer>
