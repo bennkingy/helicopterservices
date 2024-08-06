@@ -225,7 +225,10 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 									onClick={handleBackClick}
 									className="absolute left-4 py-3 flex items-center"
 								>
-									<Icons.chevronLeft size={20} />
+									<Icons.chevronLeft
+										size={20}
+										className="text-brand-dark-blue"
+									/>
 								</Link>
 							)}
 							{activeMenu === "main" ? "Home" : activeMenu.replace("Menu", "")}
