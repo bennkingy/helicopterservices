@@ -218,7 +218,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 					}}
 				>
 					<AnimatePresence>
-						<div className="h-[50px] w-full bg-gray-100 text-xl flex items-center justify-center font-bold capitalize">
+						<div className="h-[50px] w-full bg-gray-50 text-xl text-brand-light-blue flex items-center justify-center font-bold capitalize">
 							{activeMenu !== "main" && (
 								<Link
 									href="#"
@@ -242,13 +242,9 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 								// @ts-ignore
 								menufromCMS[activeMenu].map((item, index) => (
 									<li
-										className={` hover:text-brand-light-blue ${
+										className={`  ${
 											item.isViewAll ? "text-brand-dark-blue" : ""
-										} ${
-											item.isCategoryTitle
-												? "text-gray-500"
-												: "border-b border-gray-100 pb-0"
-										}`}
+										} ${item.isCategoryTitle ? "text-gray-500" : "pb-0"}`}
 										key={item.title + (index + 1)}
 									>
 										{item.isCategoryTitle ? (
@@ -284,14 +280,20 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 								))
 							}
 							{activeMenu === "main" && (
-								<div className="flex items-start flex-col pl-3 mt-3 pb-3">
-									<a
-										className="text-xl font-bold mt-0 hover:underline underline-offset-2 text-brand-orange"
-										href="tel:+441494513166"
-									>
-										+44 1494 513 166
-									</a>
-								</div>
+								<>
+									<div className="flex items-center pl-3 mt-3 pb-3">
+										<Icons.phone
+											className="text-brand-orange mr-1"
+											height={22}
+										/>
+										<Link
+											href="tel:+441494513166"
+											className="text-xl font-bold mt-0 text-brand-orange"
+										>
+											+44 1494 513 166
+										</Link>
+									</div>
+								</>
 							)}
 						</motion.ul>
 					</AnimatePresence>
