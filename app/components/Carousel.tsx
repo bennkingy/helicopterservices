@@ -57,7 +57,7 @@ const Carousel = ({ slides }: props) => {
 							"md:basis-1/2 lg:basis-1/3 m-0 px-10 md:px-16 text-center group hover:text-brand-dark-blue"
 						}
 					>
-						<Link href={item.link}>
+						<Link href={item.link} passHref>
 							<Image
 								src={item.img}
 								width={370}
