@@ -258,16 +258,16 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 										) : item.submenu ? (
 											<Link
 												passHref
-												className="w-full flex items-center py-3 pl-3 justify-between"
+												className="w-full flex items-center py-0 pl-3 justify-between"
 												href={item.slug}
 											>
 												{item.title}
 												{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
 												<div
-													className="px-2"
+													className="px-3 py-3"
 													onClick={(e) => handleMenuClick(e, item.submenu)}
 												>
-													<Icons.chevronRight size={20} className="mr-2" />
+													<Icons.chevronRight size={20} className="" />
 												</div>
 											</Link>
 										) : (

@@ -109,12 +109,12 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 
 	return (
 		<>
-			<main className="">
+			<main className="mb-10">
 				<Breadcrumbs
 					className="container pt-[20px] sm:pt-[30px]"
 					slug={data?.title}
 				/>
-				<div className="container mx-auto px-4 grid pb-14 grid-cols-1 md:grid-cols-5 mt-8">
+				<div className="container mx-auto px-4 grid pb-14 grid-cols-1 md:grid-cols-5 mt-6">
 					<div className="mr-0 md:mr-20 mb-10 sm:mb-0 col-span-3 relative">
 						{data?.threedVideoUrl && (
 							<Image

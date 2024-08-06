@@ -20,8 +20,8 @@ export default function NavbarHeader(menuData: any) {
 			const headroomInstance = new Headroom(headerRef.current, {
 				offset: path !== "/" && path !== "/about-us" ? 140 : 100,
 				tolerance: {
-					up: 0,
-					down: 0,
+					up: 15,
+					down: 15,
 				},
 			});
 			headroomInstance.init();

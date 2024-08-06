@@ -2,9 +2,9 @@
 // import withPlaiceholder from "@plaiceholder/next";
 
 const nextConfig = {
-	typescript: {
-		ignoreBuildErrors: true,
-	},
+	// typescript: {
+	// 	ignoreBuildErrors: true,
+	// },
 	images: {
 		remotePatterns: [
 			{
