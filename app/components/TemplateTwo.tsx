@@ -171,7 +171,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 							)}
 						/>
 						{children}
-						{data.gallery && (
+						{/* {data.gallery && (
 							<Gallery className="sm:mb-10" galleryType="gallery">
 								<a
 									data-lg-size="1600-2400"
@@ -225,7 +225,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 									/>
 								</a>
 							</Gallery>
-						)}
+						)} */}
 					</div>
 					<div className="col-span-2">
 						{data?.gallerySingle && (

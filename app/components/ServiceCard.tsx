@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Heading from "../components/Heading";
 import SanityImage from "./SanityImage";
+import Link from "next/link";
 
 interface ServiceCard {
 	heading: string;
@@ -28,7 +29,7 @@ const ServiceCard = async ({
 	};
 
 	return (
-		<a
+		<Link
 			href={url}
 			className="bg-white justify-between shadow-brand rounded-none border-0 border-b-4 border-brand-light-blue relative flex flex-col-reverse	items-center overflow-hidden md:flex-row md:max-w-xl transition-shadow duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-800 group hover:shadow-brand-hover sm:min-h-[330px]"
 		>
@@ -75,7 +76,7 @@ const ServiceCard = async ({
 					imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
 				/>
 			</div>
-		</a>
+		</Link>
 	);
 };
 
