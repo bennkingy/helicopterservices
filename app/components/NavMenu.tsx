@@ -16,7 +16,9 @@ import { usePathname } from "next/navigation";
 import * as React from "react";
 import MobileMenu from "./MobileMenu";
 // import TextLink from "./TextLink";
-
+import { hoverStore } from "@/store/hoverStore";
+// @ts-ignore
+import { useStore } from "@nanostores/react";
 const fleet: {
 	title: string;
 	slug: string;
@@ -110,6 +112,35 @@ export function NavMenu({
 	onMobileOpen,
 }: { onMobileOpen: () => void; menuData: any }) {
 	const path = usePathname();
+	const isHovered = useStore(hoverStore);
+
+	React.useEffect(() => {
+		if (isHovered) {
+			const overlayDiv = document.createElement("div");
+			overlayDiv.id = "hover-overlay";
+			overlayDiv.style.position = "fixed";
+			overlayDiv.style.top = "0";
+			overlayDiv.style.left = "0";
+			overlayDiv.style.width = "100vw";
+			overlayDiv.style.height = "100vh";
+			overlayDiv.style.zIndex = "9";
+			overlayDiv.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+			overlayDiv.style.backdropFilter = "blur(10px)";
+			document.body.appendChild(overlayDiv);
+		} else {
+			const overlayDiv = document.getElementById("hover-overlay");
+			if (overlayDiv) {
+				document.body.removeChild(overlayDiv);
+			}
+		}
+
+		return () => {
+			const overlayDiv = document.getElementById("hover-overlay");
+			if (overlayDiv) {
+				document.body.removeChild(overlayDiv);
+			}
+		};
+	}, [isHovered]);
 
 	return (
 		<>

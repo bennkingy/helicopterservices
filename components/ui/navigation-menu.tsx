@@ -1,8 +1,11 @@
 import { cn } from "@/lib/utils";
+import { hideOverlay, hoverStore, showOverlay } from "@/store/hoverStore";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
 import { ChevronDown } from "lucide-react";
 import * as React from "react";
+// @ts-ignore
+import { useStore } from "@nanostores/react";
 
 const NavigationMenu = React.forwardRef<
 	React.ElementRef<typeof NavigationMenuPrimitive.Root>,
@@ -51,6 +54,8 @@ const NavigationMenuTrigger = React.forwardRef<
 		ref={ref}
 		className={cn(navigationMenuTriggerStyle(), "group", className)}
 		{...props}
+		onMouseEnter={showOverlay}
+		onMouseLeave={hideOverlay}
 	>
 		{children}{" "}
 		<ChevronDown
@@ -59,6 +64,7 @@ const NavigationMenuTrigger = React.forwardRef<
 		/>
 	</NavigationMenuPrimitive.Trigger>
 ));
+
 NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
 
 const NavigationMenuContent = React.forwardRef<
@@ -67,6 +73,8 @@ const NavigationMenuContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<NavigationMenuPrimitive.Content
 		ref={ref}
+		onMouseEnter={showOverlay}
+		onMouseLeave={hideOverlay}
 		className={cn(
 			"left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-[800px]",
 			className,
