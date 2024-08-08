@@ -99,7 +99,7 @@ export default async function Training({
 								titleStyles="text-3xl"
 								className="mb-6 mt-5"
 							/>
-							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+							<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
 								{data?.service
 									?.filter(
 										(service: ServiceCard) => service?.category === "Licenses",
@@ -134,7 +134,7 @@ export default async function Training({
 								titleStyles="text-3xl"
 								className="mb-6 mt-16"
 							/>
-							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+							<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
 								{data?.service
 									?.filter(
 										(service: ServiceCard) => service?.category === "Ratings",
@@ -169,7 +169,7 @@ export default async function Training({
 								titleStyles="text-3xl"
 								className="mb-6 mt-16"
 							/>
-							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+							<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
 								{data?.service
 									?.filter(
 										(service: ServiceCard) =>
@@ -205,7 +205,7 @@ export default async function Training({
 								titleStyles="text-3xl"
 								className="mb-6 mt-16"
 							/>
-							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+							<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
 								{data?.service
 									?.filter(
 										(service: ServiceCard) => service?.category === "Other",

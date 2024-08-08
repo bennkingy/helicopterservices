@@ -63,7 +63,7 @@ export default async function Flights({
 					className="h-[250px] md:h-[420px] lg:h-[675px]"
 				/>
 				<section className="py-10 max-w-6xl mx-auto px-4 mt-14">
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 						{data?.service
 							// @ts-ignore
 							.sort((a, b) => a.heading.localeCompare(b.heading))
