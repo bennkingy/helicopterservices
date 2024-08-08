@@ -9,7 +9,9 @@ let hideTimeout;
 export const showOverlay = () => {
 	// @ts-ignore
 	clearTimeout(hideTimeout); // Clear any pending hide actions
-	hoverStore.set(true);
+	hideTimeout = setTimeout(() => {
+		hoverStore.set(true);
+	}, 200); // Adjust the delay time as needed
 };
 
 export const hideOverlay = () => {
