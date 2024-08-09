@@ -218,7 +218,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 					}}
 				>
 					<AnimatePresence>
-						<div className="h-[50px] w-full bg-gray-50 text-xl text-brand-light-blue flex items-center justify-center font-bold capitalize">
+						<div className="h-[50px] w-full text-xl text-brand-light-blue flex items-center justify-center font-bold capitalize">
 							{activeMenu !== "main" && (
 								<Link
 									href="#"
@@ -244,8 +244,11 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 							{
 								// @ts-ignore
 								menufromCMS[activeMenu].map((item, index) => (
-									<li
-										className={`  ${
+									<motion.li
+										whileHover={{ scale: item.isCategoryTitle ? 1 : 1.01 }}
+										whileTap={{ scale: item.isCategoryTitle ? 1 : 1.01 }}
+										transition={{ type: "spring", stiffness: 300 }}
+										className={`${
 											item.isViewAll ? "text-brand-dark-blue" : ""
 										} ${item.isCategoryTitle ? "text-gray-500" : "pb-0"}`}
 										key={item.title + (index + 1)}
@@ -261,7 +264,6 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 												href={item.slug}
 											>
 												{item.title}
-												{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
 												<div
 													className="px-3 py-3"
 													onClick={(e) => handleMenuClick(e, item.submenu)}
@@ -279,7 +281,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 												{item.title}
 											</Link>
 										)}
-									</li>
+									</motion.li>
 								))
 							}
 							{activeMenu === "main" && (
@@ -299,16 +301,6 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 								</>
 							)}
 						</motion.ul>
-						{/* <Image
-							src="/images/approvals.svg"
-							alt="Helicopter Services"
-							width={250}
-							quality={100}
-							height={100}
-							className="mt-12 ml-3 pl-[2px] absolute bottom-0 mb-[16px]"
-							placeholder="blur"
-							blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAGklEQVR4nGNgELI6zcBmdIbBNuHMs3//TwMAKT4HM0/7dVEAAAAASUVORK5CYII="
-						/> */}
 					</AnimatePresence>
 				</DrawerContent>
 			</Drawer>
