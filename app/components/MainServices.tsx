@@ -11,7 +11,15 @@ interface MainServices {
 
 const features: MainServices[] = [
 	{
-		icon: <Image priority src="/images/icons/TrainingDark.svg" alt="Helicopter flight training" width={40} height={40} />,
+		icon: (
+			<Image
+				priority
+				src="/images/icons/TrainingDark.svg"
+				alt="Helicopter flight training"
+				width={40}
+				height={40}
+			/>
+		),
 		title: "Training",
 		description:
 			"From beginner to advanced, you're in expert hands. EASA and UK CAA approved",
@@ -20,7 +28,7 @@ const features: MainServices[] = [
 	{
 		icon: (
 			<Image
-			priority
+				priority
 				src="/images/icons/FlightsDark.svg"
 				alt="Helicopter flight services"
 				width={40}
@@ -32,14 +40,30 @@ const features: MainServices[] = [
 		url: "/flights",
 	},
 	{
-		icon: <Image priority src="/images/icons/IndustryDark.svg" alt="Helicopter industry flight services" width={40} height={40} />,
+		icon: (
+			<Image
+				priority
+				src="/images/icons/IndustryDark.svg"
+				alt="Helicopter industry flight services"
+				width={40}
+				height={40}
+			/>
+		),
 		title: "Industry",
 		description:
 			"Elevating industry to new heights with film and lifting services",
 		url: "/industry",
 	},
 	{
-		icon: <Image priority src="/images/icons/CompanyDark.svg" alt="About helicopter services" width={40} height={40} />,
+		icon: (
+			<Image
+				priority
+				src="/images/icons/CompanyDark.svg"
+				alt="About helicopter services"
+				width={40}
+				height={40}
+			/>
+		),
 		title: "Our company",
 		description:
 			"Trust a company with over 20 years helicopter operating experence",
@@ -58,7 +82,7 @@ export const MainServices = () => {
 							className="bg-white rounded-none border-0 border-b-4 border-brand-light-blue relative group duration-300 ease-in lg:min-h-[252px] h-full"
 						>
 							<CardHeader>
-								<CardTitle className="grid gap-4 font-bold text-xl sm:text-2xl duration-300 ease-in-out sm:group-hover:text-brand-light-blue">
+								<CardTitle className="grid gap-4 font-bold text-xl sm:text-2xl duration-300 ease-in-out group-hover:text-brand-light-blue">
 									{icon}
 									{title}
 								</CardTitle>
