@@ -124,8 +124,8 @@ export function NavMenu({
 			overlayDiv.style.width = "100vw";
 			overlayDiv.style.height = "100vh";
 			overlayDiv.style.zIndex = "9";
-			overlayDiv.style.backgroundColor = "rgba(0, 0, 0, 0.65)";
-			overlayDiv.style.backdropFilter = "blur(10px)";
+			overlayDiv.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+			overlayDiv.style.backdropFilter = "blur(9px)";
 			document.body.appendChild(overlayDiv);
 		} else {
 			const overlayDiv = document.getElementById("hover-overlay");
