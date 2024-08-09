@@ -59,6 +59,7 @@ const Gallery = forwardRef(
 					plugins={[lgZoom, lgVideo, lgThumbnail]}
 					mode="lg-fade"
 					// hideScrollbar={true}
+					loadYoutubeThumbnail={true}
 					autoplayFirstVideo={
 						galleryType === "video" || galleryType === "3d-video"
 					}

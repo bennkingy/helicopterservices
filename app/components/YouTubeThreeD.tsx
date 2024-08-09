@@ -32,13 +32,14 @@ const YouTubeThreeD = forwardRef(
 			>
 				<Gallery galleryType="video" className={`mr-0 ${className}`} ref={ref}>
 					<a
-						href={imageUrl}
-						data-lg-size="1000-700"
+						href="/#"
+						data-poster={imageUrl}
+						data-lg-size="1000-800"
 						data-pinterest-text="Pin it2"
 						data-tweet-text="lightGallery slide  2"
 						className="gallery__item"
 						data-src={data}
-						data-sub-html={`<h4>Helicopter Services</h4><p>360 video</p>`}
+						data-sub-html={`<h4>360° Tour</h4><p style="color: red; font-weight: bold">Open on YouTube for the best experience</p>`}
 					>
 						<Image
 							width={500}
