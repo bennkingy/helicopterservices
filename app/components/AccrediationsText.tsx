@@ -15,7 +15,7 @@ const AccrediationsText = () => {
 			{path !== "/" && path !== "/about-us" ? (
 				<div
 					className={cn(
-						"topbar w-full bg-brand-dark-blue flex justify-center align-center items-center transition-all duration-500 ease-in-out h-[40px] z-[1000000] relative",
+						"topbar w-full bg-brand-dark-blue flex justify-center align-center items-center transition-all duration-500 ease-in-out h-[40px] z-[20] relative",
 					)}
 				>
 					<div
