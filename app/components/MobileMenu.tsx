@@ -6,7 +6,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type SetStateAction, useCallback, useEffect, useState } from "react";
 import { Icons } from "@/components/ui/icons";
-import Image from "next/image";
 
 const initialMenus = {
 	main: [

@@ -140,7 +140,15 @@ export function NavMenu({
 				document.body.removeChild(overlayDiv);
 			}
 		};
-	}, [isHovered]);
+	}, [isHovered, path]);
+
+	React.useEffect(() => {
+		// If the path changes, remove the overlay
+		const overlayDiv = document.getElementById("hover-overlay");
+		if (overlayDiv) {
+			document.body.removeChild(overlayDiv);
+		}
+	}, [path]);
 
 	return (
 		<>
@@ -171,7 +179,7 @@ export function NavMenu({
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex rounded-none">
 							{/* <div className="p-5"> */}
-							<div className="p-7 pb-4 max-w-[250px]">
+							<div className="p-7 max-w-[250px]">
 								<p className="text-brand-light-blue">Licenses</p>
 								<ul className="grid mt-2">
 									{menuData?.menuData?.training
@@ -298,7 +306,7 @@ export function NavMenu({
 							</Link>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex">
-							<div className="p-7 pb-4 max-w-[250px]">
+							<div className="p-7 max-w-[250px]">
 								<p className="text-brand-light-blue">Industry</p>
 								<ul className="grid mt-2">
 									{menuData?.menuData?.industry
@@ -348,7 +356,7 @@ export function NavMenu({
 							</Link>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex">
-							<div className="p-7 pb-4 max-w-[250px]">
+							<div className="p-7 max-w-[250px]">
 								<p className="text-brand-light-blue">Flights</p>
 								<ul className="grid mt-2">
 									{menuData?.menuData?.flights
@@ -420,7 +428,7 @@ export function NavMenu({
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex rounded-none">
 							{/* <div className="p-5"> */}
-							<div className="p-7 pb-4">
+							<div className="p-7">
 								<p className="text-brand-light-blue">Single Engine</p>
 								<ul className="grid mt-2">
 									{fleet
@@ -524,7 +532,7 @@ export function NavMenu({
 									quality={100}
 								/>
 							</div>
-							<div className="p-7 pb-4 max-w-[250px]">
+							<div className="p-7 max-w-[250px]">
 								<div className="ml-auto">
 									<p className="text-brand-light-blue">About us</p>
 									<ul className="grid mt-2">

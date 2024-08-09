@@ -32,6 +32,7 @@ export default function NavbarHeader(menuData: any) {
 
 	return (
 		<header
+			key={path}
 			ref={headerRef}
 			className={cn(
 				"w-full transition-all duration-300 delay-0 ease-in-out shadow-md",

@@ -1,11 +1,9 @@
 import { cn } from "@/lib/utils";
-import { hideOverlay, hoverStore, showOverlay } from "@/store/hoverStore";
+import { hideOverlay, showOverlay } from "@/store/hoverStore";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
 import { ChevronDown } from "lucide-react";
 import * as React from "react";
-// @ts-ignore
-import { useStore } from "@nanostores/react";
 
 const NavigationMenu = React.forwardRef<
 	React.ElementRef<typeof NavigationMenuPrimitive.Root>,
