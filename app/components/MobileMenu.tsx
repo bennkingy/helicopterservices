@@ -218,20 +218,17 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 					}}
 				>
 					<AnimatePresence>
-						<div className="h-[50px] w-full text-xl text-brand-light-blue flex items-center justify-center font-bold capitalize">
+						<div className="h-[50px] w-full text-xl text-brand-dark-blue flex items-center justify-center font-bold capitalize">
 							{activeMenu !== "main" && (
 								<Link
 									href="#"
 									onClick={handleBackClick}
 									className="absolute left-4 py-3 flex items-center"
 								>
-									<Icons.chevronLeft
-										size={20}
-										className="text-brand-dark-blue"
-									/>
+									<Icons.chevronLeft size={20} className="text-brand-orange" />
 								</Link>
 							)}
-							{activeMenu === "main" ? "Home" : activeMenu.replace("Menu", "")}
+							{activeMenu === "main" ? "Menu" : activeMenu.replace("Menu", "")}
 						</div>
 						<motion.ul
 							key={activeMenu}
