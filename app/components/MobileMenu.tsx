@@ -245,8 +245,8 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 								// @ts-ignore
 								menufromCMS[activeMenu].map((item, index) => (
 									<motion.li
-										whileHover={{ scale: item.isCategoryTitle ? 1 : 1 }}
-										whileTap={{ scale: item.isCategoryTitle ? 1 : 1 }}
+										// whileHover={{ scale: item.isCategoryTitle ? 1 : 1 }}
+										// whileTap={{ scale: item.isCategoryTitle ? 1 : 1 }}
 										className={`${
 											item.isViewAll ? "text-brand-dark-blue" : ""
 										} ${item.isCategoryTitle ? "text-gray-500" : "pb-0"}`}
