@@ -47,21 +47,58 @@ const navigationMenuTriggerStyle = cva(
 const NavigationMenuTrigger = React.forwardRef<
 	React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
 	React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-	<NavigationMenuPrimitive.Trigger
-		ref={ref}
-		className={cn(navigationMenuTriggerStyle(), "group", className)}
-		{...props}
-		onMouseEnter={showOverlay}
-		onMouseLeave={hideOverlay}
-	>
-		{children}{" "}
-		<ChevronDown
-			className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
-			aria-hidden="true"
-		/>
-	</NavigationMenuPrimitive.Trigger>
-));
+>(({ className, children, ...props }, ref) => {
+	React.useEffect(() => {
+		const handleStateChange = () => {
+			const anyOpen = document.querySelector('#header [data-state="open"]');
+			if (anyOpen) {
+				showOverlay();
+			} else {
+				hideOverlay();
+			}
+		};
+
+		const observer = new MutationObserver((mutations) => {
+			mutations.forEach((mutation) => {
+				if (mutation.attributeName === "data-state") {
+					handleStateChange();
+				}
+			});
+		});
+
+		// Restrict observation to elements within the header
+		const elementsToObserve = document.querySelectorAll("#header [data-state]");
+
+		elementsToObserve.forEach((element) => {
+			observer.observe(element, {
+				attributes: true,
+				attributeFilter: ["data-state"],
+			});
+		});
+
+		// Initial check in case an element is already open
+		handleStateChange();
+
+		// Cleanup on unmount
+		return () => {
+			observer.disconnect();
+		};
+	}, []);
+
+	return (
+		<NavigationMenuPrimitive.Trigger
+			ref={ref}
+			className={cn(navigationMenuTriggerStyle(), "group", className)}
+			{...props}
+		>
+			{children}{" "}
+			<ChevronDown
+				className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+				aria-hidden="true"
+			/>
+		</NavigationMenuPrimitive.Trigger>
+	);
+});
 
 NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
 

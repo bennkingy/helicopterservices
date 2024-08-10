@@ -152,7 +152,10 @@ export function NavMenu({
 
 	return (
 		<>
-			<NavigationMenu className="hidden md:block font-workSans font-semibold text-brand-dark-blue">
+			<NavigationMenu
+				className="hidden md:block font-workSans font-semibold text-brand-dark-blue"
+				id="header"
+			>
 				<NavigationMenuList>
 					<NavigationMenuItem className="hidden lg:block" id="home">
 						<Link href="/" legacyBehavior passHref className="text-lg">
