@@ -19,6 +19,7 @@ import MobileMenu from "./MobileMenu";
 import { hoverStore } from "@/store/hoverStore";
 // @ts-ignore
 import { useStore } from "@nanostores/react";
+import OpenClosed from "./OpenClosed";
 const fleet: {
 	title: string;
 	slug: string;
@@ -157,7 +158,7 @@ export function NavMenu({
 				id="header"
 			>
 				<NavigationMenuList>
-					<NavigationMenuItem className="hidden lg:block" id="home">
+					<NavigationMenuItem className="hidden 2xl:block" id="home">
 						<Link href="/" legacyBehavior passHref className="text-lg">
 							<NavigationMenuLink
 								className={cn(
@@ -579,17 +580,30 @@ export function NavMenu({
 				</NavigationMenuList>
 			</NavigationMenu>
 			<MobileMenu menuData={menuData} onMobileOpen={() => onMobileOpen()} />
-			<Link href="tel:+44 1494513 166" className="">
-				{/* <Icons.phone className="text-brand-light-blue" height={20} /> */}
-				<Image
-					priority
-					src="/images/square-phone.svg"
-					alt="phone"
-					height={30}
-					quality={100}
-					width={30}
-				/>
-			</Link>
+			<div className="flex flex-col">
+				<Link
+					href="tel:+44 1494513 166"
+					className="text-md font-openSans text-brand-orange group"
+				>
+					<div className="flex">
+						<Image
+							priority
+							src="/images/phone-orange.svg"
+							alt="phone"
+							height={20}
+							quality={100}
+							width={20}
+							className="mr-2"
+						/>
+						<p className="font-workSans font-bold text-base text-[#545454] hidden lg:block">
+							+44 54353454
+						</p>
+					</div>
+				</Link>
+				<div className="hidden lg:block">
+					<OpenClosed />
+				</div>
+			</div>
 		</>
 	);
 }
