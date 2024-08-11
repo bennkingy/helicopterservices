@@ -169,7 +169,7 @@ export default async function Footer() {
 									))}
 							</ul>
 						</div>
-						<div className="w-full sm:w-auto md:mt-0">
+						<div className="w-full sm:w-auto md:mt-0 overflow-x-hidden">
 							<Suspense
 								fallback={<p className="bg-red">Loading weather data...</p>}
 							>

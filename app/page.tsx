@@ -64,7 +64,7 @@ export default async function Home() {
 				</div>
 			</div>
 			<div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
-				<div className="pr-0 relative col-span-1 flex justify-center">
+				<div className="pr-0 relative col-span-1 flex justify-center md:-mt-20 xl:mt-0">
 					<FramerAnimationSlide
 						items={[
 							<Image
@@ -216,7 +216,7 @@ export default async function Home() {
 						</div>
 						<Enquire textStyle="text-white" />
 					</div>
-					<div className="relative col-span-1 flex justify-center mt-20 md:mt-0 mb-20 md:mb-0">
+					<div className="relative col-span-1 flex justify-center mt-20  md:-mt-20 xl:mt-0 mb-20 md:mb-0">
 						<FramerAnimationSlide
 							items={[
 								<Image
@@ -256,7 +256,7 @@ export default async function Home() {
 				</div>
 			</div>
 			<div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 justify-center relative">
-				<div className="pr-0 relative col-span-1 flex justify-center">
+				<div className="pr-0 relative col-span-1 flex justify-center md:-mt-20 lg:mt-0">
 					<FramerAnimationSlide
 						items={[
 							<Image

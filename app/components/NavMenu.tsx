@@ -158,7 +158,7 @@ export function NavMenu({
 				id="header"
 			>
 				<NavigationMenuList>
-					<NavigationMenuItem className="hidden 2xl:block" id="home">
+					<NavigationMenuItem className="hidden xl:block" id="home">
 						<Link href="/" legacyBehavior passHref className="text-lg">
 							<NavigationMenuLink
 								className={cn(
