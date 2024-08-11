@@ -57,7 +57,7 @@ export default async function About() {
 					</p>
 					<p className="mt-0 font-openSans">Helicopter Services</p>
 				</div>
-				<div className="relative col-span-1 flex justify-center mt-14 md:-mt-20 xl:mt-0 :mb-0">
+				<div className="relative col-span-1 flex justify-center mt-12 md:mt-0 :mb-0">
 					<FramerAnimationSlide
 						items={[
 							<Image
