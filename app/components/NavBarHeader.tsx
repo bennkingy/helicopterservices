@@ -36,7 +36,7 @@ export default function NavbarHeader(menuData: any) {
 			ref={headerRef}
 			className={cn(
 				"w-full transition-all duration-300 delay-0 ease-in-out shadow-md",
-				"h-[65px] sm:h-[100px]",
+				"h-[65px] md:h-[100px]",
 				"border-b-4 border-brand-light-blue bg-white flex",
 			)}
 		>
@@ -54,7 +54,7 @@ export default function NavbarHeader(menuData: any) {
 						quality={100}
 						alt="Helicopter Services"
 						width={181}
-						className="w-[135px] sm:w-[181px] sm:h-[117px]"
+						className="w-[135px] md:w-[181px] md:h-[117px]"
 					/>
 				</Link>
 				{/* @ts-ignore */}

@@ -130,7 +130,7 @@ const Template = ({
 				)}
 			>
 				<div className="pr-0 md:pr-20 mb-16 md:mb-0 col-span-8 md:col-span-5">
-					<div className="prose prose-a:text-brand-orange prose-a:transition-colors hover:prose-a:text-brand-dark-blue prose-a:no-underline font-openSans prose-h2:font-workSans prose-h2:text-[25px] sm:prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey">
+					<div className="prose prose-a:text-brand-orange prose-a:transition-colors hover:prose-a:text-brand-dark-blue prose-a:no-underline font-openSans prose-h2:font-workSans prose-h2:text-[25px] lg:prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey">
 						<PortableText value={data?.body || ""} components={components} />
 					</div>
 					<Approvals />
