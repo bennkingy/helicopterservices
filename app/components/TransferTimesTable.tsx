@@ -10,7 +10,7 @@ import {
 const TransferTimesTable = () => {
 	return (
 		<div>
-			<Table>
+			<Table className="min-w-[400px]>
 				<TableHeader>
 					<TableRow className="text-center">
 						<TableHead className="text-center">Departure</TableHead>
