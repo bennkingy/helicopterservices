@@ -420,7 +420,7 @@ export function NavMenu({
 							</div>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
-					<NavigationMenuItem className="hidden lg:block">
+					<NavigationMenuItem className="hidden 2xl:block">
 						<NavigationMenuTrigger
 							className={cn(
 								path.startsWith("/fleet") && "bg-accent text-accent-foreground",
@@ -595,13 +595,13 @@ export function NavMenu({
 							width={20}
 							className="mr-2"
 						/>
-						<p className="font-workSans font-bold text-base text-[#545454] hidden lg:block">
+						<p className="font-workSans font-bold text-base text-[#545454] hidden lg:block  group-hover:text-brand-orange  transition-all duration-300 ease-in-out">
 							+44 54353454
 						</p>
 					</div>
 				</Link>
 				<div className="hidden lg:block">
-					<OpenClosed />
+					<OpenClosed showPeriod={false} />
 				</div>
 			</div>
 		</>

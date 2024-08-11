@@ -10,8 +10,13 @@
 
 // 	return data;
 // }
+import React from "react";
 
-export default function OpenClosed() {
+interface OpenClosedProps {
+	showPeriod?: boolean;
+}
+
+export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 	const hours = {
 		hours: [
 			{ day: "Monday", time: "08:30 - 17:30" },
@@ -29,7 +34,7 @@ export default function OpenClosed() {
 		const period = hour >= 12 ? "pm" : "am";
 		const formattedHour = hour % 12 || 12; // Convert 0 to 12 for midnight
 		const formattedMinute = minute === 0 ? "" : `:${minute}`;
-		return `${formattedHour}${formattedMinute}${period}`;
+		return `${formattedHour}${formattedMinute}${showPeriod ? period : ""}`;
 	}
 
 	function isOpen() {
@@ -49,7 +54,7 @@ export default function OpenClosed() {
 		const [openingTime, closingTime] = daySchedule.time.split(" - ");
 
 		if (currentTime >= openingTime && currentTime <= closingTime) {
-			return `We are open today ${formatTime(openingTime)} - ${formatTime(
+			return `We are open today ${formatTime(openingTime)}-${formatTime(
 				closingTime,
 			)}`;
 		}
@@ -67,7 +72,7 @@ export default function OpenClosed() {
 			if (nextDaySchedule.time !== "Closed") {
 				const [nextOpeningTime, nextClosingTime] =
 					nextDaySchedule.time.split(" - ");
-				return `Open tomorrow ${formatTime(nextOpeningTime)} - ${formatTime(
+				return `Open tomorrow ${formatTime(nextOpeningTime)}-${formatTime(
 					nextClosingTime,
 				)}`;
 			}
