@@ -132,7 +132,12 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 			}
 
 			if (formattedData.fleet) {
-				updateMenuItems("fleet", formattedData.fleet);
+				updateMenuItems(
+					"fleet",
+					formattedData.fleet.filter(
+						(item) => item.title.toLowerCase() !== "fleet",
+					),
+				);
 			}
 			if (formattedData.about) {
 				updateMenuItems("about", formattedData.about);

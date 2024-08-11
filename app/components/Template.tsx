@@ -114,13 +114,13 @@ const Template = ({
 		<div>
 			{(data?.heroImage || data?.mainImage || data?.hero) && (
 				<div className="overflow-x-hidden">
-					{/* <Header
+					<Header
 						className={height}
 						title={data?.hero?.heading || data?.title}
 						tag={data?.hero?.tagline || iconType}
 						iconType={iconType}
 						image={data?.hero?.image || data?.heroImage || data?.mainImage}
-					/> */}
+					/>
 				</div>
 			)}
 			<main

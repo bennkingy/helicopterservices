@@ -27,27 +27,28 @@ const Carousel = ({ slides }: props) => {
 	const [ctasForSlides, setCtasForSlides] = useState<string[]>([]);
 
 	useEffect(() => {
-		// Generate random CTA for each slide only once and store them in state
+		// Define the CTA messages
 		const ctas = [
-			"Read more",
-			"Learn more",
-			"View details",
-			// "Find Out More",
-			"See more",
 			"Explore now",
+			"See more",
+			"View details",
+			"Learn more",
+			"Read more",
 			"Discover more",
+			"Show more",
+			"Get started",
+			// "Find Out More",
 			// "Continue Reading",
 			// "Uncover More",
-			"Get started",
 			// "More info",
-			"Show more",
 		];
 
-		const randomCtas = slides.map(() => {
-			return ctas[Math.floor(Math.random() * ctas.length)];
+		// Assign a CTA to each slide in order, looping if necessary
+		const orderedCtas = slides.map((_, index) => {
+			return ctas[index % ctas.length];
 		});
 
-		setCtasForSlides(randomCtas);
+		setCtasForSlides(orderedCtas);
 	}, [slides]);
 
 	useEffect(() => {
@@ -83,7 +84,6 @@ const Carousel = ({ slides }: props) => {
 							"md:basis-1/2 lg:basis-1/3 m-0 px-10 md:px-16 text-center"
 						}
 					>
-						{" "}
 						<div
 							key={index}
 							className={`carousel-item ${
