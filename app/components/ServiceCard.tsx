@@ -43,7 +43,7 @@ const ServiceCard = async ({
 					iconType={getIconType(url)}
 					iconSize={15}
 					className="my-3 sm:my-5"
-					iconStyles="mb-4"
+					iconStyles="mb-4 sm:mb-2"
 				/>
 				<p className="mb-3 font-normal text-gray-700 dark:text-gray-400 font-openSans">
 					{description}
