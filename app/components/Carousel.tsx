@@ -24,6 +24,31 @@ const Carousel = ({ slides }: props) => {
 	const [current, setCurrent] = useState(0);
 	const [count, setCount] = useState(0);
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+	const [ctasForSlides, setCtasForSlides] = useState<string[]>([]);
+
+	useEffect(() => {
+		// Generate random CTA for each slide only once and store them in state
+		const ctas = [
+			"Read more",
+			"Learn more",
+			"View details",
+			// "Find Out More",
+			"See more",
+			"Explore now",
+			"Discover more",
+			// "Continue Reading",
+			// "Uncover More",
+			"Get started",
+			// "More info",
+			"Show more",
+		];
+
+		const randomCtas = slides.map(() => {
+			return ctas[Math.floor(Math.random() * ctas.length)];
+		});
+
+		setCtasForSlides(randomCtas);
+	}, [slides]);
 
 	useEffect(() => {
 		if (!api) {
@@ -90,11 +115,10 @@ const Carousel = ({ slides }: props) => {
 											: "text-brand-orange"
 									}`}
 								>
-									Discover more
+									{ctasForSlides[index]}
 								</p>
 							</Link>
 						</div>
-						{/* </FramerAnimationBlurIn> */}
 					</CarouselItem>
 				))}
 			</CarouselContent>

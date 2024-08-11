@@ -277,7 +277,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 												href={item.slug}
 												passHref
 												onClick={() => checkIfOnThisPage(item.slug)}
-												className="w-full flex items-center justify-between py-3 pl-3"
+												className="w-full flex items-center justify-between py-3 pl-3 pr-4"
 											>
 												{item.title}
 											</Link>
@@ -287,7 +287,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 							}
 							{activeMenu === "main" && (
 								<>
-									<div className="flex flex-col h-full ml-3 mt-2 bg-top border-t-2 mr-3 pt-5">
+									<div className="flex flex-col h-full ml-3 mt-2 bg-top border-t-[2px] mr-3 pt-5">
 										<Link
 											href="tel:+44 1494513 166"
 											className="text-md font-openSans text-brand-orange group"
@@ -302,13 +302,13 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 													width={20}
 													className="mr-2"
 												/>
-												<p className="font-workSans font-bold text-base text-[#545454] group-hover:text-brand-orange transition-all duration-300 ease-in-out">
+												<p className="font-workSans font-bold text-lg text-[#545454] group-hover:text-brand-orange transition-all duration-300 ease-in-out">
 													+44 54353454
 												</p>
 											</div>
 										</Link>
-										<div className="">
-											<OpenClosed showPeriod={false} />
+										<div className="text-fix">
+											<OpenClosed showPeriod={true} />
 										</div>
 									</div>
 								</>

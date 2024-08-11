@@ -356,6 +356,12 @@ text-transform: capitalize;
 }
 
 
+
+
+.text-fix {
+  text-transform: text-initial;
+}
+
 .mobile-ul li a {
   transition:  background-color 0.2s ease,
 }
@@ -383,3 +389,9 @@ text-transform: capitalize;
 	animation: scaleOverlay 0.3s ease-out forwards;
 	transform-origin: center;
 } */
+
+
+
+.text-fix {
+  text-transform: initial;
+}
