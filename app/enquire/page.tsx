@@ -70,7 +70,7 @@ export default async function Enquire() {
 			<div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-6">
 				<div className="mr-0 md:mr-20 col-span-3 relative">
 					<h3 className="text-4xl sm:text-5xl font-light font-workSans -ml-1 text-white">
-						Contact us
+						Enquire now
 					</h3>
 					<p className="mt-5 font-bold text-base sm:text-2xl max-w-[400px] text-white font-workSans">
 						Tell us how we can help and we&apos;ll get in touch as soon as we
