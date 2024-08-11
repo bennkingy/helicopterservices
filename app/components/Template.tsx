@@ -13,6 +13,7 @@ import YouTubeThreeD from "./YouTubeThreeD";
 import HelicopterCard2 from "./HelicopterCard2";
 import Link from "next/link";
 import { Icons } from "@/components/ui/icons";
+import CMSLink from "./CMSLink";
 
 type props = {
 	data: any;
@@ -30,6 +31,12 @@ const Template = ({
 	iconType,
 }: props) => {
 	const components = {
+		marks: {
+			link: ({ value, children }) => {
+				const href = value.href || "#";
+				return <CMSLink href={href}>{children}</CMSLink>;
+			},
+		},
 		types: {
 			image: ({ value }: any) => {
 				const imageUrl = urlFor(value).url();
@@ -107,13 +114,13 @@ const Template = ({
 		<div>
 			{(data?.heroImage || data?.mainImage || data?.hero) && (
 				<div className="overflow-x-hidden">
-					<Header
+					{/* <Header
 						className={height}
 						title={data?.hero?.heading || data?.title}
 						tag={data?.hero?.tagline || iconType}
 						iconType={iconType}
 						image={data?.hero?.image || data?.heroImage || data?.mainImage}
-					/>
+					/> */}
 				</div>
 			)}
 			<main
