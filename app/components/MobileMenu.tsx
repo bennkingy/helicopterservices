@@ -6,6 +6,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type SetStateAction, useCallback, useEffect, useState } from "react";
 import { Icons } from "@/components/ui/icons";
+import Image from "next/image";
+import OpenClosed from "./OpenClosed";
 
 const initialMenus = {
 	main: [
@@ -218,7 +220,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 					}}
 				>
 					<AnimatePresence>
-						<div className="h-[50px] w-full text-xl text-brand-dark-blue flex items-center justify-center font-bold capitalize">
+						<div className="h-[50px] w-full text-xl text-brand-dark-blue flex items-center justify-center font-bold capitalize shadow-sm">
 							{activeMenu !== "main" && (
 								<Link
 									href="#"
@@ -264,7 +266,10 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 													className="px-3 py-3"
 													onClick={(e) => handleMenuClick(e, item.submenu)}
 												>
-													<Icons.chevronRight size={20} className="" />
+													<Icons.chevronRight
+														size={20}
+														className="text-brand-orange"
+													/>
 												</div>
 											</Link>
 										) : (
@@ -282,17 +287,29 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 							}
 							{activeMenu === "main" && (
 								<>
-									<div className="flex items-center pl-3 mt-3 pb-3">
-										<Icons.phone
-											className="text-brand-orange mr-1"
-											height={22}
-										/>
+									<div className="flex flex-col h-full ml-3 mt-2 bg-top border-t-2 mr-3 pt-5">
 										<Link
-											href="tel:+441494513166"
-											className="text-xl font-bold mt-0 text-brand-orange"
+											href="tel:+44 1494513 166"
+											className="text-md font-openSans text-brand-orange group"
 										>
-											+44 1494 513 166
+											<div className="flex">
+												<Image
+													priority
+													src="/images/phone-orange.svg"
+													alt="phone"
+													height={20}
+													quality={100}
+													width={20}
+													className="mr-2"
+												/>
+												<p className="font-workSans font-bold text-base text-[#545454] group-hover:text-brand-orange transition-all duration-300 ease-in-out">
+													+44 54353454
+												</p>
+											</div>
 										</Link>
+										<div className="">
+											<OpenClosed showPeriod={false} />
+										</div>
 									</div>
 								</>
 							)}
