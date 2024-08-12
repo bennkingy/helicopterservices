@@ -35,15 +35,15 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 		if (menuData) {
 			const formattedData = menuData.menuData;
 			const updatedMenus = { ...initialMenus };
-			// @ts-ignore
+
+			// Function to update menu items
 			const updateMenuItems = (menuName, items) => {
-				// @ts-ignore
+				//@ts-ignore
 				const menuItems = items.map((item) => ({
 					title: item.title,
 					slug: `/${menuName === "about" ? "about-us" : menuName}/${item.slug}`,
 				}));
-
-				// @ts-ignore
+				//@ts-ignore
 				updatedMenus[`${menuName}Menu`] = [...menuItems];
 			};
 
@@ -54,8 +54,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 					simulators: [],
 					other: [],
 				};
-				// biome-ignore lint/complexity/noForEach: <explanation>
-				formattedData.training.forEach((item: any) => {
+				formattedData.training.forEach((item) => {
 					const category = item.category;
 					if (category) {
 						if (category.licenses) trainingCategories.licenses.push(item);
@@ -131,14 +130,34 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 				];
 			}
 
+			// Update the fleet menu with "Single" and "Twin" headers
 			if (formattedData.fleet) {
-				updateMenuItems(
-					"fleet",
-					formattedData.fleet.filter(
-						(item) => item.title.toLowerCase() !== "fleet",
-					),
-				);
+				const fleetCategories = {
+					Single: [],
+					Twin: [],
+				};
+
+				formattedData.fleet.forEach((item) => {
+					if (item.engineType === "Single") fleetCategories.Single.push(item);
+					if (item.engineType === "Twin") fleetCategories.Twin.push(item);
+				});
+
+				const sortItems = (a, b) => a.title.localeCompare(b.title);
+
+				updatedMenus.fleetMenu = [
+					{ title: "Single", slug: "#", isCategoryTitle: true },
+					...fleetCategories.Single.sort(sortItems).map((item) => ({
+						title: item.title,
+						slug: `/fleet/${item.slug}`,
+					})),
+					{ title: "Twin", slug: "#", isCategoryTitle: true },
+					...fleetCategories.Twin.sort(sortItems).map((item) => ({
+						title: item.title,
+						slug: `/fleet/${item.slug}`,
+					})),
+				];
 			}
+
 			if (formattedData.about) {
 				updateMenuItems("about", formattedData.about);
 			}

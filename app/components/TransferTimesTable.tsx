@@ -9,14 +9,20 @@ import {
 
 const TransferTimesTable = () => {
 	return (
-		<div>
-			<Table className="min-w-[400px]>
+		<div className="-mb-4">
+			<Table className="min-w-[400px]">
 				<TableHeader>
-					<TableRow className="text-center">
-						<TableHead className="text-center">Departure</TableHead>
-						<TableHead className="text-center">Destination</TableHead>
-						<TableHead className="text-center">Vehicle Transfer Time</TableHead>
-						<TableHead className="text-center">
+					<TableRow className="text-center font-bold text-brand-light-blue">
+						<TableHead className="text-center  font-bold text-brand-light-blue">
+							Departure
+						</TableHead>
+						<TableHead className="text-center  font-bold text-brand-light-blue">
+							Destination
+						</TableHead>
+						<TableHead className="text-center  font-bold text-brand-light-blue">
+							Vehicle Transfer Time
+						</TableHead>
+						<TableHead className="text-center  font-bold text-brand-light-blue pb-2 sm:pb-0">
 							Helicopter Transfer Time
 						</TableHead>
 					</TableRow>

@@ -20,92 +20,92 @@ import { hoverStore } from "@/store/hoverStore";
 // @ts-ignore
 import { useStore } from "@nanostores/react";
 import OpenClosed from "./OpenClosed";
-const fleet: {
-	title: string;
-	slug: string;
-	category: string;
-	engine: string;
-	shortTitle?: string;
-}[] = [
-	{
-		title: "A109",
-		slug: "/fleet/a109",
-		category: "Agusta",
-		engine: "Twin Engine",
-		// description: "Versatile and high-performance twin-engine helicopter",
-	},
-	{
-		title: "AS355",
-		slug: "/fleet/as355",
-		category: "Agusta",
-		engine: "Twin Engine",
-		// description: "A a multi-purpose, twin-engine light helicopter",
-	},
-	{
-		title: "AB206",
-		slug: "/fleet/ab206",
-		category: "Agusta",
-		engine: "Single Engine",
-		// description:
-		// 	"A light utility helicopter known for its reliability and versatility",
-	},
-	{
-		title: "R66",
-		slug: "/fleet/r66",
-		category: "Robinson",
-		engine: "Single Engine",
-		// description: "Some description about the R66",
-	},
-	{
-		title: "R44",
-		slug: "/fleet/r44",
-		engine: "Single Engine",
-		category: "Robinson",
-		// description: "Some description about the R44",
-	},
-	{
-		title: "R22",
-		slug: "/fleet/r22",
-		engine: "Single Engine",
-		category: "Robinson",
-		// description: "Some description about the R22",
-	},
-	{
-		title: "Cabri G2",
-		engine: "Single Engine",
-		slug: "/fleet/cabri-g2",
-		category: "Guimbal",
-		// description: "Some description about the Cabri G2",
-	},
-	{
-		title: "AS350",
-		slug: "/fleet/as350",
-		engine: "Single Engine",
-		category: "Airbus",
-		// description: "A single-engine light utility helicopter",
-	},
-	{
-		title: "B206L",
-		slug: "/fleet/b206l",
-		engine: "Single Engine",
-		category: "Airbus",
-		// description: "Some description about the B206L",
-	},
-	{
-		title: "EC135",
-		slug: "/fleet/ec135",
-		engine: "Single Engine",
-		category: "Airbus",
-		// description: "Some description about the EC135",
-	},
-	{
-		title: "AW109",
-		slug: "/fleet/aw109",
-		engine: "Twin Engine",
-		category: "Airbus",
-		// description: "Some description about the AW109",
-	},
-];
+// const fleet: {
+// 	title: string;
+// 	slug: string;
+// 	category: string;
+// 	engine: string;
+// 	shortTitle?: string;
+// }[] = [
+// 	{
+// 		title: "A109",
+// 		slug: "/fleet/a109",
+// 		category: "Agusta",
+// 		engine: "Twin Engine",
+// 		// description: "Versatile and high-performance twin-engine helicopter",
+// 	},
+// 	{
+// 		title: "AS355",
+// 		slug: "/fleet/as355",
+// 		category: "Agusta",
+// 		engine: "Twin Engine",
+// 		// description: "A a multi-purpose, twin-engine light helicopter",
+// 	},
+// 	{
+// 		title: "AB206",
+// 		slug: "/fleet/ab206",
+// 		category: "Agusta",
+// 		engine: "Single Engine",
+// 		// description:
+// 		// 	"A light utility helicopter known for its reliability and versatility",
+// 	},
+// 	{
+// 		title: "R66",
+// 		slug: "/fleet/r66",
+// 		category: "Robinson",
+// 		engine: "Single Engine",
+// 		// description: "Some description about the R66",
+// 	},
+// 	{
+// 		title: "R44",
+// 		slug: "/fleet/r44",
+// 		engine: "Single Engine",
+// 		category: "Robinson",
+// 		// description: "Some description about the R44",
+// 	},
+// 	{
+// 		title: "R22",
+// 		slug: "/fleet/r22",
+// 		engine: "Single Engine",
+// 		category: "Robinson",
+// 		// description: "Some description about the R22",
+// 	},
+// 	{
+// 		title: "Cabri G2",
+// 		engine: "Single Engine",
+// 		slug: "/fleet/cabri-g2",
+// 		category: "Guimbal",
+// 		// description: "Some description about the Cabri G2",
+// 	},
+// 	{
+// 		title: "AS350",
+// 		slug: "/fleet/as350",
+// 		engine: "Single Engine",
+// 		category: "Airbus",
+// 		// description: "A single-engine light utility helicopter",
+// 	},
+// 	{
+// 		title: "B206L",
+// 		slug: "/fleet/b206l",
+// 		engine: "Single Engine",
+// 		category: "Airbus",
+// 		// description: "Some description about the B206L",
+// 	},
+// 	{
+// 		title: "EC135",
+// 		slug: "/fleet/ec135",
+// 		engine: "Single Engine",
+// 		category: "Airbus",
+// 		// description: "Some description about the EC135",
+// 	},
+// 	{
+// 		title: "AW109",
+// 		slug: "/fleet/aw109",
+// 		engine: "Twin Engine",
+// 		category: "Airbus",
+// 		// description: "Some description about the AW109",
+// 	},
+// ];
 
 // @ts-ignore
 export function NavMenu({
@@ -114,6 +114,8 @@ export function NavMenu({
 }: { onMobileOpen: () => void; menuData: any }) {
 	const path = usePathname();
 	const isHovered = useStore(hoverStore);
+
+	console.log(JSON.stringify(menuData.menuData.fleet));
 
 	React.useEffect(() => {
 		if (isHovered) {
@@ -435,8 +437,8 @@ export function NavMenu({
 							<div className="p-7">
 								<p className="text-brand-light-blue">Single Engine</p>
 								<ul className="grid mt-2">
-									{fleet
-										.filter((component) => component.engine === "Single Engine")
+									{menuData?.menuData?.fleet
+										.filter((component) => component.engineType === "Single")
 										.sort((a, b) => a.title.localeCompare(b.title))
 										.slice(0, 4)
 										.map((component) => (
@@ -447,7 +449,7 @@ export function NavMenu({
 														? component?.shortTitle
 														: component.title
 												}
-												href={component.slug}
+												href={"/fleet/" + component.slug}
 											>
 												{/* {component.description} */}
 											</ListItem>
@@ -457,8 +459,8 @@ export function NavMenu({
 							<div className="p-7 pb-0 -ml-10">
 								<p className="text-brand-light-blue">&nbsp;</p>
 								<ul className="grid mt-2">
-									{fleet
-										.filter((component) => component.engine === "Single Engine")
+									{menuData?.menuData?.fleet
+										?.filter((component) => component.engineType === "Single")
 										.sort((a, b) => a.title.localeCompare(b.title))
 										.slice(4, 10)
 										.map((component) => (
@@ -469,7 +471,7 @@ export function NavMenu({
 														? component?.shortTitle
 														: component.title
 												}
-												href={component.slug}
+												href={"/fleet/" + component.slug}
 											>
 												{/* {component.description} */}
 											</ListItem>
@@ -480,8 +482,8 @@ export function NavMenu({
 							<div className="p-7 pb-0 max-w-[350px]">
 								<p className="text-brand-light-blue">Twin Engine</p>
 								<ul className="grid mt-2">
-									{fleet
-										.filter((component) => component.engine === "Twin Engine")
+									{menuData?.menuData?.fleet
+										?.filter((component) => component.engineType === "Twin")
 										.sort((a, b) => a.title.localeCompare(b.title))
 										.map((component) => (
 											<ListItem
@@ -491,7 +493,7 @@ export function NavMenu({
 														? component?.shortTitle
 														: component.title
 												}
-												href={component.slug}
+												href={"/fleet/" + component.slug}
 											>
 												{/* {component.description} */}
 											</ListItem>

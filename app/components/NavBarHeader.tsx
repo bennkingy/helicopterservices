@@ -59,7 +59,7 @@ export default function NavbarHeader(menuData: any) {
 				</Link>
 				{/* @ts-ignore */}
 				<NavMenu menuData={menuData} />
-				<div className="absolute bottom-0 right-0 hidden sm:block">
+				<div className="absolute bottom-0 right-0 hidden md:block">
 					<svg
 						className="h-6 w-6 text-brand-light-blue"
 						viewBox="0 0 20 20"

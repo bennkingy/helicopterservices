@@ -35,7 +35,7 @@ const query = groq`
 {
   "fleet": *[_type == "fleet"] {
     title,
-    category,
+    engineType,
     "slug": slug.current,
   },
   "training": *[_type == "training"] {
