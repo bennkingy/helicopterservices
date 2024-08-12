@@ -115,8 +115,6 @@ export function NavMenu({
 	const path = usePathname();
 	const isHovered = useStore(hoverStore);
 
-	console.log(JSON.stringify(menuData.menuData.fleet));
-
 	React.useEffect(() => {
 		if (isHovered) {
 			const overlayDiv = document.createElement("div");
