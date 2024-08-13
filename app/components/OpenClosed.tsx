@@ -1,15 +1,3 @@
-// async function getTimeData() {
-// 	let data: any;
-
-// 	try {
-// 		const response = await fetch(`${process?.env?.CURRENT_URL}/api/navigation`);
-// 		data = await response.json();
-// 	} catch (error) {
-// 		console.error("Failed to fetch navigation data:", error);
-// 	}
-
-// 	return data;
-// }
 import React from "react";
 
 interface OpenClosedProps {
@@ -39,11 +27,10 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 
 	function isOpen() {
 		const now = new Date();
+		// Simulate current time as 7:00 AM for testing
+
 		const currentDay = now.toLocaleDateString("en-GB", { weekday: "long" });
-		const currentTime = `${now.getHours()}:${String(now.getMinutes()).padStart(
-			2,
-			"0",
-		)}`;
+		const currentTime = now.getHours() * 60 + now.getMinutes(); // Current time in minutes since midnight
 
 		const daySchedule = hours.hours.find((d) => d.day === currentDay);
 
@@ -51,14 +38,22 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 			return getNextOpenTime();
 		}
 
-		const [openingTime, closingTime] = daySchedule.time.split(" - ");
+		const [openingTimeStr, closingTimeStr] = daySchedule.time.split(" - ");
+		const [openingHour, openingMinute] = openingTimeStr.split(":").map(Number);
+		const [closingHour, closingMinute] = closingTimeStr.split(":").map(Number);
+		const openingTime = openingHour * 60 + openingMinute; // Opening time in minutes since midnight
+		const closingTime = closingHour * 60 + closingMinute; // Closing time in minutes since midnight
 
-		if (currentTime >= openingTime && currentTime <= closingTime) {
-			return `We are open today ${formatTime(openingTime)}-${formatTime(
-				closingTime,
-			)}`;
+		if (currentTime < openingTime) {
+			// It's before the opening time today
+			return `Open today ${formatTime(openingTimeStr)}-${formatTime(closingTimeStr)}`;
+		} else if (currentTime >= openingTime && currentTime <= closingTime) {
+			// It's within the open hours today
+			return `Open today ${formatTime(openingTimeStr)}-${formatTime(closingTimeStr)}`;
+		} else {
+			// It's after closing time today
+			return getNextOpenTime();
 		}
-		return getNextOpenTime();
 	}
 
 	function getNextOpenTime() {
@@ -72,13 +67,13 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 			if (nextDaySchedule.time !== "Closed") {
 				const [nextOpeningTime, nextClosingTime] =
 					nextDaySchedule.time.split(" - ");
-				return `Open tomorrow ${formatTime(nextOpeningTime)}-${formatTime(
-					nextClosingTime,
-				)}`;
+				return `Open ${i === 1 ? "tomorrow" : `on ${nextDaySchedule.day}`} ${formatTime(
+					nextOpeningTime,
+				)}-${formatTime(nextClosingTime)}`;
 			}
 		}
 
-		return "Sorry we are closed for the foreseeable future";
+		return "Sorry we are closed";
 	}
 
 	return (

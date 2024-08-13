@@ -600,7 +600,7 @@ export function NavMenu({
 						</p>
 					</div>
 				</Link>
-				<div className="hidden lg:block">
+				<div className="hidden lg:block text-center">
 					<OpenClosed showPeriod={false} />
 				</div>
 			</div>
