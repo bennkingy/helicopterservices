@@ -46,10 +46,14 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 
 		if (currentTime < openingTime) {
 			// It's before the opening time today
-			return `Open today ${formatTime(openingTimeStr)}-${formatTime(closingTimeStr)}`;
+			return `Open today ${formatTime(openingTimeStr)}-${formatTime(
+				closingTimeStr,
+			)}`;
 		} else if (currentTime >= openingTime && currentTime <= closingTime) {
 			// It's within the open hours today
-			return `Open today ${formatTime(openingTimeStr)}-${formatTime(closingTimeStr)}`;
+			return `Open today ${formatTime(openingTimeStr)}-${formatTime(
+				closingTimeStr,
+			)}`;
 		} else {
 			// It's after closing time today
 			return getNextOpenTime();
@@ -67,9 +71,9 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 			if (nextDaySchedule.time !== "Closed") {
 				const [nextOpeningTime, nextClosingTime] =
 					nextDaySchedule.time.split(" - ");
-				return `Open ${i === 1 ? "tomorrow" : `on ${nextDaySchedule.day}`} ${formatTime(
-					nextOpeningTime,
-				)}-${formatTime(nextClosingTime)}`;
+				return `Open ${
+					i === 1 ? "tomorrow" : `on ${nextDaySchedule.day}`
+				} ${formatTime(nextOpeningTime)}-${formatTime(nextClosingTime)}`;
 			}
 		}
 
