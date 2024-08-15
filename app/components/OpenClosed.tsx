@@ -5,17 +5,15 @@ interface OpenClosedProps {
 }
 
 export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
-	const hours = {
-		hours: [
-			{ day: "Monday", time: "08:30 - 17:30" },
-			{ day: "Tuesday", time: "08:30 - 17:30" },
-			{ day: "Wednesday", time: "08:30 - 17:30" },
-			{ day: "Thursday", time: "08:30 - 17:30" },
-			{ day: "Friday", time: "08:30 - 17:30" },
-			{ day: "Saturday", time: "Closed" },
-			{ day: "Sunday", time: "Closed" },
-		],
-	};
+	const hours = [
+		{ day: "Monday", time: "08:30 - 17:30" },
+		{ day: "Tuesday", time: "08:30 - 17:30" },
+		{ day: "Wednesday", time: "08:30 - 17:30" },
+		{ day: "Thursday", time: "08:30 - 17:30" },
+		{ day: "Friday", time: "08:30 - 17:30" },
+		{ day: "Saturday", time: "Closed" },
+		{ day: "Sunday", time: "Closed" },
+	];
 
 	function formatTime(time: string): string {
 		const [hour, minute] = time.split(":").map(Number);
@@ -25,39 +23,51 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 		return `${formattedHour}${formattedMinute}${showPeriod ? period : ""}`;
 	}
 
-	function isOpen() {
+	function fakeTime() {
 		const now = new Date();
-		// Simulate current time as 7:00 AM for testing
 
+		// Create a new Date object set to tomorrow
+		const tomorrow = new Date(now);
+		tomorrow.setDate(now.getDate() + 1);
+
+		// Set the time to 12:00 AM
+		tomorrow.setHours(0, 0, 0, 0); // Set hours, minutes, seconds, and milliseconds to 0
+
+		return tomorrow;
+	}
+
+	function isOpen() {
+		// const now = fakeTime();
+		const now = new Date();
 		const currentDay = now.toLocaleDateString("en-GB", { weekday: "long" });
 		const currentTime = now.getHours() * 60 + now.getMinutes(); // Current time in minutes since midnight
 
-		const daySchedule = hours.hours.find((d) => d.day === currentDay);
+		const daySchedule = hours.find((d) => d.day === currentDay);
 
 		if (!daySchedule || daySchedule.time === "Closed") {
 			return getNextOpenTime();
 		}
 
 		const [openingTimeStr, closingTimeStr] = daySchedule.time.split(" - ");
-		const [openingHour, openingMinute] = openingTimeStr.split(":").map(Number);
-		const [closingHour, closingMinute] = closingTimeStr.split(":").map(Number);
-		const openingTime = openingHour * 60 + openingMinute; // Opening time in minutes since midnight
-		const closingTime = closingHour * 60 + closingMinute; // Closing time in minutes since midnight
+		const openingTime = convertToMinutes(openingTimeStr);
+		const closingTime = convertToMinutes(closingTimeStr);
 
 		if (currentTime < openingTime) {
-			// It's before the opening time today
 			return `Open today ${formatTime(openingTimeStr)}-${formatTime(
 				closingTimeStr,
 			)}`;
-		} else if (currentTime >= openingTime && currentTime <= closingTime) {
-			// It's within the open hours today
-			return `Open today ${formatTime(openingTimeStr)}-${formatTime(
-				closingTimeStr,
-			)}`;
-		} else {
-			// It's after closing time today
-			return getNextOpenTime();
 		}
+		if (currentTime >= openingTime && currentTime <= closingTime) {
+			return `Open today ${formatTime(openingTimeStr)}-${formatTime(
+				closingTimeStr,
+			)}`;
+		}
+		return getNextOpenTime();
+	}
+
+	function convertToMinutes(time: string): number {
+		const [hour, minute] = time.split(":").map(Number);
+		return hour * 60 + minute;
 	}
 
 	function getNextOpenTime() {
@@ -66,7 +76,7 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 
 		for (let i = 1; i <= 7; i++) {
 			const nextDayIndex = (currentDayIndex + i) % 7;
-			const nextDaySchedule = hours.hours[nextDayIndex];
+			const nextDaySchedule = hours[nextDayIndex];
 
 			if (nextDaySchedule.time !== "Closed") {
 				const [nextOpeningTime, nextClosingTime] =
