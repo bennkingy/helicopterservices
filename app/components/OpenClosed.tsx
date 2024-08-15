@@ -76,7 +76,7 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 	}
 
 	return (
-		<p className="font-workSans font-bold text-base sm:text-[11.5px] mt-1 text-brand-dark-blue">
+		<p className="font-workSans font-bold text-base sm:text-[11.5px] mt-1 text-brand-dark-blue -mr-1">
 			{isOpen()}
 		</p>
 	);

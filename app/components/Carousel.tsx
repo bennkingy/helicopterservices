@@ -29,14 +29,14 @@ const Carousel = ({ slides }: props) => {
 	useEffect(() => {
 		// Define the CTA messages
 		const ctas = [
+			"Show more",
 			"Explore now",
-			"See more",
 			"View details",
+			"Discover more",
+			"Get started",
 			"Learn more",
 			"Read more",
-			"Discover more",
-			"Show more",
-			"Get started",
+			"See more",
 			// "Find Out More",
 			// "Continue Reading",
 			// "Uncover More",

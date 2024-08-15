@@ -8,12 +8,49 @@ import Weather from "./Weather";
 import logo from "/public/images/LogoLightV2New.svg";
 import { mapLocation } from "@/lib/constants";
 
+import { client } from "@/lib/sanity";
+import { groq } from "next-sanity";
+
+// GROQ query to fetch the necessary navigation data
+const query = groq`
+{
+  "fleet": *[_type == "fleet"] {
+    title,
+    engineType,
+    "slug": slug.current,
+  },
+  "training": *[_type == "training"] {
+    title,
+    category,
+    shortTitle,
+    "slug": slug.current,
+  },
+  "flights": *[_type == "flights"] {
+    title,
+    category,
+    shortTitle,
+    "slug": slug.current,
+  },
+  "about": *[_type == "about"] {
+    title,
+    "slug": slug.current,
+  },
+  "legal": *[_type == "legal"] {
+    title,
+    "slug": slug.current,
+  },
+  "industry": *[_type == "industry"] {
+    title,
+    "slug": slug.current,
+  }
+}`;
+
 async function getNavigationData() {
-	let data: any;
+	// @ts-ignore
+	let data;
 
 	try {
-		const response = await fetch(`${process?.env?.CURRENT_URL}/api/navigation`);
-		data = await response.json();
+		data = await client.fetch(query);
 	} catch (error) {
 		console.error("Failed to fetch navigation data:", error);
 	}

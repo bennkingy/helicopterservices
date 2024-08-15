@@ -313,7 +313,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 								<>
 									<div className="flex flex-col h-full ml-3 mt-2 bg-top border-t-[2px] mr-3 pt-5">
 										<Link
-											href="tel:+44 1494513 166"
+											href="tel:+441494513166"
 											className="text-md font-openSans text-brand-orange group"
 										>
 											<div className="flex">
@@ -327,7 +327,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 													className="mr-2"
 												/>
 												<p className="font-workSans font-bold text-lg text-[#545454] group-hover:text-brand-orange transition-all duration-300 ease-in-out">
-													+44 54353454
+													+44 1494 513 166
 												</p>
 											</div>
 										</Link>

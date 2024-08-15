@@ -20,34 +20,48 @@ export const metadata: Metadata = {
 export default async function Home() {
 	const items: carouselItem[] = [
 		{
+			img: "/images/special-events.png",
+			title: "Special Events",
+			description:
+				"Avoid the traffic and arrive in style at your special event.",
+			link: "/flights/special-events",
+		},
+		{
+			img: "/images/london millennium dome.png",
+			title: "London Sightseeing Tours",
+			description: "The ultimate way to see this iconic city at its best.",
+			link: "/flights/london-sightseeing",
+		},
+		{
 			img: "/images/Trial lessons.png",
-			title: "Trail lessons",
-			description: "Discover the fun and manoeuvrability of a helicopter!",
+			title: "Helicopter Trail lessons",
+			description:
+				"Discover the fun and manoeuvrability of a helicopter in 30 minutes!",
 			link: "/flights/trail-lessons",
 		},
 		{
 			img: "/images/Local area tours.png",
 			title: "Local area tours",
-			description: "Experience the UK from the air with our local area tours",
+			description: "Experience the UK from the air with our local area tours.",
 			link: "/flights/local-area-tours",
 		},
-		{
-			img: "/images/london millennium dome.png",
-			title: "Helicopter Charter",
-			description: "Transporting VIPs to special events for over 20 years",
-			link: "/flights/helicopter-charter",
-		},
-		{
-			img: "/images/Virtual reality simulator.png",
-			title: "Virtual Reality Simulator",
-			description:
-				"An incredibly realistic experience allowing for all flight profiles",
-			link: "/training/virtual-reality-simulator",
-		},
+		// {
+		// 	img: "/images/london millennium dome.png",
+		// 	title: "Helicopter Charter",
+		// 	description: "Transporting VIPs to special events for over 20 years.",
+		// 	link: "/flights/helicopter-charter",
+		// },
+		// {
+		// 	img: "/images/Virtual reality simulator.png",
+		// 	title: "Virtual Reality Simulator",
+		// 	description:
+		// 		"An incredibly realistic experience allowing for all flight profiles.",
+		// 	link: "/training/virtual-reality-simulator",
+		// },
 		{
 			img: "/images/private-pilot-licence.png",
 			title: "Private pilot license",
-			description: "Fly helicopters privately with a private pilot license",
+			description: "Fly helicopters privately with a private pilot license.",
 			link: "/training/private-pilot-licence",
 		},
 	];

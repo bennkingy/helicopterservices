@@ -214,7 +214,12 @@ const nextConfig = {
 			},
 			{
 				source: "/london-sightseeing",
-				destination: "/flights/london-sightseeing",
+				destination: "/flights/london-sightseeing-tours",
+				permanent: true,
+			},
+			{
+				source: "/flights/london-sightseeing",
+				destination: "/flights/london-sightseeing-tours",
 				permanent: true,
 			},
 			{
