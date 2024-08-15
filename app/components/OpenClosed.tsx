@@ -27,13 +27,15 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 
 	function isOpen() {
 		const now = new Date();
-		const currentDayIndex = now.getDay(); // 0 (Sunday) - 6 (Saturday)
+		// Simulate current time as 7:00 AM for testing
+
+		const currentDay = now.toLocaleDateString("en-GB", { weekday: "long" });
 		const currentTime = now.getHours() * 60 + now.getMinutes(); // Current time in minutes since midnight
 
-		const daySchedule = hours.hours[currentDayIndex];
+		const daySchedule = hours.hours.find((d) => d.day === currentDay);
 
 		if (!daySchedule || daySchedule.time === "Closed") {
-			return getNextOpenTime(currentDayIndex);
+			return getNextOpenTime();
 		}
 
 		const [openingTimeStr, closingTimeStr] = daySchedule.time.split(" - ");
@@ -54,12 +56,15 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 			)}`;
 		} else {
 			// It's after closing time today
-			return getNextOpenTime(currentDayIndex);
+			return getNextOpenTime();
 		}
 	}
 
-	function getNextOpenTime(currentDayIndex: number) {
-		for (let i = 0; i <= 7; i++) {
+	function getNextOpenTime() {
+		const now = new Date();
+		let currentDayIndex = now.getDay();
+
+		for (let i = 1; i <= 7; i++) {
 			const nextDayIndex = (currentDayIndex + i) % 7;
 			const nextDaySchedule = hours.hours[nextDayIndex];
 
@@ -67,7 +72,7 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 				const [nextOpeningTime, nextClosingTime] =
 					nextDaySchedule.time.split(" - ");
 				return `Open ${
-					i === 0 ? "tomorrow" : `on ${nextDaySchedule.day}`
+					i === 1 ? "tomorrow" : `on ${nextDaySchedule.day}`
 				} ${formatTime(nextOpeningTime)}-${formatTime(nextClosingTime)}`;
 			}
 		}
@@ -76,7 +81,7 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 	}
 
 	return (
-		<p className="font-workSans font-bold text-base sm:text-[11.5px] mt-1 text-brand-dark-blue -mr-1">
+		<p className="font-workSans font-bold text-base sm:text-[11.5px] mt-1 text-brand-dark-blue">
 			{isOpen()}
 		</p>
 	);
