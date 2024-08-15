@@ -30,7 +30,7 @@ export default async function Home() {
 			img: "/images/london millennium dome.png",
 			title: "London Sightseeing Tours",
 			description: "The ultimate way to see this iconic city at its best.",
-			link: "/flights/london-sightseeing",
+			link: "/flights/london-sightseeing-tours",
 		},
 		{
 			img: "/images/Trial lessons.png",

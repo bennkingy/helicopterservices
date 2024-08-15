@@ -88,7 +88,7 @@ const Template = ({
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
 									}}
-									className="w-full max-h-[230px] sm:max-h-[330px] relative aspect-square overflow-hidden"
+									className="w-full max-h-[230px] sm:max-h-[300px] md:max-h-[250px] lg:max-h-[310px]  relative aspect-square overflow-hidden"
 								>
 									<Image
 										fill

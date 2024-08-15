@@ -9,7 +9,7 @@ import {
 
 const TransferTimesTable = () => {
 	return (
-		<div className="-mb-4">
+		<div className="lg:mr-24">
 			<Table className="min-w-[400px]">
 				<TableHeader className="text-white hover:opacity-100 pointer">
 					<TableRow

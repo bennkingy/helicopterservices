@@ -125,9 +125,11 @@ export default async function FleetPage({
 	const typeRating: any = await getTypeRatingsData("type-ratings");
 	const heliCopterData: any = await getHelicopterData();
 
+	const combinedData = { ...data, typeRating };
+
 	return (
 		<div className="sm:mb-10">
-			<Template data={...data, typeRating} iconType="Training">
+			<Template data={combinedData} iconType="Training">
 				<div className="">
 					<div className="pt-5 mb-0">
 						<ComparisonTable
