@@ -7,14 +7,66 @@ import type { Metadata } from "next";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
-async function getPageData(slug: string) {
+async function getTypeRatingsData(slug: string) {
 	const query = `
-    *[_type == "fleet" && slug.current == '${slug}'] {
+    *[_type == "training" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
           title,
           seoTitle,
           seoDescription,
-          body,
+					body[]{
+					...,
+					_type == 'gallery' => {
+						...,
+						images[]{
+							...,
+							"imageUrl": asset->url,
+							"width": asset->metadata.dimensions.width,
+							"height": asset->metadata.dimensions.height,
+							alt,
+							blur
+						}
+					},
+					_type == 'image' => {
+						...,
+						"imageUrl": asset->url,
+						"width": asset->metadata.dimensions.width,
+						"height": asset->metadata.dimensions.height,
+						alt,
+						blur
+					},
+				},
+				mainImage{
+				...,
+				"mainImage": asset->url,
+					"metadata": asset->metadata {
+						dimensions,
+						lqip
+					},
+					"altText": asset->altText
+				},
+				"pilot": pilot->{
+            name,
+						role,
+           "mainImage": mainImage{
+					  ...,
+					 "mainImage": asset->url,
+							"metadata": asset->metadata {
+                dimensions,
+                lqip
+              },
+							"altText": asset->altText
+					},
+        },
+      }[0]`;
+	const data = await client.fetch(query);
+	return data;
+}
+
+async function getPageData(slug: string) {
+	const query = `
+    *[_type == "fleet" && slug.current == '${slug}'] {
+        "currentSlug": slug.current,
           hero{
 						heading,
 						tagline,
@@ -62,7 +114,7 @@ async function getHelicopterData() {
 }
 
 export const metadata: Metadata = {
-	title: "Fleet - Helicopter Services",
+	title: "Type Ratings - Helicopter Services",
 	description: "Helicopter Services",
 };
 
@@ -70,15 +122,12 @@ export default async function FleetPage({
 	params,
 }: { params: { slug: string } }) {
 	const data: any = await getPageData("fleet");
+	const typeRating: any = await getTypeRatingsData("type-ratings");
 	const heliCopterData: any = await getHelicopterData();
 
 	return (
 		<div className="sm:mb-10">
-			<Template
-				data={data}
-				height="h-[250px] md:h-[420px] lg:h-[675px]"
-				iconType="Flights"
-			>
+			<Template data={...data, typeRating} iconType="Training">
 				<div className="">
 					<div className="pt-5 mb-0">
 						<ComparisonTable
@@ -87,6 +136,7 @@ export default async function FleetPage({
 								(page: any) => page?.cruiseSpeed !== null,
 							)}
 						/>
+
 						<h1 className="text-xl font-bold font-workSans mt-12 text-brand-dark-blue">
 							Twin engine
 						</h1>
@@ -95,7 +145,7 @@ export default async function FleetPage({
 								"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6",
 							)}
 						>
-							{data.service
+							{data?.service
 								?.filter((helicopter: any) => helicopter?.category === "Twin")
 								// @ts-ignore
 								.sort((a, b) => a.heading.localeCompare(b.heading))
@@ -112,7 +162,7 @@ export default async function FleetPage({
 							)}
 						>
 							{/* // @ts-ignore */}
-							{data.service
+							{data?.service
 								?.filter((helicopter: any) => helicopter?.category === "Single")
 								// @ts-ignore
 								.sort((a, b) => a.heading.localeCompare(b.heading))
