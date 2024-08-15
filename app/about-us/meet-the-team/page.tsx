@@ -64,7 +64,7 @@ export default async function AboutPage({
 
 	return (
 		<>
-			<div className="container mt-14 mb-20">
+			<div className="container mt-12 sm:mt-14 mb-24 sm:mb-20 pb-2 sm:pb-10">
 				<div className="flex items-baseline">
 					<Image
 						src="/images/icons/CompanyBlue.svg"
@@ -77,7 +77,7 @@ export default async function AboutPage({
 						About us
 					</p>
 				</div>
-				<h3 className="text-brand-dark-blue text-6xl font-light font-workSans -ml-1 mb-5 mt-3">
+				<h3 className="text-brand-dark-blue text-5xl sm:text-6xl font-light font-workSans -ml-1 mb-5 mt-3">
 					{data?.title}
 				</h3>
 				<p className="mt-5 mb-10 text-base sm:text-2xl font-workSans max-w-[800px] font-bold">

@@ -111,7 +111,7 @@ const Template = ({
 	};
 
 	return (
-		<div>
+		<div className="sm:mb-10">
 			{(data?.heroImage || data?.mainImage || data?.hero) && (
 				<div className="overflow-x-hidden">
 					<Header

@@ -66,10 +66,10 @@ export default async function Enquire() {
 	);
 
 	return (
-		<main className="pt-16 sm:pt-20 py-20 bg-brand-dark-blue">
+		<main className="pt-12 sm:pt-14 py-20 pb-[110px] bg-brand-dark-blue">
 			<div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-6">
 				<div className="mr-0 md:mr-20 col-span-3 relative">
-					<h3 className="text-4xl sm:text-5xl font-light font-workSans -ml-1 text-white">
+					<h3 className="text-5xl sm:text-6xl font-light font-workSans -ml-1 text-white">
 						Enquire now
 					</h3>
 					<p className="mt-5 font-bold text-base sm:text-2xl max-w-[400px] text-white font-workSans">
@@ -80,11 +80,11 @@ export default async function Enquire() {
 						<AdditionalContent />
 					</div>
 				</div>
-				<div className="col-span-3 mt-16 md:mt-10">
+				<div className="col-span-3 mt-10 md:mt-10">
 					<ContactForm />
 					<div className="block md:hidden">
 						<div>
-							<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-20 sm:mt-10">
+							<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-14 sm:mt-10">
 								<p className="text-white font-bold font-openSans">
 									We are located at:
 								</p>

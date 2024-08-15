@@ -17,7 +17,7 @@ export default async function NotFound() {
 						Sorry
 					</p>
 				</div>
-				<h3 className="text-brand-dark-blue text-6xl font-light font-workSans -ml-1 mb-5 mt-3">
+				<h3 className="text-brand-dark-blue text-5xl sm:text-6xl font-light font-workSans -ml-1 mb-5 mt-3">
 					Page not found!
 				</h3>
 				<div
