@@ -109,7 +109,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 
 	return (
 		<>
-			<main className="mb-10">
+			<main className="mb-10 pb-3">
 				<Breadcrumbs
 					className="container pt-[20px] sm:pt-[30px]"
 					slug={data?.title}
@@ -130,21 +130,28 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 						<h2 className="text-brand-light-blue text-3xl font-normal font-workSans -ml-[2px]">
 							Our fleet
 						</h2>
-						<h3 className="text-brand-dark-blue text-6xl font-light font-workSans mt-2 -ml-1">
+						<h3 className="text-brand-dark-blue text-5xl sm:text-6xl font-light font-workSans mt-2 -ml-1">
 							{data?.title}
 						</h3>
 						<div className="mt-7 mb-8">
-							<div className="flex flex-row items-center">
+							<div className="inline-flex sm:flex flex-wrap items-center">
 								<StatusIcon status={data?.workType?.trainingHelicopter} />
-								<p className="m-0 ml-3">Training Helicopter</p>
+								<p className="m-0 ml-3">
+									Training<span className="hidden sm:inline"> Helicopter</span>
+								</p>
 							</div>
-							<div className="flex flex-row items-center">
+							<div className="inline-flex sm:flex flex-wrap items-center mt-1 sm:mt-0 mx-4 sm:mx-0">
 								<StatusIcon status={data?.workType?.charterHelicopter} />
-								<p className="m-0 ml-3">Charter Helicopter</p>
+								<p className="m-0 ml-3">
+									Charter<span className="hidden sm:inline"> Helicopter</span>
+								</p>
 							</div>
-							<div className="flex flex-row items-center">
+							<div className="inline-flex  sm:flex flex-wrap items-center mt-1 sm:mt-0">
 								<StatusIcon status={data?.workType?.aerialWorkHelicopter} />
-								<p className="m-0 ml-3">Aerial Work Helicopter</p>
+								<p className="m-0 ml-3">
+									Aerial Work
+									<span className="hidden sm:inline"> Helicopter</span>
+								</p>
 							</div>
 						</div>
 						<div
