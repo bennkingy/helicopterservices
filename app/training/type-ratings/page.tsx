@@ -67,16 +67,6 @@ async function getPageData(slug: string) {
 	const query = `
     *[_type == "fleet" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
-          hero{
-						heading,
-						tagline,
-						"image": {
-							...image,
-							"url": image.asset->url,
-							"metadata": image.asset->metadata,
-							"altText": image.alt
-						}
-					},
 					"service": service[]{
 					heading,
 					category,
@@ -125,7 +115,7 @@ export default async function FleetPage({
 	const typeRating: any = await getTypeRatingsData("type-ratings");
 	const heliCopterData: any = await getHelicopterData();
 
-	const combinedData = { ...data, typeRating };
+	const combinedData = { ...data, ...typeRating }; // Combine the data and typeRating objects
 
 	return (
 		<div className="sm:mb-10">
