@@ -11,18 +11,21 @@ const TransferTimesTable = () => {
 	return (
 		<div className="-mb-4">
 			<Table className="min-w-[400px]">
-				<TableHeader>
-					<TableRow className="text-center font-bold text-brand-light-blue">
-						<TableHead className="text-center  font-bold text-brand-light-blue">
+				<TableHeader className="text-white hover:opacity-100 pointer">
+					<TableRow
+						className="text-center font-bold text-white"
+						disableHoverEffect
+					>
+						<TableHead className="text-center  font-bold text-white">
 							Departure
 						</TableHead>
-						<TableHead className="text-center  font-bold text-brand-light-blue">
+						<TableHead className="text-center  font-bold text-white">
 							Destination
 						</TableHead>
-						<TableHead className="text-center  font-bold text-brand-light-blue">
+						<TableHead className="text-center  font-bold text-white">
 							Vehicle Transfer Time
 						</TableHead>
-						<TableHead className="text-center  font-bold text-brand-light-blue pb-2 sm:pb-0">
+						<TableHead className="text-center  bg-brand-dark-blue  font-bold text-white py-2 sm:py-0">
 							Helicopter Transfer Time
 						</TableHead>
 					</TableRow>
@@ -32,67 +35,67 @@ const TransferTimesTable = () => {
 						<TableCell>Birmingham</TableCell>
 						<TableCell>Battersea</TableCell>
 						<TableCell>2hr 20m</TableCell>
-						<TableCell>45m</TableCell>
+						<TableCell className="font-bold bg-muted/50">45m</TableCell>
 					</TableRow>
 					<TableRow>
 						<TableCell>Bournemouth</TableCell>
 						<TableCell>Battersea</TableCell>
 						<TableCell>2hr 10m</TableCell>
-						<TableCell>45m</TableCell>
+						<TableCell className="font-bold bg-muted/50">45m</TableCell>
 					</TableRow>
 					<TableRow>
 						<TableCell>Biggin Hill</TableCell>
 						<TableCell>Battersea</TableCell>
 						<TableCell>1hr</TableCell>
-						<TableCell>15m</TableCell>
+						<TableCell className="font-bold bg-muted/50">15m</TableCell>
 					</TableRow>
 					<TableRow>
 						<TableCell>East Midlands</TableCell>
 						<TableCell>Battersea</TableCell>
 						<TableCell>2hr 30m</TableCell>
-						<TableCell>55m</TableCell>
+						<TableCell className="font-bold bg-muted/50">55m</TableCell>
 					</TableRow>
 					<TableRow>
 						<TableCell>Farnborough</TableCell>
 						<TableCell>Battersea</TableCell>
 						<TableCell>1hr 15m</TableCell>
-						<TableCell>18m</TableCell>
+						<TableCell className="font-bold bg-muted/50">18m</TableCell>
 					</TableRow>
 					<TableRow>
 						<TableCell>Gatwick</TableCell>
 						<TableCell>Battersea</TableCell>
 						<TableCell>1hr</TableCell>
-						<TableCell>15m</TableCell>
+						<TableCell className="font-bold bg-muted/50">15m</TableCell>
 					</TableRow>
 					<TableRow>
 						<TableCell>Luton</TableCell>
 						<TableCell>Battersea</TableCell>
 						<TableCell>1hr 10m</TableCell>
-						<TableCell>20m</TableCell>
+						<TableCell className="font-bold bg-muted/50">20m</TableCell>
 					</TableRow>
 					<TableRow>
 						<TableCell>Oxford</TableCell>
 						<TableCell>Battersea</TableCell>
 						<TableCell>1h 35m</TableCell>
-						<TableCell>30m</TableCell>
+						<TableCell className="font-bold bg-muted/50">30m</TableCell>
 					</TableRow>
 					<TableRow>
 						<TableCell>Southampton</TableCell>
 						<TableCell>Battersea</TableCell>
 						<TableCell>1hr 40m</TableCell>
-						<TableCell>35m</TableCell>
+						<TableCell className="font-bold bg-muted/50">35m</TableCell>
 					</TableRow>
 					<TableRow>
 						<TableCell>Southend</TableCell>
 						<TableCell>Battersea</TableCell>
 						<TableCell>1hr 30m</TableCell>
-						<TableCell>25m</TableCell>
+						<TableCell className="font-bold bg-muted/50">25m</TableCell>
 					</TableRow>
 					<TableRow>
 						<TableCell>Stansted</TableCell>
 						<TableCell>Battersea</TableCell>
 						<TableCell>1hr 15m</TableCell>
-						<TableCell>25m</TableCell>
+						<TableCell className="font-bold bg-muted/50">25m</TableCell>
 					</TableRow>
 				</TableBody>
 			</Table>
