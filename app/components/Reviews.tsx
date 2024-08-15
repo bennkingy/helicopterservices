@@ -62,7 +62,7 @@ const Reviews = ({ className }: props) => {
 
 	return (
 		<div className={`bg-brand-light-grey ${className}`}>
-			<div className="container">
+			<div className="container pb-10">
 				<Heading
 					title="Client feedback"
 					center

@@ -85,7 +85,7 @@ export default async function Training({
 				/>
 				<section className="pb-10 max-w-6xl mx-auto px-4 -mt-[42px] sm:-mt-[50px] z-10 relative">
 					<Tabs defaultValue="account">
-						<TabsList className="mx-auto mb-10 w-full">
+						<TabsList className="mx-auto mb-7 sm:mb-10 w-full">
 							<TabsTrigger value="account" className="">
 								Training services
 							</TabsTrigger>
@@ -256,7 +256,7 @@ export default async function Training({
 							<TrainingMap />
 						</TabsContent>
 					</Tabs>
-					<div className="mb-10 mt-16 grid grid-cols-1 sm:grid-cols-3">
+					<div className="mb-16 mt-16 grid grid-cols-1 sm:grid-cols-3">
 						<div className="col-span-2 pr-0 sm:pr-20">
 							<Heading
 								title="Can't find what your looking for?"

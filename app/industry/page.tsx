@@ -63,7 +63,7 @@ export default async function Industry({
 					image={data?.hero?.image}
 					iconType="Industry"
 				/>
-				<section className="py-10 max-w-6xl mx-auto px-4 mt-14">
+				<section className="py-10 max-w-6xl mx-auto px-4 mt-10 mb-10">
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 						{data?.service
 							// @ts-ignore

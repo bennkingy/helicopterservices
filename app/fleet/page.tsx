@@ -71,10 +71,14 @@ export default async function FleetPage({
 }: { params: { slug: string } }) {
 	const data: any = await getPageData("fleet");
 	const heliCopterData: any = await getHelicopterData();
-	
+
 	return (
-		<>
-			<Template data={data} height="h-[250px] md:h-[420px] lg:h-[675px]" iconType="Flights">
+		<div className="sm:mb-10">
+			<Template
+				data={data}
+				height="h-[250px] md:h-[420px] lg:h-[675px]"
+				iconType="Flights"
+			>
 				<div className="">
 					<div className="pt-5 mb-0">
 						<ComparisonTable
@@ -119,6 +123,6 @@ export default async function FleetPage({
 					</div>
 				</div>
 			</Template>
-		</>
+		</div>
 	);
 }
