@@ -46,7 +46,7 @@ export default async function LegalPage({
 
 	return (
 		<>
-			<div className="container mt-14 mb-20">
+			<div className="container mt-12 sm:mt-14 mb-24 sm:mb-20 pb-2 sm:pb-10">
 				<div className="flex items-baseline">
 					<Image
 						src="/images/icons/CompanyBlue.svg"
