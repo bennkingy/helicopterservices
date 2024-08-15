@@ -34,14 +34,14 @@ export default async function Home() {
 		},
 		{
 			img: "/images/Trial lessons.png",
-			title: "Helicopter Trail lessons",
+			title: "Helicopter Trail Lessons",
 			description:
 				"Discover the fun and manoeuvrability of a helicopter in 30 minutes!",
 			link: "/flights/trail-lessons",
 		},
 		{
 			img: "/images/Local area tours.png",
-			title: "Local area tours",
+			title: "Local Area Tours",
 			description: "Experience the UK from the air with our local area tours.",
 			link: "/flights/local-area-tours",
 		},
@@ -60,7 +60,7 @@ export default async function Home() {
 		// },
 		{
 			img: "/images/private-pilot-licence.png",
-			title: "Private pilot license",
+			title: "Private Pilot License",
 			description: "Fly helicopters privately with a private pilot license.",
 			link: "/training/private-pilot-licence",
 		},
