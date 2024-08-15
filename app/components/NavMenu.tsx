@@ -585,7 +585,7 @@ export function NavMenu({
 					href="tel:+44 1494513 166"
 					className="text-md font-openSans text-brand-orange group"
 				>
-					<div className="flex">
+					<div className="flex justify-center">
 						<Image
 							priority
 							src="/images/phone-orange.svg"

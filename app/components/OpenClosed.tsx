@@ -27,15 +27,13 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 
 	function isOpen() {
 		const now = new Date();
-		// Simulate current time as 7:00 AM for testing
-
-		const currentDay = now.toLocaleDateString("en-GB", { weekday: "long" });
+		const currentDayIndex = now.getDay(); // 0 (Sunday) - 6 (Saturday)
 		const currentTime = now.getHours() * 60 + now.getMinutes(); // Current time in minutes since midnight
 
-		const daySchedule = hours.hours.find((d) => d.day === currentDay);
+		const daySchedule = hours.hours[currentDayIndex];
 
 		if (!daySchedule || daySchedule.time === "Closed") {
-			return getNextOpenTime();
+			return getNextOpenTime(currentDayIndex);
 		}
 
 		const [openingTimeStr, closingTimeStr] = daySchedule.time.split(" - ");
@@ -56,15 +54,12 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 			)}`;
 		} else {
 			// It's after closing time today
-			return getNextOpenTime();
+			return getNextOpenTime(currentDayIndex);
 		}
 	}
 
-	function getNextOpenTime() {
-		const now = new Date();
-		let currentDayIndex = now.getDay();
-
-		for (let i = 1; i <= 7; i++) {
+	function getNextOpenTime(currentDayIndex: number) {
+		for (let i = 0; i <= 7; i++) {
 			const nextDayIndex = (currentDayIndex + i) % 7;
 			const nextDaySchedule = hours.hours[nextDayIndex];
 
@@ -72,7 +67,7 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 				const [nextOpeningTime, nextClosingTime] =
 					nextDaySchedule.time.split(" - ");
 				return `Open ${
-					i === 1 ? "tomorrow" : `on ${nextDaySchedule.day}`
+					i === 0 ? "tomorrow" : `on ${nextDaySchedule.day}`
 				} ${formatTime(nextOpeningTime)}-${formatTime(nextClosingTime)}`;
 			}
 		}

@@ -332,7 +332,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 											</div>
 										</Link>
 										<div className="text-fix">
-											<OpenClosed showPeriod={true} />
+											<OpenClosed showPeriod={false} />
 										</div>
 									</div>
 								</>
