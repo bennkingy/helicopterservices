@@ -42,7 +42,7 @@ const Header = async ({
 						iconColor={tagColor}
 						iconSize={14}
 						iconType={iconType}
-						titleStyles="text-white text-[28px] leading-10 sm:text-4xl md:text-5xl lg:text-6xl font-extralight max-w-[300px] sm:max-w-[600px]"
+						titleStyles="text-white text-[29px] leading-10 sm:text-4xl md:text-5xl lg:text-6xl font-extralight max-w-[300px] sm:max-w-[600px]"
 					/>
 				</FramerAnimation>
 			</div>

@@ -26,6 +26,9 @@ const initialMenus = {
 	aboutMenu: [{ title: "About us", slug: "/about-us", viewAll: false }],
 };
 
+// List of random URLs to pick from
+const randomURLs = ["https://helicopterservices.co.uk/fleet"];
+
 const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 	const [activeMenu, setActiveMenu] = useState("main");
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -43,6 +46,16 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 					title: item.title,
 					slug: `/${menuName === "about" ? "about-us" : menuName}/${item.slug}`,
 				}));
+
+				// Add a random URL to the "About us" submenu
+				if (menuName === "about") {
+					const randomURL =
+						randomURLs[Math.floor(Math.random() * randomURLs.length)];
+					menuItems.push({
+						title: "Our Helicopter Fleet",
+						slug: randomURL,
+					});
+				}
 				//@ts-ignore
 				updatedMenus[`${menuName}Menu`] = [...menuItems];
 			};
@@ -311,7 +324,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 							}
 							{activeMenu === "main" && (
 								<>
-									<div className="flex flex-col h-full ml-3 mt-2 bg-top border-t-[2px] mr-3 pt-5">
+									<div className="flex flex-col h-full ml-3 mt-2 bg-top border-t-[2px] mr-3 pt-5 items-center">
 										<Link
 											href="tel:+441494513166"
 											className="text-md font-openSans text-brand-orange group"
