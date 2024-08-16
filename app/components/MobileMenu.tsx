@@ -257,7 +257,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 					}}
 				>
 					<AnimatePresence>
-						<div className="h-[50px] w-full text-xl text-brand-dark-blue flex items-center justify-center font-bold capitalize shadow-sm">
+						<div className="h-[50px] w-full text-xl text-brand-dark-blue flex items-center justify-center font-bold capitalize">
 							{activeMenu !== "main" && (
 								<Link
 									href="#"
