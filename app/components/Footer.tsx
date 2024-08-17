@@ -89,7 +89,11 @@ export default async function Footer() {
 								<br />
 								Berkshire
 								<br />
-								<Link href={mapLocation} className="text-brand-orange">
+								<Link
+									href={mapLocation}
+									target="_blank"
+									className="text-brand-orange"
+								>
 									SL6 3NJ
 								</Link>
 							</p>
@@ -103,6 +107,7 @@ export default async function Footer() {
 										href="https://www.facebook.com/heliservicesuk/"
 										passHref
 										className="flex font-normal"
+										target="_blank"
 									>
 										<Image
 											src="/images/facebook.png"
@@ -119,6 +124,7 @@ export default async function Footer() {
 										href="https://www.instagram.com/helicopterservices/"
 										passHref
 										className="flex"
+										target="_blank"
 									>
 										<Image
 											src="/images/instagram.png"
