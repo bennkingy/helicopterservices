@@ -34,10 +34,10 @@ export default async function Home() {
 		},
 		{
 			img: "/images/Trial lessons.png",
-			title: "Helicopter Trail Lessons",
+			title: "Helicopter Trial Lessons",
 			description:
 				"Discover the fun and manoeuvrability of a helicopter in 30 minutes!",
-			link: "/flights/trail-lessons",
+			link: "/flights/trial-lessons",
 		},
 		{
 			img: "/images/Local area tours.png",
@@ -214,18 +214,18 @@ export default async function Home() {
 						</p>
 						<div className="flex space-x-5 my-10">
 							<Image
-								src="/images/easa.svg"
-								alt="Helicopter Services"
-								width={109}
-								height={36}
-								quality={100}
-							/>
-							<Image
 								src="/images/caa.svg"
 								alt="Helicopter Services"
 								width={50}
 								quality={100}
 								height={38}
+							/>
+							<Image
+								src="/images/easa.svg"
+								alt="Helicopter Services"
+								width={109}
+								height={36}
+								quality={100}
 							/>
 						</div>
 						<Enquire textStyle="text-white" />

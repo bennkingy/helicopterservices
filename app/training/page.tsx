@@ -102,7 +102,7 @@ export default async function Training({
 							<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
 								{data?.service
 									?.filter(
-										(service: ServiceCard) => service?.category === "Licenses",
+										(service: ServiceCard) => service?.category === "Licences",
 									)
 									// @ts-ignore
 									.sort((a, b) => a.heading.localeCompare(b.heading))

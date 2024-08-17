@@ -85,16 +85,16 @@ const Hero = ({
 					</p>
 					<div className="flex justify-center space-x-5">
 						<Image
-							src="/images/easa.svg"
+							src="/images/caa.svg"
 							alt="Helicopter Services"
-							width={100}
+							width={50}
 							height={34}
 							quality={100}
 						/>
 						<Image
-							src="/images/caa.svg"
+							src="/images/easa.svg"
 							alt="Helicopter Services"
-							width={50}
+							width={100}
 							height={34}
 							quality={100}
 						/>
