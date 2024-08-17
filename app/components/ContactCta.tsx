@@ -57,10 +57,10 @@ const ContactCta = ({ className, pilot }: props) => {
 							<td>Friday</td> <td>08:30 - 17:30</td>
 						</tr>
 						<tr className="font-bold">
-							<td>Saturday</td> <td>Closed</td>
+							<td>Saturday</td> <td>By Apointment</td>
 						</tr>
 						<tr className="font-bold">
-							<td>Sunday</td> <td>Closed</td>
+							<td>Sunday</td> <td>By Apointment</td>
 						</tr>
 					</tbody>
 				</table>
