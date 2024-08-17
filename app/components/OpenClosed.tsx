@@ -13,8 +13,8 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 		{ day: "Wednesday", time: "08:30 - 17:30" },
 		{ day: "Thursday", time: "08:30 - 17:30" },
 		{ day: "Friday", time: "08:30 - 17:30" },
-		{ day: "Saturday", time: "Closed" },
-		{ day: "Sunday", time: "Closed" },
+		{ day: "Saturday", time: "by appointment" },
+		{ day: "Sunday", time: "by appointment" },
 	];
 
 	function formatTime(time: string): string {
@@ -50,6 +50,11 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 			return getNextOpenTime();
 		}
 
+		// Check for "by appointment" on Saturday or Sunday
+		if (daySchedule.time === "by appointment") {
+			return `By appointment only today`;
+		}
+
 		const [openingTimeStr, closingTimeStr] = daySchedule.time.split(" - ");
 		const openingTime = convertToMinutes(openingTimeStr);
 		const closingTime = convertToMinutes(closingTimeStr);
@@ -81,6 +86,11 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 			const nextDaySchedule = hours[nextDayIndex];
 
 			if (nextDaySchedule.time !== "Closed") {
+				if (nextDaySchedule.time === "by appointment") {
+					return `Open ${
+						i === 1 ? "tomorrow" : `on ${nextDaySchedule.day}`
+					} by appointment`;
+				}
 				const [nextOpeningTime, nextClosingTime] =
 					nextDaySchedule.time.split(" - ");
 				return `Open ${
