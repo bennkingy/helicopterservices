@@ -81,7 +81,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 				const sortItems = (a, b) => a.title.localeCompare(b.title);
 
 				updatedMenus.trainingMenu = [
-					{ title: "Licenses", slug: "#", isCategoryTitle: true },
+					{ title: "Licences", slug: "#", isCategoryTitle: true },
 					...trainingCategories.licenses.sort(sortItems).map((item) => ({
 						title: item.title,
 						slug: `/training/${item.slug}`,

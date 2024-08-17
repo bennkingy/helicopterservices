@@ -9,7 +9,7 @@ import industry from "./industry";
 import legal from "./legal";
 import pilots from "./pilot";
 import { serviceType } from "./serviceType";
-import settings, { dayHours, link } from "./settings";
+import settings, { dayHours, link, faq } from "./settings";
 import training from "./training";
 
 export const schemaTypes = [
@@ -28,4 +28,5 @@ export const schemaTypes = [
 	dayHours,
 	formType,
 	fleet,
+	faq,
 ];

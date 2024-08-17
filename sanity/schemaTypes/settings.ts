@@ -46,6 +46,26 @@ export const dayHours = defineType({
 	],
 });
 
+export const faq = defineType({
+	name: "faq",
+	title: "FAQ",
+	type: "object",
+	fields: [
+		defineField({
+			name: "question",
+			title: "Question",
+			type: "string",
+			description: "The frequently asked question",
+		}),
+		defineField({
+			name: "answer",
+			title: "Answer",
+			type: "text",
+			description: "The answer to the frequently asked question",
+		}),
+	],
+});
+
 export default defineType({
 	name: "settings",
 	title: "Settings",
@@ -90,6 +110,13 @@ export default defineType({
 					description: "Opening hours for charter enquiries",
 				}),
 			],
+		}),
+		defineField({
+			name: "faqs",
+			title: "FAQs",
+			type: "array",
+			of: [{ type: "faq" }],
+			description: "Frequently Asked Questions",
 		}),
 	],
 

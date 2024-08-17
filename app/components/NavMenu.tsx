@@ -184,7 +184,7 @@ export function NavMenu({
 						<NavigationMenuContent className="flex rounded-none">
 							{/* <div className="p-5"> */}
 							<div className="p-7 max-w-[250px]">
-								<p className="text-brand-light-blue">Licenses</p>
+								<p className="text-brand-light-blue">Licences</p>
 								<ul className="grid mt-2">
 									{menuData?.menuData?.training
 										// @ts-ignore

@@ -72,7 +72,11 @@ export default defineType({
 				},
 			],
 			validation: (Rule) =>
-				Rule.custom((fields) => {
+				Rule.custom((fields, context) => {
+					// Skip validation if the field is hidden
+					if (context.document?.isLandingPage === true) {
+						return true;
+					}
 					// @ts-ignore
 					const selectedFields = Object.values(fields).filter(
 						(value) => value === true,

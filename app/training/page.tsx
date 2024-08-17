@@ -95,7 +95,7 @@ export default async function Training({
 						</TabsList>
 						<TabsContent value="account">
 							<Heading
-								title="Licenses"
+								title="Licences"
 								titleStyles="text-3xl"
 								className="mb-6 mt-5"
 							/>

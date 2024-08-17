@@ -49,10 +49,10 @@ const GetInTouch = ({ className }: props) => {
 										<td>Friday</td> <td>08:30 - 17:30</td>
 									</tr>
 									<tr className="font-bold">
-										<td>Saturday</td> <td>By Apointment</td>
+										<td>Saturday</td> <td>By Appointment</td>
 									</tr>
 									<tr className="font-bold">
-										<td>Sunday</td> <td>By Apointment</td>
+										<td>Sunday</td> <td>By Appointment</td>
 									</tr>
 								</tbody>
 							</table>
@@ -113,10 +113,10 @@ const GetInTouch = ({ className }: props) => {
 										<td>Friday</td> <td>08:30 - 17:30</td>
 									</tr>
 									<tr className="font-bold">
-										<td>Saturday</td> <td>By Apointment</td>
+										<td>Saturday</td> <td>By Appointment</td>
 									</tr>
 									<tr className="font-bold">
-										<td>Sunday</td> <td>By Apointment</td>
+										<td>Sunday</td> <td>By Appointment</td>
 									</tr>
 								</tbody>
 							</table>

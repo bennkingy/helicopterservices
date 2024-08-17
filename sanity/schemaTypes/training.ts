@@ -58,10 +58,10 @@ export default defineType({
 			fields: [
 				{
 					name: "licenses",
-					title: "Licenses",
+					title: "Licences",
 					type: "boolean",
 					initialValue: false,
-					description: "Indicates if the training involves licenses.",
+					description: "Indicates if the training involves licences.",
 				},
 				{
 					name: "flightRatings",
@@ -86,16 +86,23 @@ export default defineType({
 				},
 			],
 			validation: (Rule) =>
-				Rule.custom((fields) => {
-					// @ts-ignore
-					const selectedFields = Object.values(fields).filter(
+				Rule.custom((fields, context) => {
+					// Skip validation if the field is hidden
+					if (context.document?.isLandingPage === true) {
+						return true;
+					}
+
+					// Proceed with validation if the field is not hidden
+					const selectedFields = Object.values(fields || {}).filter(
 						(value) => value === true,
 					);
+
 					return selectedFields.length <= 1
 						? true
 						: "Only one category can be selected";
 				}),
 		}),
+
 		defineField({
 			name: "hero",
 			type: "hero",
