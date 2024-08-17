@@ -199,7 +199,7 @@ const nextConfig = {
 			},
 			{
 				source: "/trial-lessons",
-				destination: "/flights/trail-lessons",
+				destination: "/flights/trial-lessons",
 				permanent: true,
 			},
 			{
