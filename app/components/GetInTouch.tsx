@@ -34,19 +34,19 @@ const GetInTouch = ({ className }: props) => {
 								</thead>
 								<tbody>
 									<tr>
-										<td>Monday</td> <td>08:30 - 17:30</td>
+										<td>Monday</td> <td>08:30 - 17:00</td>
 									</tr>
 									<tr>
-										<td>Tuesday</td> <td>08:30 - 17:30</td>
+										<td>Tuesday</td> <td>08:30 - 17:00</td>
 									</tr>
 									<tr>
-										<td>Wednesday</td> <td>08:30 - 17:30</td>
+										<td>Wednesday</td> <td>08:30 - 17:00</td>
 									</tr>
 									<tr>
-										<td>Thursday</td> <td>08:30 - 17:30</td>
+										<td>Thursday</td> <td>08:30 - 17:00</td>
 									</tr>
 									<tr>
-										<td>Friday</td> <td>08:30 - 17:30</td>
+										<td>Friday</td> <td>08:30 - 17:00</td>
 									</tr>
 									<tr className="font-bold">
 										<td>Saturday</td> <td>By Appointment</td>
@@ -98,19 +98,19 @@ const GetInTouch = ({ className }: props) => {
 								</thead>
 								<tbody>
 									<tr>
-										<td>Monday</td> <td>08:30 - 17:30</td>
+										<td>Monday</td> <td>08:30 - 17:00</td>
 									</tr>
 									<tr>
-										<td>Tuesday</td> <td>08:30 - 17:30</td>
+										<td>Tuesday</td> <td>08:30 - 17:00</td>
 									</tr>
 									<tr>
-										<td>Wednesday</td> <td>08:30 - 17:30</td>
+										<td>Wednesday</td> <td>08:30 - 17:00</td>
 									</tr>
 									<tr>
-										<td>Thursday</td> <td>08:30 - 17:30</td>
+										<td>Thursday</td> <td>08:30 - 17:00</td>
 									</tr>
 									<tr>
-										<td>Friday</td> <td>08:30 - 17:30</td>
+										<td>Friday</td> <td>08:30 - 17:00</td>
 									</tr>
 									<tr className="font-bold">
 										<td>Saturday</td> <td>By Appointment</td>

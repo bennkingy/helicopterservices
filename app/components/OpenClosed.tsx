@@ -8,11 +8,11 @@ interface OpenClosedProps {
 
 export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 	const hours = [
-		{ day: "Monday", time: "08:30 - 17:30" },
-		{ day: "Tuesday", time: "08:30 - 17:30" },
-		{ day: "Wednesday", time: "08:30 - 17:30" },
-		{ day: "Thursday", time: "08:30 - 17:30" },
-		{ day: "Friday", time: "08:30 - 17:30" },
+		{ day: "Monday", time: "08:30 - 17:00" },
+		{ day: "Tuesday", time: "08:30 - 17:00" },
+		{ day: "Wednesday", time: "08:30 - 17:00" },
+		{ day: "Thursday", time: "08:30 - 17:00" },
+		{ day: "Friday", time: "08:30 - 17:00" },
 		{ day: "Saturday", time: "by appointment" },
 		{ day: "Sunday", time: "by appointment" },
 	];
