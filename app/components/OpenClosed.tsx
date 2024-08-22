@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import dayjs from "dayjs";
 
 interface OpenClosedProps {
 	showPeriod?: boolean;
@@ -20,39 +21,24 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 	function formatTime(time: string): string {
 		const [hour, minute] = time.split(":").map(Number);
 		const period = hour >= 12 ? "pm" : "am";
-		const formattedHour = hour % 12 || 12; // Convert 0 to 12 for midnight
-		const formattedMinute = minute === 0 ? "" : `:${minute}`;
+		const formattedHour = hour % 12 || 12;
+		const formattedMinute = minute === 0 ? ":00" : `:${minute}`;
 		return `${formattedHour}${formattedMinute}${showPeriod ? period : ""}`;
 	}
 
-	function fakeTime() {
-		const now = new Date();
-
-		// Create a new Date object set to tomorrow
-		const tomorrow = new Date(now);
-		tomorrow.setDate(now.getDate() + 1);
-
-		// Set the time to 12:00 AM
-		tomorrow.setHours(0, 0, 0, 0); // Set hours, minutes, seconds, and milliseconds to 0
-
-		return tomorrow;
-	}
-
 	function isOpen() {
-		// const now = fakeTime();
-		const now = new Date();
-		const currentDay = now.toLocaleDateString("en-GB", { weekday: "long" });
-		const currentTime = now.getHours() * 60 + now.getMinutes(); // Current time in minutes since midnight
+		const now = dayjs();
+		const currentDay = now.format("dddd");
+		const currentTime = now.hour() * 60 + now.minute(); // Current time in minutes since midnight
 
 		const daySchedule = hours.find((d) => d.day === currentDay);
 
 		if (!daySchedule || daySchedule.time === "Closed") {
-			return getNextOpenTime();
+			return getNextOpenTime(now);
 		}
 
-		// Check for "by appointment" on Saturday or Sunday
 		if (daySchedule.time === "by appointment") {
-			return `By appointment only today`;
+			return "By appointment only today";
 		}
 
 		const [openingTimeStr, closingTimeStr] = daySchedule.time.split(" - ");
@@ -60,16 +46,16 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 		const closingTime = convertToMinutes(closingTimeStr);
 
 		if (currentTime < openingTime) {
-			return `Open today ${formatTime(openingTimeStr)}-${formatTime(
+			return `Open today ${formatTime(openingTimeStr)} - ${formatTime(
 				closingTimeStr,
 			)}`;
 		}
 		if (currentTime >= openingTime && currentTime <= closingTime) {
-			return `Open today ${formatTime(openingTimeStr)}-${formatTime(
+			return `Open today ${formatTime(openingTimeStr)} - ${formatTime(
 				closingTimeStr,
 			)}`;
 		}
-		return getNextOpenTime();
+		return getNextOpenTime(now);
 	}
 
 	function convertToMinutes(time: string): number {
@@ -77,26 +63,27 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 		return hour * 60 + minute;
 	}
 
-	function getNextOpenTime() {
-		const now = new Date();
-		let currentDayIndex = now.getDay();
-
+	function getNextOpenTime(now: dayjs.Dayjs) {
 		for (let i = 1; i <= 7; i++) {
-			const nextDayIndex = (currentDayIndex + i) % 7;
-			const nextDaySchedule = hours[nextDayIndex];
+			const nextDay = now.add(i, "day");
+			const nextDayName = nextDay.format("dddd");
+			const nextDaySchedule = hours.find((d) => d.day === nextDayName);
 
-			if (nextDaySchedule.time !== "Closed") {
-				if (nextDaySchedule.time === "by appointment") {
-					return `Open ${
-						i === 1 ? "tomorrow" : `on ${nextDaySchedule.day}`
-					} by appointment`;
-				}
-				const [nextOpeningTime, nextClosingTime] =
-					nextDaySchedule.time.split(" - ");
-				return `Open ${
-					i === 1 ? "tomorrow" : `on ${nextDaySchedule.day}`
-				} ${formatTime(nextOpeningTime)}-${formatTime(nextClosingTime)}`;
+			if (!nextDaySchedule || nextDaySchedule.time === "Closed") {
+				continue;
 			}
+
+			if (nextDaySchedule.time === "by appointment") {
+				return `Open ${
+					i === 1 ? "tomorrow" : `on ${nextDayName}`
+				} by appointment`;
+			}
+
+			const [nextOpeningTime, nextClosingTime] =
+				nextDaySchedule.time.split(" - ");
+			return `Open ${i === 1 ? "tomorrow" : `on ${nextDayName}`} ${formatTime(
+				nextOpeningTime,
+			)} - ${formatTime(nextClosingTime)}`;
 		}
 
 		return "Sorry we are closed";
