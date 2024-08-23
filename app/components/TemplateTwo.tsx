@@ -130,7 +130,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 						<h2 className="text-brand-light-blue text-3xl font-normal font-workSans -ml-[2px]">
 							Our fleet
 						</h2>
-						<h3 className="text-brand-dark-blue text-5xl sm:text-6xl font-light font-workSans mt-2 -ml-1">
+						<h3 className="text-brand-dark-blue text-4xl sm:text-6xl font-light font-workSans mt-2 -ml-1">
 							{data?.title}
 						</h3>
 						<div className="mt-7 mb-8">

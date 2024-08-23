@@ -53,7 +53,7 @@ export default async function AboutPage({
 						About us
 					</p>
 				</div>
-				<h3 className="text-brand-dark-blue text-5xl sm:text-6xl font-light font-workSans -ml-1 mb-5 mt-3">
+				<h3 className="text-brand-dark-blue text-4xl sm:text-6xl font-light font-workSans -ml-1 mb-5 mt-3">
 					{data?.title}
 				</h3>
 				<p className="mt-5 mb-10 font-bold text-base sm:text-2xl font-workSans">
