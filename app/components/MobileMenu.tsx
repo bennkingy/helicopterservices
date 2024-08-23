@@ -241,12 +241,12 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 				>
 					<MenuIcon
 						size={30}
-						// onClick={() => {
-						// 	isIOS() && window.scrollTo(0, 0);
-						// 	setTimeout(() => {
-						// 		setMenuOpen(true);
-						// 	}, 10);
-						// }}
+						onClick={() => {
+							// isIOS() && window.scrollTo(0, 0);
+							setTimeout(() => {
+								setMenuOpen(true);
+							}, 10);
+						}}
 					/>
 				</DrawerTrigger>
 				<DrawerContent
