@@ -613,7 +613,7 @@ const ListItem = React.forwardRef<
 	React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {
 	return (
-		<li className="group hover:text-brand-light-blue mt-2 cursor-pointer">
+		<li className="group hover:text-brand-light-blue mt-1 cursor-pointer">
 			<NavigationMenuLink asChild>
 				<a
 					ref={ref}
@@ -623,7 +623,7 @@ const ListItem = React.forwardRef<
 					)}
 					{...props}
 				>
-					<div className="leading-none text-base text-brand-dark-blue hover:text-brand-light-blue font-openSans">
+					<div className="leading-[23px] text-base text-brand-dark-blue hover:text-brand-light-blue font-openSans">
 						{title}
 					</div>
 					<p className="line-clamp-2 leading-snug font-normal text-base">

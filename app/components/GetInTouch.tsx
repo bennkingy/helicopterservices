@@ -20,7 +20,7 @@ const GetInTouch = ({ className }: props) => {
 						iconColor="Blue"
 						center
 						className="mb-10"
-						titleStyles="text-3xl sm:text-4xl text-white balance-text"
+						titleStyles="text-2xl sm:text-4xl text-white balance-text"
 					/>
 					<div className="max-w-6xl container p-0 mx-auto grid grid-cols-1 sm:grid-cols-2 font-openSans">
 						<div className="p-5 pr-5 sm:pr-12">
