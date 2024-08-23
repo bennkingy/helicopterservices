@@ -236,10 +236,11 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 				disablePreventScroll
 			>
 				<DrawerTrigger
-					className="mr-3 flex font-semibold text-black"
+					className="mr-3 flex font-semibold text-black outline-none"
 					aria-label="Open navigation menu"
 				>
 					<MenuIcon
+						className="outline-none"
 						size={30}
 						onClick={() => {
 							// isIOS() && window.scrollTo(0, 0);
