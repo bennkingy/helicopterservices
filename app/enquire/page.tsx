@@ -69,7 +69,7 @@ export default async function Enquire() {
 		<main className="pt-12 sm:pt-14 py-20 pb-[120px] bg-brand-dark-blue">
 			<div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-6">
 				<div className="mr-0 md:mr-20 col-span-3 relative">
-					<h3 className="text-5xl sm:text-6xl font-light font-workSans -ml-1 text-white">
+					<h3 className="text-4xl sm:text-6xl font-light font-workSans -ml-1 text-white">
 						Enquire now
 					</h3>
 					<p className="mt-5 font-bold text-base sm:text-2xl max-w-[400px] text-white font-workSans">
