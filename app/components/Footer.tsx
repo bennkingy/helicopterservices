@@ -7,6 +7,7 @@ import GetInTouch from "./GetInTouch";
 import Weather from "./Weather";
 import logo from "/public/images/LogoLightV2New.svg";
 import { mapLocation } from "@/lib/constants";
+import TextLink from "./TextLink";
 
 import { client } from "@/lib/sanity";
 import { groq } from "next-sanity";
@@ -92,7 +93,7 @@ export default async function Footer() {
 								<Link
 									href={mapLocation}
 									target="_blank"
-									className="text-brand-orange"
+									className="text-brand-orange hover:text-brand-light-blue"
 								>
 									SL6 3NJ
 								</Link>
@@ -102,7 +103,7 @@ export default async function Footer() {
 							</div>
 							{/* https://twitter.com/HeliServicesUK */}
 							<ul>
-								<li className="font-normal text-brand-orange">
+								<li className="font-normal text-brand-orange hover:text-brand-light-blue">
 									<Link
 										href="https://www.facebook.com/heliservicesuk/"
 										passHref
@@ -119,7 +120,7 @@ export default async function Footer() {
 										Instagram
 									</Link>
 								</li>
-								<li className="text-brand-orange font-normal">
+								<li className="text-brand-orange font-normal hover:text-brand-light-blue">
 									<Link
 										href="https://www.instagram.com/helicopterservices/"
 										passHref
@@ -173,6 +174,10 @@ export default async function Footer() {
 										</li>
 									))}
 							</ul>
+							<TextLink
+								label="All Training Services"
+								className="mt-2 mb-0 font-normal text-sm hover:text-brand-light-blue"
+							/>
 						</div>
 						<div className="">
 							<div className="text-sm mb-3 mt-6 sm:mt-0 font-bold font-openSans">
@@ -192,6 +197,10 @@ export default async function Footer() {
 										</li>
 									))}
 							</ul>
+							<TextLink
+								label="All Flight Services"
+								className="mt-2 mb-0 font-normal text-sm hover:text-brand-light-blue"
+							/>
 							<div className="text-sm mb-3 mt-6 font-bold font-openSans">
 								Industry
 							</div>
@@ -211,6 +220,10 @@ export default async function Footer() {
 										</li>
 									))}
 							</ul>
+							<TextLink
+								label="All Industry Services"
+								className="mt-2 mb-0 font-normal text-sm hover:text-brand-light-blue"
+							/>
 						</div>
 						<div className="w-full sm:w-auto md:mt-0 overflow-x-hidden">
 							<Suspense
