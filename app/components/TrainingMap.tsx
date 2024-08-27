@@ -294,7 +294,7 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/flight-examiner-ratings">
+								<Link href="/training/flight-examiner-certificates">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
@@ -312,7 +312,7 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/flight-examiner-ratings">
+								<Link href="/training/flight-examiner-certificates">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
