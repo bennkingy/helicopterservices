@@ -1,5 +1,5 @@
 import { Toaster } from "@/components/ui/toaster";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Open_Sans, Work_Sans } from "next/font/google";
 import Script from "next/script";
 import { ThemeProvider } from "../components/ui/theme-provider";
@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import ScrollTop from "./components/ScrollTop";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { headers } from "next/headers";
 
 const workSans = Work_Sans({
 	subsets: ["latin"],
@@ -34,6 +35,18 @@ export const metadata: Metadata = {
 	},
 	metadataBase: new URL("https://helicopterservices.vercel.app/"),
 };
+
+export async function generateViewport(): Promise<Viewport> {
+	const userAgent = headers().get("user-agent");
+	const isiPhone = /iphone/i.test(userAgent ?? "");
+	return isiPhone
+		? {
+				width: "device-width",
+				initialScale: 1,
+				maximumScale: 1, // disables auto-zoom on ios safari
+			}
+		: {};
+}
 
 export default function RootLayout({
 	children,
