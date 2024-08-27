@@ -150,7 +150,7 @@ export default async function Footer() {
 							<div className="text-xs font-bold mb-3 mt-7 font-openSans">
 								{/* '' */}
 							</div>
-							<ul>
+							<ul className="hidden sm:block">
 								{data?.legal
 									.sort((a, b) => a.title.localeCompare(b.title))
 									.map((item, index) => (
@@ -166,7 +166,7 @@ export default async function Footer() {
 							</ul>
 						</div>
 						<div className="">
-							<div className="text-sm font-bold mb-3 mt-5 sm:mt-0 font-openSans">
+							<div className="text-sm font-bold mb-3 mt-0 font-openSans">
 								Training
 							</div>
 							<ul>
@@ -234,6 +234,23 @@ export default async function Footer() {
 								className="mt-2 mb-0 font-normal text-sm hover:text-brand-light-blue"
 							/> */}
 						</div>
+						<div className="text-sm mb-3 mt-6 font-bold font-openSans block sm:hidden">
+							Legals
+						</div>
+						<ul className="block sm:hidden">
+							{data?.legal
+								.sort((a, b) => a.title.localeCompare(b.title))
+								.map((item, index) => (
+									<li
+										className="transition-colors hover:text-brand-orange text-sm mb-[2px]"
+										key={index}
+									>
+										<Link href={`/legal/${item.slug}`} passHref>
+											{item?.shortTitle ? item?.shortTitle : item.title}
+										</Link>
+									</li>
+								))}
+						</ul>
 						<div className="w-full sm:w-auto md:mt-0 overflow-x-hidden">
 							<Suspense
 								fallback={<p className="bg-red">Loading weather data...</p>}
