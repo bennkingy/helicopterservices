@@ -7,8 +7,8 @@ import "../styles/globals.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollTop from "./components/ScrollTop";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
+// import { SpeedInsights } from "@vercel/speed-insights/next";
+// import { Analytics } from "@vercel/analytics/react";
 import { headers } from "next/headers";
 
 const workSans = Work_Sans({
@@ -69,8 +69,8 @@ export default function RootLayout({
 					<ScrollTop />
 					<Footer />
 					<Toaster />
-					<SpeedInsights />
-					<Analytics />
+					{/* <SpeedInsights />
+					<Analytics /> */}
 				</ThemeProvider>
 				{/* Gmap fix */}
 				<Script
