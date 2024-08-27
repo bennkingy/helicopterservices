@@ -95,12 +95,12 @@ const nextConfig = {
 			},
 			{
 				source: "/examiner-ratings",
-				destination: "/training/flight-examiner-ratings",
+				destination: "/training/flight-examiner-certificates",
 				permanent: true,
 			},
 			{
 				source: "/instructor-ratings",
-				destination: "/training/flight-instructor-ratings",
+				destination: "/training/flight-instructor-certificates",
 				permanent: true,
 			},
 			{

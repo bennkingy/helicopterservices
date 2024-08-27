@@ -102,7 +102,7 @@ export default async function Footer() {
 								<Link
 									href={mapLocation}
 									target="_blank"
-									className="text-brand-orange hover:text-brand-light-blue"
+									className="text-brand-orange transition-colors hover:text-brand-light-blue"
 								>
 									SL6 3NJ
 								</Link>
@@ -112,7 +112,7 @@ export default async function Footer() {
 							</div>
 							{/* https://twitter.com/HeliServicesUK */}
 							<ul>
-								<li className="font-normal text-brand-orange hover:text-brand-light-blue">
+								<li className="font-normal transition-colors text-brand-orange hover:text-brand-light-blue">
 									<Link
 										href="https://www.facebook.com/heliservicesuk/"
 										passHref
@@ -129,7 +129,7 @@ export default async function Footer() {
 										Instagram
 									</Link>
 								</li>
-								<li className="text-brand-orange font-normal hover:text-brand-light-blue">
+								<li className="text-brand-orange transition-colors font-normal hover:text-brand-light-blue">
 									<Link
 										href="https://www.instagram.com/helicopterservices/"
 										passHref
@@ -253,7 +253,7 @@ export default async function Footer() {
 						</div> */}
 						</div>
 						{/* border-t-[1px] */}
-						<div className="w-full mt-5 sm:pt-0 text-sm flex flex-col lg:flex-row sm:justify-between lg:items-center opacity-85">
+						<div className="w-full pt-[73px] text-sm flex flex-col lg:flex-row sm:justify-between lg:items-center opacity-85">
 							<p>
 								Helicopter Services is CAA and EASA approved and certified under
 								AOC GB2128 (V21 Ltd T/A Helicopter Services).
