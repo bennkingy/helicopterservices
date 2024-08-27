@@ -83,22 +83,22 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 				updatedMenus.trainingMenu = [
 					{ title: "Licences", slug: "#", isCategoryTitle: true },
 					...trainingCategories.licenses.sort(sortItems).map((item) => ({
-						title: item.title,
+						title: item.shortTitle || item.title,
 						slug: `/training/${item.slug}`,
 					})),
 					{ title: "Flight Ratings", slug: "#", isCategoryTitle: true },
 					...trainingCategories.flightRatings.sort(sortItems).map((item) => ({
-						title: item.title,
+						title: item.shortTitle || item.title,
 						slug: `/training/${item.slug}`,
 					})),
 					{ title: "Simulators", slug: "#", isCategoryTitle: true },
 					...trainingCategories.simulators.sort(sortItems).map((item) => ({
-						title: item.title,
+						title: item.shortTitle || item.title,
 						slug: `/training/${item.slug}`,
 					})),
 					{ title: "Other", slug: "#", isCategoryTitle: true },
 					...trainingCategories.other.sort(sortItems).map((item) => ({
-						title: item.title,
+						title: item.shortTitle || item.title,
 						slug: `/training/${item.slug}`,
 					})),
 				];
