@@ -126,7 +126,7 @@ export default async function Footer() {
 											alt=""
 											className="mt-1 mr-1"
 										/>
-										Instagram
+										Facebook
 									</Link>
 								</li>
 								<li className="text-brand-orange transition-colors font-normal hover:text-brand-light-blue">
@@ -143,7 +143,7 @@ export default async function Footer() {
 											alt=""
 											className="mt-1 mr-[7px] ml-[2px]"
 										/>
-										Facebook
+										Instagram
 									</Link>
 								</li>
 							</ul>
