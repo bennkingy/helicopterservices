@@ -35,7 +35,7 @@ const ContactCta = ({ className, pilot }: props) => {
 				<p className="pl-5 font-openSans">
 					{pilot?.name || "Captain Ruth Downey"},
 					<br />
-					<span className="text-brand-light-blue">
+					<span className="text-brand-light-blue pr-4">
 						{pilot?.role || "Accountable Manager/Examiner"}
 					</span>
 				</p>

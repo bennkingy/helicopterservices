@@ -62,6 +62,8 @@ async function getNavigationData() {
 export default async function Footer() {
 	const data = await getNavigationData();
 
+	const currentYear = new Date().getFullYear(); // Get the current year
+
 	return (
 		<>
 			<GetInTouch />
@@ -78,7 +80,14 @@ export default async function Footer() {
 									className="min-w-[100px] mb-10"
 								/>
 							</Link>
-							<div className="text-sm mb-3 mt-6 sm:mt-0 font-bold font-openSans">
+							{/* <div className="text-sm mb-3 mt-6 sm:mt-0 font-bold font-openSans">
+								Approvals
+							</div>
+							<p className="max-w-[250px]">
+								Helicopter Services is CAA and EASA approved and certified under
+								AOC GB2128 (V21 Ltd T/A Helicopter Services).
+							</p> */}
+							<div className="text-sm mb-3 mt-6 font-bold font-openSans">
 								Contact
 							</div>
 							<p>
@@ -174,10 +183,10 @@ export default async function Footer() {
 										</li>
 									))}
 							</ul>
-							<TextLink
+							{/* <TextLink
 								label="All Training Services"
 								className="mt-2 mb-0 font-normal text-sm hover:text-brand-light-blue"
-							/>
+							/> */}
 						</div>
 						<div className="">
 							<div className="text-sm mb-3 mt-6 sm:mt-0 font-bold font-openSans">
@@ -197,10 +206,10 @@ export default async function Footer() {
 										</li>
 									))}
 							</ul>
-							<TextLink
+							{/* <TextLink
 								label="All Flight Services"
 								className="mt-2 mb-0 font-normal text-sm hover:text-brand-light-blue"
-							/>
+							/> */}
 							<div className="text-sm mb-3 mt-6 font-bold font-openSans">
 								Industry
 							</div>
@@ -220,10 +229,10 @@ export default async function Footer() {
 										</li>
 									))}
 							</ul>
-							<TextLink
+							{/* <TextLink
 								label="All Industry Services"
 								className="mt-2 mb-0 font-normal text-sm hover:text-brand-light-blue"
-							/>
+							/> */}
 						</div>
 						<div className="w-full sm:w-auto md:mt-0 overflow-x-hidden">
 							<Suspense
@@ -242,6 +251,16 @@ export default async function Footer() {
 								/>
 							</Suspense>
 						</div> */}
+						</div>
+						{/* border-t-[1px] */}
+						<div className="w-full mt-5 sm:pt-0 text-sm flex flex-col lg:flex-row sm:justify-between lg:items-center opacity-85">
+							<p>
+								Helicopter Services is CAA and EASA approved and certified under
+								AOC GB2128 (V21 Ltd T/A Helicopter Services).
+							</p>
+							<p className="mt-3 sm:mt-2 lg:mt-0 mb-0 pb-0">
+								Helicopter Services © {currentYear}
+							</p>
 						</div>
 					</div>
 				</div>
