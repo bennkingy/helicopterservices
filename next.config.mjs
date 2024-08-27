@@ -152,8 +152,8 @@ const nextConfig = {
 				permanent: true,
 			},
 			{
-				source: "/faa",
-				destination: "/training/faa",
+				source: "/faa", // Old page
+				destination: "/",
 				permanent: true,
 			},
 			// About us
