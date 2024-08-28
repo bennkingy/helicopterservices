@@ -183,7 +183,7 @@ export function NavMenu({
 						</NavigationMenuTrigger>
 						<NavigationMenuContent className="flex rounded-none">
 							{/* <div className="p-5"> */}
-							<div className="p-7 max-w-[250px]">
+							<div className="p-7 max-w-[300px]">
 								<p className="text-brand-light-blue">Licences</p>
 								<ul className="grid mt-2">
 									{menuData?.menuData?.training
