@@ -53,11 +53,13 @@ export default async function Enquire() {
 			</ul>
 			<div className="max-w-[397px]">
 				<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-10">
-					<p className="text-white font-bold font-openSans">
-						We are located at:
-					</p>
+					<p className="text-white font-bold font-openSans">Postal address:</p>
 					<p className="text-white font-openSans font-thin">
-						White Waltham Airfield, Maidenhead, Berkshire, SL6 3N
+						White Waltham Airfield, Maidenhead, Berkshire, SL6 3NJ
+					</p>
+					<p className="text-white font-bold font-openSans mt-4">The hanger:</p>
+					<p className="text-white font-openSans font-thin">
+						White Waltham Airfield, Maidenhead, Berkshire, SL6 3LW
 					</p>
 				</div>
 				<GMap className="w-full" />
