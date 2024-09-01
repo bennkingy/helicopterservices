@@ -59,8 +59,8 @@ export default async function Home() {
 		// },
 		{
 			img: "/images/private-pilot-licence.png",
-			title: "Private Pilot License",
-			description: "Fly helicopters privately with a private pilot license.",
+			title: "Private Pilot Licence",
+			description: "Fly helicopters privately with a private pilot licence.",
 			link: "/training/private-pilot-licence",
 		},
 	];
@@ -103,7 +103,7 @@ export default async function Home() {
 				</div>
 				<div className="md:pl-10">
 					<Heading
-						title="Over 20 years helicopter operating experience"
+						title="Over 25 years helicopter operating experience"
 						titleStyles="text-3xl sm:text-4xl"
 						tag="About us"
 						iconType="Company"
@@ -164,7 +164,7 @@ export default async function Home() {
 							>
 								<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
 							</svg>
-							Operating safely since 2000
+							Operating safely since 1998
 						</li>
 						<li className="flex items-center">
 							<svg
@@ -189,7 +189,7 @@ export default async function Home() {
 					/>
 					<p className="mt-3 font-bold font-openSans">Captain Leon Smith</p>
 					<p className="mt-0 text-brand-light-blue font-openSans">
-						Head Pilot / Chief Pilot
+						Head of Training / Chief Pilot
 					</p>
 					<p className="mt-0 font-openSans -mb-[5px]">Helicopter Services</p>
 				</div>
@@ -208,7 +208,7 @@ export default async function Home() {
 						<p className="font-openSans text-white">{`Our highly experienced instructors and examiners are among the UK's most senior. We provide type ratings for over 17+ helicopter types, along with Flight Instructor Refresher and Instrument Rating Examiner courses.`}</p>
 						<p className="font-openSans mt-5 text-white">
 							Additionally, we offer a helicopter flight simulator for safe
-							instrument flying skill development and an advanced program to
+							instrument flying skill development and an advanced programme to
 							enhance PPL skills.
 						</p>
 						<div className="flex space-x-5 my-10">
@@ -304,9 +304,9 @@ export default async function Home() {
 					/>
 					<p className="font-openSans">
 						We can help you get the best shots efficiently with over 20 years of
-						experience in aerial photography and filming world-wide in a range
-						of locations from city skylines to mountainous regions to deserts
-						and oceans.
+						experience in aerial photography and filming worldwide, in a range
+						of locations from city skylines to mountainous regions, deserts, and
+						oceans.
 					</p>
 					<p className="font-openSans mt-5">
 						Our credits include many promotional videos for blue-chip companies,
