@@ -87,7 +87,7 @@ export default async function Flights({
 						<div className="col-span-2 pr-0 sm:pr-20">
 							{/* // @ts-ignore */}
 							<Heading
-								title="Can’t find what you’re looking for"
+								title="Can&apos;t find what you&apos;re looking for"
 								titleStyles="text-3xl text-brand-dark-blue"
 								className="mb-7"
 							/>

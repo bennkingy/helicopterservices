@@ -87,7 +87,7 @@ export default async function Industry({
 					<div className="mb-10 mt-20 grid grid-cols-1 sm:grid-cols-3">
 						<div className="col-span-2 pr-0 sm:pr-20">
 							<Heading
-								title="Can’t find what you’re looking for?"
+								title="Can&apos;t find what you&apos;re looking for?"
 								titleStyles="text-3xl"
 								className="mb-6"
 							/>

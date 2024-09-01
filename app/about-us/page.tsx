@@ -31,7 +31,7 @@ export default async function About() {
 					</p>
 					<p className="font-openSans mt-5">
 						From that excited adrenalin rush of your very first flight to the
-						business end of examining a candidate’s procedural flying for a
+						business end of examining a candidate&apos;s procedural flying for a
 						commercial company we set out to make flying safe and fun for you.
 					</p>
 					<p className="font-openSans mt-5">

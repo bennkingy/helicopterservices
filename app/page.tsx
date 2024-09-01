@@ -110,12 +110,12 @@ export default async function Home() {
 						className="mb-8 mt-32 md:mt-0"
 					/>
 					<p className="font-openSans">
-						We offer training from Private Pilot’s Licence to Commercial,
+						We offer training from Private Pilot&apos;s Licence to Commercial,
 						Instruments, Instructor, and Examiner Ratings. Our senior
 						instructors/examiners in the UK provide type ratings on 17+
 						helicopter types, and advanced courses. For gifts, transfers,
 						charters, photography, load lifting, flight learning, helicopter
-						purchase, AOC management, or medical info, we’re here.
+						purchase, AOC management, or medical info, we&apos;re here.
 					</p>
 					<ul className="max-w-md space-y-1 mt-5 list-inside font-openSans">
 						<li className="flex items-center">

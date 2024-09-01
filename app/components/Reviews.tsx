@@ -12,7 +12,7 @@ const reviews: any[] = [
 		name: "Alex",
 		service: "",
 		description:
-			"Brilliant brilliant brilliant Leon who owns the company was so helpful and such a gent, not rushed or money grabbing at all, If you ever get the chance to try this I won’t use any other company !!! I booked a flight over London amazing !!!!",
+			"Brilliant brilliant brilliant Leon who owns the company was so helpful and such a gent, not rushed or money grabbing at all, If you ever get the chance to try this I won&apos;t use any other company !!! I booked a flight over London amazing !!!!",
 	},
 	{
 		img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f2/7a/default-avatar-2020-25.jpg",
