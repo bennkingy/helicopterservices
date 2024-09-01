@@ -22,7 +22,7 @@ const features: MainServices[] = [
 		),
 		title: "Training",
 		description:
-			"From beginner to advanced, you're in expert hands. EASA and UK CAA approved.",
+			"From beginner to advanced, you're in expert hands. UK CAA and EASA approved.",
 		url: "/training",
 	},
 	{
@@ -36,7 +36,7 @@ const features: MainServices[] = [
 			/>
 		),
 		title: "Flights",
-		description: "Choose a leading UK helicopter service for your next flight.",
+		description: "Choose a leading UK helicopter company for your next flight.",
 		url: "/flights",
 	},
 	{
@@ -66,7 +66,7 @@ const features: MainServices[] = [
 		),
 		title: "Our company",
 		description:
-			"Trust a company with over 20 years helicopter operating experence.",
+			"Trust a company with over 25 years helicopter operating experence.",
 		url: "/about-us",
 	},
 ];
