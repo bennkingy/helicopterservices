@@ -129,10 +129,10 @@ const GetInTouch = ({ className }: props) => {
 										height={17}
 									/>
 									<Link
-										href="mailto:ruth.downey@helicopterservices.co.uk"
+										href="mailto:charter@helicopterservices.co.uk"
 										className="mb-[2px] font-normal text-sm block hover:underline underline-offset-2"
 									>
-										ruth.downey@helicopterservices.co.uk
+										charter@helicopterservices.co.uk
 									</Link>
 								</div>
 								<div className="flex items-center">

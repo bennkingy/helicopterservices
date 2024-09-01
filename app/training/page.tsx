@@ -130,7 +130,7 @@ export default async function Training({
 									)}
 							</div>
 							<Heading
-								title="Flight ratings"
+								title="Certificates and Ratings"
 								titleStyles="text-3xl"
 								className="mb-6 mt-16"
 							/>
@@ -259,14 +259,14 @@ export default async function Training({
 					<div className="mb-16 mt-16 grid grid-cols-1 sm:grid-cols-3">
 						<div className="col-span-2 pr-0 sm:pr-20">
 							<Heading
-								title="Can't find what your looking for?"
+								title="Can’t find what you’re looking for?"
 								titleStyles="text-3xl"
 								className="mb-6"
 							/>
 							<p className="mb-4">
-								We have over 20 years operating as one of the UKs most
-								experienced helicopter charter, tours, photography, load lifting
-								and consultancy companies.
+								We have been operating for over 25 years as one of the UK's most
+								experienced helicopter charter, tours, photography,
+								load-lifting, and consultancy companies.
 							</p>
 							<p className="mb-4">
 								Whether you are looking for a wonderful gift, a time-efficient
@@ -294,7 +294,7 @@ export default async function Training({
 							</Link>
 						</div>
 						<div className="mt-20 sm:mt-0 pt-0 sm:pt-5  hidden sm:block">
-							<ContactCta />
+							<ContactCta service="training" />
 						</div>
 					</div>
 				</section>

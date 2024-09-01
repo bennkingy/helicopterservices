@@ -206,7 +206,9 @@ export function NavMenu({
 											</ListItem>
 										))}
 								</ul>
-								<p className="text-brand-light-blue mt-5">Flight ratings</p>
+								<p className="text-brand-light-blue mt-5">
+									Certificates and Ratings
+								</p>
 								<ul className="grid mt-2">
 									{/* // @ts-ignore */}
 									{menuData?.menuData?.training

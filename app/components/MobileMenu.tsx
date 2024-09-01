@@ -86,7 +86,11 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 						title: item.shortTitle || item.title,
 						slug: `/training/${item.slug}`,
 					})),
-					{ title: "Flight Ratings", slug: "#", isCategoryTitle: true },
+					{
+						title: "Certificates and Ratings",
+						slug: "#",
+						isCategoryTitle: true,
+					},
 					...trainingCategories.flightRatings.sort(sortItems).map((item) => ({
 						title: item.shortTitle || item.title,
 						slug: `/training/${item.slug}`,

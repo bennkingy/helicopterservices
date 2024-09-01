@@ -7,9 +7,10 @@ type props = {
 	className?: string;
 	// @ts-ignore
 	pilot?: any;
+	service?: string;
 };
 
-const ContactCta = ({ className, pilot }: props) => {
+const ContactCta = ({ className, pilot, service }: props) => {
 	return (
 		<div className={`text-white bg-[#023D67] h-fit ${className}`}>
 			<div className="bg-[#023D67] py-5 text-white p-10 relative">
@@ -30,7 +31,9 @@ const ContactCta = ({ className, pilot }: props) => {
 			</div>
 			<div className=" text-white relative z-1 overflow-x-hidden pb-3">
 				<p className="font-bold mb-4 pl-5 mt-6 lg:mt-0 pr-3 lg:pr-32 sm:text-lg font-openSans">
-					“Enquire today for a customised quote tailored to your needs”
+					“Enquire today for a customised{" "}
+					{service && `${service.toLowerCase()} `}
+					quote tailored to your needs”
 				</p>
 				<p className="pl-5 font-openSans">
 					{pilot?.name || "Captain Ruth Downey"},

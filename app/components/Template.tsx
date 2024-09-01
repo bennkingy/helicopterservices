@@ -179,7 +179,7 @@ const Template = ({
 				{/* {sidebar && (
 					<>
 						<div className="hidden lg:block col-span-3">
-							<ContactCta className="hidden md:block" pilot={data?.pilot} />
+							<ContactCta className="hidden md:block" pilot={data?.pilot} service={data?.title} />
 							<GetinTouchSmall className="mt-20 md:mt-8 hidden md:block" />
 							<GMapHeader className="" />
 							<GMap className="mb-20 sm:mb-0" />
@@ -192,7 +192,11 @@ const Template = ({
 				)} */}
 				{sidebar && (
 					<div className="col-span-3">
-						<ContactCta className="hidden md:block" pilot={data?.pilot} />
+						<ContactCta
+							className="hidden md:block"
+							pilot={data?.pilot}
+							service={data?.title}
+						/>
 						<GetinTouchSmall className="mt-20 md:mt-8 hidden md:block" />
 						<GMapHeader className="" />
 						<GMap className="mb-20 sm:mb-0" />
