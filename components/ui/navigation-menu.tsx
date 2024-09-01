@@ -9,17 +9,20 @@ const NavigationMenu = React.forwardRef<
 	React.ElementRef<typeof NavigationMenuPrimitive.Root>,
 	React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
 >(({ className, children, ...props }, ref) => (
-	<NavigationMenuPrimitive.Root
-		ref={ref}
-		className={cn(
-			"relative z-10 flex max-w-max flex-1 items-center justify-center",
-			className,
-		)}
-		{...props}
-	>
-		{children}
-		<NavigationMenuViewport />
-	</NavigationMenuPrimitive.Root>
+	<>
+		<NavigationMenuPrimitive.Root
+			ref={ref}
+			className={cn(
+				"relative z-10 flex max-w-max flex-1 items-center justify-center",
+				className,
+			)}
+			{...props}
+		>
+			{children}
+			<NavigationMenuViewport />
+		</NavigationMenuPrimitive.Root>
+		{/* <div id="overlay" className="fixed inset-0 bg-black/50 z-9 hidden" /> */}
+	</>
 ));
 NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName;
 
@@ -51,10 +54,13 @@ const NavigationMenuTrigger = React.forwardRef<
 	React.useEffect(() => {
 		const handleStateChange = () => {
 			const anyOpen = document.querySelector('#header [data-state="open"]');
+			const overlay = document.getElementById("overlay");
 			if (anyOpen) {
 				showOverlay();
+				if (overlay) overlay.classList.remove("hidden");
 			} else {
 				hideOverlay();
+				if (overlay) overlay.classList.add("hidden");
 			}
 		};
 
@@ -66,7 +72,6 @@ const NavigationMenuTrigger = React.forwardRef<
 			});
 		});
 
-		// Restrict observation to elements within the header
 		const elementsToObserve = document.querySelectorAll("#header [data-state]");
 
 		elementsToObserve.forEach((element) => {
@@ -76,10 +81,8 @@ const NavigationMenuTrigger = React.forwardRef<
 			});
 		});
 
-		// Initial check in case an element is already open
 		handleStateChange();
 
-		// Cleanup on unmount
 		return () => {
 			observer.disconnect();
 		};
@@ -108,8 +111,6 @@ const NavigationMenuContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<NavigationMenuPrimitive.Content
 		ref={ref}
-		onMouseEnter={showOverlay}
-		onMouseLeave={hideOverlay}
 		className={cn(
 			"left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-[800px]",
 			className,
