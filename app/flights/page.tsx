@@ -92,8 +92,8 @@ export default async function Flights({
 								className="mb-7"
 							/>
 							<p className="mb-5">
-								We have been operating for over 25 years as one of the UK's most
-								experienced helicopter charter, tours, photography,
+								We have been operating for over 25 years as one of the UK&apos;s
+								most experienced helicopter charter, tours, photography,
 								load-lifting, and consultancy companies.
 							</p>
 							<p className="mb-5">
