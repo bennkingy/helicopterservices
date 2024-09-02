@@ -16,13 +16,13 @@ const TransferTimesTable = () => {
 						className="text-center font-bold text-white"
 						disableHoverEffect
 					>
-						<TableHead className="text-center  font-bold text-white">
+						<TableHead className="text-center  font-bold text-brand-dark-blue">
 							Departure
 						</TableHead>
-						<TableHead className="text-center  font-bold text-white">
+						<TableHead className="text-center  font-bold text-brand-dark-blue">
 							Destination
 						</TableHead>
-						<TableHead className="text-center  font-bold text-white">
+						<TableHead className="text-center  font-bold text-brand-dark-blue">
 							Vehicle Transfer Time
 						</TableHead>
 						<TableHead className="text-center  bg-brand-dark-blue  font-bold text-white py-2 sm:py-0">
