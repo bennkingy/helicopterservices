@@ -12,12 +12,12 @@ const locations = {
 	randomLocation: {
 		name: "The hanger",
 		center: { lat: 51.49928, lng: -0.77194 },
-		address: "White Waltham, Maidenhead, SL6 3LW, UK",
+		address: "White Waltham, Maidenhead, SL6 3LW",
 	},
 	helicopterServices: {
 		name: "Postal address",
 		center: { lat: 51.5034, lng: -0.7648 },
-		address: "White Waltham, Maidenhead, SL6 3NJ, UK",
+		address: "White Waltham, Maidenhead, SL6 3NJ",
 	},
 };
 
