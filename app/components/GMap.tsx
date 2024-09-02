@@ -214,7 +214,7 @@ const GMap = ({ className }: any) => {
 				const event = new Event("change", { bubbles: true });
 				select.dispatchEvent(event);
 			}
-		}, 500); // Adding a delay to ensure the map has fully loaded before switching
+		}, 1000); // Adding a delay to ensure the map has fully loaded before switching
 	}, []);
 
 	useEffect(() => {
