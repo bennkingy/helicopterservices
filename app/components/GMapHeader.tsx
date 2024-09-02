@@ -17,7 +17,7 @@ const GMapHeader = ({ className }: props) => {
 				:
 			</p>
 			<p className="text-white font-openSans font-thin">
-				White Waltham Airfield, Maidenhead, Berkshire, SL6 3N
+				White Waltham Airfield, Maidenhead, Berkshire, SL6 3NJ
 			</p>
 		</div>
 	);
