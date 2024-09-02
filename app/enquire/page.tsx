@@ -57,7 +57,7 @@ export default async function Enquire() {
 					<p className="text-white font-openSans font-thin">
 						White Waltham Airfield, Maidenhead, Berkshire, SL6 3NJ
 					</p>
-					<p className="text-white font-bold font-openSans mt-4">The hanger:</p>
+					<p className="text-white font-bold font-openSans mt-3">The hanger:</p>
 					<p className="text-white font-openSans font-thin">
 						White Waltham Airfield, Maidenhead, Berkshire, SL6 3LW
 					</p>
