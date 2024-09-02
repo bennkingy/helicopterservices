@@ -100,8 +100,7 @@ export default async function Footer() {
 								Berkshire
 								<br />
 								<Link
-									href={mapLocation}
-									target="_blank"
+									href={"/enquire/"}
 									className="text-brand-orange transition-colors hover:text-brand-light-blue"
 								>
 									SL6 3NJ

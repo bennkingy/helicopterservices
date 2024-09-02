@@ -173,7 +173,7 @@ const GMap = ({ className }: any) => {
 			infoWindowRef.current = new google.maps.InfoWindow();
 		}
 
-		const content = `<div style="padding-top: 10px;"><strong>${location.name}</strong> - <a target="_blank" class='gmaplink' href="${location.address}" style="color: rgb(31, 182, 222)">Get directions</a></div>`;
+		const content = `<div style="font-size: 14px; padding-top: 10px;text-align:center"><strong>${location.name}</strong><br/><br/><a target="_blank" class='gmaplink text-brand-orange pt-3 font-bold' href="${location.address}">Get directions</a></div>`;
 
 		infoWindowRef.current.setContent(content);
 		infoWindowRef.current.setPosition(location.center);
@@ -199,23 +199,26 @@ const GMap = ({ className }: any) => {
 		}
 	}, []);
 
-	const onLoad = useCallback((map) => {
-		setMap(map);
-		// Show default info window for randomLocation
-		updateInfoWindow(locations.randomLocation);
+	const onLoad = useCallback(
+		(map) => {
+			setMap(map);
+			// Show default info window for randomLocation
+			updateInfoWindow(locations.randomLocation);
 
-		// Change the dropdown to the other option after load
-		setTimeout(() => {
-			const select = document.getElementById(
-				"locationDropdown",
-			) as HTMLSelectElement;
-			if (select) {
-				select.value = "randomLocation";
-				const event = new Event("change", { bubbles: true });
-				select.dispatchEvent(event);
-			}
-		}, 1000); // Adding a delay to ensure the map has fully loaded before switching
-	}, []);
+			// Change the dropdown to the other option after load
+			setTimeout(() => {
+				const select = document.getElementById(
+					"locationDropdown",
+				) as HTMLSelectElement;
+				if (select) {
+					select.value = "randomLocation";
+					const event = new Event("change", { bubbles: true });
+					select.dispatchEvent(event);
+				}
+			}, 1000); // Adding a delay to ensure the map has fully loaded before switching
+		},
+		[updateInfoWindow],
+	);
 
 	useEffect(() => {
 		if (map) {

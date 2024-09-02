@@ -55,7 +55,7 @@ export default async function Enquire() {
 			</ul>
 			<div className="max-w-[397px]">
 				<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-10">
-					<p className="text-white font-bold font-openSans">Postal address:</p>
+					<p className="text-white font-bold font-openSans">Office:</p>
 					<p className="text-white font-openSans font-thin">
 						White Waltham Airfield, Maidenhead, Berkshire, SL6 3NJ
 					</p>
@@ -89,9 +89,7 @@ export default async function Enquire() {
 					<div className="block md:hidden">
 						<div>
 							<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-14 sm:mt-10">
-								<p className="text-white font-bold font-openSans">
-									Postal address:
-								</p>
+								<p className="text-white font-bold font-openSans">Office:</p>
 								<p className="text-white font-openSans font-thin">
 									White Waltham Airfield, Maidenhead, Berkshire, SL6 3NJ
 								</p>
