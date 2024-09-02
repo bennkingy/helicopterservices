@@ -10,6 +10,7 @@ async function getData(slug: string) {
         "currentSlug": slug.current,
           title,
           seoTitle,
+						shortTitle,
           seoDescription,
 					body[]{
 					...,

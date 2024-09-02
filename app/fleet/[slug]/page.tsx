@@ -32,6 +32,7 @@ async function getPageData(slug: string) {
     *[_type == "fleet" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
           title,
+					shortTitle,
           seoTitle,
           workType,
           seoDescription,

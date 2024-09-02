@@ -195,7 +195,7 @@ const Template = ({
 						<ContactCta
 							className="hidden md:block"
 							pilot={data?.pilot}
-							service={data?.title}
+							service={data?.shortTitle || data?.title}
 						/>
 						<GetinTouchSmall className="mt-20 md:mt-8 hidden md:block" />
 						<GMapHeader className="" />

@@ -9,6 +9,7 @@ async function getData(slug: string) {
     *[_type == "industry" && slug.current == '${slug}'] {
              "currentSlug": slug.current,
           title,
+						shortTitle,
           seoTitle,
           seoDescription,
 					body[]{

@@ -13,6 +13,7 @@ async function getTypeRatingsData(slug: string) {
         "currentSlug": slug.current,
           title,
           seoTitle,
+						shortTitle,
           seoDescription,
 					body[]{
 					...,

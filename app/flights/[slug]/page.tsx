@@ -11,6 +11,7 @@ async function getData(slug: string) {
     *[_type == "flights" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
           title,
+					shortTitle,
           seoTitle,
           seoDescription,
 					mainImage{
