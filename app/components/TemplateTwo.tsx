@@ -14,6 +14,7 @@ import SanityImage from "./SanityImage";
 import StatusIcon from "./StatusIcon";
 import TextLink from "./TextLink";
 import YouTubeThreeD from "./YouTubeThreeD";
+import CMSLink from "./CMSLink";
 
 type props = {
 	data: FleetItem;
@@ -34,6 +35,16 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 		charter: boolean;
 		aerialWork: boolean;
 	}
+
+	const components = {
+		marks: {
+			/* @ts-ignore */
+			link: ({ value, children }) => {
+				const href = value.href || "#";
+				return <CMSLink href={href}>{children}</CMSLink>;
+			},
+		},
+	};
 
 	const SpecificationTable = ({ helicopter, className }: any) => {
 		return (
@@ -159,7 +170,8 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 								"prose prose-a:text-brand-orange prose-a:transition-colors prose-a hover:prose-a:text-brand-dark-blue prose-a:no-underline  font-openSans prose-h2:font-workSans prose-h2:text-4xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey",
 							)}
 						>
-							<PortableText value={data?.body || ""} />
+							{/* @ts-ignore */}
+							<PortableText value={data?.body || ""} components={components} />
 							{data?.threedVideoUrl && (
 								<TextLink
 									label="3D cockpit view"
