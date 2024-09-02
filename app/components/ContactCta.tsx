@@ -41,7 +41,7 @@ const ContactCta = ({ className, pilot, service }: props) => {
 									service
 								? `${service.toLowerCase()} `
 								: null}
-					quote tailored to your needs”
+					quote”
 				</p>
 				<p className="pl-5 font-openSans">
 					{pilot?.name || "Captain Ruth Downey"},
