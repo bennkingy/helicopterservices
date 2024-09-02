@@ -401,3 +401,7 @@ text-transform: capitalize;
 body {
   pointer-events: all !important;
 }
+
+.gmaplink:focus {
+    outline: none;
+}

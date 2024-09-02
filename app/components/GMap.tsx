@@ -173,7 +173,7 @@ const GMap = ({ className }: any) => {
 			infoWindowRef.current = new google.maps.InfoWindow();
 		}
 
-		const content = `<div style="padding-top: 10px;"><strong>${location.name}</strong> - <a target="_blank" href="${mapLocation}" style="color: rgb(31, 182, 222)">Get directions</a></div>`;
+		const content = `<div style="padding-top: 10px;"><strong>${location.name}</strong> - <a target="_blank" class='gmaplink' href="${mapLocation}" style="color: rgb(31, 182, 222)">Get directions</a></div>`;
 
 		infoWindowRef.current.setContent(content);
 		infoWindowRef.current.setPosition(location.center);
