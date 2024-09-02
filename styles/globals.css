@@ -405,3 +405,9 @@ body {
 .gmaplink:focus {
     outline: none;
 }
+
+@supports (-webkit-touch-callout: none) {
+    .fixMeSir {
+        background-size:cover !important;
+    }
+}
