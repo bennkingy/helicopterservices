@@ -35,6 +35,19 @@ async function getData(slug: string) {
     *[_type == "training" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
           title,
+					"pilot": pilot->{
+            name,
+						role,
+						 "mainImage": mainImage{
+					  ...,
+					 "mainImage": asset->url,
+							"metadata": asset->metadata {
+                dimensions,
+                lqip
+              },
+							"altText": asset->altText
+					},
+					},
           hero{
 						heading,
 						tagline,
@@ -46,7 +59,7 @@ async function getData(slug: string) {
 						}
 					},
           seoTitle,
-									quoteMessage,
+					quoteMessage,
           seoDescription,
           body, 
 					service[] {
@@ -59,8 +72,8 @@ async function getData(slug: string) {
 					},
 					url,
 					heading,
-					description
-				}
+					description,
+				},
       }[0]`;
 	const data = await client.fetch(query);
 
@@ -295,7 +308,7 @@ export default async function Training({
 							</Link>
 						</div>
 						<div className="mt-20 sm:mt-0 pt-0 sm:pt-5  hidden sm:block">
-							<ContactCta service="training" />
+							<ContactCta service={data?.quoteMessage} pilot={data?.pilot} />
 						</div>
 					</div>
 				</section>

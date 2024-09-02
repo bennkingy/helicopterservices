@@ -17,6 +17,19 @@ async function getData(slug: string) {
     *[_type == "flights" && slug.current == '${slug}'] {
         "currentSlug": slug.current,
           title,
+									"pilot": pilot->{
+            name,
+						role,
+						 "mainImage": mainImage{
+					  ...,
+					 "mainImage": asset->url,
+							"metadata": asset->metadata {
+                dimensions,
+                lqip
+              },
+							"altText": asset->altText
+					},
+},
           hero{
 						heading,
 						tagline,
@@ -123,7 +136,7 @@ export default async function Flights({
 							</Link>
 						</div>
 						<div className="mt-20 sm:mt-0 pt-0 sm:pt-5 hidden sm:block">
-							<ContactCta service={"flights"} />
+							<ContactCta service={data?.quoteMessage} pilot={data?.pilot} />
 						</div>
 					</div>
 				</section>

@@ -27,6 +27,19 @@ async function getData(slug: string) {
 							"altText": image.alt
 						}
 					},
+					"pilot": pilot->{
+            name,
+						role,
+           "mainImage": mainImage{
+					  ...,
+					 "mainImage": asset->url,
+							"metadata": asset->metadata {
+                dimensions,
+                lqip
+              },
+							"altText": asset->altText
+					},
+        },
           seoTitle,
 									quoteMessage,
           seoDescription,
@@ -123,7 +136,7 @@ export default async function Industry({
 							</Link>
 						</div>
 						<div className="mt-20 sm:mt-0 pt-0 sm:pt-5 hidden sm:block">
-							<ContactCta service="industry" />
+							<ContactCta service={data?.quoteMessage} pilot={data?.pilot} />
 						</div>
 					</div>
 				</section>
