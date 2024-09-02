@@ -10,7 +10,7 @@ const containerStyle = {
 
 const locations = {
 	helicopterServices: {
-		name: "Helicopter Services",
+		name: "Postal Address",
 		center: { lat: 51.5034, lng: -0.7648 },
 		address: "White Waltham, Maidenhead, SL6 3NJ, UK",
 	},
