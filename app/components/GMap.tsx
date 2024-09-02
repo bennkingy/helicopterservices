@@ -10,14 +10,14 @@ const containerStyle = {
 
 const locations = {
 	randomLocation: {
-		name: "The hangar",
-		center: { lat: 51.49928, lng: -0.77194 },
-		address: "White Waltham, Maidenhead, SL6 3LW",
+		name: "The Hangar",
+		center: { lat: 51.493033, lng: -0.7738 },
+		address: "https://w3w.co/butlers.captive.restores",
 	},
 	helicopterServices: {
-		name: "Postal address",
-		center: { lat: 51.5034, lng: -0.7648 },
-		address: "White Waltham, Maidenhead, SL6 3NJ",
+		name: "Office",
+		center: { lat: 51.49492, lng: -0.77341 },
+		address: "https://w3w.co/salmon.mimic.beaks",
 	},
 };
 
@@ -173,7 +173,7 @@ const GMap = ({ className }: any) => {
 			infoWindowRef.current = new google.maps.InfoWindow();
 		}
 
-		const content = `<div style="padding-top: 10px;"><strong>${location.name}</strong> - <a target="_blank" class='gmaplink' href="${mapLocation}" style="color: rgb(31, 182, 222)">Get directions</a></div>`;
+		const content = `<div style="padding-top: 10px;"><strong>${location.name}</strong> - <a target="_blank" class='gmaplink' href="${location.address}" style="color: rgb(31, 182, 222)">Get directions</a></div>`;
 
 		infoWindowRef.current.setContent(content);
 		infoWindowRef.current.setPosition(location.center);
