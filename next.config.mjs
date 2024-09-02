@@ -118,7 +118,7 @@ const nextConfig = {
 			},
 			{
 				source: "/instrument-rating",
-				destination: "/training/instrument-ratings",
+				destination: "/training/instrument-rating",
 				permanent: true,
 			},
 			{
@@ -128,7 +128,7 @@ const nextConfig = {
 			},
 			{
 				source: "/flight-instructor-refresher-seminar",
-				destination: "/training/flight-instructor-ratings",
+				destination: "/training/flight-instructor-refresher-seminars",
 				permanent: true,
 			},
 			{
