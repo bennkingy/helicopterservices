@@ -60,7 +60,6 @@ export default async function AboutPage({
 	const data: training = await getPageData(params.slug.toLowerCase());
 
 	const showFaqs = params.slug === "faqs";
-	const showHanger = params.slug === "the-hanger";
 
 	if (!data?.title) {
 		notFound();

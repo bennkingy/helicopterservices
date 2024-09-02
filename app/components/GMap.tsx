@@ -10,7 +10,7 @@ const containerStyle = {
 
 const locations = {
 	randomLocation: {
-		name: "The hanger",
+		name: "The hangar",
 		center: { lat: 51.49928, lng: -0.77194 },
 		address: "White Waltham, Maidenhead, SL6 3LW",
 	},
@@ -257,7 +257,7 @@ const GMap = ({ className }: any) => {
 				select.appendChild(option);
 			});
 
-			select.value = "randomLocation"; // Set initial selection to "The Hanger"
+			select.value = "randomLocation"; // Set initial selection to "The Hangar"
 			select.addEventListener("change", handleLocationChange);
 
 			controlDiv.appendChild(select);
