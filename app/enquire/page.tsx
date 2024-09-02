@@ -6,8 +6,10 @@ import GMap from "../components/GMap";
 import logo from "/public/images/LogoLightV2New.svg";
 
 export const metadata: Metadata = {
-	title: "Contact - Helicopter Services",
-	description: "Helicopter Services",
+	title:
+		"Contact - Helicopter Servics - Over 20 years operating as one of the UKs most experienced helicopter companys.",
+	description:
+		"Over 20 years operating as one of the UKs most experienced helicopter training, charter, tours, photography, load lifting and consultancy companies.",
 };
 
 export default async function Enquire() {
