@@ -210,7 +210,7 @@ const GMap = ({ className }: any) => {
 				"locationDropdown",
 			) as HTMLSelectElement;
 			if (select) {
-				select.value = "helicopterServices";
+				select.value = "randomLocation";
 				const event = new Event("change", { bubbles: true });
 				select.dispatchEvent(event);
 			}
