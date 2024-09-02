@@ -75,7 +75,7 @@ export default async function Flights({
 									<ServiceCard
 										key={i + 1}
 										heading={heading}
-										url={url}
+										url={url.replace("trail", "trial")}
 										image={image || ""}
 										description={description}
 										category={"Flights"}
