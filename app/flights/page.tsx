@@ -30,6 +30,7 @@ async function getData(slug: string) {
           seoTitle,
           seoDescription,
           body,
+									quoteMessage,
          	service[] {
 					category,
 					"image": {

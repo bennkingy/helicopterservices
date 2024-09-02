@@ -11,6 +11,7 @@ async function getData(slug: string) {
           title,
           seoTitle,
 						shortTitle,
+						quoteMessage,
           seoDescription,
 					body[]{
 					...,

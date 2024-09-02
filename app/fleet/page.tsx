@@ -15,6 +15,7 @@ async function getPageData(slug: string) {
           seoTitle,
           seoDescription,
           body,
+					quoteMessage,
           hero{
 						heading,
 						tagline,

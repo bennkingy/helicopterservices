@@ -31,17 +31,11 @@ const ContactCta = ({ className, pilot, service }: props) => {
 			</div>
 			<div className=" text-white relative z-1 overflow-x-hidden pb-3">
 				<p className="font-bold mb-4 pl-5 mt-6 lg:mt-0 pr-3 lg:pr-32 sm:text-lg font-openSans">
-					“Enquire today for a customised{" "}
-					{service.toLowerCase() === "ppl(h)"
-						? "private pilot licence  "
-						: service.toLowerCase() === "cpl(h)"
-							? "commerical pilot licence "
-							: service !== "Fleet" &&
-									service?.toLowerCase() !== "the hangar" &&
-									service
-								? `${service.toLowerCase()} `
-								: null}
-					quote”
+					“
+					{service
+						? service
+						: "Enquire today for a customised quote tailored to your needs"}
+					”
 				</p>
 				<p className="pl-5 font-openSans">
 					{pilot?.name || "Captain Ruth Downey"},

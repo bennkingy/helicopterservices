@@ -39,6 +39,14 @@ export default defineType({
 				Rule.max(50).warning("Short titles should be at most 50 characters."),
 		}),
 		defineField({
+			name: "quoteMessage",
+			title: "Quote Message",
+			type: "string",
+			description: "A message to go inside the quote.",
+			validation: (Rule) =>
+				Rule.max(50).warning("Quote message should be at most 40 characters."),
+		}),
+		defineField({
 			name: "slug",
 			title: "Slug",
 			type: "slug",

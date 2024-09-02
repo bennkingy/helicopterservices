@@ -41,6 +41,14 @@ export default defineType({
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
+			name: "quoteMessage",
+			title: "Quote Message",
+			type: "string",
+			description: "A message to go inside the quote.",
+			validation: (Rule) =>
+				Rule.max(50).warning("Quote message should be at most 40 characters."),
+		}),
+		defineField({
 			name: "hero",
 			type: "hero",
 			hidden: ({ document }) => document?.isLandingPage !== true,
