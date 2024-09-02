@@ -100,7 +100,7 @@ const TrainingMap = () => {
 						</td>
 						<td className="p-2 sm:p-3 relative z-[2]">
 							<div className="shadow-sm sm:shadow-lg cursor-pointer">
-								<Link href="/training/type-ratings">
+								<Link href="/training/type-rating">
 									<div
 										className="aspect-square bg-white hover:bg-brand-orange hover:text-white transition-all duration-300 flex items-center justify-center"
 										style={{
