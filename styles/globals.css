@@ -408,6 +408,6 @@ body {
 
 @supports (-webkit-touch-callout: none) {
     .fixMeSir {
-        background-size:cover !important;
+        background-attachment: scroll !important;
     }
 }
