@@ -54,13 +54,12 @@ const NavigationMenuTrigger = React.forwardRef<
 	React.useEffect(() => {
 		const handleStateChange = () => {
 			const anyOpen = document.querySelector('#header [data-state="open"]');
-			const overlay = document.getElementById("overlay");
+
+			console.log("anyOpen", anyOpen);
 			if (anyOpen) {
 				showOverlay();
-				if (overlay) overlay.classList.remove("hidden");
 			} else {
 				hideOverlay();
-				if (overlay) overlay.classList.add("hidden");
 			}
 		};
 
