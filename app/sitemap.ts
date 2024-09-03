@@ -1,13 +1,15 @@
 import { client } from "@/lib/sanity";
 import type { MetadataRoute } from "next";
-import { unstable_noStore as noStore } from "next/cache";
+
+// Ensure the route is treated as dynamic
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+export const dynamicParams = true;
 
 interface Page {
 	currentSlug: string;
 	updated: Date;
 }
-
-export const revalidate = 30; // revalidate at most 30 seconds
 
 async function fetchData(contentType: string): Promise<Page[]> {
 	const query = `*[_type == "${contentType}"] {
@@ -18,8 +20,6 @@ async function fetchData(contentType: string): Promise<Page[]> {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-	noStore();
-
 	const contentTypes = [
 		"training",
 		"about",
