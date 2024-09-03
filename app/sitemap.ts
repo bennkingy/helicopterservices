@@ -1,19 +1,25 @@
 import { client } from "@/lib/sanity";
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { unstable_noStore as noStore } from "next/cache";
+
 interface Page {
 	currentSlug: string;
 	updated: Date;
 }
+
+export const revalidate = 30; // revalidate at most 30 seconds
 
 async function fetchData(contentType: string): Promise<Page[]> {
 	const query = `*[_type == "${contentType}"] {
 		"currentSlug": slug.current,
 		"updated": _updatedAt
 	}`;
-	return await client.fetch(query);
+	return await client.fetch(query, { cache: "no-cache" });
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+	noStore();
+
 	const contentTypes = [
 		"training",
 		"about",
