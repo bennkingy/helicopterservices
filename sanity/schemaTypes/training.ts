@@ -33,7 +33,7 @@ export default defineType({
 			name: "quoteMessage",
 			title: "Quote Message",
 			type: "string",
-			description: "A message to go inside the quote.",
+			description: "A message to go inside the quote",
 			validation: (Rule) =>
 				Rule.max(70).warning("Quote message should be at most 40 characters."),
 		}),
