@@ -4,6 +4,7 @@ import fleet from "./fleet";
 import flights from "./flights";
 import { formType } from "./formType";
 import { heroType } from "./heroType";
+import homepage from "./home";
 import { imageGalleryType } from "./imageGalleryType";
 import industry from "./industry";
 import legal from "./legal";
@@ -28,5 +29,6 @@ export const schemaTypes = [
 	dayHours,
 	formType,
 	fleet,
+	homepage,
 	faq,
 ];

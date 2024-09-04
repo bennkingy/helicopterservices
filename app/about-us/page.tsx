@@ -53,7 +53,7 @@ export default async function About() {
 					/>
 					<p className="mt-3 font-bold font-openSans">Captain Leon Smith</p>
 					<p className="mt-0 text-brand-light-blue font-openSans">
-						Head Pilot / Chief Pilot
+						Head of Training and Chief Pilot
 					</p>
 					<p className="mt-0 font-openSans">Helicopter Services</p>
 				</div>
