@@ -41,7 +41,7 @@ async function getData(slug: string) {
 					},
         },
           seoTitle,
-									quoteMessage,
+					quoteMessage,
           seoDescription,
           body,
           service[] {
