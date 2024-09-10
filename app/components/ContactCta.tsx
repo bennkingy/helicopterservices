@@ -37,7 +37,7 @@ const ContactCta = ({ className, pilot, service }: props) => {
 						: "Enquire today for a customised quote tailored to your needs"}
 					”
 				</p>
-				<p className="pl-5 font-openSans">
+				<p className="pl-5 font-openSans font-semibold">
 					{pilot?.name || "Captain Ruth Downey"},
 					<br />
 					<span className="text-brand-light-blue pr-4">
