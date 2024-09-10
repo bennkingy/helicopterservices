@@ -226,7 +226,6 @@ const GMap = ({ className }: any) => {
 			controlDiv.style.marginLeft = "10px";
 			controlDiv.style.textAlign = "center";
 			controlDiv.style.width = "200px";
-			controlDiv.style.padding = "10px";
 
 			// Create and style the select element
 			const select = document.createElement("select");
@@ -235,8 +234,9 @@ const GMap = ({ className }: any) => {
 			select.style.border = "none";
 			select.style.outline = "none";
 			select.style.width = "100%";
-			select.style.height = "30px";
+			select.style.height = "45px";
 			select.style.fontSize = "16px";
+			select.style.cursor = "pointer";
 
 			// Populate the dropdown with location options
 			Object.keys(locations).forEach((key) => {
