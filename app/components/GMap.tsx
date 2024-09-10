@@ -1,6 +1,5 @@
 "use client";
-import { mapLocation } from "@/lib/constants";
-import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import React, { useCallback, useState, useEffect, useRef } from "react";
 
 const containerStyle = {
@@ -168,7 +167,7 @@ const GMap = ({ className }: any) => {
 	const [map, setMap] = useState<google.maps.Map | null>(null);
 	const infoWindowRef = useRef<google.maps.InfoWindow | null>(null);
 
-	const updateInfoWindow = (location) => {
+	const updateInfoWindow = useCallback((location) => {
 		if (!infoWindowRef.current) {
 			infoWindowRef.current = new google.maps.InfoWindow();
 		}
@@ -178,7 +177,7 @@ const GMap = ({ className }: any) => {
 		infoWindowRef.current.setContent(content);
 		infoWindowRef.current.setPosition(location.center);
 		infoWindowRef.current.open(map);
-	};
+	});
 
 	const handleLocationChange = (
 		event: React.ChangeEvent<HTMLSelectElement>,
@@ -202,20 +201,7 @@ const GMap = ({ className }: any) => {
 	const onLoad = useCallback(
 		(map) => {
 			setMap(map);
-			// Show default info window for randomLocation
 			updateInfoWindow(locations.randomLocation);
-
-			// Change the dropdown to the other option after load
-			setTimeout(() => {
-				const select = document.getElementById(
-					"locationDropdown",
-				) as HTMLSelectElement;
-				if (select) {
-					select.value = "randomLocation";
-					const event = new Event("change", { bubbles: true });
-					select.dispatchEvent(event);
-				}
-			}, 1000); // Adding a delay to ensure the map has fully loaded before switching
 		},
 		[updateInfoWindow],
 	);
@@ -267,6 +253,9 @@ const GMap = ({ className }: any) => {
 			map.controls[window.google.maps.ControlPosition.LEFT_BOTTOM].push(
 				controlDiv,
 			);
+
+			// Ensure the info window is open for the first location (randomLocation)
+			updateInfoWindow(locations.randomLocation);
 		}
 	}, [map]);
 
@@ -279,16 +268,7 @@ const GMap = ({ className }: any) => {
 				onLoad={onLoad}
 				onUnmount={onUnmount}
 				options={{ styles: mapStyles }}
-			>
-				<Marker
-					position={locations.helicopterServices.center}
-					onClick={() => handleMarkerClick("helicopterServices")}
-				/>
-				<Marker
-					position={locations.randomLocation.center}
-					onClick={() => handleMarkerClick("randomLocation")}
-				/>
-			</GoogleMap>
+			></GoogleMap>
 		</div>
 	) : (
 		<></>

@@ -20,92 +20,6 @@ import { hoverStore } from "@/store/hoverStore";
 // @ts-ignore
 import { useStore } from "@nanostores/react";
 import OpenClosed from "./OpenClosed";
-// const fleet: {
-// 	title: string;
-// 	slug: string;
-// 	category: string;
-// 	engine: string;
-// 	shortTitle?: string;
-// }[] = [
-// 	{
-// 		title: "A109",
-// 		slug: "/fleet/a109",
-// 		category: "Agusta",
-// 		engine: "Twin Engine",
-// 		// description: "Versatile and high-performance twin-engine helicopter",
-// 	},
-// 	{
-// 		title: "AS355",
-// 		slug: "/fleet/as355",
-// 		category: "Agusta",
-// 		engine: "Twin Engine",
-// 		// description: "A a multi-purpose, twin-engine light helicopter",
-// 	},
-// 	{
-// 		title: "AB206",
-// 		slug: "/fleet/ab206",
-// 		category: "Agusta",
-// 		engine: "Single Engine",
-// 		// description:
-// 		// 	"A light utility helicopter known for its reliability and versatility",
-// 	},
-// 	{
-// 		title: "R66",
-// 		slug: "/fleet/r66",
-// 		category: "Robinson",
-// 		engine: "Single Engine",
-// 		// description: "Some description about the R66",
-// 	},
-// 	{
-// 		title: "R44",
-// 		slug: "/fleet/r44",
-// 		engine: "Single Engine",
-// 		category: "Robinson",
-// 		// description: "Some description about the R44",
-// 	},
-// 	{
-// 		title: "R22",
-// 		slug: "/fleet/r22",
-// 		engine: "Single Engine",
-// 		category: "Robinson",
-// 		// description: "Some description about the R22",
-// 	},
-// 	{
-// 		title: "Cabri G2",
-// 		engine: "Single Engine",
-// 		slug: "/fleet/cabri-g2",
-// 		category: "Guimbal",
-// 		// description: "Some description about the Cabri G2",
-// 	},
-// 	{
-// 		title: "AS350",
-// 		slug: "/fleet/as350",
-// 		engine: "Single Engine",
-// 		category: "Airbus",
-// 		// description: "A single-engine light utility helicopter",
-// 	},
-// 	{
-// 		title: "B206L",
-// 		slug: "/fleet/b206l",
-// 		engine: "Single Engine",
-// 		category: "Airbus",
-// 		// description: "Some description about the B206L",
-// 	},
-// 	{
-// 		title: "EC135",
-// 		slug: "/fleet/ec135",
-// 		engine: "Single Engine",
-// 		category: "Airbus",
-// 		// description: "Some description about the EC135",
-// 	},
-// 	{
-// 		title: "AW109",
-// 		slug: "/fleet/aw109",
-// 		engine: "Twin Engine",
-// 		category: "Airbus",
-// 		// description: "Some description about the AW109",
-// 	},
-// ];
 
 // @ts-ignore
 export function NavMenu({
@@ -172,6 +86,8 @@ export function NavMenu({
 					</NavigationMenuItem>
 					<NavigationMenuItem>
 						<NavigationMenuTrigger
+							onPointerMove={(event) => event.preventDefault()}
+							onPointerLeave={(event) => event.preventDefault()}
 							className={cn(
 								path.startsWith("/training") &&
 									"bg-accent text-accent-foreground",
@@ -181,7 +97,11 @@ export function NavMenu({
 								Training
 							</Link>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent className="flex rounded-none">
+						<NavigationMenuContent
+							onPointerEnter={(event) => event.preventDefault()}
+							onPointerLeave={(event) => event.preventDefault()}
+							className="flex rounded-none"
+						>
 							{/* <div className="p-5"> */}
 							<div className="p-7 max-w-[300px]">
 								<p className="text-brand-light-blue">Licences</p>
@@ -302,6 +222,8 @@ export function NavMenu({
 					</NavigationMenuItem>
 					<NavigationMenuItem>
 						<NavigationMenuTrigger
+							onPointerMove={(event) => event.preventDefault()}
+							onPointerLeave={(event) => event.preventDefault()}
 							className={cn(
 								path.startsWith("/industry") &&
 									"bg-accent text-accent-foreground",
@@ -311,7 +233,11 @@ export function NavMenu({
 								Industry
 							</Link>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent className="flex">
+						<NavigationMenuContent
+							onPointerEnter={(event) => event.preventDefault()}
+							onPointerLeave={(event) => event.preventDefault()}
+							className="flex"
+						>
 							<div className="p-7 max-w-[250px]">
 								<p className="text-brand-light-blue">Industry</p>
 								<ul className="grid mt-2">
@@ -352,6 +278,8 @@ export function NavMenu({
 					</NavigationMenuItem>
 					<NavigationMenuItem>
 						<NavigationMenuTrigger
+							onPointerMove={(event) => event.preventDefault()}
+							onPointerLeave={(event) => event.preventDefault()}
 							className={cn(
 								path.startsWith("/flights") &&
 									"bg-accent text-accent-foreground",
@@ -361,7 +289,11 @@ export function NavMenu({
 								Flights
 							</Link>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent className="flex">
+						<NavigationMenuContent
+							onPointerEnter={(event) => event.preventDefault()}
+							onPointerLeave={(event) => event.preventDefault()}
+							className="flex"
+						>
 							<div className="p-7 max-w-[250px]">
 								<p className="text-brand-light-blue">Flights</p>
 								<ul className="grid mt-2">
@@ -424,6 +356,8 @@ export function NavMenu({
 					</NavigationMenuItem>
 					<NavigationMenuItem className="hidden 2xl:block">
 						<NavigationMenuTrigger
+							onPointerMove={(event) => event.preventDefault()}
+							onPointerLeave={(event) => event.preventDefault()}
 							className={cn(
 								path.startsWith("/fleet") && "bg-accent text-accent-foreground",
 							)}
@@ -432,7 +366,11 @@ export function NavMenu({
 								Fleet
 							</Link>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent className="flex rounded-none">
+						<NavigationMenuContent
+							onPointerEnter={(event) => event.preventDefault()}
+							onPointerLeave={(event) => event.preventDefault()}
+							className="flex rounded-none"
+						>
 							{/* <div className="p-5"> */}
 							<div className="p-7">
 								<p className="text-brand-light-blue">Single Engine</p>
@@ -516,6 +454,8 @@ export function NavMenu({
 					</NavigationMenuItem>
 					<NavigationMenuItem>
 						<NavigationMenuTrigger
+							onPointerMove={(event) => event.preventDefault()}
+							onPointerLeave={(event) => event.preventDefault()}
 							className={cn(
 								path.startsWith("/about-us") &&
 									"bg-accent text-accent-foreground",
@@ -525,7 +465,11 @@ export function NavMenu({
 								About us
 							</Link>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent className="flex">
+						<NavigationMenuContent
+							onPointerEnter={(event) => event.preventDefault()}
+							onPointerLeave={(event) => event.preventDefault()}
+							className="flex"
+						>
 							<div className="w-[500px] h-auto relative">
 								<Image
 									src="/images/nav-copters.jpg"
