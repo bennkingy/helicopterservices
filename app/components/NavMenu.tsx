@@ -203,7 +203,7 @@ export function NavMenu({
 							{/* </div> */}
 							<div className="w-[250px] h-auto  ml-auto relative">
 								<Image
-									src="/images/nav-training.jpg"
+									src="/images/nav-training.webp"
 									alt="industry"
 									fill
 									placeholder="blur"
