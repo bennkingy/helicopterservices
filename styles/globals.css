@@ -411,3 +411,10 @@ body {
         background-attachment: scroll !important;
     }
 }
+
+
+/* Override SVG color when the <a> is hovered */
+button.group:hover a:hover + svg {
+  color: #102039 !important;
+  stroke: #102039 !important; /* For SVG stroke color */
+}

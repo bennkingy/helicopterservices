@@ -80,7 +80,9 @@ export function NavMenu({
 									path === "/" && "bg-accent text-accent-foreground",
 								)}
 							>
-								<span className="hover:text-brand-light-blue">Home</span>
+								<span className="hover:text-brand-light-blue transition duration-200">
+									Home
+								</span>
 							</NavigationMenuLink>
 						</Link>
 					</NavigationMenuItem>
@@ -93,7 +95,10 @@ export function NavMenu({
 									"bg-accent text-accent-foreground",
 							)}
 						>
-							<Link href="/training" className="hover:text-brand-light-blue">
+							<Link
+								href="/training"
+								className="hover:text-brand-light-blue transition duration-200"
+							>
 								Training
 							</Link>
 						</NavigationMenuTrigger>
@@ -229,7 +234,10 @@ export function NavMenu({
 									"bg-accent text-accent-foreground",
 							)}
 						>
-							<Link href="/industry" className="hover:text-brand-light-blue">
+							<Link
+								href="/industry"
+								className="hover:text-brand-light-blue transition duration-200"
+							>
 								Industry
 							</Link>
 						</NavigationMenuTrigger>
@@ -285,7 +293,10 @@ export function NavMenu({
 									"bg-accent text-accent-foreground",
 							)}
 						>
-							<Link href="/flights" className="hover:text-brand-light-blue">
+							<Link
+								href="/flights"
+								className="hover:text-brand-light-blue transition duration-200"
+							>
 								Flights
 							</Link>
 						</NavigationMenuTrigger>
@@ -362,7 +373,10 @@ export function NavMenu({
 								path.startsWith("/fleet") && "bg-accent text-accent-foreground",
 							)}
 						>
-							<Link href="/fleet" className="hover:text-brand-light-blue">
+							<Link
+								href="/fleet"
+								className="hover:text-brand-light-blue transition duration-200"
+							>
 								Fleet
 							</Link>
 						</NavigationMenuTrigger>
@@ -461,7 +475,10 @@ export function NavMenu({
 									"bg-accent text-accent-foreground",
 							)}
 						>
-							<Link href="/about-us" className="hover:text-brand-light-blue">
+							<Link
+								href="/about-us"
+								className="hover:text-brand-light-blue transition duration-200"
+							>
 								About us
 							</Link>
 						</NavigationMenuTrigger>
@@ -519,7 +536,9 @@ export function NavMenu({
 									path === "/enquire" && "bg-accent text-accent-foreground",
 								)}
 							>
-								<span className="hover:text-brand-light-blue">Enquire</span>
+								<span className="hover:text-brand-light-blue transition duration-200">
+									Enquire
+								</span>
 							</NavigationMenuLink>
 						</Link>
 					</NavigationMenuItem>
