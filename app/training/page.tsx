@@ -8,6 +8,7 @@ import Header from "../components/Header";
 import Heading from "../components/Heading";
 import ServiceCard from "../components/ServiceCard";
 import TrainingMap from "../components/TrainingMap";
+import { PortableText } from "next-sanity";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -61,7 +62,7 @@ async function getData(slug: string) {
           seoTitle,
 					quoteMessage,
           seoDescription,
-          body, 
+          bodyTwo, 
 					service[] {
 					category,
 					"image": {
@@ -272,32 +273,40 @@ export default async function Training({
 					</Tabs>
 					<div className="mb-16 mt-16 grid grid-cols-1 sm:grid-cols-3">
 						<div className="col-span-2 pr-0 sm:pr-20">
-							<Heading
-								title="Can&apos;t find what you&apos;re looking for?"
-								titleStyles="text-3xl"
-								className="mb-6"
-							/>
-							<p className="mb-4">
-								We have been operating for over 25 years as one of the UK&apos;s
-								most experienced helicopter charter, tours, photography,
-								load-lifting, and consultancy companies.
-							</p>
-							<p className="mb-4">
-								Whether you are looking for a wonderful gift, a time-efficient
-								airport transfer, a private charter for your special occasion,
-								help with aerial photograph, a load lifted economically we can
-								help you.
-							</p>
-							<p className="mb-4">
-								We adhere to the highest safety standards and many of our
-								helicopters are able to fly in reduced visibility or at night.
-								We offer both twin-engine or single-engine helicopters and can
-								provide two pilots as may be required.
-							</p>
-							<p>
-								<span className="font-bold">Outside office hours? </span>Submit
-								our form and our team will get back to you.
-							</p>
+							{!data?.bodyTwo ? (
+								<>
+									<Heading
+										title="Can&apos;t find what you&apos;re looking for?"
+										titleStyles="text-3xl"
+										className="mb-6"
+									/>
+									<p className="mb-4">
+										We have been operating for over 25 years as one of the
+										UK&apos;s most experienced helicopter charter, tours,
+										photography, load-lifting, and consultancy companies.
+									</p>
+									<p className="mb-4">
+										Whether you are looking for a wonderful gift, a
+										time-efficient airport transfer, a private charter for your
+										special occasion, help with aerial photograph, a load lifted
+										economically we can help you.
+									</p>
+									<p className="mb-4">
+										We adhere to the highest safety standards and many of our
+										helicopters are able to fly in reduced visibility or at
+										night. We offer both twin-engine or single-engine
+										helicopters and can provide two pilots as may be required.
+									</p>
+									<p>
+										<span className="font-bold">Outside office hours? </span>
+										Submit our form and our team will get back to you.
+									</p>
+								</>
+							) : (
+								<div className="prose prose-a:text-brand-orange prose-h2:mb-6 prose-a:transition-colors hover:prose-a:text-brand-dark-blue prose-a:no-underline font-openSans prose-h2:font-workSans prose-h2:text-brand-dark-blue prose-h2:text-3xl prose-strong:font-bold marker:text-brand-light-blue max-w-full text-brand-dark-grey">
+									<PortableText value={data?.bodyTwo || ""} />
+								</div>
+							)}
 							<Link href="/enquire">
 								<Button
 									size="lg"

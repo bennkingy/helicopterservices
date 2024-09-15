@@ -95,8 +95,29 @@ export default defineType({
 			name: "body",
 			title: "Content",
 			type: "blockContent",
+			hidden: ({ document }) => document?.isLandingPage === true,
 			description: "The main content of the industry page.",
-			validation: (Rule) => Rule.required(),
+			validation: (Rule) =>
+				Rule.custom((body, context) => {
+					if (context.document?.isLandingPage === false && !body) {
+						return "This field is required for industry pages.";
+					}
+					return true;
+				}),
+		}),
+		defineField({
+			name: "bodyTwo",
+			title: "Content",
+			type: "blockContent",
+			hidden: ({ document }) => document?.isLandingPage !== true,
+			description: "The main content of the industry page.",
+			validation: (Rule) =>
+				Rule.custom((bodyTwo, context) => {
+					if (context.document?.isLandingPage === true && !bodyTwo) {
+						return "This field is required for landing pages.";
+					}
+					return true;
+				}),
 		}),
 		defineField({
 			name: "seoDescription",
