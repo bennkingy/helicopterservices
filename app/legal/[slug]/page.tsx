@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
+export const revalidate = 30;
+
 // Define the allowed slugs
 const allowedSlugs = ["cookies", "privacy", "terms-conditions"];
 

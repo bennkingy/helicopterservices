@@ -10,6 +10,8 @@ import Reviews from "./components/Reviews";
 import Tvlogos from "./components/Tvlogos";
 import type { Metadata } from "next";
 
+export const revalidate = 30; // Add this line
+
 export const metadata: Metadata = {
 	title: "Helicopter Services - Expert Training, Charter, and Aerial Services",
 	description:

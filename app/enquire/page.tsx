@@ -12,6 +12,8 @@ export const metadata: Metadata = {
 		"Over 20 years operating as one of the UKs most experienced helicopter training, charter, tours, photography, load lifting and consultancy companies.",
 };
 
+export const revalidate = 30; // Add this line
+
 export default async function Enquire() {
 	const AdditionalContent = () => (
 		<>

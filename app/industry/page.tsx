@@ -13,6 +13,8 @@ export const metadata: Metadata = {
 	description: "Helicopter Services",
 };
 
+export const revalidate = 30;
+
 async function getData(slug: string) {
 	const query = `
     *[_type == "industry" && slug.current == '${slug}'] {
