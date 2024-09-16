@@ -64,6 +64,8 @@ const query = groq`
   }
 }`;
 
+export const revalidate = 30;
+
 async function getNavigationData() {
 	// @ts-ignore
 	let data;

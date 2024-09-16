@@ -16,6 +16,7 @@ async function getPageData(slug: string) {
           seoDescription,
 					threedVideoUrl,
           body,
+					hero,
 					"mainImage": mainImage{
 						...,
 						"imageUrl": asset->url,

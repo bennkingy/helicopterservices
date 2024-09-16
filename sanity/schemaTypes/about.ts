@@ -45,18 +45,11 @@ export default defineType({
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
-			name: "mainImage",
-			title: "Hero Image",
-			type: "image",
-			options: { hotspot: true },
-			description: "Main image for the about page.",
-			hidden: ({ document }) => document?.isLandingPage === true,
-		}),
-		defineField({
 			name: "hero",
 			title: "About Us Image",
 			type: "hero",
-			description: "Hero section for the fleet page.",
+			description: "About us image for the about page.",
+			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
 			name: "body",

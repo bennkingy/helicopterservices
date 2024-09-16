@@ -41,6 +41,8 @@ interface WeatherData {
 	cod: number;
 }
 
+export const revalidate = 0;
+
 export default async function Weather({
 	lat = 51.50114,
 	lon = -0.76371,

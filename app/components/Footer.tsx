@@ -8,9 +8,10 @@ import Weather from "./Weather";
 import logo from "/public/images/LogoLightV2New.svg";
 import { mapLocation } from "@/lib/constants";
 import TextLink from "./TextLink";
-
 import { client } from "@/lib/sanity";
 import { groq } from "next-sanity";
+
+export const revalidate = 30;
 
 // GROQ query to fetch the necessary navigation data
 const query = groq`
