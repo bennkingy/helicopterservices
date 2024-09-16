@@ -54,6 +54,7 @@ export default defineType({
 		}),
 		defineField({
 			name: "hero",
+			title: "About Us Image",
 			type: "hero",
 			description: "Hero section for the fleet page.",
 		}),
