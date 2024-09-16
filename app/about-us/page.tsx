@@ -65,7 +65,7 @@ export default async function About() {
 	return (
 		<main className="overflow-x-hidden">
 			<Hero
-				title="About Helicopter Services"
+				title="About Helicopter<br/>Services"
 				height="h-[calc(100lvh_-_65px)] md:h-[calc(100lvh_-_100px)]"
 			/>
 			<div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">

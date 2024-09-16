@@ -51,7 +51,12 @@ const Hero = ({
 					>
 						<FramerAnimation delay={0}>
 							<h1 className="mb-4 text-4xl leading-10 sm:text-4xl md:text-6xl xl:text-7xl dark:text-white text-white font-extralight font-workSans">
-								{title}
+								{title?.split("<br/>").map((part, index) => (
+									<span key={index}>
+										{part}
+										{index < title.split("<br/>").length - 1 && <br />}
+									</span>
+								))}{" "}
 							</h1>
 						</FramerAnimation>
 						<p className="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl dark:text-white">
