@@ -194,6 +194,11 @@ const nextConfig = {
 				destination: "/fleet",
 				permanent: true,
 			},
+			{
+				source: "/about-us/fleet",
+				destination: "/fleet",
+				permanent: true,
+			},
 			// Flights
 			{
 				source: "/flights/flights",

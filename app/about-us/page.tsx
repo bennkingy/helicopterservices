@@ -1,16 +1,67 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import FramerAnimationSlide from "../components/FramerAnimationSlideIn";
 import Heading from "../components/Heading";
 import Hero from "../components/Hero";
 import Reviews from "../components/Reviews";
+import HelicopterCard from "../components/HelicopterCard";
+import { cn } from "@/lib/utils";
+import { client } from "@/lib/sanity";
+import type { Metadata } from "next";
+
+export const revalidate = 30; // revalidate at most 30 seconds
 
 export const metadata: Metadata = {
 	title: "About us - Helicopter Services",
 	description: "Helicopter Services",
 };
 
+async function getPageData(slug: string) {
+	const query = `
+    *[_type == "about" && slug.current == '${slug}'][0] {
+      "currentSlug": slug.current,
+      title,
+      seoTitle,
+      seoDescription,
+      "aboutPages": aboutSection[]->{
+        title,
+        "slug": slug.current,
+        seoTitle,
+        seoDescription,
+								"mainImage": {
+							...hero.image,
+							"image": hero.image.asset->url,
+							"metadata": hero.image.asset->metadata {
+								dimensions,
+								lqip
+							},
+							"altText": hero.image.altText
+							},
+      },
+      "servicePages": servicesSection[]->{
+        title,
+        "slug": slug.current,
+        seoTitle,
+        seoDescription,
+			"mainImage": {
+							...hero.image,
+							"image": hero.image.asset->url,
+							"metadata": hero.image.asset->metadata {
+								dimensions,
+								lqip
+							},
+							"altText": hero.image.altText
+						},
+      }
+    }
+  `;
+	const data = await client.fetch(query);
+
+	return data;
+}
+
 export default async function About() {
+	const data: any = await getPageData("about-us");
+
 	return (
 		<main className="overflow-x-hidden">
 			<Hero
@@ -82,8 +133,8 @@ export default async function About() {
 					/>
 				</div>
 			</div>
-			<div className="py-20 pt-0 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
-				<div className="mt-10 sm:mt-20 md:mt-0 pr-0 relative col-span-1 flex justify-center mb-20 md:mb-10">
+			<div className="pt-0 pb-6 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
+				<div className="mt-10 sm:mt-20 md:mt-0 pr-0 relative col-span-1 flex justify-center">
 					<FramerAnimationSlide
 						items={[
 							<Image
@@ -133,6 +184,56 @@ export default async function About() {
 					/>
 				</div>
 			</div>
+			<div className="container mb-20 mt-32 xl:mt-0">
+				<h1 className="text-2xl sm:text-3xl font-bold font-workSans mt-12 text-brand-dark-blue mb-6">
+					More on Helicopter Services
+				</h1>
+				<div
+					className={cn(
+						"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-2 gap-x-10",
+					)}
+				>
+					{data?.aboutPages.map((helicopter: any, idx: number) => (
+						<HelicopterCard
+							key={idx}
+							helicopter={helicopter}
+							url={"about-us/"}
+							type="About us"
+						/>
+					))}
+				</div>
+			</div>
+			<div className="container mb-24">
+				<h1 className="text-2xl sm:text-3xl font-bold font-workSans mt-12 text-brand-dark-blue mb-6">
+					Our services
+				</h1>
+				<div
+					className={cn(
+						"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-2 gap-x-10",
+					)}
+				>
+					{data?.servicePages.map((helicopter: any, idx: number) => (
+						<HelicopterCard key={idx} helicopter={helicopter} type="Services" />
+					))}
+				</div>
+			</div>
+			{/*}
+			<h1 className="text-xl font-bold font-workSans mt-12 text-brand-dark-blue">
+				Our services
+			</h1>
+			<div
+				className={cn(
+					"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-2",
+				)}
+			>
+				{data2
+					?.filter((helicopter: any) => helicopter?.category === "Single")
+					// @ts-ignore
+					.sort((a, b) => a.heading.localeCompare(b.heading))
+					.map((helicopter: any, idx: number) => (
+						<HelicopterCard key={idx} helicopter={helicopter} />
+					))}
+			</div> */}
 			<Reviews className="py-20" />
 		</main>
 	);
