@@ -188,6 +188,20 @@ export default async function About() {
 				<h1 className="text-2xl sm:text-3xl font-bold font-workSans mt-12 text-brand-dark-blue mb-6">
 					More on Helicopter Services
 				</h1>
+				<div className="flex sm:max-w-[370px] mb-6">
+					<Image
+						priority
+						quality={100}
+						src={"/images/3d-rotate-Dark.svg"}
+						alt=""
+						width={53}
+						height={47}
+						className="mr-4"
+					/>
+					<p>
+						Some of our helicopter fleet pages feature 3D tours of the cockpit.
+					</p>
+				</div>
 				<div
 					className={cn(
 						"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-2 gap-x-10",
