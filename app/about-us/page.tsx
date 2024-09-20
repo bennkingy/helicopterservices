@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
 
-export const revalidate = 30; // revalidate at most 30 seconds
+export const revalidate = 40; // revalidate at most 30 seconds
 
 export const metadata: Metadata = {
 	title: "About us - Helicopter Services",
