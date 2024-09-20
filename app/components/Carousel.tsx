@@ -99,7 +99,6 @@ const Carousel = ({ slides }: props) => {
 									quality={100}
 									height={370}
 									alt={item.title}
-									priority
 									className={`my-8 rounded-full mx-auto transition-transform duration-300 ${
 										hoveredIndex === index ? "transform scale-105" : ""
 									}`}
