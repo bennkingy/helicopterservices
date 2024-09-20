@@ -36,7 +36,9 @@ const Hero = ({
 			/>
 			<div className={"relative h-full"}>
 				<video
-					src={"/videos/heroVideo.mp4"}
+					src={
+						"https://oewitkauxpfiqmub.public.blob.vercel-storage.com/heroVideo-yyGrigzk0zJcP516LcthcqML1QJu0s.mp4"
+					}
 					autoPlay
 					loop
 					poster="/videos/heroVideo.png"
