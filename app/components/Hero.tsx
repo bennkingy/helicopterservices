@@ -42,7 +42,7 @@ const Hero = ({
 					autoPlay
 					loop
 					poster="/videos/heroVideo.png"
-					preload="auto"
+					preload="metadata"
 					playsInline
 					muted
 					className={`w-full h-full cover absolute object-cover ${height}`}
