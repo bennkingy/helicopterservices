@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		site: "@helicopterservices",
 	},
-	metadataBase: new URL("https://helicopterservices.vercel.app/"),
+	metadataBase: new URL("https://helicopterservices.co.uk/"),
 };
 
 export async function generateViewport(): Promise<Viewport> {
