@@ -72,7 +72,10 @@ export default async function Footer() {
 				<div className="bg-brand-dark-blue dark:bg-black text-white py-20 border-t-4 border-brand-light-blue">
 					<div className="mx-auto flex flex-wrap container justify-between flex-col sm:flex-row">
 						<div>
-							<Link href="/" className="font-mono text-lg font-bold start">
+							<Link
+								href="https://helicopterservices.co.uk"
+								className="font-mono text-lg font-bold start"
+							>
 								<Image
 									src={logo}
 									alt="Helicopter Services"

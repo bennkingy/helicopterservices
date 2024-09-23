@@ -73,7 +73,11 @@ export function NavMenu({
 			>
 				<NavigationMenuList>
 					<NavigationMenuItem className="hidden xl:block" id="home">
-						<Link href="/" legacyBehavior passHref className="text-lg">
+						<Link
+							href="https://helicopterservices.co.uk"
+							passHref
+							className="text-lg"
+						>
 							<NavigationMenuLink
 								className={cn(
 									navigationMenuTriggerStyle(),

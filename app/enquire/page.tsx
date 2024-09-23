@@ -17,7 +17,10 @@ export const revalidate = 30; // Add this line
 export default async function Enquire() {
 	const AdditionalContent = () => (
 		<>
-			<Link href="/" className="font-mono text-lg font-bold start">
+			<Link
+				href="https://helicopterservices.co.uk"
+				className="font-mono text-lg font-bold start"
+			>
 				<Image
 					src={logo}
 					alt="Helicopter Services"

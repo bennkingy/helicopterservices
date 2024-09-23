@@ -44,7 +44,7 @@ export default function NavbarHeader(menuData: any) {
 				className={cn("container flex items-center justify-between", "px-4")}
 			>
 				<Link
-					href="/"
+					href="https://helicopterservices.co.uk"
 					className="font-mono text-lg font-bold start"
 					data-test-id="logo"
 				>
