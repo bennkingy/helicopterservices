@@ -184,6 +184,11 @@ const nextConfig = {
 			},
 			// Contact
 			{
+				source: "/contact-us",
+				destination: "/enquire",
+				permanent: true,
+			},
+			{
 				source: "/contact",
 				destination: "/enquire",
 				permanent: true,
