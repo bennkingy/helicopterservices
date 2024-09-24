@@ -57,7 +57,7 @@ export const columns: ColumnDef<Payment>[] = [
 				href={`/fleet/${row
 					.getValue("title")
 					.toLowerCase()
-					.replace(/\s+/g, "_")}`}
+					.replace(/\s+/g, "-")}`}
 				passHref
 				className="text-brand-orange underline-offset-2 underline uppercase"
 			>
