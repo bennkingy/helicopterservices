@@ -34,7 +34,26 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		site: "@helicopterservices",
 	},
-	metadataBase: new URL("https://helicopterservices.co.uk/"),
+	applicationName: "Helicopter Services",
+	authors: [{ name: "Helicopter Services" }],
+	generator: "Next.js",
+	keywords: [
+		"helicopter services",
+		"type rating instructor",
+		"helicopter lessons",
+		"helicoper training",
+		"aviation licence",
+		"private pilot licence",
+		"charter helicoper",
+		"helicopter taxi",
+		"private pilots licence",
+		"london helicopter tour",
+		"helicopter lessons near me",
+	],
+	referrer: "origin-when-cross-origin",
+	creator: "Helicopter Services",
+	publisher: "Helicopter Services",
+	metadataBase: new URL("https://www.helicopterservices.co.uk/"),
 };
 
 export async function generateViewport(): Promise<Viewport> {
