@@ -48,12 +48,16 @@ export const metadata: Metadata = {
 		"helicopter taxi",
 		"private pilots licence",
 		"london helicopter tour",
+		"helicopter vr simulator",
 		"helicopter lessons near me",
 	],
 	referrer: "origin-when-cross-origin",
 	creator: "Helicopter Services",
 	publisher: "Helicopter Services",
 	metadataBase: new URL("https://www.helicopterservices.co.uk/"),
+	alternates: {
+		canonical: "/",
+	},
 };
 
 export async function generateViewport(): Promise<Viewport> {
