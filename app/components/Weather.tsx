@@ -69,7 +69,7 @@ export default async function Weather({
 				src={`https://openweathermap.org/img/wn/${data?.weather?.[0]?.icon}@2x.png`}
 				width={100}
 				height={100}
-				alt={""}
+				alt={"helicopter services weather"}
 				className="mx-auto"
 			/>
 			<p className="">

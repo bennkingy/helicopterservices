@@ -50,7 +50,7 @@ const Template = ({
 					>
 						<Image
 							src={imageUrl}
-							alt={value.alt || "Image"}
+							alt={value.alt || "Helicopter Services"}
 							height={value.height / 2}
 							width={value.width / 2}
 							objectFit="cover"
@@ -99,7 +99,7 @@ const Template = ({
 										src={image}
 										placeholder={item.blur ? "blur" : undefined}
 										blurDataURL={item.blur ? item.blur : ""}
-										alt={item.alt || ""}
+										alt={item.alt || "Helicopter Services"}
 									/>
 								</span>
 							);

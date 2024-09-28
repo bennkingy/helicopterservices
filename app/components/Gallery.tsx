@@ -47,7 +47,7 @@ const Gallery = forwardRef(
 						src={"/images/3d-rotate-circle.svg"}
 						width={140}
 						height={140}
-						alt="hero image example"
+						alt="3D helicopter cockpit view"
 						onClick={openGallery}
 						className="w-[100px] sm:w-[140px] h-[100px] sm:h-[140px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer pointer-events-none z-[1] group-hover:opacity-80 -mt-[17px]"
 					/>

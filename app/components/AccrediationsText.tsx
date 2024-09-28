@@ -28,7 +28,7 @@ const AccrediationsText = () => {
 							fill
 							quality={100}
 							src={"/images/check1.svg"}
-							alt="img"
+							alt="helicopter services accreditations"
 							className="w-full object-cover"
 						/>
 					</div>

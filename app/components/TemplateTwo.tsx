@@ -132,7 +132,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 								priority
 								quality={100}
 								src={"/images/3d-rotate-Dark.svg"}
-								alt=""
+								alt="3d view of helicopter cockpit"
 								width={53}
 								height={47}
 								className="absolute top-0 right-0"

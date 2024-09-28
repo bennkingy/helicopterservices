@@ -39,7 +39,7 @@ export default async function Enquire() {
 							src="/images/facebook.png"
 							width={25}
 							height={25}
-							alt=""
+							alt="helicopter services facebook"
 							className="mt-1 mr-1"
 						/>
 						Facebook
@@ -51,7 +51,7 @@ export default async function Enquire() {
 							src="/images/instagram.png"
 							width={20}
 							height={20}
-							alt=""
+							alt="helicopter services instagram"
 							className="mt-1 mr-[7px] ml-[2px]"
 						/>
 						Instagram

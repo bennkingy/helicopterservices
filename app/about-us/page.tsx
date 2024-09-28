@@ -193,7 +193,7 @@ export default async function About() {
 						priority
 						quality={100}
 						src={"/images/3d-rotate-Dark.svg"}
-						alt=""
+						alt="3d view of helicopter cockpit"
 						width={53}
 						height={47}
 						className="mr-4"

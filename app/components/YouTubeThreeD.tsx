@@ -47,7 +47,7 @@ const YouTubeThreeD = forwardRef(
 							quality={100}
 							className="img-responsive cursor-pointer max-h-[450px]"
 							src={imageUrl}
-							alt=""
+							alt="helicopter services youtube video"
 							style={{
 								clipPath:
 									"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
