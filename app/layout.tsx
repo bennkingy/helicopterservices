@@ -84,6 +84,8 @@ export default function RootLayout({
 				id="cookieyes"
 				src="https://cdn-cookieyes.com/client_data/e2ee9be7bb054050144f0f50/script.js"
 				type="text/javascript"
+				async
+				strategy="beforeInteractive"
 			/>
 			<body
 				className={`${openSans.variable} ${workSans.variable} antialiased text-rendering-optimizeLegibility font-openSans text-brand-dark-grey overflow-x-hidden`}
