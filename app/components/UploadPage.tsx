@@ -78,7 +78,6 @@ export default function UploadPage() {
 						<h2>Blurred Image:</h2>
 						<Image
 							src={blurDataURL}
-							alt="Blurred Image"
 							width={400}
 							height={400}
 							alt="Helicopter Services"
