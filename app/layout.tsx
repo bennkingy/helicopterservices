@@ -80,6 +80,11 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning className="border-none">
 			<GoogleTagManager gtmId="G-4VTPBZBHK4" />
+			<Script
+				id="cookieyes"
+				src="https://cdn-cookieyes.com/client_data/e2ee9be7bb054050144f0f50/script.js"
+				type="text/javascript"
+			/>
 			<body
 				className={`${openSans.variable} ${workSans.variable} antialiased text-rendering-optimizeLegibility font-openSans text-brand-dark-grey overflow-x-hidden`}
 			>
@@ -98,12 +103,6 @@ export default function RootLayout({
 					<Analytics /> */}
 				</ThemeProvider>
 				{/* Gmap fix */}
-				<Script
-					id="cookieyes"
-					src="https://cdn-cookieyes.com/client_data/e2ee9be7bb054050144f0f50/script.js"
-					type="text/javascript"
-					async
-				/>
 				<Script id="hide-second-gm-style-iw-t" strategy="lazyOnload">
 					{`
 						const elements = document.querySelectorAll('.gm-style-iw-c');
