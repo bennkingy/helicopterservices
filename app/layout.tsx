@@ -7,10 +7,10 @@ import "../styles/globals.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollTop from "./components/ScrollTop";
-// import { SpeedInsights } from "@vercel/speed-insights/next";
-// import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import { headers } from "next/headers";
-import { GoogleTagManager } from "@next/third-parties/google";
+// import { GoogleTagManager } from "@next/third-parties/google";
 
 const workSans = Work_Sans({
 	subsets: ["latin"],
@@ -79,7 +79,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning className="border-none">
-			<GoogleTagManager gtmId="G-4VTPBZBHK4" />
+			{/* <GoogleTagManager gtmId="G-4VTPBZBHK4" /> */}
 			<body
 				className={`${openSans.variable} ${workSans.variable} antialiased text-rendering-optimizeLegibility font-openSans text-brand-dark-grey overflow-x-hidden`}
 			>
@@ -94,8 +94,8 @@ export default function RootLayout({
 					<ScrollTop />
 					<Footer />
 					<Toaster />
-					{/* <SpeedInsights />
-					<Analytics /> */}
+					<SpeedInsights />
+					<Analytics />
 				</ThemeProvider>
 				{/* Gmap fix */}
 				<Script
