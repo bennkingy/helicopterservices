@@ -47,6 +47,11 @@ const nextConfig = {
 				hostname: "helicopterservices.vercel.app",
 				port: "",
 			},
+			{
+				protocol: "https",
+				hostname: "cdn-cookieyes.co",
+				port: "",
+			},
 		],
 	},
 	async headers() {
@@ -284,7 +289,7 @@ const nextConfig = {
 			},
 			{
 				source: "/airtaxi", // Old covid page
-				destination: "/",
+				destination: "/flights",
 				permanent: true,
 			},
 			{
