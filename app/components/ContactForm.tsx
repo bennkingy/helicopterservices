@@ -26,7 +26,7 @@ import { ContactSchema } from "../schema";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const ContacForm = () => {
-	const service = "service_vu59y7v";
+	const service = "service_2zcm8le";
 	const templateId = "template_xbmamql";
 
 	const serviceOptions = {
