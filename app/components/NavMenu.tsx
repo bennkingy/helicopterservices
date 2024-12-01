@@ -93,8 +93,8 @@ export function NavMenu({
 					</NavigationMenuItem>
 					<NavigationMenuItem>
 						<NavigationMenuTrigger
-							onPointerMove={(event) => event.preventDefault()}
-							onPointerLeave={(event) => event.preventDefault()}
+							// onPointerMove={(event) => event.preventDefault()}
+							// onPointerLeave={(event) => event.preventDefault()}
 							className={cn(
 								path.startsWith("/training") &&
 									"bg-accent text-accent-foreground",
@@ -108,8 +108,8 @@ export function NavMenu({
 							</Link>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent
-							onPointerEnter={(event) => event.preventDefault()}
-							onPointerLeave={(event) => event.preventDefault()}
+							// onPointerEnter={(event) => event.preventDefault()}
+							// onPointerLeave={(event) => event.preventDefault()}
 							className="flex rounded-none"
 						>
 							{/* <div className="p-5"> */}
@@ -232,8 +232,8 @@ export function NavMenu({
 					</NavigationMenuItem>
 					<NavigationMenuItem>
 						<NavigationMenuTrigger
-							onPointerMove={(event) => event.preventDefault()}
-							onPointerLeave={(event) => event.preventDefault()}
+							// onPointerMove={(event) => event.preventDefault()}
+							// onPointerLeave={(event) => event.preventDefault()}
 							className={cn(
 								path.startsWith("/industry") &&
 									"bg-accent text-accent-foreground",
@@ -247,8 +247,8 @@ export function NavMenu({
 							</Link>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent
-							onPointerEnter={(event) => event.preventDefault()}
-							onPointerLeave={(event) => event.preventDefault()}
+							// onPointerEnter={(event) => event.preventDefault()}
+							// onPointerLeave={(event) => event.preventDefault()}
 							className="flex"
 						>
 							<div className="p-7 max-w-[250px]">
@@ -291,8 +291,8 @@ export function NavMenu({
 					</NavigationMenuItem>
 					<NavigationMenuItem>
 						<NavigationMenuTrigger
-							onPointerMove={(event) => event.preventDefault()}
-							onPointerLeave={(event) => event.preventDefault()}
+							// onPointerMove={(event) => event.preventDefault()}
+							// onPointerLeave={(event) => event.preventDefault()}
 							className={cn(
 								path.startsWith("/flights") &&
 									"bg-accent text-accent-foreground",
@@ -307,7 +307,7 @@ export function NavMenu({
 						</NavigationMenuTrigger>
 						<NavigationMenuContent
 							onPointerEnter={(event) => event.preventDefault()}
-							onPointerLeave={(event) => event.preventDefault()}
+							// onPointerLeave={(event) => event.preventDefault()}
 							className="flex"
 						>
 							<div className="p-7 max-w-[250px]">
@@ -372,8 +372,8 @@ export function NavMenu({
 					</NavigationMenuItem>
 					<NavigationMenuItem className="hidden 2xl:block">
 						<NavigationMenuTrigger
-							onPointerMove={(event) => event.preventDefault()}
-							onPointerLeave={(event) => event.preventDefault()}
+							// onPointerMove={(event) => event.preventDefault()}
+							// onPointerLeave={(event) => event.preventDefault()}
 							className={cn(
 								path.startsWith("/fleet") && "bg-accent text-accent-foreground",
 							)}
@@ -386,8 +386,8 @@ export function NavMenu({
 							</Link>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent
-							onPointerEnter={(event) => event.preventDefault()}
-							onPointerLeave={(event) => event.preventDefault()}
+							// onPointerEnter={(event) => event.preventDefault()}
+							// onPointerLeave={(event) => event.preventDefault()}
 							className="flex rounded-none"
 						>
 							{/* <div className="p-5"> */}
@@ -473,8 +473,8 @@ export function NavMenu({
 					</NavigationMenuItem>
 					<NavigationMenuItem>
 						<NavigationMenuTrigger
-							onPointerMove={(event) => event.preventDefault()}
-							onPointerLeave={(event) => event.preventDefault()}
+							// onPointerMove={(event) => event.preventDefault()}
+							// onPointerLeave={(event) => event.preventDefault()}
 							className={cn(
 								path.startsWith("/about-us") &&
 									"bg-accent text-accent-foreground",
@@ -488,8 +488,8 @@ export function NavMenu({
 							</Link>
 						</NavigationMenuTrigger>
 						<NavigationMenuContent
-							onPointerEnter={(event) => event.preventDefault()}
-							onPointerLeave={(event) => event.preventDefault()}
+							// onPointerEnter={(event) => event.preventDefault()}
+							// onPointerLeave={(event) => event.preventDefault()}
 							className="flex"
 						>
 							<div className="w-[500px] h-auto relative">
