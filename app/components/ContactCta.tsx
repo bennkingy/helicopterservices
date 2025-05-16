@@ -14,7 +14,7 @@ const ContactCta = ({ className, pilot, service }: props) => {
 	return (
 		<div className={`text-white bg-[#023D67] h-fit ${className}`}>
 			<div className="bg-[#023D67] py-5 text-white p-10 relative">
-				<div className="absolute sm:inset-0 lg:inset-auto m-auto -mt-[50px] lg:right-5 border-4 border-white drop-shadow-sm shadow-xl w-[90px] h-[90px]">
+				<div className="absolute sm:inset-0 lg:inset-auto m-auto -mt-[50px] lg:right-5 border-4 border-white drop-shadow-sm shadow-xl w-[90px] h-[90px] overflow-hidden rounded-full">
 					{pilot?.mainImage ? (
 						<SanityImage sanityImage={pilot.mainImage} />
 					) : (
