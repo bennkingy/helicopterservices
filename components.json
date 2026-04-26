@@ -8,7 +8,8 @@
     "css": "app/globals.css",
     "baseColor": "slate",
     "cssVariables": true,
-    "prefix": ""
+    "prefix": "",
+    "darkMode": false
   },
   "aliases": {
     "components": "@/components",
