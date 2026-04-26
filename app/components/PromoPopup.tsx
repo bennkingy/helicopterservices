@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { X } from "lucide-react";
+import { X, Mail } from "lucide-react";
 
 const STORAGE_KEY = "promo_popup_dismissed";
 
@@ -41,8 +41,8 @@ export default function PromoPopup() {
 					<X className="h-4 w-4 text-gray-700" />
 				</button>
 
-				{/* Image with text overlay */}
-				<div className="relative overflow-hidden rounded-xl shadow-2xl">
+				{/* Image */}
+				<div className="relative overflow-hidden rounded-t-xl shadow-2xl">
 					<Image
 						src="/images/open-day-v2.png"
 						alt="Open Day – Friday 22nd May 2026"
@@ -51,21 +51,22 @@ export default function PromoPopup() {
 						className="w-full h-auto"
 						priority
 					/>
-
-					{/* Bottom CTA strip */}
-					<a
-						href="mailto:Mike.burns@helicopterservices.co.uk?subject=Open%20Day%20Registration%20%E2%80%93%2022nd%20May%202026"
-						className="absolute bottom-0 inset-x-0 bg-brand-dark-blue/85 py-3 px-4 text-center flex flex-col items-center gap-0.5 hover:bg-brand-medium-blue/90 transition-colors"
-						onClick={(e) => e.stopPropagation()}
-					>
-						<span className="text-brand-light-blue text-xs font-bold uppercase">
-							Register your place
-						</span>
-						<span className="text-white text-sm font-bold">
-							Mike.burns@helicopterservices.co.uk
-						</span>
-					</a>
 				</div>
+
+				{/* CTA below image */}
+				<a
+					href="mailto:mike.burns@helicopterservices.co.uk?subject=Open%20Day%20Registration%20%E2%80%93%2022nd%20May%202026"
+					className="flex flex-col items-center gap-0.5 rounded-b-xl bg-brand-dark-blue py-3 px-4 text-center hover:bg-brand-medium-blue transition-colors"
+					onClick={(e) => e.stopPropagation()}
+				>
+					<span className="text-brand-light-blue text-xs font-bold uppercase tracking-widest">
+						Register your place
+					</span>
+					<span className="flex items-center gap-1.5 text-white text-sm font-bold">
+						<Mail className="h-4 w-4 shrink-0" />
+						mike.burns@helicopterservices.co.uk
+					</span>
+				</a>
 			</div>
 		</div>
 	);
