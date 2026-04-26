@@ -41,31 +41,34 @@ export default function PromoPopup() {
 					<X className="h-4 w-4 text-gray-700" />
 				</button>
 
-				{/* Image */}
-				<div className="relative overflow-hidden rounded-t-xl shadow-2xl">
-					<Image
-						src="/images/open-day-v2.png"
-						alt="Open Day – Friday 22nd May 2026"
-						width={800}
-						height={1000}
-						className="w-full h-auto"
-						priority
-					/>
-				</div>
-
-				{/* CTA below image */}
+				{/* Entire card is a CTA link */}
 				<a
 					href="mailto:mike.burns@helicopterservices.co.uk?subject=Open%20Day%20Registration%20%E2%80%93%2022nd%20May%202026"
-					className="flex flex-col items-center gap-0.5 rounded-b-xl bg-brand-dark-blue py-3 px-4 text-center hover:bg-brand-medium-blue transition-colors"
+					className="group block rounded-xl shadow-2xl overflow-hidden"
 					onClick={(e) => e.stopPropagation()}
 				>
-					<span className="text-brand-light-blue text-xs font-bold uppercase tracking-widest">
-						Register your place
-					</span>
-					<span className="flex items-center gap-1.5 text-white text-sm font-bold">
-						<Mail className="h-4 w-4 shrink-0" />
-						mike.burns@helicopterservices.co.uk
-					</span>
+					{/* Image */}
+					<div className="relative">
+						<Image
+							src="/images/open-day-v2.png"
+							alt="Open Day – Friday 22nd May 2026"
+							width={800}
+							height={1000}
+							className="w-full h-auto"
+							priority
+						/>
+					</div>
+
+					{/* CTA bar */}
+					<div className="flex flex-col items-center gap-0.5 bg-brand-dark-blue group-hover:bg-brand-medium-blue transition-colors py-3 px-4 text-center">
+						<span className="text-brand-light-blue text-xs font-bold uppercase tracking-widest">
+							Register your place
+						</span>
+						<span className="flex items-center gap-1.5 text-white text-sm font-bold">
+							<Mail className="h-4 w-4 shrink-0" />
+							mike.burns@helicopterservices.co.uk
+						</span>
+					</div>
 				</a>
 			</div>
 		</div>
