@@ -7,7 +7,7 @@ import "../styles/globals.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollTop from "./components/ScrollTop";
-import PromoPopup from "./components/PromoPopup";
+// import PromoPopup from "./components/PromoPopup";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { headers } from "next/headers";
@@ -97,7 +97,7 @@ export default function RootLayout({
 					{children}
 					<ScrollTop />
 					<Footer />
-					<PromoPopup />
+					{/* <PromoPopup /> */}
 					<Toaster />
 					<SpeedInsights />
 					<Analytics />
