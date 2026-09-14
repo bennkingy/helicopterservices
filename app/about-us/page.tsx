@@ -121,7 +121,7 @@ export default async function About() {
 								className="pr-10 md:pl-10 sm:pr-10 md:pr-10 lg:pr-20"
 							/>,
 							<Image
-								src="/image/helicopter-caves.jpg"
+								src="/image/helciopter-caves.jpg"
 								alt="Helicopter Services"
 								width={240}
 								height={240}
