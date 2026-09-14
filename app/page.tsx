@@ -244,7 +244,7 @@ export default async function Home() {
 									className="pr-10 md:pl-10 sm:pr-10 md:pr-10 lg:pr-20"
 								/>,
 								<Image
-									src="/images/vr.jpg"
+									src="/images/cockpit.jpg"
 									alt="Helicopter Services"
 									width={240}
 									height={240}
