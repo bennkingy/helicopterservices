@@ -98,7 +98,7 @@ export default async function About() {
 						]}
 					/>
 				</div>
-				<div className="pl-0 md:pl-10 order-first md:order-none">
+				<div className="pl-0 md:pl-10 order-first md:order-none md:self-center">
 					<Heading
 						title={award.heading}
 						className="mb-8 mt-16 md:mt-0"
