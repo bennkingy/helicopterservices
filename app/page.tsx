@@ -46,13 +46,14 @@ export default async function Home() {
 				</div>
 			</div>
 			<div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
-				<div className="pr-0 relative col-span-1 flex justify-center md:-mt-20 xl:mt-0">
+				<div className="pr-0 relative col-span-1 flex justify-start md:-mt-20 xl:mt-0">
 					<FramerAnimationSlide
+						className="w-full"
 						items={[
 							<Image
 								{...about.mainImage}
 								key={1}
-								className="pr-10 sm:pr-10 md:pr-10 lg:pr-32"
+								className="w-full h-auto pr-10 lg:pr-24"
 							/>,
 							<Image
 								{...about.secondaryImage}
@@ -173,13 +174,14 @@ export default async function Home() {
 				</div>
 			</div>
 			<div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 justify-center relative">
-				<div className="pr-0 relative col-span-1 flex justify-center md:-mt-20 lg:mt-0">
+				<div className="pr-0 relative col-span-1 flex justify-start md:-mt-20 lg:mt-0">
 					<FramerAnimationSlide
+						className="w-full"
 						items={[
 							<Image
 								{...industry.mainImage}
 								key={1}
-								className="pr-10 sm:pr-10 md:pr-10 lg:pr-32"
+								className="w-full h-auto pr-10 lg:pr-24"
 							/>,
 							<Image
 								{...industry.secondaryImage}

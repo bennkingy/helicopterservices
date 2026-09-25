@@ -22,12 +22,18 @@ const variants = {
 	}),
 };
 
-const FramerAnimationSlideIn = ({ items }: { items: Array<any> }) => {
+const FramerAnimationSlideIn = ({
+	items,
+	className = "",
+}: {
+	items: Array<any>;
+	className?: string;
+}) => {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true });
 
 	return (
-		<div ref={ref} className="flex flex-col justify-center gap-2">
+		<div ref={ref} className={`flex flex-col justify-center gap-2 ${className}`}>
 			{items.map((item, index) => (
 				<motion.div
 					key={index}

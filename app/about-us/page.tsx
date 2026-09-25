@@ -81,13 +81,14 @@ export default async function About() {
 				</div>
 			</div>
 			<div className="pt-0 pb-6 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
-				<div className="mt-10 sm:mt-20 md:mt-0 pr-0 relative col-span-1 flex justify-center">
+				<div className="mt-10 sm:mt-20 md:mt-0 pr-0 relative col-span-1 flex justify-start">
 					<FramerAnimationSlide
+						className="w-full"
 						items={[
 							<Image
 								{...award.mainImage}
 								key={1}
-								className="pr-10 sm:pr-10 md:pr-10 lg:pr-32"
+								className="w-full h-auto pr-10 lg:pr-24"
 							/>,
 							<Image
 								{...award.secondaryImage}
