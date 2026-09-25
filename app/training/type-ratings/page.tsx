@@ -1,42 +1,23 @@
 import { ComparisonTable } from "@/app/components/ComparisonTable";
 import HelicopterCard from "@/app/components/HelicopterCard";
 import Template from "@/app/components/Template";
+import { bodyQuery } from "@/lib/queries";
 import { client } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
+import { sanityMetadata } from "@/lib/seo";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
 async function getTypeRatingsData(slug: string) {
 	const query = `
-    *[_type == "training" && slug.current == '${slug}'] {
+    *[_type == "training" && slug.current == $slug] {
         "currentSlug": slug.current,
           title,
           seoTitle,
 						shortTitle,
           seoDescription,
-					body[]{
-					...,
-					_type == 'gallery' => {
-						...,
-						images[]{
-							...,
-							"imageUrl": asset->url,
-							"width": asset->metadata.dimensions.width,
-							"height": asset->metadata.dimensions.height,
-							alt,
-							blur
-						}
-					},
-					_type == 'image' => {
-						...,
-						"imageUrl": asset->url,
-						"width": asset->metadata.dimensions.width,
-						"height": asset->metadata.dimensions.height,
-						alt,
-						blur
-					},
-				},
+					${bodyQuery},
 				mainImage{
 				...,
 				"mainImage": asset->url,
@@ -60,13 +41,13 @@ async function getTypeRatingsData(slug: string) {
 					},
         },
       }[0]`;
-	const data = await client.fetch(query);
+	const data = await client.fetch(query, { slug });
 	return data;
 }
 
 async function getPageData(slug: string) {
 	const query = `
-    *[_type == "fleet" && slug.current == '${slug}'] {
+    *[_type == "fleet" && slug.current == $slug] {
         "currentSlug": slug.current,
 					"service": service[]{
 					heading,
@@ -83,7 +64,7 @@ async function getPageData(slug: string) {
 					}
       }
       }[0]`;
-	const data = await client.fetch(query);
+	const data = await client.fetch(query, { slug });
 
 	return data;
 }
@@ -104,10 +85,14 @@ async function getHelicopterData() {
 	return data;
 }
 
-export const metadata: Metadata = {
-	title: "Type Ratings - Helicopter Services",
-	description: "Helicopter Services",
-};
+export function generateMetadata(): Promise<Metadata> {
+	return sanityMetadata(
+		'_type == "training" && slug.current == $slug',
+		{ slug: "type-ratings" },
+		"/training/type-ratings",
+		"Type Ratings - Helicopter Services",
+	);
+}
 
 export default async function FleetPage({
 	params,
@@ -130,9 +115,9 @@ export default async function FleetPage({
 							)}
 						/>
 
-						<h1 className="text-xl font-bold font-workSans mt-12 text-brand-dark-blue">
+						<h2 className="text-xl font-bold font-workSans mt-12 text-brand-dark-blue">
 							Twin engine
-						</h1>
+						</h2>
 						<div
 							className={cn(
 								"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6",
@@ -146,9 +131,9 @@ export default async function FleetPage({
 									<HelicopterCard key={idx} helicopter={helicopter} />
 								))}
 						</div>
-						<h1 className="text-xl font-bold font-workSans mt-12 text-brand-dark-blue">
+						<h2 className="text-xl font-bold font-workSans mt-12 text-brand-dark-blue">
 							Single engine
-						</h1>
+						</h2>
 						<div
 							className={cn(
 								"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-2",

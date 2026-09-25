@@ -53,9 +53,10 @@ export default defineType({
 			title: "Helicopters",
 			type: "array",
 			of: [{ type: "service" }],
-			hidden: ({ document }) => document?.isLandingPage !== true,
-			description:
-				"List of helicopters provided, shown only on the landing page.",
+			// No longer used. The fleet page lists every helicopter document
+			// automatically, grouped by engine type. Kept hidden so existing data
+			// isn't flagged as an unknown field.
+			hidden: true,
 		}),
 		defineField({
 			name: "helicopterType",

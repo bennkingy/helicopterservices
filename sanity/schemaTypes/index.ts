@@ -9,6 +9,7 @@ import { imageGalleryType } from "./imageGalleryType";
 import industry from "./industry";
 import legal from "./legal";
 import pilots from "./pilot";
+import promoPopup from "./promoPopup";
 import { serviceType } from "./serviceType";
 import settings, { dayHours, link, faq } from "./settings";
 import training from "./training";
@@ -31,4 +32,5 @@ export const schemaTypes = [
 	fleet,
 	homepage,
 	faq,
+	promoPopup,
 ];

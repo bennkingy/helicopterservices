@@ -1,21 +1,23 @@
 import { FAQ } from "@/app/components/FAQ";
 import Template from "@/app/components/Template";
 import type { training } from "@/lib/interface";
-import { client } from "@/lib/sanity";
+import { bodyQuery } from "@/lib/queries";
+import { client, slugParams } from "@/lib/sanity";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
 async function getPageData(slug: string) {
 	const query = `
-    *[_type == "about" && slug.current == '${slug}'] {
+    *[_type == "about" && slug.current == $slug] {
         "currentSlug": slug.current,
           title,
           seoTitle,
           seoDescription,
 					threedVideoUrl,
-          body,
+          ${bodyQuery},
 					hero,
 					"mainImage": mainImage{
 						...,
@@ -27,12 +29,12 @@ async function getPageData(slug: string) {
 						"width": asset->metadata.dimensions.width,
 					}
       }[0]`;
-	const data = await client.fetch(query);
+	const data = await client.fetch(query, { slug });
 
 	return data;
 }
 
-export async function generateMetadata({
+async function baseMetadata({
 	params,
 }: { params: { slug: string } }): Promise<Metadata> {
 	const data: training = await getPageData(params.slug.toLowerCase());
@@ -79,4 +81,14 @@ export default async function AboutPage({
 			</Template>
 		</>
 	);
+}
+
+export async function generateMetadata({
+	params,
+}: { params: { slug: string } }): Promise<Metadata> {
+	return pageMetadata(await baseMetadata({ params }), `/about-us/${params.slug.toLowerCase()}`);
+}
+
+export function generateStaticParams() {
+	return slugParams("about", ["about-us", "faqs", "meet-the-team"]);
 }

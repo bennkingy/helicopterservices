@@ -23,6 +23,9 @@ export const ContactSchema = z.object({
     message: "Contact number must contain only digits"
   }),
 
+  // The specific page or course within the requirement. Optional.
+  service: z.string().optional(),
+
   requirement: z.string().min(1, {
     message: "Please select your requirement"
   }),

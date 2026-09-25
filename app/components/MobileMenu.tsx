@@ -9,7 +9,25 @@ import { Icons } from "@/components/ui/icons";
 import Image from "next/image";
 import OpenClosed from "./OpenClosed";
 
-const initialMenus = {
+type MenuItem = {
+	title: string;
+	slug: string;
+	submenu?: string;
+	viewAll?: boolean;
+	isViewAll?: boolean;
+	isCategoryTitle?: boolean;
+};
+
+// A page as it comes from the navigation query.
+type CmsPage = {
+	title: string;
+	shortTitle?: string;
+	slug: string;
+	engineType?: string;
+	category?: Record<string, boolean>;
+};
+
+const initialMenus: Record<string, MenuItem[]> = {
 	main: [
 		{ title: "Home", slug: "/" },
 		{ title: "Training", slug: "/training", submenu: "trainingMenu" },
@@ -40,9 +58,9 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 			const updatedMenus = { ...initialMenus };
 
 			// Function to update menu items
-			const updateMenuItems = (menuName, items) => {
+			const updateMenuItems = (menuName: string, items: CmsPage[]) => {
 				//@ts-ignore
-				const menuItems = items.map((item) => ({
+				const menuItems = items.map((item: CmsPage) => ({
 					title: item.shortTitle || item.title,
 					slug: `/${menuName === "about" ? "about-us" : menuName}/${item.slug}`,
 				}));
@@ -61,13 +79,13 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 			};
 
 			if (formattedData.training) {
-				const trainingCategories = {
+				const trainingCategories: Record<string, CmsPage[]> = {
 					licenses: [],
 					flightRatings: [],
 					simulators: [],
 					other: [],
 				};
-				formattedData.training.forEach((item) => {
+				formattedData.training.forEach((item: CmsPage) => {
 					const category = item.category;
 					if (category) {
 						if (category.licenses) trainingCategories.licenses.push(item);
@@ -78,11 +96,11 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 					}
 				});
 
-				const sortItems = (a, b) => a.title.localeCompare(b.title);
+				const sortItems = (a: CmsPage, b: CmsPage) => a.title.localeCompare(b.title);
 
 				updatedMenus.trainingMenu = [
 					{ title: "Licences", slug: "#", isCategoryTitle: true },
-					...trainingCategories.licenses.sort(sortItems).map((item) => ({
+					...trainingCategories.licenses.sort(sortItems).map((item: CmsPage) => ({
 						title: item.shortTitle || item.title,
 						slug: `/training/${item.slug}`,
 					})),
@@ -91,17 +109,17 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 						slug: "#",
 						isCategoryTitle: true,
 					},
-					...trainingCategories.flightRatings.sort(sortItems).map((item) => ({
+					...trainingCategories.flightRatings.sort(sortItems).map((item: CmsPage) => ({
 						title: item.shortTitle || item.title,
 						slug: `/training/${item.slug}`,
 					})),
 					{ title: "Simulators", slug: "#", isCategoryTitle: true },
-					...trainingCategories.simulators.sort(sortItems).map((item) => ({
+					...trainingCategories.simulators.sort(sortItems).map((item: CmsPage) => ({
 						title: item.shortTitle || item.title,
 						slug: `/training/${item.slug}`,
 					})),
 					{ title: "Other", slug: "#", isCategoryTitle: true },
-					...trainingCategories.other.sort(sortItems).map((item) => ({
+					...trainingCategories.other.sort(sortItems).map((item: CmsPage) => ({
 						title: item.shortTitle || item.title,
 						slug: `/training/${item.slug}`,
 					})),
@@ -112,18 +130,18 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 				updateMenuItems(
 					"industry",
 					formattedData.industry.filter(
-						(item) => item.title.toLowerCase() !== "industry",
+						(item: CmsPage) => item.title.toLowerCase() !== "industry",
 					),
 				);
 			}
 
 			if (formattedData.flights) {
-				const flightCategories = {
+				const flightCategories: Record<string, CmsPage[]> = {
 					flights: [],
 					tours: [],
 				};
 
-				formattedData.flights.forEach((item) => {
+				formattedData.flights.forEach((item: CmsPage) => {
 					const category = item.category;
 					if (category) {
 						if (category.flights) flightCategories.flights.push(item);
@@ -131,16 +149,16 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 					}
 				});
 
-				const sortItems = (a, b) => a.title.localeCompare(b.title);
+				const sortItems = (a: CmsPage, b: CmsPage) => a.title.localeCompare(b.title);
 
 				updatedMenus.flightsMenu = [
 					{ title: "Flights", slug: "#", isCategoryTitle: true },
-					...flightCategories.flights.sort(sortItems).map((item) => ({
+					...flightCategories.flights.sort(sortItems).map((item: CmsPage) => ({
 						title: item.title,
 						slug: `/flights/${item.slug}`,
 					})),
 					{ title: "Tours", slug: "#", isCategoryTitle: true },
-					...flightCategories.tours.sort(sortItems).map((item) => ({
+					...flightCategories.tours.sort(sortItems).map((item: CmsPage) => ({
 						title: item.title,
 						slug: `/flights/${item.slug}`,
 					})),
@@ -149,26 +167,26 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 
 			// Update the fleet menu with "Single" and "Twin" headers
 			if (formattedData.fleet) {
-				const fleetCategories = {
+				const fleetCategories: Record<string, CmsPage[]> = {
 					Single: [],
 					Twin: [],
 				};
 
-				formattedData.fleet.forEach((item) => {
+				formattedData.fleet.forEach((item: CmsPage) => {
 					if (item.engineType === "Single") fleetCategories.Single.push(item);
 					if (item.engineType === "Twin") fleetCategories.Twin.push(item);
 				});
 
-				const sortItems = (a, b) => a.title.localeCompare(b.title);
+				const sortItems = (a: CmsPage, b: CmsPage) => a.title.localeCompare(b.title);
 
 				updatedMenus.fleetMenu = [
 					{ title: "Single", slug: "#", isCategoryTitle: true },
-					...fleetCategories.Single.sort(sortItems).map((item) => ({
+					...fleetCategories.Single.sort(sortItems).map((item: CmsPage) => ({
 						title: item.title,
 						slug: `/fleet/${item.slug}`,
 					})),
 					{ title: "Twin", slug: "#", isCategoryTitle: true },
-					...fleetCategories.Twin.sort(sortItems).map((item) => ({
+					...fleetCategories.Twin.sort(sortItems).map((item: CmsPage) => ({
 						title: item.title,
 						slug: `/fleet/${item.slug}`,
 					})),
@@ -306,7 +324,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 												{item.title}
 												<div
 													className="px-3 py-3"
-													onClick={(e) => handleMenuClick(e, item.submenu)}
+													onClick={(e) => handleMenuClick(e, item.submenu ?? "main")}
 												>
 													<Icons.chevronRight
 														size={20}
@@ -340,7 +358,6 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 													src="/images/phone-orange.svg"
 													alt="phone"
 													height={20}
-													quality={100}
 													width={20}
 													className="mr-2"
 												/>
@@ -368,7 +385,7 @@ export default MobileMenu;
 function debounce(func: { (): void; apply?: any }, wait: number | undefined) {
 	// biome-ignore lint/suspicious/noImplicitAnyLet: <explanation>
 	let timeout: any;
-	return function (...args: any) {
+	return function (this: unknown, ...args: any) {
 		clearTimeout(timeout);
 		timeout = setTimeout(() => func.apply(this, args), wait);
 	};

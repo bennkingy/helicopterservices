@@ -26,7 +26,6 @@ const AccrediationsText = () => {
 						<Image
 							priority
 							fill
-							quality={100}
 							src={"/images/check1.svg"}
 							alt="helicopter services accreditations"
 							className="w-full object-cover"

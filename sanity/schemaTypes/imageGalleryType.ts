@@ -16,6 +16,15 @@ export const imageGalleryType = defineType({
 					name: "image",
 					type: "image",
 					options: { hotspot: true },
+					fields: [
+						{
+							name: "alt",
+							type: "string",
+							title: "Alternative text",
+							description:
+								"Describe the image for screen readers and search engines. Leave blank to use the alt text set on the image in the Media library.",
+						},
+					],
 				}),
 			],
 			options: {

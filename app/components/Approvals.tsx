@@ -14,7 +14,6 @@ const Approvals = () => {
 			src="/images/approvals.svg"
 			alt="Helicopter Services"
 			width={300}
-			quality={100}
 			height={100}
 			className="mt-12"
 			placeholder="blur"

@@ -22,10 +22,23 @@ import { useStore } from "@nanostores/react";
 import OpenClosed from "./OpenClosed";
 
 // @ts-ignore
+// A page as it comes from the navigation query.
+type NavPage = {
+	title: string;
+	shortTitle?: string;
+	slug: string;
+	engineType?: string;
+	category?: Record<string, boolean>;
+	[key: string]: any;
+};
+
 export function NavMenu({
 	menuData,
 	onMobileOpen,
-}: { onMobileOpen: () => void; menuData: any }) {
+}: {
+	onMobileOpen: () => void;
+	menuData?: { menuData?: Record<string, NavPage[]> };
+}) {
 	const path = usePathname();
 	const isHovered = useStore(hoverStore);
 
@@ -219,7 +232,6 @@ export function NavMenu({
 									placeholder="blur"
 									blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAECAIAAAArjXluAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAJUlEQVR4nGNgl1VlYONluPX/f/vS3QwNq7Y1z57OoObgpu7iAQCHQwoQq8g8EgAAAABJRU5ErkJggg=="
 									priority
-									quality={100}
 									className="object-cover"
 								/>
 							</div>
@@ -283,7 +295,6 @@ export function NavMenu({
 									blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAI0lEQVR4nGN49uzF7n1HM7Ny//37wcDJwsDJx+noJZWQpQIAueIK57IS+4IAAAAASUVORK5CYII="
 									fill
 									priority
-									quality={100}
 									className="object-cover"
 								/>
 							</div>
@@ -365,7 +376,6 @@ export function NavMenu({
 									blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAMklEQVR4nAEnANj/AFqe5KHQ/3rH/6/l/wBwsOZKcJS00fDr/f8AAAgFAAITGCUyAA4UygISgzsbSj4AAAAASUVORK5CYII="
 									className="h-full object-cover"
 									priority
-									quality={100}
 								/>
 							</div>
 						</NavigationMenuContent>
@@ -463,7 +473,6 @@ export function NavMenu({
 									alt="industry"
 									fill
 									priority
-									quality={100}
 									blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAP0lEQVR4nAE0AMv/APL6/+Dp/9Tf/d/n/gCTmq+mrr+Fh5nO2fEAlJuVrrOuBQIAODs8ALasTL2vUbutTreqTpEEHq3vNREcAAAAAElFTkSuQmCC"
 									placeholder="blur"
 									className="object-cover"
@@ -501,7 +510,6 @@ export function NavMenu({
 									blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAIAAADwyuo0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAI0lEQVR4nGMw1lJxtDFlYWLg5uZmuH9k2/8/n69fvxUZEQcAXXwKOWElP7QAAAAASUVORK5CYII="
 									className="h-full object-cover"
 									priority
-									quality={100}
 								/>
 							</div>
 							<div className="p-7 max-w-[250px]">
@@ -561,7 +569,6 @@ export function NavMenu({
 							src="/images/phone-orange.svg"
 							alt="phone"
 							height={20}
-							quality={100}
 							width={20}
 							className="mr-2"
 						/>

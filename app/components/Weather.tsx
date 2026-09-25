@@ -41,7 +41,6 @@ interface WeatherData {
 	cod: number;
 }
 
-export const revalidate = 0;
 
 export default async function Weather({
 	lat = 51.50114,
@@ -52,7 +51,7 @@ export default async function Weather({
 	const response = await fetch(
 		`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`,
 		{
-			next: { revalidate: 10 },
+			next: { revalidate: 600 },
 		},
 	);
 

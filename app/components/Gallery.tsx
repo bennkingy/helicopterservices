@@ -22,22 +22,30 @@ type props = {
 
 const Gallery = forwardRef(
 	({ className, galleryType, children, amount }: props, ref) => {
-		let lightGalleryRef = useRef<ILightGallery>(null);
+		const lightGalleryRef = useRef<ILightGallery | null>(null);
 
-		const onInit = useCallback((detail: { instance: any }): any => {
-			if (detail) {
-				// @ts-ignore
+		const onInit = useCallback((detail: { instance: ILightGallery }) => {
+			if (detail.instance) {
 				lightGalleryRef.current = detail.instance;
 			}
 		}, []);
 
 		useImperativeHandle(ref, () => ({
-			openGallery,
+			openGallery: () => lightGalleryRef?.current?.openGallery(),
 		}));
 
 		const openGallery = () => {
 			lightGalleryRef?.current?.openGallery();
 		};
+
+		// Photo galleries read a small thumbnail from each item's data-thumb, so
+		// the hidden thumbnail strip doesn't download the full-size images. A
+		// single image needs no thumbnail strip at all.
+		const plugins =
+			galleryType === "gallery-single"
+				? [lgZoom]
+				: [lgZoom, lgVideo, lgThumbnail];
+		const exThumbImage = galleryType === "gallery" ? "data-thumb" : "";
 
 		return (
 			<div className={`relative group ${className}`}>
@@ -54,12 +62,10 @@ const Gallery = forwardRef(
 				)}
 				<LightGallery
 					onInit={onInit}
-					// @ts-ignore
-					ref={lightGalleryRef}
-					plugins={[lgZoom, lgVideo, lgThumbnail]}
+					plugins={plugins}
+					exThumbImage={exThumbImage}
 					mode="lg-fade"
-					// hideScrollbar={true}
-					loadYoutubeThumbnail={true}
+					loadYouTubeThumbnail={true}
 					autoplayFirstVideo={
 						galleryType === "video" || galleryType === "3d-video"
 					}

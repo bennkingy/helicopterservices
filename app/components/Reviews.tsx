@@ -92,7 +92,6 @@ const Reviews = ({ className }: props) => {
 										>
 											<Image
 												src={review?.img}
-												quality={100}
 												width={80}
 												height={80}
 												alt="Title Image"

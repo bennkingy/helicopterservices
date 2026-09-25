@@ -1,98 +1,52 @@
 import { client } from "@/lib/sanity";
+import { SITE_URL } from "@/lib/seo";
 import type { MetadataRoute } from "next";
 
-// Ensure the route is treated as dynamic
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-export const dynamicParams = true;
+export const revalidate = 3600;
 
-interface Page {
-	currentSlug: string;
-	updated: Date;
-}
+type Page = { slug: string; updated: string; isLandingPage?: boolean };
 
-async function fetchData(contentType: string): Promise<Page[]> {
-	const query = `*[_type == "${contentType}"] {
-		"currentSlug": slug.current,
-		"updated": _updatedAt
-	}`;
-	return await client.fetch(query, { cache: "no-cache" });
-}
+// Sanity document type and the URL section its pages live under.
+const sections = [
+	{ type: "training", path: "training" },
+	{ type: "industry", path: "industry" },
+	{ type: "flights", path: "flights" },
+	{ type: "fleet", path: "fleet" },
+	{ type: "about", path: "about-us" },
+	{ type: "legal", path: "legal" },
+] as const;
+
+const query = `*[_type == $type && defined(slug.current) && !(_id in path("drafts.**"))]{
+	"slug": slug.current,
+	"updated": _updatedAt,
+	isLandingPage
+}`;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-	const contentTypes = [
-		"training",
-		"about",
-		"flights",
-		"legal",
-		"industry",
-		"fleet",
-	];
-	const allData = await Promise.all(contentTypes.map(fetchData));
+	const today = new Date().toISOString().split("T")[0];
+	const entry = (path: string, lastModified: string = today) => ({
+		url: `${SITE_URL}${path}`,
+		changeFrequency: "weekly" as const,
+		lastModified,
+	});
 
-	const [
-		trainingData,
-		aboutData,
-		flightsData,
-		legalData,
-		industryData,
-		fleetData,
-	] = allData;
+	const pagesBySection = await Promise.all(
+		sections.map(({ type }) => client.fetch<Page[]>(query, { type })),
+	);
 
-	const mapPagesToSitemap = (
-		data: Page[],
-		baseUrl: string,
-	): MetadataRoute.Sitemap => {
-		return data
-			.filter((page: Page) => page.currentSlug !== baseUrl)
-			.map((page: Page) => ({
-				url: `https://helicopterservices.co.uk/${baseUrl}/${page.currentSlug}`,
-				changeFrequency: "weekly",
-				lastModified: page.updated,
-			}));
-	};
+	const sectionEntries = sections.flatMap(({ path }, index) => {
+		const pages = pagesBySection[index];
+		const landing = pages.find(
+			(page) => page.isLandingPage || page.slug === path,
+		);
+		const children = pages
+			.filter((page) => page !== landing)
+			.map((page) => entry(`/${path}/${page.slug}`, page.updated));
+		// Legal has no landing page of its own.
+		return path === "legal"
+			? children
+			: [entry(`/${path}`, landing?.updated), ...children];
+	});
 
-	return [
-		{
-			url: `https://helicopterservices.co.uk`,
-			changeFrequency: "weekly",
-			lastModified: new Date().toISOString().split("T")[0],
-		},
-		{
-			url: `https://helicopterservices.co.uk/training`,
-			changeFrequency: "weekly",
-			lastModified: new Date().toISOString().split("T")[0],
-		},
-		...mapPagesToSitemap(trainingData, "training"),
-		{
-			url: `https://helicopterservices.co.uk/industry`,
-			changeFrequency: "weekly",
-			lastModified: new Date().toISOString().split("T")[0],
-		},
-		...mapPagesToSitemap(industryData, "industry"),
-		{
-			url: `https://helicopterservices.co.uk/flights`,
-			changeFrequency: "weekly",
-			lastModified: new Date().toISOString().split("T")[0],
-		},
-		...mapPagesToSitemap(flightsData, "flights"),
-		{
-			url: `https://helicopterservices.co.uk/fleet`,
-			changeFrequency: "weekly",
-			lastModified: new Date().toISOString().split("T")[0],
-		},
-		...mapPagesToSitemap(fleetData, "fleet"),
-		{
-			url: `https://helicopterservices.co.uk/about-us`,
-			changeFrequency: "weekly",
-			lastModified: new Date().toISOString().split("T")[0],
-		},
-		...mapPagesToSitemap(aboutData, "about-us"),
-		{
-			url: `https://helicopterservices.co.uk/enquire`,
-			changeFrequency: "weekly",
-			lastModified: new Date().toISOString().split("T")[0],
-		},
-		...mapPagesToSitemap(legalData, "legal"),
-	];
+	return [entry("/"), ...sectionEntries, entry("/enquire")];
 }

@@ -32,3 +32,13 @@ export function urlFor(source: any) {
 //     metadata,
 //   };
 // // }
+
+// Slugs to pre-build for a [slug] route, so those pages are cached like the
+// rest of the site. Slugs with their own dedicated route are left out.
+export async function slugParams(type: string, exclude: string[] = []) {
+	const slugs = await client.fetch<string[]>(
+		`*[_type == $type && isLandingPage != true && defined(slug.current) && !(slug.current in $exclude) && !(_id in path("drafts.**"))].slug.current`,
+		{ type, exclude },
+	);
+	return slugs.map((slug) => ({ slug }));
+}

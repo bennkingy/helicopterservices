@@ -7,17 +7,22 @@ import Header from "../components/Header";
 import Heading from "../components/Heading";
 import ServiceCard from "../components/ServiceCard";
 import { PortableText } from "next-sanity";
+import { sanityMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-	title: "Flights - Helicopter Services",
-	description: "Helicopter Services",
-};
+export function generateMetadata(): Promise<Metadata> {
+	return sanityMetadata(
+		'_type == "flights" && isLandingPage == true',
+		{},
+		"/flights",
+		"Flights - Helicopter Services",
+	);
+}
 
 export const revalidate = 30; // Add this line
 
 async function getData(slug: string) {
 	const query = `
-    *[_type == "flights" && slug.current == '${slug}'] {
+    *[_type == "flights" && slug.current == $slug] {
         "currentSlug": slug.current,
           title,
 									"pilot": pilot->{
@@ -60,7 +65,7 @@ async function getData(slug: string) {
 					description
 				}
       }[0]`;
-	const data = await client.fetch(query);
+	const data = await client.fetch(query, { slug });
 
 	return data;
 }

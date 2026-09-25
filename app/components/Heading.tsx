@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 import IconsHelper from "./IconsHelper";
 interface HeadingProps {
   title: string;
+  // Heading level for the title. Use h1 once per page, for the page title.
+  as?: 'h1' | 'h2' | 'h3';
   titleStyles?: any;
   subtitle?: string;
   tag?: string;
@@ -18,6 +20,7 @@ interface HeadingProps {
 
 const Heading: React.FC<HeadingProps> = ({
   title,
+  as: Title = 'h2',
   titleStyles,
   subtitle,
   iconSize,
@@ -35,8 +38,8 @@ const Heading: React.FC<HeadingProps> = ({
         <div className={`${center ? 'justify-center' : 'justify-start'} font-workSans flex text-brand-light-blue text-lg`}>
           {tag ? (<div className={`flex justify-center ${iconStyles}`}><IconsHelper iconColor={iconColor} iconSize={iconSize} iconType={iconType} className={'mr-2'} /><div className={cn(`font-normal ${tagSize}`)}>{tag}</div></div>) : null}
         </div>
-        <div className={cn(`font-bold mt-2 text-brand-dark-blue ${titleStyles}`)}>{title}</div>
-        <div className='font-light text-neutral-500 mt-2'>{subtitle}</div>
+        <Title className={cn(`font-bold mt-2 text-brand-dark-blue ${titleStyles}`)}>{title}</Title>
+        {subtitle ? <p className='font-light text-neutral-500 mt-2'>{subtitle}</p> : null}
       </div>
     </div>
   );

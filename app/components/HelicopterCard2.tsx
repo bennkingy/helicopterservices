@@ -23,6 +23,9 @@ const HelicopterCard2 = async ({ helicopter, url }: any) => {
 								<SanityImage
 									sanityImage={helicopter?.image || helicopter?.gallerySingle}
 									cover
+									// Cover-cropped 3:2 images render wider than the 120px box, more on hover.
+									sizes="240px"
+									quality={90}
 									imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
 								/>
 							))}

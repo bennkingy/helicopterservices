@@ -1,9 +1,9 @@
 import ContactCta from "@/app/components/ContactCta";
-import GMap from "@/app/components/GMap";
+import GMap from "@/app/components/LazyGMap";
 import GetinTouchSmall from "@/app/components/GetinTouchSmall";
 import { urlFor } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
-import { PortableText } from "@portabletext/react";
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 import Approvals from "./Approvals";
 import GMapHeader from "./GMapHeader";
@@ -14,6 +14,29 @@ import HelicopterCard2 from "./HelicopterCard2";
 import Link from "next/link";
 import { Icons } from "@/components/ui/icons";
 import CMSLink from "./CMSLink";
+
+// Sanity asset refs look like "image-<id>-542x305-jpg", so dimensions can be
+// recovered from the ref when the query didn't fetch them.
+const getImageDimensions = (image: any) => {
+	if (image?.width && image?.height) {
+		return { width: image.width, height: image.height };
+	}
+	const match = /-(d+)x(d+)-/.exec(image?.asset?._ref || "");
+	return match
+		? { width: Number(match[1]), height: Number(match[2]) }
+		: { width: undefined, height: undefined };
+};
+
+// Right margin for content images from tablet width up. Full width on mobile.
+// One value at every width, so the gap to the sidebar stays constant.
+const contentImageMargin = "mr-0 sm:mr-10";
+
+const escapeHtml = (text: string) =>
+	text
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;");
 
 type props = {
 	data: any;
@@ -30,75 +53,88 @@ const Template = ({
 	sidebar = true,
 	iconType,
 }: props) => {
-	const components = {
+	const components: PortableTextComponents = {
 		marks: {
-			link: ({ value, children }) => {
+			link: ({ value, children }: any) => {
 				const href = value.href || "#";
 				return <CMSLink href={href}>{children}</CMSLink>;
 			},
 		},
 		types: {
 			image: ({ value }: any) => {
-				const imageUrl = urlFor(value).url();
-				if (!imageUrl) return null;
+				if (!value?.asset) return null;
+				const { width, height } = getImageDimensions(value);
+				if (!width || !height) return null;
 
 				return (
-					<div
-						className={`relative h-[${value.height / 2}px] w-[${
-							value.width / 2
-						}px] my-0`}
-					>
+					<div className={contentImageMargin}>
 						<Image
-							src={imageUrl}
+							src={urlFor(value).url()}
 							alt={value.alt || "Helicopter Services"}
-							height={value.height / 2}
-							width={value.width / 2}
-							objectFit="cover"
+							width={width}
+							height={height}
+							sizes="(max-width: 768px) 100vw, 60vw"
 							placeholder={value.blur ? "blur" : undefined}
-							blurDataURL={value.blur ? value.blur : ""}
-							className="mb-0"
+							blurDataURL={value.blur || undefined}
+							className="h-auto max-w-full"
 						/>
 					</div>
 				);
 			},
-			// Add custom rendering logic for gallery type
 			gallery: ({ value }: any) => {
+				const images = (value?.images || []).filter((item: any) => item?.asset);
+				if (images.length === 0) return null;
+				const isSingle = images.length === 1;
+				// A single image keeps its own shape. Gallery tiles all share one 4:3
+				// shape, so every gallery on the site lines up the same way.
+				const single = isSingle ? getImageDimensions(images[0]) : null;
+				const tileRatio =
+					single?.width && single?.height
+						? `${single.width} / ${single.height}`
+						: "4 / 3";
+
 				return (
 					<Gallery
-						amount={value?.images.length}
-						galleryType={`gallery${
-							value?.images.length === 1 ? "-single" : ""
-						}`}
-						className="my-10 mr-0 sm:mr-24 md:mr-10 lg:mr-32 contentBlockGalleryFix"
+						amount={images.length}
+						galleryType={isSingle ? "gallery-single" : "gallery"}
+						className={cn(
+							"my-10 contentBlockGalleryFix",
+							contentImageMargin,
+						)}
 					>
-						{value.images.map((item: any, index: number) => {
+						{images.map((item: any) => {
 							const image = urlFor(item).url();
-							if (!image) return null;
+							const { width, height } = getImageDimensions(item);
 							return (
 								<span
-									key={index}
-									data-lg-size={`${item.width}-${item.height}`}
+									key={item._key}
+									data-lg-size={`${width}-${height}`}
 									data-pinterest-text="Pin it"
 									data-tweet-text="Helicopter Services"
 									data-src={image}
-									data-sub-html={`<h4>Helicopter Services</h4><p>${
-										item?.alt || ""
-									}</p>`}
+									data-thumb={urlFor(item)
+										.width(240)
+										.height(180)
+										.fit("crop")
+										.auto("format")
+										.url()}
+									data-sub-html={`<h4>Helicopter Services</h4><p>${escapeHtml(
+										item.alt || "",
+									)}</p>`}
 									style={{
 										clipPath:
 											"polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)",
+										aspectRatio: tileRatio,
 									}}
-									className="w-full max-h-[230px] sm:max-h-[300px] md:max-h-[250px] lg:max-h-[310px]  relative aspect-square overflow-hidden"
+									className="not-prose relative block w-full overflow-hidden"
 								>
 									<Image
 										fill
-										objectFit="cover"
-										objectPosition="center"
-										quality={100}
-										className="img-responsive cursor-pointer m-0 p-0 object-cover aspect-square transition-transform duration-300 ease-in-out hover:scale-110"
+										sizes={isSingle ? "(max-width: 768px) 100vw, 60vw" : "(max-width: 768px) 50vw, 30vw"}
+										className="img-responsive cursor-pointer m-0 p-0 object-cover object-center transition-transform duration-300 ease-in-out hover:scale-110"
 										src={image}
 										placeholder={item.blur ? "blur" : undefined}
-										blurDataURL={item.blur ? item.blur : ""}
+										blurDataURL={item.blur || undefined}
 										alt={item.alt || "Helicopter Services"}
 									/>
 								</span>

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const isExternalLink = (url) => {
+const isExternalLink = (url: string) => {
 	const internalDomains = [
 		"^/",
 		"^https://localhost",
@@ -14,7 +14,13 @@ const isExternalLink = (url) => {
 	return !pattern.test(url);
 };
 
-const CMSLink = ({ href, children, ...props }) => {
+type Props = {
+	href: string;
+	children: React.ReactNode;
+	[key: string]: unknown;
+};
+
+const CMSLink = ({ href, children, ...props }: Props) => {
 	if (href && isExternalLink(href)) {
 		return (
 			<a href={href} target="_blank" rel="noopener noreferrer" {...props}>

@@ -3,6 +3,7 @@ import type { training } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
 import Image from "next/image";
+import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -45,7 +46,7 @@ async function getPilotData() {
 	return data;
 }
 
-export async function generateMetadata({
+async function baseMetadata({
 	params,
 }: { params: { slug: string } }): Promise<Metadata> {
 	const data: training = await getPageData();
@@ -70,16 +71,15 @@ export default async function AboutPage({
 						src="/images/icons/CompanyBlue.svg"
 						alt="Helicopter Services"
 						width={23}
-						quality={100}
 						height={23}
 					/>
 					<p className="text-brand-light-blue text-base sm:text-[22px] font-workSans ml-2">
 						About us
 					</p>
 				</div>
-				<h3 className="text-brand-dark-blue text-4xl sm:text-6xl font-light font-workSans -ml-1 mb-5 mt-3">
+				<h1 className="text-brand-dark-blue text-4xl sm:text-6xl font-light font-workSans -ml-1 mb-5 mt-3">
 					{data?.title}
-				</h3>
+				</h1>
 				<p className="mt-5 mb-10 text-base sm:text-2xl font-workSans max-w-[800px] font-bold">
 					Meet our team of highly qualified pilots.
 				</p>
@@ -89,4 +89,10 @@ export default async function AboutPage({
 			</div>
 		</>
 	);
+}
+
+export async function generateMetadata({
+	params,
+}: { params: { slug: string } }): Promise<Metadata> {
+	return pageMetadata(await baseMetadata({ params }), "/about-us/meet-the-team");
 }

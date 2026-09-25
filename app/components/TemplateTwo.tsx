@@ -1,6 +1,6 @@
 "use client";
 
-import GMap from "@/app/components/GMap";
+import GMap from "@/app/components/LazyGMap";
 import { urlFor } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
 import { PortableText } from "@portabletext/react";
@@ -130,7 +130,6 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 						{data?.threedVideoUrl && (
 							<Image
 								priority
-								quality={100}
 								src={"/images/3d-rotate-Dark.svg"}
 								alt="3d view of helicopter cockpit"
 								width={53}
@@ -262,6 +261,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 									<SanityImage
 										sanityImage={data.gallerySingle}
 										cutCorner
+										sizes="(max-width: 768px) 100vw, 40vw"
 										imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
 									/>
 								</a>

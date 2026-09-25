@@ -13,6 +13,10 @@ const SanityImage = ({
 	cover = false,
 	imageClasses,
 	priority = false,
+	// Image quality (1-100). Leave unset for the Next.js default.
+	quality,
+	// How wide the image is on screen, so the browser picks a suitable file.
+	sizes = "(max-width: 768px) 100vw, 50vw",
 	// @ts-ignore
 }: any) => {
 	const imageProps = useNextSanityImage(client, sanityImage);
@@ -27,8 +31,9 @@ const SanityImage = ({
 				"Helicopter Services"
 			}
 			priority={priority}
-			layout={cover ? undefined : "responsive"}
-			sizes="(max-width: 800px) 100vw, 2000px"
+			quality={quality}
+			style={cover ? undefined : { width: "100%", height: "auto" }}
+			sizes={sizes}
 			placeholder={
 				sanityImage?.lqip || sanityImage?.metadata?.lqip ? "blur" : undefined
 			}
@@ -42,7 +47,6 @@ const SanityImage = ({
 				cover ? "absolute h-full object-cover object-center	w-full" : "",
 				imageClasses,
 			)}
-			quality={100}
 		/>
 	);
 

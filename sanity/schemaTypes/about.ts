@@ -1,4 +1,26 @@
 import { defineField, defineType } from "sanity";
+import { bodyText, imageWithAlt } from "./fields";
+
+// Fields for the main about page only. Anything left empty shows the site's
+// built-in default content.
+const landingOnly = ({ document }: { document?: any }) =>
+	document?.isLandingPage !== true;
+
+const signatureFields = [
+	defineField({ name: "signatureName", title: "Signed by", type: "string" }),
+	defineField({ name: "signatureRole", title: "Signatory's role", type: "string" }),
+	defineField({
+		name: "signatureCompany",
+		title: "Signatory's company",
+		type: "string",
+	}),
+];
+
+const secondaryImage = imageWithAlt(
+	"secondaryImage",
+	"Small overlapping image",
+	"Shown framed in white over the corner of the main image.",
+);
 
 export default defineType({
 	name: "about",
@@ -45,6 +67,42 @@ export default defineType({
 			hidden: ({ document }) => document?.isLandingPage === true,
 		}),
 		defineField({
+			name: "heroTitle",
+			title: "Hero heading",
+			type: "text",
+			rows: 2,
+			description:
+				"The large heading over the video. Press Enter for a line break.",
+			hidden: landingOnly,
+		}),
+		defineField({
+			name: "intro",
+			title: "Introduction",
+			type: "object",
+			hidden: landingOnly,
+			fields: [
+				defineField({ name: "tag", title: "Tag", type: "string" }),
+				defineField({ name: "heading", title: "Heading", type: "string" }),
+				bodyText,
+				...signatureFields,
+				imageWithAlt("mainImage", "Main image"),
+				secondaryImage,
+			],
+		}),
+		defineField({
+			name: "award",
+			title: "Award section",
+			type: "object",
+			hidden: landingOnly,
+			fields: [
+				defineField({ name: "heading", title: "Heading", type: "string" }),
+				bodyText,
+				imageWithAlt("mainImage", "Main image"),
+				secondaryImage,
+				imageWithAlt("logo", "Logo", "Shown under the text."),
+			],
+		}),
+		defineField({
 			name: "hero",
 			title: "About Us Image",
 			type: "hero",
@@ -63,7 +121,7 @@ export default defineType({
 						return true;
 					}
 					// For non-landing pages, the field is required
-					return value && value.length > 0
+					return Array.isArray(value) && value.length > 0
 						? true
 						: "Content is required for non-landing pages.";
 				}),
@@ -78,6 +136,19 @@ export default defineType({
 		}),
 		// Updated fields with hidden properties
 		defineField({
+			name: "moreHeading",
+			title: "About pages heading",
+			type: "string",
+			hidden: landingOnly,
+		}),
+		defineField({
+			name: "moreNote",
+			title: "3D tours note",
+			type: "string",
+			description: "Shown with the 3D icon above the about pages list.",
+			hidden: landingOnly,
+		}),
+		defineField({
 			name: "aboutSection",
 			title: "About Pages",
 			type: "array",
@@ -90,6 +161,12 @@ export default defineType({
 			],
 			description: "Select about pages to display.",
 			hidden: ({ document }) => document?.isLandingPage !== true, // Hide when it's a landing page
+		}),
+		defineField({
+			name: "servicesHeading",
+			title: "Services pages heading",
+			type: "string",
+			hidden: landingOnly,
 		}),
 		defineField({
 			name: "servicesSection",

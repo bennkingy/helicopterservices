@@ -7,16 +7,23 @@ const containerStyle = {
 	aspectRatio: "1 / 1",
 };
 
-const locations = {
+type MapLocation = {
+	name: string;
+	center: { lat: number; lng: number };
+};
+
+// Opens Google Maps with directions to the location from wherever the user is.
+const directionsUrl = ({ center }: MapLocation) =>
+	`https://www.google.com/maps/dir/?api=1&destination=${center.lat},${center.lng}`;
+
+const locations: Record<string, MapLocation> = {
 	randomLocation: {
 		name: "The Hangar",
 		center: { lat: 51.493033, lng: -0.7738 },
-		address: "https://w3w.co/butlers.captive.restores",
 	},
 	helicopterServices: {
 		name: "Office",
 		center: { lat: 51.49492, lng: -0.77341 },
-		address: "https://w3w.co/salmon.mimic.beaks",
 	},
 };
 
@@ -167,22 +174,23 @@ const GMap = ({ className }: any) => {
 	const [map, setMap] = useState<google.maps.Map | null>(null);
 	const infoWindowRef = useRef<google.maps.InfoWindow | null>(null);
 
-	const updateInfoWindow = useCallback((location) => {
+	const updateInfoWindow = useCallback(
+		(location: MapLocation) => {
 		if (!infoWindowRef.current) {
 			infoWindowRef.current = new google.maps.InfoWindow();
 		}
 
-		const content = `<div style="font-size: 14px; padding-top: 10px;text-align:center; font-weight: 400"><strong style="padding-bottom: 7px;">${location.name}</strong><br/><a target="_blank" class='gmaplink text-brand-orange pt-3 font-bold' href="${location.address}">Get directions</a></div>`;
+		const content = `<div style="font-size: 14px; padding-top: 10px;text-align:center; font-weight: 400"><strong style="padding-bottom: 7px;">${location.name}</strong><br/><a target="_blank" rel="noopener noreferrer" class='gmaplink text-brand-orange pt-3 font-bold' href="${directionsUrl(location)}">Get directions</a></div>`;
 
 		infoWindowRef.current.setContent(content);
 		infoWindowRef.current.setPosition(location.center);
 		infoWindowRef.current.open(map);
-	});
+		},
+		[map],
+	);
 
-	const handleLocationChange = (
-		event: React.ChangeEvent<HTMLSelectElement>,
-	) => {
-		const newLocation = event.target.value;
+	const handleLocationChange = (event: Event) => {
+		const newLocation = (event.target as HTMLSelectElement).value;
 		const location = locations[newLocation];
 
 		if (map) {
@@ -199,7 +207,7 @@ const GMap = ({ className }: any) => {
 	}, []);
 
 	const onLoad = useCallback(
-		(map) => {
+		(map: google.maps.Map) => {
 			setMap(map);
 			updateInfoWindow(locations.randomLocation);
 		},
@@ -230,6 +238,7 @@ const GMap = ({ className }: any) => {
 			// Create and style the select element
 			const select = document.createElement("select");
 			select.id = "locationDropdown";
+			select.setAttribute("aria-label", "Choose a location");
 			select.style.backgroundColor = "#fff";
 			select.style.border = "none";
 			select.style.outline = "none";

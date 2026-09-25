@@ -30,12 +30,19 @@ const Header = async ({
 				`relative w-screen h-[200px] sm:h-[320px] lg:h-[420px] ${className} z-1 bg-slate-5`,
 			)}
 		>
-			<SanityImage sanityImage={image} alt={title} cover priority />
+			<SanityImage
+				sanityImage={image}
+				alt={title}
+				cover
+				priority
+				sizes="100vw"
+			/>
 			<div
 				className={`container relative z-[4] flex items-center h-full ${extraPadding}`}
 			>
 				<FramerAnimation delay={0}>
 					<Heading
+						as="h1"
 						title={title || ""}
 						tag={tag}
 						tagSize="text-white text-sm sm:text-lg font-light"

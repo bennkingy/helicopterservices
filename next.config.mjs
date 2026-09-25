@@ -2,9 +2,6 @@
 // import withPlaiceholder from "@plaiceholder/next";
 
 const nextConfig = {
-	typescript: {
-		ignoreBuildErrors: true,
-	},
 	images: {
 		remotePatterns: [
 			{
@@ -69,6 +66,13 @@ const nextConfig = {
 	},
 	async redirects() {
 		return [
+			// One canonical host: send the bare domain to www.
+			{
+				source: "/:path*",
+				has: [{ type: "host", value: "helicopterservices.co.uk" }],
+				destination: "https://www.helicopterservices.co.uk/:path*",
+				permanent: true,
+			},
 			// Legals
 			{
 				source: "/privacy",

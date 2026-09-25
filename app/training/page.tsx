@@ -9,31 +9,22 @@ import Heading from "../components/Heading";
 import ServiceCard from "../components/ServiceCard";
 import TrainingMap from "../components/TrainingMap";
 import { PortableText } from "next-sanity";
+import { sanityMetadata } from "@/lib/seo";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
-export const metadata: Metadata = {
-	title: "Training - Helicopter Services",
-	description:
-		"Experienced Helicopter Training | White Waltham Airfield | Maidenhead",
-	// openGraph: {
-	// 	title: "Training - Helicopter Services",
-	// 	description:
-	// 		"Helicopter Services | Experienced Helicopter Training | White Waltham Airfield | Maidenhead",
-	// 	images: [
-	// 		{
-	// 			url: "https://cdn.sanity.io/images/0he7nz2b/production/b0089479789c970d270fcea18b0182e1f90b88b7-1200x900.webp?w=1200&h=630&q=100&fit=clip&auto=format",
-	// 			width: 1200,
-	// 			height: 630,
-	// 			alt: "Helicopter Services",
-	// 		},
-	// 	],
-	// },
-};
+export function generateMetadata(): Promise<Metadata> {
+	return sanityMetadata(
+		'_type == "training" && isLandingPage == true',
+		{},
+		"/training",
+		"Training - Helicopter Services",
+	);
+}
 
 async function getData(slug: string) {
 	const query = `
-    *[_type == "training" && slug.current == '${slug}'] {
+    *[_type == "training" && slug.current == $slug] {
         "currentSlug": slug.current,
           title,
 					"pilot": pilot->{
@@ -76,7 +67,7 @@ async function getData(slug: string) {
 					description,
 				},
       }[0]`;
-	const data = await client.fetch(query);
+	const data = await client.fetch(query, { slug });
 
 	return data;
 }

@@ -2,7 +2,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 
+type CardKey = "training" | "flights" | "industry" | "company";
+
+type CardText = { title: string; description: string };
+
 interface MainServices {
+	key: CardKey;
 	icon: JSX.Element;
 	title: string;
 	description: string;
@@ -20,6 +25,7 @@ const features: MainServices[] = [
 				height={40}
 			/>
 		),
+		key: "training",
 		title: "Training",
 		description:
 			"From beginner to advanced, you're in expert hands. UK CAA and EASA approved.",
@@ -35,6 +41,7 @@ const features: MainServices[] = [
 				height={40}
 			/>
 		),
+		key: "flights",
 		title: "Flights",
 		description: "Choose a leading UK helicopter company for your next flight.",
 		url: "/flights",
@@ -49,6 +56,7 @@ const features: MainServices[] = [
 				height={40}
 			/>
 		),
+		key: "industry",
 		title: "Industry",
 		description:
 			"Elevating industry to new heights with film and lifting services.",
@@ -64,6 +72,7 @@ const features: MainServices[] = [
 				height={40}
 			/>
 		),
+		key: "company",
 		title: "Our company",
 		description:
 			"Trust a company with over 25 years helicopter operating experence.",
@@ -71,44 +80,49 @@ const features: MainServices[] = [
 	},
 ];
 
-export const MainServices = () => {
+// Titles and descriptions come from the homepage document in Sanity when set.
+export const MainServices = ({
+	cards,
+}: { cards?: Partial<Record<CardKey, CardText>> }) => {
 	return (
 		<section>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-				{features.map(({ icon, title, description, url }: MainServices, i) => (
-					<Link href={url} key={i}>
-						<Card
-							key={title}
-							className="bg-white rounded-none border-0 border-b-4 border-brand-light-blue relative group duration-300 ease-in lg:min-h-[252px] h-full"
-						>
-							<CardHeader>
-								<CardTitle className="grid gap-4 font-bold text-xl sm:text-2xl duration-300 ease-in-out group-hover:text-brand-light-blue">
-									{icon}
-									{title}
-								</CardTitle>
-							</CardHeader>
-							<CardContent className="-mt-3 sm:-mt-2 text-black text-md sm:text-md duration-300 ease-in-out ">
-								{description}
-							</CardContent>
-							<div className="absolute bottom-0 right-0">
-								<svg
-									className="text-brand-light-blue h-6 w-6 duration-300 ease-in-out"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-								>
-									<polygon points="20 0 20 20 0 20" />
-								</svg>
-								<Image
-									src="/images/caret-right.svg"
-									alt="Helicopter Services"
-									width={6}
-									height={6}
-									className="absolute bottom-0 right-1"
-								/>
-							</div>
-						</Card>
-					</Link>
-				))}
+				{features.map(({ key, icon, url, ...defaults }: MainServices) => {
+					const { title, description } = cards?.[key] || defaults;
+					return (
+						<Link href={url} key={key}>
+							<Card
+								className="bg-white rounded-none border-0 border-b-4 border-brand-light-blue relative group duration-300 ease-in lg:min-h-[252px] h-full"
+							>
+								<CardHeader>
+									<CardTitle className="grid gap-4 font-bold text-xl sm:text-2xl duration-300 ease-in-out group-hover:text-brand-light-blue">
+										{icon}
+										{title}
+									</CardTitle>
+								</CardHeader>
+								<CardContent className="-mt-3 sm:-mt-2 text-black text-md sm:text-md duration-300 ease-in-out ">
+									{description}
+								</CardContent>
+								<div className="absolute bottom-0 right-0">
+									<svg
+										className="text-brand-light-blue h-6 w-6 duration-300 ease-in-out"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+									>
+										<polygon points="20 0 20 20 0 20" />
+									</svg>
+									<Image
+										src="/images/caret-right.svg"
+										alt="Helicopter Services"
+										width={6}
+										height={6}
+										className="absolute bottom-0 right-1"
+									/>
+								</div>
+							</Card>
+						</Link>
+					);
+				})}
 			</div>
 		</section>
 	);

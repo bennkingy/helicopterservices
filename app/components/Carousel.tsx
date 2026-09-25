@@ -96,7 +96,6 @@ const Carousel = ({ slides }: props) => {
 								<Image
 									src={item.img}
 									width={370}
-									quality={100}
 									height={370}
 									alt={item.title}
 									className={`my-8 rounded-full mx-auto transition-transform duration-300 ${

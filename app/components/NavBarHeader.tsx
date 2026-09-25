@@ -51,7 +51,6 @@ export default function NavbarHeader(menuData: any) {
 					<Image
 						src={logo}
 						priority
-						quality={100}
 						alt="Helicopter Services"
 						width={181}
 						className="w-[135px] md:w-[181px] md:h-[117px]"

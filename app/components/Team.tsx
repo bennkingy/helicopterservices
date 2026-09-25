@@ -9,7 +9,11 @@ const Team = (pilotData) => {
 			{pilotData?.pilotData?.map((pilot) => (
 				<div key={pilot.slug.current} className="rounded text-center">
 					<div className="w-[190px] mx-auto">
-						<SanityImage sanityImage={pilot.mainImage} isCircle />
+						<SanityImage
+							sanityImage={pilot.mainImage}
+							isCircle
+							sizes="(max-width: 768px) 80vw, 320px"
+						/>
 					</div>
 					<p className="text-[22px] font-bold text-brand-dark-blue text-openSans p-0 mt-10 pb-0">
 						{pilot.name}

@@ -11,7 +11,7 @@ interface FAQProps {
 	value: string;
 }
 
-const FAQList: FAQProps[] = [
+export const FAQList: FAQProps[] = [
 	{
 		question: "Is Helicopter Services competitive?",
 		answer:

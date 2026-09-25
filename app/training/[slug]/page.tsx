@@ -1,40 +1,21 @@
 import Template from "@/app/components/Template";
-import { client } from "@/lib/sanity";
+import { bodyQuery } from "@/lib/queries";
+import { client, slugParams } from "@/lib/sanity";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { pageMetadata } from "@/lib/seo";
 export const revalidate = 30; // revalidate at most 30 seconds
 
 async function getData(slug: string) {
 	const query = `
-    *[_type == "training" && slug.current == '${slug}'] {
+    *[_type == "training" && slug.current == $slug] {
         "currentSlug": slug.current,
           title,
           seoTitle,
 						shortTitle,
 						quoteMessage,
           seoDescription,
-					body[]{
-					...,
-					_type == 'gallery' => {
-						...,
-						images[]{
-							...,
-							"imageUrl": asset->url,
-							"width": asset->metadata.dimensions.width,
-							"height": asset->metadata.dimensions.height,
-							alt,
-							blur
-						}
-					},
-					_type == 'image' => {
-						...,
-						"imageUrl": asset->url,
-						"width": asset->metadata.dimensions.width,
-						"height": asset->metadata.dimensions.height,
-						alt,
-						blur
-					},
-				},
+					${bodyQuery},
 				mainImage{
 				...,
 				"mainImage": asset->url,
@@ -71,14 +52,14 @@ async function getData(slug: string) {
 					},	
 				},
       }[0]`;
-	const data = await client.fetch(query);
+	const data = await client.fetch(query, { slug });
 
 	return { data };
 }
 
 // https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 
-export async function generateMetadata({
+async function baseMetadata({
 	params,
 }: { params: { slug: string } }): Promise<Metadata> {
 	// @ts-ignore
@@ -118,4 +99,14 @@ export default async function TrainingPage({
 			<Template data={data} iconType="Training" />
 		</>
 	);
+}
+
+export async function generateMetadata({
+	params,
+}: { params: { slug: string } }): Promise<Metadata> {
+	return pageMetadata(await baseMetadata({ params }), `/training/${params.slug.toLowerCase()}`);
+}
+
+export function generateStaticParams() {
+	return slugParams("training", ["training", "type-ratings"]);
 }

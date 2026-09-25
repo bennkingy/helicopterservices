@@ -44,7 +44,6 @@ const YouTubeThreeD = forwardRef(
 						<Image
 							width={500}
 							height={332}
-							quality={100}
 							className="img-responsive cursor-pointer max-h-[450px]"
 							src={imageUrl}
 							alt="helicopter services youtube video"

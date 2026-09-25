@@ -96,14 +96,12 @@ const Hero = ({
 							alt="Helicopter Services"
 							width={50}
 							height={34}
-							quality={100}
 						/>
 						<Image
 							src="/images/easa.svg"
 							alt="Helicopter Services"
 							width={100}
 							height={34}
-							quality={100}
 						/>
 					</div>
 				</div>

@@ -13,6 +13,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -22,39 +29,40 @@ import { useFormStatus } from "react-dom";
 import { Controller, useForm } from "react-hook-form";
 import type { z } from "zod";
 import { ContactSchema } from "../schema";
+import { CURRENT_PATH_KEY, PREVIOUS_PATH_KEY } from "./PageTracker";
 // @ts-ignore
 import ReCAPTCHA from "react-google-recaptcha";
 
-const ContacForm = () => {
+type Requirement = "Training" | "Flights" | "Industry";
+
+export type ServiceOptions = Record<
+	Requirement,
+	{ label: string; slug: string }[]
+>;
+
+const sectionRequirements: Record<string, Requirement> = {
+	training: "Training",
+	flights: "Flights",
+	industry: "Industry",
+};
+
+// The service page the visitor came from: a ?service=training/night-rating
+// link first, otherwise the last page they viewed in this tab.
+const findOriginPath = () => {
+	const param = new URLSearchParams(window.location.search).get("service");
+	if (param) return `/${param.replace(/^\/+/, "")}`;
+	try {
+		const current = sessionStorage.getItem(CURRENT_PATH_KEY);
+		if (current && !current.startsWith("/enquire")) return current;
+		return sessionStorage.getItem(PREVIOUS_PATH_KEY);
+	} catch {
+		return null;
+	}
+};
+
+const ContacForm = ({ services }: { services: ServiceOptions }) => {
 	const service = "service_2zcm8le";
 	const templateId = "template_xbmamql";
-
-	const serviceOptions = {
-		Training: [
-			"Service 1",
-			"Service 2",
-			"Service 3",
-			// Add more services for Training
-		],
-		Flights: [
-			"Flight Service 1",
-			"Flight Service 2",
-			"Flight Service 3",
-			// Add more services for Flights
-		],
-		Industry: [
-			"Industry Service 1",
-			"Industry Service 2",
-			"Industry Service 3",
-			// Add more services for Industry
-		],
-		Other: [
-			"Other Service 1",
-			"Other Service 2",
-			"Other Service 3",
-			// Add more services for Other
-		],
-	};
 
 	const [loading, setLoading] = useState(false);
 	const [step, setStep] = useState(1);
@@ -77,9 +85,39 @@ const ContacForm = () => {
 			body: "",
 			contactNumber: "",
 			requirement: "Training",
-			// service: "",
+			service: "",
 		},
 	});
+
+	const requirement = form.watch("requirement");
+	const subServices = services[requirement as Requirement] || [];
+	const selectedService = form.watch("service");
+
+	// Clear the specific service when it doesn't belong to the chosen
+	// requirement, for example after switching from Training to Flights.
+	useEffect(() => {
+		if (
+			selectedService &&
+			!subServices.some((item) => item.slug === selectedService)
+		) {
+			form.setValue("service", "");
+		}
+	}, [selectedService, subServices, form]);
+
+	// Pre-select the service, and the specific page if there is one, that the
+	// visitor was looking at before they came to the form.
+	// biome-ignore lint/correctness/useExhaustiveDependencies: run once on load
+	useEffect(() => {
+		const match = findOriginPath()?.match(
+			/^\/(training|flights|industry)(?:\/([^/?#]+))?/,
+		);
+		if (!match) return;
+		const origin = sectionRequirements[match[1]];
+		form.setValue("requirement", origin);
+		if (match[2] && services[origin].some((item) => item.slug === match[2])) {
+			form.setValue("service", match[2]);
+		}
+	}, []);
 
 	// const { toast } = useToast();
 
@@ -93,6 +131,10 @@ const ContacForm = () => {
 		// const { message } = await helloAction(data.name);
 		// toast({ description: message });
 
+		const serviceLabel = services[data.requirement as Requirement]?.find(
+			(item) => item.slug === data.service,
+		)?.label;
+
 		try {
 			await emailjs.send(
 				service,
@@ -102,9 +144,10 @@ const ContacForm = () => {
 					from_email: data.email,
 					contact_number: data.contactNumber,
 					message: data.body,
-					requirement: data.requirement,
-					// @ts-ignore
-					// service: data.service,
+					requirement: serviceLabel
+						? `${data.requirement}: ${serviceLabel}`
+						: data.requirement,
+					service: serviceLabel || "",
 					"g-recaptcha-response": recaptchaToken,
 				},
 				process.env.NEXT_PUBLIC_EMAIL_API,
@@ -206,7 +249,6 @@ const ContacForm = () => {
 													{...field}
 													onValueChange={(value) => {
 														field.onChange(value);
-														// setSelectedRequirement(value);
 													}}
 													value={field.value}
 												>
@@ -255,6 +297,42 @@ const ContacForm = () => {
 									</FormItem>
 								)}
 							/>
+							{subServices.length > 0 && (
+								<FormField
+									control={form.control}
+									name="service"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel data-test-id="serviceLabel">
+												Which {requirement.toLowerCase()} service?
+											</FormLabel>
+											<Select
+												// Radix Select can report an empty value while its
+												// options mount, which would wipe a pre-selection.
+												onValueChange={(value) => value && field.onChange(value)}
+												value={field.value || ""}
+											>
+												<FormControl>
+													<SelectTrigger
+														className="bg-white"
+														data-test-id="serviceField"
+													>
+														<SelectValue placeholder="Choose one (optional)" />
+													</SelectTrigger>
+												</FormControl>
+												<SelectContent>
+													{subServices.map((item) => (
+														<SelectItem key={item.slug} value={item.slug}>
+															{item.label}
+														</SelectItem>
+													))}
+												</SelectContent>
+											</Select>
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+							)}
 							<FormField
 								control={form.control}
 								name="body"
@@ -295,7 +373,6 @@ const ContacForm = () => {
 						alt="Thank you for your enquiry!"
 						width={139}
 						height={250}
-						quality={100}
 						className="w-[139px] h-[250px]"
 					/>
 					<h3 className="mt-10 text-center font-bold text-2xl text-brand-dark-blue font-workSans">

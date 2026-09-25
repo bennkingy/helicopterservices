@@ -72,6 +72,7 @@ const ServiceCard = async ({
 				*/}
 				<SanityImage
 					cover
+					sizes="(max-width: 768px) 100vw, 33vw"
 					sanityImage={image}
 					imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
 				/>

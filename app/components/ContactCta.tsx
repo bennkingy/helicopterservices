@@ -16,10 +16,9 @@ const ContactCta = ({ className, pilot, service }: props) => {
 			<div className="bg-[#023D67] py-5 text-white p-10 relative">
 				<div className="absolute sm:inset-0 lg:inset-auto m-auto -mt-[50px] lg:right-5 border-4 border-white drop-shadow-sm shadow-xl w-[90px] h-[90px] overflow-hidden rounded-full">
 					{pilot?.mainImage ? (
-						<SanityImage sanityImage={pilot.mainImage} />
+						<SanityImage sanityImage={pilot.mainImage} sizes="96px" />
 					) : (
 						<Image
-							quality={100}
 							src={"/images/ruth2.jpg"}
 							width={82}
 							height={82}
