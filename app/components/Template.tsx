@@ -21,7 +21,7 @@ const getImageDimensions = (image: any) => {
 	if (image?.width && image?.height) {
 		return { width: image.width, height: image.height };
 	}
-	const match = /-(d+)x(d+)-/.exec(image?.asset?._ref || "");
+	const match = /-(\d+)x(\d+)-/.exec(image?.asset?._ref || "");
 	return match
 		? { width: Number(match[1]), height: Number(match[2]) }
 		: { width: undefined, height: undefined };
@@ -65,6 +65,9 @@ const Template = ({
 				if (!value?.asset) return null;
 				const { width, height } = getImageDimensions(value);
 				if (!width || !height) return null;
+				// Show at half the natural size so it stays sharp on 2x screens.
+				// Large photos still fill the column; small ones like logos don't blow up.
+				const displayWidth = Math.round(width / 2);
 
 				return (
 					<div className={contentImageMargin}>
@@ -73,10 +76,11 @@ const Template = ({
 							alt={value.alt || "Helicopter Services"}
 							width={width}
 							height={height}
-							sizes="(max-width: 768px) 100vw, 60vw"
+							sizes={`${displayWidth}px`}
 							placeholder={value.blur ? "blur" : undefined}
 							blurDataURL={value.blur || undefined}
-							className="h-auto max-w-full"
+							className="h-auto w-full"
+							style={{ maxWidth: displayWidth }}
 						/>
 					</div>
 				);
