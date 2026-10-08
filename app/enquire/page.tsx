@@ -39,10 +39,9 @@ async function getServiceOptions(): Promise<ServiceOptions> {
 
 export const metadata: Metadata = pageMetadata(
 	{
-		title:
-		"Contact Us | Helicopter Services",
-	description:
-		"Over 25 years operating as one of the UK's most experienced helicopter training, charter, tours, photography, load lifting and consultancy companies.",
+		title: "Contact Us & Book a Flight | Helicopter Services",
+		description:
+			"Contact Helicopter Services at White Waltham Airfield, Maidenhead. Call +44 1494 513 166 or send an enquiry about training, flights or charter.",
 	},
 	"/enquire",
 );
