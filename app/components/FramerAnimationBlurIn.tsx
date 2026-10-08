@@ -6,7 +6,9 @@ const FramerAnimationBlurIn = ({ delay = 0.25, className, children }: any) => {
 	return (
 		<motion.div
 			initial={{
-				opacity: 0,
+				// Not 0: Chrome ignores fully transparent elements as LCP candidates,
+				// and this wraps the page h1s, so LCP would wait for the animation.
+				opacity: 0.01,
 				filter: "blur(4px)",
 				willChange: "filter, opacity",
 			}}

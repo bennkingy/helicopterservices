@@ -92,6 +92,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning className="border-none">
+			<head>
+				{/* The cookie banner loads after hydration; connect early so it shows sooner. */}
+				<link rel="preconnect" href="https://cdn-cookieyes.com" />
+				<link rel="preconnect" href="https://log.cookieyes.com" />
+			</head>
 			{/* <GoogleTagManager gtmId="G-4VTPBZBHK4" /> */}
 			<GoogleAnalytics gaId="G-4VTPBZBHK4" />
 

@@ -35,18 +35,42 @@ const Hero = ({
 				}
 			/>
 			<div className={"relative h-full"}>
+				{/* First frame of the video, shown straight away and while the video
+				    loads, so there is a real image for LCP. */}
+				<picture>
+					<source
+						media="(max-width: 767px)"
+						srcSet="/videos/hero-poster-mobile.webp"
+						type="image/webp"
+					/>
+					{/* Decorative, under a dark overlay. Already sized WebP, so no next/image. */}
+					{/* eslint-disable-next-line @next/next/no-img-element */}
+					<img
+						src="/videos/hero-poster.webp"
+						alt=""
+						fetchPriority="high"
+						className={`w-full h-full absolute object-cover ${height}`}
+					/>
+				</picture>
+				{/* Phones get a 540p, 1.3MB encode instead of the 9.9MB desktop video. */}
 				<video
-					src={
-						"https://oewitkauxpfiqmub.public.blob.vercel-storage.com/heroVideo-yyGrigzk0zJcP516LcthcqML1QJu0s.mp4"
-					}
 					autoPlay
 					loop
-					poster="/videos/heroVideo.png"
 					preload="metadata"
 					playsInline
 					muted
 					className={`w-full h-full cover absolute object-cover ${height}`}
-				/>
+				>
+					<source
+						src="/videos/heroVideo-mobile.mp4"
+						type="video/mp4"
+						media="(max-width: 767px)"
+					/>
+					<source
+						src="https://oewitkauxpfiqmub.public.blob.vercel-storage.com/heroVideo-yyGrigzk0zJcP516LcthcqML1QJu0s.mp4"
+						type="video/mp4"
+					/>
+				</video>
 				<div className="h-full grid container mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12 relative z-[9]">
 					<div
 						className={`mr-auto place-self-start lg:col-span-8 ${titleMargins} text-balance`}
