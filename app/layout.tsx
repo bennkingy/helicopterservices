@@ -54,7 +54,7 @@ const organisationJsonLd = {
 	name: SITE_NAME,
 	description: DEFAULT_DESCRIPTION,
 	url: SITE_URL,
-	logo: `${SITE_URL}/icon.ico`,
+	logo: `${SITE_URL}/icon.png`,
 	image: `${SITE_URL}/opengraph-image.jpg`,
 	telephone: "+441494513166",
 	email: "info@helicopterservices.co.uk",

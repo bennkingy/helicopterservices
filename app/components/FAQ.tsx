@@ -80,7 +80,7 @@ export const FAQ = ({ className, title = "" }: props) => {
 							{question}
 						</AccordionTrigger>
 
-						<AccordionContent>{answer}</AccordionContent>
+						<AccordionContent forceMount>{answer}</AccordionContent>
 					</AccordionItem>
 				))}
 			</Accordion>

@@ -87,7 +87,7 @@ export function NavMenu({
 				<NavigationMenuList>
 					<NavigationMenuItem className="hidden xl:block" id="home">
 						<Link
-							href="https://helicopterservices.co.uk"
+							href="/"
 							legacyBehavior
 							passHref
 							className="text-lg"

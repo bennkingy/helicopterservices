@@ -75,7 +75,7 @@ async function getData(slug: string) {
 async function baseMetadata({
 	params,
 }: { params: { slug: string } }): Promise<Metadata> {
-	const { data }: any = await getData(params.slug.toLowerCase());
+	const data: any = await getData(params.slug.toLowerCase());
 
 	if (!data) {
 		return {

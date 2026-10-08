@@ -87,10 +87,21 @@ const config = {
 					from: { height: "var(--radix-accordion-content-height)" },
 					to: { height: "0" },
 				},
+				// For force-mounted accordion content, which can't use the height variable.
+				"accordion-grid-down": {
+					from: { gridTemplateRows: "0fr" },
+					to: { gridTemplateRows: "1fr" },
+				},
+				"accordion-grid-up": {
+					from: { gridTemplateRows: "1fr", visibility: "visible" },
+					to: { gridTemplateRows: "0fr", visibility: "hidden" },
+				},
 			},
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
+				"accordion-grid-down": "accordion-grid-down 0.2s ease-out",
+				"accordion-grid-up": "accordion-grid-up 0.2s ease-out",
 			},
 		},
 	},

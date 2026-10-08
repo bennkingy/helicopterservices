@@ -11,7 +11,7 @@ const GMapHeader = ({ className }: props) => {
 	return (
 		<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-0 md:mt-8">
 			<p className="text-white font-bold font-openSans">
-				{path !== "/about-us/the-hanger"
+				{path !== "/about-us/the-hangar"
 					? "This service is based at"
 					: "We are located at"}
 				:

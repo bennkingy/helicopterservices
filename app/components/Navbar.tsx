@@ -33,32 +33,32 @@ import { groq } from "next-sanity";
 // GROQ query to fetch the necessary navigation data
 const query = groq`
 {
-  "fleet": *[_type == "fleet"] {
+  "fleet": *[_type == "fleet" && isLandingPage != true] {
     title,
     engineType,
     "slug": slug.current,
   },
-  "training": *[_type == "training"] {
+  "training": *[_type == "training" && isLandingPage != true] {
     title,
     category,
     shortTitle,
     "slug": slug.current,
   },
-  "flights": *[_type == "flights"] {
+  "flights": *[_type == "flights" && isLandingPage != true] {
     title,
     category,
     shortTitle,
     "slug": slug.current,
   },
-  "about": *[_type == "about"] {
+  "about": *[_type == "about" && isLandingPage != true] {
     title,
     "slug": slug.current,
   },
-  "legal": *[_type == "legal"] {
+  "legal": *[_type == "legal" && isLandingPage != true] {
     title,
     "slug": slug.current,
   },
-  "industry": *[_type == "industry"] {
+  "industry": *[_type == "industry" && isLandingPage != true] {
     title,
     "slug": slug.current,
   }

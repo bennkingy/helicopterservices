@@ -150,7 +150,7 @@ export const homepageDefaults = {
 		tag: "Industry",
 		heading: "Elevating industry to new heights",
 		body: [
-			"We can help you get the best shots efficiently with over 20 years of experience in aerial photography and filming worldwide, in a range of locations from city skylines to mountainous regions, deserts, and oceans.",
+			"We can help you get the best shots efficiently with over 25 years of experience in aerial photography and filming worldwide, in a range of locations from city skylines to mountainous regions, deserts, and oceans.",
 			"Our credits include many promotional videos for blue-chip companies, feature films for BBC, ITV, Sky, Channel 4, news gathering missions and photography for national newspapers.",
 		],
 		mainImage: {

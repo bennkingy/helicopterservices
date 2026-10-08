@@ -1,8 +1,4 @@
 User-Agent: *
 Allow: /
-Disallow: /training/training
-Disallow: /about-us/about-us
-Disallow: /flights/flights
-Disallow: /fleet/fleet
 
 Sitemap: https://www.helicopterservices.co.uk/sitemap.xml

@@ -30,8 +30,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		lastModified,
 	});
 
+	// A failed fetch drops that section rather than failing the whole sitemap.
 	const pagesBySection = await Promise.all(
-		sections.map(({ type }) => client.fetch<Page[]>(query, { type })),
+		sections.map(({ type }) =>
+			client.fetch<Page[]>(query, { type }).catch((error) => {
+				console.error(`Sitemap: failed to load ${type} pages`, error);
+				return [] as Page[];
+			}),
+		),
 	);
 
 	const sectionEntries = sections.flatMap(({ path }, index) => {

@@ -44,9 +44,6 @@ const initialMenus: Record<string, MenuItem[]> = {
 	aboutMenu: [{ title: "About us", slug: "/about-us", viewAll: false }],
 };
 
-// List of random URLs to pick from
-const randomURLs = ["https://helicopterservices.co.uk/fleet"];
-
 const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 	const [activeMenu, setActiveMenu] = useState("main");
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -59,22 +56,16 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 
 			// Function to update menu items
 			const updateMenuItems = (menuName: string, items: CmsPage[]) => {
-				//@ts-ignore
 				const menuItems = items.map((item: CmsPage) => ({
 					title: item.shortTitle || item.title,
 					slug: `/${menuName === "about" ? "about-us" : menuName}/${item.slug}`,
 				}));
 
-				// Add a random URL to the "About us" submenu
+				// About also keeps its overview link and links to the fleet.
 				if (menuName === "about") {
-					const randomURL =
-						randomURLs[Math.floor(Math.random() * randomURLs.length)];
-					menuItems.push({
-						title: "Our Helicopter Fleet",
-						slug: randomURL,
-					});
+					menuItems.unshift(...initialMenus.aboutMenu);
+					menuItems.push({ title: "Our Helicopter Fleet", slug: "/fleet" });
 				}
-				//@ts-ignore
 				updatedMenus[`${menuName}Menu`] = [...menuItems];
 			};
 
@@ -273,13 +264,15 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 					/>
 				</DrawerTrigger>
 				<DrawerContent
-					className="h-full ml-20 z-50 overflow-hidden"
+					// The drawer takes focus when it opens; iOS Safari outlines it in blue.
+					className="h-full ml-20 z-50 overflow-hidden outline-none focus:outline-none focus-visible:outline-none"
 					onInteractOutside={(e) => {
 						e.preventDefault();
 						setMenuOpen(false);
 					}}
 				>
-					<AnimatePresence>
+					{/* initial={false}: no slide when the drawer opens, only when moving between menus. */}
+					<AnimatePresence initial={false}>
 						<div className="h-[50px] w-full text-xl text-brand-dark-blue flex items-center justify-center font-bold capitalize">
 							{activeMenu !== "main" && (
 								<Link

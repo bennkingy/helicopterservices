@@ -3,6 +3,9 @@ import { client } from "./sanity";
 
 export const SITE_URL = "https://www.helicopterservices.co.uk";
 export const SITE_NAME = "Helicopter Services";
+// Setting openGraph/twitter on a page replaces the inherited root
+// opengraph-image, so it has to be passed explicitly.
+const DEFAULT_IMAGE = "/opengraph-image.jpg";
 export const DEFAULT_DESCRIPTION =
 	"Helicopter training, charter, London tours, aerial filming and load lifting from White Waltham Airfield near Maidenhead, with over 25 years' operating experience.";
 
@@ -26,11 +29,13 @@ export function pageMetadata(meta: Metadata, path: string): Metadata {
 			url: path,
 			title,
 			description,
+			images: [DEFAULT_IMAGE],
 		},
 		twitter: {
 			card: "summary_large_image",
 			title,
 			description,
+			images: [DEFAULT_IMAGE],
 		},
 	};
 }

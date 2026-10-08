@@ -73,6 +73,22 @@ const nextConfig = {
 				destination: "https://www.helicopterservices.co.uk/:path*",
 				permanent: true,
 			},
+			// Old slugs that were renamed
+			{
+				source: "/legal/terms-conditions",
+				destination: "/legal/terms-and-conditions",
+				permanent: true,
+			},
+			{
+				source: "/training/virtual-reality-simulator",
+				destination: "/training/simulator",
+				permanent: true,
+			},
+			{
+				source: "/about-us/the-hanger",
+				destination: "/about-us/the-hangar",
+				permanent: true,
+			},
 			// Legals
 			{
 				source: "/privacy",
@@ -86,7 +102,7 @@ const nextConfig = {
 			},
 			{
 				source: "/terms-conditions",
-				destination: "/legal/terms-conditions",
+				destination: "/legal/terms-and-conditions",
 				permanent: true,
 			},
 			// Training
@@ -97,7 +113,7 @@ const nextConfig = {
 			},
 			{
 				source: "/vr-simulator",
-				destination: "/training/virtual-reality-simulator",
+				destination: "/training/simulator",
 				permanent: true,
 			},
 			{
@@ -178,7 +194,7 @@ const nextConfig = {
 			},
 			{
 				source: "/our-hanger",
-				destination: "/about-us/the-hanger",
+				destination: "/about-us/the-hangar",
 				permanent: true,
 			},
 			{

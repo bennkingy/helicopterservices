@@ -137,12 +137,12 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 								className="absolute top-0 right-0"
 							/>
 						)}
-						<h2 className="text-brand-light-blue text-3xl font-normal font-workSans -ml-[2px]">
+						<p className="text-brand-light-blue text-3xl font-normal font-workSans -ml-[2px]">
 							Our fleet
-						</h2>
-						<h3 className="text-brand-dark-blue text-4xl sm:text-6xl font-light font-workSans mt-2 -ml-1">
+						</p>
+						<h1 className="text-brand-dark-blue text-4xl sm:text-6xl font-light font-workSans mt-2 -ml-1">
 							{data?.title}
-						</h3>
+						</h1>
 						<div className="mt-7 mb-8">
 							<div className="inline-flex sm:flex flex-wrap items-center">
 								<StatusIcon status={data?.workType?.trainingHelicopter} />

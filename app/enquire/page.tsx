@@ -40,9 +40,9 @@ async function getServiceOptions(): Promise<ServiceOptions> {
 export const metadata: Metadata = pageMetadata(
 	{
 		title:
-		"Contact - Helicopter Servics - Over 20 years operating as one of the UKs most experienced helicopter companys.",
+		"Contact Us | Helicopter Services",
 	description:
-		"Over 20 years operating as one of the UKs most experienced helicopter training, charter, tours, photography, load lifting and consultancy companies.",
+		"Over 25 years operating as one of the UK's most experienced helicopter training, charter, tours, photography, load lifting and consultancy companies.",
 	},
 	"/enquire",
 );
@@ -54,7 +54,7 @@ export default async function Enquire() {
 	const AdditionalContent = () => (
 		<>
 			<Link
-				href="https://helicopterservices.co.uk"
+				href="/"
 				className="font-mono text-lg font-bold start"
 			>
 				<Image
