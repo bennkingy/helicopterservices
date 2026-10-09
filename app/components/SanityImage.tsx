@@ -17,6 +17,8 @@ const SanityImage = ({
 	quality,
 	// How wide the image is on screen, so the browser picks a suitable file.
 	sizes = "(max-width: 768px) 100vw, 50vw",
+	// Used when the image itself has no alt text, e.g. the page title for a hero.
+	alt,
 	// @ts-ignore
 }: any) => {
 	const imageProps = useNextSanityImage(client, sanityImage);
@@ -27,7 +29,9 @@ const SanityImage = ({
 			{...imageProps}
 			alt={
 				sanityImage?.altText ||
+				sanityImage?.alt ||
 				sanityImage?.metadata?.altText ||
+				alt ||
 				"Helicopter Services"
 			}
 			priority={priority}

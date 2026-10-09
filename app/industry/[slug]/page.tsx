@@ -23,7 +23,7 @@ async function getData(slug: string) {
 							dimensions,
 							lqip
 						},
-						"altText": asset->altText
+						"altText": coalesce(alt, asset->altText)
 					},
 				  "gallery": gallery.images[]{
 						"imageUrl": asset->url,
@@ -31,11 +31,11 @@ async function getData(slug: string) {
 						"width": asset->metadata.dimensions.width,
 						"fileName": asset->originalFilename,
 						"blur": blur,
-						"alt": alt,
+						"alt": coalesce(alt, asset->altText),
 					},
          	"gallerySingle": gallerySingle{
 						"imageUrl": asset->url,
-						"altText": alt,
+						"altText": coalesce(alt, asset->altText),
 						"blur": blur,
 						"height": asset->metadata.dimensions.height,
 						"width": asset->metadata.dimensions.width
@@ -50,7 +50,7 @@ async function getData(slug: string) {
                 dimensions,
                 lqip
               },
-							"altText": asset->altText
+							"altText": coalesce(alt, asset->altText)
 					},
         },
 				"fleetItems": fleetItems[]->{
@@ -63,7 +63,7 @@ async function getData(slug: string) {
 							dimensions,
 							lqip
 						},
-						"altText": asset->altText
+						"altText": coalesce(alt, asset->altText)
 					},	
 				},
       }[0]`;

@@ -34,7 +34,7 @@ async function getPilotData() {
       "mainImage": mainImage{
 				...,
 				"imageUrl": asset->url,
-				"altText": alt,
+				"altText": coalesce(alt, asset->altText),
 				"blur": blur,
 				"lqip": asset->metadata.lqip,
 				"height": asset->metadata.dimensions.height,

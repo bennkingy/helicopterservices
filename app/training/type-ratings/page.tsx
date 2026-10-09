@@ -25,7 +25,7 @@ async function getTypeRatingsData(slug: string) {
 						dimensions,
 						lqip
 					},
-					"altText": asset->altText
+					"altText": coalesce(alt, asset->altText)
 				},
 				"pilot": pilot->{
             name,
@@ -37,7 +37,7 @@ async function getTypeRatingsData(slug: string) {
                 dimensions,
                 lqip
               },
-							"altText": asset->altText
+							"altText": coalesce(alt, asset->altText)
 					},
         },
       }[0]`;
@@ -60,7 +60,7 @@ async function getPageData(slug: string) {
 							dimensions,
 							lqip
 						},
-						"altText": image.altText
+						"altText": coalesce(image.alt, image.asset->altText)
 					}
       }
       }[0]`;

@@ -23,7 +23,7 @@ async function getData(slug: string) {
 						dimensions,
 						lqip
 					},
-					"altText": asset->altText
+					"altText": coalesce(alt, asset->altText)
 				},
 				"pilot": pilot->{
             name,
@@ -35,7 +35,7 @@ async function getData(slug: string) {
                 dimensions,
                 lqip
               },
-							"altText": asset->altText
+							"altText": coalesce(alt, asset->altText)
 					},
         },
 				"fleetItems": fleetItems[]->{
@@ -48,7 +48,7 @@ async function getData(slug: string) {
 							dimensions,
 							lqip
 						},
-						"altText": asset->altText
+						"altText": coalesce(alt, asset->altText)
 					},	
 				},
       }[0]`;

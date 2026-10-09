@@ -18,11 +18,17 @@ async function getPageData(slug: string) {
           seoDescription,
 					threedVideoUrl,
           ${bodyQuery},
-					hero,
+					hero{
+						...,
+						"image": image{
+							...,
+							"altText": coalesce(alt, asset->altText)
+						}
+					},
 					"mainImage": mainImage{
 						...,
 						"imageUrl": asset->url,
-						"altText": alt,
+						"altText": coalesce(alt, asset->altText),
 						"blur": blur,
 						"lqip": asset->metadata.lqip,
 						"height": asset->metadata.dimensions.height,

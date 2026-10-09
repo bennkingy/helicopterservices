@@ -37,7 +37,7 @@ async function getData(slug: string) {
                 dimensions,
                 lqip
               },
-							"altText": asset->altText
+							"altText": coalesce(alt, asset->altText)
 					},
 					},
           hero{
@@ -47,7 +47,7 @@ async function getData(slug: string) {
 							...image,
 							"url": image.asset->url,
 							"metadata": image.asset->metadata,
-							"altText": image.alt
+							"altText": coalesce(image.alt, image.asset->altText)
 						}
 					},
           seoTitle,
@@ -60,7 +60,7 @@ async function getData(slug: string) {
 						...image,
 						"url": image.asset->url,
 						"metadata": image.asset->metadata,
-						"altText": image.altText
+						"altText": coalesce(image.alt, image.asset->altText)
 					},
 					url,
 					heading,

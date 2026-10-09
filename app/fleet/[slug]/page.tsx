@@ -46,14 +46,14 @@ async function getPageData(slug: string) {
 							...image,
 							"url": image.asset->url,
 							"metadata": image.asset->metadata,
-							"altText": image.alt
+							"altText": coalesce(image.alt, image.asset->altText)
 						}
 					},
 					threedVideoUrl,
 		 			"gallerySingle": gallerySingle{
 						...,
 						"imageUrl": asset->url,
-						"altText": alt,
+						"altText": coalesce(alt, asset->altText),
 						"blur": blur,
             "lqip": asset->metadata.lqip,
 						"height": asset->metadata.dimensions.height,

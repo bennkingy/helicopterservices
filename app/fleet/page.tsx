@@ -25,7 +25,7 @@ async function getPageData(slug: string) {
 							...image,
 							"url": image.asset->url,
 							"metadata": image.asset->metadata,
-							"altText": image.alt
+							"altText": coalesce(image.alt, image.asset->altText)
 						}
 					}
       }[0]`;
