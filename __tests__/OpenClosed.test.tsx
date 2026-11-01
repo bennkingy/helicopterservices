@@ -60,14 +60,14 @@ describe("OpenClosed (header opening status)", () => {
 		visitorIn("America/New_York");
 		vi.useFakeTimers({ now: new Date("2026-11-02T07:00:00Z") }); // Mon 02:00 New York
 		render(<OpenClosed showPeriod={false} />);
-		expect(text()).toBe("Open today 3:30am - 12:00pm your time");
+		expect(text()).toBe("Open today 3:30am - 12:00pm");
 	});
 
-	it("unreadable device timezone: UK times, labelled UK time", () => {
+	it("unreadable device timezone: plain UK times", () => {
 		visitorIn(undefined);
 		vi.useFakeTimers({ now: new Date("2026-11-02T10:00:00Z") });
 		render(<OpenClosed showPeriod={false} />);
-		expect(text()).toBe("Open today 8:30 - 5:00 (UK time)");
+		expect(text()).toBe("Open today 8:30 - 5:00");
 	});
 
 	it("broken clock: shows nothing and doesn't crash the header", () => {

@@ -40,28 +40,28 @@ The times shown are UK times, but nothing says so. "Today" and "tomorrow" also m
 | Visitor | UK time | Text |
 |---|---|---|
 | UK | Mon 12:00 | Open today 8:30 - 5:00 (unchanged) |
-| New York | Mon 07:00 (02:00 NY) | Open today 3:30am - 12:00pm your time |
-| New York | Mon 12:00 (office open) | Open now until 12:00pm your time |
-| New York | Tue 01:00 (Mon 20:00 NY) | Open tomorrow 3:30am - 12:00pm your time |
-| New York, 16 Mar (US clocks changed, UK not yet) | Mon 07:00 | Open today 4:30am - 1:00pm your time |
-| Kolkata | Mon 07:00 | Open today 2:00pm - 10:30pm your time |
-| Kathmandu | Mon 07:00 | Open today 2:15pm - 10:45pm your time |
-| Auckland | Mon 08:00 (21:00 NZ) | Open today 9:30pm - 6:00am tomorrow your time |
-| Auckland | Mon 12:00 (Tue 01:00 NZ) | Open now until 6:00am your time |
+| New York | Mon 07:00 (02:00 NY) | Open today 3:30am - 12:00pm |
+| New York | Mon 12:00 (office open) | Open now until 12:00pm |
+| New York | Tue 01:00 (Mon 20:00 NY) | Open tomorrow 3:30am - 12:00pm |
+| New York, 16 Mar (US clocks changed, UK not yet) | Mon 07:00 | Open today 4:30am - 1:00pm |
+| Kolkata | Mon 07:00 | Open today 2:00pm - 10:30pm |
+| Kathmandu | Mon 07:00 | Open today 2:15pm - 10:45pm |
+| Auckland | Mon 08:00 (21:00 NZ) | Open today 9:30pm - 6:00am |
+| Auckland | Mon 12:00 (Tue 01:00 NZ) | Open now until 6:00am |
 | Auckland | Sat 22:36 (Sun 11:36 NZ) | Open today by appointment |
-| New York | Sat 12:00 (appointments on) | By appointment only until 1:00pm your time |
+| New York | Sat 12:00 (appointments on) | By appointment only until 1:00pm |
 | Abidjan, winter (same offset as UK) | Mon 07:00 | Open today 8:30 - 5:00 (unchanged) |
-| Timezone unreadable or invalid | Mon 12:00 | Open today 8:30 - 5:00 (UK time) |
+| Timezone unreadable or invalid | Mon 12:00 | Open today 8:30 - 5:00 (plain UK text) |
 
 Note: in converted mode, while the office is open the text says "Open now until …", because the opening time may have been on the visitor's yesterday.
 
 **Details (as built)**
 - **Always show am/pm once converted.** "3:30 - 12:00" is ambiguous. The header's `showPeriod={false}` would only apply to UK visitors.
-- **"Your time"** is added when converted, so a visitor who happens to know the UK hours isn't confused. The UK times could also go in a tooltip (`title`), e.g. "8:30am - 5:00pm UK time".
-- **Overnight ranges:** where closing falls on the visitor's next day, the text says "tomorrow" or names the day, as in the Auckland row.
+- **No extra labels:** no "your time", "UK time" or overnight day word; visitors just see the times on their own clock.
+- **Overnight ranges** read e.g. "9:30pm - 6:00am" with no day word.
 - **By-appointment days:** no times are shown, but the day word follows the visitor's calendar. For a UK Sunday, someone in Auckland sees the day their Sunday 08:30 UK falls on.
 - **Header width:** the converted text is longer, and the header column is narrow (11.5px text, `lg` and up only). **Still to check by eye** in Storybook or the browser at `lg` (not done yet).
-- **Fallback:** if the device's timezone is empty or invalid, the UK text is shown with "(UK time)" added. If a caller doesn't pass a timezone at all (e.g. other code using the function), it gets the plain UK text.
+- **Fallback:** if the device's timezone is missing, empty or invalid, the plain UK text is shown.
 - **UK and US clocks change on different dates.** In 2026 the US changes on 8 Mar and 1 Nov, the UK on 29 Mar and 25 Oct, so for a few weeks New York is 4 hours behind instead of 5. The conversion handles this automatically. It's listed because it needs tests.
 
 ---
@@ -112,14 +112,14 @@ Note: in converted mode, while the office is open the text says "Open now until 
 
 **Local-time conversion**
 - UK visitor (GMT and BST): text identical to now
-- New York, winter, Mon 12:00 UK: "Open today 3:30am - 12:00pm your time"
+- New York, winter, Mon 12:00 UK: "Open today 3:30am - 12:00pm"
 - New York in the clock-change gap (e.g. 15 Mar 2026, 4 hours behind): times are 4 hours earlier, not 5
 - Kolkata (+5:30): "2:00pm - 10:30pm", so half-hour offsets work
 - Kathmandu (+5:45): quarter-hour offsets work ("2:15pm")
 - Auckland: overnight range says "6:00am tomorrow"
-- New York, Mon 20:00 local (Tue 01:00 UK): says "Open tomorrow 3:30am - 12:00pm your time", not "Open today", because Tuesday's opening is tomorrow on the visitor's calendar
+- New York, Mon 20:00 local (Tue 01:00 UK): says "Open tomorrow 3:30am - 12:00pm", not "Open today", because Tuesday's opening is tomorrow on the visitor's calendar
 - Auckland, Sun 11:36 local (Sat 22:36 UK): the appointment day is named by the visitor's calendar
-- a visitor on the same offset as the UK (e.g. `Africa/Abidjan` in winter): no conversion, no "your time"
+- a visitor on the same offset as the UK (e.g. `Africa/Abidjan` in winter): no conversion
 
 **Local-time negative tests**
 - an invalid visitor timezone (`"Mars/Base"`) falls back to UK text plus "UK time", with no crash
@@ -132,7 +132,7 @@ Note: in converted mode, while the office is open the text says "Open now until 
 - an invalid clock renders empty without crashing
 - the text switches at exactly 17:00:00, not up to 59s late
 - the text refreshes when the tab becomes visible again
-- with the device in New York, the rendered text shows the converted time and "your time"
+- with the device in New York, the rendered text shows the converted time
 - with the device in London, the rendered text is unchanged
 - keep the existing test that the timer is removed on unmount
 - drop the BST tests repeated from the rules file (they're covered in `lib/opening-hours.test.ts`)

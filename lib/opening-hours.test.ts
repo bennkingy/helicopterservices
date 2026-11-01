@@ -11,7 +11,7 @@ import * as allure from "allure-js-commons";
 // Groups these tests in the Allure report (pnpm test:report).
 beforeEach(async () => {
 	await allure.epic("Opening hours");
-	await allure.feature("Opening-hours rules (UK time)");
+	await allure.feature("Opening-hours rules");
 });
 
 
@@ -247,49 +247,49 @@ describe("getOpeningStatus: converted to the visitor's local time", () => {
 	it("New York before the UK opens: today's hours in New York time", () => {
 		// Mon 07:00 UK = Mon 02:00 New York.
 		expect(status("2026-11-02T07:00:00Z", "America/New_York")).toBe(
-			"Open today 3:30am - 12:00pm your time",
+			"Open today 3:30am - 12:00pm",
 		);
 	});
 
 	it("New York while the UK office is open: open now, until when", () => {
 		expect(status("2026-11-02T12:00:00Z", "America/New_York")).toBe(
-			"Open now until 12:00pm your time",
+			"Open now until 12:00pm",
 		);
 	});
 
 	it("New York Monday 20:00 (Tue 01:00 UK): Tuesday is 'tomorrow', not 'today'", () => {
 		expect(status("2026-11-03T01:00:00Z", "America/New_York")).toBe(
-			"Open tomorrow 3:30am - 12:00pm your time",
+			"Open tomorrow 3:30am - 12:00pm",
 		);
 	});
 
 	it("New York in March, after the US clock change but before the UK's: 4 hours behind, not 5", () => {
 		// 2026: US clocks change 8 Mar, UK 29 Mar.
 		expect(status("2026-03-16T07:00:00Z", "America/New_York")).toBe(
-			"Open today 4:30am - 1:00pm your time",
+			"Open today 4:30am - 1:00pm",
 		);
 	});
 
 	it("India (+5:30): half-hour offsets", () => {
 		expect(status("2026-11-02T07:00:00Z", "Asia/Kolkata")).toBe(
-			"Open today 2:00pm - 10:30pm your time",
+			"Open today 2:00pm - 10:30pm",
 		);
 	});
 
 	it("Nepal (+5:45): quarter-hour offsets", () => {
 		expect(status("2026-11-02T07:00:00Z", "Asia/Kathmandu")).toBe(
-			"Open today 2:15pm - 10:45pm your time",
+			"Open today 2:15pm - 10:45pm",
 		);
 	});
 
-	it("Auckland: hours that run past the visitor's midnight", () => {
+	it("Auckland: hours that run past the visitor's midnight (no extra day word)", () => {
 		// Mon 08:00 UK = Mon 21:00 Auckland.
 		expect(status("2026-11-02T08:00:00Z", "Pacific/Auckland")).toBe(
-			"Open today 9:30pm - 6:00am tomorrow your time",
+			"Open today 9:30pm - 6:00am",
 		);
 		// Mon 12:00 UK = Tue 01:00 Auckland; it opened "yesterday" for them.
 		expect(status("2026-11-02T12:00:00Z", "Pacific/Auckland")).toBe(
-			"Open now until 6:00am your time",
+			"Open now until 6:00am",
 		);
 	});
 
@@ -302,7 +302,7 @@ describe("getOpeningStatus: converted to the visitor's local time", () => {
 
 	it("by-appointment day while it's on: until when, in their time", () => {
 		expect(status("2026-10-31T12:00:00Z", "America/New_York")).toBe(
-			"By appointment only until 1:00pm your time",
+			"By appointment only until 1:00pm",
 		);
 	});
 
@@ -312,7 +312,7 @@ describe("getOpeningStatus: converted to the visitor's local time", () => {
 
 	it("same zone, different offset in summer (Abidjan during BST): converted", () => {
 		expect(status("2026-07-06T07:00:00Z", "Africa/Abidjan")).toBe(
-			"Open today 7:30am - 4:00pm your time",
+			"Open today 7:30am - 4:00pm",
 		);
 	});
 
@@ -323,11 +323,11 @@ describe("getOpeningStatus: converted to the visitor's local time", () => {
 
 describe("getOpeningStatus: visitor timezone that can't be used", () => {
 	it.each(["Mars/Base", "", "not a zone"])(
-		"%j falls back to the UK text, labelled UK time",
+		"%j falls back to the plain UK text",
 		(visitorTimeZone) => {
 			expect(
 				getOpeningStatus(at("2026-11-02T12:00:00Z"), { visitorTimeZone, showPeriod: false }),
-			).toBe("Open today 8:30 - 5:00 (UK time)");
+			).toBe("Open today 8:30 - 5:00");
 		},
 	);
 });
@@ -358,7 +358,7 @@ describe("getOpeningStatus: whole-week sweep in other timezones", () => {
 					const inHours = minutes >= 8 * 60 + 30 && minutes < 17 * 60;
 
 					expect(text, where).not.toBe("");
-					expect(text, where).not.toMatch(/NaN|undefined|UK time/);
+					expect(text, where).not.toMatch(/NaN|undefined|your time|UK time|tomorrow$/);
 					// Every converted time has am/pm.
 					expect(text, where).not.toMatch(/\d:\d\d(?!am|pm)/);
 					// "Open now" only while the UK office is open, and always then.
@@ -366,12 +366,13 @@ describe("getOpeningStatus: whole-week sweep in other timezones", () => {
 					expect(text.startsWith("By appointment only until"), where).toBe(
 						inHours && dayIndex >= 5,
 					);
-					// A same-day range always closes after it opens.
-					const range = text.match(/(\d+):(\d\d)(am|pm) - (\d+):(\d\d)(am|pm) your time$/);
+					// A range is always 8.5 hours long (overnight ranges wrap past midnight).
+					const range = text.match(/(\d+):(\d\d)(am|pm) - (\d+):(\d\d)(am|pm)$/);
 					if (range) {
-						expect(toMins(range[4], range[5], range[6]), where).toBeGreaterThan(
-							toMins(range[1], range[2], range[3]),
-						);
+						const length =
+							(toMins(range[4], range[5], range[6]) - toMins(range[1], range[2], range[3]) + 1440) %
+							1440;
+						expect(length, where).toBe(8.5 * 60);
 					}
 				}
 			}

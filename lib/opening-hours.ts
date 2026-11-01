@@ -149,8 +149,8 @@ type Options = {
 	hours?: WeeklyHours;
 	// Only applies to UK times. Converted times always show am/pm.
 	showPeriod?: boolean;
-	// The visitor's IANA timezone, e.g. "America/New_York". Omitted = show UK
-	// times as they are. Invalid or empty = UK times labelled "UK time".
+	// The visitor's IANA timezone, e.g. "America/New_York". Omitted, empty or
+	// invalid = UK times as they are.
 	visitorTimeZone?: string;
 };
 
@@ -189,8 +189,7 @@ export function getOpeningStatus(
 		return day.byAppointment ? `Open ${when} by appointment` : `Open ${when} ${range}`;
 	};
 
-	if (visitorTimeZone === undefined) return ukText();
-	if (!isValidTimeZone(visitorTimeZone)) return `${ukText()} (UK time)`;
+	if (!isValidTimeZone(visitorTimeZone)) return ukText();
 
 	const tz = visitorTimeZone;
 	const sameAsUk = [nowMs, openAt, closeAt].every(
@@ -210,14 +209,12 @@ export function getOpeningStatus(
 		if (diff === 1) return "tomorrow";
 		return `on ${partsIn(t, tz).weekday}`;
 	};
-	// " tomorrow" etc. when the office closes on a later local day than `from`.
-	const closeDay = (from: number) =>
-		dayNumber(closeAt, tz) === dayNumber(from, tz) ? "" : ` ${dayWord(closeAt)}`;
 
 	if (nowMs >= openAt) {
-		const until = `${local(closeAt)}${closeDay(nowMs)} your time`;
-		return day.byAppointment ? `By appointment only until ${until}` : `Open now until ${until}`;
+		return day.byAppointment
+			? `By appointment only until ${local(closeAt)}`
+			: `Open now until ${local(closeAt)}`;
 	}
 	if (day.byAppointment) return `Open ${dayWord(openAt)} by appointment`;
-	return `Open ${dayWord(openAt)} ${local(openAt)} - ${local(closeAt)}${closeDay(openAt)} your time`;
+	return `Open ${dayWord(openAt)} ${local(openAt)} - ${local(closeAt)}`;
 }
