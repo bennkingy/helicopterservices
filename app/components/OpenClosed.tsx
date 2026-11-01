@@ -1,97 +1,58 @@
 "use client";
 
-import React from "react";
-import dayjs from "dayjs";
+import { getOpeningStatus } from "@/lib/opening-hours";
+import { useEffect, useState } from "react";
 
 interface OpenClosedProps {
+	// Only affects UK visitors; times converted to another timezone always show am/pm.
 	showPeriod?: boolean;
 }
 
+// "Open today 8:30 - 5:00" / "By appointment only today" in the header.
+// The rules are always UK time; visitors elsewhere see the times converted to
+// their own clock. Logic and its tests: lib/opening-hours.ts.
+//
+// Worked out in the browser after load, because the page HTML is built ahead
+// of time on a UTC server. Refreshed on each new minute and when the tab comes
+// back into view (browsers slow timers in background tabs).
 export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
-	const hours = [
-		{ day: "Monday", time: "08:30 - 17:00" },
-		{ day: "Tuesday", time: "08:30 - 17:00" },
-		{ day: "Wednesday", time: "08:30 - 17:00" },
-		{ day: "Thursday", time: "08:30 - 17:00" },
-		{ day: "Friday", time: "08:30 - 17:00" },
-		{ day: "Saturday", time: "by appointment" },
-		{ day: "Sunday", time: "by appointment" },
-	];
+	const [status, setStatus] = useState<string | null>(null);
 
-	function formatTime(time: string): string {
-		const [hour, minute] = time.split(":").map(Number);
-		const period = hour >= 12 ? "pm" : "am";
-		const formattedHour = hour % 12 || 12;
-		const formattedMinute = minute === 0 ? ":00" : `:${minute}`;
-		return `${formattedHour}${formattedMinute}${showPeriod ? period : ""}`;
-	}
-
-	function isOpen() {
-		const now = dayjs();
-		const currentDay = now.format("dddd");
-		const currentTime = now.hour() * 60 + now.minute(); // Current time in minutes since midnight
-
-		const daySchedule = hours.find((d) => d.day === currentDay);
-
-		if (!daySchedule || daySchedule.time === "Closed") {
-			return getNextOpenTime(now);
-		}
-
-		if (daySchedule.time === "by appointment") {
-			return "By appointment only today";
-		}
-
-		const [openingTimeStr, closingTimeStr] = daySchedule.time.split(" - ");
-		const openingTime = convertToMinutes(openingTimeStr);
-		const closingTime = convertToMinutes(closingTimeStr);
-
-		if (currentTime < openingTime) {
-			return `Open today ${formatTime(openingTimeStr)} - ${formatTime(
-				closingTimeStr,
-			)}`;
-		}
-		if (currentTime >= openingTime && currentTime <= closingTime) {
-			return `Open today ${formatTime(openingTimeStr)} - ${formatTime(
-				closingTimeStr,
-			)}`;
-		}
-		return getNextOpenTime(now);
-	}
-
-	function convertToMinutes(time: string): number {
-		const [hour, minute] = time.split(":").map(Number);
-		return hour * 60 + minute;
-	}
-
-	function getNextOpenTime(now: dayjs.Dayjs) {
-		for (let i = 1; i <= 7; i++) {
-			const nextDay = now.add(i, "day");
-			const nextDayName = nextDay.format("dddd");
-			const nextDaySchedule = hours.find((d) => d.day === nextDayName);
-
-			if (!nextDaySchedule || nextDaySchedule.time === "Closed") {
-				continue;
+	useEffect(() => {
+		const visitorTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? "";
+		const update = () => {
+			try {
+				setStatus(getOpeningStatus(new Date(), { showPeriod, visitorTimeZone }));
+			} catch {
+				setStatus(null); // never take the header down over this text
 			}
+		};
+		update();
 
-			if (nextDaySchedule.time === "by appointment") {
-				return `Open ${
-					i === 1 ? "tomorrow" : `on ${nextDayName}`
-				} by appointment`;
-			}
+		// Line up with the clock so the text changes right at closing time.
+		let interval: ReturnType<typeof setInterval> | undefined;
+		const timeout = setTimeout(
+			() => {
+				update();
+				interval = setInterval(update, 60_000);
+			},
+			60_000 - (Date.now() % 60_000),
+		);
+		const onVisible = () => {
+			if (document.visibilityState === "visible") update();
+		};
+		document.addEventListener("visibilitychange", onVisible);
 
-			const [nextOpeningTime, nextClosingTime] =
-				nextDaySchedule.time.split(" - ");
-			return `Open ${i === 1 ? "tomorrow" : `on ${nextDayName}`} ${formatTime(
-				nextOpeningTime,
-			)} - ${formatTime(nextClosingTime)}`;
-		}
-
-		return "Sorry we are closed";
-	}
+		return () => {
+			clearTimeout(timeout);
+			clearInterval(interval);
+			document.removeEventListener("visibilitychange", onVisible);
+		};
+	}, [showPeriod]);
 
 	return (
-		<p className="font-workSans font-bold text-base sm:text-[11.5px] mt-1 text-brand-dark-blue">
-			{isOpen()}
+		<p className="font-workSans font-bold text-base sm:text-[11.5px] mt-1 text-brand-dark-blue min-h-[1.5em]">
+			{status ?? " "}
 		</p>
 	);
 }
