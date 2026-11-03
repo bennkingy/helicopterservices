@@ -53,6 +53,12 @@ const nextConfig = {
 	},
 	async headers() {
 		return [
+			// Storybook (component library) lives at /storybook for the team and
+			// client. Kept out of Google and other search engines.
+			{
+				source: "/storybook/:path*",
+				headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+			},
 			{
 				source: "/videos/:path*",
 				headers: [
@@ -66,6 +72,12 @@ const nextConfig = {
 	},
 	async redirects() {
 		return [
+			// Storybook's files use relative paths, so open it at its index.html.
+			{
+				source: "/storybook",
+				destination: "/storybook/index.html",
+				permanent: false,
+			},
 			// One canonical host: send the bare domain to www.
 			{
 				source: "/:path*",

@@ -42,6 +42,8 @@ next-env.d.ts
 
 # Storybook
 storybook-static
+# Built by scripts/build-storybook-into-public.mjs
+/public/storybook
 
 # Test reports (rebuilt each run)
 allure-results

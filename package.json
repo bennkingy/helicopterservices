@@ -15,6 +15,7 @@
     "test:unit": "vitest run",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "build:vercel": "node scripts/build-storybook-into-public.mjs && next build",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:report": "node scripts/test-report.mjs",

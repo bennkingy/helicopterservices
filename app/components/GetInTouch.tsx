@@ -25,7 +25,7 @@ const GetInTouch = ({ className }: props) => {
 					/>
 					<div className="max-w-6xl container p-0 mx-auto grid grid-cols-1 sm:grid-cols-2 font-openSans">
 						<div className="p-5 pr-5 sm:pr-12">
-							<OpeningHoursTable heading="General enquiries" className="mx-auto sm:ml-auto sm:mx-0" />
+							<OpeningHoursTable heading="General enquiries" className="mx-auto sm:mr-0" />
 							<div
 								className={
 									"font-openSans sm:text-right mt-10 flex flex-col items-center md:items-end"
