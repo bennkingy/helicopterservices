@@ -1,3 +1,4 @@
+import type { ReviewSource } from "@/lib/reviews";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import HeroVideo from "./HeroVideo";
@@ -16,8 +17,8 @@ type props = {
 	};
 	className?: string;
 	titleMargins?: string;
-	// Overall review score from Sanity Settings. Hidden when not set.
-	reviews?: { rating: number; count: number; sourceUrl?: string } | null;
+	// Review scores from Sanity Settings. Hidden when empty.
+	reviews?: ReviewSource[];
 };
 
 const Hero = ({
@@ -77,27 +78,29 @@ const Hero = ({
 								{subtitle}
 							</p>
 						)}
-						{reviews && (
-							<p className="mb-6 text-white font-semibold font-workSans tracking-wide">
-								<span className="text-brand-orange" aria-hidden="true">
-									★
-								</span>{" "}
-								{reviews.rating.toFixed(1)} from {reviews.count} reviews
-								{reviews.sourceUrl && (
-									<>
-										{" "}
-										on{" "}
-										<a
-											href={reviews.sourceUrl}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="underline hover:text-brand-orange"
-										>
-											Tripadvisor
-										</a>
-									</>
-								)}
-							</p>
+						{reviews && reviews.length > 0 && (
+							<ul className="mb-6 flex flex-wrap gap-x-6 gap-y-1 text-white font-semibold font-workSans tracking-wide">
+								{reviews.map((review) => (
+									<li key={review.source}>
+										<span className="text-brand-orange" aria-hidden="true">
+											★
+										</span>{" "}
+										{review.rating.toFixed(1)} from {review.count} reviews on{" "}
+										{review.sourceUrl ? (
+											<a
+												href={review.sourceUrl}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="underline hover:text-brand-orange"
+											>
+												{review.source}
+											</a>
+										) : (
+											review.source
+										)}
+									</li>
+								))}
+							</ul>
 						)}
 						{cta && (
 							<Button
@@ -115,12 +118,12 @@ const Hero = ({
 							/>
 						)}
 					</div>
-				</div>
+				</div>
 				<div className="absolute z-[9] bottom-[1px] left-0 w-full py-3 bg-brand-dark-blue bg-opacity-50 dark:bg-black dark:bg-opacity-50 flex flex-col sm:flex-row items-center justify-center text-white text-center px-5">
 					<p className="mb-4 sm:mb-0 sm:mr-10 text-md sm:text-lg font-semibold font-workSans tracking-wide">
 						A leading UK CAA and EASA approved Training Organisation
 					</p>
-					<div className="flex justify-center space-x-5">
+					<div className="flex items-center justify-center space-x-5">
 						<Image
 							src="/images/caa.svg"
 							alt="UK Civil Aviation Authority approved"

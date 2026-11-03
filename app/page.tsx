@@ -133,7 +133,7 @@ export default async function Home() {
 								{paragraph}
 							</p>
 						))}
-						<div className="flex space-x-5 my-10">
+						<div className="flex items-center space-x-5 my-10">
 							<Image
 								src="/images/caa.svg"
 								alt="UK Civil Aviation Authority approved"

@@ -15,7 +15,12 @@ type Story = StoryObj<typeof Hero>;
 
 export const Homepage: Story = {};
 export const WithReviewScore: Story = {
-	args: { reviews: { rating: 4.9, count: 312, sourceUrl: "https://www.tripadvisor.co.uk" } },
+	args: {
+		reviews: [
+			{ source: "Tripadvisor", rating: 4.9, count: 9, sourceUrl: "https://www.tripadvisor.co.uk" },
+			{ source: "Google", rating: 4.6, count: 28 },
+		],
+	},
 };
 export const AboutPage: Story = { args: { title: "About Helicopter<br/>Services", subtitle: undefined } };
 export const Phone: Story = { globals: { viewport: { value: "mobile" } } };
