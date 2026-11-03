@@ -31,6 +31,11 @@ const Hero = ({
 	titleMargins = "mt-[45px] sm:mt-[60px]",
 	reviews,
 }: props) => {
+	// One combined score across all sources, weighted by number of reviews.
+	const reviewTotal = reviews?.reduce((sum, r) => sum + r.count, 0) ?? 0;
+	const reviewAverage = reviewTotal
+		? reviews!.reduce((sum, r) => sum + r.rating * r.count, 0) / reviewTotal
+		: 0;
 	return (
 		<section className={`${height} ${className} overflow-hidden relative`}>
 			<div
@@ -79,13 +84,14 @@ const Hero = ({
 							</p>
 						)}
 						{reviews && reviews.length > 0 && (
-							<ul className="mb-6 flex flex-wrap gap-x-6 gap-y-1 text-white font-semibold font-workSans tracking-wide">
-								{reviews.map((review) => (
-									<li key={review.source}>
-										<span className="text-brand-orange" aria-hidden="true">
-											★
-										</span>{" "}
-										{review.rating.toFixed(1)} from {review.count} reviews on{" "}
+							<p className="mb-6 text-white font-semibold font-workSans tracking-wide">
+								<span className="text-brand-orange" aria-hidden="true">
+									★
+								</span>{" "}
+								{reviewAverage.toFixed(1)} from {reviewTotal} reviews on{" "}
+								{reviews.map((review, index) => (
+									<span key={review.source}>
+										{index > 0 && " & "}
 										{review.sourceUrl ? (
 											<a
 												href={review.sourceUrl}
@@ -98,9 +104,9 @@ const Hero = ({
 										) : (
 											review.source
 										)}
-									</li>
+									</span>
 								))}
-							</ul>
+							</p>
 						)}
 						{cta && (
 							<Button
