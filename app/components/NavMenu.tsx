@@ -568,7 +568,7 @@ export function NavMenu({
 			<div className="flex flex-col lg:w-[220px] lg:shrink-0">
 				<Link
 					href="tel:+441494513166"
-					className="text-md font-openSans text-brand-orange group"
+					className="text-base font-openSans text-brand-orange group"
 				>
 					<div className="flex justify-center">
 						<Image

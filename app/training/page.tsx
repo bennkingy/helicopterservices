@@ -102,7 +102,7 @@ export default async function Training({
 						<TabsContent value="account">
 							<Heading
 								title="Licences"
-								titleStyles="text-3xl"
+								size="md"
 								className="mb-6 mt-5"
 							/>
 							<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
@@ -137,7 +137,7 @@ export default async function Training({
 							</div>
 							<Heading
 								title="Certificates and Ratings"
-								titleStyles="text-3xl"
+								size="md"
 								className="mb-6 mt-16"
 							/>
 							<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
@@ -172,7 +172,7 @@ export default async function Training({
 							</div>
 							<Heading
 								title="Simulators"
-								titleStyles="text-3xl"
+								size="md"
 								className="mb-6 mt-16"
 							/>
 							<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
@@ -208,7 +208,7 @@ export default async function Training({
 							</div>
 							<Heading
 								title="Other training services"
-								titleStyles="text-3xl"
+								size="md"
 								className="mb-6 mt-16"
 							/>
 							<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
@@ -245,7 +245,7 @@ export default async function Training({
 						<TabsContent value="trainingRoute">
 							<Heading
 								title="Training route map"
-								titleStyles="text-3xl text-center mt-5"
+								size="md" titleStyles="text-center mt-5"
 							/>
 							<p className="font-openSans max-w-[900px] text-center mx-auto mt-8">
 								With two decades of experience, we&apos;re a top UK helicopter
@@ -268,7 +268,7 @@ export default async function Training({
 								<>
 									<Heading
 										title="Can&apos;t find what you&apos;re looking for?"
-										titleStyles="text-3xl"
+										size="md"
 										className="mb-6"
 									/>
 									<p className="mb-4">

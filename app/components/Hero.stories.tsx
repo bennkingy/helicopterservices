@@ -25,5 +25,10 @@ export const WithReviewScore: Story = {
 		},
 	},
 };
+export const WithButtons: Story = {
+	args: {
+		cta: { label: "Call General enquiries", href: "tel:+441494513166" },
+	},
+};
 export const AboutPage: Story = { args: { title: "About Helicopter<br/>Services", subtitle: undefined } };
 export const Phone: Story = { globals: { viewport: { value: "mobile" } } };

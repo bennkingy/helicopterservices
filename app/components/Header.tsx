@@ -4,18 +4,18 @@ import Heading from "./Heading";
 import SanityImage from "./SanityImage";
 
 type props = {
-	height?: string; // e.g. 'h-[70vh]' or 'h-[50vh]'
 	title?: string; // e.g. 'Mallard Plumbing and Heating'
 	className?: string;
 	image?: string;
 	tag?: string;
 	tagColor?: "White" | "Blue" | "Dark";
+	// Extra classes for the inner container, e.g. bottom padding when the
+	// next section overlaps the banner.
 	extraPadding?: string;
 	iconType?: "Industry" | "Company" | "Flights" | "Training";
 };
 
 const Header = ({
-	height = "h-[30px]",
 	title,
 	className,
 	image,
@@ -27,7 +27,8 @@ const Header = ({
 	return (
 		<section
 			className={cn(
-				`relative w-screen h-[200px] sm:h-[320px] lg:h-[420px] ${className} z-1 bg-slate-5`,
+				"relative w-full min-h-[260px] sm:min-h-[340px] lg:min-h-[440px] flex z-1 bg-slate-5",
+				className,
 			)}
 		>
 			<SanityImage
@@ -37,19 +38,17 @@ const Header = ({
 				priority
 				sizes="100vw"
 			/>
-			<div
-				className={`container relative z-[4] flex items-center h-full ${extraPadding}`}
-			>
-				<FramerAnimation delay={0}>
+			<div className={cn("container relative z-[4] flex items-center py-10", extraPadding)}>
+				<FramerAnimation delay={0} className="w-full">
 					<Heading
 						as="h1"
 						title={title || ""}
 						tag={tag}
-						tagSize="text-white text-sm sm:text-lg font-light"
+						tagSize="text-white"
 						iconColor={tagColor}
 						iconSize={14}
 						iconType={iconType}
-						titleStyles="text-white text-[29px] leading-10 sm:text-4xl md:text-5xl lg:text-6xl font-extralight max-w-[300px] sm:max-w-[600px]"
+						titleStyles="text-white text-3xl leading-tight font-light sm:text-4xl md:text-5xl lg:text-6xl lg:font-extralight max-w-[90%] sm:max-w-[640px]"
 					/>
 				</FramerAnimation>
 			</div>

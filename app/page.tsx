@@ -45,14 +45,15 @@ export default async function Home() {
 				title={heroTitle.split("\n").join("<br/>")}
 				subtitle={heroSubtitle}
 				reviews={reviews}
-				height="h-[calc(100lvh_-_65px)] md:h-[calc(100lvh_-_100px)]"
+				cta={{ label: "Call General enquiries", href: "tel:+441494513166" }}
+				height="h-[calc(100svh_-_65px)] md:h-[calc(100svh_-_100px)]"
 			/>
-			<div className="py-20 bg-brand-dark-blue z-[9] relative -mt-[1px]">
+			<div className="section-y bg-brand-dark-blue z-[9] relative -mt-[1px]">
 				<div className="container">
 					<MainServices cards={services} />
 				</div>
 			</div>
-			<div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
+			<div className="section-y container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
 				<div className="pr-0 relative col-span-1 flex justify-start md:-mt-20 xl:mt-0">
 					<FramerAnimationSlide
 						className="w-full"
@@ -73,7 +74,6 @@ export default async function Home() {
 				<div className="md:pl-10">
 					<Heading
 						title={about.heading}
-						titleStyles="text-3xl sm:text-4xl"
 						tag={about.tag}
 						iconType="Company"
 						className="mb-8 mt-32 md:mt-0"
@@ -105,12 +105,12 @@ export default async function Home() {
 					<p className="mt-0 text-brand-light-blue font-openSans">
 						{about.signatureRole}
 					</p>
-					<p className="mt-0 font-openSans -mb-[5px]">
+					<p className="mt-0 font-openSans">
 						{about.signatureCompany}
 					</p>
 				</div>
 			</div>
-			<div className="py-20 bg-brand-dark-blue">
+			<div className="section-y bg-brand-dark-blue">
 				<div className="container relative mx-auto grid grid-cols-1 md:grid-cols-2">
 					<div className="md:pr-10">
 						<Heading
@@ -119,7 +119,7 @@ export default async function Home() {
 							iconColor="Blue"
 							iconType="Training"
 							className="mb-8"
-							titleStyles="text-3xl sm:text-4xl text-white"
+							titleStyles="text-white"
 						/>
 						{training.body.map((paragraph, index) => (
 							<p
@@ -175,12 +175,11 @@ export default async function Home() {
 						iconColor="Blue"
 						center
 						className="mb-10"
-						titleStyles="text-3xl sm:text-4xl"
 					/>
 					<Carousel slides={flights.slides} />
 				</div>
 			</div>
-			<div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 justify-center relative">
+			<div className="section-y container mx-auto grid grid-cols-1 md:grid-cols-2 justify-center relative">
 				<div className="pr-0 relative col-span-1 flex justify-start md:-mt-20 lg:mt-0">
 					<FramerAnimationSlide
 						className="w-full"
@@ -205,7 +204,6 @@ export default async function Home() {
 						iconType="Industry"
 						iconColor="Blue"
 						className="mb-8 mt-32 md:mt-0"
-						titleStyles="text-3xl sm:text-4xl"
 					/>
 					{industry.body.map((paragraph, index) => (
 						<p
@@ -219,7 +217,7 @@ export default async function Home() {
 					<Enquire />
 				</div>
 			</div>
-			<Reviews className="py-20" />
+			<Reviews className="section-y" />
 		</div>
 	);
 }

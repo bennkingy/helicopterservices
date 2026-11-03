@@ -73,6 +73,10 @@
     body {
       @apply bg-background text-foreground;
     }
+    /* Slightly larger body copy on desktop. Paragraphs with their own text-* size keep it. */
+    p {
+      @apply lg:text-[17px];
+    }
   }
   
   .gallery {
@@ -441,5 +445,12 @@ button.group:hover a:hover + svg {
   .cky-consent-container .cky-btn {
     padding: 8px 10px !important;
     font-size: 13px !important;
+  }
+}
+
+/* Vertical padding for full-width page sections. Change it here, not per page. */
+@layer components {
+  .section-y {
+    @apply py-14 md:py-20 xl:py-28;
   }
 }

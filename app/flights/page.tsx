@@ -112,7 +112,7 @@ export default async function Flights({
 								<>
 									<Heading
 										title="Can&apos;t find what you&apos;re looking for"
-										titleStyles="text-3xl text-brand-dark-blue"
+										size="md" titleStyles="text-brand-dark-blue"
 										className="mb-7"
 									/>
 									<p className="mb-5">

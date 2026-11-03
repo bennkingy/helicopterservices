@@ -101,7 +101,7 @@ export const MainServices = ({
 										{title}
 									</h2>
 								</CardHeader>
-								<CardContent className="-mt-3 sm:-mt-2 text-black text-md sm:text-md duration-300 ease-in-out ">
+								<CardContent className="-mt-3 sm:-mt-2 text-black text-base duration-300 ease-in-out ">
 									{description}
 								</CardContent>
 								<div className="absolute bottom-0 right-0">

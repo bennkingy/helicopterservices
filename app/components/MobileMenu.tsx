@@ -341,7 +341,7 @@ const MobileMenu = ({ onMobileOpen, menuData, hours, closures }: any) => {
 									<div className="flex flex-col pb-5 ml-3 mt-2 bg-top border-t-[2px] mr-3 pt-5 items-center">
 										<Link
 											href="tel:+441494513166"
-											className="text-md font-openSans text-brand-orange group"
+											className="text-base font-openSans text-brand-orange group"
 										>
 											<div className="flex">
 												<Image

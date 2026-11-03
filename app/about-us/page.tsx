@@ -35,14 +35,13 @@ export default async function About() {
 		<div className="overflow-x-hidden">
 			<Hero
 				title={heroTitle.split("\n").join("<br/>")}
-				height="h-[calc(100lvh_-_65px)] md:h-[calc(100lvh_-_100px)]"
+				height="h-[calc(100svh_-_65px)] md:h-[calc(100svh_-_100px)]"
 			/>
-			<div className="py-20 container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
+			<div className="section-y container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
 				<div className="pr-0 sm:pr-20">
 					<Heading
 						title={intro.heading}
 						tag={intro.tag}
-						titleStyles="text-3xl sm:text-4xl"
 						className="mb-8"
 					/>
 					{intro.body.map((paragraph) => (
@@ -102,7 +101,6 @@ export default async function About() {
 					<Heading
 						title={award.heading}
 						className="mb-8 mt-16 md:mt-0"
-						titleStyles="text-3xl sm:text-4xl"
 					/>
 					{award.body.map((paragraph, index) => (
 						<p
@@ -159,7 +157,7 @@ export default async function About() {
 					))}
 				</div>
 			</div>
-			<Reviews className="py-20" />
+			<Reviews className="section-y" />
 		</div>
 	);
 }

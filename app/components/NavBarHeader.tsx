@@ -43,7 +43,7 @@ export default function NavbarHeader(menuData: any) {
 			)}
 		>
 			<div
-				className={cn("container flex items-center justify-between", "px-4")}
+				className={"container flex items-center justify-between"}
 			>
 				<Link
 					href="/"

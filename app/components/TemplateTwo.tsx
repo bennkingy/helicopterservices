@@ -125,7 +125,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 					className="container pt-[20px] sm:pt-[30px]"
 					slug={data?.title}
 				/>
-				<div className="container mx-auto px-4 grid pb-14 grid-cols-1 md:grid-cols-5 mt-6">
+				<div className="container mx-auto grid pb-14 grid-cols-1 md:grid-cols-5 mt-6">
 					<div className="mr-0 md:mr-20 mb-10 sm:mb-0 col-span-3 relative">
 						{data?.threedVideoUrl && (
 							<Image
@@ -179,7 +179,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 								/>
 							)}
 						</div>
-						<h2 className="text-md font-bold mt-7 font-openSans mb-5">
+						<h2 className="text-base font-bold mt-7 font-openSans mb-5">
 							Specifications:
 						</h2>
 						<SpecificationTable helicopter={data} className="mb-6" />

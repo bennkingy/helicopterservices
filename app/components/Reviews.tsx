@@ -69,7 +69,6 @@ const Reviews = ({ className }: props) => {
 					tag="Testimonials"
 					iconColor="Blue"
 					className="mb-16"
-					titleStyles="text-3xl sm:text-4xl"
 				/>
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 					{displayedReviews.map((review, index) => (
@@ -98,7 +97,7 @@ const Reviews = ({ className }: props) => {
 											/>
 										</div>
 										<div className="flex-1 pr-6 justify-center flex flex-col">
-											<div className="text-md font-bold text-brand-dark-grey ">
+											<div className="text-base font-bold text-brand-dark-grey ">
 												{review.name}
 											</div>
 											<div className="flex">

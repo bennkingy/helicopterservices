@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm, { type ServiceOptions } from "../components/ContactForm";
+import PageTitle from "../components/PageTitle";
 import GMap from "../components/LazyGMap";
 import logo from "/public/images/LogoLightV2New.svg";
 import { pageMetadata } from "@/lib/seo";
@@ -111,15 +112,14 @@ export default async function Enquire() {
 
 	return (
 		<div className="pt-12 sm:pt-14 py-20 pb-[120px] bg-brand-dark-blue">
-			<div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-6">
+			<div className="container mx-auto grid grid-cols-1 md:grid-cols-6">
 				<div className="mr-0 md:mr-20 col-span-3 relative">
-					<h1 className="text-4xl sm:text-6xl font-light font-workSans -ml-1 text-white">
-						Enquire now
-					</h1>
-					<p className="mt-5 font-bold text-base sm:text-2xl max-w-[400px] text-white font-workSans">
-						Tell us how we can help and we&apos;ll get in touch as soon as we
-						can.
-					</p>
+					<PageTitle
+						tone="dark"
+						title="Enquire now"
+						intro="Tell us how we can help and we'll get in touch as soon as we can."
+						introClassName="max-w-[400px]"
+					/>
 					<div className="hidden md:block">
 						<AdditionalContent />
 					</div>

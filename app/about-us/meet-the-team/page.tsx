@@ -1,9 +1,9 @@
+import PageTitle from "@/app/components/PageTitle";
 import Team from "@/app/components/Team";
 import type { training } from "@/lib/interface";
 import { JsonLd, sectionBreadcrumbs } from "@/lib/jsonld";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
-import Image from "next/image";
 import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 30; // revalidate at most 30 seconds
@@ -73,23 +73,12 @@ export default async function AboutPage({
 				)}
 			/>
 			<div className="container mt-12 sm:mt-14 mb-24 sm:mb-20 pb-2 sm:pb-10">
-				<div className="flex items-baseline">
-					<Image
-						src="/images/icons/CompanyBlue.svg"
-						alt=""
-						width={23}
-						height={23}
-					/>
-					<p className="text-brand-light-blue text-base sm:text-[22px] font-workSans ml-2">
-						About us
-					</p>
-				</div>
-				<h1 className="text-brand-dark-blue text-4xl sm:text-6xl font-light font-workSans -ml-1 mb-5 mt-3">
-					{data?.title}
-				</h1>
-				<p className="mt-5 mb-10 text-base sm:text-2xl font-workSans max-w-[800px] font-bold">
-					Meet our team of highly qualified pilots.
-				</p>
+				<PageTitle
+					tag="About us"
+					title={data?.title || "Meet the team"}
+					intro="Meet our team of highly qualified pilots."
+					className="mb-10"
+				/>
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20 mt-20 mb-30 sm:px-20">
 					<Team pilotData={pilotData} />
 				</div>

@@ -1,6 +1,7 @@
 import type { ReviewSummary } from "@/lib/reviews";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import HeroVideo from "./HeroVideo";
 import { FacebookIcon, GoogleIcon, TripadvisorIcon } from "./ReviewIcons";
 
@@ -8,13 +9,14 @@ type props = {
 	height?: string; // e.g. 'h-[70vh]' or 'h-[50vh]'
 	title?: string; // e.g. 'Mallard Plumbing and Heating'
 	subtitle?: string; // e.g. 'From checkout to global sales......'
+	// Buttons under the title. cta is the main (orange) one, cta2 is outlined.
 	cta?: {
-		label: string; // e.g. 'Get a quote'
-		onClick: () => void; // e.g. () => registerModal.onOpen()
+		label: string; // e.g. 'Enquire now'
+		href: string; // e.g. '/enquire/' or 'tel:+441494513166'
 	};
 	cta2?: {
-		label: string; // e.g. 'Get a quote'
-		onClick: () => void; // e.g. () => registerModal.onOpen()
+		label: string;
+		href: string;
 	};
 	className?: string;
 	titleMargins?: string;
@@ -23,13 +25,13 @@ type props = {
 };
 
 const Hero = ({
-	height = "h-[70vh]",
+	height = "h-[70svh]",
 	cta,
 	cta2,
 	title,
 	subtitle,
 	className,
-	titleMargins = "mt-[45px] sm:mt-[60px]",
+	titleMargins = "",
 	reviews,
 }: props) => {
 	// "★ 4.7 over 50+ reviews": the star score is Tripadvisor and Google
@@ -79,12 +81,13 @@ const Hero = ({
 				<HeroVideo
 					className={`w-full h-full cover absolute object-cover ${height}`}
 				/>
-				<div className="h-full grid container mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12 relative z-[9]">
+				{/* Bottom padding keeps the content clear of the accreditation strip. */}
+				<div className="h-full grid container mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12 relative z-[9] pt-8 pb-36 sm:pb-24">
 					<div
-						className={`mr-auto place-self-start lg:col-span-8 ${titleMargins} text-balance`}
+						className={`mr-auto self-center lg:col-span-8 ${titleMargins} text-balance`}
 					>
 						{/* Plain HTML, no entrance animation, so it paints straight away. */}
-						<h1 className="mb-4 text-4xl leading-10 sm:text-4xl md:text-6xl xl:text-7xl dark:text-white text-white font-extralight font-workSans">
+						<h1 className="mb-5 md:mb-6 text-4xl leading-tight font-light md:text-6xl md:font-extralight xl:text-7xl md:leading-none dark:text-white text-white font-workSans">
 							{title?.split("<br/>").map((part, index) => (
 								<span key={index}>
 									{part}
@@ -93,12 +96,12 @@ const Hero = ({
 							))}
 						</h1>
 						{subtitle && (
-							<p className="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl xl:text-2xl dark:text-white">
+							<p className="max-w-2xl mb-7 md:mb-8 font-light text-white md:text-lg lg:text-xl xl:text-2xl dark:text-white">
 								{subtitle}
 							</p>
 						)}
 						{starCount > 0 && (
-							<p className="mb-6 flex flex-col items-start gap-2 text-white font-semibold font-workSans tracking-wide">
+							<p className="mb-8 md:mb-10 flex flex-col items-start gap-3 text-white font-semibold font-workSans tracking-wide">
 								<span>
 									<span className="text-brand-orange" aria-hidden="true">
 										★
@@ -130,25 +133,31 @@ const Hero = ({
 								</span>
 							</p>
 						)}
-						{cta && (
-							<Button
-								onClick={() => {
-									cta?.onClick();
-								}}
-							/>
-						)}
-						{cta2 && (
-							<Button
-								onClick={() => {
-									cta2?.onClick();
-								}}
-								className="ml-3"
-							/>
+						{/* Same text and padding as the "Call General enquiries" button (Enquire.tsx). */}
+						{(cta || cta2) && (
+							<div className="flex flex-wrap gap-3">
+								{cta && (
+									<Button
+										asChild
+										className="uppercase bg-brand-orange text-white w-[210px] py-6"
+									>
+										<Link href={cta.href}>{cta.label}</Link>
+									</Button>
+								)}
+								{cta2 && (
+									<Button
+										asChild
+										className="uppercase bg-transparent border border-white text-white hover:bg-white hover:text-brand-dark-blue w-[210px] py-6"
+									>
+										<Link href={cta2.href}>{cta2.label}</Link>
+									</Button>
+								)}
+							</div>
 						)}
 					</div>
 				</div>
 				<div className="absolute z-[9] bottom-[1px] left-0 w-full py-3 bg-brand-dark-blue bg-opacity-50 dark:bg-black dark:bg-opacity-50 flex flex-col sm:flex-row items-center justify-center text-white text-center px-5">
-					<p className="mb-4 sm:mb-0 sm:mr-10 text-md sm:text-lg font-semibold font-workSans tracking-wide">
+					<p className="mb-4 sm:mb-0 sm:mr-10 text-base sm:text-lg font-semibold font-workSans tracking-wide">
 						A leading UK CAA and EASA approved Training Organisation
 					</p>
 					<div className="flex items-center justify-center space-x-5">

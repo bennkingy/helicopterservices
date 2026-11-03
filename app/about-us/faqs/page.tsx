@@ -1,10 +1,10 @@
 import { FAQ } from "@/app/components/FAQ";
+import PageTitle from "@/app/components/PageTitle";
 import { faqJsonLd, getFaqs } from "@/lib/faqs";
 import { JsonLd, sectionBreadcrumbs } from "@/lib/jsonld";
 import type { training } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
-import Image from "next/image";
 import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 30; // revalidate at most 30 seconds
@@ -47,23 +47,12 @@ export default async function AboutPage({
 	return (
 		<>
 			<div className="container mt-12 sm:mt-14 mb-24 sm:mb-20 pb-2 sm:pb-10">
-				<div className="flex items-baseline">
-					<Image
-						src="/images/icons/CompanyBlue.svg"
-						alt=""
-						width={23}
-						height={23}
-					/>
-					<p className="text-brand-light-blue text-base sm:text-[22px] font-workSans ml-2">
-						About us
-					</p>
-				</div>
-				<h1 className="text-brand-dark-blue text-4xl sm:text-6xl font-light font-workSans -ml-1 mb-5 mt-3">
-					{data?.title}
-				</h1>
-				<p className="mt-5 mb-10 font-bold text-base sm:text-2xl font-workSans">
-					Frequently asked questions about flying with Helicopter Services.
-				</p>
+				<PageTitle
+					tag="About us"
+					title={data?.title || "FAQs"}
+					intro="Frequently asked questions about flying with Helicopter Services."
+					className="mb-10"
+				/>
 				<FAQ className="" items={faqs} />
 				{/* JsonLd escapes "<", so an answer containing "</script>" can't break the page. */}
 				<JsonLd

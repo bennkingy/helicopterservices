@@ -112,7 +112,7 @@ export default async function Industry({
 								<>
 									<Heading
 										title="Can&apos;t find what you&apos;re looking for?"
-										titleStyles="text-3xl"
+										size="md"
 										className="mb-6"
 									/>
 									<p className="mb-4">
