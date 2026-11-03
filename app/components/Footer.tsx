@@ -1,67 +1,16 @@
-// @ts-nocheck
-
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import GetInTouch from "./GetInTouch";
 import Weather from "./Weather";
 import logo from "/public/images/LogoLightV2New.svg";
-import { mapLocation } from "@/lib/constants";
-import TextLink from "./TextLink";
-import { client } from "@/lib/sanity";
-import { groq } from "next-sanity";
+import { getNavigation } from "@/lib/navigation";
 
 export const revalidate = 30;
 
-// GROQ query to fetch the necessary navigation data
-const query = groq`
-{
-  "fleet": *[_type == "fleet" && isLandingPage != true] {
-    title,
-    engineType,
-    "slug": slug.current,
-  },
-  "training": *[_type == "training" && isLandingPage != true] {
-    title,
-    category,
-    shortTitle,
-    "slug": slug.current,
-  },
-  "flights": *[_type == "flights" && isLandingPage != true] {
-    title,
-    category,
-    shortTitle,
-    "slug": slug.current,
-  },
-  "about": *[_type == "about" && isLandingPage != true] {
-    title,
-    "slug": slug.current,
-  },
-  "legal": *[_type == "legal" && isLandingPage != true] {
-    title,
-    "slug": slug.current,
-  },
-  "industry": *[_type == "industry" && isLandingPage != true] {
-    title,
-    "slug": slug.current,
-  }
-}`;
-
-async function getNavigationData() {
-	// @ts-ignore
-	let data;
-
-	try {
-		data = await client.fetch(query);
-	} catch (error) {
-		console.error("Failed to fetch navigation data:", error);
-	}
-
-	return data;
-}
-
+// Contact band, sitemap links, weather and legal links on every page.
 export default async function Footer() {
-	const data = await getNavigationData();
+	const data = await getNavigation();
 
 	const currentYear = new Date().getFullYear(); // Get the current year
 
@@ -78,7 +27,7 @@ export default async function Footer() {
 							>
 								<Image
 									src={logo}
-									alt="Helicopter Services"
+									alt="Helicopter Services home"
 									width={153}
 									height={43}
 									className="min-w-[100px] mb-10"
@@ -158,10 +107,15 @@ export default async function Footer() {
 									.sort((a, b) => a.title.localeCompare(b.title))
 									.map((item, index) => (
 										<li
-											className="transition-colors hover:text-brand-orange text-sm mb-[2px]"
+											className="transition-colors hover:text-brand-orange text-sm"
 											key={index}
 										>
-											<Link href={`/legal/${item.slug}`} passHref>
+											<Link
+											href={`/legal/${item.slug}`}
+											passHref
+											// Taller hit area so the links are easy to tap (min 24px).
+											className="inline-block py-1.5 min-h-[24px]"
+										>
 												{item?.shortTitle ? item?.shortTitle : item.title}
 											</Link>
 										</li>
@@ -245,10 +199,15 @@ export default async function Footer() {
 								.sort((a, b) => a.title.localeCompare(b.title))
 								.map((item, index) => (
 									<li
-										className="transition-colors hover:text-brand-orange text-sm mb-[2px]"
+										className="transition-colors hover:text-brand-orange text-sm"
 										key={index}
 									>
-										<Link href={`/legal/${item.slug}`} passHref>
+										<Link
+											href={`/legal/${item.slug}`}
+											passHref
+											// Taller hit area so the links are easy to tap (min 24px).
+											className="inline-block py-1.5 min-h-[24px]"
+										>
 											{item?.shortTitle ? item?.shortTitle : item.title}
 										</Link>
 									</li>

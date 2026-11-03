@@ -4,6 +4,7 @@ import { client, slugParams } from "@/lib/sanity";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { pageMetadata } from "@/lib/seo";
+import { JsonLd, sectionBreadcrumbs } from "@/lib/jsonld";
 export const revalidate = 30; // revalidate at most 30 seconds
 
 async function getData(slug: string) {
@@ -104,7 +105,17 @@ export default async function IndustryPage({
 		notFound();
 	}
 
-	return <Template data={data} iconType={"Industry"} />;
+	return (
+		<>
+			<JsonLd
+				data={sectionBreadcrumbs(
+					{ name: "Industry", path: "/industry" },
+					{ title: data.shortTitle || data.title, path: `/industry/${params.slug.toLowerCase()}` },
+				)}
+			/>
+			<Template data={data} iconType={"Industry"} />
+		</>
+	);
 }
 
 export async function generateMetadata({

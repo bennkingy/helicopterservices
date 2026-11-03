@@ -1,3 +1,4 @@
+import { JsonLd, sectionBreadcrumbs } from "@/lib/jsonld";
 import { client, slugParams } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
 import { PortableText } from "@portabletext/react";
@@ -49,11 +50,15 @@ export default async function LegalPage({
 
 	return (
 		<>
+			{/* Home > page: /legal has no landing page of its own. */}
+			<JsonLd
+				data={sectionBreadcrumbs({ name: "Legal" }, { title: data.title, path: `/legal/${slug}` })}
+			/>
 			<div className="container mt-12 sm:mt-14 mb-24 sm:mb-20 pb-2 sm:pb-10">
 				<div className="flex items-baseline">
 					<Image
 						src="/images/icons/CompanyBlue.svg"
-						alt="Helicopter Services"
+						alt=""
 						width={23}
 						height={23}
 					/>

@@ -1,11 +1,13 @@
 "use client";
 
-import { getOpeningStatus } from "@/lib/opening-hours";
+import { getOpeningStatus, type WeeklyHours } from "@/lib/opening-hours";
 import { useEffect, useState } from "react";
 
 interface OpenClosedProps {
 	// Only affects UK visitors; times converted to another timezone always show am/pm.
 	showPeriod?: boolean;
+	// From Sanity via getOpeningHours(). Omitted = the built-in hours.
+	hours?: WeeklyHours;
 }
 
 // "Open today 8:30 - 5:00" / "By appointment only today" in the header.
@@ -15,14 +17,14 @@ interface OpenClosedProps {
 // Worked out in the browser after load, because the page HTML is built ahead
 // of time on a UTC server. Refreshed on each new minute and when the tab comes
 // back into view (browsers slow timers in background tabs).
-export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
+export default function OpenClosed({ showPeriod = true, hours }: OpenClosedProps) {
 	const [status, setStatus] = useState<string | null>(null);
 
 	useEffect(() => {
 		const visitorTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? "";
 		const update = () => {
 			try {
-				setStatus(getOpeningStatus(new Date(), { showPeriod, visitorTimeZone }));
+				setStatus(getOpeningStatus(new Date(), { hours, showPeriod, visitorTimeZone }));
 			} catch {
 				setStatus(null); // never take the header down over this text
 			}
@@ -48,7 +50,7 @@ export default function OpenClosed({ showPeriod = true }: OpenClosedProps) {
 			clearInterval(interval);
 			document.removeEventListener("visibilitychange", onVisible);
 		};
-	}, [showPeriod]);
+	}, [showPeriod, hours]);
 
 	return (
 		<p className="font-workSans font-bold text-base sm:text-[11.5px] mt-1 text-brand-dark-blue min-h-[1.5em]">

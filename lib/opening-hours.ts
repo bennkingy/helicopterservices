@@ -3,11 +3,15 @@
 // The rules (is it open, which day is next) are always worked out in UK time
 // (Europe/London, so GMT in winter and BST in summer). The times shown are
 // converted to the visitor's own timezone when it differs from the UK's.
+//
+// The hours themselves are edited in Sanity (Settings > Opening hours) and
+// loaded by lib/opening-hours-sanity.ts. OPENING_HOURS below is the fallback
+// while that field is empty or filled in wrongly.
 // Tests: lib/opening-hours.test.ts (pnpm test:unit).
 
 export const UK_TIMEZONE = "Europe/London";
 
-const WEEKDAYS = [
+export const WEEKDAYS = [
 	"Monday",
 	"Tuesday",
 	"Wednesday",
@@ -23,7 +27,7 @@ export type Weekday = (typeof WEEKDAYS)[number];
 export type DayHours = { open: string; close: string; byAppointment?: boolean } | null;
 export type WeeklyHours = Record<Weekday, DayHours>;
 
-// Keep in step with the LocalBusiness structured data in app/layout.tsx.
+// Built-in hours, used until Settings > Opening hours is filled in in Sanity.
 export const OPENING_HOURS: WeeklyHours = {
 	Monday: { open: "08:30", close: "17:00" },
 	Tuesday: { open: "08:30", close: "17:00" },
@@ -55,6 +59,50 @@ export function validateHours(hours: WeeklyHours): string[] {
 		}
 	}
 	return problems;
+}
+
+// One day as stored in Sanity (Settings > Opening hours).
+export type SanityOpeningDay = {
+	status?: "open" | "appointment" | "closed";
+	open?: string;
+	close?: string;
+} | null;
+export type SanityOpeningHours = Partial<Record<Lowercase<Weekday>, SanityOpeningDay>> | null | undefined;
+
+// Sanity's opening hours as a WeeklyHours list. null when the field is empty
+// or any day is missing or wrong, so the caller can fall back to the built-in
+// hours as a whole rather than show a mix.
+export function hoursFromSanity(doc: SanityOpeningHours): WeeklyHours | null {
+	if (!doc) return null;
+	const hours = {} as WeeklyHours;
+	for (const name of WEEKDAYS) {
+		const day = doc[name.toLowerCase() as Lowercase<Weekday>];
+		if (!day?.status) return null;
+		if (day.status === "closed") {
+			hours[name] = null;
+			continue;
+		}
+		const open = day.open?.trim() ?? "";
+		const close = day.close?.trim() ?? "";
+		hours[name] = day.status === "appointment" ? { open, close, byAppointment: true } : { open, close };
+	}
+	return validateHours(hours).length ? null : hours;
+}
+
+// Google's openingHoursSpecification (LocalBusiness structured data): days with
+// set hours, grouped by time. By-appointment days are left out.
+export function openingHoursJsonLd(hours: WeeklyHours) {
+	const groups = new Map<string, Weekday[]>();
+	for (const name of WEEKDAYS) {
+		const day = hours[name];
+		if (!day || day.byAppointment) continue;
+		const key = `${day.open}-${day.close}`;
+		groups.set(key, [...(groups.get(key) ?? []), name]);
+	}
+	return Array.from(groups, ([key, dayOfWeek]) => {
+		const [opens, closes] = key.split("-");
+		return { "@type": "OpeningHoursSpecification", dayOfWeek, opens, closes };
+	});
 }
 
 const formatters = new Map<string, Intl.DateTimeFormat>();

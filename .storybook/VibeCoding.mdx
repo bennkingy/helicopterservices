@@ -1,0 +1,227 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Guides/Vibe coding a page" />
+
+# Vibe coding a page
+
+**For product owners.** How to design and build a new page for helicopterservices.co.uk by describing it in plain English to Claude Code, using the components and brand rules in this Storybook. You do the thinking and reviewing. Claude writes the code. A developer checks it before anything goes live.
+
+> **Can I break the live site?** Not if you follow this guide. You work on your own copy (a *branch*), new pages sit behind a *feature flag*, and nothing reaches the live site until a developer approves it. The only live thing you can touch is Sanity content. See [Safety rules](#safety-rules).
+
+---
+
+## The idea in 30 seconds
+
+1. **Look** around this Storybook. Every block the site is built from is here, already on brand.
+2. **Describe** the page you want as a short brief: who it's for, what it must say, which blocks to use.
+3. **Ask Claude Code** to build it **as a Storybook story first**: a mock-up made of real components.
+4. **Review** it here at phone and desktop size, with the Accessibility tab, and ask for changes in plain English.
+5. When it's right, **ask Claude to make it a real page** behind a flag, with content editable in Sanity.
+6. **Run the checks** and hand it to a developer.
+
+The rest of this guide walks through a worked example, step by step.
+
+---
+
+## What you need (one-off setup)
+
+| What | How | Check it works |
+|---|---|---|
+| The code | A developer gives you access, then `git clone` the repo | You have a `helicopterservices` folder |
+| Node and pnpm | Ask a developer, or `npm i -g pnpm` | `pnpm --version` prints a number |
+| Packages | In the folder: `pnpm install` | No red errors |
+| Claude Code | Desktop app, VS Code extension or terminal (`claude`) | It answers when you type "hello" |
+| This Storybook | `pnpm storybook` | http://localhost:6006 opens |
+| The site | `pnpm dev` | http://localhost:3000 opens |
+
+Tip: you can ask Claude Code to do any of these for you: *"Install everything and start Storybook and the dev site."*
+
+---
+
+## The building blocks
+
+Pick from these. If a page needs something that isn't here, that's a conversation with the designer or developer, not something to invent mid-build.
+
+| You want… | Use | Find it under |
+|---|---|---|
+| A big opening with a photo and the page title | **Header** (inner pages) or **Hero** (homepage only) | Site |
+| A section title with the small tag and icon | **Heading** | Content |
+| Questions and answers | **FAQ** | Content |
+| "Talk to a pilot" box | **ContactCta** | Contact |
+| Customer reviews | **Reviews** | Homepage |
+| Slides linking to other pages | **Carousel** | Homepage |
+| Cards linking to services or helicopters | **ServiceCard**, **HelicopterCard** | Cards |
+| Tables | **ComparisonTable**, **TransferTimesTable** | Content |
+| An enquiry link | **Enquire** | Content |
+| Forms, tabs, accordions, dialogs | **UI kit** | UI kit |
+
+And the rules they follow are on the [Brand](?path=/docs/brand--docs) page: colours, type, square corners, alternating bands, writing style.
+
+---
+
+## Worked example: a corporate days page
+
+### Step 1: Write the brief
+
+Five minutes, in a note. Be specific about **who**, **why**, **what** and **which blocks**. This is the actual brief behind the example:
+
+```text
+Page: Corporate Helicopter Days
+URL: /flights/corporate-days
+Who: office managers and team leads planning a day out (often on a phone)
+Goal: send us an enquiry for a group booking
+
+Sections, top to bottom:
+1. Banner: "Corporate Helicopter Days", Flights tag, hangar photo showing the R22 and R44
+2. White band: short intro (2-3 sentences), then an enquiry link
+3. Navy band: "How it works" in 3 steps (Enquire, Plan, Fly)
+4. White band: FAQ on the left, "talk to a pilot" box on the right
+5. Light grey band: reviews
+
+Must say: groups welcome, flies from White Waltham, UK CAA approved.
+Phone +44 1494 513 166.
+```
+
+### Step 2: Ask for a mock-up story
+
+Open Claude Code in the project folder and paste a prompt like this. The **rules block** at the end is the important part: always include it.
+
+```text
+Build a Storybook story for a new "Corporate Helicopter Days" page, using this brief:
+
+[paste the brief]
+
+Rules:
+- Use only existing components from app/components and components/ui (see Storybook).
+- Follow the Brand page in Storybook: brand colours only, Work Sans headings,
+  Open Sans body, square corners, bands alternating white / navy / light grey.
+- One h1, then h2 and h3 in order. Alt text on real images.
+- British English. Phone written as +44 1494 513 166.
+- Put the story in app/components/examples/, titled "Guides/Example: corporate days page",
+  with Desktop and Phone versions.
+- Don't create a real page or change any existing component yet.
+- Don't commit, push, deploy, or change anything in Sanity.
+```
+
+Claude reads the code, picks the components and writes **one story file**. Open http://localhost:6006 and find it in the sidebar. Storybook refreshes by itself.
+
+### Step 3: Review it like a designer
+
+Go through each tab and toolbar button:
+
+1. **Desktop, then Phone** (viewport button in the toolbar, or the *Phone* story). Most visitors will be on a phone.
+2. **Accessibility tab** (bottom panel). Aim for **0 violations**. Anything listed, ask Claude to fix.
+3. **Read every word out loud.** Is it plain English? Does it say what it costs and how to book?
+4. **Click everything.** Links and buttons should go where you expect. The enquiry form is mocked here, so nothing is sent.
+
+### Step 4: Ask for changes in plain English
+
+Talk about **what you see**, not code. These all work well:
+
+```text
+On phones the banner is too tall and pushes the intro below the fold. Make it shorter on phones only.
+```
+```text
+The "How it works" cards look cramped on tablet. Stack them on tablet as well as phone.
+```
+```text
+Swap the order: put reviews straight after the intro, then How it works.
+```
+```text
+The Accessibility tab shows a colour contrast problem on the step numbers. Fix it using brand colours.
+```
+```text
+Make the intro warmer and shorter, two sentences, aimed at someone organising a team day out.
+```
+
+Repeat steps 3 and 4 until you're happy. **Small requests, one at a time** get better results than one long list.
+
+### Step 5: Make it a real page
+
+When the mock-up is approved:
+
+```text
+Turn the corporate days story into a real page at /flights/corporate-days.
+- Hide it behind a new feature flag NEXT_PUBLIC_ENABLE_CORPORATE_PAGE (off by default),
+  read from process.env and only "true" turns it on.
+- Text that marketing will want to change (headings, intro, steps, FAQ) should come
+  from Sanity, with the current wording as built-in defaults (like lib/homepage-defaults.ts).
+- Add the page title, description, canonical URL and BreadcrumbList structured data
+  like the other flights pages.
+- Turn the flag on in .env.local only, so I can see it locally.
+- Don't commit, push or deploy.
+```
+
+Then open http://localhost:3000/flights/corporate-days to see it in the real site, with the real header and footer.
+
+### Step 6: Run the checks
+
+```text
+Run the unit tests, lint, type-check and production build, and run Lighthouse on
+/flights/corporate-days on mobile. Tell me anything that fails and fix it.
+```
+
+Good results look like **Accessibility 95+**, **SEO 100**, a clean build and all tests passing.
+
+### Step 7: Hand over
+
+```text
+Write a short summary of this page for the developer: what was built, which files
+changed, the new flag and Sanity fields, and how to test it. Then create a branch
+called feature/corporate-days-page and commit the work (don't push).
+```
+
+Send that summary to the developer. They review it, open a pull request and decide when it goes live. Going live usually just means turning the flag on in Vercel.
+
+---
+
+## Writing good prompts
+
+| Instead of… | Try… | Why |
+|---|---|---|
+| "Make it look better" | "The cards look cramped on phones. Add more space between them." | Say what's wrong and where |
+| "Add a booking calendar" | "Is there an existing component for picking a date? If not, what would it take?" | Ask before inventing new pieces |
+| "Use a nice green" | "Use the brand colours only" | Keeps the site consistent |
+| "Fix everything" | One change per message | Easier to check, easier to undo |
+| "Put it live" | "Commit to a branch. A developer will deploy." | Live releases go through a developer |
+
+**Useful questions to ask Claude Code:**
+
+```text
+Which existing components could I use for a page that compares our tours?
+```
+```text
+Show me the Storybook story for the ContactCta and explain what each part does, without code.
+```
+```text
+What would change for SEO if we added this page? Does it need structured data?
+```
+```text
+Undo your last change.
+```
+
+---
+
+## Safety rules
+
+1. **Always work on a branch.** Ask: *"Create a branch called feature/name-of-thing."*
+2. **New pages go behind a flag**, off by default. Turn it on in `.env.local` only.
+3. **Never say "push", "deploy" or "go live".** A developer does that.
+4. **Sanity is live content.** Claude's scripts preview changes first (*dry run*) and only change live content with `--apply`. Don't approve `--apply` yourself. Ask a developer.
+5. **If something looks wrong**, ask *"What did you change? Undo it."* Everything on a branch can be thrown away.
+
+---
+
+## Words you'll hear
+
+| Word | Means |
+|---|---|
+| **Component** | A reusable building block (a card, a heading, a form) |
+| **Story** | One example of a component in Storybook, with sample content |
+| **Branch** | Your own copy of the code. Changes there don't affect anyone else |
+| **Commit** | Saving a set of changes on your branch |
+| **Pull request (PR)** | Asking a developer to review your branch and merge it |
+| **Feature flag** | An on/off switch for a new feature, so it can be built without being visible |
+| **Sanity** | The CMS where text and images are edited (the "Studio") |
+| **Structured data** | Hidden information for Google (breadcrumbs, courses, FAQs) that can show up in search results |
+| **Lighthouse** | Google's tool that scores speed, accessibility and SEO out of 100 |

@@ -1,0 +1,293 @@
+import { Canvas, ColorItem, ColorPalette, Meta, Typeset, Unstyled } from "@storybook/addon-docs/blocks";
+import Heading from "@/app/components/Heading";
+import IconsHelper from "@/app/components/IconsHelper";
+import Enquire from "@/app/components/Enquire";
+import * as AccreditationStories from "../app/components/AccrediationsText.stories";
+import * as NavStories from "../app/components/NavBarHeader.stories";
+import * as HeroStories from "../app/components/Hero.stories";
+import * as BannerStories from "../app/components/Header.stories";
+import * as ServicesStories from "../app/components/MainServices.stories";
+import * as CardStories from "../app/components/Cards.stories";
+import * as CarouselStories from "../app/components/Carousel.stories";
+import * as ReviewStories from "../app/components/Reviews.stories";
+import * as ContactStories from "../app/components/ContactCta.stories";
+
+<Meta title="Brand" />
+
+# Brand
+
+How Helicopter Services looks, sounds and builds pages. Use this page with the components in the sidebar. If something you want isn't here, it probably shouldn't be on the site yet: ask before inventing it.
+
+**In one line:** navy and white, confident and calm, real aircraft and real people, with an orange call to action.
+
+---
+
+## What goes where: anatomy of a page
+
+Every page is built from the same parts, top to bottom. These are the **real components** with real content, not pictures.
+
+> **Header vs Heading:** they're different things.
+> - The **site header** is the white bar with the logo and menu at the top of every page.
+> - The **page banner** (the `Header` component) is the big photo with the page title.
+> - A **Heading** is a section title inside the page.
+
+### 1. Accreditation strip + site header (every page)
+
+<Unstyled>
+
+A navy strip with the CAA/EASA line (hidden on the homepage and About page, where the hero says it instead), then the white **site header**: logo, mega menu, phone number and today's opening status. It sticks to the top as you scroll.
+
+**The light-blue underline** is the brand line. It's a 4px `border-b-4 border-brand-light-blue` under the header, with a small light-blue triangle in the bottom-right corner on desktop. The footer starts with the same 4px line on top, so every page is "bracketed" by it.
+
+</Unstyled>
+
+<Canvas of={AccreditationStories.Default} sourceState="none" />
+<Canvas of={NavStories.OnAPage} sourceState="none" />
+
+### 2a. Hero (homepage and About only)
+
+Full-screen video under a 60% navy overlay, with the `h1` in Work Sans extra-light and a single subheading. The CAA/EASA bar sits along the bottom. The review score appears once it's set in Sanity.
+
+<Canvas of={HeroStories.WithReviewScore} sourceState="none" />
+
+### 2b. Page banner (every other page)
+
+A wide photo under the same navy overlay, with the section tag and the page title (`h1`). This is where photo quality shows most. Use **2400 × 800px or bigger**: the current trial lessons photo is only 1672 × 419 and looks soft on big screens.
+
+<Canvas of={BannerStories.TrialLessonsHangar} sourceState="none" />
+<Canvas of={BannerStories.Training} sourceState="none" />
+<Canvas of={BannerStories.Industry} sourceState="none" />
+
+More versions (London tours, filming, the hangar, long titles, phone) are under **Site → Page banner (Header)**.
+
+### 3. Service cards on navy (homepage)
+
+White cards on a navy band, each with a section icon, a light-blue bottom border and the corner triangle.
+
+<Canvas of={ServicesStories.Default} sourceState="none" />
+
+### 4. Content cards
+
+<Canvas of={CardStories.ServiceCards} sourceState="none" />
+<Canvas of={CardStories.Helicopter} sourceState="none" />
+
+### 5. Carousel on light grey, reviews, contact box
+
+<Canvas of={CarouselStories.Default} sourceState="none" />
+<Canvas of={ReviewStories.Default} sourceState="none" />
+<Canvas of={ContactStories.ContactCtaWithPilot} sourceState="none" />
+
+### Where the words and pictures come from
+
+Most text is edited in **Sanity Studio**. If a field is left empty, the site shows built-in default text, so a page never goes blank.
+
+| On the page | Edit it in Sanity | Field |
+|---|---|---|
+| Homepage hero heading and subheading | **Homepage** → Hero | Hero heading, Hero subheading |
+| Review score under the hero | **Settings** | Overall review rating, Number of reviews, Review source link |
+| Homepage service cards (Training, Flights…) | **Homepage** → Service cards | Title, Description |
+| Homepage About / Training / Industry sections | **Homepage** → About, Training, Industry | Tag, Heading, Body, images |
+| Homepage flights carousel | **Homepage** → Flights carousel | Pick pages; optional title, text and image |
+| Page banner title, tag and photo | The page (**Training / Flights / Industry / Fleet / About**) → Hero | Heading, Tagline, Image (else the page Title and Main image) |
+| Page body text and inline images | The page → Body | Rich text |
+| "Talk to a pilot" box | The page → Pilot | Pick a Pilot document |
+| Helicopters for this service | The page → Helicopters that provide this service | Pick Fleet documents |
+| FAQs (FAQ page and Google) | **Settings** → FAQs | Question, Answer |
+| Opening hours (header, contact boxes, Google) | **Settings** → Opening hours | Status, Opens, Closes for each day |
+| Popup advert | **Popup advert** | Image, dates, link, button text |
+| Page titles in Google | Any page → SEO | SEO Title, SEO Description |
+
+**Not in Sanity (ask a developer):** opening hours (`lib/opening-hours.ts`), the menus and footer links (automatic from the pages that exist), the phone number and address, the hero video, and the Tripadvisor reviews on the homepage.
+
+---
+
+## Logo
+
+<div style={{ display: "flex", gap: 24, flexWrap: "wrap", margin: "16px 0 8px" }}>
+	<div style={{ background: "#ffffff", border: "1px solid #E2EEF7", padding: 24 }}>
+		<img src="/images/LogoDarkVNew.svg" alt="Helicopter Services logo on white" width="200" />
+		<div style={{ fontSize: 12, marginTop: 8 }}>
+			On white or light grey: <code>/images/LogoDarkVNew.svg</code>
+		</div>
+	</div>
+	<div style={{ background: "#102039", padding: 24 }}>
+		<img src="/images/LogoLightV2New.svg" alt="Helicopter Services logo on navy" width="200" />
+		<div style={{ fontSize: 12, marginTop: 8, color: "#c7d0dc" }}>
+			On navy: <code>/images/LogoLightV2New.svg</code>
+		</div>
+	</div>
+</div>
+
+- Use the **two files above only**. The older `LogoDark*/LogoLight*` versions in `public/images` are not current.
+- Leave clear space around the logo of at least the height of the "H".
+- **Emails** can't show SVG. Use `/images/email/logo-white.png`.
+- When the logo is a link, its alt text is **"Helicopter Services home"**.
+
+---
+
+## Colours
+
+Defined in `tailwind.config.ts` under `brand`. Use the Tailwind class names, e.g. `bg-brand-dark-blue` or `text-brand-orange`. **Never add new hex colours.**
+
+<ColorPalette>
+	<ColorItem title="Dark blue (navy)" subtitle="brand-dark-blue · the main brand colour. Page sections, header strip, footer, text" colors={{ "#102039": "#102039" }} />
+	<ColorItem title="Medium blue" subtitle="brand-medium-blue · hover state on navy" colors={{ "#235F89": "#235F89" }} />
+	<ColorItem title="Light blue" subtitle="brand-light-blue · accents only: icons, card bottom borders, ticks, text ON navy" colors={{ "#1FB6DE": "#1FB6DE" }} />
+	<ColorItem title="Orange" subtitle="brand-orange · the call to action: buttons, links, prices" colors={{ "#F77005": "#F77005" }} />
+	<ColorItem title="Greys" subtitle="light-grey (alternate sections) · medium-grey (borders) · dark-grey (body text)" colors={{ "#ECF3F5": "#ECF3F5", "#E2EEF7": "#E2EEF7", "#1B1B1B": "#1B1B1B" }} />
+</ColorPalette>
+
+### How much of each
+
+Roughly **60% white or light grey, 30% navy, 10% orange plus light blue**. Orange means "do something here". If everything is orange, nothing is.
+
+### Contrast rules (accessibility)
+
+| Combination | OK? | Notes |
+|---|---|---|
+| Navy text on white | ✅ 16:1 | Default for headings |
+| White text on navy | ✅ 16:1 | Dark sections |
+| Light blue `#1FB6DE` text on white | ❌ 2.4:1 | Known contrast issue, kept as the brand colour |
+| Light blue on navy | ✅ 7:1 | Fine for tags and icons |
+| White text on orange buttons | ⚠️ 2.9:1 | Fails for small text. Keep button text **bold and 16px+**. Darkening the orange is a design decision still open. |
+| Orange text on light grey | ❌ 2.6:1 | Avoid. Put orange links on white. |
+
+---
+
+## Typography
+
+Two typefaces, both loaded with `next/font` on the site:
+
+- **Work Sans** (`font-workSans`): headings, tags, buttons
+- **Open Sans** (`font-openSans`): body text, forms, small print
+
+<Typeset fontFamily="Work Sans" fontWeight={200} sampleText="Helicopter Training, Tours & Charter" fontSizes={[72, 60, 36]} />
+<div style={{ fontSize: 12, marginTop: -8 }}>Hero headline: Work Sans <b>extra-light</b>, <code>text-4xl md:text-6xl xl:text-7xl font-extralight</code>, white on the video.</div>
+
+<Typeset fontFamily="Work Sans" fontWeight={700} sampleText="From beginner to advanced, you're in expert hands" fontSizes={[36, 30, 24]} />
+<div style={{ fontSize: 12, marginTop: -8 }}>Section headings: Work Sans <b>bold</b>, <code>text-3xl sm:text-4xl</code>, navy. Use the <b>Heading</b> component.</div>
+
+<Typeset fontFamily="Open Sans" fontWeight={400} sampleText="Take the controls with an instructor. Includes a pre-flight briefing." fontSizes={[18, 16, 14]} />
+<div style={{ fontSize: 12, marginTop: -8 }}>Body: Open Sans 16px, dark grey, line height 1.6. Small print 14px.</div>
+
+**Headings in order:** one `h1` per page (the hero or banner), then `h2` for sections and `h3` inside them. Never skip a level to get a smaller size. Change the size with classes instead.
+
+---
+
+## The Heading pattern
+
+Almost every section opens with a **tag** (small light-blue label with a section icon) above a **bold heading**. Use the `Heading` component, never a hand-made one.
+
+{/* Unstyled stops the docs page's own heading styles leaking into the real components. */}
+<Unstyled>
+<div style={{ display: "grid", gap: 24, margin: "16px 0" }}>
+	<div style={{ padding: 24, border: "1px solid #E2EEF7" }}>
+		<Heading title="Over 25 years helicopter operating experience" tag="About us" iconType="Company" titleStyles="text-3xl sm:text-4xl" />
+	</div>
+	<div style={{ padding: 24, background: "#102039" }}>
+		<Heading title="From beginner to advanced, you're in expert hands" tag="Training" iconType="Training" titleStyles="text-3xl sm:text-4xl text-white" />
+	</div>
+</div>
+</Unstyled>
+
+Section icons, one per area of the business:
+
+<Unstyled>
+<div style={{ display: "flex", gap: 32, margin: "16px 0", alignItems: "center" }}>
+	{["Training", "Flights", "Industry", "Company"].map((type) => (
+		<div key={type} style={{ textAlign: "center", fontSize: 12 }}>
+			<IconsHelper iconType={type} iconColor="Blue" iconSize={36} />
+			<div>{type}</div>
+		</div>
+	))}
+</div>
+</Unstyled>
+
+---
+
+## Signature shapes
+
+These details make a page look like *this* site rather than a template.
+
+<div style={{ display: "flex", gap: 32, flexWrap: "wrap", margin: "16px 0" }}>
+	<div style={{ textAlign: "center", fontSize: 12 }}>
+		<div style={{ width: 180, height: 120, background: "#102039", clipPath: "polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)" }} />
+		<p><b>Cut corner</b><br />top-right corner clipped 20px.<br />Images, video, contact box</p>
+	</div>
+	<div style={{ textAlign: "center", fontSize: 12 }}>
+		<div style={{ width: 180, height: 120, background: "#fff", boxShadow: "0px 4px 24px rgba(0,0,0,0.25)", borderBottom: "4px solid #1FB6DE", position: "relative" }}>
+			<svg viewBox="0 0 20 20" width="24" height="24" style={{ position: "absolute", right: 0, bottom: 0, color: "#1FB6DE" }} fill="currentColor"><polygon points="20 0 20 20 0 20" /></svg>
+		</div>
+		<p><b>Card</b><br />white, <code>shadow-brand</code>, 4px light-blue<br />bottom border, corner triangle</p>
+	</div>
+	<div style={{ textAlign: "center", fontSize: 12 }}>
+		<div style={{ width: 180, height: 120, display: "flex", alignItems: "center", justifyContent: "center" }}>
+			<span style={{ background: "#F77005", color: "#fff", fontWeight: 700, padding: "12px 20px", textTransform: "uppercase", letterSpacing: 1, fontFamily: "Work Sans" }}>Book now</span>
+		</div>
+		<p><b>Button</b><br />square corners (<code>rounded-none</code>),<br />orange, bold, uppercase</p>
+	</div>
+</div>
+
+- **Corners are square.** Rounded corners only on photos of people (`isCircle`) and carousel dots.
+- **Text links** are orange with no underline and turn navy on hover. "Enquire" links use the arrow component:
+
+<Unstyled>
+<div style={{ margin: "12px 0 24px" }}>
+	<Enquire />
+</div>
+</Unstyled>
+
+---
+
+## Page rhythm
+
+Pages are stacked full-width bands that alternate backgrounds, so the eye can tell where one topic ends:
+
+| Band | Background | Typical content |
+|---|---|---|
+| Hero or banner | photo/video under 60% navy | `h1`, one line of subheading |
+| Section | white | Heading + text + image pair |
+| Section | **navy** `bg-brand-dark-blue` | White Heading, light-blue tag, cards |
+| Section | **light grey** `bg-brand-light-grey` | Carousel, reviews, FAQ |
+| Footer | navy | (automatic) |
+
+- **Spacing:** sections use `py-20`, content sits in `container mx-auto` (2rem side padding).
+- **Text width:** body text never runs wider than about 70 characters (`max-w-2xl`).
+- **Phones first:** check every page at 390px. Grids collapse to one column (`grid-cols-1 md:grid-cols-2`).
+
+---
+
+## Photography
+
+- **Real aircraft, real people, real places.** The fleet (R22, R44, R66, AS355), White Waltham, London from the air, instructors by name. No stock photos.
+- **Show the experience**, not just the machine: a student at the controls beats an empty cockpit.
+- **Sizes:**
+  - page banners are wide (at least **2400 × 800px**)
+  - cards and side images at least **1200px** wide
+  - upload originals to Sanity, which resizes them
+- **Every image needs alt text** that says what's in it ("Student pilot at the controls of a Robinson R22"). Icons and decoration get empty alt text.
+
+---
+
+## Writing style
+
+- **British English:** licence, colour, organisation, programme, aeroplane. It's a **hangar**, not a hanger.
+- **Plain and confident.** Short sentences. Say what it is, what it costs and how to book.
+- **Headlines say what we do** ("Helicopter Trial Lessons & Gifts"), not slogans ("Exceeding exacting standards").
+- **Numbers:** "17+ helicopter types" (never "over 17+"), "25 years", "£199", "From £249".
+- **Phone:** always written **+44 1494 513 166**.
+- **Times:** "8:30am to 5:00pm", UK time. Weekends are "by appointment".
+- **Trust signals worth repeating:** UK CAA and EASA approved, operating since 1998, BBC/Channel 4/ITV/Sky credits.
+
+---
+
+## Quick checklist for any new page
+
+- [ ] One `h1`, then `h2`/`h3` in order
+- [ ] Only brand colours, Work Sans and Open Sans
+- [ ] Orange used only for the main actions
+- [ ] Bands alternate white / navy / light grey
+- [ ] Real photos with alt text
+- [ ] Looks right at phone width (390px)
+- [ ] The **Accessibility** tab in Storybook shows no violations
+- [ ] British English, phone as +44 1494 513 166

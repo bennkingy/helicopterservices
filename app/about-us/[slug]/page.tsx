@@ -6,6 +6,8 @@ import { client, slugParams } from "@/lib/sanity";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { pageMetadata } from "@/lib/seo";
+import { JsonLd, sectionBreadcrumbs } from "@/lib/jsonld";
+import { getFaqs } from "@/lib/faqs";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -69,6 +71,7 @@ export default async function AboutPage({
 	const data: training = await getPageData(params.slug.toLowerCase());
 
 	const showFaqs = params.slug === "faqs";
+	const faqs = showFaqs ? await getFaqs() : [];
 
 	if (!data?.title) {
 		notFound();
@@ -76,11 +79,17 @@ export default async function AboutPage({
 
 	return (
 		<>
+			<JsonLd
+				data={sectionBreadcrumbs(
+					{ name: "About us", path: "/about-us" },
+					{ title: data.title, path: `/about-us/${params.slug.toLowerCase()}` },
+				)}
+			/>
 			<Template data={data} iconType="Company">
 				<div className="mt-8">
 					{showFaqs ? (
 						<div className="mt-8">
-							<FAQ className="mb-10" />
+							<FAQ className="mb-10" items={faqs} />
 						</div>
 					) : null}
 				</div>

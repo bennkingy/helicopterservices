@@ -1,6 +1,7 @@
 import { ComparisonTable } from "@/app/components/ComparisonTable";
 import HelicopterCard from "@/app/components/HelicopterCard";
 import Template from "@/app/components/Template";
+import { JsonLd, courseJsonLd, sectionBreadcrumbs } from "@/lib/jsonld";
 import { bodyQuery } from "@/lib/queries";
 import { client } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
@@ -17,6 +18,7 @@ async function getTypeRatingsData(slug: string) {
           seoTitle,
 						shortTitle,
           seoDescription,
+          courseHours,
 					${bodyQuery},
 				mainImage{
 				...,
@@ -102,9 +104,24 @@ export default async function FleetPage({
 	const heliCopterData: any = await getHelicopterData();
 
 	const combinedData = { ...data, ...typeRating }; // Combine the data and typeRating objects
+	const title = typeRating?.title || "Type Ratings";
 
 	return (
 		<div className="sm:mb-10">
+			<JsonLd
+				data={[
+					sectionBreadcrumbs(
+						{ name: "Training", path: "/training" },
+						{ title: typeRating?.shortTitle || title, path: "/training/type-ratings" },
+					),
+					courseJsonLd({
+						title,
+						description: typeRating?.seoDescription,
+						hours: typeRating?.courseHours,
+						path: "/training/type-ratings",
+					}),
+				]}
+			/>
 			<Template data={combinedData} iconType="Training">
 				<div className="">
 					<div className="pt-5 mb-0">

@@ -1,0 +1,10 @@
+<!-- Stops the browser asking for /favicon.ico, which Storybook does not serve. -->
+<link rel="icon" href="/images/logo.png" />
+<!-- next/font isn't available in Storybook; load the same fonts from Google. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Work+Sans:wght@200..800&display=swap" rel="stylesheet" />
+<style>
+  :root { --font-open-sans: "Open Sans", sans-serif; --font-work-sans: "Work Sans", sans-serif; }
+  body { font-family: var(--font-open-sans); color: #1b1b1b; }
+</style>

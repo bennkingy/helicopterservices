@@ -1,91 +1,19 @@
-// import NavbarHeader from "./NavBarHeader";
-// import AccrediationsText from "./AccrediationsText";
-
-// async function getNavigationData() {
-// 	let data: any;
-
-// 	try {
-// 		const response = await fetch(`${process?.env?.CURRENT_URL}/api/navigation`);
-// 		data = await response.json();
-// 	} catch (error) {
-// 		console.error("Failed to fetch navigation data:", error);
-// 	}
-
-// 	return data;
-// }
-
-// export default async function Navbar() {
-// 	const data = await getNavigationData();
-
-// 	return (
-// 		<>
-// 			<AccrediationsText />
-// 			<NavbarHeader menuData={data} />
-// 		</>
-// 	);
-// }
-
-import NavbarHeader from "./NavBarHeader";
+import { getNavigation } from "@/lib/navigation";
+import { getOpeningHours } from "@/lib/opening-hours-sanity";
 import AccrediationsText from "./AccrediationsText";
-import { client } from "@/lib/sanity";
-import { groq } from "next-sanity";
-
-// GROQ query to fetch the necessary navigation data
-const query = groq`
-{
-  "fleet": *[_type == "fleet" && isLandingPage != true] {
-    title,
-    engineType,
-    "slug": slug.current,
-  },
-  "training": *[_type == "training" && isLandingPage != true] {
-    title,
-    category,
-    shortTitle,
-    "slug": slug.current,
-  },
-  "flights": *[_type == "flights" && isLandingPage != true] {
-    title,
-    category,
-    shortTitle,
-    "slug": slug.current,
-  },
-  "about": *[_type == "about" && isLandingPage != true] {
-    title,
-    "slug": slug.current,
-  },
-  "legal": *[_type == "legal" && isLandingPage != true] {
-    title,
-    "slug": slug.current,
-  },
-  "industry": *[_type == "industry" && isLandingPage != true] {
-    title,
-    "slug": slug.current,
-  }
-}`;
+import NavbarHeader from "./NavBarHeader";
 
 export const revalidate = 30;
 
-async function getNavigationData() {
-	// @ts-ignore
-	let data;
-
-	try {
-		data = await client.fetch(query);
-	} catch (error) {
-		console.error("Failed to fetch navigation data:", error);
-	}
-
-	return data;
-}
-
+// Top of every page: the blue accreditation strip and the sticky header
+// (logo, mega menu, phone, opening hours).
 export default async function Navbar() {
-	const data = await getNavigationData();
+	const [data, hours] = await Promise.all([getNavigation(), getOpeningHours()]);
 
 	return (
 		<>
 			<AccrediationsText />
-			<NavbarHeader menuData={data} />
+			<NavbarHeader menuData={data} hours={hours} />
 		</>
 	);
 }

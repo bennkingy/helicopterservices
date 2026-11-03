@@ -1,4 +1,6 @@
-import { FAQ, FAQList } from "@/app/components/FAQ";
+import { FAQ } from "@/app/components/FAQ";
+import { faqJsonLd, getFaqs } from "@/lib/faqs";
+import { JsonLd, sectionBreadcrumbs } from "@/lib/jsonld";
 import type { training } from "@/lib/interface";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
@@ -7,16 +9,6 @@ import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
-// Lets search engines show these questions and answers directly in results.
-const faqJsonLd = {
-	"@context": "https://schema.org",
-	"@type": "FAQPage",
-	mainEntity: FAQList.map(({ question, answer }) => ({
-		"@type": "Question",
-		name: question,
-		acceptedAnswer: { "@type": "Answer", text: answer },
-	})),
-};
 
 async function getPageData(slug: string) {
 	const query = `
@@ -49,6 +41,8 @@ export default async function AboutPage({
 	params,
 }: { params: { slug: string } }) {
 	const data: training = await getPageData("faqs");
+	// Same list for the page and for Google's FAQ rich results.
+	const faqs = await getFaqs();
 
 	return (
 		<>
@@ -56,7 +50,7 @@ export default async function AboutPage({
 				<div className="flex items-baseline">
 					<Image
 						src="/images/icons/CompanyBlue.svg"
-						alt="Helicopter Services"
+						alt=""
 						width={23}
 						height={23}
 					/>
@@ -70,11 +64,16 @@ export default async function AboutPage({
 				<p className="mt-5 mb-10 font-bold text-base sm:text-2xl font-workSans">
 					Frequently asked questions about flying with Helicopter Services.
 				</p>
-				<FAQ className="" />
-				<script
-					type="application/ld+json"
-					// biome-ignore lint/security/noDangerouslySetInnerHtml: static JSON-LD
-					dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+				<FAQ className="" items={faqs} />
+				{/* JsonLd escapes "<", so an answer containing "</script>" can't break the page. */}
+				<JsonLd
+					data={[
+						sectionBreadcrumbs(
+							{ name: "About us", path: "/about-us" },
+							{ title: data?.title || "FAQs", path: "/about-us/faqs" },
+						),
+						faqJsonLd(faqs),
+					]}
 				/>
 			</div>
 		</>

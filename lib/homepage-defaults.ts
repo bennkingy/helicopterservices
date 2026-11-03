@@ -35,7 +35,8 @@ export const homepageDefaults = {
 		"Helicopter Services - Expert Training, Charter, and Aerial Services",
 	seoDescription:
 		"Expert helicopter training, charter, and aerial services. Based at White Waltham Airfield, Maidenhead. London helicopter tours, photography, and more.",
-	heroTitle: "Exceeding exacting\nindustry standards",
+	heroTitle: "Helicopter Training, Tours\n& Charter from White Waltham",
+	heroSubtitle: "Exceeding exacting industry standards since 1998.",
 	services: {
 		training: {
 			title: "Training",
@@ -55,7 +56,7 @@ export const homepageDefaults = {
 		company: {
 			title: "Our company",
 			description:
-				"Trust a company with over 25 years helicopter operating experence.",
+				"Trust a company with over 25 years helicopter operating experience.",
 		},
 	},
 	about: {
@@ -91,7 +92,7 @@ export const homepageDefaults = {
 		tag: "Training",
 		heading: "From beginner to advanced, you're in expert hands",
 		body: [
-			"Our highly experienced instructors and examiners are among the UK's most senior. We provide type ratings for over 17+ helicopter types, along with Flight Instructor Refresher and Instrument Rating Examiner courses.",
+			"Our highly experienced instructors and examiners are among the UK's most senior. We provide type ratings for 17+ helicopter types, along with Flight Instructor Refresher and Instrument Rating Examiner courses.",
 			"Additionally, we offer a helicopter flight simulator for safe instrument flying skill development and an advanced programme to enhance PPL skills.",
 		],
 		mainImage: {

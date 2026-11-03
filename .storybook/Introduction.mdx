@@ -1,0 +1,56 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction" />
+
+# Helicopter Services components
+
+Every component on helicopterservices.co.uk, one at a time, filled with real content.
+
+## Running it
+
+```
+pnpm storybook          # http://localhost:6006
+pnpm build-storybook    # static site in storybook-static/
+```
+
+## What's in here
+
+| Section | What |
+|---|---|
+| **Site** | Hero, page banner, navbar, mega menu, mobile menu, footer, opening hours, popup |
+| **Homepage** | Service cards, flights carousel, reviews, TV logos |
+| **Content** | Headings, icons, links and buttons, FAQ, tables, training pathway |
+| **Cards** | Service, helicopter and team cards |
+| **Contact** | Enquiry form and contact blocks |
+| **Guides** | How a product owner can vibe code a new page, with a worked example |
+| **Pages** | Whole page templates (flights page, fleet page) |
+| **Media** | Images, gallery, video, map, animations |
+| **UI kit** | The shadcn/ui building blocks (buttons, inputs, dialogs, tabs…) |
+
+## How the data works
+
+Stories never talk to live services:
+
+- **Sanity** is swapped for `.storybook/mocks/sanity.ts`. It returns real content copied into `.storybook/fixtures/`. To refresh that content, re-run the queries and save the JSON again.
+- **EmailJS, reCAPTCHA, Google Maps and OpenWeatherMap** need real keys. Without them those components show their fallback states.
+
+## Checks built in
+
+- **Accessibility:** open the *Accessibility* tab on any story to see contrast, label and heading issues (axe).
+- **Viewports:** use the toolbar to switch between phone (390px), tablet and desktop.
+- **Visual tests** (Chromatic): the *Visual tests* panel screenshots every story in the cloud and highlights pixel changes since the last approved version. Sign in once with a free Chromatic account to turn it on.
+- **Page Builder** tab (trial): drag these components onto a blank page to sketch a layout. Builds are saved in your browser only (export to JSON to share). It's made for Storybook 9, so treat it as an experiment.
+- **Unit tests** for opening hours (UK time and clock changes) live next to the code: `pnpm test:unit`.
+
+## Adding a story
+
+Put `Thing.stories.tsx` next to `Thing.tsx`:
+
+```tsx
+import type { Meta, StoryObj } from "@storybook/nextjs";
+import Thing from "./Thing";
+
+const meta: Meta<typeof Thing> = { title: "Content/Thing", component: Thing };
+export default meta;
+export const Default: StoryObj<typeof Thing> = { args: { /* props */ } };
+```

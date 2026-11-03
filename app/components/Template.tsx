@@ -10,7 +10,7 @@ import GMapHeader from "./GMapHeader";
 import Gallery from "./Gallery";
 import Header from "./Header";
 import YouTubeThreeD from "./YouTubeThreeD";
-import HelicopterCard2 from "./HelicopterCard2";
+import HelicopterCard from "./HelicopterCard";
 import Link from "next/link";
 import { Icons } from "@/components/ui/icons";
 import CMSLink from "./CMSLink";
@@ -195,7 +195,7 @@ const Template = ({
 							{data?.fleetItems
 								// @ts-ignore
 								.map((helicopter: any, idx: number) => (
-									<HelicopterCard2
+									<HelicopterCard
 										key={idx}
 										helicopter={helicopter}
 										url={"/fleet/"}

@@ -1,4 +1,5 @@
 import { getHomepage } from "@/lib/homepage";
+import { JsonLd, websiteJsonLd } from "@/lib/jsonld";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Carousel from "./components/Carousel";
@@ -10,6 +11,7 @@ import { MainServices } from "./components/MainServices";
 import Reviews from "./components/Reviews";
 import Tvlogos from "./components/Tvlogos";
 import { pageMetadata } from "@/lib/seo";
+import { getReviewSummary } from "@/lib/reviews";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -31,13 +33,18 @@ const Tick = () => (
 );
 
 export default async function Home() {
-	const { heroTitle, services, about, training, flights, industry } =
+	const { heroTitle, heroSubtitle, services, about, training, flights, industry } =
 		await getHomepage();
+	const reviews = await getReviewSummary();
 
 	return (
 		<main className="overflow-x-hidden">
+			{/* Tells Google the site's name for search results. Homepage only. */}
+			<JsonLd data={websiteJsonLd()} />
 			<Hero
 				title={heroTitle.split("\n").join("<br/>")}
+				subtitle={heroSubtitle}
+				reviews={reviews}
 				height="h-[calc(100lvh_-_65px)] md:h-[calc(100lvh_-_100px)]"
 			/>
 			<div className="py-20 bg-brand-dark-blue z-[9] relative -mt-[1px]">
@@ -134,9 +141,9 @@ export default async function Home() {
 								height={38}
 							/>
 							<Image
-								src="/images/easa.svg"
+								src="/images/easa.webp"
 								alt="European Union Aviation Safety Agency approved"
-								width={109}
+								width={107}
 								height={36}
 							/>
 						</div>

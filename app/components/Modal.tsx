@@ -1,18 +1,19 @@
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 type props = {
 	isOpen: boolean;
 	onClose: () => void;
 	videoUrl?: string;
+	title?: string; // read by screen readers, not shown
 	children: React.ReactNode;
 };
 
-const Modal = ({ isOpen, onClose, children }: props) => {
+const Modal = ({ isOpen, onClose, title = "Helicopter details", children }: props) => {
 	return (
 		<Dialog open={isOpen} onOpenChange={onClose}>
 			<DialogContent className="max-w-5xl p-0 border-none">
+				<DialogTitle className="sr-only">{title}</DialogTitle>
 				<div className="overflow-auto">{children}</div>
-				{/* <iframe height="500" src="https://www.youtube.com/embed/JOpWTNEAsX8?si=EbI2oaTH5s4boI_Y" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="w-full mt-5"></iframe> */}
 			</DialogContent>
 		</Dialog>
 	);

@@ -94,8 +94,7 @@ const Reviews = ({ className }: props) => {
 												src={review?.img}
 												width={80}
 												height={80}
-												alt="Title Image"
-												priority
+												alt={`Photo of ${review.name}`}
 											/>
 										</div>
 										<div className="flex-1 pr-6 justify-center flex flex-col">
@@ -132,9 +131,9 @@ const Reviews = ({ className }: props) => {
 					passHref
 					href="https://www.tripadvisor.co.uk/Attraction_Review-g315927-d7108370-Reviews-Helicopter_Services_Limited-Marlow_Buckinghamshire_England.html"
 				>
-					Read more{"  "}
+					Read more reviews on{" "}
 					<Image
-						alt="Tripadvisor logo"
+						alt="Tripadvisor"
 						src="/images/tripadvisor.svg"
 						width={200}
 						height={50}

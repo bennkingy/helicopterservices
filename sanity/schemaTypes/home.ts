@@ -67,7 +67,15 @@ export default defineType({
 			title: "Hero heading",
 			type: "text",
 			rows: 2,
-			description: "The large heading over the video. Press Enter for a line break.",
+			description:
+				"The large heading over the video (the page's H1). Say what the business does, e.g. 'Helicopter Training, Tours & Charter from White Waltham'. Press Enter for a line break.",
+			group: "hero",
+		}),
+		defineField({
+			name: "heroSubtitle",
+			title: "Hero subheading",
+			type: "string",
+			description: "Smaller line under the hero heading, e.g. a tagline.",
 			group: "hero",
 		}),
 		defineField({

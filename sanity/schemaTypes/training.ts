@@ -194,6 +194,15 @@ export default defineType({
 				),
 		}),
 		defineField({
+			name: "courseHours",
+			title: "Course length (hours)",
+			type: "number",
+			hidden: ({ document }) => document?.isLandingPage === true,
+			description:
+				"Typical total hours for the course, e.g. 45 for a PPL. Given to Google with the course details. Leave empty if it varies or you're not sure.",
+			validation: (Rule) => Rule.positive().max(2000),
+		}),
+		defineField({
 			name: "seoTitle",
 			title: "SEO Title",
 			type: "string",

@@ -1,6 +1,5 @@
 "use client";
 
-// import { helloAction } from "@/actions/hello-action";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -35,6 +34,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 type Requirement = "Training" | "Flights" | "Industry";
 
+
 export type ServiceOptions = Record<
 	Requirement,
 	{ label: string; slug: string }[]
@@ -60,7 +60,14 @@ const findOriginPath = () => {
 	}
 };
 
-const ContacForm = ({ services }: { services: ServiceOptions }) => {
+const ContacForm = ({
+	services,
+	// Defaults to the site's key; tests pass their own (or none).
+	recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+}: {
+	services: ServiceOptions;
+	recaptchaSiteKey?: string;
+}) => {
 	const service = "service_2zcm8le";
 	const templateId = "template_xbmamql";
 
@@ -69,6 +76,7 @@ const ContacForm = ({ services }: { services: ServiceOptions }) => {
 	const [name, setName] = useState("");
 	// const [selectedRequirement, setSelectedRequirement] = useState("Training");
 	const [recaptchaToken, setRecaptchaToken] = useState("");
+	const [sendError, setSendError] = useState(false);
 
 	// https://www.google.com/recaptcha/admin/site/706025020/setup
 	// https://dev.to/jameswallis/recaptcha-verification-with-emailjs-29ai
@@ -119,8 +127,6 @@ const ContacForm = ({ services }: { services: ServiceOptions }) => {
 		}
 	}, []);
 
-	// const { toast } = useToast();
-
 	const onSubmit = async (data: z.infer<typeof ContactSchema>) => {
 		if (!recaptchaToken) {
 			alert("Please complete the reCAPTCHA.");
@@ -128,8 +134,7 @@ const ContacForm = ({ services }: { services: ServiceOptions }) => {
 		}
 
 		setLoading(true);
-		// const { message } = await helloAction(data.name);
-		// toast({ description: message });
+		setSendError(false);
 
 		const serviceLabel = services[data.requirement as Requirement]?.find(
 			(item) => item.slug === data.service,
@@ -157,6 +162,8 @@ const ContacForm = ({ services }: { services: ServiceOptions }) => {
 			setStep(2);
 		} catch (error) {
 			console.error("Failed to send the email:", error);
+			// Tell the visitor, rather than leaving them thinking it was sent.
+			setSendError(true);
 		} finally {
 			setLoading(false);
 		}
@@ -183,7 +190,8 @@ const ContacForm = ({ services }: { services: ServiceOptions }) => {
 										<FormControl>
 											<Input
 												{...field}
-												type="name"
+												type="text"
+												autoComplete="name"
 												data-test-id="nameField"
 												placeholder="Please enter your name"
 											/>
@@ -202,6 +210,7 @@ const ContacForm = ({ services }: { services: ServiceOptions }) => {
 											<Input
 												{...field}
 												type="email"
+												autoComplete="email"
 												data-test-id="emailField"
 												placeholder="Please enter your email"
 											/>
@@ -221,6 +230,8 @@ const ContacForm = ({ services }: { services: ServiceOptions }) => {
 										<FormControl>
 											<Input
 												{...field}
+												type="tel"
+												autoComplete="tel"
 												data-test-id="contactNumberField"
 												placeholder="Please enter your full contact number"
 											/>
@@ -351,11 +362,25 @@ const ContacForm = ({ services }: { services: ServiceOptions }) => {
 								)}
 							/>
 						</div>
-						<ReCAPTCHA
-							sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-							// @ts-ignore
-							onChange={(token) => setRecaptchaToken(token || "")}
-						/>
+						{/* Without a site key the reCAPTCHA widget throws and takes the whole
+						    form down, so show a message instead. */}
+						{recaptchaSiteKey ? (
+							<ReCAPTCHA
+								sitekey={recaptchaSiteKey}
+								onChange={(token: string | null) => setRecaptchaToken(token || "")}
+							/>
+						) : (
+							<p role="alert" className="text-sm text-red-600">
+								The enquiry form is missing its reCAPTCHA key, so it can&apos;t be sent. Please call
+								us on +44 1494 513 166.
+							</p>
+						)}
+						{sendError && (
+							<p role="alert" className="text-sm text-red-600 text-center">
+								Sorry, your enquiry didn&apos;t send. Please try again, or call us on +44 1494
+								513 166.
+							</p>
+						)}
 						<Button
 							type="submit"
 							className="w-full sm:max-w-[240px] bg-brand-orange py-6 flex m-auto"

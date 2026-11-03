@@ -1,5 +1,5 @@
 //ts-nocheck
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { AnimatePresence, motion } from "framer-motion";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
@@ -44,7 +44,7 @@ const initialMenus: Record<string, MenuItem[]> = {
 	aboutMenu: [{ title: "About us", slug: "/about-us", viewAll: false }],
 };
 
-const MobileMenu = ({ onMobileOpen, menuData }: any) => {
+const MobileMenu = ({ onMobileOpen, menuData, hours }: any) => {
 	const [activeMenu, setActiveMenu] = useState("main");
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [menufromCMS, setMenufromCMS] = useState(initialMenus);
@@ -233,8 +233,6 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 		};
 	}, [menuOpen]);
 
-	const isIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
-
 	return (
 		<div className="flex visible md:hidden ml-auto">
 			<Drawer
@@ -251,17 +249,15 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 				<DrawerTrigger
 					className="mr-3 flex font-semibold text-black outline-none"
 					aria-label="Open navigation menu"
+					// On the button, not the icon: keyboard and screen-reader users
+					// press the button itself, so an icon-only handler never fired.
+					onClick={() => {
+						setTimeout(() => {
+							setMenuOpen(true);
+						}, 10);
+					}}
 				>
-					<MenuIcon
-						className="outline-none"
-						size={30}
-						onClick={() => {
-							// isIOS() && window.scrollTo(0, 0);
-							setTimeout(() => {
-								setMenuOpen(true);
-							}, 10);
-						}}
-					/>
+					<MenuIcon className="outline-none" size={30} aria-hidden="true" />
 				</DrawerTrigger>
 				<DrawerContent
 					// The drawer takes focus when it opens; iOS Safari outlines it in blue.
@@ -271,6 +267,8 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 						setMenuOpen(false);
 					}}
 				>
+					{/* Read by screen readers so they know what this panel is. */}
+					<DrawerTitle className="sr-only">Site menu</DrawerTitle>
 					{/* initial={false}: no slide when the drawer opens, only when moving between menus. */}
 					<AnimatePresence initial={false}>
 						<div className="h-[50px] w-full text-xl text-brand-dark-blue flex items-center justify-center font-bold capitalize">
@@ -360,7 +358,7 @@ const MobileMenu = ({ onMobileOpen, menuData }: any) => {
 											</div>
 										</Link>
 										<div className="text-fix">
-											<OpenClosed showPeriod={false} />
+											<OpenClosed showPeriod={false} hours={hours} />
 										</div>
 									</div>
 								</>

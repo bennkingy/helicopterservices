@@ -12,7 +12,7 @@ const Approvals = () => {
 		!path.includes("elcas") ? (
 		<Image
 			src="/images/approvals.svg"
-			alt="Helicopter Services"
+			alt="UK CAA and EASA approved training organisation"
 			width={300}
 			height={100}
 			className="mt-12"

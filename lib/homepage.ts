@@ -21,6 +21,7 @@ const section = `{
 
 const query = `*[_type == "homepage"] | order(_updatedAt desc)[0]{
 	heroTitle,
+	heroSubtitle,
 	services,
 	"about": about{
 		tag,
@@ -125,6 +126,12 @@ export function buildHomepage(data: any) {
 		seoTitle: text(data?.seoTitle, defaults.seoTitle),
 		seoDescription: text(data?.seoDescription, defaults.seoDescription),
 		heroTitle: text(data?.heroTitle, defaults.heroTitle),
+		// Default subheading only goes with the default heading, so an older
+		// Sanity heading isn't shown twice.
+		heroSubtitle: text(
+			data?.heroSubtitle,
+			text(data?.heroTitle, "") ? "" : defaults.heroSubtitle,
+		),
 		services: {
 			training: serviceCard(data?.services?.training, defaults.services.training),
 			flights: serviceCard(data?.services?.flights, defaults.services.flights),

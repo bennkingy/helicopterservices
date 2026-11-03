@@ -217,7 +217,7 @@ const CarouselPrevious = React.forwardRef<
 			{/* <ArrowLeft className="h-4 w-4" /> */}
 			<Image
 				src="/images/caret-left.svg"
-				alt="Previous slide"
+				alt=""
 				width={10}
 				height={10}
 			/>
@@ -251,7 +251,7 @@ const CarouselNext = React.forwardRef<
 			{/* <ArrowRight className="h-4 w-4" /> */}
 			<Image
 				src="/images/caret-right3.svg"
-				alt="Next slide"
+				alt=""
 				width={10}
 				height={10}
 			/>

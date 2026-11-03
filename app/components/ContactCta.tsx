@@ -2,6 +2,7 @@ import { Icons } from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 import SanityImage from "./SanityImage";
+import OpeningHoursTable from "./OpeningHoursTable";
 
 type props = {
 	className?: string;
@@ -22,7 +23,7 @@ const ContactCta = ({ className, pilot, service }: props) => {
 							src={"/images/ruth2.jpg"}
 							width={82}
 							height={82}
-							alt="Title Image"
+							alt={pilot?.name ? `Photo of ${pilot.name}` : "Photo of your instructor"}
 							priority
 						/>
 					)}
@@ -43,39 +44,7 @@ const ContactCta = ({ className, pilot, service }: props) => {
 						{pilot?.role || "Accountable Manager/Examiner"}
 					</span>
 				</p>
-				<table className={"table-fixed mt-5 ml-5 w-full font-openSans"}>
-					<tbody>
-						<tr>
-							<td>Monday</td> <td>08:30 - 17:00</td>
-						</tr>
-						<tr>
-							<td>Tuesday</td> <td>08:30 - 17:00</td>
-						</tr>
-						<tr>
-							<td>Wednesday</td> <td>08:30 - 17:00</td>
-						</tr>
-						<tr>
-							<td>Thursday</td> <td>08:30 - 17:00</td>
-						</tr>
-						<tr>
-							<td>Friday</td> <td>08:30 - 17:00</td>
-						</tr>
-						<tr className="font-bold">
-							<td>Saturday</td>
-							<td>
-								<span className="block lg:hidden">By Appt.</span>
-								<span className="hidden lg:block">By Appointment</span>
-							</td>
-						</tr>
-						<tr className="font-bold">
-							<td>Sunday</td>
-							<td>
-								<span className="block lg:hidden">By Appt.</span>
-								<span className="hidden lg:block">By Appointment</span>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+				<OpeningHoursTable className="mt-5 ml-5 w-full" shortOnSmallScreens />
 				<div className="flex items-center mt-5 ml-5 group hover:underline underline-offset-2 hover:cursor-pointer">
 					<Icons.phone className="text-brand-light-blue" height={50} />
 					<Link

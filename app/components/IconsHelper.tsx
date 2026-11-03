@@ -16,7 +16,7 @@ const IconHelper = ({
 	return (
 		<Image
 			src={`/images/icons/${iconType}${iconColor}.svg`}
-			alt="Helicopter Services"
+			alt=""
 			width={iconSize}
 			height={iconSize}
 			className={`mr-2 ${className}`}

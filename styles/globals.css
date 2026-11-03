@@ -418,3 +418,28 @@ button.group:hover a:hover + svg {
   color: #102039 !important;
   stroke: #102039 !important; /* For SVG stroke color */
 }
+/* Smaller CookieYes banner on phones (the review found it covered ~40% of the
+   screen). Keeps the buttons, trims padding and text size. */
+@media (max-width: 576px) {
+  .cky-consent-container .cky-consent-bar {
+    padding: 12px 14px !important;
+  }
+  .cky-consent-container .cky-notice-des,
+  .cky-consent-container .cky-notice-des p {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    max-height: 30vh;
+    overflow-y: auto;
+  }
+  .cky-consent-container .cky-title {
+    font-size: 14px !important;
+    margin-bottom: 4px !important;
+  }
+  .cky-consent-container .cky-notice-btn-wrapper {
+    margin-top: 8px !important;
+  }
+  .cky-consent-container .cky-btn {
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+  }
+}

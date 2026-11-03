@@ -1,0 +1,99 @@
+# Nightly tests: unit + end-to-end, published as an Allure report for the client.
+#
+# What it does every night:
+#   1. Installs everything and builds the site from main.
+#   2. Runs the unit tests (Vitest) and end-to-end tests (Playwright) against it.
+#      Safety: no email is sent, nothing is paid for, analytics are blocked.
+#   3. Builds the Allure report, keeping history so it shows trends night by night.
+#   4. Publishes it:
+#        - to a separate Vercel project (the link you give the client)
+#        - as a pipeline artifact, and to the DevOps "Tests" tab for the team.
+#
+# One-off setup in Azure DevOps (Pipelines > Library > Variable groups):
+#   Create a group named "helicopterservices-nightly" with:
+#     VERCEL_TOKEN                  (secret) Vercel access token
+#     VERCEL_ORG_ID                 your Vercel team id
+#     VERCEL_REPORT_PROJECT_ID      id of a separate Vercel project, e.g. "helicopterservices-tests"
+#     NEXT_PUBLIC_RECAPTCHA_SITE_KEY, NEXT_PUBLIC_EMAIL_API, NEXT_PUBLIC_GMAP_API,
+#     NEXT_PUBLIC_WEATHER_API       same values as the site uses
+#   Then: Pipelines > New pipeline > Azure Repos Git > this repo > Existing YAML > this file.
+
+trigger: none # not on every push
+pr: none
+
+schedules:
+  - cron: "0 2 * * *" # 02:00 UTC = 02:00 UK in winter, 03:00 in summer
+    displayName: Nightly tests
+    branches:
+      include: [main]
+    always: true # run even if nothing changed, so the report is always fresh
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - group: helicopterservices-nightly
+  - name: CI
+    value: "true"
+
+steps:
+  - task: UseNode@1
+    inputs:
+      version: "24.x"
+
+  - script: corepack enable && corepack prepare pnpm@8.15.7 --activate && pnpm install --frozen-lockfile
+    displayName: Install packages
+
+  - script: pnpm exec playwright install --with-deps chromium
+    displayName: Install test browser
+
+  # Last night's history, so the report can show trends. Missing on the first run.
+  - task: DownloadPipelineArtifact@2
+    displayName: Get report history
+    continueOnError: true
+    inputs:
+      buildType: specific
+      project: $(System.TeamProjectId)
+      definition: $(System.DefinitionId)
+      buildVersionToDownload: latestFromBranch
+      branchName: refs/heads/main
+      artifactName: allure-history
+      targetPath: $(Build.SourcesDirectory)/allure-history
+
+  - script: pnpm test:report
+    displayName: Run unit + end-to-end tests and build the report
+    env:
+      NEXT_PUBLIC_RECAPTCHA_SITE_KEY: $(NEXT_PUBLIC_RECAPTCHA_SITE_KEY)
+      NEXT_PUBLIC_EMAIL_API: $(NEXT_PUBLIC_EMAIL_API)
+      NEXT_PUBLIC_GMAP_API: $(NEXT_PUBLIC_GMAP_API)
+      NEXT_PUBLIC_WEATHER_API: $(NEXT_PUBLIC_WEATHER_API)
+
+  # Everything below runs even when tests fail, so failures are reported too.
+  - task: PublishTestResults@2
+    displayName: Show results in the Tests tab
+    condition: always()
+    inputs:
+      testResultsFormat: JUnit
+      testResultsFiles: reports/junit/*.xml
+      testRunTitle: Nightly tests
+
+  - task: PublishPipelineArtifact@1
+    displayName: Save the report
+    condition: always()
+    inputs:
+      targetPath: allure-report
+      artifact: allure-report
+
+  - task: PublishPipelineArtifact@1
+    displayName: Save report history for tomorrow
+    condition: always()
+    inputs:
+      targetPath: allure-history
+      artifact: allure-history
+
+  - script: npx --yes vercel@latest deploy allure-report --prod --yes --token "$(VERCEL_TOKEN)"
+    displayName: Publish the report for the client (Vercel)
+    condition: always()
+    env:
+      VERCEL_ORG_ID: $(VERCEL_ORG_ID)
+      VERCEL_PROJECT_ID: $(VERCEL_REPORT_PROJECT_ID)

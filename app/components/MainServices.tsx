@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,7 +20,7 @@ const features: MainServices[] = [
 			<Image
 				priority
 				src="/images/icons/TrainingDark.svg"
-				alt="Helicopter flight training"
+				alt=""
 				width={40}
 				height={40}
 			/>
@@ -36,7 +36,7 @@ const features: MainServices[] = [
 			<Image
 				priority
 				src="/images/icons/FlightsDark.svg"
-				alt="Helicopter flight services"
+				alt=""
 				width={40}
 				height={40}
 			/>
@@ -51,7 +51,7 @@ const features: MainServices[] = [
 			<Image
 				priority
 				src="/images/icons/IndustryDark.svg"
-				alt="Helicopter industry flight services"
+				alt=""
 				width={40}
 				height={40}
 			/>
@@ -67,7 +67,7 @@ const features: MainServices[] = [
 			<Image
 				priority
 				src="/images/icons/CompanyDark.svg"
-				alt="About helicopter services"
+				alt=""
 				width={40}
 				height={40}
 			/>
@@ -75,7 +75,7 @@ const features: MainServices[] = [
 		key: "company",
 		title: "Our company",
 		description:
-			"Trust a company with over 25 years helicopter operating experence.",
+			"Trust a company with over 25 years helicopter operating experience.",
 		url: "/about-us",
 	},
 ];
@@ -95,10 +95,11 @@ export const MainServices = ({
 								className="bg-white rounded-none border-0 border-b-4 border-brand-light-blue relative group duration-300 ease-in lg:min-h-[252px] h-full"
 							>
 								<CardHeader>
-									<CardTitle className="grid gap-4 font-bold text-xl sm:text-2xl duration-300 ease-in-out group-hover:text-brand-light-blue">
+									{/* h2 straight after the hero h1, so heading levels don't skip. */}
+									<h2 className="grid gap-4 leading-none tracking-tight font-bold text-xl sm:text-2xl duration-300 ease-in-out group-hover:text-brand-light-blue">
 										{icon}
 										{title}
-									</CardTitle>
+									</h2>
 								</CardHeader>
 								<CardContent className="-mt-3 sm:-mt-2 text-black text-md sm:text-md duration-300 ease-in-out ">
 									{description}
@@ -113,7 +114,7 @@ export const MainServices = ({
 									</svg>
 									<Image
 										src="/images/caret-right.svg"
-										alt="Helicopter Services"
+										alt=""
 										width={6}
 										height={6}
 										className="absolute bottom-0 right-1"

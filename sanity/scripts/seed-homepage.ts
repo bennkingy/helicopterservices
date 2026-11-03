@@ -63,6 +63,7 @@ async function run() {
 		_type: "homepage",
 		title: existing?.title || "Homepage",
 		heroTitle: d.heroTitle,
+		heroSubtitle: d.heroSubtitle,
 		services: d.services,
 		about: {
 			...(await section(d.about)),

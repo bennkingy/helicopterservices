@@ -1,0 +1,252 @@
+{
+ "body": [
+  {
+   "_key": "ba37b7b28fdb",
+   "_type": "block",
+   "children": [
+    {
+     "_key": "46ca319f77470",
+     "_type": "span",
+     "marks": [],
+     "text": "Discover the fun and manoeuvrability of a helicopter!"
+    }
+   ],
+   "markDefs": [],
+   "style": "h2"
+  },
+  {
+   "_key": "7e9a1b9bd6df",
+   "_type": "block",
+   "children": [
+    {
+     "_key": "aea17db02f89",
+     "_type": "span",
+     "marks": [],
+     "text": "We offer special introductory prices to anybody wishing to discover the fun and manoeuvrability of a helicopter. Treat yourself! Or treat someone else - a trial lesson is the perfect present for those wanting to give a memorable and exciting gift experience to friends or family! "
+    }
+   ],
+   "markDefs": [],
+   "style": "normal"
+  },
+  {
+   "_key": "1649ce2f3f74",
+   "_type": "gallery",
+   "images": [
+    {
+     "_key": "4780a8a737da",
+     "_type": "image",
+     "alt": "Student pilot in a Robinson R22 helicopter ready for a trial lesson",
+     "asset": {
+      "_ref": "image-1cc69c3f32ad9656960b50ef5dc4874fee6a47ce-1400x1050-webp",
+      "_type": "reference"
+     },
+     "blur": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYCBQf/xAAlEAABBAIBAgcBAAAAAAAAAAACAQMEBQARBhIUBxMhMUFRcZH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/8QAGxEAAgMBAQEAAAAAAAAAAAAAAQIAAxEEIVH/2gAMAwEAAhEDEQA/AH218TWYcfzLGqcbX5US3iLw/n8ZCse/iuGDkgnAd6tKKL7JlvQ8JkT6hbG6cDtCHYNiW1L9xTvOCR2kR1kTFrq3pHl9cKOqx1w+GS9Kg7k0UOTxjATbZMmyTYr9phkKPkTFZVRoI08chYBARSLa/wBwzE2de+NGEp+T/9k=",
+     "height": 1050,
+     "imageUrl": "https://cdn.sanity.io/images/0he7nz2b/production/1cc69c3f32ad9656960b50ef5dc4874fee6a47ce-1400x1050.webp",
+     "width": 1400
+    }
+   ]
+  },
+  {
+   "_key": "b4cfee427c1f",
+   "_type": "block",
+   "children": [
+    {
+     "_key": "70bf735a0002",
+     "_type": "span",
+     "marks": [],
+     "text": "We recommend a 30-minute trial lesson. On the day, the recipient will be given a briefing on the effects of controls and how the helicopter flies and a safety briefing before the flight. After that, it’s up, up and away to explore the local area for general handling before returning to the airfield for low-level flying and hovering.\n\nThe student handles the controls and flies the aircraft as much as they want to under the watchful eye of one of our experienced instructors. Back on the ground, the recipient receives a certificate of achievement, signed by his or her instructor.\n\nThis first flight can be counted towards the issue of the "
+    },
+    {
+     "_key": "3858d1d3ffdb1",
+     "_type": "span",
+     "marks": [
+      "e262de2c94cd"
+     ],
+     "text": "Private Pilot Licence"
+    },
+    {
+     "_key": "3858d1d3ffdb2",
+     "_type": "span",
+     "marks": [],
+     "text": ", should the recipient wish to start their training. The trial lesson is designed to be fun and to give the recipient an overview of what is required to obtain their "
+    },
+    {
+     "_key": "3858d1d3ffdb3",
+     "_type": "span",
+     "marks": [
+      "1315b0e11695"
+     ],
+     "text": "Private Pilot Licence"
+    },
+    {
+     "_key": "3858d1d3ffdb4",
+     "_type": "span",
+     "marks": [],
+     "text": ". Ask us for an information pack after your lesson.\n\nThe lesson will be taken in one of our "
+    },
+    {
+     "_key": "4a4b9e6711bd1",
+     "_type": "span",
+     "marks": [
+      "69531e4787bd"
+     ],
+     "text": "Robinson"
+    },
+    {
+     "_key": "4a4b9e6711bd2",
+     "_type": "span",
+     "marks": [],
+     "text": " R22 or R44 helicopters. Check our "
+    },
+    {
+     "_key": "4a4b9e6711bd3",
+     "_type": "span",
+     "marks": [
+      "f41b4a21c9a7"
+     ],
+     "text": "Helicopter Fleet"
+    },
+    {
+     "_key": "4a4b9e6711bd4",
+     "_type": "span",
+     "marks": [],
+     "text": " to see our training helicopters.\n\n"
+    },
+    {
+     "_key": "38e6606edd6a0",
+     "_type": "span",
+     "marks": [
+      "5ca5caa66730"
+     ],
+     "text": "Contact us"
+    },
+    {
+     "_key": "38e6606edd6a1",
+     "_type": "span",
+     "marks": [],
+     "text": " for a gift purchase, which is valid for six months. You can also incorporate a short trial lesson experience in groups as part of a corporate development day."
+    }
+   ],
+   "markDefs": [
+    {
+     "_key": "e262de2c94cd",
+     "_type": "link",
+     "href": "/training/private-pilot-licence"
+    },
+    {
+     "_key": "1315b0e11695",
+     "_type": "link",
+     "href": "/training/private-pilot-licence/"
+    },
+    {
+     "_key": "69531e4787bd",
+     "_type": "link",
+     "href": "http://www.robinsonheli.com/"
+    },
+    {
+     "_key": "f41b4a21c9a7",
+     "_type": "link",
+     "href": "/fleet"
+    },
+    {
+     "_key": "5ca5caa66730",
+     "_type": "link",
+     "href": "/enquire"
+    }
+   ],
+   "style": "normal"
+  }
+ ],
+ "currentSlug": "trial-lessons",
+ "fleetItems": [
+  {
+   "gallerySingle": {
+    "_type": "image",
+    "altText": "Robinson R22 training helicopter",
+    "asset": {
+     "_ref": "image-b534b400d343eca3f9efe3dec6ae3f0446455f4c-1200x800-jpg",
+     "_type": "reference"
+    },
+    "mainImage": "https://cdn.sanity.io/images/0he7nz2b/production/b534b400d343eca3f9efe3dec6ae3f0446455f4c-1200x800.jpg",
+    "metadata": {
+     "dimensions": {
+      "_type": "sanity.imageDimensions",
+      "aspectRatio": 1.5,
+      "height": 800,
+      "width": 1200
+     },
+     "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABwAG/8QAIxAAAQMEAgEFAAAAAAAAAAAAAQIDBAAFBhESEwchMVFhwf/EABYBAQEBAAAAAAAAAAAAAAAAAAIBBP/EAB8RAAEEAAcAAAAAAAAAAAAAAAEAAgMhBAUREhMxYf/aAAwDAQACEQMRAD8AQ37kgxFuMK4EDfIbFFuTZ7dpoS3HtaS4jY7VHkdfdOUnErY9Ccj8HEocTo6WazcSzW3EUuqixRIUr0JdNVuMkYNxo+ImFpo2EBr8h5YwrrAIA9gGzVTZIy9sOkCzQtD5G/yqshzQ69p8Ma//2Q=="
+    }
+   },
+   "title": "R22",
+   "url": "r22"
+  },
+  {
+   "gallerySingle": {
+    "_type": "image",
+    "altText": "Robinson R44 helicopter",
+    "asset": {
+     "_ref": "image-49dad8bd7da33c5cf518f2df8964a4b78fc94f3d-1200x799-jpg",
+     "_type": "reference"
+    },
+    "mainImage": "https://cdn.sanity.io/images/0he7nz2b/production/49dad8bd7da33c5cf518f2df8964a4b78fc94f3d-1200x799.jpg",
+    "metadata": {
+     "dimensions": {
+      "_type": "sanity.imageDimensions",
+      "aspectRatio": 1.5018773466833542,
+      "height": 799,
+      "width": 1200
+     },
+     "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUHBgj/xAAlEAACAgEDAgcBAAAAAAAAAAABAgMEAAYRIQUUBxIiMkJhgZH/xAAVAQEBAAAAAAAAAAAAAAAAAAAEAf/EABoRAQADAQEBAAAAAAAAAAAAAAEAAgMRIUH/2gAMAwEAAhEDEQA/AMlY0N2PTTct2ZVrNt7U3HOLo+gdPs1LAS2zNGCUJGwbOmdQaPpXaDRRSPXXb4jcfzJFDo+mNTdlJIzRk8lR5d/zfD9+kZnbNqlzixLX8PUerXkWedhJGG9ERYc/eGXWLStWrDHFXsWI41UAKG4GGUvm+wyW7P/Z"
+    }
+   },
+   "title": "R44",
+   "url": "r44"
+  }
+ ],
+ "hero": null,
+ "mainImage": {
+  "_type": "image",
+  "altText": "Robinson R22 and a red helicopter on the grass ready for trial lessons",
+  "asset": {
+   "_ref": "image-4973316ce5d37216181b1491384a2cb7ea9bd218-1672x419-jpg",
+   "_type": "reference"
+  },
+  "mainImage": "https://cdn.sanity.io/images/0he7nz2b/production/4973316ce5d37216181b1491384a2cb7ea9bd218-1672x419.jpg",
+  "metadata": {
+   "dimensions": {
+    "_type": "sanity.imageDimensions",
+    "aspectRatio": 3.990453460620525,
+    "height": 419,
+    "width": 1672
+   },
+   "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAcD/8QAHxAAAgICAwADAAAAAAAAAAAAAQIAAwQhBRETBhQy/8QAFgEBAQEAAAAAAAAAAAAAAAAABQIE/8QAHhEAAQMEAwAAAAAAAAAAAAAAAgABAwUREiEiMlH/2gAMAwEAAhEDEQA/AMMv41i3Xm9LLaj1sKdGT9cn6PNZFXmto9ApLa7iIXTpjLISfVlom5WctqppwnH2Vo7UbYA/oxEQt55L9nV4D4v/2Q=="
+  }
+ },
+ "pilot": {
+  "mainImage": {
+   "_type": "image",
+   "altText": "Captain Rob Parcell standing beside a helicopter in the hangar",
+   "asset": {
+    "_ref": "image-176e146e3f5faad71379e47492b239300929e50c-3024x3350-jpg",
+    "_type": "reference"
+   },
+   "mainImage": "https://cdn.sanity.io/images/0he7nz2b/production/176e146e3f5faad71379e47492b239300929e50c-3024x3350.jpg",
+   "metadata": {
+    "dimensions": {
+     "_type": "sanity.imageDimensions",
+     "aspectRatio": 0.902686567164179,
+     "height": 3350,
+     "width": 3024
+    },
+    "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAWABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAQFBwb/xAAkEAABAwMDBQEBAAAAAAAAAAABAgMEAAUREhMhBiIxQVEUcf/EABYBAQEBAAAAAAAAAAAAAAAAAAMCAf/EABoRAQEBAAMBAAAAAAAAAAAAAAEAAhEhMSL/2gAMAwEAAhEDEQA/AMzY6flPXBmGh1DK3OQXPPiuo6cgJsb7z93uhy2nCG2k5Kj8q2nWi4/jbmSkpMlrsGgc6fRrP7rPbj3U7sor0DJQ2M93ylMCDzYiZ8pM5DtzluyktvJC1E4TjilR46JElBd0yCFHI7ccUqeqe7f33xtaNtJStYQcj0a4O6dNW6VdHVuxGENJWQEtjBP9NKUWfZtPwFdtWyDtIAaWABgALPilKVUV/9k="
+   }
+  },
+  "name": "Captain Rob Parcell",
+  "role": "Instructor and Business Manager"
+ },
+ "quoteMessage": "Enquire today to learn about the trial lessons we offer",
+ "shortTitle": null,
+ "title": "Trial Lessons"
+}

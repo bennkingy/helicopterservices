@@ -39,3 +39,15 @@ next-env.d.ts
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Storybook
+storybook-static
+
+# Test reports (rebuilt each run)
+allure-results
+allure-report
+allure-history
+coverage
+playwright-report
+test-results
+reports

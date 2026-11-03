@@ -1,0 +1,227 @@
+{
+ "about": [
+  {
+   "slug": "faqs",
+   "title": "FAQs"
+  },
+  {
+   "slug": "meet-the-team",
+   "title": "Meet the team"
+  },
+  {
+   "slug": "the-hangar",
+   "title": "The Hangar"
+  }
+ ],
+ "fleet": [
+  {
+   "engineType": "Single",
+   "slug": "ab206",
+   "title": "AB206"
+  },
+  {
+   "engineType": "Single",
+   "slug": "as350",
+   "title": "AS350"
+  },
+  {
+   "engineType": "Twin",
+   "slug": "aw109",
+   "title": "AW109"
+  },
+  {
+   "engineType": "Twin",
+   "slug": "as355",
+   "title": "AS355"
+  },
+  {
+   "engineType": "Single",
+   "slug": "r66",
+   "title": "R66"
+  },
+  {
+   "engineType": "Single",
+   "slug": "r22",
+   "title": "R22"
+  },
+  {
+   "engineType": "Single",
+   "slug": "r44",
+   "title": "R44"
+  }
+ ],
+ "flights": [
+  {
+   "category": {
+    "tours": true
+   },
+   "shortTitle": null,
+   "slug": "london-sightseeing-tours",
+   "title": "London Sightseeing Tours"
+  },
+  {
+   "category": {
+    "tours": true
+   },
+   "shortTitle": null,
+   "slug": "local-area-tours",
+   "title": "Local Area Tours"
+  },
+  {
+   "category": {
+    "flights": true
+   },
+   "shortTitle": null,
+   "slug": "helicopter-charter",
+   "title": "Helicopter Charter"
+  },
+  {
+   "category": {
+    "flights": true
+   },
+   "shortTitle": null,
+   "slug": "airport-transfers",
+   "title": "Airport Transfers"
+  },
+  {
+   "category": {
+    "flights": true
+   },
+   "shortTitle": null,
+   "slug": "trial-lessons",
+   "title": "Trial Lessons"
+  },
+  {
+   "category": {
+    "flights": true
+   },
+   "shortTitle": null,
+   "slug": "special-events",
+   "title": "Special Events"
+  }
+ ],
+ "industry": [
+  {
+   "slug": "load-lifting",
+   "title": "Load Lifting"
+  },
+  {
+   "slug": "photography-filming",
+   "title": "Photography & Filming"
+  }
+ ],
+ "legal": [
+  {
+   "slug": "terms-and-conditions",
+   "title": "Terms & conditions"
+  },
+  {
+   "slug": "cookies",
+   "title": "Cookies"
+  },
+  {
+   "slug": "privacy",
+   "title": "Privacy"
+  }
+ ],
+ "training": [
+  {
+   "category": {
+    "other": true
+   },
+   "shortTitle": null,
+   "slug": "elcas",
+   "title": "ELCAS"
+  },
+  {
+   "category": {
+    "licenses": true
+   },
+   "shortTitle": "CPL(H)",
+   "slug": "commercial-pilot-licence",
+   "title": "Commercial Pilot Licence - CPL(H)"
+  },
+  {
+   "category": {
+    "other": true
+   },
+   "shortTitle": "Refresher Seminars",
+   "slug": "flight-instructor-refresher-seminars",
+   "title": "Flight Instructor Refresher Seminars"
+  },
+  {
+   "category": {
+    "flightRatings": true
+   },
+   "shortTitle": null,
+   "slug": "night-rating",
+   "title": "Night Rating"
+  },
+  {
+   "category": {
+    "flightRatings": false,
+    "licenses": true,
+    "simulators": false
+   },
+   "shortTitle": "PPL(H)",
+   "slug": "private-pilot-licence",
+   "title": "Private Pilot Licence - PPL(H)"
+  },
+  {
+   "category": {
+    "flightRatings": true
+   },
+   "shortTitle": "PBN",
+   "slug": "pbn",
+   "title": "Performance-based Navigation - PBN"
+  },
+  {
+   "category": {
+    "flightRatings": true
+   },
+   "shortTitle": "Flight Examiner Certificates",
+   "slug": "flight-examiner-certificates",
+   "title": "Flight Examiner Certificates - FE(H), TRE(H)"
+  },
+  {
+   "category": {
+    "simulators": true
+   },
+   "shortTitle": null,
+   "slug": "simulator",
+   "title": "Simulator"
+  },
+  {
+   "category": {
+    "flightRatings": true
+   },
+   "shortTitle": null,
+   "slug": "type-ratings",
+   "title": "Type Ratings"
+  },
+  {
+   "category": {
+    "flightRatings": true
+   },
+   "shortTitle": "Instrument Rating",
+   "slug": "instrument-rating",
+   "title": "Instrument Rating - IR(H)"
+  },
+  {
+   "category": {
+    "other": true
+   },
+   "shortTitle": null,
+   "slug": "advanced-flying-programme",
+   "title": "Advanced Flying Programme"
+  },
+  {
+   "category": {
+    "flightRatings": true
+   },
+   "shortTitle": "Flight Instructor Certificates",
+   "slug": "flight-instructor-certificates",
+   "title": "Flight Instructor Certificates - FI(H)"
+  }
+ ]
+}

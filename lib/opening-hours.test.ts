@@ -3,6 +3,9 @@ import {
 	type WeeklyHours,
 	formatTime,
 	getOpeningStatus,
+	hoursFromSanity,
+	openingHoursJsonLd,
+	type SanityOpeningHours,
 	ukNow,
 	validateHours,
 } from "./opening-hours";
@@ -378,4 +381,84 @@ describe("getOpeningStatus: whole-week sweep in other timezones", () => {
 			}
 		});
 	}
+});
+
+describe("hoursFromSanity: Settings > Opening hours in Sanity", () => {
+	const open = { status: "open" as const, open: "08:30", close: "17:30" };
+	const appt = { status: "appointment" as const, open: "09:00", close: "16:00" };
+	const full: NonNullable<SanityOpeningHours> = {
+		monday: open,
+		tuesday: open,
+		wednesday: open,
+		thursday: open,
+		friday: { ...open, close: "16:00" },
+		saturday: appt,
+		sunday: { status: "closed" },
+	};
+
+	it("turns all seven days into the site's hours", () => {
+		expect(hoursFromSanity(full)).toEqual({
+			Monday: { open: "08:30", close: "17:30" },
+			Tuesday: { open: "08:30", close: "17:30" },
+			Wednesday: { open: "08:30", close: "17:30" },
+			Thursday: { open: "08:30", close: "17:30" },
+			Friday: { open: "08:30", close: "16:00" },
+			Saturday: { open: "09:00", close: "16:00", byAppointment: true },
+			Sunday: null,
+		});
+	});
+
+	it("drives the header text", () => {
+		const hours = hoursFromSanity(full) as WeeklyHours;
+		// Mon 2 Nov 2026, 17:15 UK (GMT): still open with the Sanity closing time.
+		expect(getOpeningStatus(at("2026-11-02T17:15:00Z"), { hours })).toBe("Open today 8:30am - 5:30pm");
+		// Sat 7 Nov, 17:00 UK: Saturday closed at 16:00, Sunday closed, so Monday.
+		expect(getOpeningStatus(at("2026-11-07T17:00:00Z"), { hours })).toBe("Open on Monday 8:30am - 5:30pm");
+	});
+
+	it("ignores stray spaces around times", () => {
+		expect(hoursFromSanity({ ...full, monday: { status: "open", open: " 08:30 ", close: "17:30 " } })?.Monday).toEqual({
+			open: "08:30",
+			close: "17:30",
+		});
+	});
+
+	it.each([
+		["empty", null],
+		["not filled in", {}],
+		["a day missing", { ...full, sunday: undefined }],
+		["a day without a status", { ...full, monday: { open: "08:30", close: "17:30" } }],
+		["a missing time", { ...full, monday: { status: "open", open: "08:30" } }],
+		["a badly typed time", { ...full, monday: { status: "open", open: "8.30", close: "17:30" } }],
+		['"By Appointment" typed as a time (old format)', { ...full, saturday: { status: "open", open: "By Appointment", close: "By Appointment" } }],
+		["closing before opening", { ...full, monday: { status: "open", open: "17:30", close: "08:30" } }],
+	])("gives null (so the built-in hours are used) when %s", (_label, doc) => {
+		expect(hoursFromSanity(doc as SanityOpeningHours)).toBeNull();
+	});
+});
+
+describe("openingHoursJsonLd: hours for Google", () => {
+	it("groups the built-in weekday hours and leaves out by-appointment days", () => {
+		expect(openingHoursJsonLd(OPENING_HOURS)).toEqual([
+			{
+				"@type": "OpeningHoursSpecification",
+				dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+				opens: "08:30",
+				closes: "17:00",
+			},
+		]);
+	});
+
+	it("makes one entry per different time, and skips closed days", () => {
+		const hours: WeeklyHours = { ...OPENING_HOURS, Friday: { open: "08:30", close: "16:00" }, Saturday: null };
+		expect(openingHoursJsonLd(hours)).toEqual([
+			{
+				"@type": "OpeningHoursSpecification",
+				dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+				opens: "08:30",
+				closes: "17:00",
+			},
+			{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Friday"], opens: "08:30", closes: "16:00" },
+		]);
+	});
 });

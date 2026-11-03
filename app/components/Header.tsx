@@ -14,7 +14,7 @@ type props = {
 	iconType?: "Industry" | "Company" | "Flights" | "Training";
 };
 
-const Header = async ({
+const Header = ({
 	height = "h-[30px]",
 	title,
 	className,

@@ -4,6 +4,7 @@ import { client, slugParams } from "@/lib/sanity";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { pageMetadata } from "@/lib/seo";
+import { JsonLd, courseJsonLd, sectionBreadcrumbs } from "@/lib/jsonld";
 export const revalidate = 30; // revalidate at most 30 seconds
 
 async function getData(slug: string) {
@@ -15,6 +16,7 @@ async function getData(slug: string) {
 						shortTitle,
 						quoteMessage,
           seoDescription,
+          courseHours,
 					${bodyQuery},
 				mainImage{
 				...,
@@ -96,6 +98,20 @@ export default async function TrainingPage({
 
 	return (
 		<>
+			<JsonLd
+				data={[
+					sectionBreadcrumbs(
+						{ name: "Training", path: "/training" },
+						{ title: data.shortTitle || data.title, path: `/training/${params.slug.toLowerCase()}` },
+					),
+					courseJsonLd({
+						title: data.title,
+						description: data.seoDescription,
+						hours: data.courseHours,
+						path: `/training/${params.slug.toLowerCase()}`,
+					}),
+				]}
+			/>
 			<Template data={data} iconType="Training" />
 		</>
 	);

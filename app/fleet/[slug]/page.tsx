@@ -3,6 +3,7 @@ import { client, slugParams } from "@/lib/sanity";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { pageMetadata } from "@/lib/seo";
+import { JsonLd, sectionBreadcrumbs } from "@/lib/jsonld";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -124,6 +125,12 @@ export default async function FleetItemPage({
 
 	return (
 		<>
+			<JsonLd
+				data={sectionBreadcrumbs(
+					{ name: "Fleet", path: "/fleet" },
+					{ title: data.title, path: `/fleet/${params.slug.toLowerCase()}` },
+				)}
+			/>
 			<TemplateTwo data={data} helicopterData={helicopterData} />
 		</>
 	);

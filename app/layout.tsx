@@ -11,8 +11,9 @@ import PageTracker from "./components/PageTracker";
 import PromoPopupServer from "./components/PromoPopupServer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { openingHoursJsonLd } from "@/lib/opening-hours";
+import { getOpeningHours } from "@/lib/opening-hours-sanity";
 
 const workSans = Work_Sans({
 	subsets: ["latin"],
@@ -71,34 +72,28 @@ const organisationJsonLd = {
 		latitude: 51.49492,
 		longitude: -0.77341,
 	},
-	openingHoursSpecification: [
-		{
-			"@type": "OpeningHoursSpecification",
-			dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-			opens: "08:30",
-			closes: "17:00",
-		},
-	],
 	sameAs: [
 		"https://www.facebook.com/heliservicesuk/",
 		"https://www.instagram.com/helicopterservices/",
 	],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	// No review score (aggregateRating) here on purpose: Google doesn't show
+	// stars for a business's own reviews on its own site, and the score comes
+	// from Tripadvisor, which Google's rules say not to mark up. The homepage
+	// still shows it to visitors.
 	return (
-		<html lang="en" suppressHydrationWarning className="border-none">
+		<html lang="en-GB" suppressHydrationWarning className="border-none">
 			<head>
-				{/* The cookie banner loads after hydration; connect early so it shows sooner. */}
+				{/* The cookie banner loads once the page is idle; connect early so it shows quickly. */}
 				<link rel="preconnect" href="https://cdn-cookieyes.com" />
 				<link rel="preconnect" href="https://log.cookieyes.com" />
 			</head>
-			{/* <GoogleTagManager gtmId="G-4VTPBZBHK4" /> */}
-			<GoogleAnalytics gaId="G-4VTPBZBHK4" />
 
 			<body
 				className={`${openSans.variable} ${workSans.variable} antialiased text-rendering-optimizeLegibility font-openSans text-brand-dark-grey overflow-x-hidden`}
@@ -107,7 +102,11 @@ export default function RootLayout({
 					type="application/ld+json"
 					// biome-ignore lint/security/noDangerouslySetInnerHtml: static JSON-LD
 					dangerouslySetInnerHTML={{
-						__html: JSON.stringify(organisationJsonLd),
+						__html: JSON.stringify({
+							...organisationJsonLd,
+							// Same hours as the header and contact boxes (Sanity: Settings > Opening hours).
+							openingHoursSpecification: openingHoursJsonLd(await getOpeningHours()),
+						}),
 					}}
 				/>
 				<ThemeProvider
@@ -152,8 +151,23 @@ export default function RootLayout({
 					id="cookieyes"
 					src="https://cdn-cookieyes.com/client_data/e2ee9be7bb054050144f0f50/script.js"
 					type="text/javascript"
-					strategy="afterInteractive"
+					strategy="lazyOnload"
 				/>
+				{/* GA4. Loads after the page is idle so it doesn't delay the first paint.
+				    Consent Mode above keeps it from tracking until the visitor accepts. */}
+				<Script
+					id="gtag-src"
+					src="https://www.googletagmanager.com/gtag/js?id=G-4VTPBZBHK4"
+					strategy="lazyOnload"
+				/>
+				<Script id="gtag-init" strategy="lazyOnload">
+					{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag("js", new Date());
+						gtag("config", "G-4VTPBZBHK4");
+					`}
+				</Script>
 				<Script id="hide-second-gm-style-iw-t" strategy="lazyOnload">
 					{`
 						const elements = document.querySelectorAll('.gm-style-iw-c');

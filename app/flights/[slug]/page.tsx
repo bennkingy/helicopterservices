@@ -5,6 +5,7 @@ import { client, slugParams } from "@/lib/sanity";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { pageMetadata } from "@/lib/seo";
+import { JsonLd, sectionBreadcrumbs } from "@/lib/jsonld";
 
 export const revalidate = 30; // revalidate at most 30 seconds
 
@@ -82,6 +83,12 @@ export default async function FlightsgPage({
 
 	return (
 		<>
+			<JsonLd
+				data={sectionBreadcrumbs(
+					{ name: "Flights", path: "/flights" },
+					{ title: data.shortTitle || data.title, path: `/flights/${params.slug.toLowerCase()}` },
+				)}
+			/>
 			<Template data={data} iconType={"Flights"}>
 				{showTransferTimesTable && (
 					<div className="mt-10">

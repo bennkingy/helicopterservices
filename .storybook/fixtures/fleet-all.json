@@ -1,0 +1,129 @@
+[
+ {
+  "base": "White Waltham",
+  "capacity": 5,
+  "cruiseSpeed": 109,
+  "engineType": "Single",
+  "helicopterType": {
+   "agustaType": true
+  },
+  "ifrcapable": null,
+  "title": "AB206",
+  "workType": {
+   "aerialWorkHelicopter": false,
+   "charterHelicopter": false,
+   "trainingHelicopter": true
+  }
+ },
+ {
+  "base": "White Waltham",
+  "capacity": 5,
+  "cruiseSpeed": 122,
+  "engineType": "Single",
+  "helicopterType": {
+   "aerospatialeEurocopterAirbusType": true
+  },
+  "ifrcapable": null,
+  "title": "AS350",
+  "workType": {
+   "aerialWorkHelicopter": false,
+   "charterHelicopter": false,
+   "trainingHelicopter": true
+  }
+ },
+ {
+  "base": "White Waltham",
+  "capacity": 7,
+  "cruiseSpeed": 139,
+  "engineType": "Twin",
+  "helicopterType": {
+   "agustaType": true
+  },
+  "ifrcapable": true,
+  "title": "AW109",
+  "workType": {
+   "aerialWorkHelicopter": false,
+   "charterHelicopter": false,
+   "trainingHelicopter": true
+  }
+ },
+ {
+  "base": "White Waltham",
+  "capacity": 5,
+  "cruiseSpeed": 120,
+  "engineType": "Twin",
+  "helicopterType": {
+   "aerospatialeEurocopterAirbusType": true,
+   "guimbalType": false,
+   "robinsonType": false
+  },
+  "ifrcapable": true,
+  "title": "AS355",
+  "workType": {
+   "aerialWorkHelicopter": true,
+   "charterHelicopter": true,
+   "trainingHelicopter": true
+  }
+ },
+ {
+  "base": "White Waltham",
+  "capacity": 4,
+  "cruiseSpeed": 110,
+  "engineType": "Single",
+  "helicopterType": {
+   "robinsonType": true
+  },
+  "ifrcapable": null,
+  "title": "R66",
+  "workType": {
+   "aerialWorkHelicopter": false,
+   "charterHelicopter": false,
+   "trainingHelicopter": true
+  }
+ },
+ {
+  "base": "White Waltham",
+  "capacity": 1,
+  "cruiseSpeed": 75,
+  "engineType": "Single",
+  "helicopterType": {
+   "robinsonType": true
+  },
+  "ifrcapable": null,
+  "title": "R22",
+  "workType": {
+   "aerialWorkHelicopter": false,
+   "trainingHelicopter": true
+  }
+ },
+ {
+  "base": "White Waltham",
+  "capacity": 3,
+  "cruiseSpeed": 100,
+  "engineType": "Single",
+  "helicopterType": {
+   "robinsonType": true
+  },
+  "ifrcapable": null,
+  "title": "R44",
+  "workType": {
+   "aerialWorkHelicopter": true,
+   "charterHelicopter": true,
+   "trainingHelicopter": true
+  }
+ },
+ {
+  "base": null,
+  "capacity": null,
+  "cruiseSpeed": null,
+  "engineType": null,
+  "helicopterType": null,
+  "ifrcapable": null,
+  "title": "Fleet",
+  "workType": {
+   "aerialWorkHelicopter": false,
+   "charterHelicopter": false,
+   "trainingHelicopter": false
+  }
+ }
+]

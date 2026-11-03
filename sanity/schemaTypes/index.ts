@@ -11,7 +11,7 @@ import legal from "./legal";
 import pilots from "./pilot";
 import promoPopup from "./promoPopup";
 import { serviceType } from "./serviceType";
-import settings, { dayHours, link, faq } from "./settings";
+import settings, { dayHours, link, faq, openingDay } from "./settings";
 import training from "./training";
 
 export const schemaTypes = [
@@ -28,6 +28,7 @@ export const schemaTypes = [
 	settings,
 	link,
 	dayHours,
+	openingDay,
 	formType,
 	fleet,
 	homepage,

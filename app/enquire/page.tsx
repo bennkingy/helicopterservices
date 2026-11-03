@@ -58,7 +58,7 @@ export default async function Enquire() {
 			>
 				<Image
 					src={logo}
-					alt="Helicopter Services"
+					alt="Helicopter Services home"
 					width={153}
 					height={43}
 					className="min-w-[100px] mb-5 mt-16"

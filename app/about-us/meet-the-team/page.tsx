@@ -1,5 +1,6 @@
 import Team from "@/app/components/Team";
 import type { training } from "@/lib/interface";
+import { JsonLd, sectionBreadcrumbs } from "@/lib/jsonld";
 import { client } from "@/lib/sanity";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -65,11 +66,17 @@ export default async function AboutPage({
 
 	return (
 		<>
+			<JsonLd
+				data={sectionBreadcrumbs(
+					{ name: "About us", path: "/about-us" },
+					{ title: data?.title || "Meet the team", path: "/about-us/meet-the-team" },
+				)}
+			/>
 			<div className="container mt-12 sm:mt-14 mb-24 sm:mb-20 pb-2 sm:pb-10">
 				<div className="flex items-baseline">
 					<Image
 						src="/images/icons/CompanyBlue.svg"
-						alt="Helicopter Services"
+						alt=""
 						width={23}
 						height={23}
 					/>

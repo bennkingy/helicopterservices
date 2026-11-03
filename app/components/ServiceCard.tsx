@@ -13,7 +13,7 @@ interface ServiceCard {
 	image?: any;
 }
 
-const ServiceCard = async ({
+const ServiceCard = ({
 	heading,
 	url,
 	description,
@@ -60,23 +60,23 @@ const ServiceCard = async ({
 				</svg>
 				<Image
 					src="/images/caret-right.svg"
-					alt="Helicopter Services"
+					alt=""
 					width={6}
 					height={6}
 					className="absolute bottom-0 right-1"
 				/>
 			</div>
-			<div className="w-full h-[250px] md:w-[150%] md:h-full relative overflow-hidden">
-				{/* 
-					className="object-cover w-full h-[220px] md:h-full rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
-				*/}
-				<SanityImage
-					cover
-					sizes="(max-width: 768px) 100vw, 33vw"
-					sanityImage={image}
-					imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
-				/>
-			</div>
+			{/* No image in Sanity: show the text card on its own rather than crash. */}
+			{image?.asset && (
+				<div className="w-full h-[250px] md:w-[150%] md:h-full relative overflow-hidden">
+					<SanityImage
+						cover
+						sizes="(max-width: 768px) 100vw, 33vw"
+						sanityImage={image}
+						imageClasses="object-cover rounded-none transition-transform duration-300 ease-in-out group-hover:scale-110"
+					/>
+				</div>
+			)}
 		</Link>
 	);
 };

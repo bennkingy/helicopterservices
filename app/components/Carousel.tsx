@@ -102,9 +102,9 @@ const Carousel = ({ slides }: props) => {
 										hoveredIndex === index ? "transform scale-105" : ""
 									}`}
 								/>
-								<h5 className="font-bold mb-3 text-lg font-openSans text-brand-dark-blue">
+								<h3 className="font-bold mb-3 text-lg font-openSans text-brand-dark-blue">
 									{item.title}
-								</h5>
+								</h3>
 								<p className="mb-3 font-openSans">{item.description}</p>
 								<p
 									className={`text-base font-bold font-openSans transition-colors duration-300 ease-in-out ${
@@ -130,6 +130,8 @@ const Carousel = ({ slides }: props) => {
 									: "bg-white"
 							}`}
 							onClick={() => api?.scrollTo(i)}
+							aria-label={`Go to slide ${i + 1}`}
+							aria-current={i === current - 1 ? "true" : undefined}
 						/>
 					</div>
 				))}

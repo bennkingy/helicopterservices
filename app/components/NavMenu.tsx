@@ -20,6 +20,7 @@ import { hoverStore } from "@/store/hoverStore";
 // @ts-ignore
 import { useStore } from "@nanostores/react";
 import OpenClosed from "./OpenClosed";
+import type { WeeklyHours } from "@/lib/opening-hours";
 
 // @ts-ignore
 // A page as it comes from the navigation query.
@@ -34,10 +35,12 @@ type NavPage = {
 
 export function NavMenu({
 	menuData,
+	hours,
 	onMobileOpen,
 }: {
 	onMobileOpen: () => void;
 	menuData?: { menuData?: Record<string, NavPage[]> };
+	hours?: WeeklyHours;
 }) {
 	const path = usePathname();
 	const isHovered = useStore(hoverStore);
@@ -557,7 +560,7 @@ export function NavMenu({
 					</NavigationMenuItem>
 				</NavigationMenuList>
 			</NavigationMenu>
-			<MobileMenu menuData={menuData} onMobileOpen={() => onMobileOpen()} />
+			<MobileMenu menuData={menuData} hours={hours} onMobileOpen={() => onMobileOpen()} />
 			<div className="flex flex-col">
 				<Link
 					href="tel:+441494513166"
@@ -578,7 +581,7 @@ export function NavMenu({
 					</div>
 				</Link>
 				<div className="hidden lg:block text-center">
-					<OpenClosed showPeriod={false} />
+					<OpenClosed showPeriod={false} hours={hours} />
 				</div>
 			</div>
 		</>

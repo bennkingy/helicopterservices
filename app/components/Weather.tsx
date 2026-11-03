@@ -63,7 +63,7 @@ export default async function Weather({
 
 	return (
 		<div className="max-w-[219px] rounded-sm text-white p-7 bg-[#1A3051] sm:mt-0 text-center weather-fix">
-			<h4 className="text-sm font-bold font-openSans mx-auto">{airport}</h4>
+			<p className="text-sm font-bold font-openSans mx-auto">{airport}</p>
 			<Image
 				src={`https://openweathermap.org/img/wn/${data?.weather?.[0]?.icon}@2x.png`}
 				width={100}
@@ -80,8 +80,9 @@ export default async function Weather({
 				{data?.main?.pressure}hPa
 			</p>
 			<p className="mt-1">
-				<span className="font-medium mr-1">Wind speed</span> {data?.wind?.speed}
-				%
+				{/* The API gives metres per second; pilots use knots (1 m/s = 1.944 kt). */}
+				<span className="font-medium mr-1">Wind speed</span>{" "}
+				{typeof data?.wind?.speed === "number" ? `${Math.round(data.wind.speed * 1.944)} kt` : "–"}
 			</p>
 			<p className="mt-1">
 				<span className="font-medium mr-1">Wind degree</span> {data?.wind?.deg}°

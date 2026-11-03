@@ -3,7 +3,7 @@ import Image from "next/image";
 import SanityImage from "./SanityImage";
 import Link from "next/link";
 
-const HelicopterCard = async ({ helicopter, url, type }: any) => {
+const HelicopterCard = ({ helicopter, url, type }: any) => {
 	return (
 		<Link
 			href={
@@ -53,7 +53,7 @@ const HelicopterCard = async ({ helicopter, url, type }: any) => {
 						</svg>
 						<Image
 							src="/images/caret-right.svg"
-							alt="Helicopter Services"
+							alt=""
 							width={6}
 							height={6}
 							className="absolute bottom-0 right-1"
