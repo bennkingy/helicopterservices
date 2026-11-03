@@ -135,7 +135,7 @@ const Hero = ({
 						)}
 						{/* Same text and padding as the "Call General enquiries" button (Enquire.tsx). */}
 						{(cta || cta2) && (
-							<div className="flex flex-wrap gap-3">
+							<div className="hidden sm:flex flex-wrap gap-3">
 								{cta && (
 									<Button
 										asChild
