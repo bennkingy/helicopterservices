@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/nextjs";
 import "../styles/globals.css";
+import MotionProvider from "../app/components/MotionProvider";
 
 // Sample OpenWeatherMap reply, so the footer weather widget works without an API key.
 const sampleWeather = {
@@ -19,6 +20,14 @@ const sampleWeather = {
 };
 
 const preview: Preview = {
+	// Framer Motion's lazily loaded features, as in app/layout.tsx.
+	decorators: [
+		(Story) => (
+			<MotionProvider>
+				<Story />
+			</MotionProvider>
+		),
+	],
 	parameters: {
 		nextjs: {
 			appDirectory: true,

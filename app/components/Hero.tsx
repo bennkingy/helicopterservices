@@ -1,7 +1,8 @@
-import type { ReviewSource } from "@/lib/reviews";
+import type { ReviewSummary } from "@/lib/reviews";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import HeroVideo from "./HeroVideo";
+import { FacebookIcon, GoogleIcon, TripadvisorIcon } from "./ReviewIcons";
 
 type props = {
 	height?: string; // e.g. 'h-[70vh]' or 'h-[50vh]'
@@ -17,8 +18,8 @@ type props = {
 	};
 	className?: string;
 	titleMargins?: string;
-	// Review scores from Sanity Settings. Hidden when empty.
-	reviews?: ReviewSource[];
+	// Review scores from Sanity Settings. Each part is hidden when empty.
+	reviews?: ReviewSummary;
 };
 
 const Hero = ({
@@ -31,11 +32,24 @@ const Hero = ({
 	titleMargins = "mt-[45px] sm:mt-[60px]",
 	reviews,
 }: props) => {
-	// One combined score across all sources, weighted by number of reviews.
-	const reviewTotal = reviews?.reduce((sum, r) => sum + r.count, 0) ?? 0;
-	const reviewAverage = reviewTotal
-		? reviews!.reduce((sum, r) => sum + r.rating * r.count, 0) / reviewTotal
+	// "★ 4.7 over 50+ reviews": the star score is Tripadvisor and Google
+	// combined, weighted by number of reviews. The count also includes Facebook
+	// (which has no stars), rounded down to a multiple of 10.
+	const stars = reviews?.stars ?? [];
+	const facebook = reviews?.facebook ?? null;
+	const starCount = stars.reduce((sum, r) => sum + r.count, 0);
+	const reviewAverage = starCount
+		? stars.reduce((sum, r) => sum + r.rating * r.count, 0) / starCount
 		: 0;
+	const allReviews = starCount + (facebook?.count ?? 0);
+	const reviewCountText = allReviews >= 10 ? `${Math.floor(allReviews / 10) * 10}+` : `${allReviews}`;
+	const sourceIcons = { Tripadvisor: TripadvisorIcon, Google: GoogleIcon, Facebook: FacebookIcon };
+	// Logos under the score: Google, Facebook, Tripadvisor (each only if it has reviews).
+	const order = ["Google", "Facebook", "Tripadvisor"] as const;
+	const logos = [
+		...stars.map(({ source, sourceUrl }) => ({ source, sourceUrl })),
+		...(facebook ? [{ source: "Facebook" as const, sourceUrl: facebook.sourceUrl }] : []),
+	].sort((a, b) => order.indexOf(a.source) - order.indexOf(b.source));
 	return (
 		<section className={`${height} ${className} overflow-hidden relative`}>
 			<div
@@ -83,29 +97,37 @@ const Hero = ({
 								{subtitle}
 							</p>
 						)}
-						{reviews && reviews.length > 0 && (
-							<p className="mb-6 text-white font-semibold font-workSans tracking-wide">
-								<span className="text-brand-orange" aria-hidden="true">
-									★
-								</span>{" "}
-								{reviewAverage.toFixed(1)} from {reviewTotal} reviews on{" "}
-								{reviews.map((review, index) => (
-									<span key={review.source}>
-										{index > 0 && " & "}
-										{review.sourceUrl ? (
+						{starCount > 0 && (
+							<p className="mb-6 flex flex-col items-start gap-2 text-white font-semibold font-workSans tracking-wide">
+								<span>
+									<span className="text-brand-orange" aria-hidden="true">
+										★
+									</span>{" "}
+									{reviewAverage.toFixed(1)} over {reviewCountText} reviews
+								</span>
+								<span className="flex items-center gap-2">
+									{logos.map(({ source, sourceUrl }) => {
+										const Icon = sourceIcons[source];
+										const icon = <Icon className="h-6 w-6 shadow-sm rounded-full" />;
+										return sourceUrl ? (
 											<a
-												href={review.sourceUrl}
+												key={source}
+												href={sourceUrl}
 												target="_blank"
 												rel="noopener noreferrer"
-												className="underline hover:text-brand-orange"
+												aria-label={`Our ${source} reviews`}
+												title={`${source} reviews`}
+												className="rounded-full transition-transform hover:scale-110"
 											>
-												{review.source}
+												{icon}
 											</a>
 										) : (
-											review.source
-										)}
-									</span>
-								))}
+											<span key={source} role="img" aria-label={source} title={source}>
+												{icon}
+											</span>
+										);
+									})}
+								</span>
 							</p>
 						)}
 						{cta && (

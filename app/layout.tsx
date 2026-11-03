@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import type { Metadata, Viewport } from "next";
 import { Open_Sans, Work_Sans } from "next/font/google";
 import Script from "next/script";
+import MotionProvider from "./components/MotionProvider";
 import { ThemeProvider } from "../components/ui/theme-provider";
 import "../styles/globals.css";
 import Footer from "./components/Footer";
@@ -12,8 +13,8 @@ import PromoPopupServer from "./components/PromoPopupServer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/seo";
-import { openingHoursJsonLd } from "@/lib/opening-hours";
-import { getOpeningHours } from "@/lib/opening-hours-sanity";
+import { closuresJsonLd, openingHoursJsonLd } from "@/lib/opening-hours";
+import { getClosures, getOpeningHours } from "@/lib/opening-hours-sanity";
 
 const workSans = Work_Sans({
 	subsets: ["latin"],
@@ -106,6 +107,8 @@ export default async function RootLayout({
 							...organisationJsonLd,
 							// Same hours as the header and contact boxes (Sanity: Settings > Opening hours).
 							openingHoursSpecification: openingHoursJsonLd(await getOpeningHours()),
+							// Christmas, New Year and Sanity's closed dates in the coming year.
+							specialOpeningHoursSpecification: closuresJsonLd(await getClosures(), new Date()),
 						}),
 					}}
 				/>
@@ -116,11 +119,21 @@ export default async function RootLayout({
 					enableSystem={false}
 					disableTransitionOnChange
 				>
-					<Navbar />
-					{children}
+					<a
+						href="#main-content"
+						className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-white focus:text-brand-dark-blue focus:px-4 focus:py-2 focus:font-bold focus:shadow-brand"
+					>
+						Skip to main content
+					</a>
+<MotionProvider>
+										<Navbar />
+					<main id="main-content" tabIndex={-1} className="outline-none">
+						{children}
+					</main>
 					<ScrollTop />
 					<PageTracker />
 					<Footer />
+					</MotionProvider>
 					<PromoPopupServer />
 					<Toaster />
 					<SpeedInsights />

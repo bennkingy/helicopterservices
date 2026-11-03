@@ -148,6 +148,14 @@ export default defineType({
 			),
 		}),
 		defineField({
+			name: "closedDates",
+			title: "Closed dates",
+			type: "array",
+			of: [{ type: "date" }],
+			description:
+				"Days the office is shut, e.g. bank holidays. The header won't say \"Open today\" on these days, and Google is told you're closed. Christmas Day and New Year's Day are always closed and don't need adding.",
+		}),
+		defineField({
 			name: "openingHours",
 			title: "Opening Hours (old)",
 			type: "object",
@@ -219,6 +227,26 @@ export default defineType({
 			title: "Google reviews link",
 			type: "url",
 			description: "Optional link to your Google reviews. Without it the word Google isn't a link.",
+		}),
+		defineField({
+			name: "facebookRecommendPercent",
+			title: "Facebook: % who recommend",
+			type: "number",
+			description: "From your Facebook page, e.g. 100 for \"100% recommend\". Shown on the homepage. Leave empty to hide.",
+			validation: (rule) => rule.min(0).max(100).integer(),
+		}),
+		defineField({
+			name: "facebookReviewCount",
+			title: "Number of Facebook reviews",
+			type: "number",
+			description: "How many reviews the Facebook figure is based on. Leave empty to hide.",
+			validation: (rule) => rule.min(1).integer(),
+		}),
+		defineField({
+			name: "facebookReviewUrl",
+			title: "Facebook reviews link",
+			type: "url",
+			description: "Leave empty to use facebook.com/heliservicesuk/reviews.",
 		}),
 	],
 

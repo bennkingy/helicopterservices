@@ -48,7 +48,7 @@ const ContactCta = ({ className, pilot, service }: props) => {
 				<div className="flex items-center mt-5 ml-5 group hover:underline underline-offset-2 hover:cursor-pointer">
 					<Icons.phone className="text-brand-light-blue" height={50} />
 					<Link
-						href="tel:+44 1494 513 166"
+						href="tel:+441494513166"
 						className="ml-4 font-openSans text-2xl font-bold"
 					>
 						+44 1494 513 166

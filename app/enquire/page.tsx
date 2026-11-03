@@ -68,8 +68,8 @@ export default async function Enquire() {
 				Social
 			</div>
 			<ul>
-				<Link href="https://www.facebook.com/heliservicesuk/" passHref>
-					<li className="flex text-brand-orange font-semibold transition-colors hover:text-brand-light-blue">
+				<li>
+					<Link href="https://www.facebook.com/heliservicesuk/" className="flex text-brand-orange font-semibold transition-colors hover:text-brand-light-blue">
 						<Image
 							src="/images/facebook.png"
 							width={25}
@@ -78,10 +78,10 @@ export default async function Enquire() {
 							className="mt-1 mr-1"
 						/>
 						Facebook
-					</li>
-				</Link>
-				<Link href="https://www.instagram.com/helicopterservices/" passHref>
-					<li className="flex text-brand-orange font-semibold transition-colors hover:text-brand-light-blue">
+					</Link>
+				</li>
+				<li>
+					<Link href="https://www.instagram.com/helicopterservices/" className="flex text-brand-orange font-semibold transition-colors hover:text-brand-light-blue">
 						<Image
 							src="/images/instagram.png"
 							width={20}
@@ -90,8 +90,8 @@ export default async function Enquire() {
 							className="mt-1 mr-[7px] ml-[2px]"
 						/>
 						Instagram
-					</li>
-				</Link>
+					</Link>
+				</li>
 			</ul>
 			<div className="max-w-[397px]">
 				<div className="bg-brand-medium-blue px-5 py-4 border-b-4 border-brand-light-blue mt-10">
@@ -110,7 +110,7 @@ export default async function Enquire() {
 	);
 
 	return (
-		<main className="pt-12 sm:pt-14 py-20 pb-[120px] bg-brand-dark-blue">
+		<div className="pt-12 sm:pt-14 py-20 pb-[120px] bg-brand-dark-blue">
 			<div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-6">
 				<div className="mr-0 md:mr-20 col-span-3 relative">
 					<h1 className="text-4xl sm:text-6xl font-light font-workSans -ml-1 text-white">
@@ -145,6 +145,6 @@ export default async function Enquire() {
 					</div>
 				</div>
 			</div>
-		</main>
+		</div>
 	);
 }

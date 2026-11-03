@@ -36,11 +36,13 @@ type NavPage = {
 export function NavMenu({
 	menuData,
 	hours,
+	closures,
 	onMobileOpen,
 }: {
 	onMobileOpen: () => void;
 	menuData?: { menuData?: Record<string, NavPage[]> };
 	hours?: WeeklyHours;
+	closures?: string[];
 }) {
 	const path = usePathname();
 	const isHovered = useStore(hoverStore);
@@ -560,8 +562,10 @@ export function NavMenu({
 					</NavigationMenuItem>
 				</NavigationMenuList>
 			</NavigationMenu>
-			<MobileMenu menuData={menuData} hours={hours} onMobileOpen={() => onMobileOpen()} />
-			<div className="flex flex-col">
+			<MobileMenu menuData={menuData} hours={hours} closures={closures} onMobileOpen={() => onMobileOpen()} />
+			{/* Fixed width on desktop: the opening-hours text appears after load and
+			    can be wider than the phone number, which used to shift the menu. */}
+			<div className="flex flex-col lg:w-[220px] lg:shrink-0">
 				<Link
 					href="tel:+441494513166"
 					className="text-md font-openSans text-brand-orange group"
@@ -581,7 +585,7 @@ export function NavMenu({
 					</div>
 				</Link>
 				<div className="hidden lg:block text-center">
-					<OpenClosed showPeriod={false} hours={hours} />
+					<OpenClosed hours={hours} closures={closures} />
 				</div>
 			</div>
 		</>

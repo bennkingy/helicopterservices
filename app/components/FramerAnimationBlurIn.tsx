@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const FramerAnimationBlurIn = ({ delay = 0.25, className, children }: any) => {
 	return (
-		<motion.div
+		<m.div
 			initial={{
 				// Not 0: Chrome ignores fully transparent elements as LCP candidates,
 				// and this wraps the page h1s, so LCP would wait for the animation.
@@ -18,7 +18,7 @@ const FramerAnimationBlurIn = ({ delay = 0.25, className, children }: any) => {
 			className={`${className}`}
 		>
 			{children}
-		</motion.div>
+		</m.div>
 	);
 };
 

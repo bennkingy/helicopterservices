@@ -32,7 +32,7 @@ export default async function About() {
 	} = await getAboutPage();
 
 	return (
-		<main className="overflow-x-hidden">
+		<div className="overflow-x-hidden">
 			<Hero
 				title={heroTitle.split("\n").join("<br/>")}
 				height="h-[calc(100lvh_-_65px)] md:h-[calc(100lvh_-_100px)]"
@@ -160,6 +160,6 @@ export default async function About() {
 				</div>
 			</div>
 			<Reviews className="py-20" />
-		</main>
+		</div>
 	);
 }

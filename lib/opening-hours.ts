@@ -38,6 +38,44 @@ export const OPENING_HOURS: WeeklyHours = {
 	Sunday: { open: "08:30", close: "17:00", byAppointment: true },
 };
 
+// Days the office is shut whatever the weekly hours say. "MM-DD" repeats every
+// year; "YYYY-MM-DD" is a single date (UK calendar). More dates are added in
+// Sanity (Settings > Closed dates).
+export const BUILT_IN_CLOSURES = ["12-25", "01-01"];
+
+// Valid closure dates, as "MM-DD" or "YYYY-MM-DD". Anything else is dropped.
+export function cleanClosures(dates: unknown): string[] {
+	if (!Array.isArray(dates)) return [];
+	return dates.filter(
+		(d): d is string => typeof d === "string" && /^(\d{4}-)?(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(d),
+	);
+}
+
+// "YYYY-MM-DD" for a day number (days since 1970).
+const isoDate = (day: number) => new Date(day * DAY_MS).toISOString().slice(0, 10);
+
+function isClosedOn(day: number, closures: string[]) {
+	const iso = isoDate(day);
+	return closures.includes(iso) || closures.includes(iso.slice(5));
+}
+
+// Google's specialOpeningHoursSpecification: closed all day on each closure
+// date in the coming year.
+export function closuresJsonLd(closures: string[], now: Date) {
+	const today = Math.floor(now.getTime() / DAY_MS);
+	const dates: string[] = [];
+	for (let day = today; day < today + 366; day++) {
+		if (isClosedOn(day, closures)) dates.push(isoDate(day));
+	}
+	return dates.map((date) => ({
+		"@type": "OpeningHoursSpecification",
+		opens: "00:00",
+		closes: "00:00",
+		validFrom: date,
+		validThrough: date,
+	}));
+}
+
 const TIME = /^([01]\d|2[0-3]):[0-5]\d$/;
 const DAY_MS = 86_400_000;
 
@@ -200,12 +238,14 @@ type Options = {
 	// The visitor's IANA timezone, e.g. "America/New_York". Omitted, empty or
 	// invalid = UK times as they are.
 	visitorTimeZone?: string;
+	// Dates the office is shut ("MM-DD" every year, or "YYYY-MM-DD").
+	closures?: string[];
 };
 
 // The header text, or null if it can't be worked out (bad date or bad hours).
 export function getOpeningStatus(
 	now: Date,
-	{ hours = OPENING_HOURS, showPeriod = true, visitorTimeZone }: Options = {},
+	{ hours = OPENING_HOURS, showPeriod = true, visitorTimeZone, closures = BUILT_IN_CLOSURES }: Options = {},
 ): string | null {
 	const nowMs = now.getTime();
 	if (Number.isNaN(nowMs) || validateHours(hours).length > 0) return null;
@@ -215,10 +255,11 @@ export function getOpeningStatus(
 	const ukToday = dayNumber(nowMs, UK_TIMEZONE);
 
 	// Which day to talk about: today until closing time, else the next open day.
+	// Looks two weeks ahead, so a run of closure dates is skipped too.
 	let offset = -1;
-	for (let i = 0; i <= 7; i++) {
+	for (let i = 0; i <= 14; i++) {
 		const day = hours[WEEKDAYS[(dayIndex + i) % 7]];
-		if (!day) continue;
+		if (!day || isClosedOn(ukToday + i, closures)) continue;
 		if (i === 0 && minutes >= toMinutes(day.close)) continue;
 		offset = i;
 		break;

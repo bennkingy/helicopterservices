@@ -26,7 +26,8 @@ export const FAQ = ({ className, title = "", items = faqDefaults }: props) => {
 			<Accordion type="single" collapsible className="w-full AccordionRoot">
 				{items.map(({ question, answer }, index) => (
 					<AccordionItem key={question} value={`item-${index + 1}`}>
-						<AccordionTrigger className="text-left">
+						{/* Under the section's h2 when there's a title, else straight under the page's h1. */}
+						<AccordionTrigger className="text-left" headingLevel={title ? 3 : 2}>
 							{question}
 						</AccordionTrigger>
 

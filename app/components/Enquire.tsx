@@ -9,7 +9,7 @@ interface props {
 const Enquire = ({ className, textStyle }: props) => {
 	return (
 		<div className={`flex sm:items-center flex-col sm:flex-row ${className}`}>
-			<Link href="tel:+44 1494 513 166">
+			<Link href="tel:+441494513166">
 				<Button className="uppercase bg-brand-orange text-white w-[210px] py-6">
 					Call General enquiries
 				</Button>

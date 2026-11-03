@@ -77,7 +77,7 @@ export default async function Flights({
 
 	return (
 		<>
-			<main className="bg-brand-light-grey overflow-x-hidden">
+			<div className="bg-brand-light-grey overflow-x-hidden">
 				<Header
 					title={data?.hero?.heading}
 					tag={data?.hero?.tagline}
@@ -156,7 +156,7 @@ export default async function Flights({
 						</div>
 					</div>
 				</section>
-			</main>
+			</div>
 		</>
 	);
 }

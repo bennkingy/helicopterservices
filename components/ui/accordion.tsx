@@ -21,9 +21,15 @@ AccordionItem.displayName = "AccordionItem";
 
 const AccordionTrigger = React.forwardRef<
 	React.ElementRef<typeof AccordionPrimitive.Trigger>,
-	React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-	<AccordionPrimitive.Header className="flex">
+	React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & {
+		// Heading level of each question, so it follows the page's own headings.
+		headingLevel?: 2 | 3;
+	}
+>(({ className, children, headingLevel = 3, ...props }, ref) => {
+	const HeadingTag = headingLevel === 2 ? "h2" : "h3";
+	return (
+	<AccordionPrimitive.Header asChild>
+		<HeadingTag className="flex">
 		<AccordionPrimitive.Trigger
 			ref={ref}
 			className={cn(
@@ -35,8 +41,10 @@ const AccordionTrigger = React.forwardRef<
 			{children}
 			<ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 text-brand-orange" />
 		</AccordionPrimitive.Trigger>
+		</HeadingTag>
 	</AccordionPrimitive.Header>
-));
+	);
+});
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 
 // Always rendered, so the content is in the server HTML. Radix's height

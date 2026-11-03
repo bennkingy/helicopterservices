@@ -34,7 +34,10 @@ export default function NavbarHeader(menuData: any) {
 			key={path}
 			ref={headerRef}
 			className={cn(
-				"w-full transition-all duration-300 delay-0 ease-in-out shadow-md",
+				// "headroom" (sticky, in globals.css) from the first paint rather than
+				// when Headroom.js starts, so the corner triangle and the header
+				// don't jump into place after load.
+				"headroom w-full transition-all duration-300 delay-0 ease-in-out shadow-md",
 				"h-[65px] md:h-[100px]",
 				"border-b-4 border-brand-light-blue bg-white flex",
 			)}
@@ -56,7 +59,7 @@ export default function NavbarHeader(menuData: any) {
 					/>
 				</Link>
 				{/* @ts-ignore */}
-				<NavMenu menuData={menuData} hours={menuData.hours} />
+				<NavMenu menuData={menuData} hours={menuData.hours} closures={menuData.closures} />
 				<div className="absolute bottom-0 right-0 hidden md:block">
 					<svg
 						className="h-6 w-6 text-brand-light-blue"

@@ -77,7 +77,7 @@ export default async function Industry({
 
 	return (
 		<>
-			<main className="bg-brand-light-grey overflow-x-hidden">
+			<div className="bg-brand-light-grey overflow-x-hidden">
 				<Header
 					className="h-[250px] md:h-[420px] lg:h-[675px]"
 					title={data?.hero?.heading}
@@ -156,7 +156,7 @@ export default async function Industry({
 						</div>
 					</div>
 				</section>
-			</main>
+			</div>
 		</>
 	);
 }

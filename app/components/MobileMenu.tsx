@@ -1,6 +1,6 @@
 //ts-nocheck
 import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -44,7 +44,7 @@ const initialMenus: Record<string, MenuItem[]> = {
 	aboutMenu: [{ title: "About us", slug: "/about-us", viewAll: false }],
 };
 
-const MobileMenu = ({ onMobileOpen, menuData, hours }: any) => {
+const MobileMenu = ({ onMobileOpen, menuData, hours, closures }: any) => {
 	const [activeMenu, setActiveMenu] = useState("main");
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [menufromCMS, setMenufromCMS] = useState(initialMenus);
@@ -283,7 +283,7 @@ const MobileMenu = ({ onMobileOpen, menuData, hours }: any) => {
 							)}
 							{activeMenu === "main" ? "Menu" : activeMenu.replace("Menu", "")}
 						</div>
-						<motion.ul
+						<m.ul
 							key={activeMenu}
 							initial={{ opacity: 0, x: 100 }}
 							animate={{ opacity: 1, x: 0 }}
@@ -294,7 +294,7 @@ const MobileMenu = ({ onMobileOpen, menuData, hours }: any) => {
 							{
 								// @ts-ignore
 								menufromCMS[activeMenu].map((item, index) => (
-									<motion.li
+									<m.li
 										// whileHover={{ scale: item.isCategoryTitle ? 1 : 1 }}
 										// whileTap={{ scale: item.isCategoryTitle ? 1 : 1 }}
 										className={`${
@@ -333,7 +333,7 @@ const MobileMenu = ({ onMobileOpen, menuData, hours }: any) => {
 												{item.title}
 											</Link>
 										)}
-									</motion.li>
+									</m.li>
 								))
 							}
 							{activeMenu === "main" && (
@@ -358,12 +358,12 @@ const MobileMenu = ({ onMobileOpen, menuData, hours }: any) => {
 											</div>
 										</Link>
 										<div className="text-fix">
-											<OpenClosed showPeriod={false} hours={hours} />
+											<OpenClosed hours={hours} closures={closures} />
 										</div>
 									</div>
 								</>
 							)}
-						</motion.ul>
+						</m.ul>
 					</AnimatePresence>
 				</DrawerContent>
 			</Drawer>

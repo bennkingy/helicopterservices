@@ -120,7 +120,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 
 	return (
 		<>
-			<main className="mb-10 pb-3">
+			<div className="mb-10 pb-3">
 				<Breadcrumbs
 					className="container pt-[20px] sm:pt-[30px]"
 					slug={data?.title}
@@ -179,9 +179,9 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 								/>
 							)}
 						</div>
-						<h3 className="text-md font-bold mt-7 font-openSans mb-5">
+						<h2 className="text-md font-bold mt-7 font-openSans mb-5">
 							Specifications:
-						</h3>
+						</h2>
 						<SpecificationTable helicopter={data} className="mb-6" />
 						<ComparisonTable // @ts-ignore
 							data={helicopterData.filter(
@@ -294,7 +294,7 @@ const TemplateTwo = ({ data, helicopterData, children }: props) => {
 						<GMap />
 					</div>
 				</div>
-			</main>
+			</div>
 		</>
 	);
 };

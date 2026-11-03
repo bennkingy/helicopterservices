@@ -38,7 +38,7 @@ export default async function Home() {
 	const reviews = await getReviewSummary();
 
 	return (
-		<main className="overflow-x-hidden">
+		<div className="overflow-x-hidden">
 			{/* Tells Google the site's name for search results. Homepage only. */}
 			<JsonLd data={websiteJsonLd()} />
 			<Hero
@@ -220,6 +220,6 @@ export default async function Home() {
 				</div>
 			</div>
 			<Reviews className="py-20" />
-		</main>
+		</div>
 	);
 }

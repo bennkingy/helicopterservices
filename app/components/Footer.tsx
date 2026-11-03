@@ -18,7 +18,7 @@ export default async function Footer() {
 		<>
 			<GetInTouch />
 			{data && (
-				<div className="bg-brand-dark-blue dark:bg-black text-white py-20 border-t-4 border-brand-light-blue">
+				<footer className="bg-brand-dark-blue dark:bg-black text-white py-20 border-t-4 border-brand-light-blue">
 					<div className="mx-auto flex flex-wrap container justify-between flex-col sm:flex-row">
 						<div>
 							<Link
@@ -53,10 +53,13 @@ export default async function Footer() {
 								Berkshire
 								<br />
 								<Link
-									href={"/enquire/"}
+									href="https://www.google.com/maps/search/?api=1&query=Helicopter+Services+White+Waltham+Airfield+SL6+3NJ"
+									target="_blank"
+									rel="noopener noreferrer"
 									className="text-brand-orange transition-colors hover:text-brand-light-blue"
 								>
 									SL6 3NJ
+									<span className="sr-only"> (opens Google Maps)</span>
 								</Link>
 							</p>
 							<div className="text-sm font-bold my-5 mb-3 mt-6 font-openSans">
@@ -242,7 +245,7 @@ export default async function Footer() {
 							</p>
 						</div>
 					</div>
-				</div>
+				</footer>
 			)}
 		</>
 	);

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const variants = {
@@ -35,7 +35,7 @@ const FramerAnimationSlideIn = ({
 	return (
 		<div ref={ref} className={`flex flex-col justify-center gap-2 ${className}`}>
 			{items.map((item, index) => (
-				<motion.div
+				<m.div
 					key={index}
 					variants={variants}
 					initial="initial"
@@ -44,7 +44,7 @@ const FramerAnimationSlideIn = ({
 					className="flex items-center justify-center"
 				>
 					{item}
-				</motion.div>
+				</m.div>
 			))}
 		</div>
 	);

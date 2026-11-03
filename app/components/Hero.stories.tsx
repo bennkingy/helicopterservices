@@ -16,10 +16,13 @@ type Story = StoryObj<typeof Hero>;
 export const Homepage: Story = {};
 export const WithReviewScore: Story = {
 	args: {
-		reviews: [
-			{ source: "Tripadvisor", rating: 4.9, count: 9, sourceUrl: "https://www.tripadvisor.co.uk" },
-			{ source: "Google", rating: 4.6, count: 28 },
-		],
+		reviews: {
+			stars: [
+				{ source: "Tripadvisor", rating: 4.9, count: 9, sourceUrl: "https://www.tripadvisor.co.uk" },
+				{ source: "Google", rating: 4.6, count: 28 },
+			],
+			facebook: { percent: 100, count: 15, sourceUrl: "https://www.facebook.com/heliservicesuk/reviews" },
+		},
 	},
 };
 export const AboutPage: Story = { args: { title: "About Helicopter<br/>Services", subtitle: undefined } };

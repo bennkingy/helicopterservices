@@ -1,5 +1,7 @@
 import {
 	OPENING_HOURS,
+	cleanClosures,
+	closuresJsonLd,
 	type WeeklyHours,
 	formatTime,
 	getOpeningStatus,
@@ -459,6 +461,42 @@ describe("openingHoursJsonLd: hours for Google", () => {
 				closes: "17:00",
 			},
 			{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Friday"], opens: "08:30", closes: "16:00" },
+		]);
+	});
+});
+
+describe("closed dates (Christmas, New Year, Sanity's closed dates)", () => {
+	it("Christmas Day 2026 (a Friday) is closed: points to Saturday", () => {
+		expect(getOpeningStatus(at("2026-12-25T10:00:00Z"))).toBe("Open tomorrow by appointment");
+	});
+	it("Christmas Eve after closing skips Christmas Day", () => {
+		expect(getOpeningStatus(at("2026-12-24T18:00:00Z"))).toBe("Open on Saturday by appointment");
+	});
+	it("New Year's Day 2027 (a Friday) is closed", () => {
+		expect(getOpeningStatus(at("2027-01-01T10:00:00Z"))).toBe("Open tomorrow by appointment");
+	});
+	it("a one-off date from Sanity is closed", () => {
+		const closures = ["12-25", "01-01", "2026-11-03"];
+		expect(getOpeningStatus(at("2026-11-03T10:00:00Z"), { closures })).toBe(`Open tomorrow ${WEEKDAY_HOURS}`);
+		expect(getOpeningStatus(at("2027-11-03T10:00:00Z"), { closures })).toBe(`Open today ${WEEKDAY_HOURS}`);
+	});
+	it("an empty closures list means open on Christmas Day", () => {
+		expect(getOpeningStatus(at("2026-12-25T10:00:00Z"), { closures: [] })).toBe(`Open today ${WEEKDAY_HOURS}`);
+	});
+	it("two weeks shut in a row still finds the next open day", () => {
+		const closures = Array.from({ length: 10 }, (_, i) => `2026-11-${String(2 + i).padStart(2, "0")}`);
+		expect(getOpeningStatus(at("2026-11-02T10:00:00Z"), { hours: { ...OPENING_HOURS, Saturday: null, Sunday: null }, closures })).toBe(
+			`Open on Thursday ${WEEKDAY_HOURS}`,
+		);
+	});
+	it("bad dates from Sanity are dropped", () => {
+		expect(cleanClosures(["2026-12-28", "28/12/2026", 5, null, "12-26", "2026-13-01"])).toEqual(["2026-12-28", "12-26"]);
+		expect(cleanClosures(undefined)).toEqual([]);
+	});
+	it("structured data lists each closed day in the coming year", () => {
+		expect(closuresJsonLd(["12-25", "01-01"], at("2026-11-03T12:00:00Z"))).toEqual([
+			{ "@type": "OpeningHoursSpecification", opens: "00:00", closes: "00:00", validFrom: "2026-12-25", validThrough: "2026-12-25" },
+			{ "@type": "OpeningHoursSpecification", opens: "00:00", closes: "00:00", validFrom: "2027-01-01", validThrough: "2027-01-01" },
 		]);
 	});
 });

@@ -72,7 +72,7 @@ export default async function Weather({
 				className="mx-auto"
 			/>
 			<p className="">
-				<span className="font-medium mr-1">Temperature</span> {data?.main?.temp}
+				<span className="font-medium mr-1">Temperature</span> {data?.main?.temp != null ? Math.round(data.main.temp) : ""}
 				°C
 			</p>
 			<p className="mt-1">

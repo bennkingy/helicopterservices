@@ -163,7 +163,7 @@ const Template = ({
 					/>
 				</div>
 			)}
-			<main
+			<div
 				className={cn(
 					"container mx-auto px-4 grid pt-12 pb-10 sm:py-20 grid-cols-1",
 					{ "md:grid-cols-8": sidebar, "md:grid-cols-1": !sidebar },
@@ -242,7 +242,7 @@ const Template = ({
 						<GMap className="mb-20 sm:mb-0" />
 					</div>
 				)}
-			</main>
+			</div>
 		</div>
 	);
 };

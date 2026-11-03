@@ -53,6 +53,18 @@ const nextConfig = {
 	},
 	async headers() {
 		return [
+			// Basic security headers on every page. No Content-Security-Policy yet:
+			// the site loads Google Analytics, CookieYes, reCAPTCHA, Maps, YouTube
+			// and EmailJS, so one needs testing against each of them first.
+			{
+				source: "/:path*",
+				headers: [
+					{ key: "X-Content-Type-Options", value: "nosniff" },
+					{ key: "X-Frame-Options", value: "SAMEORIGIN" },
+					{ key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+					{ key: "Permissions-Policy", value: "camera=(), microphone=(), payment=(), usb=()" },
+				],
+			},
 			// Storybook (component library) lives at /storybook for the team and
 			// client. Kept out of Google and other search engines.
 			{

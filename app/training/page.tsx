@@ -80,7 +80,7 @@ export default async function Training({
 
 	return (
 		<>
-			<main className="bg-brand-light-grey overflow-x-hidden z-[1] relative">
+			<div className="bg-brand-light-grey overflow-x-hidden z-[1] relative">
 				<Header
 					className="h-[320px] md:h-[420px] lg:h-[675px]"
 					title={data?.hero?.heading}
@@ -312,7 +312,7 @@ export default async function Training({
 						</div>
 					</div>
 				</section>
-			</main>
+			</div>
 		</>
 	);
 }

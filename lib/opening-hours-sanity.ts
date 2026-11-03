@@ -1,4 +1,11 @@
-import { OPENING_HOURS, hoursFromSanity, type SanityOpeningHours, type WeeklyHours } from "./opening-hours";
+import {
+	BUILT_IN_CLOSURES,
+	OPENING_HOURS,
+	cleanClosures,
+	hoursFromSanity,
+	type SanityOpeningHours,
+	type WeeklyHours,
+} from "./opening-hours";
 import { client } from "./sanity";
 
 // Opening hours from Sanity (Settings > Opening hours). Falls back to the
@@ -17,5 +24,21 @@ export async function getOpeningHours(): Promise<WeeklyHours> {
 	} catch (error) {
 		console.error("Failed to load opening hours from Sanity", error);
 		return OPENING_HOURS;
+	}
+}
+
+// Dates the office is shut: Christmas Day and New Year's Day every year, plus
+// any dates in Sanity (Settings > Closed dates), e.g. bank holidays.
+export async function getClosures(): Promise<string[]> {
+	try {
+		const dates = await client.fetch<unknown>(
+			`*[_type == "settings" && !(_id in path("drafts.**"))][0].closedDates`,
+			{},
+			{ next: { revalidate: 60 } },
+		);
+		return [...BUILT_IN_CLOSURES, ...cleanClosures(dates)];
+	} catch (error) {
+		console.error("Failed to load closed dates from Sanity", error);
+		return BUILT_IN_CLOSURES;
 	}
 }

@@ -23,7 +23,7 @@ import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { Controller, useForm } from "react-hook-form";
 import type { z } from "zod";
@@ -68,6 +68,8 @@ const ContacForm = ({
 	services: ServiceOptions;
 	recaptchaSiteKey?: string;
 }) => {
+	// Unique ids, so each radio keeps its label if the form appears twice on a page.
+	const uid = useId();
 	const service = "service_2zcm8le";
 	const templateId = "template_xbmamql";
 
@@ -264,18 +266,20 @@ const ContacForm = ({
 													value={field.value}
 												>
 													<div className="flex items-center space-x-2 mt-0">
-														<RadioGroupItem value="Training" id="option-one" />
+														<RadioGroupItem value="Training" id={`${uid}-training`} aria-labelledby={`${uid}-training-label`} />
 														<Label
-															htmlFor="option-one"
+															id={`${uid}-training-label`}
+														htmlFor={`${uid}-training`}
 															className="cursor-pointer"
 														>
 															Training
 														</Label>
 													</div>
 													<div className="flex items-center space-x-2 mt-1">
-														<RadioGroupItem value="Flights" id="option-two" />
+														<RadioGroupItem value="Flights" id={`${uid}-flights`} aria-labelledby={`${uid}-flights-label`} />
 														<Label
-															htmlFor="option-two"
+															id={`${uid}-flights-label`}
+														htmlFor={`${uid}-flights`}
 															className="cursor-pointer"
 														>
 															Flights
@@ -284,19 +288,21 @@ const ContacForm = ({
 													<div className="flex items-center space-x-2 mt-1">
 														<RadioGroupItem
 															value="Industry"
-															id="option-three"
+															id={`${uid}-industry`} aria-labelledby={`${uid}-industry-label`}
 														/>
 														<Label
-															htmlFor="option-three"
+															id={`${uid}-industry-label`}
+														htmlFor={`${uid}-industry`}
 															className="cursor-pointer"
 														>
 															Industry
 														</Label>
 													</div>
 													<div className="flex items-center space-x-2 mt-1">
-														<RadioGroupItem value="Other" id="option-four" />
+														<RadioGroupItem value="Other" id={`${uid}-other`} aria-labelledby={`${uid}-other-label`} />
 														<Label
-															htmlFor="option-four"
+															id={`${uid}-other-label`}
+														htmlFor={`${uid}-other`}
 															className="cursor-pointer"
 														>
 															Other
@@ -314,7 +320,7 @@ const ContacForm = ({
 									name="service"
 									render={({ field }) => (
 										<FormItem>
-											<FormLabel data-test-id="serviceLabel">
+											<FormLabel data-test-id="serviceLabel" id={`${uid}-service-label`}>
 												Which {requirement.toLowerCase()} service?
 											</FormLabel>
 											<Select
@@ -327,6 +333,7 @@ const ContacForm = ({
 													<SelectTrigger
 														className="bg-white"
 														data-test-id="serviceField"
+														aria-labelledby={`${uid}-service-label`}
 													>
 														<SelectValue placeholder="Choose one (optional)" />
 													</SelectTrigger>
