@@ -87,11 +87,13 @@ const Hero = ({
 						className={`mr-auto self-center lg:col-span-8 ${titleMargins} md:text-balance`}
 					>
 						{/* Plain HTML, no entrance animation, so it paints straight away. */}
-						<h1 className="mb-5 md:mb-6 text-4xl leading-tight font-light md:text-6xl md:font-extralight xl:text-7xl md:leading-none dark:text-white text-white font-workSans">
+						<h1 className="mb-5 md:mb-6 text-4xl leading-tight font-light text-balance md:text-6xl md:font-extralight xl:text-7xl md:leading-none dark:text-white text-white font-workSans">
 							{title?.split("<br/>").map((part, index) => (
 								<span key={index}>
 									{part}
-									{index < title.split("<br/>").length - 1 && <br />}
+									{/* Desktop only: on a phone the lines are too long to fit, so a forced break strands a word. */}
+									{index < title.split("<br/>").length - 1 && " "}
+									{index < title.split("<br/>").length - 1 && <br className="hidden md:inline" />}
 								</span>
 							))}
 						</h1>
