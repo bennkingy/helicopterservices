@@ -35,7 +35,7 @@ export default async function About() {
 		<div className="overflow-x-hidden">
 			<Hero
 				title={heroTitle.split("\n").join("<br/>")}
-				height="h-[calc(100svh_-_65px)] md:h-[calc(100svh_-_100px)]"
+				height="h-[calc(100svh)] md:h-[calc(100svh_-_100px)]"
 			/>
 			<div className="section-y container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
 				<div className="pr-0 sm:pr-20">

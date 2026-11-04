@@ -46,7 +46,7 @@ export default async function Home() {
 				subtitle={heroSubtitle}
 				reviews={reviews}
 				cta={{ label: "Call General enquiries", href: "tel:+441494513166" }}
-				height="md:h-[calc(100svh_-_100px)]"
+				height="h-[calc(100svh)] md:h-[calc(100svh_-_100px)]"
 			/>
 			<div className="section-y bg-brand-dark-blue z-[9] relative -mt-[1px]">
 				<div className="container">
