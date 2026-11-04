@@ -44,7 +44,7 @@ const initialMenus: Record<string, MenuItem[]> = {
 	aboutMenu: [{ title: "About us", slug: "/about-us", viewAll: false }],
 };
 
-const MobileMenu = ({ onMobileOpen, menuData, hours, closures }: any) => {
+const MobileMenu = ({ onMobileOpen, menuData, hours, closures, initialStatus }: any) => {
 	const [activeMenu, setActiveMenu] = useState("main");
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [menufromCMS, setMenufromCMS] = useState(initialMenus);
@@ -358,7 +358,7 @@ const MobileMenu = ({ onMobileOpen, menuData, hours, closures }: any) => {
 											</div>
 										</Link>
 										<div className="text-fix">
-											<OpenClosed hours={hours} closures={closures} />
+											<OpenClosed hours={hours} closures={closures} initialStatus={initialStatus} />
 										</div>
 									</div>
 								</>

@@ -10,17 +10,20 @@ interface OpenClosedProps {
 	hours?: WeeklyHours;
 	// Closed dates from getClosures(). Omitted = Christmas Day and New Year's Day.
 	closures?: string[];
+	// UK-time text worked out on the server (Navbar), shown until the browser takes over.
+	initialStatus?: string | null;
 }
 
 // "Open today 8:30am - 5:00pm" / "By appointment only today" in the header.
 // The rules are always UK time; visitors elsewhere see the times converted to
 // their own clock. Logic and its tests: lib/opening-hours.ts.
 //
-// Worked out in the browser after load, because the page HTML is built ahead
-// of time on a UTC server. Refreshed on each new minute and when the tab comes
-// back into view (browsers slow timers in background tabs).
-export default function OpenClosed({ showPeriod = true, hours, closures }: OpenClosedProps) {
-	const [status, setStatus] = useState<string | null>(null);
+// The page HTML carries initialStatus so the text is there on first paint. It
+// is built ahead of time and doesn't know the visitor's timezone, so it's worked
+// out again in the browser after load. Refreshed on each new minute and when the
+// tab comes back into view (browsers slow timers in background tabs).
+export default function OpenClosed({ showPeriod = true, hours, closures, initialStatus = null }: OpenClosedProps) {
+	const [status, setStatus] = useState<string | null>(initialStatus);
 
 	useEffect(() => {
 		const visitorTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? "";
@@ -55,7 +58,7 @@ export default function OpenClosed({ showPeriod = true, hours, closures }: OpenC
 	}, [showPeriod, hours, closures]);
 
 	return (
-		<p className="font-workSans font-bold text-base sm:text-[11.5px] mt-1 text-brand-dark-blue min-h-[1.5em] whitespace-nowrap">
+		<p className="font-workSans font-bold text-base sm:text-[11.5px] mt-1 text-brand-dark-blue h-6 leading-6 whitespace-nowrap">
 			{status ?? " "}
 		</p>
 	);

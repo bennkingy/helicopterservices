@@ -87,7 +87,8 @@ export default async function Training({
 					tag={data?.hero?.tagline}
 					image={data?.hero?.image}
 					iconType="Training"
-					extraPadding="pb-[28px]"
+					// Negative margin = height of the tabs overlapping the banner (44px, then 60px from sm).
+					extraPadding="pb-[28px] -mt-[44px] sm:-mt-[60px] lg:mt-0"
 				/>
 				<section className="pb-10 max-w-6xl mx-auto px-4 -mt-[42px] sm:-mt-[50px] z-10 relative">
 					<Tabs defaultValue="account">

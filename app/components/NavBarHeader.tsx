@@ -59,7 +59,12 @@ export default function NavbarHeader(menuData: any) {
 					/>
 				</Link>
 				{/* @ts-ignore */}
-				<NavMenu menuData={menuData} hours={menuData.hours} closures={menuData.closures} />
+				<NavMenu
+					menuData={menuData}
+					hours={menuData.hours}
+					closures={menuData.closures}
+					initialStatus={menuData.initialStatus}
+				/>
 				<div className="absolute bottom-0 right-0 hidden md:block">
 					<svg
 						className="h-6 w-6 text-brand-light-blue"

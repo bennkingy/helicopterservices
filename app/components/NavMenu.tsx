@@ -37,12 +37,14 @@ export function NavMenu({
 	menuData,
 	hours,
 	closures,
+	initialStatus,
 	onMobileOpen,
 }: {
 	onMobileOpen: () => void;
 	menuData?: { menuData?: Record<string, NavPage[]> };
 	hours?: WeeklyHours;
 	closures?: string[];
+	initialStatus?: string | null;
 }) {
 	const path = usePathname();
 	const isHovered = useStore(hoverStore);
@@ -562,7 +564,13 @@ export function NavMenu({
 					</NavigationMenuItem>
 				</NavigationMenuList>
 			</NavigationMenu>
-			<MobileMenu menuData={menuData} hours={hours} closures={closures} onMobileOpen={() => onMobileOpen()} />
+			<MobileMenu
+				menuData={menuData}
+				hours={hours}
+				closures={closures}
+				initialStatus={initialStatus}
+				onMobileOpen={() => onMobileOpen()}
+			/>
 			{/* Fixed width on desktop: the opening-hours text appears after load and
 			    can be wider than the phone number, which used to shift the menu. */}
 			<div className="flex flex-col lg:w-[220px] lg:shrink-0">
@@ -585,7 +593,7 @@ export function NavMenu({
 					</div>
 				</Link>
 				<div className="hidden lg:block text-center">
-					<OpenClosed hours={hours} closures={closures} />
+					<OpenClosed hours={hours} closures={closures} initialStatus={initialStatus} />
 				</div>
 			</div>
 		</>

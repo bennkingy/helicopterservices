@@ -1,6 +1,7 @@
 import { act, render } from "@testing-library/react";
 import OpenClosed from "@/app/components/OpenClosed";
 import * as allure from "allure-js-commons";
+import { renderToString } from "react-dom/server";
 
 // Groups these tests in the Allure report (pnpm test:report).
 beforeEach(async () => {
@@ -35,6 +36,18 @@ afterEach(() => {
 });
 
 describe("OpenClosed (header opening status)", () => {
+	it("page HTML carries the server's text, so it shows on first paint", () => {
+		const html = renderToString(<OpenClosed initialStatus="Open today 8:30am - 5:00pm" />);
+		expect(html).toContain("Open today 8:30am - 5:00pm");
+	});
+
+	it("corrects the server's text in the browser (visitor's timezone)", () => {
+		visitorIn("America/New_York");
+		vi.useFakeTimers({ now: new Date("2026-11-02T07:00:00Z") }); // Mon 02:00 New York
+		render(<OpenClosed showPeriod={false} initialStatus="Open today 8:30 - 5:00" />);
+		expect(text()).toBe("Open today 3:30am - 12:00pm");
+	});
+
 	it("UK visitor: header style, no am/pm", () => {
 		visitorIn("Europe/London");
 		vi.useFakeTimers({ now: new Date("2026-11-02T10:00:00Z") }); // Monday 10:00 UK
