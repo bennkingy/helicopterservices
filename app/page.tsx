@@ -46,7 +46,9 @@ export default async function Home() {
 				subtitle={heroSubtitle}
 				reviews={reviews}
 				cta={{ label: "Call General enquiries", href: "tel:+441494513166" }}
-				height="h-[calc(100svh)] md:h-[calc(100svh_-_100px)]"
+				// Phones: lvh reaches the physical bottom of the screen, so the next section
+				// never shows under Safari's toolbar. The toolbar may cover the logos.
+				height="h-[calc(100lvh_-_65px)] md:h-[calc(100svh_-_100px)]"
 			/>
 			<div className="section-y bg-brand-dark-blue z-[9] relative -mt-[1px]">
 				<div className="container">

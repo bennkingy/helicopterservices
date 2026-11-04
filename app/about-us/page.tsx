@@ -35,7 +35,9 @@ export default async function About() {
 		<div className="overflow-x-hidden">
 			<Hero
 				title={heroTitle.split("\n").join("<br/>")}
-				height="h-[calc(100svh)] md:h-[calc(100svh_-_100px)]"
+				// Phones: lvh reaches the physical bottom of the screen, so the next section
+				// never shows under Safari's toolbar. The toolbar may cover the logos.
+				height="h-[calc(100lvh_-_65px)] md:h-[calc(100svh_-_100px)]"
 			/>
 			<div className="section-y container mx-auto grid grid-cols-1 md:grid-cols-2 relative">
 				<div className="pr-0 sm:pr-20">

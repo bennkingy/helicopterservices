@@ -236,11 +236,11 @@ export default async function Footer() {
 						</div>
 						{/* border-t-[1px] */}
 						<div className="w-full pt-[73px] text-sm flex flex-col lg:flex-row sm:justify-between lg:items-center opacity-85">
-							<p>
+							<p className="text-sm">
 								Helicopter Services is CAA and EASA approved and certified under
 								AOC GB2128 (V21 Ltd T/A Helicopter Services).
 							</p>
-							<p className="mt-3 sm:mt-2 lg:mt-0 mb-0 pb-0">
+							<p className="text-sm mt-3 sm:mt-2 lg:mt-0 mb-0 pb-0">
 								Helicopter Services © {currentYear}
 							</p>
 						</div>

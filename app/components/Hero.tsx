@@ -84,7 +84,7 @@ const Hero = ({
 				{/* Bottom padding keeps the content clear of the accreditation strip. */}
 				<div className="h-full grid container mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12 relative z-[9] pt-8 pb-36 sm:pb-24">
 					<div
-						className={`mr-auto self-center lg:col-span-8 ${titleMargins} text-balance`}
+						className={`mr-auto self-center lg:col-span-8 ${titleMargins} md:text-balance`}
 					>
 						{/* Plain HTML, no entrance animation, so it paints straight away. */}
 						<h1 className="mb-5 md:mb-6 text-4xl leading-tight font-light md:text-6xl md:font-extralight xl:text-7xl md:leading-none dark:text-white text-white font-workSans">
